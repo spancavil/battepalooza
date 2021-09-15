@@ -1,12 +1,13 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import HomeContainer from "./Containers/HomeContainer";
-import NotFound from "./components/NotFound";
+import HomeContainer from "./Views/Home";
+import NavBar from "./Views/Navbar";
+import NotFound from "./Views/NotFound";
+
 
 function App() {
   return (
     <BrowserRouter>
-      <NavBar></NavBar>
+      <NavBar />
       <Switch>
         <Route exact path="/" component={HomeContainer} />
         <Route path="" component={NotFound} />
