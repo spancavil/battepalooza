@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 /**
  * El Button recibe 2 props
  * un Title (que es el contenido del boton) 
@@ -8,7 +9,9 @@ import React from 'react';
 
 const Button = ({title, onClick}) => {
   return (
+
     <button onClick={onClick ? () => onClick () : null}>
+
       {title}
     </button>
   );
