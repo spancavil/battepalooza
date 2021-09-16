@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import ButtonNavbar from '../../Components/Button';
+import ButtonNavbar from '../../Global-Components/Button';
 import {Links} from './links';
 import Logo from '../../Assets/Logo.png';
 import {navStyle, btnContainer} from './styles.module.scss';
@@ -21,8 +21,8 @@ const NavBar = () => {
       </ul>
 
       <div className={btnContainer}>
-        <ButtonNavbar title="Login" bg="#212739" color="#FFFFFF" />
-        <ButtonNavbar title="Sign Up" bg="#FFFFFF" color="#212739" />
+        {/* <ButtonNavbar title="Login" bg="#212739" color="#FFFFFF" />
+        <ButtonNavbar title="Sign Up" bg="#FFFFFF" color="#212739" /> */}
       </div>
     </nav>
   );
