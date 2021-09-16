@@ -1,11 +1,11 @@
 import React from 'react'
-import SvgComponent from '../../Assets/svg/faceVector'
+import FaceVector from '../../Assets/svg/FaceVector'
 import styles from './styles.module.scss'
 
 const SocialMedia = () => {
     return (
         <div className={styles.socialMedia}>
-            <SvgComponent/>
+            <FaceVector/>
             
         </div>
     )
