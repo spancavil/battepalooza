@@ -1,0 +1,14 @@
+.buttonStyle {
+  height: 100%;
+  padding: 0px 50px;
+  border: none;
+  font-weight: lighter;
+  cursor: pointer;
+  font-family: Nasalization;
+  letter-spacing: 2px;
+  font-size: 15px;
+
+  .button:visited {
+    color: inherit;
+  }
+}
