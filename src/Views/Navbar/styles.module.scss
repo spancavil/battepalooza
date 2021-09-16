@@ -1,0 +1,36 @@
+$primary-color: #010320;
+
+.navStyle {
+  display: flex;
+  width: 100%;
+  height: 65px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: $primary-color;
+  opacity: 0.9;
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    margin-right: 550px;
+  }
+
+  a {
+    font-size: 13px;
+    text-decoration: none;
+    color: white;
+    font-family: "Nanum Gothic";
+    font-weight: 700;
+  }
+
+  img {
+    height: 40px;
+  }
+
+  .btnContainer {
+    height: 100%;
+  }
+}
