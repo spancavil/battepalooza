@@ -1,29 +1,29 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import ButtonNavbar from '../../Components/Button';
+import {Links} from './links';
+import {links} from './styles.module.css'
 
 const NavBar = () => {
-    return (
-        <div>
-            <span>Soy el NavBar</span>
-            <ul>
-                <li>
-                    <Link to="/">Brand</Link>
-                </li>
-                <li>
-                    <Link to="/packs">Packs</Link>
-                </li>
-                <li>
-                    <Link to="/marketplace">Marketplace</Link>
-                </li>
-                <li>
-                    <Link to="/news">News</Link>
-                </li>
-                <li>
-                    <Link to="/help">Help</Link>
-                </li>
-            </ul>
-        </div>
-    )
-}
+  return (
+    <div>
+      {/* Aca iria el logo */}
+      <img src="" alt="" />
 
-export default NavBar
+      <ul className={links}>
+        {Links.map (({path, title}) => (
+          <li>
+            <Link to={path}>
+              {title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <ButtonNavbar title="Login" bg="#212739" color="#FFFFFF" />
+      <ButtonNavbar title="Sign Up" bg="#FFFFFF" color="#212739" />
+    </div>
+  );
+};
+
+export default NavBar;

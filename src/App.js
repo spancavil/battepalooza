@@ -3,6 +3,7 @@ import HomeContainer from "./Views/Home";
 import NavBar from "./Views/Navbar";
 import NotFound from "./Views/NotFound";
 
+import "./Styles/Global.css";
 
 function App() {
   return (
