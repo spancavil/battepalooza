@@ -8,8 +8,7 @@ import Button from '../../Global-Components/Button';
 
 const HomeContainer = () => {
     return (
-        <div className = {styles.home} style={{backgroundImage: `url(${backImg})`}}>
-            <NavBar/>
+        <div className = {styles.home} style={{backgroundImage: `url(${backImg})`}}> 
             <SocialMedia/>
             <div className={styles.brand}>
                 <img src={bpBrand} alt="bp-brand"/>

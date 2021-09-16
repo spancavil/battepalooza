@@ -1,14 +1,17 @@
 import React from 'react';
-// import {buttonStyle} from './styles.module.scss';
+
 
 /**
- * Represents a generic button
- * @param {title, styles, callback} 
+ * El Button recibe 2 props
+ * un Title (que es el contenido del boton) 
+ * y un evento onClick (accion a realizar cuando se hace click)
  */
 
 const Button = ({title, onClick}) => {
   return (
-    <button onClick={()=>onClick}>
+
+    <button onClick={onClick ? () => onClick () : null}>
+
       {title}
     </button>
   );
