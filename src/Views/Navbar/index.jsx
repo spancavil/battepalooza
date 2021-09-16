@@ -1,16 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import ButtonNavbar from '../../Components/Button';
+import ButtonNavbar from '../../Global-Components/Button';
 import {Links} from './links';
-import {links} from './styles.module.css'
+import Logo from '../../Assets/Logo.png';
+import {navStyle, btnContainer} from './styles.module.scss';
 
 const NavBar = () => {
   return (
-    <div>
-      {/* Aca iria el logo */}
-      <img src="" alt="" />
+    <nav className={navStyle}>
+      <img src={Logo} alt="" />
 
-      <ul className={links}>
+      <ul>
         {Links.map (({path, title}) => (
           <li>
             <Link to={path}>
@@ -20,9 +20,11 @@ const NavBar = () => {
         ))}
       </ul>
 
-      <ButtonNavbar title="Login" bg="#212739" color="#FFFFFF" />
-      <ButtonNavbar title="Sign Up" bg="#FFFFFF" color="#212739" />
-    </div>
+      <div className={btnContainer}>
+        {/* <ButtonNavbar title="Login" bg="#212739" color="#FFFFFF" />
+        <ButtonNavbar title="Sign Up" bg="#FFFFFF" color="#212739" /> */}
+      </div>
+    </nav>
   );
 };
 
