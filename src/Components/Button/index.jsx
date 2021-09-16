@@ -1,9 +1,9 @@
 import React from 'react';
-import {button} from './styles.module.css';
+import {buttonStyle} from './styles.module.scss';
 
 const ButtonNavbar = ({title, bg, color}) => {
   return (
-    <button className={button} style={{backgroundColor: `${bg}`, color: `${color}`}}>
+    <button className={buttonStyle} style={{backgroundColor: `${bg}`, color: `${color}`}}>
       {title}
     </button>
   );
