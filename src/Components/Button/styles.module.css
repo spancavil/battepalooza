@@ -1,0 +1,11 @@
+.button {
+  height: 100%;
+  padding: 0px 50px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button:visited {
+    color: inherit;
+}
