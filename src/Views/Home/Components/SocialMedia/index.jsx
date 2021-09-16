@@ -3,7 +3,6 @@ import facebookLogo from '../../../../Assets/img/facebook.png';
 import instagramLogo from '../../../../Assets/img/instagram.png';
 import discordLogo from '../../../../Assets/img/discord.png';
 import styles from './styles.module.scss';
-import Button from '../../../../Global-Components/Button';
 
 const SocialMedia = () => {
     return (

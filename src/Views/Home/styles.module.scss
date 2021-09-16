@@ -1,16 +1,51 @@
+@import '../../Styles/colors.scss';
+@font-face {
+    font-family: 'Monkyta';
+    src: url("../../Assets/fonts/Monkirta_Pursuit_NC/Monkirta_Pursuit_NC.ttf") format("truetype");
+ }
+
+$font-main: 'Monkyta';
+
 .home {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 3000px;
+    height: 400vh;
     background-repeat: no-repeat;
-    background-size: 100%;
-    
-    img {
-        width: 20%;
-        position: relative;
-        left: 39%;
-        top: 13%;
+    background-size: 100% 25%;
+    background-position: 0 0;
+}
+
+.brand {
+    width: 35%;
+    position: relative;
+    left: 39%;
+    top: 40vh;
+
+    img{
+        width: 60%;
+    }
+}
+
+.botones {
+    position: absolute;
+    left: 30vw;
+    top: 78vh;
+    display: inline;
+
+    button{
+        padding: 0;
+        background-color: $primary-blue;
+        border: none;
+        color: white;
+        margin-right: 1em;
+        height: 50px;
+        width: 247px;
+        font-family: $font-main;
+        font-size: 1.3em;
+        font-weight: 400;
+        letter-spacing: 0em;
+        text-align: center;
     }
 }

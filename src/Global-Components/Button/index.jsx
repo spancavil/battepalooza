@@ -1,14 +1,14 @@
 import React from 'react';
-import {buttonStyle} from './styles.module.scss';
+// import {buttonStyle} from './styles.module.scss';
 
 /**
  * Represents a generic button
  * @param {title, styles, callback} 
  */
 
-const Button = ({title, style, onClick}) => {
+const Button = ({title, onClick}) => {
   return (
-    <button className={buttonStyle} style={{style}} onClick={()=>onClick}>
+    <button onClick={()=>onClick}>
       {title}
     </button>
   );
