@@ -3,7 +3,6 @@ import styles from './styles.module.scss'
 import backImg from '../../Assets/img/bg-header-1.png';
 import bpBrand from '../../Assets/img/BI-BP-2.png'
 import SocialMedia from './Components/SocialMedia';
-import NavBar from '../Navbar';
 import Button from '../../Global-Components/Button';
 
 const HomeContainer = () => {
