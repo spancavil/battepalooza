@@ -7,8 +7,7 @@ import NavBar from '../Navbar';
 
 const HomeContainer = () => {
     return (
-        <div className = {styles.home} style={{backgroundImage: `url(${backImg})`}}>
-            <NavBar/>
+        <div className = {styles.home} style={{backgroundImage: `url(${backImg})`}}> 
             <SocialMedia/>
             <img src={bpBrand} alt=" bp-brand"/>
         </div>
