@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles.module.scss';
 import nCoin from '../../../../Assets/img/icon-ncoin.png';
 
@@ -13,6 +13,18 @@ const AccountData = ({
   linked = true,
   nCoins = 1000000,
 }) => {
+  const [Coins, setCoins] = useState (10000000);
+
+  const separator = Coins => {
+    var str = Coins.toString ().split ('.');
+    str[0] = str[0].replace (/\B(?=(\d{3})+(?!\d))/g, ',');
+    return str.join ('.');
+  };
+
+  useEffect (() => {
+    setCoins (separator (Coins));
+  }, []);
+  
   return (
     <div className={styles.container}>
       <h4 className={styles.title}>{title}#{id}</h4>
