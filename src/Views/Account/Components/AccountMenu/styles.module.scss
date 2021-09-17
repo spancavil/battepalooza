@@ -1,0 +1,32 @@
+@import "../../../../Styles/colors.scss";
+@import "../../../../Styles/fonts.scss";
+
+.btnContainer {
+  z-index: 1;
+  background-color: $account-bg;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $account-border;
+  border-radius: 12px;
+
+  button {
+    height: 44px;
+    background-color: $account-bg;
+    width: 180px;
+    border: none;
+    border-bottom: 2px solid $account-border;
+    color: white;
+    font-family: $font-nasalization;
+    font-size: 14px;
+  }
+
+  button:nth-child(1) {
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: 2px solid $account-border;
+    border-top: none;
+  }
+  button:nth-child(4) {
+    border-radius: 0px 0px 10px 10px;
+    border-bottom: none;
+  }
+}
