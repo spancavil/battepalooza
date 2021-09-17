@@ -4,17 +4,21 @@
   margin-top: 65px + 40px;
   margin-left: 100px;
   background-color: $account-bg;
-  width: 38rem;
+  width: 45rem;
   height: 10rem;
   position: absolute;
   border-radius: 10px;
   border: 2px solid $account-border;
   font-family: Nasalization;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   h4 {
     width: 100%;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 10px;
   }
 
   p {
@@ -26,12 +30,12 @@
 .title {
   color: $account-name;
   font-weight: 400;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .joined {
   color: white;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .linked {
