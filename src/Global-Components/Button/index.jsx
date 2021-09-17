@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './style.module.scss';
 
 
 /**
@@ -7,11 +8,10 @@ import React from 'react';
  * y un evento onClick (accion a realizar cuando se hace click)
  */
 
-const Button = ({title, onClick}) => {
+const Button = ({ title, onClick }) => {
   return (
 
-    <button onClick={onClick ? () => onClick () : null}>
-
+    <button className={styles.botonGenerico} onClick={onClick ? () => onClick() : null}>
       {title}
     </button>
   );

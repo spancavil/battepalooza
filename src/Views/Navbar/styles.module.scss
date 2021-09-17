@@ -1,4 +1,6 @@
 @import "../../Styles/colors.scss";
+@import "../../Styles/fonts.scss";
+
 
 .navStyle {
   position: relative;
@@ -24,7 +26,7 @@
     font-size: 13px;
     text-decoration: none;
     color: white;
-    font-family: "Nanum Gothic";
+    font-family: $font-nanum;
     font-weight: 700;
   }
 
@@ -41,11 +43,11 @@
       height: 100%;
       width: 8rem;
       border: none;
-      font-weight: 400;
+      font-weight: 700;
       cursor: pointer;
-      font-family: Nasalization;
+      font-family: $font-nasalization;
       letter-spacing: 1px;
-      font-size: 18px;
+      font-size: 14px;
       text-align: center;
     }
     Button:visited {
