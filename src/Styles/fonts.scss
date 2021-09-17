@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Monkirta";
+    src: url("../Assets/fonts/Monkirta_Pursuit_NC/Monkirta_Pursuit_NC.ttf")
+      format("truetype");
+  }
+
+@font-face {
+    font-family: "Nasalization";
+    src: url("../Assets/fonts/Nasalization/Nasalization-regular400.ttf")
+      format("truetype");
+  }
+
+@font-face {
+    font-family: "NanumGothic" ;
+    src: url("../Assets/fonts/Nanum_Gothic/NanumGothic-Regular.ttf")
+        format("truetype");
+}
+
+$font-nanum: "NanumGothic";
+$font-nasalization: "Nasalization";
+$font-monkyta: "Monkirta"

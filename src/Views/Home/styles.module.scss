@@ -1,11 +1,5 @@
 @import "../../Styles/colors.scss";
-@font-face {
-  font-family: "Monkyta";
-  src: url("../../Assets/fonts/Monkirta_Pursuit_NC/Monkirta_Pursuit_NC.ttf")
-    format("truetype");
-}
-
-$font-main: "Monkyta";
+@import "../../Styles/fonts.scss";
 
 .home {
   position: absolute;
@@ -39,18 +33,4 @@ $font-main: "Monkyta";
   justify-content: center;
   width: 100%;
   gap: 15px;
-
-  button {
-    background-color: $primary-blue;
-    border: none;
-    color: white;
-    height: 50px;
-    width: 247px;
-    font-family: $font-main;
-    font-size: 1.3em;
-    font-weight: 400;
-    letter-spacing: 0em;
-    text-align: center;
-    cursor: pointer;
-  }
 }
