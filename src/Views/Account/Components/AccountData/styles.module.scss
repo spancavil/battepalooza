@@ -1,0 +1,51 @@
+@import "../../../../Styles/colors.scss";
+
+.container {
+  margin-top: 65px + 40px;
+  margin-left: 100px;
+  background-color: $account-bg;
+  width: 38rem;
+  height: 10rem;
+  position: absolute;
+  border-radius: 10px;
+  border: 2px solid $account-border;
+  font-family: Nasalization;
+
+  h4 {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  p {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.title {
+  color: $account-name;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.joined {
+  color: white;
+  font-size: 14px;
+}
+
+.linked {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.nCoin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+}
