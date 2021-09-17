@@ -2,12 +2,10 @@
 @import "../../../../Styles/fonts.scss";
 
 .container {
-  margin-top: 65px + 40px;
-  margin-left: 100px;
   background-color: $account-bg;
-  width: 45rem;
-  height: 10rem;
-  position: absolute;
+  width: 720px;
+  height: 180px;
+  z-index: 1;
   border-radius: 10px;
   border: 2px solid $account-border;
   font-family: $font-nasalization;
@@ -17,7 +15,6 @@
   align-items: center;
 
   h4 {
-    width: 100%;
     text-align: center;
     margin-top: 10px;
   }
@@ -30,7 +27,7 @@
 
 .title {
   color: $account-name;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 25px;
 }
 
@@ -51,7 +48,11 @@
   align-items: center;
   justify-content: center;
   color: white;
-  gap: 5px;
-  margin-top: 10px;
+  gap: 10px;
+  margin-top: 15px;
   font-size: 15px;
+}
+
+.img {
+  width: 25px;
 }
