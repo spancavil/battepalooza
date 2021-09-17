@@ -1,15 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
-import Button from '../../Global-Components/Button';
-
 import {Links} from './links';
 import Logo from '../../Assets/Logo.png';
-import {navStyle, btnContainer} from './styles.module.scss';
+import styles from './styles.module.scss';
 
 const NavBar = () => {
   return (
-    <nav className={navStyle}>
+    <nav className={styles.navStyle}>
       <Link to="/">
         <img src={Logo} alt="Battle Palooza" />
       </Link>
@@ -24,9 +21,13 @@ const NavBar = () => {
         ))}
       </ul>
 
-      <div className={btnContainer}>
-        <Button title="LOGIN" />
-        <Button title="SIGN UP" />
+      <div className={styles.btnContainer}>
+        <Link to="/login">
+          <button className={styles.login}>LOGIN</button>
+        </Link>
+        <Link to="/signup">
+          <button className={styles.signUp}>SIGN UP</button>
+        </Link>
       </div>
     </nav>
   );
