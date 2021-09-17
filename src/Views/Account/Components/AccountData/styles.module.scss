@@ -1,4 +1,5 @@
 @import "../../../../Styles/colors.scss";
+@import "../../../../Styles/fonts.scss";
 
 .container {
   margin-top: 65px + 40px;
@@ -9,7 +10,7 @@
   position: absolute;
   border-radius: 10px;
   border: 2px solid $account-border;
-  font-family: Nasalization;
+  font-family: $font-nasalization;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,27 +30,28 @@
 
 .title {
   color: $account-name;
-  font-weight: 400;
-  font-size: 30px;
+  font-weight: 700;
+  font-size: 25px;
 }
 
 .joined {
   color: white;
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .linked {
-    color: white;
-    font-size: 20px;
-    margin-top: 20px;
+  color: white;
+  font-size: 15px;
+  margin-top: 20px;
 }
 
 .nCoin {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    gap: 10px;
-    margin-top: 10px;
-    font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 5px;
+  margin-top: 10px;
+  font-size: 15px;
 }
