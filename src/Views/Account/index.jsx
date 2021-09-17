@@ -7,8 +7,10 @@ const Account = () => {
   return (
     <div className={styles.container}>
       <div className={styles.image}>
-        <AccountMenu />
-        <AccountData />
+        <div className={styles.dataContainer}>
+          <AccountMenu />
+          <AccountData />
+        </div>
       </div>
     </div>
   );
