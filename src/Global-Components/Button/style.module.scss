@@ -1,0 +1,16 @@
+@import '../../Styles/fonts.scss';
+@import '../../Styles/colors.scss';
+
+.botonGenerico {
+    background-color: $primary-blue;
+    border: none;
+    color: white;
+    height: 50px;
+    width: 247px;
+    font-family: $font-monkyta;
+    font-size: 1.3em;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: center;
+    cursor: pointer;
+}

@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Form from '../../Global-Components/Form';
 
 const SignUp = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <div>
+      <Form />
+    </div>
+  );
+};
 
-export default SignUp
+export default SignUp;
