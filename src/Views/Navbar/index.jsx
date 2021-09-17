@@ -25,8 +25,8 @@ const NavBar = () => {
       </ul>
 
       <div className={btnContainer}>
-        <Button title="Login" />
-        <Button title="Sign Up" />
+        <Button title="LOGIN" />
+        <Button title="SIGN UP" />
       </div>
     </nav>
   );
