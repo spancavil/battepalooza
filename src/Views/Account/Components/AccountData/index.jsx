@@ -11,7 +11,6 @@ const AccountData = ({
   id = '2457',
   date = 'July, 2021',
   linked = true,
-  nCoins = 1000000,
 }) => {
   const [Coins, setCoins] = useState (10000000);
 
@@ -24,7 +23,7 @@ const AccountData = ({
   useEffect (() => {
     setCoins (separator (Coins));
   }, []);
-  
+
   return (
     <div className={styles.container}>
       <h4 className={styles.title}>{title}#{id}</h4>
@@ -32,7 +31,7 @@ const AccountData = ({
       {linked && <p className={styles.linked}>Account linked to Mobile App</p>}
       <div className={styles.nCoin}>
         <img className={styles.img} src={nCoin} alt="nCoin" />
-        <span>{nCoins} NCoin</span>
+        <span>{Coins} NCoin</span>
       </div>
     </div>
   );
