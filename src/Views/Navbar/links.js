@@ -12,7 +12,7 @@ export const Links = [
     title: "News",
   },
   {
-    path: "/Help",
+    path: "/help",
     title: "Help",
   },
 ];

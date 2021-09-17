@@ -1,21 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-import Button from '../../Global-Components/Button';
-
-import { Links } from './links';
+import {Link} from 'react-router-dom';
+import {Links} from './links';
 import Logo from '../../Assets/Logo.png';
-import { navStyle, btnContainer } from './styles.module.scss';
+import styles from './styles.module.scss';
 
 const NavBar = () => {
   return (
-    <nav className={navStyle}>
+    <nav className={styles.navStyle}>
       <Link to="/">
         <img src={Logo} alt="Battle Palooza" />
       </Link>
 
       <ul>
-        {Links.map(({ path, title }) => (
+        {Links.map (({path, title}) => (
           <li key={title}>
             <Link to={path}>
               {title}
@@ -24,12 +21,12 @@ const NavBar = () => {
         ))}
       </ul>
 
-      <div className={btnContainer}>
-        <Link to = "/login">
-          <Button title="LOGIN" />
+      <div className={styles.btnContainer}>
+        <Link to="/login">
+          <button className={styles.login}>LOGIN</button>
         </Link>
-        <Link to = "/signup">
-          <Button title="SIGN UP" />
+        <Link to="/signup">
+          <button className={styles.signUp}>SIGN UP</button>
         </Link>
       </div>
     </nav>

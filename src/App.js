@@ -4,7 +4,7 @@ import NavBar from "./Views/Navbar";
 import NotFound from "./Views/NotFound";
 
 import "./Styles/Global.scss";
-import SignUp from "./Views/SignUp";
+import Account from "./Views/Account";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={HomeContainer} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/account" component={Account} />
         <Route path="" component={NotFound} />
       </Switch>
     </BrowserRouter>
