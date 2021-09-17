@@ -1,11 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Button from '../../Global-Components/Button';
 
-import {Links} from './links';
+import { Links } from './links';
 import Logo from '../../Assets/Logo.png';
-import {navStyle, btnContainer} from './styles.module.scss';
+import { navStyle, btnContainer } from './styles.module.scss';
 
 const NavBar = () => {
   return (
@@ -15,7 +15,7 @@ const NavBar = () => {
       </Link>
 
       <ul>
-        {Links.map (({path, title}) => (
+        {Links.map(({ path, title }) => (
           <li key={title}>
             <Link to={path}>
               {title}
@@ -25,8 +25,12 @@ const NavBar = () => {
       </ul>
 
       <div className={btnContainer}>
-        <Button title="LOGIN" />
-        <Button title="SIGN UP" />
+        <Link to = "/login">
+          <Button title="LOGIN" />
+        </Link>
+        <Link to = "/signup">
+          <Button title="SIGN UP" />
+        </Link>
       </div>
     </nav>
   );

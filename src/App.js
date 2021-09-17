@@ -12,7 +12,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={HomeContainer} />
-        <Route exact path="/login" component={SignUp} />
+        <Route exact path="/signup" component={SignUp} />
         <Route path="" component={NotFound} />
       </Switch>
     </BrowserRouter>
