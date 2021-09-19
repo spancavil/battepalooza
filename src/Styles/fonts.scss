@@ -16,6 +16,13 @@
         format("truetype");
 }
 
+@font-face {
+    font-family: "Route 159";
+    src: url("../Assets/fonts/Route159/route-159.regular.otf")
+      format("opentype");
+}
+
 $font-nanum: "NanumGothic";
 $font-nasalization: "Nasalization";
-$font-monkyta: "Monkirta"
+$font-monkyta: "Monkirta";
+$font-route159: "Route 159";

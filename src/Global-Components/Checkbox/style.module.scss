@@ -1,0 +1,16 @@
+@import '../../Styles/fonts.scss';
+
+.container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: $font-nasalization;
+    font-size: 13px;
+    color: white;
+    padding-top: 20px;
+    input {
+        margin-right: 5px;
+        border-radius: 3px;
+        width: 14px;
+    }
+}
