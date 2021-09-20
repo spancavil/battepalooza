@@ -1,4 +1,5 @@
 @import "../../Styles/colors.scss";
+@import "../../Styles/fonts.scss";
 
 .container {
   position: absolute;
@@ -24,4 +25,17 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
   top: 0;
+}
+
+.message {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: $font-route159;
+  font-size: 13px;
+  color: $sub-message;
+  text-align: center;
+
+  a {
+    color: $sub-message;
+  }
 }
