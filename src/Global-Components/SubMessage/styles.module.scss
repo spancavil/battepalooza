@@ -1,0 +1,16 @@
+@import "../../Styles/fonts.scss";
+@import "../../Styles/colors.scss";
+
+.message {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: $font-route159;
+  font-size: 13px;
+  color: $sub-message;
+  text-align: center;
+  width: 280px;
+
+  a {
+    color: $sub-message;
+  }
+}

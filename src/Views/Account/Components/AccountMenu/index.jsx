@@ -1,5 +1,5 @@
 import React from 'react';
-import { buttons } from './buttons';
+import {buttons} from './buttons';
 import styles from './styles.module.scss';
 
 const AccountMenu = () => {
