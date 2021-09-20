@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
 import DialogCross from './Assets/DialogCross';
 import {general, cross} from './style.module.scss';
 
@@ -10,13 +11,15 @@ import {general, cross} from './style.module.scss';
  */
 
 const Modal = ({title, children}) => {
-    return (
-        <div className={general}>
-            <p className={title}>{title}</p>
-            <DialogCross className={cross}/>
-            {children}
-        </div>
-    )
-}
+  return (
+    <div className={general}>
+      <p className={title}>{title}</p>
+      <Link to="/">
+        <DialogCross className={cross} />
+      </Link>
+      {children}
+    </div>
+  );
+};
 
-export default Modal
+export default Modal;
