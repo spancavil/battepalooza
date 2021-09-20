@@ -10,16 +10,21 @@ import styles from './style.module.scss';
  * @param handleChange Función que devuelve el valor del input
  */
 
-const Input = ({ label, subtitle, width, type, handleChange }) => {
+const Input = ({label, subtitle, width, type, handleChange}) => {
+  return (
+    <div className={styles.inputContainer}>
+      <label for={label}>{label}</label>
+      <input
+        autoComplete="off"
+        type={type}
+        id={label}
+        name={label}
+        style={{width: width}}
+        onChange={e => handleChange (e.target.value)}
+      />
+      {subtitle && <span>{subtitle}</span>}
+    </div>
+  );
+};
 
-    return (
-        <div className={styles.inputContainer}>
-            <label for={label}>{label}</label>
-            <input type={type} id={label} name={label} style={{ width: width }}
-            onChange={e => handleChange(e.target.value)}></input>
-            {subtitle && <span>{subtitle}</span>}
-        </div>
-    )
-}
-
-export default Input
+export default Input;
