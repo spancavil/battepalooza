@@ -12,6 +12,11 @@ const Login = () => {
     setEmail (email);
   };
 
+  const onLogin = () => {
+    console.log (email);
+    console.log ('Login !');
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.image}>
@@ -23,7 +28,7 @@ const Login = () => {
             handleChange={email => changeEmail (email)}
           />
           <div style={{paddingTop: '25px'}}>
-            <Button title="GET CODE" />
+            <Button title="GET CODE" onClick={onLogin} />
           </div>
           <SubMessage
             text="Do not have an account?"
