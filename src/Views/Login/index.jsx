@@ -3,7 +3,6 @@ import Button from '../../Global-Components/Button';
 import Input from '../../Global-Components/Input';
 import Modal from '../../Global-Components/Modal';
 import SubMessage from '../../Global-Components/SubMessage';
-import styles from './styles.module.scss';
 
 const Login = () => {
   return (
