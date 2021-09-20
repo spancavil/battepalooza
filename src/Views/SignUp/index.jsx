@@ -38,7 +38,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <Modal title="SIGN UP">
         <Input
           label="Email"
