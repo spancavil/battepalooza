@@ -6,6 +6,7 @@ import Account from "./Views/Account";
 import SignUp from "./Views/SignUp";
 import Login from "./Views/Login";
 import Verification from "./Views/Verification";
+import NeedLogin from "./Views/NeedLogin";
 import "./Styles/Global.scss";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/verification" component={Verification} />
+        <Route exact path="/needlogin" component={NeedLogin} />
         <Route exact path="/account" component={Account} />
         <Route path="" component={NotFound} />
       </Switch>
