@@ -7,21 +7,21 @@ import styles from './styles.module.scss';
 
 const Verification = () => {
   return (
-    <div>
-      <div className={styles.container}>
-        <Modal title="VERIFICATION">
-          <Input
-            label="Code"
-            width="32vw"
-            subtitle="Input the 6 digit code that has been sent to your email"
-          />
-          <div style={{paddingTop: '40px'}}>
-            <Button title="GET CODE" />
-          </div>
-          <SubMessage text="Did not recieve email? Check your spam folder.
-        If you have not received your email contact support" />
-        </Modal>
-      </div>
+    <div className={styles.container}>
+      <Modal title="VERIFICATION">
+        <Input
+          label="Code"
+          width="32vw"
+          subtitle="Input the 6 digit code that has been sent to your email"
+        />
+        <div style={{paddingTop: '40px'}}>
+          <Button title="VERIFY" />
+        </div>
+        <span className={styles.message}>
+          Did not recieve email? Check your spam folder. <br />
+          If you have not received your email contact support
+        </span>
+      </Modal>
     </div>
   );
 };
