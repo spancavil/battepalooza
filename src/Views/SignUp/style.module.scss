@@ -1,16 +1,6 @@
-@import '../../Styles/fonts.scss';
-@import '../../Styles/colors.scss';
-
 .divRow2{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 32vw;
-}
-.message {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-family: $font-route159;
-    font-size: 13px;
-    color: $input-alreadyhaveaccount;
 }
