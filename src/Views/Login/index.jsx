@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Redirect, useHistory } from 'react-router';
 import Button from '../../Global-Components/Button';
 import Input from '../../Global-Components/Input';
 import Modal from '../../Global-Components/Modal';
@@ -8,6 +9,8 @@ import styles from './styles.module.scss';
 const Login = () => {
   const [email, setEmail] = useState ('');
 
+  const history = useHistory()
+
   const changeEmail = email => {
     setEmail (email);
   };
@@ -15,28 +18,27 @@ const Login = () => {
   const onLogin = () => {
     console.log (email);
     console.log ('Login !');
+    history.push('/verification')
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.image}>
-        <Modal title="LOGIN">
-          <Input
-            label="Email"
-            width="32vw"
-            type="email"
-            handleChange={email => changeEmail (email)}
-          />
-          <div style={{paddingTop: '25px'}}>
-            <Button title="GET CODE" onClick={onLogin} />
-          </div>
-          <SubMessage
-            text="Do not have an account?"
-            link="/signup"
-            textLink="Sign up"
-          />
-        </Modal>
-      </div>
+      <Modal title="LOGIN">
+        <Input
+          label="Email"
+          width="32vw"
+          type="email"
+          handleChange={email => changeEmail (email)}
+        />
+        <div style={{paddingTop: '25px'}}>
+          <Button title="GET CODE" onClick={onLogin} />
+        </div>
+        <SubMessage
+          text="Do not have an account?"
+          link="/signup"
+          textLink="Sign up"
+        />
+      </Modal>
     </div>
   );
 };
