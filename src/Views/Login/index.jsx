@@ -9,7 +9,9 @@ const Login = () => {
   return (
     <Modal title="LOGIN">
       <Input label="Email" width="32vw" type="email" />
-      <Button title="GET CODE" />
+      <div style={{paddingTop: '25px'}}>
+        <Button title="GET CODE" />
+      </div>
       <SubMessage
         text="Do not have an account?"
         link="/signup"
