@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Redirect, useHistory } from 'react-router';
+import {useHistory} from 'react-router';
 import Button from '../../Global-Components/Button';
 import Input from '../../Global-Components/Input';
 import Modal from '../../Global-Components/Modal';
@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 const Login = () => {
   const [email, setEmail] = useState ('');
 
-  const history = useHistory()
+  const history = useHistory ();
 
   const changeEmail = email => {
     setEmail (email);
@@ -18,7 +18,7 @@ const Login = () => {
   const onLogin = () => {
     console.log (email);
     console.log ('Login !');
-    history.push('/verification')
+    history.push ('/verification');
   };
 
   return (

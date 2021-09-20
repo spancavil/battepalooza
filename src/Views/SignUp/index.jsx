@@ -4,7 +4,6 @@ import Checkbox from '../../Global-Components/Checkbox';
 import Input from '../../Global-Components/Input';
 import Modal from '../../Global-Components/Modal';
 import styles from './style.module.scss';
-import {Link} from 'react-router-dom';
 import {useState} from 'react';
 import SubMessage from '../../Global-Components/SubMessage';
 
