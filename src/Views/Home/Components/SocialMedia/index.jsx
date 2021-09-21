@@ -7,7 +7,6 @@ import styles from './styles.module.scss';
 const SocialMedia = () => {
     return (
         <div className={styles.socialMedia}>
-            <div className={styles.container}></div>
             <img className={styles.fb}src={facebookLogo} alt="fb-logo" />
             <img className={styles.ig}src={instagramLogo} alt="ig-logo" />
             <img className={styles.discord}src={discordLogo} alt="discord-logo" />

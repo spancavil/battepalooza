@@ -11,7 +11,6 @@ const HomeContainer = () => {
     return (
         <div className={styles.container}>
             <div className = {styles.content} style={{backgroundImage: `url(${backImg}), url(${backImgFooter})`}}> 
-                <SocialMedia/>
                 <div className={styles.brand}>
                     <img src={bpBrand} alt="bp-brand"/>
                 </div>
@@ -20,6 +19,7 @@ const HomeContainer = () => {
                     <Button title="Download now"/>
                 </div>
             </div>
+            <SocialMedia/>
             <Footer/>
         </div>
     )
