@@ -27,7 +27,7 @@ const Footer = () => {
             </div>
             <div>
                 <ul className={styles.footerNav}>
-                    <li><a href="http://battlepalooza.com/news/">Privacy Policy </a></li>
+                    <li><a href="http://battlepalooza.com/news/">Privacy Policy |</a></li>
                     <li><a href="http://battlepalooza.com/terms-of-service/"> Terms of Service |</a></li>
                     <li><a href="https://nway.helpshift.com/a/battlepalooza/?p=web"> Report an In-Game Issue</a></li>
                 </ul>

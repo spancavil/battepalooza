@@ -7,8 +7,8 @@ import styles from './styles.module.scss';
 const SocialMedia = () => {
     return (
         <div className={styles.socialMedia}>
-            <img className={styles.fb}src={facebookLogo} alt="fb-logo" />
-            <img className={styles.ig}src={instagramLogo} alt="ig-logo" />
+            <a href="https://www.facebook.com/Battlepalooza-112765480597639"><img className={styles.fb}src={facebookLogo} alt="fb-logo" /></a>
+            <a href="https://www.instagram.com/BATTLEPALOOZA"><img className={styles.ig}src={instagramLogo} alt="ig-logo" /></a>
             <img className={styles.discord}src={discordLogo} alt="discord-logo" />
         </div>
     )
