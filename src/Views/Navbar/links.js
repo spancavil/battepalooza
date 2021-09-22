@@ -4,7 +4,7 @@ export const Links = [
     title: "Packs",
   },
   {
-    path: "/marketplace",
+    path: "/needlogin",
     title: "Marketplace",
   },
   {
@@ -15,4 +15,8 @@ export const Links = [
     path: "/help",
     title: "Help",
   },
+  {
+    path: "/account",
+    title: "Account"
+  }
 ];
