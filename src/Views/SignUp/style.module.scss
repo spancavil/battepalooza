@@ -22,7 +22,9 @@
 
 .container:before {
   content: "";
-  background: url("../../Assets/img/Bg-Home.png") no-repeat #000;
+  background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
+  background-position-x: center;
+  background-position-y: bottom;
   background-size: cover;  
   z-index: 0;
   height: 100vh;

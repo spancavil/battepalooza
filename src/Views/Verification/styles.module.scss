@@ -16,14 +16,15 @@
 
 .container:before {
   content: "";
-  background-image: url("../../Assets/img/Bg-Home.png");
+  background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
+  background-position-x: center;
+  background-position-y: bottom;
+  background-size: cover;  
   z-index: 0;
   height: 100vh;
   opacity: 0.6;
   width: 100%;
   position: absolute;
-  background-repeat: no-repeat;
-  background-size: cover;
   top: 0;
 }
 
