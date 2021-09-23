@@ -1,40 +1,156 @@
 @import "../../Styles/colors.scss";
 @import "../../Styles/fonts.scss";
 
-.container{
-  position: absolute;
+.container {
   top: 0;
-  left: 0;
   width: 100%;
-  height: auto;
-  background-color: black;
 }
 
-.content {
-  height: 450vh;
-  background-size: 100%;
-  background-repeat: no-repeat;
+.content1 {
+  background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
+  background-position-x: center;
+  background-position-y: bottom;
+  text-align: center;
+  height: 820px;
+  width: 100%;
+  background-size: cover;
+  top: 0;
+  position: absolute;
 }
 
-.brand {
+.battle {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
-  position: relative;
-  top: 40vh;
+  margin-top: 320px;
 
   img {
-    width: 25%;
+    width: 350px;
+  }
+
+  .botones {
+    display: flex;
+    gap: 20px;
+    margin-top: -3%;
   }
 }
 
-.botones {
-  position: absolute;
-  top: 78vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+footer {
   width: 100%;
-  gap: 15px;
+  clear: both;
+  position: relative;
+  background: url("../../Assets/img/bg-footer.jpg") top center no-repeat #000;
+  overflow: hidden;
+  padding: 500px 0px 0px 50px;
+  margin-top: -270px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+
+  article {
+    width: 960px;
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+
+    section {
+      height: 100%;
+
+      .div1 {
+        padding-bottom: 30px;
+
+        h2 {
+          font-size: 3em;
+          padding-bottom: 30px;
+          line-height: 0.9em;
+          font-family: $font-monkyta;
+        }
+
+        .social {
+          font-family: $font-route159;
+          text-align: center;
+
+          a {
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+            font-size: 0.9em;
+            padding: 10px;
+            background-color: transparent;
+            transition: all 300ms ease;
+
+            img {
+              width: 26px;
+              padding: 5px 3px;
+            }
+          }
+        }
+
+        .brands {
+          font-family: $font-route159;
+          display: block;
+          text-decoration: none;
+          color: white;
+
+          img {
+            padding: 55px 20px 20px;
+            max-width: 200px;
+            border: 0;
+          }
+        }
+
+        .widget {
+          font-family: $font-route159;
+          display: block;
+          font-size: 1em;
+
+          p {
+            padding: 8px 0 10px;
+            max-width: 800px;
+            margin: 0 auto;
+          }
+        }
+
+        .menu {
+          display: block;
+
+          ul {
+            list-style: none;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-inline-start: 0;
+            margin-inline-end: 0;
+            padding-inline-start: 0;
+
+            li {
+              display: inline-block;
+              margin-right: 12px;
+              position: relative;
+              font-family: $font-route159;
+
+              a {
+                color: #fff;
+                text-decoration: none;
+                list-style: none;
+                transition: all 300ms ease;
+                background-color: transparent;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.bear {
+  position: absolute;
+  bottom: 0;
+  right: -130px;
+  width: 430px;
+  margin: 0;
 }

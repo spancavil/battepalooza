@@ -1,18 +1,18 @@
 export const Links = [
   {
     path: "/packs",
-    title: "Packs",
+    title: "PACKS",
   },
   {
     path: "/marketplace",
-    title: "Marketplace",
+    title: "MARKETPLACE",
   },
   {
     path: "/news",
-    title: "News",
+    title: "NEWS",
   },
   {
     path: "/help",
-    title: "Help",
+    title: "HELP",
   },
 ];
