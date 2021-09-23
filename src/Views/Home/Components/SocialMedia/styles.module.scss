@@ -1,27 +1,31 @@
-.socialMedia{
-    position: fixed;
-    top: 52%;
-    margin-left: 89%;
-    width: 7%;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    height: fit-content;
-    z-index: 5;
-    img{
-        width: 100%;
-    }
-   
-    .fb{
-        top: 0;
-    }
-    .ig{
-        position: relative;
-        margin-top: -1.5em;
-    }
-    .discord{
-        position: relative;
-        top: -1.5em;
-    }
-    
+.socialMedia {
+  position: fixed;
+  top: 63%;
+  margin-left: 92%;
+  width: 7%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  z-index: 10;
+  height: 250px;
+
+  img {
+    width: 100%;
+  }
+  .container {
+    position: relative;
+    top: 0;
+  }
+  .fb {
+    position: absolute;
+    top: 0;
+  }
+  .ig {
+    position: absolute;
+    top: 4em;
+  }
+  .discord {
+    position: absolute;
+    top: 8em;
+  }
 }
