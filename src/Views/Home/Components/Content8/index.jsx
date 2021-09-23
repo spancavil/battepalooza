@@ -1,17 +1,16 @@
 import React from 'react';
 import styles from './styles.module.scss';
+import img5 from '../../../../Assets/img/img5.png';
 
 const Content8 = () => {
   return (
-    <div className={styles.content6}>
+    <div className={styles.content8}>
       <article>
         <section>
           <div>
             <img
-              src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/img-06.png"
-              alt=""
-              data-pagespeed-url-hash="1804340175"
-              onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
+              src={img5}
+              alt="BattlePalooza"
             />
           </div>
           <div>

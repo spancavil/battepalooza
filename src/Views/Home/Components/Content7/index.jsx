@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
+import img4 from '../../../../Assets/img/img4.png';
 
 const Content7 = () => {
   return (
@@ -13,10 +14,7 @@ const Content7 = () => {
             </p>
           </div>
           <div>
-            <img
-              src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/ximg-05.png.pagespeed.ic.rI9sZUz6_3.webp"
-              alt=""
-            />
+            <img src={img4} alt="BattlePalooza" />
           </div>
         </section>
       </article>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
+import arrow from '../../../../Assets/img/arrow.png';
 
 const Content3 = () => {
   return (
@@ -10,8 +11,8 @@ const Content3 = () => {
           Compete in real-time against live contestants from around the world for real-world prizes in a 24-player battle royale. Grab as many coins as you can in the arena without getting fragged. Survive until the end to take home the big loot!
         </p>
         <img
-          src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/scrolling-down-arrows.png"
-          alt=""
+          src={arrow}
+          alt="arrow"
           data-pagespeed-url-hash="601268972"
           onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
         />
