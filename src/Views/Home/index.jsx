@@ -48,6 +48,7 @@ const HomeContainer = () => {
                   rel="noopener noreferrer"
                 >
                   <svg
+                    style={{width: '28px'}}
                     aria-hidden="true"
                     focusable="false"
                     data-prefix="fab"
@@ -209,7 +210,6 @@ const HomeContainer = () => {
           </section>
         </article>
       </footer>
-
       <SocialMedia />
     </div>
   );
