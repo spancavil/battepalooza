@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
+import img3 from '../../../../Assets/img/img3.png';
 
 const Content6 = () => {
   return (
@@ -7,11 +8,7 @@ const Content6 = () => {
       <article className={styles.article}>
         <section className={styles.section}>
           <div className={styles.box2}>
-            <img
-              src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/ximg-04.png.pagespeed.ic.Y1vhkX3Xid.webp"
-              class="screenshot"
-              alt=""
-            />
+            <img src={img3} alt="BattlePalooza" />
           </div>
           <div className={styles.box2}>
             <h3>Play with Your Friends</h3>

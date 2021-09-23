@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
+import img1 from '../../../../Assets/img/img1.png';
 
 const Content4 = () => {
   return (
@@ -8,9 +9,8 @@ const Content4 = () => {
         <section className={styles.container}>
           <div className={styles.box}>
             <img
-              src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/img-02.png"
-              class="screenshot"
-              alt=""
+              src={img1}
+              alt='BattlePalooza'
               data-pagespeed-url-hash="626340491"
               onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
             />
