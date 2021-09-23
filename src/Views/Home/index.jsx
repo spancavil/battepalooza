@@ -110,6 +110,7 @@ const HomeContainer = () => {
                     onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
                   />
                 </div>
+
                 <div className={styles.widget}>
                   <div class="widget-content">
                     {' '}<div class="textwidget">

@@ -22,7 +22,7 @@ const AccountData = ({
 
   useEffect (() => {
     setCoins (separator (Coins));
-  }, []);
+  }, [Coins]);
 
   return (
     <div className={styles.container}>

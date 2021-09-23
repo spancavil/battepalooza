@@ -15,4 +15,8 @@ export const Links = [
     path: "/help",
     title: "HELP",
   },
+  {
+    path: "/account",
+    title: "Account",
+  },
 ];
