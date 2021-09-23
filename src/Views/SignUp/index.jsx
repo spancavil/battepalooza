@@ -32,8 +32,7 @@ const SignUp = () => {
   };
 
   const onSingUp = () => {
-    console.log (form);
-    console.log ('SignUp !');
+    alert(`User: ${form.firstName} ${form.firstName}, email: ${form.email} registered!`)
   };
 
   return (

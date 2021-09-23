@@ -11,6 +11,9 @@ import Content5 from './Components/Content5';
 import Content6 from './Components/Content6';
 import Content7 from './Components/Content7';
 import Content8 from './Components/Content8';
+import animocaLogo from '../../Assets/img/logo-animoca.png';
+import nWayLogo from '../../Assets/img/logo-nway.png'
+import bearX from '../../Assets/img/bearx.png'
 
 const HomeContainer = () => {
   return (
@@ -101,13 +104,13 @@ const HomeContainer = () => {
                 </div>
                 <div className={styles.brands}>
                   <img
-                    src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/logo-animoca.png"
+                    src={animocaLogo}
                     alt="Animoca Logo"
                     data-pagespeed-url-hash="3690970617"
                     onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
                   />
                   <img
-                    src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/logo-nway.png"
+                    src={nWayLogo}
                     alt="nWay Logo"
                     data-pagespeed-url-hash="3262642918"
                     onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
@@ -161,7 +164,7 @@ const HomeContainer = () => {
 
                 <img
                   className={styles.bear}
-                  src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/bear.png"
+                  src={bearX}
                   alt="bearX"
                 />
               </div>

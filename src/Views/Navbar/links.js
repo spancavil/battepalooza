@@ -4,7 +4,7 @@ export const Links = [
     title: "PACKS",
   },
   {
-    path: "/marketplace",
+    path: "/needlogin",
     title: "MARKETPLACE",
   },
   {
