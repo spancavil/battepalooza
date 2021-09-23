@@ -17,6 +17,6 @@ export const Links = [
   },
   {
     path: "/account",
-    title: "Account",
+    title: "ACCOUNT",
   },
 ];
