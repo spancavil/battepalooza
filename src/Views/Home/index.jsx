@@ -42,6 +42,7 @@ const HomeContainer = () => {
                   <a
                     href="https://www.facebook.com/Battlepalooza-112765480597639"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <img
                       src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/facebook-square-brands.svg"
@@ -52,7 +53,7 @@ const HomeContainer = () => {
                     <br />
                     Facebook
                   </a>
-                  <a href="https://twitter.com/battlepalooza" target="_blank">
+                  <a href="https://twitter.com/battlepalooza" target="_blank" rel="noopener noreferrer">
                     <img
                       src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/twitter-brands.svg"
                       alt="Follow Twitter"
@@ -65,6 +66,7 @@ const HomeContainer = () => {
                   <a
                     href="https://www.instagram.com/BATTLEPALOOZA"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {' '}
                     <img
@@ -81,6 +83,7 @@ const HomeContainer = () => {
                   <a
                     href="https://youtube.com/channel/UCKiNBKlBghKR9a0x-Il8WkA"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {' '}
                     <img
@@ -123,7 +126,9 @@ const HomeContainer = () => {
                     <div class="menu-footer-container">
                       <ul id="menu-footer" class="menu">
                         <li>
-                          <a href="http://battlepalooza.com/news/">
+                          <a href="http://battlepalooza.com/news/"
+                          target="_blank"
+                          rel="noopener noreferrer">
                             Privacy Policy
                           </a>
                         </li>
@@ -132,7 +137,9 @@ const HomeContainer = () => {
                           id="menu-item-40"
                           class="menu-item menu-item-type-post_type menu-item-object-post menu-item-40"
                         >
-                          <a href="http://battlepalooza.com/terms-of-service/">
+                          <a href="http://battlepalooza.com/terms-of-service/"
+                          target="_blank"
+                          rel="noopener noreferrer">
                             Terms of Service
                           </a>
                         </li>
@@ -141,7 +148,9 @@ const HomeContainer = () => {
                           id="menu-item-42"
                           class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42"
                         >
-                          <a href="https://nway.helpshift.com/a/battlepalooza/?p=web">
+                          <a href="https://nway.helpshift.com/a/battlepalooza/?p=web"
+                          target="_blank"
+                          rel="noopener noreferrer">
                             Report an In-Game Issue
                           </a>
                         </li>
@@ -153,6 +162,7 @@ const HomeContainer = () => {
                 <img
                   className={styles.bear}
                   src="http://battlepalooza.com/wp-content/themes/hemingway/assets/images/bear.png"
+                  alt="bearX"
                 />
               </div>
             </section>
