@@ -38,29 +38,31 @@ const SignUp = () => {
   return (
     <div className={styles.container}>
       <Modal title="SIGN UP">
+      <div className = {styles.divRow1}>
         <Input
           label="Email"
-          width="32vw"
+          width="100%"
           type="email"
           handleChange={email => changeEmail (email)}
         />
+      </div>
         <div className={styles.divRow2}>
           <Input
             label="First Name"
-            width="15vw"
+            width="100%"
             type="name"
             handleChange={firstName => changeName (firstName)}
           />
           <Input
             label="Last Name"
-            width="15vw"
+            width="100%"
             type="name"
             handleChange={lastName => changeLastName (lastName)}
           />
         </div>
         <Checkbox
           label="I agree to the Terms of Service and Private Policy"
-          width="32vw"
+          width="90%"
           onChecked={checked => changeChecked (checked)}
         />
         <div style={{paddingTop: '40px'}}>

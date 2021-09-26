@@ -1,31 +1,166 @@
 @import "../../Styles/colors.scss";
 @import "../../Styles/fonts.scss";
+$mobile: 576px;
+$tablet: 767px;
+$laptop: 992px;
+$desktop: 1200px;
 
-.general {
-  position: absolute;
-  padding-top: 30px;
-  padding-bottom: 15px;
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 35%;
-  background-color: $blue-dialog-background;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.35);
-  border-radius: 15px;
+// Extra mall devices (< 576px)
+@media (max-width: $mobile - 1){
+  .general {
+    position: absolute;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    background-color: $blue-dialog-background;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.35);
+    border-radius: 15px;
+  
+    p {
+      font-family: $font-nasalization;
+      font-weight: 700;
+      font-size: 26px;
+      color: white;
+    }
+  }
+  
+  .cross {
+    transform: scale(0.7);
+    position: absolute;
+    top: 20px;
+    right: 15px;
+  }
+};
 
-  p {
-    font-family: $font-nasalization;
-    font-weight: 700;
-    font-size: 26px;
-    color: white;
+// Small devices (landscape phones, 576px and up)
+@media (min-width: $mobile) and (max-width:$tablet - 1) {
+  .general {
+    position: absolute;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    background-color: $blue-dialog-background;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.35);
+    border-radius: 15px;
+  
+    p {
+      font-family: $font-nasalization;
+      font-weight: 700;
+      font-size: 26px;
+      color: white;
+    }
+  }
+  
+  .cross {
+    transform: scale(0.7);
+    position: absolute;
+    top: 20px;
+    right: 15px;
   }
 }
 
-.cross {
-  transform: scale(0.7);
-  position: absolute;
-  top: 20px;
-  right: 15px;
+// Medium devices (tablets, 768px and up)
+@media (min-width: $tablet) and (max-width: $laptop - 1){
+    .general {
+    position: absolute;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    background-color: $blue-dialog-background;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.35);
+    border-radius: 15px;
+
+    p {
+      font-family: $font-nasalization;
+      font-weight: 700;
+      font-size: 26px;
+      color: white;
+    }
+  }
+
+  .cross {
+    transform: scale(0.7);
+    position: absolute;
+    top: 20px;
+    right: 15px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: $laptop) and (max-width: $desktop - 1){
+  .general {
+    position: absolute;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    background-color: $blue-dialog-background;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.35);
+    border-radius: 15px;
+  
+    p {
+      font-family: $font-nasalization;
+      font-weight: 700;
+      font-size: 26px;
+      color: white;
+    }
+  }
+  
+  .cross {
+    transform: scale(0.7);
+    position: absolute;
+    top: 20px;
+    right: 15px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: $desktop){
+  .general {
+    position: absolute;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    background-color: $blue-dialog-background;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.35);
+    border-radius: 15px;
+  
+    p {
+      font-family: $font-nasalization;
+      font-weight: 700;
+      font-size: 26px;
+      color: white;
+    }
+  }
+  
+  .cross {
+    transform: scale(0.7);
+    position: absolute;
+    top: 20px;
+    right: 15px;
+  }
 }
