@@ -1,143 +1,148 @@
 @import "../../Styles/colors.scss";
 @import "../../Styles/fonts.scss";
+@import "../../Styles/breakpoints.scss";
 
-header {
-  display: flex;
-  justify-content: center;
-  transition-duration: 0.6s;
-}
-.navbar {
-  position: relative;
-  width: 100%;
-  height: 65px;
-  background-color: $nav-back;
-  z-index: 45;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  img {
-    height: 50px;
-    padding-right: 15px;
+// Large devices (desktops, 992px and up)
+@media (max-width: $desktop - 1) {
+  header {
+    display: flex;
+    justify-content: center;
+    transition-duration: 0.6s;
   }
-
-  .login {
-    height: 100%;
-    width: 8rem;
-    border: none;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: $font-nasalization;
-    letter-spacing: 1px;
-    font-size: 14px;
-    text-align: center;
-    background-color: $login-button;
-    color: white;
-  }
-
-  .signUp {
-    height: 100%;
-    width: 8rem;
-    border: none;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: $font-nasalization;
-    letter-spacing: 1px;
-    font-size: 14px;
-    text-align: center;
-    background-color: #ffffff;
-    color: $signUp-button;
-  }
-}
-
-.btnContainer {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-.navLink {
-  font-size: 18px;
-  font-weight: 600;
-  color: #3a3b3b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  z-index: 1;
-  text-decoration: none;
-}
-.hamburger {
-  display: none;
-}
-.bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  background-color: #ffffff;
-}
-.navMenu {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  margin-right: 36%;
-
-  ul {
-    list-style: none;
+  .navbar {
+    position: relative;
+    width: 100%;
+    height: 65px;
+    background-color: $nav-back;
+    z-index: 45;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      height: 50px;
+      padding-right: 15px;
+    }
+
+    .login {
+      height: 65px;
+      width: 50%;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: $font-nasalization;
+      letter-spacing: 1px;
+      font-size: 14px;
+      text-align: center;
+      background-color: $login-button;
+      color: white;
+    }
+
+    .signUp {
+      height: 65px;
+      width: 50%;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: $font-nasalization;
+      letter-spacing: 1px;
+      font-size: 14px;
+      text-align: center;
+      background-color: #ffffff;
+      color: $signUp-button;
+    }
   }
 
-  li {
-    list-style: none;
-  }
-
-  a {
-    font-size: 13px;
-    text-decoration: none;
+  .navLink {
+    font-size: 25px;
+    font-weight: 600;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+    text-decoration: none;
     font-family: $font-nanum;
-    font-weight: 700;
   }
-}
-@media only screen and (max-width: 1100px) {
+
+  .hamburger {
+    display: none;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    background-color: #ffffff;
+  }
+  .navMenu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding-right: 370px;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      color: #fff;
+    }
+
+    li {
+      list-style: none;
+      padding: 0px 5px;
+      height: 40px;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-family: $font-nanum;
+      font-weight: 700;
+    }
+  }
+
   .navMenu {
     display: none;
   }
+
   .navMenuActive {
-    margin: 0;
     position: fixed;
     left: 0;
-    top: -100rem;
+    top: 0;
     flex-direction: column;
-    background-color: #ededed;
+    background-color: $nav-back;
     width: 100%;
-    border-radius: 10px;
     text-align: center;
     transition: 0.5s;
-    border-radius: 0px 0px 50px 50px;
     gap: 15px;
-    padding-bottom: 30px;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    padding-top: 100px;
+    height: 100%;
+    justify-content: space-between;
   }
-  .navMenuActive {
-    padding-top: 35px;
-    top: 0px;
+  .btnContainer {
+    display: none;
   }
+
   .hamburger {
     display: block;
     cursor: pointer;
     margin-right: 20px;
   }
+
   .hamburgerActive {
+    position: fixed;
+    right: 0;
+    margin-right: 20px;
     cursor: pointer;
+
     .bar {
       &:nth-child(2) {
         opacity: 0;
@@ -151,17 +156,217 @@ header {
     }
   }
 
-  .sub__title {
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .logout {
+    font-size: 25px;
+    list-style: none;
+    padding: 0px 5px;
+    text-decoration: none;
+    color: $logout;
+    font-family: $font-nanum;
+    font-weight: 700;
+
+    a {
+      text-decoration: none;
+      color: $logout;
+    }
+  }
+
+  .bottomContainer {
+    background-color: $primary-blue;
+    width: 100vw;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    button {
+      border: none;
+      background-color: $logout;
+      color: white;
+      font-family: $font-monkyta;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .user {
+      display: flex;
+      text-align: right;
+      gap: 5px;
+      justify-content: flex-end;
+    }
+
+    .name {
+      color: $account-name;
+      font-family: $font-nanum;
+      font-weight: 600;
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .ncoins {
+      display: flex;
+      text-align: right;
+      gap: 5px;
+      justify-content: flex-end;
+
+      p {
+        color: white;
+        font-family: $font-nanum;
+        font-weight: 600;
+        font-size: 13px;
+        text-align: right;
+      }
+
+      img {
+        height: 15px;
+        padding: 0;
+      }
+    }
+  }
+
+  .navLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: $desktop) {
+  header {
     display: flex;
     justify-content: center;
-    align-self: center;
-    width: 125%;
-    height: 10px;
-    background-color: #00d1ff;
-    border-radius: 20px;
-    cursor: pointer;
+    transition-duration: 0.6s;
   }
+
+  .navbar {
+    position: relative;
+    width: 100%;
+    height: 65px;
+    background-color: $nav-back;
+    z-index: 45;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      height: 50px;
+      padding-right: 15px;
+    }
+
+    .login {
+      height: 65px;
+      width: 8rem;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: $font-nasalization;
+      letter-spacing: 1px;
+      font-size: 14px;
+      text-align: center;
+      background-color: $login-button;
+      color: white;
+    }
+
+    .signUp {
+      height: 65px;
+      width: 8rem;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: $font-nasalization;
+      letter-spacing: 1px;
+      font-size: 14px;
+      text-align: center;
+      background-color: #ffffff;
+      color: $signUp-button;
+    }
+  }
+
   .btnContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .navLink {
+    font-size: 18px;
+    font-weight: 600;
+    color: #3a3b3b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+    text-decoration: none;
+  }
+
+  .hamburger {
     display: none;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    background-color: #ffffff;
+  }
+
+  .navMenu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding-right: 430px;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+    }
+
+    li {
+      list-style: none;
+      padding: 0px 5px;
+    }
+
+    a {
+      font-size: 13px;
+      text-decoration: none;
+      color: white;
+      font-family: $font-nanum;
+      font-weight: 700;
+    }
+  }
+
+  .links {
+    display: flex;
+  }
+
+  .bottom,
+  .bottomContainer,
+  .logout {
+    display: none;
+  }
+
+  .navLinks {
+    display: flex;
+    gap: 25px;
+
+    li a {
+      width: 100%;
+    }
   }
 }

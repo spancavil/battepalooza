@@ -1,32 +1,172 @@
 @import '../../Styles/fonts.scss';
 @import '../../Styles/colors.scss';
+$mobile: 576px;
+$tablet: 767px;
+$laptop: 992px;
+$desktop: 1200px;
 
-.inputContainer{
-    display: flex;
-    justify-content: left;
-    flex-direction: column;
-    padding-top: 20px;
-    font-family: $font-nasalization;
-    label {
-        padding-bottom: 10px;
-        font-size: 18px;
-        color: white;
-    }
-    input {
-        padding: 0px 10px;
+// Extra mall devices (< 576px)
+@media (max-width: $mobile - 1){
+    .inputContainer{
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        padding-top: 20px;
         font-family: $font-nasalization;
-        color: white;
-        background-color: $input-background;
-        height: 53px;
-        font-size: 25px;
-        border-radius: 5px;
-        border: 0.5px solid #FFFFFF;
-        margin-bottom: 10px;
+        label {
+            padding-bottom: 10px;
+            font-size: 12px;
+            color: white;
+        }
+        input {
+            padding: 0px 10px;
+            font-family: $font-nasalization;
+            color: white;
+            background-color: $input-background;
+            height: 40px;
+            font-size: 13px;
+            border-radius: 5px;
+            border: 0.5px solid #FFFFFF;
+            margin-bottom: 10px;
+        }
+        span {
+            font-size: 12px;
+            color: white;
+            padding-bottom: 10px;
+        }
+    
     }
-    span {
-        font-size: 12px;
-        color: white;
-        padding-bottom: 10px;
-    }
+};
 
+// Small devices (landscape phones, 576px and up)
+@media (min-width: $mobile) and (max-width:$tablet - 1) {
+    .inputContainer{
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        padding-top: 20px;
+        font-family: $font-nasalization;
+        label {
+            padding-bottom: 10px;
+            font-size: 18px;
+            color: white;
+        }
+        input {
+            padding: 0px 10px;
+            font-family: $font-nasalization;
+            color: white;
+            background-color: $input-background;
+            height: 53px;
+            font-size: 25px;
+            border-radius: 5px;
+            border: 0.5px solid #FFFFFF;
+            margin-bottom: 10px;
+        }
+        span {
+            font-size: 12px;
+            color: white;
+            padding-bottom: 10px;
+        }
+    
+    }
 }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: $tablet) and (max-width: $laptop - 1){
+    .inputContainer{
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        padding-top: 20px;
+        font-family: $font-nasalization;
+        label {
+            padding-bottom: 10px;
+            font-size: 18px;
+            color: white;
+        }
+        input {
+            padding: 0px 10px;
+            font-family: $font-nasalization;
+            color: white;
+            background-color: $input-background;
+            height: 53px;
+            font-size: 25px;
+            border-radius: 5px;
+            border: 0.5px solid #FFFFFF;
+            margin-bottom: 10px;
+        }
+        span {
+            font-size: 12px;
+            color: white;
+            padding-bottom: 10px;
+        }
+    
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: $laptop) and (max-width: $desktop - 1){
+    .inputContainer{
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        padding-top: 20px;
+        font-family: $font-nasalization;
+        label {
+            padding-bottom: 10px;
+            font-size: 18px;
+            color: white;
+        }
+        input {
+            padding: 0px 10px;
+            font-family: $font-nasalization;
+            color: white;
+            background-color: $input-background;
+            height: 53px;
+            font-size: 25px;
+            border-radius: 5px;
+            border: 0.5px solid #FFFFFF;
+            margin-bottom: 10px;
+        }
+        span {
+            font-size: 12px;
+            color: white;
+            padding-bottom: 10px;
+        }
+    
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: $desktop){
+    .inputContainer{
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        padding-top: 20px;
+        font-family: $font-nasalization;
+        label {
+            padding-bottom: 10px;
+            font-size: 18px;
+            color: white;
+        }
+        input {
+            padding: 0px 10px;
+            font-family: $font-nasalization;
+            color: white;
+            background-color: $input-background;
+            height: 53px;
+            font-size: 25px;
+            border-radius: 5px;
+            border: 0.5px solid #FFFFFF;
+            margin-bottom: 10px;
+        }
+        span {
+            font-size: 12px;
+            color: white;
+            padding-bottom: 10px;
+        }
+    
+    }
+}
+

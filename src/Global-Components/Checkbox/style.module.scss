@@ -1,16 +1,95 @@
 @import '../../Styles/fonts.scss';
+$mobile: 576px;
+$tablet: 767px;
+$laptop: 992px;
+$desktop: 1200px;
 
-.container{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-family: $font-nasalization;
-    font-size: 13px;
-    color: white;
-    padding-top: 20px;
-    input {
-        margin-right: 5px;
-        border-radius: 3px;
-        width: 14px;
+// Extra mall devices (< 576px)
+@media (max-width: $mobile - 1){
+    .container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $font-nasalization;
+        font-size: 11px;
+        color: white;
+        padding-top: 20px;
+        input {
+            margin-right: 5px;
+            border-radius: 3px;
+            width: 14px;
+        }
+    }
+};
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: $mobile) and (max-width:$tablet - 1) {
+    .container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $font-nasalization;
+        font-size: 13px;
+        color: white;
+        padding-top: 20px;
+        input {
+            margin-right: 5px;
+            border-radius: 3px;
+            width: 14px;
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: $tablet) and (max-width: $laptop - 1){
+    .container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $font-nasalization;
+        font-size: 13px;
+        color: white;
+        padding-top: 20px;
+        input {
+            margin-right: 5px;
+            border-radius: 3px;
+            width: 14px;
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: $laptop) and (max-width: $desktop - 1){
+    .container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $font-nasalization;
+        font-size: 13px;
+        color: white;
+        padding-top: 20px;
+        input {
+            margin-right: 5px;
+            border-radius: 3px;
+            width: 14px;
+        }
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: $desktop){
+    .container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $font-nasalization;
+        font-size: 13px;
+        color: white;
+        padding-top: 20px;
+        input {
+            margin-right: 5px;
+            border-radius: 3px;
+            width: 14px;
+        }
     }
 }
