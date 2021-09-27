@@ -7,13 +7,17 @@ import NCoin from '../../Assets/img/icon-ncoin.png';
 
 const NavBar = () => {
   const [menu, setMenu] = useState (false);
-
-  const user = true;
+  const [user, setUser] = useState (true);
 
   const onClick = e => {
     e.preventDefault ();
     setMenu (!menu);
   };
+
+  const logout = () => {
+    setUser(!user)
+    setMenu(!menu)
+  }
 
   return (
     <header className={menu === true ? styles.header : ''}>
@@ -39,12 +43,14 @@ const NavBar = () => {
               ))}
               {user
                 ? <li className={styles.logout}>
-                    <Link onClick={() => setMenu (!menu)} to="/">LOG OUT</Link>
+                    <Link onClick={logout} to="/">
+                      LOG OUT
+                    </Link>
                   </li>
                 : null}
             </div>
 
-            <div>
+            <div className={styles.cont}>
               {user
                 ? <div className={styles.bottomContainer}>
                     <button>BUY MORE</button>
@@ -70,7 +76,7 @@ const NavBar = () => {
                       </div>
                     </div>
                   </div>
-                : <div>
+                : <div className={styles.btns}>
                     <Link onClick={() => setMenu (!menu)} to="/login">
                       <button className={styles.login}>LOGIN</button>
                     </Link>
