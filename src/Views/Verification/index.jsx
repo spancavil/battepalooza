@@ -19,12 +19,14 @@ const Verification = () => {
   return (
     <div className={styles.container}>
       <Modal title="VERIFICATION">
-        <Input
-          label="Code"
-          width="32vw"
-          subtitle="Input the 6 digit code that has been sent to your email"
-          handleChange={(code)=> handleChange(code)}
-        />
+        <div className={styles.inputContainer}>
+          <Input
+            label="Code"
+            width="100%"
+            subtitle="Input the 6 digit code that has been sent to your email"
+            handleChange={(code)=> handleChange(code)}
+          />
+        </div>
         <div style={{ paddingTop: '40px' }}>
           <Button title="VERIFY"
           onClick = {submitCode}

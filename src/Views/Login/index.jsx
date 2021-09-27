@@ -24,12 +24,14 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <Modal title="LOGIN">
-        <Input
-          label="Email"
-          width="32vw"
-          type="email"
-          handleChange={email => changeEmail (email)}
-        />
+        <div className={styles.inputContainer}>
+          <Input
+            label="Email"
+            width="100%"
+            type="email"
+            handleChange={email => changeEmail (email)}
+          />
+        </div>
         <div style={{paddingTop: '25px'}}>
           <Button title="GET CODE" onClick={onLogin} />
         </div>
