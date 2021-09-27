@@ -1,29 +1,63 @@
 @import "../../Styles/colors.scss";
+@import "../../Styles/breakpoints.scss";
 
-.container {
-  width: 100%;
-  height: 100vh;
-  background-color: $signUp-button;
-  position: absolute;
-  top: 0;
-  z-index: 0;
+// Small devices (landscape phones, 576px and up)
+@media (max-width: $tablet - 1) {
+  .container {
+    width: 100%;
+    height: 100vh;
+    background-color: $signUp-button;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+  }
+
+  .image {
+    background-image: url("../../Assets/img/BackgroundAccount.png");
+    z-index: 1;
+    height: 100vh;
+    opacity: 1;
+    width: 100%;
+  }
+
+  .dataContainer {
+    position: absolute;
+    margin-top: 60px + 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+  }
 }
 
-.image {
-  background-image: url("../../Assets/img/BackgroundAccount.png");
-  z-index: 1;
-  height: 100vh;
-  opacity: 1;
-  width: 100%;
-}
+@media (min-width: $tablet) {
+  .container {
+    width: 100%;
+    height: 100vh;
+    background-color: $signUp-button;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+  }
 
-.dataContainer {
-  position: absolute;
-  margin-top: 60px + 40px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 35px;
+  .image {
+    background-image: url("../../Assets/img/BackgroundAccount.png");
+    z-index: 1;
+    height: 100vh;
+    opacity: 1;
+    width: 100%;
+  }
+
+  .dataContainer {
+    position: absolute;
+    margin-top: 60px + 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+  }
 }
