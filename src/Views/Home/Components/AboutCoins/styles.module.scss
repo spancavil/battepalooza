@@ -6,7 +6,7 @@
     width: 100%;
     height: 350px;
     background-color: rgba(0, 73, 219, 1);
-    margin-top: 612px;
+    margin-top: 550px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +18,58 @@
   }
 }
 
-@media (min-width: $mobile) {
+@media (min-width: $mobile) and (max-width: $tablet - 1) {
+  .content2 {
+    width: 100%;
+    height: 350px;
+    background-color: rgba(0, 73, 219, 1);
+    margin-top: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h4 {
+      font-family: $font-nasalization;
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .content2 {
+    width: 100%;
+    height: 350px;
+    background-color: rgba(0, 73, 219, 1);
+    margin-top: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h4 {
+      font-family: $font-nasalization;
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width: $mobile) and (max-width: $tablet - 1) {
+  .content2 {
+    width: 100%;
+    height: 350px;
+    background-color: rgba(0, 73, 219, 1);
+    margin-top: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h4 {
+      font-family: $font-nasalization;
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
   .content2 {
     width: 100%;
     height: 350px;
