@@ -1,7 +1,71 @@
 @import "../../../../Styles/fonts.scss";
 @import "../../../../Styles/breakpoints.scss";
 
-@media (max-width: $tablet - 1) {
+@media (max-width: $mobile - 1) {
+  .content4 {
+    background: url("../../../../Assets/img/index-bg-02.jpg") bottom center
+      no-repeat #020c24;
+    padding: 0 0 130px 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+
+    .container {
+      display: flex;
+      width: 100%;
+      flex-direction: column-reverse;
+      justify-content: space-around;
+
+      h3 {
+        font-size: 1.3em;
+        padding: 35px;
+        text-transform: uppercase;
+        font-family: $font-monkyta;
+      }
+
+      .box2 {
+        z-index: 2;
+        width: 100%;
+        margin: 0;
+        text-align: left;
+        position: relative;
+
+        p {
+          padding: 0 35px 35px;
+          z-index: 50;
+          margin: 0 auto;
+          position: relative;
+          max-width: 800px;
+          font-family: $font-route159;
+        }
+      }
+    }
+
+    .box {
+      width: 100%;
+      margin: 10px;
+      text-align: left;
+      position: relative;
+
+      img {
+        width: 100%;
+        max-width: 580px;
+      }
+    }
+  }
+
+  .article {
+    width: 300px;
+    min-width: 300px;
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+  }
+}
+
+@media (min-width: $mobile) and (max-width: $tablet - 1) {
   .content4 {
     background: url("../../../../Assets/img/index-bg-02.jpg") bottom center
       no-repeat #020c24;
