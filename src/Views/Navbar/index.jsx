@@ -1,13 +1,23 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Links} from './links';
 import Logo from '../../Assets/Logo.png';
 import styles from './styles.module.scss';
 import NCoin from '../../Assets/img/icon-ncoin.png';
+import {useMediaQuery} from '../../Hooks/useMediaQuery';
 
 const NavBar = () => {
   const [menu, setMenu] = useState (false);
   const [user, setUser] = useState (true);
+
+  let responsive = useMediaQuery ('(min-width: 1200px)');
+
+  useEffect (
+    () => {
+      if (!responsive) setMenu (false);
+    },
+    [responsive]
+  );
 
   const onClick = e => {
     e.preventDefault ();
@@ -15,9 +25,9 @@ const NavBar = () => {
   };
 
   const logout = () => {
-    setUser(!user)
-    setMenu(!menu)
-  }
+    setUser (!user);
+    setMenu (!menu);
+  };
 
   return (
     <header className={menu === true ? styles.header : ''}>
@@ -28,7 +38,11 @@ const NavBar = () => {
         </Link>
 
         <div className={styles.links}>
-          <ul className={menu === true ? styles.navMenuActive : styles.navMenu}>
+          <ul
+            className={
+              menu && !responsive ? styles.navMenuActive : styles.navMenu
+            }
+          >
             <div className={styles.navLinks}>
               {Links.map (btn => (
                 <li>

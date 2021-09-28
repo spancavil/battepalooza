@@ -250,6 +250,14 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: $desktop) {
+  .hamburgerActive,
+  .btns,
+  .navLinks,
+  .navMenuActive,
+  .hamburger {
+    display: none;
+  }
+
   header {
     display: flex;
     justify-content: center;
