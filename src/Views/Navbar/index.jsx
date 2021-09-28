@@ -14,7 +14,7 @@ const NavBar = () => {
 
   useEffect (
     () => {
-      responsive === true ? setMenu(false) : setMenu(false)
+      if (!responsive) setMenu (false);
     },
     [responsive]
   );
@@ -38,7 +38,11 @@ const NavBar = () => {
         </Link>
 
         <div className={styles.links}>
-          <ul className={menu === true ? styles.navMenuActive : styles.navMenu}>
+          <ul
+            className={
+              menu && !responsive ? styles.navMenuActive : styles.navMenu
+            }
+          >
             <div className={styles.navLinks}>
               {Links.map (btn => (
                 <li>
