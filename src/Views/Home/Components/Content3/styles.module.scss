@@ -1,41 +1,85 @@
 @import "../../../../Styles/fonts.scss";
+@import "../../../../Styles/breakpoints.scss";
 
-.content3 {
-  background: url("../../../../Assets/img/bg-section01.jpg") bottom center
-    no-repeat #010320;
-  padding: 70px 0 60px 0;
+@media (max-width: $desktop - 1) {
+  .content3 {
+    background: url("../../../../Assets/img/bg-section01.jpg") bottom center
+      no-repeat #010320;
+    padding: 70px 0 60px 0;
+  }
+
+  .container {
+    width: calc(100% - 20px);
+    margin: 10px;
+    color: #fff;
+    text-align: center;
+    font-size: 1em;
+
+    h3 {
+      max-width: 680px;
+      margin: 0 auto;
+      background: linear-gradient(to bottom, #f9dbab, #fb90cf, #4837e9);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      font-size: 1.3em;
+      padding: 35px;
+      text-transform: uppercase;
+      font-family: $font-monkyta;
+    }
+
+    p {
+      display: flex;
+      text-align: center;
+      position: relative;
+      font-size: 1em;
+      font-family: $font-route159;
+    }
+
+    img {
+      padding: 30px;
+      max-width: 150px;
+    }
+  }
 }
 
-.container {
-  width: calc(100% - 20px);
-  margin: 10px;
-  color: #fff;
-  text-align: center;
-  font-size: 1em;
-
-  h3 {
-    max-width: 680px;
-    margin: 0 auto;
-    background: linear-gradient(to bottom, #f9dbab, #fb90cf, #4837e9);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    font-size: 2.4em;
-    padding: 35px;
-    text-transform: uppercase;
-    font-family: $font-monkyta;
+@media (min-width: $desktop) {
+  .content3 {
+    background: url("../../../../Assets/img/bg-section01.jpg") bottom center
+      no-repeat #010320;
+    padding: 70px 0 60px 0;
   }
 
-  p {
-    display: flex;
+  .container {
+    width: calc(100% - 20px);
+    margin: 10px;
+    color: #fff;
     text-align: center;
-    margin: 0 130px;
-    position: relative;
     font-size: 1em;
-    font-family: $font-route159;
-  }
 
-  img {
-    padding: 30px;
-    max-width: 150px;
+    h3 {
+      max-width: 680px;
+      margin: 0 auto;
+      background: linear-gradient(to bottom, #f9dbab, #fb90cf, #4837e9);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      font-size: 2.4em;
+      padding: 35px;
+      text-transform: uppercase;
+      font-family: $font-monkyta;
+    }
+
+    p {
+      display: flex;
+      text-align: center;
+      margin: 0 130px;
+      position: relative;
+      font-size: 1em;
+      font-family: $font-route159;
+    }
+
+    img {
+      padding: 30px;
+      max-width: 150px;
+    }
   }
 }
