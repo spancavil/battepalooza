@@ -13,7 +13,7 @@ import styles from './style.module.scss';
 const Input = ({label, subtitle, width, type, handleChange}) => {
   return (
     <div className={styles.inputContainer}>
-      <label for={label}>{label}</label>
+      <label htmlFor={label}>{label}</label>
       <input
         autoComplete="off"
         type={type}

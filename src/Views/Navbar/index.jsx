@@ -44,8 +44,8 @@ const NavBar = () => {
             }
           >
             <div className={styles.navLinks}>
-              {Links.map (btn => (
-                <li>
+              {Links.map ((btn, i) => (
+                <li key={i}>
                   <Link
                     onClick={() => setMenu (!menu)}
                     to={btn.path}

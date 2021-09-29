@@ -53,7 +53,6 @@ const HomeContainer = () => {
                     focusable="false"
                     data-prefix="fab"
                     data-icon="facebook-square"
-                    class="svg-inline--fa fa-facebook-square fa-w-14"
                     role="img"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 448 512"
@@ -100,7 +99,6 @@ const HomeContainer = () => {
                     focusable="false"
                     data-prefix="fab"
                     data-icon="instagram"
-                    class="svg-inline--fa fa-instagram fa-w-14"
                     role="img"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 448 512"
@@ -124,7 +122,6 @@ const HomeContainer = () => {
                     focusable="false"
                     data-prefix="fab"
                     data-icon="youtube"
-                    class="svg-inline--fa fa-youtube fa-w-18"
                     role="img"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 576 512"
@@ -155,16 +152,16 @@ const HomeContainer = () => {
               </div>
 
               <div className={styles.widget}>
-                <div class="widget-content">
-                  {' '}<div class="textwidget">
+                <div>
+                  <div>
                     <p>© 2020 nWay – All Rights Reserved.</p>
                   </div>
                 </div>
               </div>
               <div className={styles.menu}>
-                <div class="widget-content">
-                  <div class="menu-footer-container">
-                    <ul id="menu-footer" class="menu">
+                <div>
+                  <div>
+                    <ul>
                       <li>
                         <a
                           href="http://battlepalooza.com/news/"
@@ -175,10 +172,7 @@ const HomeContainer = () => {
                         </a>
                       </li>
                       <li>|</li>
-                      <li
-                        id="menu-item-40"
-                        class="menu-item menu-item-type-post_type menu-item-object-post menu-item-40"
-                      >
+                      <li>
                         <a
                           href="http://battlepalooza.com/terms-of-service/"
                           target="_blank"
@@ -188,10 +182,7 @@ const HomeContainer = () => {
                         </a>
                       </li>
                       <li>|</li>
-                      <li
-                        id="menu-item-42"
-                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42"
-                      >
+                      <li id="menu-item-42">
                         <a
                           href="https://nway.helpshift.com/a/battlepalooza/?p=web"
                           target="_blank"
