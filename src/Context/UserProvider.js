@@ -23,7 +23,7 @@ const UserProvider = ({ children }) => {
 
     useEffect( () => {
         (async () => {
-            const data =JSON.parse(localStorage.getItem('userbp'))
+            const data =JSON.parse(localStorage.getItem('user'))
             if (data) setToken(data.token);
         })()
         return () => {

@@ -6,6 +6,8 @@ import Modal from '../../Global-Components/Modal';
 import styles from './style.module.scss';
 import {useState} from 'react';
 import SubMessage from '../../Global-Components/SubMessage';
+import authService from '../../Services/auth.service';
+import { useHistory } from 'react-router';
 
 const SignUp = () => {
   const [form, setForm] = useState ({
@@ -14,6 +16,7 @@ const SignUp = () => {
     email: '',
     checked: false,
   });
+  const history = useHistory();
 
   const changeEmail = email => {
     setForm ({...form, email});
@@ -31,8 +34,11 @@ const SignUp = () => {
     setForm ({...form, checked});
   };
 
-  const onSingUp = () => {
-    alert(`User: ${form.firstName} ${form.firstName}, email: ${form.email} registered!`)
+  const onSingUp = async () => {
+    const response = await authService.register(form.firstName, form.lastName, form.email);
+    console.log(response);
+    alert(response.data.message);
+    history.push('/');
   };
 
   return (
