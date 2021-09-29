@@ -1,23 +1,27 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {useHistory} from 'react-router';
+import { UserData } from '../../Context/UserProvider';
 import Button from '../../Global-Components/Button';
 import Input from '../../Global-Components/Input';
 import Modal from '../../Global-Components/Modal';
 import SubMessage from '../../Global-Components/SubMessage';
+import authService from '../../Services/auth.service';
 import styles from './styles.module.scss';
 
+
 const Login = () => {
-  const [email, setEmail] = useState ('');
+  const [email, setEMail] = useState ('');
+  const {setMail} = useContext(UserData);
 
   const history = useHistory ();
 
   const changeEmail = email => {
-    setEmail (email);
+    setEMail (email);
   };
 
   const onLogin = () => {
-    console.log (email);
-    console.log ('Login !');
+    setMail(email);
+    authService.getVerificationCode(email);
     history.push ('/verification');
   };
 
