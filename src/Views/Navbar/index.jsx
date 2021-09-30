@@ -92,6 +92,15 @@ const NavBar = () => {
                     HELP
                   </Link>
                 </li>
+                {userData.email && <li>
+                  <Link
+                    onClick={() => setMenu (!menu)}
+                    to= '/account'
+                    className={styles.navLink}
+                  >
+                    ACCOUNT
+                  </Link>
+                </li>}
            
               {userData.email
                 ? <li onClick={() => logout ()} className={styles.logout}>
