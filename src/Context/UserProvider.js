@@ -9,6 +9,8 @@ const UserProvider = ({ children }) => {
     const [userToken, setUserToken] = useState({});
     const [userData, setUserData] = useState({});
 
+    console.log(userData)
+
     const setMail = (email) => {
         setEmail(email);
     }

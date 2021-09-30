@@ -6,10 +6,10 @@ import styles from './styles.module.scss';
 import NCoin from '../../Assets/img/icon-ncoin.png';
 import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import {UserData} from '../../Context/UserProvider';
-import authService from '../../Services/auth.service';
 
 const NavBar = () => {
   const [menu, setMenu] = useState (false);
+  const [id, setId] = useState (null);
 
   const history = useHistory ();
   const {userData} = useContext (UserData);
@@ -23,6 +23,13 @@ const NavBar = () => {
     [responsive]
   );
 
+  useEffect (
+    () => {
+      setId (userData._id.slice (0, 4));
+    },
+    [userData]
+  );
+
   const onClick = e => {
     e.preventDefault ();
     setMenu (!menu);
@@ -31,7 +38,7 @@ const NavBar = () => {
   const logout = () => {
     localStorage.removeItem ('user');
     history.push ('/');
-    window.location.reload()
+    window.location.reload ();
   };
 
   return (
@@ -110,7 +117,7 @@ const NavBar = () => {
                   <div className={styles.flex}>
                     <div className={styles.dataContainer}>
                       <div className={styles.user}>
-                        <p>{userData.name}#2123</p>
+                        <p>{userData.name}#{id}</p>
                         <svg
                           width="15"
                           height="15"
