@@ -1,18 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styles from './styles.module.scss';
 import nCoin from '../../../../Assets/img/icon-ncoin.png';
+import { UserData } from '../../../../Context/UserProvider';
 
 // Por ahora esta Hardcodeado pero cuando
 // tengamos la api hay que crear los estados
 // y las funciones
 
 const AccountData = ({
-  title = 'Jhon',
-  id = '2457',
   date = 'July, 2021',
   linked = true,
 }) => {
+  const {userData} = useContext (UserData)
   const [Coins, setCoins] = useState (10000000);
+  const [id, setId] = useState("")
 
   const separator = Coins => {
     var str = Coins.toString ().split ('.');
@@ -20,13 +21,20 @@ const AccountData = ({
     return str.join ('.');
   };
 
+  useEffect (
+    () => {
+      userData._id && setId (userData._id.slice (-4));
+    },
+    [userData]
+  );
+
   useEffect (() => {
     setCoins (separator (Coins));
   }, [Coins]);
 
   return (
     <div className={styles.container}>
-      <h4 className={styles.title}>{title}#{id}</h4>
+      <h4 className={styles.title}>{userData.name}#{id}</h4>
       <p className={styles.joined}>Joined {date}</p>
       {linked && <p className={styles.linked}>Account linked to Mobile App</p>}
       <div className={styles.nCoin}>
