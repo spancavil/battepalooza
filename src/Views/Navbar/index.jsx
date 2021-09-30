@@ -80,7 +80,7 @@ const NavBar = () => {
                     <button>BUY MORE</button>
                     <div className={styles.bottom}>
                       <div className={styles.user}>
-                        <p className={styles.name}>{userData.email}</p>
+                        <p className={styles.name}>{userData.name}#{id}</p>
                         <svg
                           width="15"
                           height="15"
