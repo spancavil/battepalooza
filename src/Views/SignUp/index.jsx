@@ -81,13 +81,11 @@ const SignUp = () => {
         form.lastName,
         form.email
       );
-      console.log(response);
       if (response.data.message.includes("undefined")){
         alert("Email already registered!");
       } else {
         alert("User registered succesfully!");
-        history.push ('/');
-        console.log("enter");
+        history.push ('/login');
       }
     }
   };
