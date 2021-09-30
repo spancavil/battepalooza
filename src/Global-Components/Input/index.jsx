@@ -15,6 +15,7 @@ const Input = ({label, subtitle, width, type, handleChange}) => {
     <div className={styles.inputContainer}>
       <label htmlFor={label}>{label}</label>
       <input
+        required
         autoComplete="off"
         type={type}
         id={label}
