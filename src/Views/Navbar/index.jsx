@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import {Links} from './links';
 import Logo from '../../Assets/Logo.png';
 import styles from './styles.module.scss';
 import NCoin from '../../Assets/img/icon-ncoin.png';
@@ -56,17 +55,53 @@ const NavBar = () => {
             }
           >
             <div className={styles.navLinks}>
-              {Links.map ((btn, i) => (
-                <li key={i}>
+              
+                <li>
                   <Link
                     onClick={() => setMenu (!menu)}
-                    to={btn.path}
+                    to= {userData.email ? '/packs' : '/needlogin'}
                     className={styles.navLink}
                   >
-                    {btn.title}
+                    PACKS
                   </Link>
                 </li>
-              ))}
+                <li>
+                  <Link
+                    onClick={() => setMenu (!menu)}
+                    to= {userData.email ? '/marketplace' : '/needlogin'}
+                    className={styles.navLink}
+                  >
+                    MARKETPLACE
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="https://battlepalooza.com/news/"
+                    target="_blank" rel="noopener noreferrer"
+                    className={styles.navLink}
+                  >
+                    NEWS
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    onClick={() => setMenu (!menu)}
+                    to= '/help'
+                    className={styles.navLink}
+                  >
+                    HELP
+                  </Link>
+                </li>
+                {userData.email && <li>
+                  <Link
+                    onClick={() => setMenu (!menu)}
+                    to= '/account'
+                    className={styles.navLink}
+                  >
+                    ACCOUNT
+                  </Link>
+                </li>}
+           
               {userData.email
                 ? <li onClick={() => logout ()} className={styles.logout}>
                     LOG OUT

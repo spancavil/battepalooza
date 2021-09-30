@@ -2,11 +2,11 @@ import React from 'react';
 import {buttons} from './buttons';
 import styles from './styles.module.scss';
 
-const AccountMenu = () => {
+const AccountMenu = ({handleClick}) => {
   return (
     <div className={styles.btnContainer}>
-      {buttons.map (({title, onClick}) => (
-        <button key={title} onClick={onClick}>{title}</button>
+      {buttons.map (({title}) => (
+        <button key={title} onClick={()=> handleClick(title)}>{title}</button>
       ))}
     </div>
   );
