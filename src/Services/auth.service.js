@@ -1,4 +1,5 @@
 import axios from "axios";
+import authHeader from "./auth-header";
 
 const API_URL = "https://be-battlepalooza.herokuapp.com/api/";
 
@@ -36,8 +37,10 @@ class AuthService {
     );
   }
 
-  getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));;
+  validateUser({userId, token}){
+    
+    const header = authHeader(token);
+    return axios.get(`${API_URL}user?id=${userId}`, {headers: header});
   }
 
   getVerificationCode(email){

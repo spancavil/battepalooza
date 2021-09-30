@@ -1,20 +1,24 @@
 import { createContext, useState, useEffect } from 'react';
+import authService from '../Services/auth.service';
 
 export const UserData = createContext({});
 
 const UserProvider = ({ children }) => {
     const [email, setEmail] = useState("");
     const [verification, setVerification] = useState("");
-    const [token, setToken] = useState("");
+    const [userToken, setUserToken] = useState({});
+    const [userData, setUserData] = useState({});
 
     const setMail = (email) => {
         setEmail(email);
     }
 
-    const setTheToken = (data) => {
-        console.log(data);
-        localStorage.setItem('user', JSON.stringify(data))
-        setToken(data);
+    const setTheToken = async (data) => {
+        const user = data.data
+        localStorage.setItem('user', JSON.stringify(user))
+        setUserToken(user);
+        const response = await authService.validateUser(user);
+        setUserData({...response.data.data});
     }
 
     const setCodeVerification = (code) => {
@@ -23,8 +27,12 @@ const UserProvider = ({ children }) => {
 
     useEffect( () => {
         (async () => {
-            const data =JSON.parse(localStorage.getItem('user'))
-            if (data) setToken(data.token);
+            const user =JSON.parse(localStorage.getItem('user'))
+            if (user) {
+                setUserToken(user);
+                const response = await authService.validateUser(user);
+                setUserData({...response.data.data});
+            }
         })()
         return () => {
 
@@ -32,7 +40,7 @@ const UserProvider = ({ children }) => {
     }, [])
 
     return (
-        <UserData.Provider value = {{setMail, setTheToken, setCodeVerification, verification, email, token}}>
+        <UserData.Provider value = {{setMail, setTheToken, setCodeVerification, verification, email, userToken, userData}}>
             {children}
         </UserData.Provider>
     )

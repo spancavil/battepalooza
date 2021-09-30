@@ -1,14 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Links} from './links';
 import Logo from '../../Assets/Logo.png';
 import styles from './styles.module.scss';
 import NCoin from '../../Assets/img/icon-ncoin.png';
 import {useMediaQuery} from '../../Hooks/useMediaQuery';
+import { UserData } from '../../Context/UserProvider';
 
 const NavBar = () => {
   const [menu, setMenu] = useState (false);
-  const [user, setUser] = useState (true);
+
+  const {userData} = useContext(UserData);
 
   let responsive = useMediaQuery ('(min-width: 1200px)');
 
@@ -25,9 +27,8 @@ const NavBar = () => {
   };
 
   const logout = () => {
-    setUser (!user);
     setMenu (!menu);
-  };
+  };  
 
   return (
     <header className={menu === true ? styles.header : ''}>
@@ -55,7 +56,7 @@ const NavBar = () => {
                   </Link>
                 </li>
               ))}
-              {user
+              {userData
                 ? <li className={styles.logout}>
                     <Link onClick={logout} to="/">
                       LOG OUT
@@ -65,12 +66,12 @@ const NavBar = () => {
             </div>
 
             <div className={styles.cont}>
-              {user
+              {userData
                 ? <div className={styles.bottomContainer}>
                     <button>BUY MORE</button>
                     <div className={styles.bottom}>
                       <div className={styles.user}>
-                        <p className={styles.name}>Jhon#2457</p>
+                        <p className={styles.name}>{userData.email}</p>
                         <svg
                           width="15"
                           height="15"
