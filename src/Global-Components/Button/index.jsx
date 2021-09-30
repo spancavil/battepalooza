@@ -7,9 +7,10 @@ import styles from './style.module.scss';
  * y un evento onClick (accion a realizar cuando se hace click)
  */
 
-const Button = ({title, onClick}) => {
+const Button = ({title, onClick, width}) => {
   return (
     <button
+      style={{width: `${width}`}}
       className={styles.botonGenerico}
       onClick={onClick ? () => onClick () : null}
     >

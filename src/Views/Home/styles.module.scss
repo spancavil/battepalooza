@@ -651,4 +651,25 @@
   .contents {
     position: absolute;
   }
+
+  .dropdown {
+    color: white;
+    position: absolute;
+    width: 193.2px;
+    height: 50px;
+    background-color: $nav-back;
+    font-family: $font-monkyta;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 2px;
+    
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+  }
 }

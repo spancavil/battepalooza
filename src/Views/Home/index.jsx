@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './styles.module.scss';
 import bpBrand from '../../Assets/img/BI-BP-2.png';
 import SocialMedia from './Components/SocialMedia';
@@ -16,6 +16,8 @@ import nWayLogo from '../../Assets/img/logo-nway.png';
 import bearX from '../../Assets/img/bearx.png';
 
 const HomeContainer = () => {
+  const [dropdown, setDropdown] = useState (false);
+
   return (
     <div className={styles.container}>
       <div className={styles.content1}>
@@ -23,8 +25,30 @@ const HomeContainer = () => {
           <img src={bpBrand} alt="bp-brand" />
           <div className={styles.botones}>
             <Button title="Watch trailer" />
-            <Button title="Download now" />
+            <div className={styles.downloadContainer}>
+              <Button
+                width="100%"
+                onClick={() => setDropdown (!dropdown)}
+                title="Download now"
+              />
+              {dropdown &&
+                <div className={styles.dropdown}>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.nway.battlepalooza"
+                    target="_blank"
+                  >
+                    Google Play
+                  </a>
+                  <a
+                    href="https://apps.apple.com/app/battlepalooza-battle-royale/id1536697211"
+                    target="_blank"
+                  >
+                    App Store
+                  </a>
+                </div>}
+            </div>
           </div>
+
         </div>
       </div>
 
@@ -164,7 +188,7 @@ const HomeContainer = () => {
                     <ul>
                       <li>
                         <a
-                          href="http://battlepalooza.com/news/"
+                          href="https://battlepalooza.com/privacy-policy/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
