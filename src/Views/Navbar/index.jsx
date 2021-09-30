@@ -25,7 +25,7 @@ const NavBar = () => {
 
   useEffect (
     () => {
-      userData._id && setId (userData._id.slice (0, 4));
+      userData._id && setId (userData._id.slice (-4));
     },
     [userData]
   );
