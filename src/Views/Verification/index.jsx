@@ -9,7 +9,8 @@ import authService from '../../Services/auth.service';
 import { useHistory } from 'react-router';
 
 const Verification = () => {
-  const [code, setCode] = useState("")
+  const [code, setCode] = useState("");
+  const [errorCode, setErrorCode] = useState("")
   const {setCodeVerification, setTheToken, email} = useContext(UserData);
   const history = useHistory();
 
@@ -18,10 +19,22 @@ const Verification = () => {
   }
 
   const submitCode = async () => {
-    setCodeVerification (code);
-    const response = await authService.login(email, code);
-    setTheToken(response);
-    history.push('/account')
+    if ( !(/^\d{6}$/.test(code))){
+      setErrorCode("Input a valid code")
+    } else {
+      setErrorCode('');
+      setCodeVerification (code)
+      const response = await authService.login(email, code);
+      
+      if (response.data.message){
+        alert(response.data.message)
+      } else {
+        setTheToken(response);
+        history.push('/account') 
+      }
+
+    }
+    
   }
 
   return (
@@ -34,6 +47,7 @@ const Verification = () => {
             subtitle="Input the 6 digit code that has been sent to your email"
             handleChange={(code)=> handleChange(code)}
           />
+          {errorCode && <span className={styles.errorMessage}>{errorCode}</span>}
         </div>
         <div style={{ paddingTop: '40px' }}>
           <Button title="VERIFY"

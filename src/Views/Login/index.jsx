@@ -10,7 +10,9 @@ import styles from './styles.module.scss';
 
 
 const Login = () => {
-  const [email, setEMail] = useState ('');
+  const [email, setEMail] = useState ('Debe ser un email válidoc');
+  const [errorEmail, setErrorEmail] = useState ('');
+
   const {setMail} = useContext(UserData);
 
   const history = useHistory ();
@@ -19,10 +21,20 @@ const Login = () => {
     setEMail (email);
   };
 
-  const onLogin = () => {
-    setMail(email);
-    authService.getVerificationCode(email);
-    history.push ('/verification');
+  const onLogin = async () => {
+    if(!(/\S+@\S+\.\S+/.test(email))){
+      setErrorEmail ('Input a valid email')
+    } else {
+      setErrorEmail ('');
+      setMail(email);
+      const response = await authService.getVerificationCode(email);
+      if (response.data.error){
+        alert("Email doesnt exist!")
+      } else {
+        alert(response.data.message)
+        history.push('/verification')
+      }
+    }
   };
 
   return (
@@ -35,6 +47,7 @@ const Login = () => {
             type="email"
             handleChange={email => changeEmail (email)}
           />
+          {errorEmail && <span className={styles.errorMessage}>{errorEmail}</span>}
         </div>
         <div style={{paddingTop: '25px'}}>
           <Button title="GET CODE" onClick={onLogin} />
