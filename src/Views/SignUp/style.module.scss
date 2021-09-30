@@ -1,4 +1,5 @@
 @import "../../Styles/colors.scss";
+@import "../../Styles/fonts.scss";
 $mobile: 576px;
 $tablet: 767px;
 $laptop: 992px;
@@ -48,6 +49,12 @@ $desktop: 1200px;
     width: 100%;
     position: absolute;
     top: 0;
+
+  }
+  .errorMessage {
+    font-size: 14px;
+    color: #730909;
+    font-family: $font-nasalization;
   }
 };
 
@@ -96,6 +103,11 @@ $desktop: 1200px;
     position: absolute;
     top: 0;
   }
+  .errorMessage {
+    font-size: 14px;
+    color: #730909;
+    font-family: $font-nasalization;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
@@ -141,6 +153,11 @@ $desktop: 1200px;
     width: 100%;
     position: absolute;
     top: 0;
+  }
+  .errorMessage {
+    font-size: 20px;
+    color: #730909;
+    font-family: $font-nasalization;
   }
 }
 
@@ -189,6 +206,11 @@ $desktop: 1200px;
     position: absolute;
     top: 0;
   }
+  .errorMessage {
+    font-size: 20px;
+    color: #730909;
+    font-family: $font-nasalization;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -235,6 +257,11 @@ $desktop: 1200px;
     width: 100%;
     position: absolute;
     top: 0;
+  }
+  .errorMessage {
+    font-size: 20px;
+    color: #730909;
+    font-family: $font-nasalization;
   }
 }
 

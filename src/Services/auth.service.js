@@ -44,10 +44,10 @@ class AuthService {
   }
 
   getVerificationCode(email){
-    axios.post(API_URL + "login/verify-code", {
+    return axios.post(API_URL + "login/verify-code", {
       email
     }).then( response => {
-      console.log (response.data)
+      //console.log(response.data)
       return response.data;
     })
   }
