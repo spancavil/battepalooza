@@ -36,10 +36,12 @@ const HomeContainer = () => {
                   <a
                     href="https://play.google.com/store/apps/details?id=com.nway.battlepalooza"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Google Play
                   </a>
                   <a
+                    rel="noreferrer"
                     href="https://apps.apple.com/app/battlepalooza-battle-royale/id1536697211"
                     target="_blank"
                   >
