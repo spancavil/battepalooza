@@ -14,57 +14,14 @@ import Content8 from './Components/Content8';
 import animocaLogo from '../../Assets/img/logo-animoca.png';
 import nWayLogo from '../../Assets/img/logo-nway.png';
 import bearX from '../../Assets/img/bearx.png';
-import Youtube from 'react-youtube';
-import { useMediaQuery } from '../../Hooks/useMediaQuery';
+import YoutubeEmbed from './Components/Youtube';
 
 const HomeContainer = () => {
   const [dropdown, setDropdown] = useState (false);
-  const [ytDisplay, setYtDisplay] = useState('none');
-
-  const mobile = "576px";
-  const desktop = "1400px";
-    
-  const Queries = {
-    mobileQuery: `(max-width: 575px)`,
-    desktopQuery: `(min-width:${mobile}) and (max-width:1399px)`,
-    HDQuery: `(min-width: ${desktop})`
-  }
-
-  let sizeHeight;
-  let sizeWidth;
-
-  if (useMediaQuery(Queries.HDQuery)) {
-    sizeHeight = '720';
-    sizeWidth = '1280';
-  }
-
-  if (useMediaQuery(Queries.desktopQuery)) {
-    sizeHeight = '480'; 
-    sizeWidth = '854';
-  }
-  
-  if (useMediaQuery(Queries.mobileQuery)) {
-    sizeHeight = '600';
-    sizeWidth = '360';
-  }
-
-  console.log(sizeHeight);
-  console.log(sizeWidth);
-
-  const options = {
-      width: sizeWidth,
-      height: sizeHeight,
-      origin: 'http://localhost:3000',
-      playerVars: {
-        // https://developers.google.com/youtube/player_parameters
-        autoplay: 1,
-      }
-  }
+  const [ytDisplay, setYtDisplay] = useState(false);
 
   const handleWatchTrailer = () => {
-    ytDisplay === "none" ?
-    setYtDisplay("block")
-    : setYtDisplay ("none");
+    setYtDisplay(!ytDisplay);
   }
 
   return (
@@ -76,10 +33,7 @@ const HomeContainer = () => {
             <Button title="Watch trailer"
               onClick = {()=> handleWatchTrailer()}
             />
-            <div style = {{display:ytDisplay}} 
-            className={styles.containerYT}>
-              <Youtube videoId="fMevuQyBLjE" opts={options}/>
-            </div>
+            {ytDisplay && <YoutubeEmbed embedId={"fMevuQyBLjE"} onExit={handleWatchTrailer}/>}
             <div className={styles.downloadContainer}>
               <Button
                 width="100%"

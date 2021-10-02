@@ -1,0 +1,114 @@
+$mobile: 576px;
+$tablet: 767px;
+$laptop: 992px;
+$desktop: 1200px;
+$highDef: 1400px;
+
+// Extra mall devices (< 576px)
+@media (max-width: $mobile - 1){
+    .videoResponsive {
+        overflow-y: hidden;
+        position: fixed;
+        top: 5vh;
+        left: 5vw;
+        background-color: rgba(0,0,0,0.8);
+        width: 90vw;
+        height: 90vh;
+        z-index: 3000;
+        iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background-color: rgba(0,0,0,0.8);
+        }
+    }
+};
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: $mobile) and (max-width:$tablet - 1) {
+    .videoResponsive {
+        overflow-y: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 20px 30px;
+        background-color: rgba(0,0,0,0.8);
+        width: 100vw;
+        height: 100vh;
+        z-index: 3000;
+        iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: $tablet) and (max-width: $laptop - 1){
+    .videoResponsive {
+        overflow-y: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.8);
+        width: 100vw;
+        height: 100vh;
+        z-index: 3000;
+        iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: $laptop) and (max-width: $desktop - 1){
+    .videoResponsive {
+        overflow-y: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 70px 30px;
+        background-color: rgba(0,0,0,0.8);
+        width: 100vw;
+        height: 100vh;
+        z-index: 3000;
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: $desktop) and (max-width: $highDef - 1){
+    .videoResponsive {
+        overflow-y: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 70px 30px;
+        background-color: rgba(0,0,0,0.8);
+        width: 100vw;
+        height: 100vh;
+        z-index: 3000;
+    }
+}
+
+@media (min-width: $highDef){
+    .videoResponsive {
+        overflow-y: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 80px 30px;
+        background-color: rgba(0,0,0,0.8);
+        width: 100vw;
+        height: 100vh;
+        z-index: 3000;
+    }
+}

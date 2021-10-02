@@ -8,24 +8,6 @@
     width: 100%;
   }
 
-  .containerYT{
-    overflow-y: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 50px 30px;
-    background-color: rgba(0,0,0,0.8);
-    width: 100vw;
-    height: 100vh;
-    z-index: 3000;
-  }
-  .cross {
-    transform: scale(0.7);
-    position: absolute;
-    top: 20px;
-    right: 15px;
-  }
-
   .content1 {
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
@@ -189,24 +171,6 @@
   .container {
     top: 0;
     width: 100%;
-  }
-
-  .containerYT{
-    overflow-y: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 50px 30px;
-    background-color: rgba(0,0,0,0.8);
-    width: 100vw;
-    height: 100vh;
-    z-index: 3000;
-  }
-  .cross {
-    transform: scale(0.7);
-    position: absolute;
-    top: 20px;
-    right: 15px;
   }
 
   .content1 {
@@ -373,25 +337,6 @@
     width: 100%;
   }
 
-  .containerYT{
-    overflow-y: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 70px 30px;
-    background-color: rgba(0,0,0,0.8);
-    width: 100vw;
-    height: 100vh;
-    z-index: 3000;
-  }
-
-  .cross {
-    transform: scale(0.7);
-    position: absolute;
-    top: 20px;
-    right: 15px;
-  }
-
   .content1 {
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
@@ -551,25 +496,6 @@
   .container {
     top: 0;
     width: 100%;
-  }
-
-  .containerYT{
-    overflow-y: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 70px 30px;
-    background-color: rgba(0,0,0,0.8);
-    width: 100vw;
-    height: 100vh;
-    z-index: 3000;
-  }
-  
-  .cross {
-    transform: scale(0.7);
-    position: absolute;
-    top: 20px;
-    right: 15px;
   }
 
   .content1 {
