@@ -16,9 +16,17 @@ import nWayLogo from '../../Assets/img/logo-nway.png';
 import bearX from '../../Assets/img/bearx.png';
 import AppStore from '../../Assets/img/appStore.png';
 import PlayStore from '../../Assets/img/playStore.png';
+import YoutubeEmbed from './Components/Youtube';
+
 
 const HomeContainer = () => {
   const [dropdown, setDropdown] = useState (false);
+  const [ytDisplay, setYtDisplay] = useState(false);
+
+  const handleWatchTrailer = () => {
+    console.log("me salgo!")
+    setYtDisplay(!ytDisplay);
+  }
 
   return (
     <div className={styles.container}>
@@ -26,7 +34,10 @@ const HomeContainer = () => {
         <div className={styles.battle}>
           <img src={bpBrand} alt="bp-brand" />
           <div className={styles.botones}>
-            <Button title="Watch trailer" />
+            <Button title="Watch trailer"
+              onClick = {()=> handleWatchTrailer()}
+            />
+            {ytDisplay && <YoutubeEmbed embedId={"fMevuQyBLjE"} onExit={()=> handleWatchTrailer()}/>}
             <div className={styles.downloadContainer}>
               <Button
                 width="100%"

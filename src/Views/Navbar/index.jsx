@@ -14,6 +14,7 @@ const NavBar = () => {
   const {userData} = useContext (UserData);
 
   let responsive = useMediaQuery ('(min-width: 1200px)');
+  console.log(responsive);
 
   useEffect (
     () => {
@@ -112,7 +113,13 @@ const NavBar = () => {
             <div className={styles.cont}>
               {userData.email
                 ? <div className={styles.bottomContainer}>
-                    <button>BUY MORE</button>
+                    <a
+                    href="https://exchange.forte.io/portal/login"
+                    target="_blank" rel="noopener noreferrer"
+                    className={styles.navLink}
+                    >
+                      <button>BUY MORE</button>
+                    </a>
                     <div className={styles.bottom}>
                       <div className={styles.user}>
                         <p className={styles.name}>{userData.name}#{id}</p>
@@ -172,7 +179,13 @@ const NavBar = () => {
                       </div>
                     </div>
                     <div className={styles.buyMore}>
-                      <button>BUY MORE</button>
+                      <a
+                      href="https://exchange.forte.io/portal/login"
+                      target="_blank" rel="noopener noreferrer"
+                      className={styles.navLink}
+                      >
+                        <button>BUY MORE</button>
+                      </a>
                     </div>
                   </div>
                   <li onClick={() => logout ()} className={styles.logoutBtn}>
