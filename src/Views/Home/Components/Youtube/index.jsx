@@ -1,5 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from '../../../../Hooks/useMediaQuery';
+import DialogCross from '../../Assets/DialogCross';
 import styles from './styles.module.scss';
 
 const YoutubeEmbed = ({ embedId, onExit }) => {
@@ -9,7 +10,7 @@ const YoutubeEmbed = ({ embedId, onExit }) => {
 
     const Queries = {
         mobileQuery: `(max-width: 575px)`,
-        desktopQuery: `(min-width:${mobile}) and (max-width:1399px)`,
+        desktopQuery: `(min-width:${mobile}) and (max-width: 1399px)`,
         HDQuery: `(min-width: ${desktop})`
     }
 
@@ -35,6 +36,7 @@ const YoutubeEmbed = ({ embedId, onExit }) => {
     console.log(sizeWidth);
 
     const handleExit = (e) => {
+        console.log("Hola!")
         e.code === "Escape" && onExit()
     }
 
@@ -44,6 +46,10 @@ const YoutubeEmbed = ({ embedId, onExit }) => {
             tabIndex={0}
             className = {styles.videoResponsive}
         >
+            <DialogCross 
+            className={styles.cross}
+            onClick = {()=> onExit()}
+            />
             <iframe
                 onKeyUpCapture={e => handleExit(e)}
                 width={sizeWidth}

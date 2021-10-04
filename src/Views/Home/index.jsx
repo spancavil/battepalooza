@@ -21,6 +21,7 @@ const HomeContainer = () => {
   const [ytDisplay, setYtDisplay] = useState(false);
 
   const handleWatchTrailer = () => {
+    console.log("me salgo!")
     setYtDisplay(!ytDisplay);
   }
 
@@ -33,7 +34,7 @@ const HomeContainer = () => {
             <Button title="Watch trailer"
               onClick = {()=> handleWatchTrailer()}
             />
-            {ytDisplay && <YoutubeEmbed embedId={"fMevuQyBLjE"} onExit={handleWatchTrailer}/>}
+            {ytDisplay && <YoutubeEmbed embedId={"fMevuQyBLjE"} onExit={()=> handleWatchTrailer()}/>}
             <div className={styles.downloadContainer}>
               <Button
                 width="100%"
