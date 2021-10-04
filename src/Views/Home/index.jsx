@@ -14,6 +14,8 @@ import Content8 from './Components/Content8';
 import animocaLogo from '../../Assets/img/logo-animoca.png';
 import nWayLogo from '../../Assets/img/logo-nway.png';
 import bearX from '../../Assets/img/bearx.png';
+import AppStore from '../../Assets/img/appStore.png';
+import PlayStore from '../../Assets/img/playStore.png';
 
 const HomeContainer = () => {
   const [dropdown, setDropdown] = useState (false);
@@ -38,14 +40,14 @@ const HomeContainer = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Google Play
+                    <img src={AppStore} alt="AppStore" />
                   </a>
                   <a
                     rel="noreferrer"
                     href="https://apps.apple.com/app/battlepalooza-battle-royale/id1536697211"
                     target="_blank"
                   >
-                    App Store
+                    <img src={PlayStore} alt="PlayStore" />
                   </a>
                 </div>}
             </div>
