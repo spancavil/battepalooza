@@ -1,1 +1,232 @@
+@import '../../Styles/colors.scss';
+@import '../../Styles/fonts.scss';
 
+$mobile: 576px;
+$tablet: 767px;
+$laptop: 992px;
+$desktop: 1200px;
+
+// Extra mall devices (< 576px)
+@media (max-width: $mobile - 1){
+
+    .container{
+        background-color: $card-bg;
+        padding-bottom: 18px;
+        padding-top: 48px;
+        height: 410px;
+        width: 280px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: $font-nasalization;
+    }
+
+    .imagenCard {
+        margin-bottom: 12px;
+        height: 244px;
+        width: 244px;
+    }
+
+    .texto {
+        font-size: 20px;
+        margin-top: 6px;
+    }
+
+    .sale{
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: relative;
+        top: -465px;
+        left: 130px;
+        z-index: 5000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .soldOut{
+        background-color: $card-bg;
+        padding-bottom: 18px;
+        padding-top: 48px;
+        height: 410px;
+        width: 280px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: $font-nasalization;
+        opacity: 0.2;
+    }
+    .textSoldOut{
+        font-size: 40px;
+        color: $secondary-blue;
+        transform: rotate(-30deg);
+        text-align: "center";
+        position: relative;
+        top: -370px;
+        font-weight: bold;
+    }
+};
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: $mobile) and (max-width:$tablet - 1) {
+    .container{
+        background-color: $card-bg;
+        padding-bottom: 18px;
+        padding-top: 48px;
+        height: 410px;
+        width: 280px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: $font-nasalization;
+    }
+
+    .imagenCard {
+        margin-bottom: 12px;
+        height: 244px;
+        width: 244px;
+    }
+
+    .texto {
+        font-size: 20px;
+        margin-top: 6px;
+    }
+
+    .sale{
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: $tablet) and (max-width: $laptop - 1){
+    .container{
+        background-color: $card-bg;
+        padding-bottom: 18px;
+        padding-top: 48px;
+        height: 410px;
+        width: 280px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: $font-nasalization;
+    }
+
+    .imagenCard {
+        height: 244px;
+        width: 244px;
+    }
+
+    .texto {
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .sale{
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: $laptop) and (max-width: $desktop - 1){
+    .container{
+        background-color: $card-bg;
+        padding-bottom: 18px;
+        padding-top: 48px;
+        height: 410px;
+        width: 280px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: $font-nasalization;
+    }
+
+    .imagenCard {
+        margin-bottom: 12px;
+        height: 244px;
+        width: 244px;
+    }
+
+    .texto {
+        font-size: 20px;
+        margin-top: 6px;
+    }
+
+    .sale{
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: $desktop){
+    .container{
+        background-color: $card-bg;
+        padding-bottom: 18px;
+        padding-top: 48px;
+        height: 410px;
+        width: 280px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: $font-nasalization;
+    }
+
+    .imagenCard {
+        margin-bottom: 12px;
+        height: 244px;
+        width: 244px;
+    }
+
+    .texto {
+        font-size: 20px;
+        margin-top: 6px;
+    }
+
+    .sale{
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: relative;
+        top: -40px;
+        right: 0;
+    }
+}
