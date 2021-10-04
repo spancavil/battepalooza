@@ -14,18 +14,15 @@ import styles from './styles.module.scss';
 
 const Card = ({imgSrc, text1, text2, text3, sale, soldOut}) => {
 
-    console.log(sale, soldOut)
     return(
-        <>
             <div className={ !soldOut ? styles.container : styles.soldOut}>
                 <img className={styles.imagenCard} src={imgSrc} alt="card-pack"></img>
                 {text1 && <p className={styles.texto} style={{color: "white"}}>{text1}</p>}
                 {text2 && <p className={styles.texto} style={{color: "yellow"}}>{text2}</p>}
                 {text3 && <p className={styles.texto} style={{color: "white"}}>{text3}</p>}
+                {sale && <div className={styles.sale}>Sale</div>}
+                {soldOut && <p className={styles.textSoldOut}>SOLD OUT</p>}
             </div>
-            {sale && <div className={styles.sale}>Sale</div>}
-            {soldOut && <p className={styles.textSoldOut}>SOLD OUT</p>}
-        </>
     )
 }
 

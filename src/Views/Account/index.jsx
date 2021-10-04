@@ -22,10 +22,16 @@ const Account = () => {
             imgSrc={imagen}
             text1="Rare Series 1 Release"
             text2="1 - DROP 1"
-            text3="2,00 PACK"
+            
             sale={true}
+<<<<<<< HEAD
             soldOut={false}
         ></Card>
+=======
+            soldOut={true}
+          ></Card>
+        </div>
+>>>>>>> 273b412 (Finalization component Card Pack)
       </div>
     </Background>
   );
