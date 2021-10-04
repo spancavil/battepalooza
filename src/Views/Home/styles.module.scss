@@ -166,6 +166,31 @@ $hd: 1400px;
   .contents {
     position: absolute;
   }
+
+  .dropdown {
+    color: white;
+    position: absolute;
+    width: 230px;
+    background-color: black;
+    font-family: $font-monkyta;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 2px;
+
+    a {
+      text-decoration: none;
+      color: white;
+      padding: none;
+    }
+
+    img {
+      padding: 10px 10px;
+      width: 150px;
+    }
+  }
 }
 
 @media (min-width: $mobile) and (max-width: $tablet - 1) {
@@ -329,6 +354,34 @@ $hd: 1400px;
   .contents {
     position: absolute;
   }
+
+  .dropdown {
+    color: white;
+    position: absolute;
+    width: 230px;
+    background-color: black;
+    font-family: $font-monkyta;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 2px;
+    display: flex;
+    align-items: center;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      color: white;
+      padding: none;
+    }
+
+    img {
+      padding: 10px 10px;
+      width: 150px;
+    }
+  }
 }
 
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
@@ -488,6 +541,31 @@ $hd: 1400px;
 
   .contents {
     position: absolute;
+  }
+
+  .dropdown {
+    color: white;
+    position: absolute;
+    width: 193.2px;
+    background-color: black;
+    font-family: $font-monkyta;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 2px;
+
+    a {
+      text-decoration: none;
+      color: white;
+      padding: none;
+    }
+
+    img {
+      padding: 10px 10px;
+      width: 150px;
+    }
   }
 }
 
@@ -656,8 +734,7 @@ $hd: 1400px;
     color: white;
     position: absolute;
     width: 193.2px;
-    height: 50px;
-    background-color: $nav-back;
+    background-color: black;
     font-family: $font-monkyta;
     display: flex;
     align-items: center;
@@ -669,6 +746,12 @@ $hd: 1400px;
     a {
       text-decoration: none;
       color: white;
+      padding: none;
+    }
+
+    img {
+      padding: 10px 10px;
+      width: 150px;
     }
   }
 }
@@ -838,8 +921,7 @@ $hd: 1400px;
     color: white;
     position: absolute;
     width: 193.2px;
-    height: 50px;
-    background-color: $nav-back;
+    background-color: black;
     font-family: $font-monkyta;
     display: flex;
     align-items: center;
@@ -851,6 +933,12 @@ $hd: 1400px;
     a {
       text-decoration: none;
       color: white;
+      padding: none;
+    }
+
+    img {
+      padding: 10px 10px;
+      width: 150px;
     }
   }
 }
