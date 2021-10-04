@@ -2,7 +2,7 @@
 @import "../../../../Styles/fonts.scss";
 @import "../../../../Styles/breakpoints.scss";
 
-@media (max-width: $tablet - 1) {
+@media (max-width: $laptop - 1) {
   .container {
     background-color: $account-bg;
     width: 90%;
@@ -61,8 +61,12 @@
   }
 }
 
-@media (min-width: $tablet) {
+
+@media (min-width: $laptop) {
   .container {
+    position: relative;
+    margin-left: 20vw;
+    align-self: center;
     background-color: $account-bg;
     width: 720px;
     height: 180px;
