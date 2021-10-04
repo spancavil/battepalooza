@@ -1,0 +1,27 @@
+@import "../../Styles/colors.scss";
+@import "../../Styles/fonts.scss";
+
+.packContainer {
+  padding-top: 65px;
+  width: 100%;
+
+  .banner {
+    width: 100%;
+    height: 275px;
+    background-color: $secondary-blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-monkyta;
+    font-size: 20px;
+  }
+
+  h4 {
+    color: white;
+    font-family: $font-nasalization;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+  }
+}
