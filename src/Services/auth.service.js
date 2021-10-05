@@ -5,7 +5,6 @@ const API_URL = "https://be-battlepalooza.herokuapp.com/api/";
 
 class AuthService {
   login(username, code) {
-    console.log(username, code)
     return axios
       .post(API_URL + "login", {
           email: username,

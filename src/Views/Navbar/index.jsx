@@ -14,7 +14,6 @@ const NavBar = () => {
   const {userData} = useContext (UserData);
 
   let responsive = useMediaQuery ('(min-width: 1200px)');
-  console.log(responsive);
 
   useEffect (
     () => {
