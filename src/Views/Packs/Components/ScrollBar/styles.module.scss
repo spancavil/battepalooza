@@ -1,0 +1,23 @@
+@import '../../../../Styles/colors.scss';
+
+.containerScrollbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+}
+
+.cuadraditoActive {
+    width: 27px;
+    height: 9px;
+    background-color: $secondary-blue;
+}
+
+.cuadradito {
+    width: 27px;
+    height: 9px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $secondary-blue;
+}
