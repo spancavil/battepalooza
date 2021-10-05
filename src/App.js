@@ -11,11 +11,14 @@ import "./Styles/Global.scss";
 import UserProvider from "./Context/UserProvider";
 import Packs from "./Views/Packs";
 import PackDetail from "./Views/PackDetail";
+import CardDataProvider from "./Context/CardDataProvider";
 
 function App() {
   return (
     <BrowserRouter>
+
       <UserProvider>
+      <CardDataProvider>
         <NavBar />
         <Switch>
           <Route exact path="/" component={HomeContainer} />
@@ -28,6 +31,7 @@ function App() {
           <Route exact path="/packs/:id" component={PackDetail} />
           <Route path="" component={NotFound} />
         </Switch>
+        </CardDataProvider>
       </UserProvider>
     </BrowserRouter>
   );
