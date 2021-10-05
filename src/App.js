@@ -16,21 +16,20 @@ import CardDataProvider from "./Context/CardDataProvider";
 function App() {
   return (
     <BrowserRouter>
-
       <UserProvider>
-      <CardDataProvider>
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={HomeContainer} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/verification" component={Verification} />
-          <Route exact path="/needlogin" component={NeedLogin} />
-          <Route exact path="/account" component={Account} />
-          <Route exact path="/packs" component={Packs} />
-          <Route exact path="/packs/:id" component={PackDetail} />
-          <Route path="" component={NotFound} />
-        </Switch>
+        <CardDataProvider>
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={HomeContainer} />
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/verification" component={Verification} />
+            <Route exact path="/needlogin" component={NeedLogin} />
+            <Route exact path="/account" component={Account} />
+            <Route exact path="/packs" component={Packs} />
+            <Route exact path="/packs/:id" component={PackDetail} />
+            <Route path="" component={NotFound} />
+          </Switch>
         </CardDataProvider>
       </UserProvider>
     </BrowserRouter>
