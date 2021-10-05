@@ -11,8 +11,8 @@ const UserProvider = ({ children }) => {
     const [verification, setVerification] = useState("");
     const [userToken, setUserToken] = useState({});
     const [userData, setUserData] = useState({});
-    const [cards, setCards] = useState([]);
-    const [cardSelected, setCardSelected] = useState({});
+    const [packs, setPacks] = useState([]);
+    const [packSelected, setPackSelected] = useState({});
 
     const setMail = (email) => {
         setEmail(email);
@@ -30,10 +30,9 @@ const UserProvider = ({ children }) => {
         setVerification(code);
     }
 
-    const setCard = (cardId) => {
-        console.log(cardId)
-        const card = cards.find(card => card.id === cardId);
-        setCardSelected(card);
+    const setPack = (packId) => {
+        const pack = packs.find(pack => pack.id === packId);
+        setPackSelected(pack);
     }
 
     useEffect( () => {
@@ -46,7 +45,7 @@ const UserProvider = ({ children }) => {
             }
 
             //Cards hardcoded
-            setCards(
+            setPacks(
                 [
                     {
                         id: 1,
@@ -84,7 +83,7 @@ const UserProvider = ({ children }) => {
     }, [])
 
     return (
-        <UserData.Provider value = {{setMail, setTheToken, setCodeVerification, setCard, verification, email, userToken, userData, cards}}>
+        <UserData.Provider value = {{setMail, setTheToken, setCodeVerification, setPack, verification, email, userToken, userData, packs, packSelected}}>
             {children}
         </UserData.Provider>
     )

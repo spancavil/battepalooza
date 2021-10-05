@@ -7,11 +7,10 @@ import { UserData } from '../../Context/UserProvider';
 
 const Packs = () => {
 
-  const { cards, setCard } = useContext(UserData)
+  const { packs, setPack } = useContext(UserData)
 
-  const setSelectedCard = (cardId) => {
-    console.log(cardId);
-    setCard (cardId);
+  const setSelectedCard = (packId) => {
+    setPack (packId);
   }
 
   return (
@@ -24,16 +23,16 @@ const Packs = () => {
           SKINS PACKS
         </h4>
         <div className={styles.cardContainer}>
-          {cards.map(card => {
+          {packs.map(pack => {
             return <Card
-              key ={card.id}
-              imgSrc={card.imgSrc}
-              text1={card.text1}
-              text2={card.text2}
-              text3={card.text3}
-              soldOut={card.soldOut}
-              sale={card.sale}
-              handleClick={() => setSelectedCard (card.id)}
+              key ={pack.id}
+              imgSrc={pack.imgSrc}
+              text1={pack.text1}
+              text2={pack.text2}
+              text3={pack.text3}
+              soldOut={pack.soldOut}
+              sale={pack.sale}
+              handleClick={() => setSelectedCard(pack.id)}
             />
           })}
         </div>
