@@ -8,7 +8,6 @@ $desktop: 1200px;
 // Extra mall devices (< 576px)
 @media (max-width: $mobile - 1){
   .general {
-    position: absolute;
     padding-top: 30px;
     padding-bottom: 15px;
     display: flex;
@@ -40,7 +39,6 @@ $desktop: 1200px;
 // Small devices (landscape phones, 576px and up)
 @media (min-width: $mobile) and (max-width:$tablet - 1) {
   .general {
-    position: absolute;
     padding-top: 30px;
     padding-bottom: 15px;
     display: flex;
@@ -72,7 +70,6 @@ $desktop: 1200px;
 // Medium devices (tablets, 768px and up)
 @media (min-width: $tablet) and (max-width: $laptop - 1){
     .general {
-    position: absolute;
     padding-top: 30px;
     padding-bottom: 15px;
     display: flex;
@@ -104,7 +101,6 @@ $desktop: 1200px;
 // Large devices (desktops, 992px and up)
 @media (min-width: $laptop) and (max-width: $desktop - 1){
   .general {
-    position: absolute;
     padding-top: 30px;
     padding-bottom: 15px;
     display: flex;
@@ -136,7 +132,6 @@ $desktop: 1200px;
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: $desktop){
   .general {
-    position: absolute;
     padding-top: 30px;
     padding-bottom: 15px;
     display: flex;

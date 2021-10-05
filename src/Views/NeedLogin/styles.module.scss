@@ -4,6 +4,7 @@ $mobile: 576px;
 $tablet: 767px;
 $laptop: 992px;
 $desktop: 1200px;
+$hd: 1400px;
 
 // Extra mall devices (< 576px)
 @media (max-width: $mobile - 1){
@@ -190,7 +191,52 @@ $desktop: 1200px;
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: $desktop){
+@media (min-width: $desktop) and (max-width: $hd - 1){
+  .container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(1, 3, 32, 1);
+    padding-top: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container:before {
+    content: "";
+    background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
+    background-position-x: center;
+    background-position-y: bottom;
+    z-index: 0;
+    height: 105vh;
+    opacity: 0.6;
+    width: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+  }
+  
+  .text {
+    font-family: $font-nasalization;
+    margin-top: 25px;
+    color: white;
+    font-size: 15px;
+  }
+  
+  .btns {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    gap: 15px;
+    padding-bottom: 25px;
+  }
+}
+
+@media (min-width: $hd){
   .container {
     position: absolute;
     top: 0;

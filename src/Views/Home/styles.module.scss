@@ -15,6 +15,7 @@ $hd: 1400px;
     background-position-x: center;
     background-position-y: bottom;
     text-align: center;
+    height: 100vh;
     width: 100%;
     background-size: cover;
     top: 0;
@@ -204,6 +205,7 @@ $hd: 1400px;
     background-position-x: center;
     background-position-y: bottom;
     text-align: center;
+    height: 100vh;
     width: 100%;
     background-size: cover;
     top: 0;
@@ -394,6 +396,7 @@ $hd: 1400px;
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
+    height: 100vh;
     text-align: center;
     width: 100%;
     background-size: cover;
@@ -573,8 +576,13 @@ $hd: 1400px;
   .container {
     top: 0;
     width: 100%;
+    overflow-y: scroll;
   }
-
+  
+  ::-webkit-scrollbar{
+    display: none;
+    
+  }
   .content1 {
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
@@ -583,7 +591,7 @@ $hd: 1400px;
     width: 100%;
     background-size: cover;
     top: 0;
-    height: 110vh;
+    height: 105vh;
   }
 
   .battle {
@@ -760,6 +768,10 @@ $hd: 1400px;
   .container {
     top: 0;
     width: 100%;
+    overflow-y: scroll;
+  }
+  ::-webkit-scrollbar{
+    display: none;
   }
 
   .content1 {
