@@ -3,11 +3,11 @@ import Background from '../../Global-Components/Background';
 import SocialMedia from '../Home/Components/SocialMedia';
 import styles from './styles.module.scss';
 import Card from '../../Global-Components/Card';
-import { UserData } from '../../Context/UserProvider';
+import { CardData } from '../../Context/CardDataProvider';
 
 const Packs = () => {
 
-  const { packs, setPack } = useContext(UserData)
+  const { packs, setPack } = useContext(CardData)
 
   const setSelectedCard = (packId) => {
     setPack (packId);
