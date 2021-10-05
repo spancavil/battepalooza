@@ -11,6 +11,7 @@ import "./Styles/Global.scss";
 import UserProvider from "./Context/UserProvider";
 import Packs from "./Views/Packs";
 import CardDataProvider from "./Context/CardDataProvider";
+import JoinDrop from "./Views/JoinDrop";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/needlogin" component={NeedLogin} />
             <Route exact path="/account" component={Account} />
             <Route exact path="/packs" component={Packs} />
+            <Route exact path="/join-drop" component={JoinDrop} />
             <Route path="" component={NotFound} />
           </Switch>
         </CardDataProvider>
