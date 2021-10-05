@@ -12,6 +12,7 @@ import UserProvider from "./Context/UserProvider";
 import Packs from "./Views/Packs";
 import PackDetail from "./Views/PackDetail";
 import CardDataProvider from "./Context/CardDataProvider";
+import JoinDrop from "./Views/JoinDrop";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/account" component={Account} />
             <Route exact path="/packs" component={Packs} />
             <Route exact path="/packs/:id" component={PackDetail} />
+            <Route exact path="/join-drop" component={JoinDrop} />
             <Route path="" component={NotFound} />
           </Switch>
         </CardDataProvider>

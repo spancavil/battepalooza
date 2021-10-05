@@ -4,6 +4,7 @@ $mobile: 576px;
 $tablet: 767px;
 $laptop: 992px;
 $desktop: 1200px;
+$hd: 1400px;
 
 // Extra mall devices (< 576px)
 @media (max-width: $mobile - 1){
@@ -214,7 +215,58 @@ $desktop: 1200px;
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: $desktop){
+@media (min-width: $desktop) and (max-width: $hd - 1){
+  .container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(1, 3, 32, 1);
+    padding-top: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container:before {
+    content: "";
+    background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-size: cover;  
+    z-index: 0;
+    height: 105vh;
+    opacity: 0.6;
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+  
+  .message {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: $font-route159;
+    font-size: 13px;
+    color: $sub-message;
+    text-align: center;
+  
+    a {
+      color: $sub-message;
+    }
+  }
+  .inputContainer{
+    width: 100%;
+    padding: 0 20px;
+  }
+  .errorMessage {
+    font-size: 20px;
+    color: #730909;
+    font-family: $font-nasalization;
+  }
+}
+
+@media (min-width: $hd){
   .container {
     position: absolute;
     top: 0;
