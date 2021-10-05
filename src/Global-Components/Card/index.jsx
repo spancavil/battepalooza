@@ -9,13 +9,16 @@ import styles from './styles.module.scss';
  * @param text1 el texto de la primera línea
  * @param text2 el texto de la segunda línea
  * @param text3 el texto de la tercera línea 
+ * @param handleClick Se ejecuta al hacer click sobre la card
  * @returns 
  */
 
-const Card = ({imgSrc, text1, text2, text3, sale, soldOut}) => {
+const Card = ({imgSrc, text1, text2, text3, sale, soldOut, handleClick}) => {
 
     return(
-            <div className={ !soldOut ? styles.container : styles.soldOut}>
+            <div
+            onClick = {handleClick}
+            className={ !soldOut ? styles.container : styles.soldOut}>
                 <img className={styles.imagenCard} src={imgSrc} alt="card-pack"></img>
                 {text1 && <p className={styles.texto} style={{color: "white"}}>{text1}</p>}
                 {text2 && <p className={styles.texto} style={{color: "yellow"}}>{text2}</p>}

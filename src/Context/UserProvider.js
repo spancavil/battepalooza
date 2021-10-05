@@ -1,5 +1,8 @@
 import { createContext, useState, useEffect } from 'react';
 import authService from '../Services/auth.service';
+import image1 from '../Assets/sprites/cardpack01.png';
+import image2 from '../Assets/sprites/cardpack02.png';
+import image4 from '../Assets/sprites/cardpack04.png';
 
 export const UserData = createContext({});
 
@@ -8,6 +11,8 @@ const UserProvider = ({ children }) => {
     const [verification, setVerification] = useState("");
     const [userToken, setUserToken] = useState({});
     const [userData, setUserData] = useState({});
+    const [cards, setCards] = useState([]);
+    const [cardSelected, setCardSelected] = useState({});
 
     const setMail = (email) => {
         setEmail(email);
@@ -25,6 +30,12 @@ const UserProvider = ({ children }) => {
         setVerification(code);
     }
 
+    const setCard = (cardId) => {
+        console.log(cardId)
+        const card = cards.find(card => card.id === cardId);
+        setCardSelected(card);
+    }
+
     useEffect( () => {
         (async () => {
             const user =JSON.parse(localStorage.getItem('user'))
@@ -33,6 +44,39 @@ const UserProvider = ({ children }) => {
                 const response = await authService.validateUser(user);
                 setUserData({...response.data.data});
             }
+
+            //Cards hardcoded
+            setCards(
+                [
+                    {
+                        id: 1,
+                        imgSrc: image1,
+                        text1: "Rare Series 1 Release",
+                        text2: "1 - DROP 1",
+                        text3: "2,00 PACK",
+                        soldOut: false,
+                        sale: true
+                    },
+                    {
+                        id: 2,
+                        imgSrc: image2,
+                        text1: "Rare Series 1 Release",
+                        text2: "1 - DROP 1",
+                        text3: "2,00 PACK",
+                        soldOut: true,
+                        sale: false
+                    },
+                    {
+                        id: 4,
+                        imgSrc: image4,
+                        text1: "Rare Series 1 Release",
+                        text2: "1 - DROP 1",
+                        text3: "2,00 PACK",
+                        soldOut: false,
+                        sale: false
+                    },
+                ]
+            ) 
         })()
         return () => {
 
@@ -40,7 +84,7 @@ const UserProvider = ({ children }) => {
     }, [])
 
     return (
-        <UserData.Provider value = {{setMail, setTheToken, setCodeVerification, verification, email, userToken, userData}}>
+        <UserData.Provider value = {{setMail, setTheToken, setCodeVerification, setCard, verification, email, userToken, userData, cards}}>
             {children}
         </UserData.Provider>
     )
