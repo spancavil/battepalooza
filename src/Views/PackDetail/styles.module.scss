@@ -1,7 +1,22 @@
-.container {
-  width: 100vw;
-  padding-top: 65px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@import "../../Styles/breakpoints.scss";
+
+@media (max-width: $laptop - 1) {
+  .container {
+    width: 100vw;
+    padding-top: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: $laptop) {
+  .container {
+    width: 100vw;
+    height: 80vh;
+    padding-top: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
