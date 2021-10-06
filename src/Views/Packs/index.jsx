@@ -1,30 +1,30 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useState} from 'react';
 import Background from '../../Global-Components/Background';
 import SocialMedia from '../Home/Components/SocialMedia';
 import styles from './styles.module.scss';
 import Card from '../../Global-Components/Card';
-import { CardData } from '../../Context/CardDataProvider';
+import {CardData} from '../../Context/CardDataProvider';
 import ScrollBar from './Components/ScrollBar';
-import { useMediaQuery } from '../../Hooks/useMediaQuery';
+import {useMediaQuery} from '../../Hooks/useMediaQuery';
+import {Link} from 'react-router-dom';
 
 const Packs = () => {
+  const {packs, setPack} = useContext (CardData);
+  const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
+  const queryTablet = useMediaQuery ('(max-width: 766px)');
 
-  const { packs, setPack } = useContext(CardData)
-  const [scroll, setScroll]= useState({scrollLeft: "", scrollWidth: ""})
-  const queryTablet = useMediaQuery("(max-width: 766px)");
+  console.log (queryTablet);
 
-  console.log(queryTablet);
-
-  const setSelectedCard = (packId) => {
+  const setSelectedCard = packId => {
     setPack (packId);
-  }
+  };
 
-  const handleScroll = (e) => {
-    setScroll({
+  const handleScroll = e => {
+    setScroll ({
       scrollLeft: e.target.scrollLeft,
-      scrollWidth: e.target.scrollWidth - e.target.offsetWidth
-    })
-  }
+      scrollWidth: e.target.scrollWidth - e.target.offsetWidth,
+    });
+  };
 
   return (
     <Background>
@@ -36,20 +36,29 @@ const Packs = () => {
           SKINS PACKS
         </h4>
         <div className={styles.cardContainer} onScroll={handleScroll}>
-          {packs.map(pack => {
-            return <Card
-              key ={pack.id}
-              imgSrc={pack.imgSrc}
-              text1={pack.text1}
-              text2={pack.text2}
-              text3={pack.text3}
-              soldOut={pack.soldOut}
-              sale={pack.sale}
-              handleClick={() => setSelectedCard(pack.id)}
-            />
+          {packs.map (pack => {
+            return (
+              <Link to={`/packs/${pack.id}`}>
+                <Card
+                  key={pack.id}
+                  imgSrc={pack.imgSrc}
+                  text1={pack.text1}
+                  text2={pack.text2}
+                  text3={pack.text3}
+                  soldOut={pack.soldOut}
+                  sale={pack.sale}
+                  handleClick={() => setSelectedCard (pack.id)}
+                />
+              </Link>
+            );
           })}
         </div>
-        {queryTablet && <ScrollBar width={scroll.scrollWidth} position={scroll.scrollLeft} elements={packs.length}/>}
+        {queryTablet &&
+          <ScrollBar
+            width={scroll.scrollWidth}
+            position={scroll.scrollLeft}
+            elements={packs.length}
+          />}
         <SocialMedia />
       </div>
     </Background>
