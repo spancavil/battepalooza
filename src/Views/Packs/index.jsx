@@ -13,7 +13,6 @@ const Packs = () => {
   const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
   const queryTablet = useMediaQuery ('(max-width: 766px)');
 
-  console.log (queryTablet);
 
   const history = useHistory ();
 

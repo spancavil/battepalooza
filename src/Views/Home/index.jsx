@@ -24,7 +24,6 @@ const HomeContainer = () => {
   const [ytDisplay, setYtDisplay] = useState(false);
 
   const handleWatchTrailer = () => {
-    console.log("me salgo!")
     setYtDisplay(!ytDisplay);
   }
 
