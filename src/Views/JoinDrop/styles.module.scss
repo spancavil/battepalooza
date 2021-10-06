@@ -21,32 +21,73 @@ $desktop: 1200px;
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: $desktop){
 
-    .parentContainerActive{
+    .parentContent{
         position: relative;
-        width: 100%;
-        height: 100%;
+        top: 170px;
+        left: 355px;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        opacity: 1;
+        flex-direction: row;
     }
 
-    .parentContainerInactive{
-        position: relative;
+    .content{
+        background-color: rgba(3, 11, 35, 0.8);
+        width: 740px;
+        height: 600px;
+        padding: 56px 35px;
+        font-family: $font-nasalization;
+        .line1 {
+            margin: 10px 0;
+            font-size: 30px;
+            color: yellow;
+        }
+        .line2 {
+            margin-top: 40px;
+            font-size: 40px;
+            color: white;
+        }
+        .line3 {
+            font-size: 20px;
+            color: white;
+        }
+        .line4 {
+            font-size: 25px;
+            color: white;
+        }
+    }
+    .cardImage{
+        height: 600px;
+        width: 490px;
+        background: linear-gradient(180deg, rgba(1,70,213,1) 0%, rgba(1,70,213,0) 100%);
+    }
+
+    .parentContainerModal{
+        position: fixed;
+        top:0;
+        left: 0;
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        opacity: 0.6;
+        background-color: rgba(0,0,0,0.6);
     }
+
     .textDrop {
         font-size: 20px;
         color: white;
         font-family: $font-nasalization;
         padding: 30px 0;
+        text-align: center;
+    }
+
+    .modalButtons {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
     }
     
 }

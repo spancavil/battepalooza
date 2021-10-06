@@ -6,7 +6,7 @@ const pack = {
         text2: "1 - DROP 1",
         text3: "2,00 PACK",
     },
-    content: "1 rare skin 2 common skin",
+    content: ["1 rare skin", "2 common skin"],
     price: 100000,
     stock: 300,
     soldOut: false,
