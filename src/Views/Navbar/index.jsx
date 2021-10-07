@@ -5,10 +5,12 @@ import styles from './styles.module.scss';
 import NCoin from '../../Assets/img/icon-ncoin.png';
 import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import {UserData} from '../../Context/UserProvider';
+import {separator} from '../../Utils/separator';
 
 const NavBar = () => {
   const [menu, setMenu] = useState (false);
   const [id, setId] = useState (null);
+  const [Coins, setCoins] = useState (10000000);
 
   const history = useHistory ();
   const {userData} = useContext (UserData);
@@ -27,6 +29,13 @@ const NavBar = () => {
       userData._id && setId (userData._id.slice (-4));
     },
     [userData]
+  );
+
+  useEffect (
+    () => {
+      setCoins (separator (Coins));
+    },
+    [Coins]
   );
 
   const onClick = e => {
@@ -55,53 +64,55 @@ const NavBar = () => {
             }
           >
             <div className={styles.navLinks}>
-              
+
+              <li>
+                <Link
+                  onClick={() => setMenu (!menu)}
+                  to={userData.email ? '/packs' : '/needlogin'}
+                  className={styles.navLink}
+                >
+                  PACKS
+                </Link>
+              </li>
+              <li>
+                <Link
+                  onClick={() => setMenu (!menu)}
+                  to={userData.email ? '/marketplace' : '/needlogin'}
+                  className={styles.navLink}
+                >
+                  MARKETPLACE
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://battlepalooza.com/news/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.navLink}
+                >
+                  NEWS
+                </a>
+              </li>
+              <li>
+                <Link
+                  onClick={() => setMenu (!menu)}
+                  to="/help"
+                  className={styles.navLink}
+                >
+                  HELP
+                </Link>
+              </li>
+              {userData.email &&
                 <li>
                   <Link
                     onClick={() => setMenu (!menu)}
-                    to= {userData.email ? '/packs' : '/needlogin'}
-                    className={styles.navLink}
-                  >
-                    PACKS
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    onClick={() => setMenu (!menu)}
-                    to= {userData.email ? '/marketplace' : '/needlogin'}
-                    className={styles.navLink}
-                  >
-                    MARKETPLACE
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    href="https://battlepalooza.com/news/"
-                    target="_blank" rel="noopener noreferrer"
-                    className={styles.navLink}
-                  >
-                    NEWS
-                  </a>
-                </li>
-                <li>
-                  <Link
-                    onClick={() => setMenu (!menu)}
-                    to= '/help'
-                    className={styles.navLink}
-                  >
-                    HELP
-                  </Link>
-                </li>
-                {userData.email && <li>
-                  <Link
-                    onClick={() => setMenu (!menu)}
-                    to= '/account'
+                    to="/account"
                     className={styles.navLink}
                   >
                     ACCOUNT
                   </Link>
                 </li>}
-           
+
               {userData.email
                 ? <li onClick={() => logout ()} className={styles.logout}>
                     LOG OUT
@@ -113,9 +124,10 @@ const NavBar = () => {
               {userData.email
                 ? <div className={styles.bottomContainer}>
                     <a
-                    href="https://exchange.forte.io/portal/login"
-                    target="_blank" rel="noopener noreferrer"
-                    className={styles.navLink}
+                      href="https://exchange.forte.io/portal/login"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.navLink}
                     >
                       <button>BUY MORE</button>
                     </a>
@@ -136,7 +148,7 @@ const NavBar = () => {
                         </svg>
                       </div>
                       <div className={styles.ncoins}>
-                        <p>1.000.000 NCoin</p>
+                        <p>{Coins} NCoins </p>
                         <img src={NCoin} alt="NCoin" />
                       </div>
                     </div>
@@ -173,15 +185,16 @@ const NavBar = () => {
                         </svg>
                       </div>
                       <div className={styles.ncoins}>
-                        <p>1.000.000 NCoin</p>
+                        <p>{Coins} NCoins</p>
                         <img src={NCoin} alt="NCoin" />
                       </div>
                     </div>
                     <div className={styles.buyMore}>
                       <a
-                      href="https://exchange.forte.io/portal/login"
-                      target="_blank" rel="noopener noreferrer"
-                      className={styles.navLink}
+                        href="https://exchange.forte.io/portal/login"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.navLink}
                       >
                         <button>BUY MORE</button>
                       </a>

@@ -1,25 +1,17 @@
 import React, {useContext, useEffect, useState} from 'react';
 import styles from './styles.module.scss';
 import nCoin from '../../../../Assets/img/icon-ncoin.png';
-import { UserData } from '../../../../Context/UserProvider';
+import {UserData} from '../../../../Context/UserProvider';
+import {separator} from '../../../../Utils/separator';
 
 // Por ahora esta Hardcodeado pero cuando
 // tengamos la api hay que crear los estados
 // y las funciones
 
-const AccountData = ({
-  date = 'July, 2021',
-  linked = true,
-}) => {
-  const {userData} = useContext (UserData)
+const AccountData = ({date = 'July, 2021', linked = true}) => {
+  const {userData} = useContext (UserData);
   const [Coins, setCoins] = useState (10000000);
-  const [id, setId] = useState("")
-
-  const separator = Coins => {
-    var str = Coins.toString ().split ('.');
-    str[0] = str[0].replace (/\B(?=(\d{3})+(?!\d))/g, ',');
-    return str.join ('.');
-  };
+  const [id, setId] = useState ('');
 
   useEffect (
     () => {
@@ -28,9 +20,12 @@ const AccountData = ({
     [userData]
   );
 
-  useEffect (() => {
-    setCoins (separator (Coins));
-  }, [Coins]);
+  useEffect (
+    () => {
+      setCoins (separator (Coins));
+    },
+    [Coins]
+  );
 
   return (
     <div className={styles.container}>
