@@ -1,0 +1,62 @@
+@import "../../Styles/colors.scss";
+@import "../../Styles/fonts.scss";
+
+.container {
+  width: 100vw;
+  height: 85vh;
+  padding-top: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .deg {
+    width: 350px;
+    height: 400px;
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%);
+
+    .card {
+      width: 250px;
+      height: 100%;
+      background-color: $card-bg;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+
+      img {
+        width: 250px;
+      }
+
+      .down {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 13px;
+
+          Button {
+              height: 30px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 14px;
+              padding: 10px 50px;
+              border-radius: 3px;
+          }
+          
+          p {
+              color: white;
+              font-family: $font-nasalization;
+              font-size: 10px;
+              text-align: center;
+          }
+      }
+    }
+  }
+}
