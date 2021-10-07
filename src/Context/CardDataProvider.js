@@ -9,8 +9,7 @@ const CardDataProvider = ({children}) => {
     const [packs, setPacks] = useState([]);
     const [packSelected, setPackSelected] = useState({});
 
-    const setPack = (packId) => {
-        const pack = packs.find(pack => pack.id === packId);
+    const setPack = (pack) => {
         setPackSelected(pack);
     }
 
@@ -21,27 +20,42 @@ const CardDataProvider = ({children}) => {
                 {
                     id: 1,
                     imgSrc: image1,
-                    text1: "Rare Series 1 Release",
-                    text2: "1 - DROP 1",
-                    text3: "2,00 PACK",
+                    description : {
+                        text1: "Rare Series 1 Release",
+                        text2: "1 - DROP 1",
+                        text3: "2,00 PACK",
+                    },
+                    content: ["1 rare skin", "2 common skin"],
+                    price: 100000,
+                    stock: 300,
                     soldOut: false,
                     sale: true
                 },
                 {
                     id: 2,
                     imgSrc: image2,
-                    text1: "Rare Series 1 Release",
-                    text2: "1 - DROP 1",
-                    text3: "2,00 PACK",
+                    description : {
+                        text1: "Rare Series 1 Release",
+                        text2: "1 - DROP 1",
+                        text3: "2,00 PACK",
+                    },
+                    content: ["1 rare skin", "2 common skin"],
+                    price: 200000,
+                    stock: 255,
                     soldOut: true,
                     sale: false
                 },
                 {
                     id: 4,
                     imgSrc: image4,
-                    text1: "Rare Series 1 Release",
-                    text2: "1 - DROP 1",
-                    text3: "2,00 PACK",
+                    description : {
+                        text1: "Rare Series 1 Release",
+                        text2: "1 - DROP 1",
+                        text3: "2,00 PACK",
+                    },
+                    content: ["1 rare skin", "2 common skin"],
+                    price: 300000,
+                    stock: 450,
                     soldOut: false,
                     sale: false
                 },

@@ -32,9 +32,6 @@ const YoutubeEmbed = ({ embedId, onExit }) => {
         sizeWidth = '640';
     }
 
-    console.log(sizeHeight);
-    console.log(sizeWidth);
-
     const handleExit = (e) => {
         console.log("Hola!")
         e.code === "Escape" && onExit()
