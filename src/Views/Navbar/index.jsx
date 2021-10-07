@@ -148,7 +148,7 @@ const NavBar = () => {
                         </svg>
                       </div>
                       <div className={styles.ncoins}>
-                        <p>{Coins}</p>
+                        <p>{Coins} NCoins </p>
                         <img src={NCoin} alt="NCoin" />
                       </div>
                     </div>
