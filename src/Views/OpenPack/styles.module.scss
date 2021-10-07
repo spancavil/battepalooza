@@ -1,39 +1,42 @@
 @import "../../Styles/colors.scss";
 @import "../../Styles/fonts.scss";
+@import "../../Styles/breakpoints.scss";
 
-.container {
-  width: 100vw;
-  height: 85vh;
-  padding-top: 65px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .deg {
-    width: 350px;
-    height: 400px;
-    padding-top: 40px;
+@media (max-width: $mobile - 1) {
+  .container {
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%);
 
-    .card {
-      width: 250px;
-      height: 100%;
-      background-color: $card-bg;
-      border-radius: 3px;
+    .deg {
+      width: 100vw;
+      height: 100vh;
+      padding-top: 65px;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 20px;
+      justify-content: flex-start;
+      background: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%);
+      flex-direction: column;
 
-      img {
-        width: 250px;
-      }
+      .card {
+        width: 85%;
+        height: 75%;
+        background-color: #030b23;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        justify-content: center;
+        grid-gap: 20px;
+        gap: 20px;
 
-      .down {
+        img {
+          width: 250px;
+        }
+
+        .down {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -41,21 +44,86 @@
           gap: 13px;
 
           Button {
-              height: 30px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 14px;
-              padding: 10px 50px;
-              border-radius: 3px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            padding: 10px 50px;
+            border-radius: 3px;
           }
-          
+
           p {
-              color: white;
-              font-family: $font-nasalization;
-              font-size: 10px;
-              text-align: center;
+            color: white;
+            font-family: $font-nasalization;
+            font-size: 10px;
+            text-align: center;
+            cursor: pointer;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $mobile) {
+  .container {
+    width: 100vw;
+    height: 85vh;
+    padding-top: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .deg {
+      width: 350px;
+      height: 400px;
+      padding-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%);
+
+      .card {
+        width: 250px;
+        height: 100%;
+        background-color: $card-bg;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        img {
+          width: 250px;
+        }
+
+        .down {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 13px;
+
+          Button {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            padding: 10px 50px;
+            border-radius: 3px;
+          }
+
+          p {
+            color: white;
+            font-family: $font-nasalization;
+            font-size: 10px;
+            text-align: center;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
