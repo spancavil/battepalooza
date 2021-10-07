@@ -13,6 +13,7 @@ import Packs from "./Views/Packs";
 import PackDetail from "./Views/PackDetail";
 import CardDataProvider from "./Context/CardDataProvider";
 import JoinDrop from "./Views/JoinDrop";
+import OpenPack from "./Views/OpenPack";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route exact path="/packs" component={Packs} />
             <Route exact path="/packs/:id" component={PackDetail} />
             <Route exact path="/join-drop" component={JoinDrop} />
+            <Route exact path="/open-pack" component={OpenPack} />
             <Route path="" component={NotFound} />
           </Switch>
         </CardDataProvider>
