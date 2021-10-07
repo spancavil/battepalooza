@@ -8,9 +8,14 @@ export const CardData = createContext({});
 const CardDataProvider = ({children}) => {
     const [packs, setPacks] = useState([]);
     const [packSelected, setPackSelected] = useState({});
+    const [packToOpen, setPackToOpen] = useState({})
 
     const setPack = (pack) => {
         setPackSelected(pack);
+    }
+
+    const setPackForOpen = (pack) => {
+        setPackToOpen(pack)
     }
 
     useEffect(() => {
@@ -64,7 +69,7 @@ const CardDataProvider = ({children}) => {
     }, [])
 
     return (
-        <CardData.Provider value = {{setPack, packs, packSelected}}>
+        <CardData.Provider value = {{setPack, setPackForOpen, packs, packSelected, packToOpen}}>
             {children}
         </CardData.Provider>
     )

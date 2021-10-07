@@ -8,9 +8,10 @@ import { createRandomNumber } from '../../Utils/createQueue';
 import ProgressBar from './components/ProgressBar';
 import { CardData } from '../../Context/CardDataProvider';
 import {useMediaQuery} from '../../Hooks/useMediaQuery';
+import { useHistory } from 'react-router';
 
 const JoinDrop = () => {
-    const {packSelected} = useContext(CardData);
+    const {packSelected, setPackForOpen} = useContext(CardData);
     const [number, setNumber] = useState("")
     const [milliseconds, setMilliseconds] = useState(0);
     const [finishCount, setFinishCount] = useState(false);
@@ -18,7 +19,7 @@ const JoinDrop = () => {
     const pack = packSelected;
 
     const queryMobile = useMediaQuery('(max-width: 575px');
-    console.log(queryMobile);
+    const history = useHistory();
 
     const handleBuy = () => {
         setBuy(true);
@@ -29,11 +30,13 @@ const JoinDrop = () => {
     }
 
     const handleOpen = () => {
-        console.log("Me abro!")
+        setPackForOpen(packSelected);
+        
+        history.push('/open-pack');
     }
 
     const handleLater = () => {
-        console.log("Después...");
+        history.push('/account')
     }
 
     useEffect(() => {
