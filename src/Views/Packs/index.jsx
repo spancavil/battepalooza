@@ -43,9 +43,9 @@ const Packs = () => {
               <Card
                 key={pack.id}
                 imgSrc={pack.imgSrc}
-                text1={pack.text1}
-                text2={pack.text2}
-                text3={pack.text3}
+                text1={pack.description.text1}
+                text2={pack.description.text2}
+                text3={pack.description.text3}
                 soldOut={pack.soldOut}
                 sale={pack.sale}
                 handleClick={() => setSelectedCard (pack.id)}

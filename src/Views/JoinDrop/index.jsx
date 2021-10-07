@@ -1,19 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Background from '../../Global-Components/Background';
 import Modal from '../../Global-Components/Modal';
 import Button from '../../Global-Components/Button';
 import styles from './styles.module.scss';
 import SubMessage from '../../Global-Components/SubMessage';
 import { createRandomNumber } from '../../Utils/createQueue';
-import image1 from '../../Assets/sprites/cardpack01.png';
 import ProgressBar from './components/ProgressBar';
+import { CardData } from '../../Context/CardDataProvider';
+import {useMediaQuery} from '../../Hooks/useMediaQuery';
 
 const JoinDrop = () => {
-
+    const {packSelected} = useContext(CardData);
     const [number, setNumber] = useState("")
     const [milliseconds, setMilliseconds] = useState(0);
     const [finishCount, setFinishCount] = useState(false);
     const [buy, setBuy] = useState(false);
+    const pack = packSelected;
+
+    const queryMobile = useMediaQuery('(max-width: 575px');
+    console.log(queryMobile);
 
     const handleBuy = () => {
         setBuy(true);
@@ -29,24 +34,6 @@ const JoinDrop = () => {
 
     const handleLater = () => {
         console.log("Después...");
-    }
-
-    const cantidad = 100;;
-    const packName = "Rare Pack";
-
-    const pack = {
-        id: 1,
-        imgSrc: image1,
-        description : {
-            text1: "Rare Series 1 Release",
-            text2: "1 - DROP 1",
-            text3: "2,00 PACK",
-        },
-        content: ["1 rare skin", "2 common skin"],
-        price: 100000,
-        stock: 300,
-        soldOut: false,
-        sale: true,
     }
 
     useEffect(() => {
@@ -95,14 +82,14 @@ const JoinDrop = () => {
                                         </div>}
                 </div>
                 <div className = {styles.cardImage}>
-
+                    <img src={pack.imgSrc} alt="pack"/>
                 </div>
             </div>
             {(finishCount && !buy) && 
                 <div className ={styles.parentContainerModal}>
                 <Modal title = "Checkout">
                     <h3 className={styles.textDrop}>
-                        Will you use {cantidad} nCoin to buy {packName}
+                        Will you use {pack.price} nCoin to buy {pack.description.text1} pack?
                     </h3>
                     <Button
                     title = "BUY"
@@ -125,12 +112,12 @@ const JoinDrop = () => {
                         <Button
                             title="Open"
                             onClick = {handleOpen}
-                            width = "176px"
+                            width = {queryMobile ? "126px" : "176px"}
                         />
                         <Button
                             title="Later"
                             onClick = {handleLater}
-                            width = "176px"
+                            width = {queryMobile ? "126px" : "176px"}
                             style={{backgroundColor: "#0149DB"}}
                         />
                     </div>
