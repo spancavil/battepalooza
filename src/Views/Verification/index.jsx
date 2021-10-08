@@ -30,7 +30,7 @@ const Verification = () => {
         alert(response.data.message)
       } else {
         setTheToken(response);
-        history.push('/account') 
+        history.go(-2)
       }
 
     }
