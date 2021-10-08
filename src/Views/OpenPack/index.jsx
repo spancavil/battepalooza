@@ -2,10 +2,8 @@ import React, {useContext} from 'react';
 import Background from '../../Global-Components/Background';
 import Button from '../../Global-Components/Button';
 import styles from './styles.module.scss';
-import img from '../../Assets/sprites/cardpack01.png';
 import {CardData} from '../../Context/CardDataProvider';
-import {Redirect, useParams} from 'react-router';
-import {UserData} from '../../Context/UserProvider';
+import {Redirect} from 'react-router';
 
 const OpenPack = () => {
   const {packToOpen} = useContext (CardData);

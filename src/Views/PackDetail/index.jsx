@@ -1,6 +1,5 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Redirect} from 'react-router';
-import {UserData} from '../../Context/UserProvider';
 import Background from '../../Global-Components/Background';
 import SocialMedia from '../Home/Components/SocialMedia';
 import CardDetail from './Components/CardDetail';
