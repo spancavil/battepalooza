@@ -7,12 +7,13 @@ import {CardData} from '../../Context/CardDataProvider';
 import ScrollBar from './Components/ScrollBar';
 import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import {useHistory} from 'react-router-dom';
+import {Redirect} from 'react-router';
 
 const Packs = () => {
   const {packs, setPack} = useContext (CardData);
   const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
   const queryTablet = useMediaQuery ('(max-width: 766px)');
-
+  const userStorage = JSON.parse (localStorage.getItem ('user'));
 
   const history = useHistory ();
 
@@ -28,41 +29,41 @@ const Packs = () => {
     });
   };
 
-  return (
-    <Background>
-      <div className={styles.packContainer}>
-        <div className={styles.banner}>
-          BANNER IMG
+  return !userStorage
+    ? <Redirect to="/" />
+    : <Background>
+        <div className={styles.packContainer}>
+          <div className={styles.banner}>
+            BANNER IMG
+          </div>
+          <h4>
+            SKINS PACKS
+          </h4>
+          <div className={styles.cardContainer} onScroll={handleScroll}>
+            {packs.map (pack => {
+              return (
+                <Card
+                  key={pack.id}
+                  imgSrc={pack.imgSrc}
+                  text1={pack.description.text1}
+                  text2={pack.description.text2}
+                  text3={pack.description.text3}
+                  soldOut={pack.soldOut}
+                  sale={pack.sale}
+                  handleClick={() => setSelectedCard (pack.id)}
+                />
+              );
+            })}
+          </div>
+          {queryTablet &&
+            <ScrollBar
+              width={scroll.scrollWidth}
+              position={scroll.scrollLeft}
+              elements={packs.length}
+            />}
+          <SocialMedia />
         </div>
-        <h4>
-          SKINS PACKS
-        </h4>
-        <div className={styles.cardContainer} onScroll={handleScroll}>
-          {packs.map (pack => {
-            return (
-              <Card
-                key={pack.id}
-                imgSrc={pack.imgSrc}
-                text1={pack.description.text1}
-                text2={pack.description.text2}
-                text3={pack.description.text3}
-                soldOut={pack.soldOut}
-                sale={pack.sale}
-                handleClick={() => setSelectedCard (pack.id)}
-              />
-            );
-          })}
-        </div>
-        {queryTablet &&
-          <ScrollBar
-            width={scroll.scrollWidth}
-            position={scroll.scrollLeft}
-            elements={packs.length}
-          />}
-        <SocialMedia />
-      </div>
-    </Background>
-  );
+      </Background>;
 };
 
 export default Packs;
