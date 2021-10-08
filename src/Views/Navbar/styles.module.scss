@@ -221,6 +221,10 @@
       text-align: right;
     }
 
+    .link {
+      display: contents;
+    }
+
     .ncoins {
       display: flex;
       text-align: right;
@@ -383,6 +387,10 @@
       font-family: $font-nanum;
       font-weight: 700;
     }
+  }
+
+  .link {
+    display: contents;
   }
 
   .links {
