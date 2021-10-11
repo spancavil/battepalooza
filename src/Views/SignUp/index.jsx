@@ -90,9 +90,13 @@ const SignUp = () => {
     }
   };
 
+  const handleClose = () => {
+    history.push('/')
+  }
+
   return (
     <div className={styles.container}>
-      <Modal title="SIGN UP">
+      <Modal title="SIGN UP" handleClose={handleClose}>
         <div className={styles.divRow1}>
           <Input
             label="Email"

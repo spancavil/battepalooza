@@ -21,6 +21,10 @@ const Login = () => {
     setEMail (email);
   };
 
+  const handleClose = () => {
+    history.push('/')
+  }
+
   const onLogin = async () => {
     if(!(/\S+@\S+\.\S+/.test(email))){
       setErrorEmail ('Input a valid email')
@@ -39,7 +43,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <Modal title="LOGIN">
+      <Modal title="LOGIN" handleClose={handleClose}>
         <div className={styles.inputContainer}>
           <Input
             label="Email"

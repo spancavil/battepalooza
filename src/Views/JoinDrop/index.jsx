@@ -22,6 +22,7 @@ const JoinDrop = () => {
     const history = useHistory();
 
     const handleBuy = () => {
+        // Aqui irá la logica de cuando el usuario compre un pack
         setBuy(true);
     }
 
@@ -36,7 +37,15 @@ const JoinDrop = () => {
     }
 
     const handleLater = () => {
-        history.push('/account')
+        history.push('/collection');
+    }
+
+    const handleClose = () => {
+        history.push(`/packs/${pack.id}`);
+    }
+
+    const handleCloseConfirmation = () => {
+        history.push('/packs');
     }
 
     useEffect(() => {
@@ -44,7 +53,7 @@ const JoinDrop = () => {
     }, [])
     
     useEffect(()=> {
-        setMilliseconds(number*500)
+        setMilliseconds(number*500);
     }, [number])
 
     console.log(finishCount);
@@ -90,7 +99,7 @@ const JoinDrop = () => {
             </div>
             {(finishCount && !buy) && 
                 <div className ={styles.parentContainerModal}>
-                <Modal title = "Checkout">
+                <Modal title = "Checkout" handleClose = {handleClose}>
                     <h3 className={styles.textDrop}>
                         Will you use {pack.price} nCoin to buy {pack.description.text1} pack?
                     </h3>
@@ -109,7 +118,7 @@ const JoinDrop = () => {
             }
             {buy &&
                 <div className ={styles.parentContainerModal}>
-                <Modal title="Confirmation">
+                <Modal title="Confirmation" handleCloseConfirmation = {handleCloseConfirmation}>
                     <h3 className={styles.textDrop}>Congratulations! Your purchase was succesful! <br/>Will you open the Pack now?</h3>
                     <div className={styles.modalButtons}>
                         <Button
