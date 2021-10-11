@@ -14,6 +14,7 @@ import PackDetail from "./Views/PackDetail";
 import CardDataProvider from "./Context/CardDataProvider";
 import JoinDrop from "./Views/JoinDrop";
 import OpenPack from "./Views/OpenPack";
+import CardAnimation from "./Views/CardAnimation";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route exact path="/packs/:id" component={PackDetail} />
             <Route exact path="/join-drop" component={JoinDrop} />
             <Route exact path="/open-pack" component={OpenPack} />
+            <Route exact path="/card-animation" component={CardAnimation} />
             <Route path="" component={NotFound} />
           </Switch>
         </CardDataProvider>
