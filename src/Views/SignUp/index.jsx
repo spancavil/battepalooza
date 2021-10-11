@@ -15,6 +15,7 @@ const SignUp = () => {
     lastName: '',
     email: '',
     checked: false,
+    checkedEmail: false
   });
 
   const [errorEmail, setErrorEmail] = useState('');
@@ -43,6 +44,10 @@ const SignUp = () => {
     setForm({ ...form, checked });
     setErrorChecked('');
   };
+
+  const changeCheckedEmails = checked => {
+    setForm({...form, checkedEmail: checked})
+  }
 
   const onSingUp = async () => {
     let error = false;
@@ -90,9 +95,13 @@ const SignUp = () => {
     }
   };
 
+  const handleClose = () => {
+    history.push('/')
+  }
+
   return (
     <div className={styles.container}>
-      <Modal title="SIGN UP">
+      <Modal title="SIGN UP" handleClose={handleClose}>
         <div className={styles.divRow1}>
           <Input
             label="Email"
@@ -125,6 +134,11 @@ const SignUp = () => {
           label="I agree to the Terms of Service and Private Policy"
           width="90%"
           onChecked={checked => changeChecked(checked)}
+        />
+        <Checkbox
+          label="I want to receive emails from nWay including information about our upcoming drops as well as news, offers and survey"
+          width="90%"
+          onChecked={checked => changeCheckedEmails(checked)}
         />
         {errorChecked && <span className={styles.errorMessage}>{errorChecked}</span>}
         <div style={{ paddingTop: '40px' }}>

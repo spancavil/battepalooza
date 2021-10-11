@@ -11,22 +11,27 @@ import { useHistory } from 'react-router';
 const Verification = () => {
   const [code, setCode] = useState("");
   const [errorCode, setErrorCode] = useState("")
-  const {setCodeVerification, setTheToken, email} = useContext(UserData);
+  const { setCodeVerification, setTheToken, email } = useContext(UserData);
   const history = useHistory();
 
   const handleChange = (codigo) => {
     setCode(codigo);
   }
 
+  const handleClose = () => {
+    history.push('/')
+  }
+
+
   const submitCode = async () => {
-    if ( !(/^\d{6}$/.test(code))){
+    if (!(/^\d{6}$/.test(code))) {
       setErrorCode("Input a valid code")
     } else {
       setErrorCode('');
-      setCodeVerification (code)
+      setCodeVerification(code)
       const response = await authService.login(email, code);
-      
-      if (response.data.message){
+
+      if (response.data.message) {
         alert(response.data.message)
       } else {
         setTheToken(response);
@@ -34,24 +39,24 @@ const Verification = () => {
       }
 
     }
-    
+
   }
 
   return (
     <div className={styles.container}>
-      <Modal title="VERIFICATION">
+      <Modal title="VERIFICATION" handleClose={handleClose}>
         <div className={styles.inputContainer}>
           <Input
             label="Code"
             width="100%"
             subtitle="Input the 6 digit code that has been sent to your email"
-            handleChange={(code)=> handleChange(code)}
+            handleChange={(code) => handleChange(code)}
           />
           {errorCode && <span className={styles.errorMessage}>{errorCode}</span>}
         </div>
         <div style={{ paddingTop: '40px' }}>
           <Button title="VERIFY"
-          onClick = {submitCode}
+            onClick={submitCode}
           />
         </div>
         <span className={styles.message}>

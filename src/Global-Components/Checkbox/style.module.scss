@@ -9,15 +9,15 @@ $desktop: 1200px;
     .container{
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        font-family: $font-nasalization;
-        font-size: 11px;
-        color: white;
         padding-top: 20px;
+        gap: 10px;
         input {
-            margin-right: 5px;
             border-radius: 3px;
-            width: 14px;
+        }
+        label {
+            font-family: $font-nasalization;
+            font-size: 10px;
+            color: white;
         }
     }
 };
@@ -27,15 +27,15 @@ $desktop: 1200px;
     .container{
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        font-family: $font-nasalization;
-        font-size: 13px;
-        color: white;
         padding-top: 20px;
+        gap: 10px;
         input {
-            margin-right: 5px;
             border-radius: 3px;
-            width: 14px;
+        }
+        label {
+            font-family: $font-nasalization;
+            font-size: 10px;
+            color: white;
         }
     }
 }
@@ -45,15 +45,15 @@ $desktop: 1200px;
     .container{
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        font-family: $font-nasalization;
-        font-size: 13px;
-        color: white;
         padding-top: 20px;
+        gap: 10px;
         input {
-            margin-right: 5px;
             border-radius: 3px;
-            width: 14px;
+        }
+        label {
+            font-family: $font-nasalization;
+            font-size: 13px;
+            color: white;
         }
     }
 }
@@ -63,15 +63,15 @@ $desktop: 1200px;
     .container{
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        font-family: $font-nasalization;
-        font-size: 13px;
-        color: white;
         padding-top: 20px;
+        gap: 10px;
         input {
-            margin-right: 5px;
             border-radius: 3px;
-            width: 14px;
+        }
+        label {
+            font-family: $font-nasalization;
+            font-size: 13px;
+            color: white;
         }
     }
 }
@@ -81,15 +81,15 @@ $desktop: 1200px;
     .container{
         display: flex;
         justify-content: flex-start;
-        align-items: center;
-        font-family: $font-nasalization;
-        font-size: 13px;
-        color: white;
         padding-top: 20px;
+        gap: 10px;
         input {
-            margin-right: 5px;
             border-radius: 3px;
-            width: 14px;
+        }
+        label {
+            font-family: $font-nasalization;
+            font-size: 13px;
+            color: white;
         }
     }
 }
