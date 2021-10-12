@@ -3,6 +3,19 @@
 @import "../../Styles/breakpoints.scss";
 
 @media (max-width: $mobile - 1) {
+
+  .container2 {
+    padding-top: 65px;
+    height: 95vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    font-family: $font-nasalization;
+  }
+
   .container {
     width: 100vw;
     display: flex;
