@@ -11,7 +11,7 @@ $hd: 1400px;
 @media (max-width: $laptop - 1){
     .parentContent{
         width: 100vw;
-        padding-top: 65px;
+
         display: flex;
         align-items: center;
         justify-content: center;
@@ -93,7 +93,6 @@ $hd: 1400px;
     .parentContent{
         width: 100vw;
         height: 80vh;
-        padding-top: 65px;
         display: flex;
         align-items: center;
         justify-content: center;
