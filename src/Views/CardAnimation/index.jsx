@@ -20,7 +20,6 @@ const CardAnimation = () => {
     }
 
     const childReveal = () => {
-        console.log("Se revelo desde el card")
         setCountReveal (countReveal + 1);
     }
 

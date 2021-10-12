@@ -27,8 +27,6 @@ const CardToReveal = ({reveal, imgFrente, isRevealed}) => {
         }
     }, [reveal, rotate, isRevealed])
 
-    console.log(rotate, reveal);
-
     return (
 
         <div className={styles.cardContainer}>
