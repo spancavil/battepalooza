@@ -1,14 +1,14 @@
 .cardContainer{
     position: relative;
     width: 200px;
-    height: 310px;
+    height: 320px;
     overflow: visible;
 }
 
 .div1{
     position: absolute;
     top: 0;
-    height: 310px;
+    height: 320px;
     width: 200px;
     transition: 1s ease all;
     background-size: contain;
@@ -17,7 +17,7 @@
     img {
         height: 100%;
         width: 100%;
-        transform: scale(1.33, 1.16)
+        transform: scale(1.33, 1.18)
     }
 }
 
@@ -29,7 +29,7 @@
 .div2{
     position: absolute;
     top: 0;
-    height: 310px;
+    height: 320px;
     width: 200px;
     transform: rotateY(-90deg);
     transition: 1s ease all 1s;
@@ -43,4 +43,5 @@
 .div2Rotate{
     @extend .div2;
     transform: rotateY(0deg);
+    overflow-y: hidden;
 }

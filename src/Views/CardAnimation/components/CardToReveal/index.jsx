@@ -3,23 +3,31 @@ import styles from './style.module.scss';
 import dorso from '../../../../Assets/img/nft-card-back01.png';
 
 /**
- * An animation for card reveal. El dorso de la card ya está predefinido.
+ * An animation for card reveal. La imagen del dorso de la card ya está predefinida.
  * @param reveal True or false, si queremos que se revele la card. Default: false
  * @param imgFrente The front image card
+ * @function isRevealed la funcion que se ejecuta apenas se revela
  *  
  */
 
-const CardToReveal = ({reveal, imgFrente}) => {
+const CardToReveal = ({reveal, imgFrente, isRevealed}) => {
 
     const [rotate, setRotate] = useState(false)
 
     const handleRotate = () => {
-        rotate === false && setRotate(true);
+        if (rotate === false) {
+            setRotate(true);
+            isRevealed();
+        }
     }
 
     useEffect(() => {
-        if (reveal && rotate === false) setRotate(true);
-    }, [reveal, rotate])
+        if (reveal && rotate === false) {
+            setRotate(true);
+        }
+    }, [reveal, rotate, isRevealed])
+
+    console.log(rotate, reveal);
 
     return (
 
