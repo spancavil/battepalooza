@@ -4,10 +4,10 @@ import SocialMedia from '../Home/Components/SocialMedia';
 import styles from './styles.module.scss';
 import Card from '../../Global-Components/Card';
 import {CardData} from '../../Context/CardDataProvider';
-import ScrollBar from './Components/ScrollBar';
 import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import {useHistory} from 'react-router-dom';
 import {Redirect} from 'react-router';
+import ScrollBar from '../../Global-Components/ScrollBar';
 
 const Packs = () => {
   const {packs, setPack} = useContext (CardData);
