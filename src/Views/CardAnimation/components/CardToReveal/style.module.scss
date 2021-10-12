@@ -1,0 +1,47 @@
+.cardContainer{
+    position: relative;
+    width: 200px;
+    height: 320px;
+    overflow: visible;
+}
+
+.div1{
+    position: absolute;
+    top: 0;
+    height: 320px;
+    width: 200px;
+    transition: 1s ease all;
+    background-size: contain;
+    overflow: hidden;
+    cursor: pointer;
+    img {
+        height: 100%;
+        width: 100%;
+        transform: scale(1.33, 1.18)
+    }
+}
+
+.div1Rotate{
+    @extend .div1;
+    transform: rotateY(90deg);
+}
+
+.div2{
+    position: absolute;
+    top: 0;
+    height: 320px;
+    width: 200px;
+    transform: rotateY(-90deg);
+    transition: 1s ease all 1s;
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+}
+
+.div2Rotate{
+    @extend .div2;
+    transform: rotateY(0deg);
+    overflow-y: hidden;
+}

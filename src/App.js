@@ -17,6 +17,7 @@ import OpenPack from "./Views/OpenPack";
 import Collection from "./Views/Collection";
 import MyPacks from "./Views/MyPacks";
 import MyNft from "./Views/MyNft";
+import CardAnimation from "./Views/CardAnimation";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route exact path="/collection" component={Collection} />
             <Route exact path="/collection/packs" component={MyPacks} />
             <Route exact path="/collection/nft" component={MyNft} />
+            <Route exact path="/card-animation" component={CardAnimation} />
             <Route path="" component={NotFound} />
           </Switch>
         </CardDataProvider>
