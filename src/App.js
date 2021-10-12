@@ -14,6 +14,9 @@ import PackDetail from "./Views/PackDetail";
 import CardDataProvider from "./Context/CardDataProvider";
 import JoinDrop from "./Views/JoinDrop";
 import OpenPack from "./Views/OpenPack";
+import Collection from "./Views/Collection";
+import MyPacks from "./Views/MyPacks";
+import MyNft from "./Views/MyNft";
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
             <Route exact path="/packs/:id" component={PackDetail} />
             <Route exact path="/join-drop" component={JoinDrop} />
             <Route exact path="/open-pack" component={OpenPack} />
+            <Route exact path="/collection" component={Collection} />
+            <Route exact path="/collection/packs" component={MyPacks} />
+            <Route exact path="/collection/nft" component={MyNft} />
             <Route path="" component={NotFound} />
           </Switch>
         </CardDataProvider>
