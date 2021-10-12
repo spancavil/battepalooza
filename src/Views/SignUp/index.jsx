@@ -8,6 +8,7 @@ import { useState } from 'react';
 import SubMessage from '../../Global-Components/SubMessage';
 import authService from '../../Services/auth.service';
 import { useHistory } from 'react-router';
+import {useGoogleReCaptcha} from 'react-google-recaptcha-v3';
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -24,6 +25,7 @@ const SignUp = () => {
   const [errorChecked, setErrorChecked] = useState('');
 
   const history = useHistory();
+  const {executeRecaptcha} = useGoogleReCaptcha()
 
   const changeEmail = email => {
     setForm({ ...form, email });
@@ -47,6 +49,14 @@ const SignUp = () => {
 
   const changeCheckedEmails = checked => {
     setForm({...form, checkedEmail: checked})
+  }
+
+  const handleVerify = async () => {
+    if (!executeRecaptcha){
+      alert("Execute reCAPTCHA not yet available")
+    }
+    const token = await executeRecaptcha("");
+    alert(token);
   }
 
   const onSingUp = async () => {
@@ -140,6 +150,11 @@ const SignUp = () => {
           width="90%"
           onChecked={checked => changeCheckedEmails(checked)}
         />
+        <Button
+          title = "Verify reCAPTACHA"
+          onClick = {handleVerify}
+        />
+
         {errorChecked && <span className={styles.errorMessage}>{errorChecked}</span>}
         <div style={{ paddingTop: '40px' }}>
           <Button title="SIGN UP" onClick={onSingUp} />
