@@ -9,7 +9,7 @@ const PackDetail = () => {
   const userStorage = JSON.parse (localStorage.getItem ('user'));
 
   return !userStorage
-    ? <Redirect to="/" />
+    ? <Redirect to="/needlogin" />
     : <Background>
         <div className={styles.container}>
           <CardDetail />

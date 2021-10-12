@@ -30,7 +30,7 @@ const Packs = () => {
   };
 
   return !userStorage
-    ? <Redirect to="/" />
+    ? <Redirect to="/needlogin" />
     : <Background>
         <div className={styles.packContainer}>
           <div className={styles.banner}>
