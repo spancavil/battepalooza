@@ -1,0 +1,56 @@
+@import "../../../../Styles/colors.scss";
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .cards {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+    overflow-x: scroll;
+    justify-content: left;
+    padding: 0px 15px;
+
+    .cardNft {
+      overflow: visible;
+      position: relative;
+      height: 300px;
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #030b23;
+      border-radius: 3px;
+      justify-content: center;
+      grid-gap: 20px;
+      gap: 20px;
+    }
+
+    .imgNft {
+      width: 130px;
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 7px;
+      gap: 7px;
+
+      p {
+        font-size: 13px;
+        padding: 0px 15px;
+        text-align: center;
+        color: white;
+        font-family: "Nasalization";
+      }
+
+      .text2 {
+        color: $account-name;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import "../../../../Styles/colors.scss";
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .cards {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    grid-gap: 15px;
+    gap: 45px;
+    overflow-x: scroll;
+    justify-content: left;
+    padding: 0px 15px;
+
+    .card {
+      overflow: visible;
+      position: relative;
+      height: 300px;
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(3, 11, 35, 1);
+      border-radius: 3px;
+      justify-content: center;
+      gap: 20px;
+
+      img {
+        width: 150px;
+      }
+
+      .texts {
+        padding: 10px 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        p {
+          font-size: 13px;
+          padding: 0px 15px;
+          text-align: center;
+        }
+
+        .text2 {
+          color: $account-name;
+        }
+      }
+    }
+  }
+}

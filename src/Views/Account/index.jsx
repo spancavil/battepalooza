@@ -15,7 +15,7 @@ const Account = () => {
   };
 
   return !userData
-    ? <Redirect to="/" />
+    ? <Redirect to="/needlogin" />
     : <Background>
         <div className={styles.dataContainer}>
           <AccountMenu handleClick={handleClick} />
