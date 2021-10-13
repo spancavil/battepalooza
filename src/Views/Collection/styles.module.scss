@@ -1,84 +1,207 @@
 @import "../../Styles/fonts.scss";
 @import "../../Styles/colors.scss";
+@import "../../Styles/breakpoints.scss";
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 20px;
-  height: 85vh;
+@media (max-width: $tablet - 1) {
+  .container {
+    padding: 40px 0px;
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    p {
-      font-size: 25px;
-      color: white;
-      font-family: $font-nasalization;
-      text-align: left;
-      width: 100%;
-    }
-
-    .rectangle {
-      width: 650px;
-      border: 3px solid transparent;
-      border-image: linear-gradient(
-          180deg,
-          #0146d5 0%,
-          rgba(1, 70, 213, 0) 100%
-        )
-        1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 50px;
-
-      .cards {
-        margin-top: 40px;
-        display: flex;
-        flex-direction: row;
-        gap: 15px;
-
-        .card {
-          height: 300px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          background-color: rgba(3, 11, 35, 1);
-          border-radius: 3px;
-          justify-content: center;
-          gap: 20px;
-
-          img {
-            width: 150px;
-          }
-
-          .texts {
-            padding: 10px 0px;
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-
-            p {
-              font-size: 13px;
-              padding: 0px 15px;
-              text-align: center;
-            }
-
-            .text2 {
-              color: $account-name;
-            }
-          }
-        }
+    .content {
+      p {
+        padding-bottom: 5px;
+        font-size: 25px;
+        color: white;
+        font-family: $font-nasalization;
+        text-align: center;
+        width: 100%;
       }
 
-      Button {
-        width: 200px;
-        font-size: 15px;
-        padding: 7px 0px;
+      .rectangle {
+        border-top: 3px solid transparent;
+        border-image: linear-gradient(
+            180deg,
+            #0146d5 0%,
+            rgba(1, 70, 213, 0) 100%
+          )
+          1;
+
+        .link {
+          padding: 30px 0px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        Button {
+          width: 200px;
+          font-size: 15px;
+          padding: 7px 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet) and (max-width: $laptop - 1) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 0px;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      p {
+        font-size: 25px;
+        color: white;
+        font-family: $font-nasalization;
+        text-align: left;
+        width: 100%;
+      }
+
+      .rectangle {
+        width: 650px;
+        border: 3px solid transparent;
+        border-image: linear-gradient(
+            180deg,
+            #0146d5 0%,
+            rgba(1, 70, 213, 0) 100%
+          )
+          1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+
+        .cards {
+          padding-left: 35px;
+          width: 100%;
+          margin-top: 40px;
+          display: flex;
+          flex-direction: row;
+          gap: 15px;
+        }
+
+        Button {
+          width: 200px;
+          font-size: 15px;
+          padding: 7px 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $laptop) and (max-width: $desktop - 1) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 0px;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      p {
+        font-size: 25px;
+        color: white;
+        font-family: $font-nasalization;
+        text-align: left;
+        width: 100%;
+      }
+
+      .rectangle {
+        width: 650px;
+        border: 3px solid transparent;
+        border-image: linear-gradient(
+            180deg,
+            #0146d5 0%,
+            rgba(1, 70, 213, 0) 100%
+          )
+          1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+
+        .cards {
+          padding-left: 35px;
+          width: 100%;
+          margin-top: 40px;
+          display: flex;
+          flex-direction: row;
+          gap: 15px;
+        }
+
+        Button {
+          width: 200px;
+          font-size: 15px;
+          padding: 7px 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    height: 85vh;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      p {
+        font-size: 25px;
+        color: white;
+        font-family: $font-nasalization;
+        text-align: left;
+        width: 100%;
+      }
+
+      .rectangle {
+        width: 650px;
+        border: 3px solid transparent;
+        border-image: linear-gradient(
+            180deg,
+            #0146d5 0%,
+            rgba(1, 70, 213, 0) 100%
+          )
+          1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+
+        .cards {
+          padding-left: 35px;
+          width: 100%;
+          margin-top: 40px;
+          display: flex;
+          flex-direction: row;
+          gap: 15px;
+        }
+
+        Button {
+          width: 200px;
+          font-size: 15px;
+          padding: 7px 0px;
+        }
       }
     }
   }
