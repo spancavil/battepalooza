@@ -12,7 +12,6 @@ const Content4 = () => {
               src={img1}
               alt='BattlePalooza'
               data-pagespeed-url-hash="626340491"
-              onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
             />
           </div>
           <div className={styles.box2}>

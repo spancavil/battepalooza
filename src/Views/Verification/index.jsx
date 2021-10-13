@@ -11,7 +11,7 @@ import { useHistory } from 'react-router';
 const Verification = () => {
   const [code, setCode] = useState("");
   const [errorCode, setErrorCode] = useState("")
-  const { setCodeVerification, setTheToken, email } = useContext(UserData);
+  const { setCodeVerification, setTheToken, email, navigation } = useContext(UserData);
   const history = useHistory();
 
   const handleChange = (codigo) => {
@@ -35,7 +35,7 @@ const Verification = () => {
         alert(response.data.message)
       } else {
         setTheToken(response);
-        history.go(-2)
+        history.push(navigation);
       }
 
     }

@@ -14,7 +14,6 @@ const Content3 = () => {
           src={arrow}
           alt="arrow"
           data-pagespeed-url-hash="601268972"
-          onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
         />
       </div>
     </div>

@@ -13,7 +13,7 @@ const NavBar = () => {
   const [Coins, setCoins] = useState (10000000);
 
   const history = useHistory ();
-  const {userData} = useContext (UserData);
+  const {userData, setPreviousNav} = useContext (UserData);
 
   let responsive = useMediaQuery ('(min-width: 1200px)');
 
@@ -49,6 +49,11 @@ const NavBar = () => {
     window.location.reload ();
   };
 
+  const previousMenu = async (link) => {
+    await setPreviousNav(link);
+    return;
+  }
+
   return (
     <header className={menu === true ? styles.header : ''}>
       <nav className={styles.navbar}>
@@ -65,19 +70,19 @@ const NavBar = () => {
           >
             <div className={styles.navLinks}>
 
-              <li>
+              <li onClick = {() => previousMenu('/packs') }>
                 <Link
                   onClick={() => setMenu (!menu)}
-                  to={userData.email ? '/packs' : '/needlogin'}
+                  to={userData.email ? '/packs' : '/needLogin' }
                   className={styles.navLink}
                 >
                   PACKS
                 </Link>
               </li>
-              <li>
+              <li onClick = {() => previousMenu('/marketplace') }>
                 <Link
                   onClick={() => setMenu (!menu)}
-                  to={userData.email ? '/marketplace' : '/needlogin'}
+                  to={userData.email ? '/marketplace' : 'needlogin'}
                   className={styles.navLink}
                 >
                   MARKETPLACE

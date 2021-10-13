@@ -18,7 +18,6 @@ const Content5 = () => {
               src={img2}
               alt='BattlePalooza'
               data-pagespeed-url-hash="920840412"
-              onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
             />
           </div>
         </section>

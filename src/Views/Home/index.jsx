@@ -198,13 +198,11 @@ const HomeContainer = () => {
                   src={animocaLogo}
                   alt="Animoca Logo"
                   data-pagespeed-url-hash="3690970617"
-                  onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
                 />
                 <img
                   src={nWayLogo}
                   alt="nWay Logo"
                   data-pagespeed-url-hash="3262642918"
-                  onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
                 />
               </div>
 

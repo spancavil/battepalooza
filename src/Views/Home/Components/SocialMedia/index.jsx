@@ -15,7 +15,11 @@ const SocialMedia = () => {
             target="_blank"
             rel="noopener noreferrer"
             ><img className={styles.ig}src={instagramLogo} alt="ig-logo" /></a>
-            <img className={styles.discord}src={discordLogo} alt="discord-logo" />
+            <a
+                href="https://discord.gg/NQepVwHEqA"
+                target="_blank"
+                rel="noopener noreferrer"
+            ><img className={styles.discord}src={discordLogo} alt="discord-logo" /></a>
         </div>
     )
 }
