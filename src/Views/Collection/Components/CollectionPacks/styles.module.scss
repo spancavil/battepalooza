@@ -1,9 +1,56 @@
 @import "../../../../Styles/colors.scss";
+@import "../../../../Styles/fonts.scss";
 
 .cardsContainer {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  color: white;
+  font-family: 'Nasalization';
+
+  .cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 25px;
+    grid-row-gap: 20px;
+    justify-items: center;
+    padding-top: 25px;
+
+    .card {
+      overflow: visible;
+      position: relative;
+      height: 300px;
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(3, 11, 35, 1);
+      border-radius: 3px;
+      justify-content: center;
+      gap: 20px;
+
+      img {
+        width: 150px;
+      }
+
+      .texts {
+        padding: 10px 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        p {
+          font-size: 13px;
+          padding: 0px 15px;
+          text-align: center;
+        }
+
+        .text2 {
+          color: $account-name;
+        }
+      }
+    }
+  }
 
   .cards {
     width: 100%;
