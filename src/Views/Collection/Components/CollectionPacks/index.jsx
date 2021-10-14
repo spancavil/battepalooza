@@ -7,7 +7,7 @@ import ScrollBar from '../../../../Global-Components/ScrollBar';
 const CollectionPacks = () => {
   const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
   const queryTablet = useMediaQuery ('(max-width: 766px)');
-  const {packs, setPack} = useContext (CardData);
+  const {packs} = useContext (CardData);
 
   const handleScroll = e => {
     setScroll ({

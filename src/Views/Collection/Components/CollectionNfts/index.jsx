@@ -7,7 +7,7 @@ import ScrollBar from '../../../../Global-Components/ScrollBar';
 const CollectionNfts = () => {
   const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
   const queryTablet = useMediaQuery ('(max-width: 766px)');
-  const {nfts, setNfts} = useContext (NftData);
+  const {nfts} = useContext (NftData);
 
   const handleScroll = e => {
     setScroll ({
