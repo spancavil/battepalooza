@@ -1,0 +1,43 @@
+@import "../../Styles/fonts.scss";
+@import "../../Styles/colors.scss";
+@import "../../Styles/breakpoints.scss";
+
+@media (min-width: $desktop) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .content {
+      width: 95vw;
+
+      .back {
+        width: 1;
+        margin-top: 30px;
+        font-family: "Nasalization";
+        color: $go-back;
+        font-size: 10px;
+        cursor: pointer;
+      }
+
+      .title {
+        margin-top: 5px;
+        font-family: "Nasalization";
+        color: white;
+        font-size: 25px;
+        padding-bottom: 10px;
+      }
+
+      .rectangle {
+        border: 3px solid transparent;
+        border-image: linear-gradient(
+            180deg,
+            #0146d5 0%,
+            rgba(1, 70, 213, 0) 100%
+          )
+          1;
+      }
+    }
+  }
+}
