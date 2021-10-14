@@ -5,4 +5,7 @@
     outline: none;
     overflow-x: hidden;
     scrollbar-width: none;
+    .grecaptcha-badge { 
+        visibility: hidden;
+    }
 }

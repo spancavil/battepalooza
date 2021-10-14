@@ -8,6 +8,8 @@ import { useState } from 'react';
 import SubMessage from '../../Global-Components/SubMessage';
 import authService from '../../Services/auth.service';
 import { useHistory } from 'react-router';
+import {useGoogleReCaptcha} from 'react-google-recaptcha-v3';
+import CheckboxDisabled from './CheckboxDisabled';
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -15,15 +17,20 @@ const SignUp = () => {
     lastName: '',
     email: '',
     checked: false,
-    checkedEmail: false
+    checkedEmail: false,
+    checkedReCaptcha: false,
+    reCaptchaToken: '',
   });
 
   const [errorEmail, setErrorEmail] = useState('');
   const [errorFirstname, setErrorFirstname] = useState('');
   const [errorLastname, setErrorLastname] = useState('');
   const [errorChecked, setErrorChecked] = useState('');
+  const [errorCaptcha, setErrorReCaptcha] = useState('');
+  const [statusVerify, setSatatusVerify] = useState('');
 
   const history = useHistory();
+  const {executeRecaptcha} = useGoogleReCaptcha()
 
   const changeEmail = email => {
     setForm({ ...form, email });
@@ -47,6 +54,28 @@ const SignUp = () => {
 
   const changeCheckedEmails = checked => {
     setForm({...form, checkedEmail: checked})
+  }
+
+  const reCAPTCHA = async () => {
+    if (!executeRecaptcha){
+      alert("Execute reCAPTCHA not yet available")
+    }
+    const token = await executeRecaptcha("");
+    const response = await authService.verifyCaptcha(token);
+
+    if (response.success === true){
+      setForm({...form, checkedReCaptcha: true, reCaptchaToken: token})
+      setSatatusVerify(".. ✓")
+      setErrorReCaptcha('');
+    }
+    else {
+      alert("Cannot verify reCAPTCHA, please reload page")
+    }
+  }
+
+  const handleReCAPTCHA = async (checked) => {
+    setForm({...form, checkedReCaptcha: true})
+    await reCAPTCHA();
   }
 
   const onSingUp = async () => {
@@ -79,12 +108,18 @@ const SignUp = () => {
     } else {
       setErrorChecked('')
     }
+
+    if (!(form.reCaptchaToken)){
+      setErrorReCaptcha('Click for check you are not a robot')
+      error = true
+    }
       
     if (!error){
       const response = await authService.register (
         form.firstName,
         form.lastName,
-        form.email
+        form.email,
+        form.reCaptchaToken
       );
       if (response.data.message.includes("undefined")){
         alert("Email already registered!");
@@ -131,16 +166,26 @@ const SignUp = () => {
           {errorLastname && <span className={styles.errorMessage}>{errorLastname}</span>}
         </div>
         <Checkbox
-          label="I agree to the Terms of Service and Private Policy"
+          label="I agree to the Terms of Service and Private Policy" 
           width="90%"
           onChecked={checked => changeChecked(checked)}
         />
+        {errorChecked && <span className={styles.errorMessage}>{errorChecked}</span>}
         <Checkbox
           label="I want to receive emails from nWay including information about our upcoming drops as well as news, offers and survey"
           width="90%"
           onChecked={checked => changeCheckedEmails(checked)}
         />
-        {errorChecked && <span className={styles.errorMessage}>{errorChecked}</span>}
+        
+        <CheckboxDisabled
+          className = {form.reCaptchaToken ? null: styles.disabled}
+          label={`I AM NOT A ROBOT - reCAPTCHA ${statusVerify}`}
+          width="90%"
+          onChecked={checked => handleReCAPTCHA(checked)}
+          checked = {form.checkedReCaptcha}
+        />
+
+        {errorCaptcha && <span className={styles.errorMessage}>{errorCaptcha}</span>}
         <div style={{ paddingTop: '40px' }}>
           <Button title="SIGN UP" onClick={onSingUp} />
         </div>

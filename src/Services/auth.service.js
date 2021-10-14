@@ -26,7 +26,7 @@ class AuthService {
       name,
       lastName,
       email,
-      role: role ? role : "user"
+      role: role ? role : "user",
     })
     .then( response => {
       if (response.data) {
@@ -42,11 +42,18 @@ class AuthService {
     return axios.get(`${API_URL}user?id=${userId}`, {headers: header});
   }
 
+  verifyCaptcha(captchaToken){
+    return axios.post(`${API_URL}user/verify-recaptcha`, {
+      captchaToken
+    }).then( response => {
+      if (response.data) return response.data
+    })
+  }
+
   getVerificationCode(email){
     return axios.post(API_URL + "login/verify-code", {
       email
     }).then( response => {
-      //console.log(response.data)
       return response.data;
     })
   }
