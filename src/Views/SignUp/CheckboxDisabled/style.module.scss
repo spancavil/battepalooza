@@ -1,0 +1,100 @@
+@import '../../../Styles/fonts.scss';
+$mobile: 576px;
+$tablet: 767px;
+$laptop: 992px;
+$desktop: 1200px;
+
+// Extra mall devices (< 576px)
+@media (max-width: $mobile - 1){
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        gap: 10px;
+        input {
+            border-radius: 3px;
+        }
+        label {
+            font-family: $font-nasalization;
+            font-size: 15px;
+            color: white;
+        }
+    }
+};
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: $mobile) and (max-width:$tablet - 1) {
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        gap: 10px;
+        input {
+            border-radius: 3px;
+        }
+        label {
+            font-family: $font-nasalization;
+            font-size: 20px;
+            color: white;
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: $tablet) and (max-width: $laptop - 1){
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        gap: 10px;
+        input {
+            border-radius: 3px;
+        }
+        label {
+            font-family: $font-nasalization;
+            font-size: 20px;
+            color: white;
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: $laptop) and (max-width: $desktop - 1){
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        gap: 10px;
+        input {
+            border-radius: 3px;
+        }
+        label {
+            font-family: $font-nasalization;
+            font-size: 20px;
+            color: white;
+        }
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: $desktop){
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        gap: 10px;
+        input {
+            border-radius: 3px;
+        }
+        label {
+            font-family: $font-nasalization;
+            font-size: 25px;
+            color: white;
+        }
+    }
+}

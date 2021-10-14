@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "https://be-battlepalooza.herokuapp.com/api/";
+const API_URL = "http://localhost:8081/api/";
 
 class AuthService {
   login(username, code) {
@@ -26,7 +26,7 @@ class AuthService {
       name,
       lastName,
       email,
-      role: role ? role : "user"
+      role: role ? role : "user",
     })
     .then( response => {
       if (response.data) {
@@ -42,11 +42,18 @@ class AuthService {
     return axios.get(`${API_URL}user?id=${userId}`, {headers: header});
   }
 
+  verifyCaptcha(captchaToken){
+    return axios.post(`${API_URL}user/verify-recaptcha`, {
+      captchaToken
+    }).then( response => {
+      if (response.data) return response.data
+    })
+  }
+
   getVerificationCode(email){
     return axios.post(API_URL + "login/verify-code", {
       email
     }).then( response => {
-      //console.log(response.data)
       return response.data;
     })
   }

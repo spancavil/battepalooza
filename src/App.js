@@ -22,13 +22,14 @@ import NftProvider from "./Context/NftProvider";
 import {GoogleReCaptchaProvider} from 'react-google-recaptcha-v3';
 
 function App() {
+
   return (
     <BrowserRouter>
       <UserProvider>
         <NftProvider>
 
           <GoogleReCaptchaProvider
-            reCaptchaKey="6Lfl0MccAAAAAHUUj9lxbQv-5Jg2Kkc693q9ct-X"
+            reCaptchaKey = {process.env.REACT_APP_RECAPTCHA_KEY}
             language="en"
             scriptProps={{
               async: false, // optional, default to false,
