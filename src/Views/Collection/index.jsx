@@ -23,7 +23,7 @@ const Collection = () => {
         </div>
 
         <div className={styles.content2}>
-          <p>NFT</p>
+          <p className={styles.title}>NFT</p>
           <div className={styles.rectangle}>
             <CollectionNfts />
             <div className={styles.link}>
