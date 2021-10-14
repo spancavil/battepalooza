@@ -13,7 +13,7 @@ const Collection = () => {
         <div className={styles.content}>
           <p>PACK</p>
           <div className={styles.rectangle}>
-            <CollectionPacks />
+            <CollectionPacks short />
             <div className={styles.link}>
               <Link to="/collection/packs">
                 <Button title="FULL LIST" />
