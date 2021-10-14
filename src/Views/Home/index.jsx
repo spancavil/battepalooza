@@ -85,7 +85,7 @@ const HomeContainer = () => {
               <h2>FOLLOW US ON</h2>
               <div className={styles.social}>
                 <a
-                  href="https://discord.gg/NQepVwHEqA"
+                  href="https://discord.com/channels/836387983635644416/836387983635644420"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
