@@ -64,7 +64,7 @@ const CollectionPacks = ({flex, short}) => {
         <ScrollBar
           width={scroll.scrollWidth}
           position={scroll.scrollLeft}
-          elements={packs.length}
+          elements={short ? packsShort.length : packs.length}
         />}
     </div>
   );
