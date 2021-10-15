@@ -5,11 +5,12 @@ import CollectionPacks from '../Collection/Components/CollectionPacks';
 import styles from './styles.module.scss';
 
 const MyPacks = () => {
-    const history = useHistory()
+  const history = useHistory()
 
   const goBack = () => {
     history.goBack ();
   };
+  
   return (
     <Background>
       <div className={styles.container}>
