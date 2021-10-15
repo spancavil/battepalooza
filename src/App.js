@@ -16,7 +16,7 @@ import JoinDrop from "./Views/JoinDrop";
 import OpenPack from "./Views/OpenPack";
 import Collection from "./Views/Collection";
 import MyPacks from "./Views/MyPacks";
-import MyNft from "./Views/MyNft";
+import MyNfts from "./Views/MyNfts";
 import CardAnimation from "./Views/CardAnimation";
 import NftProvider from "./Context/NftProvider";
 import {GoogleReCaptchaProvider} from 'react-google-recaptcha-v3';
@@ -53,7 +53,7 @@ function App() {
                 <Route exact path="/open-pack" component={OpenPack} />
                 <Route exact path="/collection" component={Collection} />
                 <Route exact path="/collection/packs" component={MyPacks} />
-                <Route exact path="/collection/nft" component={MyNft} />
+                <Route exact path="/collection/nft" component={MyNfts} />
                 <Route exact path="/card-animation" component={CardAnimation} />
                 <Route path="" component={NotFound} />
               </Switch>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MyNft = () => {
+const MyNfts = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const MyNft = () => {
     )
 }
 
-export default MyNft
+export default MyNfts
