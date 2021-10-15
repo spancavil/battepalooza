@@ -107,6 +107,15 @@ const NavBar = () => {
                   HELP
                 </Link>
               </li>
+              {userData.email ? <li>
+                <Link
+                  onClick={() => setMenu (!menu)}
+                  to="/collection"
+                  className={styles.navLink}
+                >
+                  COLLECTION
+                </Link>
+              </li> : null}
 
               {userData.email
                 ? <li onClick={() => logout ()} className={styles.logout}>
