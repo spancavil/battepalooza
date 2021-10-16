@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:8081/api/";
+const API_URL = "https://be-battlepalooza.herokuapp.com/api/";
 
 class AuthService {
   login(username, code, endpoint) {
