@@ -123,7 +123,7 @@ const SignUp = () => {
         form.firstName,
         form.lastName,
         form.email,
-        form.reCaptchaToken
+        form.checkedEmail
       );
       if (response.data.message.includes("undefined")){
         alert("Email already registered!");
