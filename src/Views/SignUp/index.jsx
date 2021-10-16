@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '../../Global-Components/Button';
 import Checkbox from '../../Global-Components/Checkbox';
 import Input from '../../Global-Components/Input';
@@ -10,8 +10,12 @@ import authService from '../../Services/auth.service';
 import { useHistory } from 'react-router';
 import {useGoogleReCaptcha} from 'react-google-recaptcha-v3';
 import CheckboxDisabled from './CheckboxDisabled';
+import { UserData } from '../../Context/UserProvider';
 
 const SignUp = () => {
+
+  const {setMail, setLoginFirst} = useContext(UserData);
+
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -123,9 +127,14 @@ const SignUp = () => {
       );
       if (response.data.message.includes("undefined")){
         alert("Email already registered!");
+      }
+      else if (response.data.error){
+        alert ("Error! please try again later!")
       } else {
-        alert("User registered succesfully!");
-        history.push ('/login');
+        setMail(form.email);
+        setLoginFirst();
+        alert("User registered succesfully! \nGo check your inbox!");
+        history.push ('/verification');
       }
     }
   };

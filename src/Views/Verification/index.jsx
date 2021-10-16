@@ -11,7 +11,7 @@ import { useHistory } from 'react-router';
 const Verification = () => {
   const [code, setCode] = useState("");
   const [errorCode, setErrorCode] = useState("")
-  const { setCodeVerification, setTheToken, email, navigation } = useContext(UserData);
+  const { setCodeVerification, setTheToken, email, navigation, firstLogin } = useContext(UserData);
   const history = useHistory();
 
   const handleChange = (codigo) => {
@@ -29,7 +29,12 @@ const Verification = () => {
     } else {
       setErrorCode('');
       setCodeVerification(code)
-      const response = await authService.login(email, code);
+
+      const response = firstLogin ? 
+      await authService.login(email, code, "/first-login"):
+      await authService.login(email, code, "" );
+
+      console.log(response);
 
       if (response.data.message) {
         alert(response.data.message)

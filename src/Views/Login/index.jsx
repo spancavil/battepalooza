@@ -32,10 +32,13 @@ const Login = () => {
       setErrorEmail ('');
       setMail(email);
       const response = await authService.getVerificationCode(email);
-      if (response.data.error){
-        alert("Email doesnt exist!")
+
+      console.log(response)
+
+      if (response.error){
+        alert(response.data.error)
       } else {
-        alert(response.data.message)
+        alert(response.message)
         history.push('/verification')
       }
     }
