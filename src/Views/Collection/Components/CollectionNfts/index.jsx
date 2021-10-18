@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import {NftData} from '../../../../Context/NftProvider';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import ScrollBar from '../../../../Global-Components/ScrollBar';
+import {Link} from 'react-router-dom';
 
 const CollectionNfts = ({flex, short}) => {
   const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
@@ -27,24 +28,34 @@ const CollectionNfts = ({flex, short}) => {
         {short
           ? nftsShort.map (nft => {
               return (
-                <div className={styles.cardNft} key={nft.id}>
-                  <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
-                  <div className={styles.texts}>
-                    <p>Series 1 </p>
-                    <p className={styles.text2}>Tron Warrior</p>
+                <Link
+                  style={{textDecoration: 'none'}}
+                  to={`/register-to-marketplace/${nft.id}`}
+                >
+                  <div className={styles.cardNft} key={nft.id}>
+                    <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
+                    <div className={styles.texts}>
+                      <p>Series 1 </p>
+                      <p className={styles.text2}>Tron Warrior</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })
           : nfts.map (nft => {
               return (
-                <div className={styles.cardNft} key={nft.id}>
-                  <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
-                  <div className={styles.texts}>
-                    <p>Series 1 </p>
-                    <p className={styles.text2}>Tron Warrior</p>
+                <Link
+                  style={{textDecoration: 'none'}}
+                  to={`/register-to-marketplace/${nft.id}`}
+                >
+                  <div className={styles.cardNft} key={nft.id}>
+                    <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
+                    <div className={styles.texts}>
+                      <p>Series 1 </p>
+                      <p className={styles.text2}>Tron Warrior</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
       </div>
