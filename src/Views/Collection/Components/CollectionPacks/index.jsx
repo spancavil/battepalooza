@@ -4,7 +4,7 @@ import {CardData} from '../../../../Context/CardDataProvider';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import ScrollBar from '../../../../Global-Components/ScrollBar';
 import {useHistory} from 'react-router';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const CollectionPacks = ({flex, short}) => {
   const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
@@ -35,27 +35,35 @@ const CollectionPacks = ({flex, short}) => {
         {short
           ? packsShort.map (pack => {
               return (
-                <div onClick={() => onClick(pack.id)} className={styles.card} key={pack.id}>
-                  <img src={pack.imgSrc} alt={pack.imgSrc} />
-                  <div className={styles.texts}>
-                    <p className={styles.text1}>{pack.description.text1} </p>
-                    <p className={styles.text2}>{pack.description.text2}</p>
-                    <p className={styles.text3}>{pack.description.text3} </p>
+                <Link
+                  style={{textDecoration: 'none', overflow: 'visible'}}
+                  to={`/packs/${pack.id}`}
+                >
+                  <div className={styles.card} key={pack.id}>
+                    <img src={pack.imgSrc} alt={pack.imgSrc} />
+                    <div className={styles.texts}>
+                      <p className={styles.text1}>{pack.description.text1} </p>
+                      <p className={styles.text2}>{pack.description.text2}</p>
+                      <p className={styles.text3}>{pack.description.text3} </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })
           : packs.map (pack => {
               return (
-                <Link style={{textDecoration: 'none', overflow: 'visible'}} to={`/packs/${pack.id}`}>
-                <div className={styles.card} key={pack.id}>
-                  <img src={pack.imgSrc} alt={pack.imgSrc} />
-                  <div className={styles.texts}>
-                    <p className={styles.text1}>{pack.description.text1} </p>
-                    <p className={styles.text2}>{pack.description.text2}</p>
-                    <p className={styles.text3}>{pack.description.text3} </p>
+                <Link
+                  style={{textDecoration: 'none', overflow: 'visible'}}
+                  to={`/packs/${pack.id}`}
+                >
+                  <div className={styles.card} key={pack.id}>
+                    <img src={pack.imgSrc} alt={pack.imgSrc} />
+                    <div className={styles.texts}>
+                      <p className={styles.text1}>{pack.description.text1} </p>
+                      <p className={styles.text2}>{pack.description.text2}</p>
+                      <p className={styles.text3}>{pack.description.text3} </p>
+                    </div>
                   </div>
-                </div>
                 </Link>
               );
             })}
