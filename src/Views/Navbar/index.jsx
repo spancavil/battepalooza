@@ -6,8 +6,11 @@ import NCoin from '../../Assets/img/icon-ncoin.png';
 import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import {UserData} from '../../Context/UserProvider';
 import {separator} from '../../Utils/separator';
+import authService from '../../Services/auth.service';
 
 const NavBar = () => {
+
+  const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT
   const [menu, setMenu] = useState (false);
   const [id, setId] = useState (null);
   const [Coins, setCoins] = useState (10000000);
@@ -52,6 +55,15 @@ const NavBar = () => {
   const previousMenu = async (link) => {
     await setPreviousNav(link);
     return;
+  }
+
+  const handleFortePayload = async () => {
+    const response = await authService.getFortePayload(userData);
+    console.log(response);
+    if (response.data.error) alert(response.data.error.text)
+    else {
+      window.open(`${FORTE_REDIRECT}/${response.data.payload}`)
+    }
   }
 
   return (
@@ -128,9 +140,8 @@ const NavBar = () => {
               {userData.email
                 ? <div className={styles.bottomContainer}>
                     <a
-                      href="https://exchange.forte.io/portal/login"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      onClick = {handleFortePayload}
+                      href="/#"
                       className={styles.navLink}
                     >
                       <button>BUY MORE</button>
