@@ -19,23 +19,22 @@ import MyPacks from "./Views/MyPacks";
 import MyNfts from "./Views/MyNfts";
 import CardAnimation from "./Views/CardAnimation";
 import NftProvider from "./Context/NftProvider";
-import {GoogleReCaptchaProvider} from 'react-google-recaptcha-v3';
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import RegisterToMarketplace from "./Views/RegisterToMarketplace";
 
 function App() {
-
   return (
     <BrowserRouter>
       <UserProvider>
         <NftProvider>
-
           <GoogleReCaptchaProvider
-            reCaptchaKey = {process.env.REACT_APP_RECAPTCHA_KEY}
+            reCaptchaKey={process.env.REACT_APP_RECAPTCHA_KEY}
             language="en"
             scriptProps={{
               async: false, // optional, default to false,
               defer: false, // optional, default to false
-              appendTo: 'head', // optional, default to "head", can be "head" or "body",
-              nonce: undefined // optional, default undefined
+              appendTo: "head", // optional, default to "head", can be "head" or "body",
+              nonce: undefined, // optional, default undefined
             }}
           >
             <CardDataProvider>
@@ -55,15 +54,18 @@ function App() {
                 <Route exact path="/collection/packs" component={MyPacks} />
                 <Route exact path="/collection/nft" component={MyNfts} />
                 <Route exact path="/card-animation" component={CardAnimation} />
+                <Route
+                  exact
+                  path="/register-to-marketplace/:id"
+                  component={RegisterToMarketplace}
+                />
                 <Route path="" component={NotFound} />
               </Switch>
             </CardDataProvider>
           </GoogleReCaptchaProvider>
         </NftProvider>
-      
       </UserProvider>
     </BrowserRouter>
-
   );
 }
 
