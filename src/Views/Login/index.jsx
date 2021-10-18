@@ -35,8 +35,8 @@ const Login = () => {
 
       console.log(response)
 
-      if (response.error){
-        alert(response.data.error)
+      if (response.success === false){
+        alert(response.message)
       } else {
         alert(response.message)
         history.push('/verification')

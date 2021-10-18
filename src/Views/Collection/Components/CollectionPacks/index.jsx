@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import {CardData} from '../../../../Context/CardDataProvider';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import ScrollBar from '../../../../Global-Components/ScrollBar';
-import {useHistory} from 'react-router';
+//import {useHistory} from 'react-router';
 import {Link} from 'react-router-dom';
 
 const CollectionPacks = ({flex, short}) => {
@@ -11,7 +11,7 @@ const CollectionPacks = ({flex, short}) => {
   const queryTablet = useMediaQuery ('(max-width: 766px)');
   const {packs} = useContext (CardData);
 
-  const history = useHistory ();
+  // const history = useHistory ();
 
   const handleScroll = e => {
     setScroll ({
@@ -20,9 +20,9 @@ const CollectionPacks = ({flex, short}) => {
     });
   };
 
-  const onClick = id => {
+  /* const onClick = id => {
     history.push (`packs/${id}`);
-  };
+  }; */
 
   const packsShort = packs.slice (0, 3);
 
