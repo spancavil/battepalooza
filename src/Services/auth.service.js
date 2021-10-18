@@ -2,6 +2,7 @@ import axios from "axios";
 import authHeader from "./auth-header";
 
 const API_URL = process.env.REACT_APP_API_URL;
+const BP_FORTE_PAYLOAD = process.env.REACT_APP_BP_FORTE_PAYLOAD;
 
 class AuthService {
   login(username, code, endpoint) {
@@ -57,6 +58,11 @@ class AuthService {
     }).then( response => {
       return response.data;
     })
+  }
+
+  getFortePayload({bpToken, pid}){
+    const header = authHeader(bpToken);
+    return axios.post(BP_FORTE_PAYLOAD, {pid}, {headers: header})
   }
 }
 
