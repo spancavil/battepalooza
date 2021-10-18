@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './styles.module.scss';
-import img from '../../../../Assets/sprites/cardpack01.png';
 import Button from '../../../../Global-Components/Button';
 import { useHistory, useParams } from 'react-router';
 import { CardData } from '../../../../Context/CardDataProvider';
