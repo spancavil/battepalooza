@@ -59,10 +59,9 @@ const NavBar = () => {
 
   const handleFortePayload = async () => {
     const response = await authService.getFortePayload(userData);
-    console.log(response);
-    if (response.data.error) alert(response.data.error.text)
+    if (response.error) alert(response.error.text)
     else {
-      window.open(`${FORTE_REDIRECT}/${response.data.payload}`)
+      window.open(`${FORTE_REDIRECT}/${response.payload}`)
     }
   }
 
