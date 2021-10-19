@@ -29,8 +29,8 @@ const CollectionNfts = ({flex, short}) => {
           ? nftsShort.map (nft => {
               return (
                 <Link
-                  style={{textDecoration: 'none'}}
-                  to={`/register-to-marketplace/${nft.id}`}
+                style={{textDecoration: 'none', overflow: 'visible'}}
+                to={`/to-marketplace/${nft.id}`}
                 >
                   <div className={styles.cardNft} key={nft.id}>
                     <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
@@ -45,8 +45,8 @@ const CollectionNfts = ({flex, short}) => {
           : nfts.map (nft => {
               return (
                 <Link
-                  style={{textDecoration: 'none'}}
-                  to={`/register-to-marketplace/${nft.id}`}
+                  style={{textDecoration: 'none', overflow: 'visible'}}
+                  to={`/to-marketplace/${nft.id}`}
                 >
                   <div className={styles.cardNft} key={nft.id}>
                     <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
