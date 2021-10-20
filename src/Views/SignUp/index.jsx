@@ -61,19 +61,31 @@ const SignUp = () => {
   }
 
   const reCAPTCHA = async () => {
-    if (!executeRecaptcha){
-      alert("Execute reCAPTCHA not yet available")
-    }
-    const token = await executeRecaptcha("");
-    const response = await authService.verifyCaptcha(token);
 
-    if (response.success === true){
-      setForm({...form, checkedReCaptcha: true, reCaptchaToken: token})
-      setSatatusVerify(".. ✓")
-      setErrorReCaptcha('');
+    if (!executeRecaptcha){
+      alert("Execute reCAPTCHA not yet available");
+      return;
     }
-    else {
-      alert("Cannot verify reCAPTCHA, please reload page")
+
+    try {
+
+      const token = await executeRecaptcha("");
+
+      console.log(token);
+      const response = await authService.verifyCaptcha(token);
+      console.log(response);
+  
+      if (response.success === true){
+        setForm({...form, checkedReCaptcha: true, reCaptchaToken: token})
+        setSatatusVerify(".. ✓")
+        setErrorReCaptcha('');
+      }
+      else {
+        alert("Cannot verify reCAPTCHA, please reload page")
+      }
+      
+    } catch (error) {
+      alert(error + " please reload!");      
     }
   }
 
