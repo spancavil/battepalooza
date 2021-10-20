@@ -68,6 +68,17 @@ class AuthService {
       return response.data;
     })
   }
+
+  getForteBalance({bpToken, pid}){
+    const bpTokenHeader = authHeader(bpToken);
+    return axios.post(API_URL + "user/forte-balance", {
+      bpTokenHeader,
+      pid
+    }).then ( response => {
+      return response.data;
+    })
+  }
+
 }
 
 export default new AuthService();

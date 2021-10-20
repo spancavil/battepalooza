@@ -13,7 +13,7 @@ const NavBar = () => {
   const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT
   const [menu, setMenu] = useState (false);
   const [id, setId] = useState (null);
-  const [Coins, setCoins] = useState (10000000);
+  const [coins, setCoins] = useState ();
 
   const history = useHistory ();
   const {userData, setPreviousNav} = useContext (UserData);
@@ -36,9 +36,14 @@ const NavBar = () => {
 
   useEffect (
     () => {
-      setCoins (separator (Coins));
+      let response;
+      const fetchData = async () =>{
+        response = await authService.getForteBalance(userData);
+        setCoins(separator(response.coin))
+      }
+      fetchData()
     },
-    [Coins]
+    [userData]
   );
 
   const onClick = e => {
@@ -59,9 +64,10 @@ const NavBar = () => {
 
   const handleFortePayload = async () => {
     const response = await authService.getFortePayload(userData);
-    if (response.error) alert(response.error.text)
+    console.log(response);
+    if (response.error.text !== "") alert(response.error.text)
     else {
-      window.open(`${FORTE_REDIRECT}/${response.payload}`)
+      window.open(`${FORTE_REDIRECT}/${response.payload}`);
     }
   }
 
@@ -168,7 +174,7 @@ const NavBar = () => {
                         </Link>
                       </div>
                       <div className={styles.ncoins}>
-                        <p>{Coins} NCoins </p>
+                        <p>{coins} NCoins </p>
                         <img src={NCoin} alt="NCoin" />
                       </div>
                     </div>
@@ -211,15 +217,14 @@ const NavBar = () => {
                         </Link>
                       </div>
                       <div className={styles.ncoins}>
-                        <p>{Coins} NCoins</p>
+                        <p>{coins} NCoins</p>
                         <img src={NCoin} alt="NCoin" />
                       </div>
                     </div>
                     <div className={styles.buyMore}>
                       <a
-                        href="https://exchange.forte.io/portal/login"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        onClick = {handleFortePayload}
+                        href="/#"
                         className={styles.navLink}
                       >
                         <button>BUY MORE</button>
