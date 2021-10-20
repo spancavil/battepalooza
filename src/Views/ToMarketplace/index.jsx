@@ -3,15 +3,16 @@ import {useHistory, useParams} from 'react-router';
 import {NftData} from '../../Context/NftProvider';
 import Background from '../../Global-Components/Background';
 import Button from '../../Global-Components/Button';
+import Modal from '../../Global-Components/Modal';
 import styles from './styles.module.scss';
 
 const ToMarketplace = () => {
+  const [nftSelected, setNftSelected] = useState ();
+  const [modalUnregister, setmodalUnregister] = useState (false);
+
   const {nfts, setNft} = useContext (NftData);
   const {id} = useParams ();
-  const [nftSelected, setNftSelected] = useState ();
   const history = useHistory ();
-
-  console.log (nftSelected);
 
   useEffect (
     () => {
@@ -22,8 +23,15 @@ const ToMarketplace = () => {
     [id, nfts, setNft]
   );
 
+  const openModalUnregister = () => {
+    setmodalUnregister (true);
+  };
   const goBack = () => {
     history.goBack ();
+  };
+
+  const unRegister = () => {
+    history.push ('/collection');
   };
 
   const onSale = true;
@@ -53,12 +61,32 @@ const ToMarketplace = () => {
                     <p>Currently registered in Marketplace</p>
                     <p className={styles.price}>Price 2000</p>
                   </div>
-
                   <div className={styles.buttonContainer}>
-                    <Button title="UNREGISTER TO MARKETPLACE" />
+                    <Button
+                      onClick={openModalUnregister}
+                      title="UNREGISTER TO MARKETPLACE"
+                    />
                   </div>
                 </div>
               </div>
+              {modalUnregister &&
+                <div className={styles.parentContainerModal}>
+                  <Modal
+                    title="Confirmation"
+                    handleClose={() => setmodalUnregister (false)}
+                  >
+                    <h3 className={styles.textDrop}>
+                      Tron Warrior #1234 has been unregistered
+                      for sale in the Marketplace
+                    </h3>
+                    <Button
+                      title="CONFIRM"
+                      width="176px"
+                      onClick={() => unRegister ()}
+                    />
+                  </Modal>
+                </div>}
+
             </div>
         : nftSelected &&
             <div className={styles.container}>
