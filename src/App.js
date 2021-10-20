@@ -20,7 +20,7 @@ import MyNfts from "./Views/MyNfts";
 import CardAnimation from "./Views/CardAnimation";
 import NftProvider from "./Context/NftProvider";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import RegisterToMarketplace from "./Views/RegisterToMarketplace";
+import ToMarketplace from "./Views/ToMarketplace";
 
 function App() {
   return (
@@ -56,8 +56,8 @@ function App() {
                 <Route exact path="/card-animation" component={CardAnimation} />
                 <Route
                   exact
-                  path="/register-to-marketplace/:id"
-                  component={RegisterToMarketplace}
+                  path="/to-marketplace/:id"
+                  component={ToMarketplace}
                 />
                 <Route path="" component={NotFound} />
               </Switch>
