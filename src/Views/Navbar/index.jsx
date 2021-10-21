@@ -37,19 +37,19 @@ const NavBar = () => {
   useEffect (
     () => {
       let response;
-      const fetchData = async () =>{
-        response = await authService.getForteBalance(userData);
-        setCoins(separator(response.coin));
+      const fetchData = async () => {
+        response = await authService.getForteBalance (userData);
+        setCoins (separator (response.coin));
         setCoin (response.coin);
-      }
-      userData.email && fetchData();
+      };
+      userData.email && fetchData ();
     },
     [userData, setCoin]
   );
 
   const onClick = e => {
-    e.preventDefault ();
     setMenu (!menu);
+    setDropdown (!dropdown);
   };
 
   const logout = () => {
@@ -132,17 +132,11 @@ const NavBar = () => {
                     </li>
                     {dropdown &&
                       <div className={styles.dropdown}>
-                        <Link
-                          onClick={() => setDropdown (!dropdown)}
-                          to="/collection/packs"
-                        >
-                          Packs
+                        <Link onClick={onClick} to="/collection/packs">
+                          MY PACKS
                         </Link>
-                        <Link
-                          onClick={() => setDropdown (!dropdown)}
-                          to="/collection/nft"
-                        >
-                          Skins
+                        <Link onClick={onClick} to="/collection/nft">
+                          MY SKINS
                         </Link>
                       </div>}
 
