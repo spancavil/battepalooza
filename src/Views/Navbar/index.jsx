@@ -108,7 +108,7 @@ const NavBar = () => {
               </li>
               <li>
                 <a
-                  href="https://battlepalooza.com/news/"
+                  href="https://nway.helpshift.com/a/battlepalooza/?p=web"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.navLink}
