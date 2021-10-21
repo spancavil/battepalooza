@@ -10,6 +10,7 @@ const UserProvider = ({ children }) => {
     const [userData, setUserData] = useState({});
     const [navigation, setNavigation] = useState("");
     const [firstLogin, setFirstLogin] = useState(false);
+    const [coins, setCoins] = useState(null);
 
     const setMail = (email) => {
         setEmail(email);
@@ -35,6 +36,10 @@ const UserProvider = ({ children }) => {
         setFirstLogin(true)
     }
 
+    const setCoin = (coins) => {
+        setCoins(coins)
+    }
+
     useEffect( () => {
         (async () => {
             const user =JSON.parse(localStorage.getItem('user'))
@@ -50,7 +55,7 @@ const UserProvider = ({ children }) => {
     }, [])
 
     return (
-        <UserData.Provider value = {{setMail, setTheToken, setCodeVerification, setPreviousNav, setLoginFirst, verification, email, userToken, userData, navigation, firstLogin}}>
+        <UserData.Provider value = {{setMail, setTheToken, setCodeVerification, setPreviousNav, setLoginFirst, setCoin, verification, email, userToken, userData, navigation, firstLogin, coins}}>
             {children}
         </UserData.Provider>
     )

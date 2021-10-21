@@ -16,7 +16,7 @@ const NavBar = () => {
   const [dropdown, setDropdown] = useState (false);
 
   const history = useHistory ();
-  const {userData, setPreviousNav} = useContext (UserData);
+  const {userData, setPreviousNav, setCoin} = useContext (UserData);
 
   let responsive = useMediaQuery ('(min-width: 1200px)');
 
@@ -37,13 +37,14 @@ const NavBar = () => {
   useEffect (
     () => {
       let response;
-      const fetchData = async () => {
-        response = await authService.getForteBalance (userData);
-        setCoins (separator (response.coin));
-      };
-      fetchData ();
+      const fetchData = async () =>{
+        response = await authService.getForteBalance(userData);
+        setCoins(separator(response.coin));
+        setCoin (response.coin);
+      }
+      userData.email && fetchData();
     },
-    [userData]
+    [userData, setCoin]
   );
 
   const onClick = e => {

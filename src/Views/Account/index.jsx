@@ -1,25 +1,26 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Redirect} from 'react-router';
 import {UserData} from '../../Context/UserProvider';
 import Background from '../../Global-Components/Background';
 import AccountData from './Components/AccountData';
-import AccountMenu from './Components/AccountMenu';
+// import AccountMenu from './Components/AccountMenu';
 import styles from './styles.module.scss';
 
 const Account = () => {
-  const [menuClickeado, setMenuClickeado] = useState ('OVERVIEW');
+  // const [menuClickeado, setMenuClickeado] = useState ('OVERVIEW');
   const {userData} = useContext (UserData);
 
-  const handleClick = title => {
+  /* const handleClick = title => {
     setMenuClickeado (title);
-  };
+  }; */
 
   return !userData
     ? <Redirect to="/needlogin" />
     : <Background>
         <div className={styles.dataContainer}>
-          <AccountMenu handleClick={handleClick} />
-          {menuClickeado === 'OVERVIEW' && <AccountData />}
+          {/* <AccountMenu handleClick={handleClick} /> */}
+          {/* {menuClickeado === 'OVERVIEW' && <AccountData />} */}
+          <AccountData/>
         </div>
       </Background>;
 };
