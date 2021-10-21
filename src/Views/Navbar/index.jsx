@@ -36,20 +36,12 @@ const NavBar = () => {
   useEffect (
     () => {
       let response;
-<<<<<<< HEAD
-      const fetchData = async () => {
-        response = await authService.getForteBalance (userData);
-        setCoins (separator (response.coin));
-      };
-      fetchData ();
-=======
       const fetchData = async () =>{
         response = await authService.getForteBalance(userData);
         setCoins(separator(response.coin));
         setCoin (response.coin);
       }
       userData.email && fetchData();
->>>>>>> 13eab07 (account and forte link fix)
     },
     [userData, setCoin]
   );
