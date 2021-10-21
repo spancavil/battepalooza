@@ -12,10 +12,10 @@ const NavBar = () => {
   const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT;
   const [menu, setMenu] = useState (false);
   const [id, setId] = useState (null);
-  const [coins, setCoins] = useState ();
+  const [coins, setCoins] = useState (null);
 
   const history = useHistory ();
-  const {userData, setPreviousNav} = useContext (UserData);
+  const {userData, setPreviousNav, setCoin} = useContext (UserData);
 
   let responsive = useMediaQuery ('(min-width: 1200px)');
 
@@ -36,13 +36,22 @@ const NavBar = () => {
   useEffect (
     () => {
       let response;
+<<<<<<< HEAD
       const fetchData = async () => {
         response = await authService.getForteBalance (userData);
         setCoins (separator (response.coin));
       };
       fetchData ();
+=======
+      const fetchData = async () =>{
+        response = await authService.getForteBalance(userData);
+        setCoins(separator(response.coin));
+        setCoin (response.coin);
+      }
+      userData.email && fetchData();
+>>>>>>> 13eab07 (account and forte link fix)
     },
-    [userData]
+    [userData, setCoin]
   );
 
   const onClick = e => {
