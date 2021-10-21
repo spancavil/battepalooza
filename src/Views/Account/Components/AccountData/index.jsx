@@ -3,15 +3,16 @@ import styles from './styles.module.scss';
 import nCoin from '../../../../Assets/img/icon-ncoin.png';
 import {UserData} from '../../../../Context/UserProvider';
 import {separator} from '../../../../Utils/separator';
+import generateDate from '../../../../Utils/createDate';
 
 // Por ahora esta Hardcodeado pero cuando
 // tengamos la api hay que crear los estados
 // y las funciones
 
 const AccountData = ({date = 'July, 2021', linked = true}) => {
-  const {userData} = useContext (UserData);
-  const [Coins, setCoins] = useState (10000000);
+  const {userData, coins} = useContext (UserData);
   const [id, setId] = useState ('');
+  const [monedas, setMonedas] = useState()
 
   useEffect (
     () => {
@@ -22,19 +23,20 @@ const AccountData = ({date = 'July, 2021', linked = true}) => {
 
   useEffect (
     () => {
-      setCoins (separator (Coins));
+      setMonedas (separator (coins));
     },
-    [Coins]
+    [coins]
   );
 
   return (
     <div className={styles.container}>
       <h4 className={styles.title}>{userData.name}#{id}</h4>
-      <p className={styles.joined}>Joined {date}</p>
-      {linked && <p className={styles.linked}>Account linked to Mobile App</p>}
+      <p className={styles.joined}>Joined {generateDate(userData.created_at)}</p>
+      {/* {linked && <p className={styles.linked}>Account linked to Mobile App</p>} */}
+      <p className = {styles.linked}>{userData.email}</p>
       <div className={styles.nCoin}>
         <img className={styles.img} src={nCoin} alt="nCoin" />
-        <span>{Coins} NCoin</span>
+        <span>{monedas} NCoin</span>
       </div>
     </div>
   );
