@@ -9,6 +9,7 @@ import ProgressBar from './components/ProgressBar';
 import {CardData} from '../../Context/CardDataProvider';
 import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import {useHistory} from 'react-router';
+import ModalII from './components/Modal';
 
 const JoinDrop = () => {
   const {packSelected, setPackForOpen} = useContext (CardData);
@@ -136,7 +137,7 @@ const JoinDrop = () => {
         </div>}
       {buy &&
         <div className={styles.parentContainerModal}>
-          <Modal
+          <ModalII
             title="Confirmation"
             handleCloseConfirmation={handleCloseConfirmation}
           >
@@ -159,7 +160,7 @@ const JoinDrop = () => {
                 style={{backgroundColor: '#0149DB'}}
               />
             </div>
-          </Modal>
+          </ModalII>
         </div>}
     </Background>
   );

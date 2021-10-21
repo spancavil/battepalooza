@@ -14,7 +14,7 @@ import PackDetail from "./Views/PackDetail";
 import CardDataProvider from "./Context/CardDataProvider";
 import JoinDrop from "./Views/JoinDrop";
 import OpenPack from "./Views/OpenPack";
-import Collection from "./Views/Collection";
+//import Collection from "./Views/Collection";
 import MyPacks from "./Views/MyPacks";
 import MyNfts from "./Views/MyNfts";
 import CardAnimation from "./Views/CardAnimation";
