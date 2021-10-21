@@ -50,7 +50,7 @@ function App() {
                 <Route exact path="/packs/:id" component={PackDetail} />
                 <Route exact path="/join-drop" component={JoinDrop} />
                 <Route exact path="/open-pack" component={OpenPack} />
-                <Route exact path="/collection" component={Collection} />
+                {/* <Route exact path="/collection" component={Collection} /> */}
                 <Route exact path="/collection/packs" component={MyPacks} />
                 <Route exact path="/collection/nft" component={MyNfts} />
                 <Route exact path="/card-animation" component={CardAnimation} />
