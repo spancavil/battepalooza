@@ -1,5 +1,5 @@
-@import '../../Styles/colors.scss';
-@import '../../Styles/fonts.scss';
+@import "../../Styles/colors.scss";
+@import "../../Styles/fonts.scss";
 
 $mobile: 576px;
 $tablet: 767px;
@@ -8,237 +8,242 @@ $desktop: 1200px;
 $hd: 1400px;
 
 // Extra mall devices (< 576px)
-@media (max-width: $laptop - 1){
-    .parentContent{
-        width: 100vw;
+@media (max-width: $laptop - 1) {
+  .parentContent {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+  .content {
+    background-color: rgba(3, 11, 35, 0.8);
+    width: 100vw;
+    height: 40vh;
+    padding: 20px 10px;
+    font-family: $font-nasalization;
+    .line1 {
+      margin: 5px 0;
+      font-size: 25px;
+      color: yellow;
     }
+    .line2 {
+      margin-top: 20px;
+      font-size: 20px;
+      color: white;
+    }
+    .line3 {
+      font-size: 15px;
+      color: white;
+    }
+    .line4 {
+      font-size: 15px;
+      color: white;
+    }
+  }
+  .cardImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 100vw;
+    background: linear-gradient(
+      180deg,
+      rgba(1, 70, 213, 1) 0%,
+      rgba(1, 70, 213, 0) 100%
+    );
+    img {
+      height: 70%;
+    }
+  }
 
-    .content{
-        background-color: rgba(3, 11, 35, 0.8);
-        width: 100vw;
-        height: 40vh;
-        padding: 20px 10px;
-        font-family: $font-nasalization;
-        .line1 {
-            margin: 5px 0;
-            font-size: 25px;
-            color: yellow;
-        }
-        .line2 {
-            margin-top: 20px;
-            font-size: 20px;
-            color: white;
-        }
-        .line3 {
-            font-size: 15px;
-            color: white;
-        }
-        .line4 {
-            font-size: 15px;
-            color: white;
-        }
-    }
-    .cardImage{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 40vh;
-        width: 100vw;
-        background: linear-gradient(180deg, rgba(1,70,213,1) 0%, rgba(1,70,213,0) 100%);
-        img {
-            height: 70%;
-        }
-    }
+  .parentContainerModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 
-    .parentContainerModal{
-        position: fixed;
-        top:0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(0,0,0,0.6);
-    }
+  .textDrop {
+    font-size: 14px;
+    color: white;
+    font-family: $font-nasalization;
+    padding: 30px 5px;
+    text-align: center;
+  }
 
-    .textDrop {
-        font-size: 14px;
-        color: white;
-        font-family: $font-nasalization;
-        padding: 30px 5px;
-        text-align: center;
-    }
-
-    .modalButtons {
-        margin: 20px 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-    }
-    
+  .modalButtons {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
 }
 
+@media (min-width: $laptop) and (max-width: $hd - 1) {
+  .parentContent {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-@media (min-width: $laptop) and (max-width: $hd - 1){
+  .content {
+    background-color: rgba(3, 11, 35, 0.8);
+    width: 550px;
+    height: 320px;
+    padding: 56px 35px;
+    font-family: $font-nasalization;
+    .line1 {
+      margin: 10px 0;
+      font-size: 20px;
+      color: yellow;
+    }
+    .line2 {
+      margin-top: 40px;
+      font-size: 30px;
+      color: white;
+    }
+    .line3 {
+      font-size: 15px;
+      color: white;
+    }
+    .line4 {
+      font-size: 15px;
+      color: white;
+    }
+  }
+  .cardImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+    width: 250px;
+    background: linear-gradient(
+      180deg,
+      rgba(1, 70, 213, 1) 0%,
+      rgba(1, 70, 213, 0) 100%
+    );
+  }
 
-    .parentContent{
-        width: 100vw;
-        height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .parentContainerModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 
-    .content{
-        background-color: rgba(3, 11, 35, 0.8);
-        width: 550px;
-        height: 320px;
-        padding: 56px 35px;
-        font-family: $font-nasalization;
-        .line1 {
-            margin: 10px 0;
-            font-size: 20px;
-            color: yellow;
-        }
-        .line2 {
-            margin-top: 40px;
-            font-size: 30px;
-            color: white;
-        }
-        .line3 {
-            font-size: 15px;
-            color: white;
-        }
-        .line4 {
-            font-size: 15px;
-            color: white;
-        }
-    }
-    .cardImage{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 320px;
-        width: 250px;
-        background: linear-gradient(180deg, rgba(1,70,213,1) 0%, rgba(1,70,213,0) 100%);
-    }
+  .textDrop {
+    font-size: 20px;
+    color: white;
+    font-family: $font-nasalization;
+    padding: 30px 20px;
+    text-align: center;
+  }
 
-    .parentContainerModal{
-        position: fixed;
-        top:0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(0,0,0,0.6);
-    }
-
-    .textDrop {
-        font-size: 20px;
-        color: white;
-        font-family: $font-nasalization;
-        padding: 30px 20px;
-        text-align: center;
-    }
-
-    .modalButtons {
-        margin: 20px 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-    }
-    
+  .modalButtons {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
 }
 
-@media (min-width: $hd){
+@media (min-width: $hd) {
+  .parentContent {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .parentContent{
-        position: relative;
-        top: 170px;
-        left: 355px;
-        display: flex;
-        flex-direction: row;
+  .content {
+    background-color: rgba(3, 11, 35, 0.8);
+    width: 740px;
+    height: 600px;
+    padding: 56px 35px;
+    font-family: $font-nasalization;
+    .line1 {
+      margin: 10px 0;
+      font-size: 30px;
+      color: yellow;
     }
+    .line2 {
+      margin-top: 40px;
+      font-size: 40px;
+      color: white;
+    }
+    .line3 {
+      font-size: 20px;
+      color: white;
+    }
+    .line4 {
+      font-size: 25px;
+      color: white;
+    }
+  }
+  .cardImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 490px;
+    background: linear-gradient(
+      180deg,
+      rgba(1, 70, 213, 1) 0%,
+      rgba(1, 70, 213, 0) 100%
+    );
+    img {
+      width: 80%;
+    }
+  }
 
-    .content{
-        background-color: rgba(3, 11, 35, 0.8);
-        width: 740px;
-        height: 600px;
-        padding: 56px 35px;
-        font-family: $font-nasalization;
-        .line1 {
-            margin: 10px 0;
-            font-size: 30px;
-            color: yellow;
-        }
-        .line2 {
-            margin-top: 40px;
-            font-size: 40px;
-            color: white;
-        }
-        .line3 {
-            font-size: 20px;
-            color: white;
-        }
-        .line4 {
-            font-size: 25px;
-            color: white;
-        }
-    }
-    .cardImage{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 600px;
-        width: 490px;
-        background: linear-gradient(180deg, rgba(1,70,213,1) 0%, rgba(1,70,213,0) 100%);
-        img{
-            width: 80%;
-        }
-    }
+  .parentContainerModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 
-    .parentContainerModal{
-        position: fixed;
-        top:0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(0,0,0,0.6);
-    }
+  .textDrop {
+    font-size: 20px;
+    color: white;
+    font-family: $font-nasalization;
+    padding: 30px 20px;
+    text-align: center;
+  }
 
-    .textDrop {
-        font-size: 20px;
-        color: white;
-        font-family: $font-nasalization;
-        padding: 30px 20px;
-        text-align: center;
-    }
-
-    .modalButtons {
-        margin: 20px 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-    }
-    
+  .modalButtons {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
 }
