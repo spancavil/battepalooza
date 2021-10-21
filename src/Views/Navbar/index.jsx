@@ -13,6 +13,7 @@ const NavBar = () => {
   const [menu, setMenu] = useState (false);
   const [id, setId] = useState (null);
   const [coins, setCoins] = useState ();
+  const [dropdown, setDropdown] = useState (false);
 
   const history = useHistory ();
   const {userData, setPreviousNav} = useContext (UserData);
@@ -124,14 +125,26 @@ const NavBar = () => {
                 </Link>
               </li>
               {userData.email
-                ? <li>
-                    <Link
-                      onClick={() => setMenu (!menu)}
-                      to="/collection"
-                      className={styles.navLink}
-                    >
+                ? <li className={styles.collection}>
+                    <li onClick={() => setDropdown (!dropdown)}>
                       COLLECTION
-                    </Link>
+                    </li>
+                    {dropdown &&
+                      <div className={styles.dropdown}>
+                        <Link
+                          onClick={() => setDropdown (!dropdown)}
+                          to="/collection/packs"
+                        >
+                          Packs
+                        </Link>
+                        <Link
+                          onClick={() => setDropdown (!dropdown)}
+                          to="/collection/nft"
+                        >
+                          Skins
+                        </Link>
+                      </div>}
+
                   </li>
                 : null}
 
@@ -141,6 +154,7 @@ const NavBar = () => {
                   </li>
                 : null}
             </div>
+
             <div className={styles.cont}>
               {userData.email
                 ? <div className={styles.bottomContainer}>
@@ -247,6 +261,7 @@ const NavBar = () => {
               </div>}
 
         </div>
+
         <div
           className={menu === true ? styles.hamburgerActive : styles.hamburger}
           onClick={e => onClick (e)}
