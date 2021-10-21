@@ -11,6 +11,7 @@ import { useHistory } from 'react-router';
 import {useGoogleReCaptcha} from 'react-google-recaptcha-v3';
 import CheckboxDisabled from './CheckboxDisabled';
 import { UserData } from '../../Context/UserProvider';
+import CheckboxLinks from './CheckboxWithLinks';
 
 const SignUp = () => {
 
@@ -186,8 +187,7 @@ const SignUp = () => {
           {errorFirstname && <span className={styles.errorMessage}>{errorFirstname}</span>}
           {errorLastname && <span className={styles.errorMessage}>{errorLastname}</span>}
         </div>
-        <Checkbox
-          label="I agree to the Terms of Service and Private Policy" 
+        <CheckboxLinks
           width="90%"
           onChecked={checked => changeChecked(checked)}
         />

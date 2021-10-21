@@ -11,9 +11,11 @@ const Checkbox = ({label, width, onChecked}) => {
     return (
         <div className={styles.container} style={{width: width}}>
             <input type="checkbox" value="Terms of service" onChange = { e => onChecked(e.target.checked)}/>
-            <label >{label}</label>
+            <label>
+                {label}
+            </label>
         </div>
     )
 }
 
-export default Checkbox
+export default Checkbox;
