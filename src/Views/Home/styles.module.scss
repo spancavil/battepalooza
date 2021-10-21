@@ -200,6 +200,7 @@ $hd: 1400px;
   .container {
     top: 0;
     width: 100%;
+    position: absolute;
   }
 
   .content1 {
@@ -393,6 +394,7 @@ $hd: 1400px;
   .container {
     top: 0;
     width: 100%;
+    position: absolute;
   }
 
   .content1 {
@@ -581,6 +583,7 @@ $hd: 1400px;
     top: 0;
     width: 100%;
     overflow-y: auto;
+    position: absolute;
   }
 
   ::-webkit-scrollbar{
@@ -774,6 +777,7 @@ $hd: 1400px;
     top: 0;
     width: 100%;
     overflow-y: scroll;
+    position: absolute;
   }
   ::-webkit-scrollbar {
     display: none;
