@@ -9,7 +9,8 @@ import {separator} from '../../Utils/separator';
 import authService from '../../Services/auth.service';
 
 const NavBar = () => {
-  const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT;
+  const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT_PAYLOAD;
+  const FORTE_LOGIN_URL = process.env.REACT_APP_FORTE_LOGIN_URL;
   const [menu, setMenu] = useState (false);
   const [id, setId] = useState (null);
   const [coins, setCoins] = useState ();
@@ -68,7 +69,12 @@ const NavBar = () => {
     console.log (response);
     if (response.error.text !== '') alert (response.error.text);
     else {
-      window.open (`${FORTE_REDIRECT}/${response.payload}`);
+      if (response.linked === false){
+        window.open (`${FORTE_REDIRECT}/${response.payload}`);
+      }
+      else {
+        window.open (FORTE_LOGIN_URL);
+      }
     }
   };
 
