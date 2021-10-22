@@ -233,13 +233,13 @@ const NavBar = () => {
                     </div>
                   </div>
                   <div className={styles.buyMore}>
-                    <a
+                    {/* <a
                       onClick={handleFortePayload}
                       href="/#"
                       className={styles.navLink}
-                    >
-                      <button>BUY MORE</button>
-                    </a>
+                    > */}
+                      <button onClick={handleFortePayload}>BUY MORE</button>
+                    {/* </a> */}
                   </div>
                 </div>
                 <li onClick={() => logout ()} className={styles.logoutBtn}>
