@@ -10,6 +10,8 @@ const CollectionNfts = ({flex, short}) => {
   const queryTablet = useMediaQuery ('(max-width: 766px)');
   const {nfts} = useContext (NftData);
 
+  console.log (nfts);
+
   const handleScroll = e => {
     setScroll ({
       scrollLeft: e.target.scrollLeft,
@@ -29,8 +31,8 @@ const CollectionNfts = ({flex, short}) => {
           ? nftsShort.map (nft => {
               return (
                 <Link
-                style={{textDecoration: 'none', overflow: 'visible'}}
-                to={`/to-marketplace/${nft.id}`}
+                  style={{textDecoration: 'none', overflow: 'visible'}}
+                  to={`/to-marketplace/${nft.id}`}
                 >
                   <div className={styles.cardNft} key={nft.id}>
                     <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
@@ -54,7 +56,9 @@ const CollectionNfts = ({flex, short}) => {
                       <p>Series 1 </p>
                       <p className={styles.text2}>Tron Warrior</p>
                     </div>
+                    {nft.sale && <div className={styles.sale}>Sale</div>}
                   </div>
+
                 </Link>
               );
             })}

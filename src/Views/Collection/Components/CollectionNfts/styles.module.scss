@@ -1,5 +1,6 @@
 @import "../../../../Styles/colors.scss";
 @import "../../../../Styles/breakpoints.scss";
+@import "../../../../Styles/fonts.scss";
 
 @media (max-width: $tablet - 1) {
   .cardsContainer {
@@ -31,6 +32,23 @@
         grid-gap: 20px;
         gap: 20px;
       }
+
+      .sale{
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 
       .imgNft {
         width: 150px;
@@ -139,6 +157,23 @@
         justify-content: center;
       }
 
+      .sale{
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
       .imgNft {
         width: 130px;
       }
@@ -245,6 +280,23 @@
         justify-content: center;
       }
 
+      .sale{
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
       .imgNft {
         width: 130px;
       }
@@ -349,6 +401,23 @@
         grid-gap: 20px;
         gap: 20px;
         justify-content: center;
+      }
+
+      .sale {
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
       }
 
       .imgNft {

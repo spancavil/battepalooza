@@ -1,89 +1,81 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Background from '../../Global-Components/Background';
 import CardToReveal from './components/CardToReveal';
 import styles from './styles.module.scss';
 import frente from '../../Assets/img/nft-card-front01.png';
 import Button from '../../Global-Components/Button';
-import { useMediaQuery } from '../../Hooks/useMediaQuery';
+import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import ScrollBar from '../../Global-Components/ScrollBar';
-import { useHistory } from 'react-router';
+import {useHistory} from 'react-router';
 
 const CardAnimation = () => {
-    const [reveal, setReveal] = useState(false);
-    const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
-    const [countReveal, setCountReveal] = useState(0);
-    const queryTablet = useMediaQuery ('(max-width: 766px)');
-    const history = useHistory()
+  const [reveal, setReveal] = useState (false);
+  const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
+  const [countReveal, setCountReveal] = useState (0);
+  const queryTablet = useMediaQuery ('(max-width: 766px)');
+  const history = useHistory ();
 
-    const handleReveal = () => {
-        setReveal(true);
-    }
+  const handleReveal = () => {
+    setReveal (true);
+  };
 
-    const childReveal = () => {
-        setCountReveal (countReveal + 1);
-    }
+  const childReveal = () => {
+    setCountReveal (countReveal + 1);
+  };
 
-    const handleScroll = e => {
-        setScroll ({
-          scrollLeft: e.target.scrollLeft,
-          scrollWidth: e.target.scrollWidth - e.target.offsetWidth,
-        });
-    };
+  const handleScroll = e => {
+    setScroll ({
+      scrollLeft: e.target.scrollLeft,
+      scrollWidth: e.target.scrollWidth - e.target.offsetWidth,
+    });
+  };
 
-    const goCollection = () => {
-        history.push('/collection');
-    }
-    
-    console.log(countReveal);
+  const goCollection = () => {
+    history.push ('/collection/nft');
+  };
 
-    return (
-        <Background>
-            <div className = {styles.container}>
+  console.log (countReveal);
 
-                <div className = {styles.cardDeck} onScroll={handleScroll}>
-                    <CardToReveal
-                        imgFrente = {frente}
-                        reveal = {reveal}
-                        isRevealed = {childReveal}
-                    />
-                    <CardToReveal
-                        imgFrente = {frente}
-                        reveal = {reveal}
-                        isRevealed = {childReveal}
-                    />
-                    <CardToReveal
-                        imgFrente = {frente}
-                        reveal = {reveal}
-                        isRevealed = {childReveal}
-                    />
-                </div>
+  return (
+    <Background>
+      <div className={styles.container}>
 
-                {queryTablet &&
-                    <ScrollBar
-                    width={scroll.scrollWidth}
-                    position={scroll.scrollLeft}
-                    elements={3}
-                />}
+        <div className={styles.cardDeck} onScroll={handleScroll}>
+          <CardToReveal
+            imgFrente={frente}
+            reveal={reveal}
+            isRevealed={childReveal}
+          />
+          <CardToReveal
+            imgFrente={frente}
+            reveal={reveal}
+            isRevealed={childReveal}
+          />
+          <CardToReveal
+            imgFrente={frente}
+            reveal={reveal}
+            isRevealed={childReveal}
+          />
+        </div>
 
-                <div className = {styles.buttonContainer}>
+        {queryTablet &&
+          <ScrollBar
+            width={scroll.scrollWidth}
+            position={scroll.scrollLeft}
+            elements={3}
+          />}
 
-                    {/* Hardcode 3, en realidad es la cantidad de cards dentro del pack */}
-                    {!(reveal || countReveal === 3) ?
-                    <Button
-                        title = "REVEAL ALL"
-                        onClick = {handleReveal}
-                    />
-                    :
-                    <Button
-                        title = "COLLECTION"
-                        onClick = {goCollection}
-                    />
-                    }
-                </div>
+        <div className={styles.buttonContainer}>
 
-            </div>
-        </Background>
-    )
-}
+          {/* Hardcode 3, en realidad es la cantidad de cards dentro del pack */}
+          {!(reveal || countReveal === 3)
+            ? <Button title="REVEAL ALL" onClick={handleReveal} />
+            : <Button title="COLLECTION" onClick={goCollection} />}
+        </div>
+
+      </div>
+    </Background>
+  );
+};
 
 export default CardAnimation;
