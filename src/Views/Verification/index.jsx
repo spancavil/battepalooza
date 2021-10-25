@@ -29,6 +29,15 @@ const Verification = () => {
     history.push('/')
   }
 
+  const handleSignOut = () => {
+    setTimeout(()=> {
+      localStorage.removeItem ('user');
+      history.push ('/');
+      alert("Session expired. Please login again.")
+      window.location.reload ();
+    }, 15 * 60 * 1000)
+  }
+
 
   const submitCode = async () => {
     if (!(/^\d{6}$/.test(code))) {
@@ -47,6 +56,7 @@ const Verification = () => {
         alert(response.data.message)
       } else {
         setTheToken(response);
+        handleSignOut();
         history.push(navigation);
       }
 
