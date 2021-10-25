@@ -73,7 +73,7 @@ const Verification = () => {
           />
         </div>
         <span className={styles.message}>
-          Did not recieve email? Check your spam folder. <br />
+          Did not receive email? Check your spam folder. <br />
           If you have not received your email contact support
         </span>
       </Modal>
