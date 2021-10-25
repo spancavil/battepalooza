@@ -19,6 +19,74 @@
     align-items: center;
     justify-content: center;
 
+    .buttonsContainer {
+      display: flex;
+      gap: 20px;
+    }
+
+    .modalContent {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 20px;
+
+      .subtitle {
+        font-weight: normal;
+        font-size: 16px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .content {
+        font-weight: normal;
+        font-size: 16px;
+        text-align: left;
+        margin-top: 20px;
+      }
+
+      .inputContainer {
+        display: flex;
+        align-items: center;
+        padding-top: 15px;
+
+        label {
+          font-size: 14px;
+        }
+
+        Input {
+          width: 325px;
+          height: 40px;
+        }
+
+        p {
+          margin-top: 35px;
+          padding-left: 20px;
+          font-size: 14px;
+        }
+      }
+
+      .fee {
+        font-size: 14px;
+        font-weight: normal;
+        margin-top: 10px;
+      }
+
+      .ncoin {
+        font-size: 14px;
+        font-weight: normal;
+        margin-top: 3px;
+      }
+
+      hr {
+        margin: 20px 0px;
+      }
+
+      .afterFee {
+        font-size: 14px;
+        font-weight: normal;
+        padding-bottom: 50px;
+      }
+    }
+
     .parentContainerModal {
       position: fixed;
       top: 0;
@@ -30,6 +98,7 @@
       justify-content: center;
       align-items: center;
       background-color: rgba(0, 0, 0, 0.6);
+      padding-top: 80px;
 
       .textDrop {
         font-size: 14px;
@@ -155,6 +224,77 @@
       justify-content: center;
       align-items: center;
       background-color: rgba(0, 0, 0, 0.6);
+      padding-top: 80px;
+
+      .buttonsContainer {
+        display: flex;
+        gap: 20px;
+      }
+
+      .modalContent {
+          display: flex;
+          flex-direction: column;
+          padding: 0px 50px;
+
+        .subtitle {
+          font-weight: normal;
+          font-size: 18px;
+          text-align: left;
+          margin-top: 20px;
+        }
+
+        .content {
+          font-weight: normal;
+          font-size: 18px;
+          text-align: left;
+          margin-top: 20px;
+        }
+
+        .inputContainer {
+          display: flex;
+          align-items: center;
+          padding-top: 15px;
+
+          label {
+            font-size: 16px;
+          }
+
+          Input {
+            width: 325px;
+            height: 45px;
+          }
+
+          p {
+            margin-top: 35px;
+            padding-left: 20px;
+            font-size: 16px;
+          }
+        }
+
+        .fee {
+          font-size: 16px;
+          font-weight: normal;
+          margin-top: 10px;
+        }
+
+        .ncoin {
+          font-size: 16px;
+          font-weight: normal;
+          margin-top: 3px;
+        }
+
+        hr {
+          margin: 20px 0px;
+        }
+
+        .afterFee {
+          font-size: 16px;
+          font-weight: normal;
+          padding-bottom: 50px;
+        }
+      }
+
+
 
       .textDrop {
         font-size: 14px;
