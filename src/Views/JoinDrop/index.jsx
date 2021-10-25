@@ -38,7 +38,7 @@ const JoinDrop = () => {
   };
 
   const handleLater = () => {
-    history.push ('/collection');
+    history.push ('/collection/packs');
   };
 
   const handleClose = () => {
@@ -66,15 +66,10 @@ const JoinDrop = () => {
         <div className={styles.content}>
           <span className={styles.line1}>
             {pack.description.text1}
-            {' '}
             {pack.description.text2}
-            {' '}
             <br />
-            {' '}
             {pack.stock}
-            {' '}
             packs left
-            {' '}
             <br />
             <br />
           </span>
@@ -82,7 +77,6 @@ const JoinDrop = () => {
           <span className={styles.line2}>
             You are in Line! <br />
           </span>
-
           <span className={styles.line3}>
             <br />Your number is {number} <br /><br />
           </span>
