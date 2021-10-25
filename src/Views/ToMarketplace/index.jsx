@@ -48,7 +48,6 @@ const ToMarketplace = () => {
     history.push ('/nfts');
   };
 
-  const onSale = false;
 
   return (
     <Background>
