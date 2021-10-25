@@ -3,12 +3,15 @@ import {useHistory, useParams} from 'react-router';
 import {NftData} from '../../Context/NftProvider';
 import Background from '../../Global-Components/Background';
 import Button from '../../Global-Components/Button';
+import Input from '../../Global-Components/Input';
 import Modal from '../../Global-Components/Modal';
 import styles from './styles.module.scss';
 
 const ToMarketplace = () => {
   const [nftSelected, setNftSelected] = useState ();
   const [modalUnregister, setmodalUnregister] = useState (false);
+  const [modalRegister1, setmodalRegister1] = useState (false);
+  const [modalRegister2, setmodalRegister2] = useState (false);
 
   const {nfts, setNft} = useContext (NftData);
   const {id} = useParams ();
@@ -23,25 +26,36 @@ const ToMarketplace = () => {
     [id, nfts, setNft]
   );
 
+  console.log(nftSelected)
+
   const openModalUnregister = () => {
     setmodalUnregister (true);
+  };
+  const openModalRegister1 = () => {
+    setmodalRegister1 (true);
   };
   const goBack = () => {
     history.goBack ();
   };
-
   const unRegister = () => {
     history.push ('/collection');
   };
+  const Register = () => {
+    setmodalRegister1 (false);
+    setmodalRegister2 (true);
+  };
+  const Confirmation = () => {
+    history.push ('/nfts');
+  };
 
-  const onSale = true;
+  const onSale = false;
 
   return (
     <Background>
       <p className={styles.back} onClick={goBack}>
         &#60; Go back to Collection
       </p>
-      {onSale
+      {nftSelected?.sale
         ? nftSelected &&
             <div className={styles.container}>
               <div className={styles.card}>
@@ -82,11 +96,10 @@ const ToMarketplace = () => {
                     <Button
                       title="CONFIRM"
                       width="176px"
-                      onClick={() => unRegister ()}
+                      onClick={unRegister}
                     />
                   </Modal>
                 </div>}
-
             </div>
         : nftSelected &&
             <div className={styles.container}>
@@ -104,10 +117,62 @@ const ToMarketplace = () => {
                     Can be used in Battlepalooza.
                   </h3>
                   <div className={styles.buttonContainer}>
-                    <Button title="REGISTER TO MARKETPLACE" />
+                    <Button
+                      title="REGISTER TO MARKETPLACE"
+                      onClick={openModalRegister1}
+                    />
                   </div>
                 </div>
               </div>
+              {modalRegister1 &&
+                <div className={styles.parentContainerModal}>
+                  <Modal
+                    title="Register to Marketplace"
+                    handleClose={() => setmodalRegister1 (false)}
+                  >
+                    <div className={styles.modalContent}>
+                      <p className={styles.subtitle}>
+                        All registered NFT will appear at the Marketplace
+                      </p>
+                      <p className={styles.content}>Tron Warrior #1234</p>
+                      <div className={styles.inputContainer}>
+                        <Input label="Input price" />
+                        <p>NCoin</p>
+                      </div>
+                      <p className={styles.fee}>Fee (5%)</p>
+                      <p className={styles.ncoin}>100 NCoin</p>
+                      <hr />
+                      <p className={styles.afterFee}>
+                        1900 NCoin (Amount received after fee)
+                      </p>
+                    </div>
+                    <Button title="REGISTER" width="176px" onClick={Register} />
+                  </Modal>
+                </div>}
+              {modalRegister2 &&
+                <div className={styles.parentContainerModal}>
+                  <Modal
+                    title="Confirmation"
+                    handleClose={() => setmodalRegister2 (false)}
+                  >
+                    <h3 className={styles.textDrop}>
+                      Tron Warrior #1234 has been registered <br />
+                      for sale in the Marketplace
+                    </h3>
+                    <div className={styles.buttonsContainer}>
+                      <Button
+                        title="MARKETPLACE"
+                        width="198px"
+                        onClick={Confirmation}
+                      />
+                      <Button
+                        title="CONFIRM"
+                        width="198px"
+                        onClick={Confirmation}
+                      />
+                    </div>
+                  </Modal>
+                </div>}
             </div>}
     </Background>
   );
