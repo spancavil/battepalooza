@@ -40,12 +40,18 @@ const NavBar = () => {
       let response;
       const fetchData = async () => {
         response = await authService.getForteBalance (userData);
+        if (response.error.text.includes('authorized')){
+          alert ("Session expired, please login again.");
+          localStorage.removeItem ('user');
+          history.push ('/');
+          window.location.reload ();
+        }
         setCoins (separator (response.coin));
         setCoin (response.coin);
       };
       userData.email && fetchData ();
     },
-    [userData, setCoin]
+    [userData, setCoin, history]
   );
 
   const onClick = e => {
@@ -67,7 +73,15 @@ const NavBar = () => {
   const handleFortePayload = async () => {
     const response = await authService.getFortePayload (userData);
     console.log (response);
-    if (response.error.text !== '') alert (response.error.text);
+    if (response.error.text !== '') {
+      if (response.error.text.includes('authorized')){
+        alert ("Session expired, please login again.");
+        logout();
+      }
+      else {
+        alert(response.error.text)
+      }
+    }
     else {
       if (response.linked === false){
         window.open (`${FORTE_REDIRECT}/${response.payload}`);
@@ -159,13 +173,7 @@ const NavBar = () => {
             <div className={styles.cont}>
               {userData.email
                 ? <div className={styles.bottomContainer}>
-                    <a
-                      onClick={handleFortePayload}
-                      href="/#"
-                      className={styles.navLink}
-                    >
-                      <button>BUY MORE</button>
-                    </a>
+                      <button onClick = {handleFortePayload}>BUY MORE</button>
                     <div className={styles.bottom}>
                       <div className={styles.user}>
                         <p className={styles.name}>{userData.name}#{id}</p>
