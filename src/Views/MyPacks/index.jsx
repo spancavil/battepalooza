@@ -16,7 +16,7 @@ const MyPacks = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <p onClick={goBack} className={styles.back}>&#60; Go back</p>
-          <p className={styles.title}>PACK</p>
+          <p className={styles.title}>MY PACKS</p>
           <div className={styles.rectangle}>
             <CollectionPacks flex='1' />
           </div>

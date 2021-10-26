@@ -16,7 +16,7 @@ const MyNfts = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <p onClick={goBack} className={styles.back}>&#60; Go back</p>
-          <p className={styles.title}>NFT</p>
+          <p className={styles.title}>MY SKINS</p>
           <div className={styles.rectangle}>
             <CollectionNfts flex='1' />
           </div>
