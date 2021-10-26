@@ -38,7 +38,7 @@ const JoinDrop = () => {
   };
 
   const handleLater = () => {
-    history.push ('/collection/packs');
+    history.push ('/my-packs');
   };
 
   const handleClose = () => {

@@ -17,7 +17,7 @@ const OpenPack = () => {
   };
 
   const openLater = () => {
-    history.push ('/collection/packs');
+    history.push ('/my-packs');
   };
 
   const timerFlow = () => {

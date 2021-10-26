@@ -31,7 +31,7 @@ const CardAnimation = () => {
   };
 
   const goCollection = () => {
-    history.push ('/collection/nft');
+    history.push ('/my-skins');
   };
 
   console.log (countReveal);

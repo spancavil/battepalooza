@@ -152,10 +152,10 @@ const NavBar = () => {
                     </li>
                     {dropdown &&
                       <div className={styles.dropdown}>
-                        <Link onClick={onClick} to="/collection/packs">
+                        <Link onClick={onClick} to="/my-packs">
                           MY PACKS
                         </Link>
-                        <Link onClick={onClick} to="/collection/nft">
+                        <Link onClick={onClick} to="/my-skins">
                           MY SKINS
                         </Link>
                       </div>}

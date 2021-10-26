@@ -15,7 +15,7 @@ const Collection = () => {
           <div className={styles.rectangle}>
             <CollectionPacks short />
             <div className={styles.link}>
-              <Link to="/collection/packs">
+              <Link to="/my-packs">
                 <Button title="FULL LIST" />
               </Link>
             </div>
@@ -27,7 +27,7 @@ const Collection = () => {
           <div className={styles.rectangle}>
             <CollectionNfts short />
             <div className={styles.link}>
-              <Link to="/collection/nft">
+              <Link to="/my-skins">
                 <Button title="FULL LIST" />
               </Link>
             </div>
