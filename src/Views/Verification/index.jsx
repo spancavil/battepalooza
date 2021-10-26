@@ -7,6 +7,7 @@ import {useState} from 'react';
 import {UserData} from '../../Context/UserProvider';
 import authService from '../../Services/auth.service';
 import {useHistory} from 'react-router';
+import {Link} from 'react-router-dom';
 
 const Verification = () => {
   const [code, setCode] = useState ('');
@@ -96,7 +97,9 @@ const Verification = () => {
         </form>
         <span className={styles.message}>
           Did not receive email? Check your spam folder. <br />
-          If you have not received your email contact support
+          If you have not received you email,
+          <Link to="/help">contact support</Link>
+          .
         </span>
       </Modal>
     </div>
