@@ -165,6 +165,7 @@ const SignUp = () => {
             width="100%"
             type="email"
             handleChange={email => changeEmail(email)}
+            autofocus
           />
           {errorEmail && <span className={styles.errorMessage}>{errorEmail}</span>}
         </div>

@@ -56,6 +56,7 @@ const Login = () => {
               width="100%"
               type="email"
               handleChange={email => changeEmail (email)}
+              autofocus
             />
             {errorEmail &&
               <span className={styles.errorMessage}>{errorEmail}</span>}
@@ -68,7 +69,7 @@ const Login = () => {
               justifyContent: 'center',
             }}
           >
-            <Button title="GET CODE" />
+            <Button  title="GET CODE" />
           </div>
         </form>
         <SubMessage
