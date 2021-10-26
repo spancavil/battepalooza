@@ -10,7 +10,7 @@ import styles from './style.module.scss';
  * @param handleChange Función que devuelve el valor del input
  */
 
-const Input = ({label, subtitle, width, type, handleChange}) => {
+const Input = ({label, subtitle, width, type, handleChange, autofocus}) => {
   return (
     <div className={styles.inputContainer}>
       <label htmlFor={label}>{label}</label>
@@ -22,6 +22,7 @@ const Input = ({label, subtitle, width, type, handleChange}) => {
         name={label}
         style={{width: width}}
         onChange={e => handleChange (e.target.value)}
+        autoFocus={autofocus}
       />
       {subtitle && <span>{subtitle}</span>}
     </div>
