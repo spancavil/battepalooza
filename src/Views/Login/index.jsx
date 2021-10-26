@@ -49,7 +49,7 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <Modal title="LOGIN" handleClose={handleClose}>
-        <form onSubmit={onLogin}>
+        <form style={{width: '100%'}} onSubmit={onLogin}>
           <div className={styles.inputContainer}>
             <Input
               label="Email"

@@ -72,7 +72,7 @@ const Verification = () => {
   return (
     <div className={styles.container}>
       <Modal title="VERIFICATION" handleClose={handleClose}>
-        <form onSubmit={submitCode}>
+        <form style={{width: '100%'}} onSubmit={submitCode}>
           <div className={styles.inputContainer}>
             <Input
               label="Code"
