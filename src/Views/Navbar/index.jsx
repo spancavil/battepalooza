@@ -286,7 +286,7 @@ const NavBar = () => {
       </nav>
       {modal &&
         <div className={styles.modalContainer}>
-          <Modal title="PREPARING..." handleClose={() => setModal (false)} />
+          <Modal title="COMING SOON..." handleClose={() => setModal (false)} />
         </div>}
     </header>
   );
