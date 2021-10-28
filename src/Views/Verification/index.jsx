@@ -80,6 +80,7 @@ const Verification = () => {
               subtitle="Input the 6 digit code that has been sent to your email"
               handleChange={code => handleChange (code)}
               value={code}
+              autofocus
             />
             {errorCode &&
               <span className={styles.errorMessage}>{errorCode}</span>}
