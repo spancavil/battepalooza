@@ -115,6 +115,7 @@ const NavBar = () => {
               <li onClick={() => previousMenu ('/packs')}>
                 <span
                   onClick={preparing}
+                  href
                   // to={userData.email ? '/packs' : '/needLogin'}
                   className={styles.navLink}
                 >
@@ -122,13 +123,14 @@ const NavBar = () => {
                 </span>
               </li>
               <li onClick={() => previousMenu ('/marketplace')}>
-                <span
+                <a
+                  href
                   onClick={preparing}
                   to={userData.email ? '/marketplace' : 'needlogin'}
                   className={styles.navLink}
                 >
                   MARKETPLACE
-                </span>
+                </a>
               </li>
               <li>
                 <a
