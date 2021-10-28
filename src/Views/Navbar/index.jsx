@@ -7,6 +7,7 @@ import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import {UserData} from '../../Context/UserProvider';
 import {separator} from '../../Utils/separator';
 import authService from '../../Services/auth.service';
+import Modal from '../../Global-Components/Modal';
 
 const NavBar = () => {
   const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT_PAYLOAD;
@@ -15,6 +16,7 @@ const NavBar = () => {
   const [id, setId] = useState (null);
   const [coins, setCoins] = useState ();
   const [dropdown, setDropdown] = useState (false);
+  const [modal, setModal] = useState (false);
 
   const history = useHistory ();
   const {userData, setPreviousNav, setCoin} = useContext (UserData);
@@ -40,8 +42,8 @@ const NavBar = () => {
       let response;
       const fetchData = async () => {
         response = await authService.getForteBalance (userData);
-        if (response.error.text.includes('authorized')){
-          alert ("Session expired, please login again.");
+        if (response.error.text.includes ('authorized')) {
+          alert ('Session expired, please login again.');
           localStorage.removeItem ('user');
           history.push ('/');
           window.location.reload ();
@@ -59,6 +61,11 @@ const NavBar = () => {
     setDropdown (!dropdown);
   };
 
+  const preparing = () => {
+    setMenu (!menu);
+    setModal (true);
+  };
+
   const logout = () => {
     localStorage.removeItem ('user');
     history.push ('/');
@@ -74,19 +81,16 @@ const NavBar = () => {
     const response = await authService.getFortePayload (userData);
     console.log (response);
     if (response.error.text !== '') {
-      if (response.error.text.includes('authorized')){
-        alert ("Session expired, please login again.");
-        logout();
+      if (response.error.text.includes ('authorized')) {
+        alert ('Session expired, please login again.');
+        logout ();
+      } else {
+        alert (response.error.text);
       }
-      else {
-        alert(response.error.text)
-      }
-    }
-    else {
-      if (response.linked === false){
+    } else {
+      if (response.linked === false) {
         window.open (`${FORTE_REDIRECT}/${response.payload}`);
-      }
-      else {
+      } else {
         window.open (FORTE_LOGIN_URL);
       }
     }
@@ -109,22 +113,22 @@ const NavBar = () => {
             <div className={styles.navLinks}>
 
               <li onClick={() => previousMenu ('/packs')}>
-                <Link
-                  onClick={() => setMenu (!menu)}
-                  to={userData.email ? '/packs' : '/needLogin'}
+                <a
+                  onClick={preparing}
+                  // to={userData.email ? '/packs' : '/needLogin'}
                   className={styles.navLink}
                 >
                   PACKS
-                </Link>
+                </a>
               </li>
               <li onClick={() => previousMenu ('/marketplace')}>
-                <Link
-                  onClick={() => setMenu (!menu)}
+                <a
+                  onClick={preparing}
                   to={userData.email ? '/marketplace' : 'needlogin'}
                   className={styles.navLink}
                 >
                   MARKETPLACE
-                </Link>
+                </a>
               </li>
               <li>
                 <a
@@ -173,7 +177,7 @@ const NavBar = () => {
             <div className={styles.cont}>
               {userData.email
                 ? <div className={styles.bottomContainer}>
-                      <button onClick = {handleFortePayload}>BUY MORE</button>
+                    <button onClick={handleFortePayload}>BUY MORE</button>
                     <div className={styles.bottom}>
                       <div className={styles.user}>
                         <p className={styles.name}>{userData.name}#{id}</p>
@@ -252,7 +256,7 @@ const NavBar = () => {
                       href="/#"
                       className={styles.navLink}
                     > */}
-                      <button onClick={handleFortePayload}>BUY MORE</button>
+                    <button onClick={handleFortePayload}>BUY MORE</button>
                     {/* </a> */}
                   </div>
                 </div>
@@ -280,6 +284,10 @@ const NavBar = () => {
           <span className={styles.bar} />
         </div>
       </nav>
+      {modal &&
+        <div className={styles.modalContainer}>
+          <Modal title="PREPARING..." handleClose={() => setModal (false)} />
+        </div>}
     </header>
   );
 };
