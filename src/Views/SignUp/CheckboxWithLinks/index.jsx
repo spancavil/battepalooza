@@ -7,23 +7,20 @@ import styles from './style.module.scss';
  * @returns 
  */
 const CheckboxLinks = ({width, onChecked}) => {
+
     return (
         <div className={styles.container} style={{width: width}}>
             <input type="checkbox" value="Terms of service" onChange = { e => onChecked(e.target.checked)}/>
             <label >
             I agree to the 
-                <a 
+                <span 
                 className = {styles.links}
-                rel="noreferrer"
-                href="http://battlepalooza.com/terms-of-service"
-                target="_blank"
-                > Terms of Service</a> and 
-                <a 
+                onClick={()=>window.open('/terms-of-use', "_blank")}
+                > Terms of Service</span> and 
+                <span 
                 className = {styles.links}
-                rel="noreferrer"
-                href="http://battlepalooza.com/privacy-policy"
-                target="_blank"
-                > Private Policy</a>
+                onClick={()=>window.open('/privacy-policy', "_blank")}
+                > Private Policy</span>
             </label>
         </div>
     )

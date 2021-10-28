@@ -17,8 +17,6 @@ const SignUp = () => {
   const {setMail, setLoginFirst} = useContext (UserData);
 
   const [form, setForm] = useState ({
-    firstName: '',
-    lastName: '',
     email: '',
     checked: false,
     checkedEmail: false,
@@ -27,8 +25,8 @@ const SignUp = () => {
   });
 
   const [errorEmail, setErrorEmail] = useState ('');
-  const [errorFirstname, setErrorFirstname] = useState ('');
-  const [errorLastname, setErrorLastname] = useState ('');
+  // const [errorFirstname, setErrorFirstname] = useState ('');
+  // const [errorLastname, setErrorLastname] = useState ('');
   const [errorChecked, setErrorChecked] = useState ('');
   const [errorCaptcha, setErrorReCaptcha] = useState ('');
   const [statusVerify, setSatatusVerify] = useState ('');
@@ -41,7 +39,7 @@ const SignUp = () => {
     setErrorEmail ('');
   };
 
-  const changeName = firstName => {
+  /* const changeName = firstName => {
     setForm ({...form, firstName});
     setErrorFirstname ('');
   };
@@ -49,7 +47,7 @@ const SignUp = () => {
   const changeLastName = lastName => {
     setForm ({...form, lastName});
     setErrorLastname ('');
-  };
+  }; */
 
   const changeChecked = checked => {
     setForm ({...form, checked});
@@ -99,7 +97,7 @@ const SignUp = () => {
     } else {
       setErrorEmail ('');
     }
-
+/* 
     if (
       /\d/.test (form.firstName) ||
       form.firstName.length < 2 ||
@@ -120,7 +118,7 @@ const SignUp = () => {
       error = true;
     } else {
       setErrorLastname ('');
-    }
+    } */
 
     if (!form.checked) {
       setErrorChecked ('You must accept terms and privacy');
@@ -136,8 +134,8 @@ const SignUp = () => {
 
     if (!error) {
       const response = await authService.register (
-        form.firstName,
-        form.lastName,
+        "firstname",
+        "lastname",
         form.email,
         form.checkedEmail
       );
@@ -172,7 +170,7 @@ const SignUp = () => {
           {errorEmail &&
             <span className={styles.errorMessage}>{errorEmail}</span>}
         </div>
-        <div className={styles.divRow2}>
+        {/* <div className={styles.divRow2}>
           <Input
             label="First Name"
             width="100%"
@@ -186,13 +184,13 @@ const SignUp = () => {
             type="name"
             handleChange={lastName => changeLastName (lastName)}
           />
-        </div>
-        <div className={styles.divRow2}>
+        </div> */}
+        {/* <div className={styles.divRow2}>
           {errorFirstname &&
             <span className={styles.errorMessage}>{errorFirstname}</span>}
           {errorLastname &&
             <span className={styles.errorMessage}>{errorLastname}</span>}
-        </div>
+        </div> */}
         <CheckboxLinks
           width="90%"
           onChecked={checked => changeChecked (checked)}

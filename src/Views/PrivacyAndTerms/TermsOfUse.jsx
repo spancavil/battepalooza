@@ -18,7 +18,7 @@ const TermsOfUse = () => {
     //console.log(terms)
     return (
         <BackgroundTerms 
-        title = {"Terms of service"}
+        title = {"TERMS OF SERVICE"}
         sub = {"Last updated: September 14, 2021"}
         >
 

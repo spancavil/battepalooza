@@ -219,7 +219,7 @@ const HomeContainer = () => {
                     <ul>
                       <li>
                         <a
-                          href="https://battlepalooza.com/privacy-policy/"
+                          href="/privacy-policy"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -229,7 +229,7 @@ const HomeContainer = () => {
                       <li>|</li>
                       <li>
                         <a
-                          href="http://battlepalooza.com/terms-of-service/"
+                          href="/terms-of-use"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
