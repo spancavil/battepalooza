@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router';
 import styles from './style.module.scss';
 /**
  *  
@@ -8,6 +9,8 @@ import styles from './style.module.scss';
  */
 const CheckboxLinks = ({width, onChecked}) => {
 
+    const history = useHistory()
+
     return (
         <div className={styles.container} style={{width: width}}>
             <input type="checkbox" value="Terms of service" onChange = { e => onChecked(e.target.checked)}/>
@@ -15,11 +18,11 @@ const CheckboxLinks = ({width, onChecked}) => {
             I agree to the 
                 <span 
                 className = {styles.links}
-                onClick={()=>window.open('/terms-of-use', "_blank")}
+                onClick={()=>history.push('/terms-of-use')}
                 > Terms of Service</span> and 
                 <span 
                 className = {styles.links}
-                onClick={()=>window.open('/privacy-policy', "_blank")}
+                onClick={()=>history.push('/privacy-policy')}
                 > Private Policy</span>
             </label>
         </div>

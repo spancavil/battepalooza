@@ -17,10 +17,12 @@ import bearX from '../../Assets/img/bearx.png';
 import AppStore from '../../Assets/img/appStore.png';
 import PlayStore from '../../Assets/img/playStore.png';
 import YoutubeEmbed from './Components/Youtube';
+import { useHistory } from 'react-router';
 
 const HomeContainer = () => {
   const [dropdown, setDropdown] = useState (false);
   const [ytDisplay, setYtDisplay] = useState (false);
+  const history = useHistory();
 
   const handleWatchTrailer = () => {
     setYtDisplay (!ytDisplay);
@@ -219,9 +221,8 @@ const HomeContainer = () => {
                     <ul>
                       <li>
                         <a
-                          href="/privacy-policy"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href
+                          onClick={()=>history.push('/privacy-policy')}
                         >
                           Privacy Policy
                         </a>
@@ -229,9 +230,8 @@ const HomeContainer = () => {
                       <li>|</li>
                       <li>
                         <a
-                          href="/terms-of-use"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href
+                          onClick={()=>history.push('/terms-of-use')}
                         >
                           Terms of Service
                         </a>
