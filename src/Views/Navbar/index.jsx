@@ -182,7 +182,7 @@ const NavBar = () => {
                     <button onClick={handleFortePayload}>BUY MORE</button>
                     <div className={styles.bottom}>
                       <div className={styles.user}>
-                        <p className={styles.name}>{userData.name}#{id}</p>
+                        <p className={styles.name}>{userData.email}</p>
                         <Link
                           className={styles.link}
                           onClick={() => setMenu (!menu)}
@@ -227,7 +227,7 @@ const NavBar = () => {
                 <div className={styles.flex}>
                   <div className={styles.dataContainer}>
                     <div className={styles.user}>
-                      <p>{userData.name}#{id}</p>
+                      <p>Welcome, {userData.email}</p>
                       <Link
                         className={styles.link}
                         onClick={() => setMenu (!menu)}
@@ -253,13 +253,7 @@ const NavBar = () => {
                     </div>
                   </div>
                   <div className={styles.buyMore}>
-                    {/* <a
-                      onClick={handleFortePayload}
-                      href="/#"
-                      className={styles.navLink}
-                    > */}
                     <button onClick={handleFortePayload}>BUY MORE</button>
-                    {/* </a> */}
                   </div>
                 </div>
                 <li onClick={() => logout ()} className={styles.logoutBtn}>

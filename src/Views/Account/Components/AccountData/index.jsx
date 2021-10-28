@@ -30,7 +30,7 @@ const AccountData = ({date = 'July, 2021', linked = true}) => {
 
   return (
     <div className={styles.container}>
-      <h4 className={styles.title}>{userData.name}#{id}</h4>
+      <h4 className={styles.title}>PID - {userData.pid}</h4>
       <p className={styles.joined}>Joined {generateDate(userData.created_at)}</p>
       {/* {linked && <p className={styles.linked}>Account linked to Mobile App</p>} */}
       <p className = {styles.linked}>{userData.email}</p>
