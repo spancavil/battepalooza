@@ -222,7 +222,10 @@ const HomeContainer = () => {
                       <li>
                         <a
                           href
-                          onClick={()=>history.push('/privacy-policy')}
+                          onClick={()=>{
+                            history.push('/privacy-policy')
+                            window.scroll(0,0);
+                          }}
                         >
                           Privacy Policy
                         </a>
@@ -231,7 +234,10 @@ const HomeContainer = () => {
                       <li>
                         <a
                           href
-                          onClick={()=>history.push('/terms-of-use')}
+                          onClick={()=>{
+                            history.push('/terms-of-use')
+                            window.scroll(0,0)
+                          }}
                         >
                           Terms of Service
                         </a>

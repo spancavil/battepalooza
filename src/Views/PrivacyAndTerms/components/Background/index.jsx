@@ -4,9 +4,10 @@ import animocaLogo from '../../../../Assets/img/logo-animoca.png';
 import nWayLogo from '../../../../Assets/img/logo-nway.png';
 import bearX from '../../../../Assets/img/bearx.png';
 import headPrivacy from "../../../../Assets/img/headPrivacy.png";
+import { useHistory } from 'react-router';
 
 const BackgroundTerms = ({children, title, sub}) => {
-
+  const history = useHistory();
   return (
     <div className={styles.container}>
         <header className={styles.header}>
@@ -167,9 +168,11 @@ const BackgroundTerms = ({children, title, sub}) => {
                     <ul>
                       <li>
                         <a
-                          href="https://battlepalooza.com/privacy-policy/"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href
+                          onClick={()=>{
+                              history.push('/privacy-policy')
+                              window.scroll(0,0);
+                            }}
                         >
                           Privacy Policy
                         </a>
@@ -177,9 +180,11 @@ const BackgroundTerms = ({children, title, sub}) => {
                       <li>|</li>
                       <li>
                         <a
-                          href="http://battlepalooza.com/terms-of-service/"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href
+                          onClick={()=>{
+                              history.push('/terms-of-use')
+                              window.scroll(0,0);
+                            }}
                         >
                           Terms of Service
                         </a>
