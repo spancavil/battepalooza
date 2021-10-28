@@ -18,7 +18,7 @@ const Privacy = () => {
     //console.log(terms)
     return (
         <BackgroundTerms 
-        title = {"Battlepalooza Privacy Policy"}
+        title = {"BATTLEPALOOZA PRIVACY POLICY"}
         sub = {"Last updated: September 14, 2021"}
         >
 
