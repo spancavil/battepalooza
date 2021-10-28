@@ -28,39 +28,22 @@ const CollectionPacks = () => {
       <div className={styles.cardsGrid} onScroll={handleScroll}>
         {packs.map (pack => {
           return (
-            <div
-              onClick={() => setModal (true)}
-              className={styles.card}
-              key={pack.id}
-            >
-              <img src={pack.imgSrc} alt={pack.imgSrc} />
-              <div className={styles.texts}>
-                <p className={styles.text1}>{pack.description.text1} </p>
-                <p className={styles.text2}>{pack.description.text2}</p>
-                <p className={styles.text3}>{pack.description.text3} </p>
+            <Link style={{overflow: 'visible', textDecoration: 'none'}} to="/open-pack">
+              <div
+                onClick={() => setModal (true)}
+                className={styles.card}
+                key={pack.id}
+              >
+                <img src={pack.imgSrc} alt={pack.imgSrc} />
+                <div className={styles.texts}>
+                  <p className={styles.text1}>{pack.description.text1} </p>
+                  <p className={styles.text2}>{pack.description.text2}</p>
+                  <p className={styles.text3}>{pack.description.text3} </p>
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
-        {modal &&
-          <div className={styles.modalContainer}>
-            <ModalII title="Open Pack">
-              <div className={styles.modalButtons}>
-                <Link to="/open-pack">
-                  <Button
-                    title="Open"
-                    width={queryMobile ? '126px' : '176px'}
-                  />
-                </Link>
-                <Button
-                  title="Later"
-                  onClick={() => setModal (false)}
-                  width={queryMobile ? '126px' : '176px'}
-                  style={{backgroundColor: '#0149DB'}}
-                />
-              </div>
-            </ModalII>
-          </div>}
       </div>
       {queryTablet &&
         <ScrollBar
