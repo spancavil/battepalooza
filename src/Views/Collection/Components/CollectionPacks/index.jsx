@@ -4,15 +4,15 @@ import {CardData} from '../../../../Context/CardDataProvider';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import ScrollBar from '../../../../Global-Components/ScrollBar';
 import {Link} from 'react-router-dom';
-import ModalII from '../../../JoinDrop/components/Modal';
+/* import ModalII from '../../../JoinDrop/components/Modal';
 import Button from '../../../../Global-Components/Button';
-
+ */
 const CollectionPacks = () => {
   const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
   const [modal, setModal] = useState (false);
 
   const queryTablet = useMediaQuery ('(max-width: 766px)');
-  const queryMobile = useMediaQuery ('(max-width: 575px');
+  // const queryMobile = useMediaQuery ('(max-width: 575px');
 
   const {packs} = useContext (CardData);
 
@@ -22,6 +22,7 @@ const CollectionPacks = () => {
       scrollWidth: e.target.scrollWidth - e.target.offsetWidth,
     });
   };
+  console.log(modal)
 
   return (
     <div className={styles.cardsContainer}>

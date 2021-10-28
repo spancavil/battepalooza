@@ -113,22 +113,22 @@ const NavBar = () => {
             <div className={styles.navLinks}>
 
               <li onClick={() => previousMenu ('/packs')}>
-                <a
+                <span
                   onClick={preparing}
                   // to={userData.email ? '/packs' : '/needLogin'}
                   className={styles.navLink}
                 >
                   PACKS
-                </a>
+                </span>
               </li>
               <li onClick={() => previousMenu ('/marketplace')}>
-                <a
+                <span
                   onClick={preparing}
                   to={userData.email ? '/marketplace' : 'needlogin'}
                   className={styles.navLink}
                 >
                   MARKETPLACE
-                </a>
+                </span>
               </li>
               <li>
                 <a

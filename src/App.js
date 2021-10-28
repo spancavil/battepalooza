@@ -21,6 +21,8 @@ import CardAnimation from "./Views/CardAnimation";
 import NftProvider from "./Context/NftProvider";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import ToMarketplace from "./Views/ToMarketplace";
+import Privacy from "./Views/PrivacyAndTerms/Privacy";
+import TermsOfUse from "./Views/PrivacyAndTerms/TermsOfUse";
 
 function App() {
   return (
@@ -59,6 +61,8 @@ function App() {
                   path="/to-marketplace/:id"
                   component={ToMarketplace}
                 />
+                <Route exact path="/privacy-policy" component={Privacy}></Route>
+                <Route exact path="/terms-of-use" component={TermsOfUse}></Route>
                 <Route path="" component={NotFound} />
               </Switch>
             </CardDataProvider>

@@ -1,0 +1,24 @@
+@import "../../Styles/colors.scss";
+@import "../../Styles/fonts.scss";
+@import "../../Styles/breakpoints.scss";
+
+@media (max-width: $mobile - 1){
+
+    .textContent{
+        padding: 0px 50px;
+        padding-bottom: 60px;
+        padding-top: 40px;
+        font-family: $font-route159;
+        color: white
+    }
+}
+
+@media (min-width: $mobile){
+
+    .textContent{
+        padding: 60px 100px;
+        font-family: $font-route159;
+        font-size: 20px;
+        color:white
+    }
+}
