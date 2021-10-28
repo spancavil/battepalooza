@@ -9,17 +9,9 @@ import generateDate from '../../../../Utils/createDate';
 // tengamos la api hay que crear los estados
 // y las funciones
 
-const AccountData = ({date = 'July, 2021', linked = true}) => {
+const AccountData = () => {
   const {userData, coins} = useContext (UserData);
-  const [id, setId] = useState ('');
   const [monedas, setMonedas] = useState()
-
-  useEffect (
-    () => {
-      userData._id && setId (userData._id.slice (-4));
-    },
-    [userData]
-  );
 
   useEffect (
     () => {

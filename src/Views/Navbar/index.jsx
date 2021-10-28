@@ -13,7 +13,6 @@ const NavBar = () => {
   const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT_PAYLOAD;
   const FORTE_LOGIN_URL = process.env.REACT_APP_FORTE_LOGIN_URL;
   const [menu, setMenu] = useState (false);
-  const [id, setId] = useState (null);
   const [coins, setCoins] = useState ();
   const [dropdown, setDropdown] = useState (false);
   const [modal, setModal] = useState (false);
@@ -28,13 +27,6 @@ const NavBar = () => {
       if (!responsive) setMenu (false);
     },
     [responsive]
-  );
-
-  useEffect (
-    () => {
-      userData._id && setId (userData._id.slice (-4));
-    },
-    [userData]
   );
 
   useEffect (
