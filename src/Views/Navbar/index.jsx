@@ -137,13 +137,13 @@ const NavBar = () => {
                 </a>
               </li>
               <li>
-                <Link
+                <a
                   onClick={() => setMenu (!menu)}
-                  to="/help"
+                  href="https://nway.helpshift.com/a/battlepalooza/?p=web"
                   className={styles.navLink}
                 >
                   HELP
-                </Link>
+                </a>
               </li>
               {userData.email
                 ? <li className={styles.collection}>
