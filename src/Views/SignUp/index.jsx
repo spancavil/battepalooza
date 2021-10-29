@@ -7,14 +7,14 @@ import styles from './style.module.scss';
 import {useState} from 'react';
 import SubMessage from '../../Global-Components/SubMessage';
 import authService from '../../Services/auth.service';
-import {Redirect, useHistory} from 'react-router';
+import {useHistory} from 'react-router';
 import {useGoogleReCaptcha} from 'react-google-recaptcha-v3';
 import CheckboxDisabled from './CheckboxDisabled';
 import {UserData} from '../../Context/UserProvider';
 import CheckboxLinks from './CheckboxWithLinks';
 
 const SignUp = () => {
-  const {setMail, setLoginFirst, userData} = useContext (UserData);
+  const {setMail, setLoginFirst} = useContext (UserData);
 
   const [form, setForm] = useState ({
     email: '',
@@ -156,21 +156,21 @@ const SignUp = () => {
     history.push ('/');
   };
 
-  return userData._id
-    ? <div className={styles.container}>
-        <Modal title="SIGN UP" handleClose={handleClose}>
-          <div className={styles.divRow1}>
-            <Input
-              label="Email"
-              width="100%"
-              type="email"
-              handleChange={email => changeEmail (email)}
-              autofocus
-            />
-            {errorEmail &&
-              <span className={styles.errorMessage}>{errorEmail}</span>}
-          </div>
-          {/* <div className={styles.divRow2}>
+  return (
+    <div className={styles.container}>
+      <Modal title="SIGN UP" handleClose={handleClose}>
+        <div className={styles.divRow1}>
+          <Input
+            label="Email"
+            width="100%"
+            type="email"
+            handleChange={email => changeEmail (email)}
+            autofocus
+          />
+          {errorEmail &&
+            <span className={styles.errorMessage}>{errorEmail}</span>}
+        </div>
+        {/* <div className={styles.divRow2}>
           <Input
             label="First Name"
             width="100%"
@@ -185,45 +185,45 @@ const SignUp = () => {
             handleChange={lastName => changeLastName (lastName)}
           />
         </div> */}
-          {/* <div className={styles.divRow2}>
+        {/* <div className={styles.divRow2}>
           {errorFirstname &&
             <span className={styles.errorMessage}>{errorFirstname}</span>}
           {errorLastname &&
             <span className={styles.errorMessage}>{errorLastname}</span>}
         </div> */}
-          <CheckboxLinks
-            width="90%"
-            onChecked={checked => changeChecked (checked)}
-          />
-          {errorChecked &&
-            <span className={styles.errorMessage}>{errorChecked}</span>}
-          <Checkbox
-            label="I want to receive emails from nWay including information about our upcoming drops as well as news, offers and surveys"
-            width="90%"
-            onChecked={checked => changeCheckedEmails (checked)}
-          />
+        <CheckboxLinks
+          width="90%"
+          onChecked={checked => changeChecked (checked)}
+        />
+        {errorChecked &&
+          <span className={styles.errorMessage}>{errorChecked}</span>}
+        <Checkbox
+          label="I want to receive emails from nWay including information about our upcoming drops as well as news, offers and surveys"
+          width="90%"
+          onChecked={checked => changeCheckedEmails (checked)}
+        />
 
-          <CheckboxDisabled
-            className={form.reCaptchaToken ? null : styles.disabled}
-            label={`I AM NOT A ROBOT - reCAPTCHA ${statusVerify}`}
-            width="90%"
-            onChecked={checked => handleReCAPTCHA (checked)}
-            checked={form.checkedReCaptcha}
-          />
+        <CheckboxDisabled
+          className={form.reCaptchaToken ? null : styles.disabled}
+          label={`I AM NOT A ROBOT - reCAPTCHA ${statusVerify}`}
+          width="90%"
+          onChecked={checked => handleReCAPTCHA (checked)}
+          checked={form.checkedReCaptcha}
+        />
 
-          {errorCaptcha &&
-            <span className={styles.errorMessage}>{errorCaptcha}</span>}
-          <div style={{paddingTop: '40px'}}>
-            <Button title="SIGN UP" onClick={onSingUp} />
-          </div>
-          <SubMessage
-            text="Already have an account?"
-            link="/login"
-            textLink="Login"
-          />
-        </Modal>
-      </div>
-    : <Redirect to="/" />;
+        {errorCaptcha &&
+          <span className={styles.errorMessage}>{errorCaptcha}</span>}
+        <div style={{paddingTop: '40px'}}>
+          <Button title="SIGN UP" onClick={onSingUp} />
+        </div>
+        <SubMessage
+          text="Already have an account?"
+          link="/login"
+          textLink="Login"
+        />
+      </Modal>
+    </div>
+  );
 };
 
 export default SignUp;
