@@ -16,6 +16,7 @@ const NavBar = () => {
   const [coins, setCoins] = useState ();
   const [dropdown, setDropdown] = useState (false);
   const [modal, setModal] = useState (false);
+  const [modal2, setModal2] = useState (false);
 
   const history = useHistory ();
   const {userData, setPreviousNav, setCoin} = useContext (UserData);
@@ -53,9 +54,14 @@ const NavBar = () => {
     setDropdown (!dropdown);
   };
 
-  const preparing = () => {
+  const comingSoon = () => {
     setMenu (!menu);
     setModal (true);
+  };
+
+  const comingSoon2 = () => {
+    setMenu (!menu);
+    setModal2 (true);
   };
 
   const logout = () => {
@@ -106,7 +112,7 @@ const NavBar = () => {
 
               <li onClick={() => previousMenu ('/packs')}>
                 <span
-                  onClick={preparing}
+                  onClick={comingSoon}
                   href
                   // to={userData.email ? '/packs' : '/needLogin'}
                   className={styles.navLink}
@@ -117,7 +123,7 @@ const NavBar = () => {
               <li onClick={() => previousMenu ('/marketplace')}>
                 <a
                   href
-                  onClick={preparing}
+                  onClick={comingSoon}
                   to={userData.email ? '/marketplace' : 'needlogin'}
                   className={styles.navLink}
                 >
@@ -145,10 +151,12 @@ const NavBar = () => {
               </li>
               {userData.email
                 ? <li className={styles.collection}>
-                    <li onClick={() => setDropdown (!dropdown)}>
+                    <li
+                      onClick={comingSoon2} /* onClick={() => setDropdown (!dropdown)} */
+                    >
                       COLLECTION
                     </li>
-                    {dropdown &&
+                    {/* {dropdown &&
                       <div className={styles.dropdown}>
                         <Link onClick={onClick} to="/my-packs">
                           MY PACKS
@@ -156,7 +164,7 @@ const NavBar = () => {
                         <Link onClick={onClick} to="/my-skins">
                           MY SKINS
                         </Link>
-                      </div>}
+                      </div>} */}
 
                   </li>
                 : null}
@@ -275,6 +283,10 @@ const NavBar = () => {
       {modal &&
         <div className={styles.modalContainer}>
           <Modal title="COMING SOON..." handleClose={() => setModal (false)} />
+        </div>}
+      {modal2 &&
+        <div className={styles.modalContainer}>
+          <Modal title="COMING SOON..." handleClose={() => setModal2 (false)} />
         </div>}
     </header>
   );
