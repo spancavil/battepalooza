@@ -15,8 +15,8 @@ import CardDataProvider from "./Context/CardDataProvider";
 import JoinDrop from "./Views/JoinDrop";
 import OpenPack from "./Views/OpenPack";
 //import Collection from "./Views/Collection";
-import MyPacks from "./Views/MyPacks";
-import MyNfts from "./Views/MyNfts";
+// import MyPacks from "./Views/MyPacks";
+// import MyNfts from "./Views/MyNfts";
 import CardAnimation from "./Views/CardAnimation";
 import NftProvider from "./Context/NftProvider";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
@@ -53,8 +53,8 @@ function App() {
                 <Route exact path="/join-drop" component={JoinDrop} />
                 <Route exact path="/open-pack" component={OpenPack} />
                 {/* <Route exact path="/collection" component={Collection} /> */}
-                <Route exact path="/my-packs" component={MyPacks} />
-                <Route exact path="/my-skins" component={MyNfts} />
+                {/* <Route exact path="/my-packs" component={MyPacks} />
+                <Route exact path="/my-skins" component={MyNfts} /> */}
                 <Route exact path="/card-animation" component={CardAnimation} />
                 <Route
                   exact
