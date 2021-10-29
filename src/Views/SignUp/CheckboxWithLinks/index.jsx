@@ -23,7 +23,7 @@ const CheckboxLinks = ({width, onChecked}) => {
                 <span 
                 className = {styles.links}
                 onClick={()=>history.push('/privacy-policy')}
-                > Private Policy</span>
+                > Privacy Policy</span>
             </label>
         </div>
     )
