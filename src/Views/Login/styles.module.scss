@@ -7,7 +7,17 @@ $desktop: 1200px;
 $hd: 1400px;
 
 // Extra mall devices (< 576px)
-@media (max-width: $mobile - 1){
+@media (max-width: $mobile - 1) {
+  .popUpContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
   .container {
     position: absolute;
     top: 0;
@@ -20,13 +30,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -35,7 +45,7 @@ $hd: 1400px;
     top: 0;
   }
 
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 20px;
   }
@@ -44,10 +54,20 @@ $hd: 1400px;
     color: #730909;
     font-family: $font-nasalization;
   }
-};
+}
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: $mobile) and (max-width:$tablet - 1) {
+@media (min-width: $mobile) and (max-width: $tablet - 1) {
+  .popUpContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
   .container {
     position: absolute;
     top: 0;
@@ -60,13 +80,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -74,7 +94,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 30px;
   }
@@ -86,7 +106,17 @@ $hd: 1400px;
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: $tablet) and (max-width: $laptop - 1){
+@media (min-width: $tablet) and (max-width: $laptop - 1) {
+  .popUpContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
   .container {
     position: absolute;
     top: 0;
@@ -99,13 +129,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -113,7 +143,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 40px;
   }
@@ -125,7 +155,17 @@ $hd: 1400px;
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: $laptop) and (max-width: $desktop - 1){
+@media (min-width: $laptop) and (max-width: $desktop - 1) {
+  .popUpContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
   .container {
     position: absolute;
     top: 0;
@@ -138,13 +178,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 105vh;
     opacity: 0.6;
@@ -152,7 +192,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 40px;
   }
@@ -164,7 +204,18 @@ $hd: 1400px;
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: $desktop) and (max-width: $hd - 1){
+@media (min-width: $desktop) and (max-width: $hd - 1) {
+  .popUpContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+
   .container {
     position: absolute;
     top: 0;
@@ -177,13 +228,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 105vh;
     opacity: 0.6;
@@ -191,7 +242,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 50px;
   }
@@ -202,7 +253,18 @@ $hd: 1400px;
   }
 }
 
-@media (min-width: $hd){
+@media (min-width: $hd) {
+  .popUpContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+
   .container {
     position: absolute;
     top: 0;
@@ -215,13 +277,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -229,7 +291,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 50px;
   }
