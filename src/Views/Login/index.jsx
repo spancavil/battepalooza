@@ -85,9 +85,10 @@ const Login = () => {
           />
         </Modal>
       </div>
+      {popUp &&
         <div className={styles.popUpContainer}>
           <PopUp text={message || 'Algo ocurrio'} />
-        </div>
+        </div>}
     </Fragment>
   );
 };
