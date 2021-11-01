@@ -152,7 +152,9 @@ const NavBar = () => {
               {userData.email
                 ? <li className={styles.collection}>
                     <li
-                      onClick={comingSoon2} /* onClick={() => setDropdown (!dropdown)} */
+                      onClick={
+                        comingSoon2
+                      } /* onClick={() => setDropdown (!dropdown)} */
                     >
                       COLLECTION
                     </li>
@@ -282,11 +284,19 @@ const NavBar = () => {
       </nav>
       {modal &&
         <div className={styles.modalContainer}>
-          <Modal title="COMING SOON..." handleClose={() => setModal (false)} />
+          <Modal
+            style={{height: '250px'}}
+            title="COMING SOON..."
+            handleClose={() => setModal (false)}
+          />
         </div>}
       {modal2 &&
         <div className={styles.modalContainer}>
-          <Modal title="COMING SOON..." handleClose={() => setModal2 (false)} />
+          <Modal
+            style={{height: '250px'}}
+            title="PREPARING..."
+            handleClose={() => setModal2 (false)}
+          />
         </div>}
     </header>
   );
