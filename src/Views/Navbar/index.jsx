@@ -132,7 +132,7 @@ const NavBar = () => {
               </li>
               <li>
                 <a
-                  href="https://nway.helpshift.com/a/battlepalooza/?p=web"
+                  href="https://www.battlepalooza.com/news/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.navLink}
@@ -144,6 +144,8 @@ const NavBar = () => {
                 <a
                   onClick={() => setMenu (!menu)}
                   href="https://nway.helpshift.com/a/battlepalooza/?p=web"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={styles.navLink}
                 >
                   HELP
