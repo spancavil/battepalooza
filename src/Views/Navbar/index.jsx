@@ -8,6 +8,7 @@ import {UserData} from '../../Context/UserProvider';
 import {separator} from '../../Utils/separator';
 import authService from '../../Services/auth.service';
 import Modal from '../../Global-Components/Modal';
+import { logOutAmplitude, sendAmplitudeData } from '../../Utils/amplitude';
 
 const NavBar = () => {
   const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT_PAYLOAD;
@@ -66,6 +67,7 @@ const NavBar = () => {
 
   const logout = () => {
     localStorage.removeItem ('user');
+    logOutAmplitude();
     history.push ('/');
     window.location.reload ();
   };
@@ -76,6 +78,12 @@ const NavBar = () => {
   };
 
   const handleFortePayload = async () => {
+    let site = "Buy More"
+    const properties = {
+      clicked: site,
+      page: site,
+    }
+    sendAmplitudeData("Click", properties)
     const response = await authService.getFortePayload (userData);
     console.log (response);
     if (response.error.text !== '') {
