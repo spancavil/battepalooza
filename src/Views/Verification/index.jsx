@@ -8,6 +8,7 @@ import {UserData} from '../../Context/UserProvider';
 import authService from '../../Services/auth.service';
 import {useHistory} from 'react-router';
 import {Link} from 'react-router-dom';
+import { sendAmplitudeData, setAmplitudeUserId } from '../../Utils/amplitude';
 
 const Verification = () => {
   const [code, setCode] = useState ('');
@@ -56,12 +57,25 @@ const Verification = () => {
       const response = firstLogin
         ? await authService.login (email, code, '/first-login')
         : await authService.login (email, code, '');
+      //Envío de datos de tracking a Amplitude 
+      
 
       //console.log(response);
 
       if (response.data.message) {
         alert (response.data.message);
       } else {
+
+        //Send tracking data to amplitude
+        if (firstLogin) {
+          console.log(response)
+          setAmplitudeUserId(response.data.pid)
+          sendAmplitudeData("Registration/Sign Up")
+        } else {
+          setAmplitudeUserId(response.data.pid)
+          sendAmplitudeData("Registration/Log in")
+        }
+        
         setTheToken (response);
         handleSignOut ();
         history.push (navigation);

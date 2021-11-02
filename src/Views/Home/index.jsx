@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles.module.scss';
 import bpBrand from '../../Assets/img/BI-BP-2.png';
 import SocialMedia from './Components/SocialMedia';
@@ -18,6 +18,7 @@ import AppStore from '../../Assets/img/appStore.png';
 import PlayStore from '../../Assets/img/playStore.png';
 import YoutubeEmbed from './Components/Youtube';
 import { useHistory } from 'react-router';
+import {sendAmplitudeData} from '../../Utils/amplitude';
 
 const HomeContainer = () => {
   const [dropdown, setDropdown] = useState (false);
@@ -27,6 +28,10 @@ const HomeContainer = () => {
   const handleWatchTrailer = () => {
     setYtDisplay (!ytDisplay);
   };
+
+  useEffect(()=> {
+    sendAmplitudeData('Main page visit');
+  }, [])
 
   return (
     <div className={styles.container}>

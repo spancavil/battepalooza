@@ -12,6 +12,7 @@ import {useGoogleReCaptcha} from 'react-google-recaptcha-v3';
 import CheckboxDisabled from './CheckboxDisabled';
 import {UserData} from '../../Context/UserProvider';
 import CheckboxLinks from './CheckboxWithLinks';
+import { sendAmplitudeData } from '../../Utils/amplitude';
 
 const SignUp = () => {
   const {setMail, setLoginFirst} = useContext (UserData);
@@ -147,6 +148,9 @@ const SignUp = () => {
         setMail (form.email);
         setLoginFirst ();
         alert ('User registered succesfully! \nGo check your inbox!');
+        
+        //In case the newsletter checked, send tracking
+        if (form.checkedEmail) sendAmplitudeData("Newsletter Suscribe");
         history.push ('/verification');
       }
     }

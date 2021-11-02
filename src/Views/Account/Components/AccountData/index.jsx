@@ -6,6 +6,7 @@ import {separator} from '../../../../Utils/separator';
 import generateDate from '../../../../Utils/createDate';
 import {useHistory} from 'react-router';
 import authService from '../../../../Services/auth.service';
+import { logOutAmplitude } from '../../../../Utils/amplitude';
 
 // Por ahora esta Hardcodeado pero cuando
 // tengamos la api hay que crear los estados
@@ -25,6 +26,7 @@ const AccountData = () => {
         if (response.error.text.includes ('authorized')) {
           alert ('Session expired, please login again.');
           localStorage.removeItem ('user');
+          logOutAmplitude();
           history.push ('/');
           window.location.reload ();
         }
