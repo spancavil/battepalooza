@@ -4,7 +4,7 @@ import bpBrand from '../../Assets/img/BI-BP-2.png';
 import SocialMedia from './Components/SocialMedia';
 import Button from '../../Global-Components/Button';
 import AboutCoins from './Components/AboutCoins';
-import AboutPacks from './Components/AboutPacks';
+// import AboutPacks from './Components/AboutPacks';
 import Content3 from './Components/Content3';
 import Content4 from './Components/Content4';
 import Content5 from './Components/Content5';
@@ -17,21 +17,21 @@ import bearX from '../../Assets/img/bearx.png';
 import AppStore from '../../Assets/img/appStore.png';
 import PlayStore from '../../Assets/img/playStore.png';
 import YoutubeEmbed from './Components/Youtube';
-import { useHistory } from 'react-router';
+import {useHistory} from 'react-router';
 import {sendAmplitudeData} from '../../Utils/amplitude';
 
 const HomeContainer = () => {
   const [dropdown, setDropdown] = useState (false);
   const [ytDisplay, setYtDisplay] = useState (false);
-  const history = useHistory();
+  const history = useHistory ();
 
   const handleWatchTrailer = () => {
     setYtDisplay (!ytDisplay);
   };
 
-  useEffect(()=> {
-    sendAmplitudeData('Main page visit');
-  }, [])
+  useEffect (() => {
+    sendAmplitudeData ('Main page visit');
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -78,7 +78,7 @@ const HomeContainer = () => {
       </div>
 
       <AboutCoins />
-      <AboutPacks />
+      {/*<AboutPacks />*/}
       <Content3 />
       <Content4 />
       <Content5 />
@@ -227,9 +227,9 @@ const HomeContainer = () => {
                       <li>
                         <a
                           href
-                          onClick={()=>{
-                            history.push('/privacy-policy')
-                            window.scroll(0,0);
+                          onClick={() => {
+                            history.push ('/privacy-policy');
+                            window.scroll (0, 0);
                           }}
                         >
                           Privacy Policy
@@ -239,9 +239,9 @@ const HomeContainer = () => {
                       <li>
                         <a
                           href
-                          onClick={()=>{
-                            history.push('/terms-of-use')
-                            window.scroll(0,0)
+                          onClick={() => {
+                            history.push ('/terms-of-use');
+                            window.scroll (0, 0);
                           }}
                         >
                           Terms of Service
