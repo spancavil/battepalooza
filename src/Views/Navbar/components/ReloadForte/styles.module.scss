@@ -3,7 +3,8 @@ $desktop: 1200px;
 @media (max-width: 1199px){
   .normal {
     position: relative;
-    left: 2px
+    left: 2px;
+    cursor: pointer;
   }
   
   .reload {
@@ -18,6 +19,7 @@ $desktop: 1200px;
   .normal {
       position: relative;
       right: 10px;
+      cursor: pointer;
     }
     
     .reload {
