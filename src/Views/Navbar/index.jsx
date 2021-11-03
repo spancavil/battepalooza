@@ -8,7 +8,7 @@ import {UserData} from '../../Context/UserProvider';
 import {separator} from '../../Utils/separator';
 import authService from '../../Services/auth.service';
 import Modal from '../../Global-Components/Modal';
-import { logOutAmplitude, sendAmplitudeData } from '../../Utils/amplitude';
+import {logOutAmplitude, sendAmplitudeData} from '../../Utils/amplitude';
 
 const NavBar = () => {
   const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT_PAYLOAD;
@@ -67,7 +67,7 @@ const NavBar = () => {
 
   const logout = () => {
     localStorage.removeItem ('user');
-    logOutAmplitude();
+    logOutAmplitude ();
     history.push ('/');
     window.location.reload ();
   };
@@ -78,12 +78,12 @@ const NavBar = () => {
   };
 
   const handleFortePayload = async () => {
-    let site = "Buy More"
+    let site = 'Buy More';
     const properties = {
       clicked: site,
       page: site,
-    }
-    sendAmplitudeData("Click", properties)
+    };
+    sendAmplitudeData ('Click', properties);
     const response = await authService.getFortePayload (userData);
     console.log (response);
     if (response.error.text !== '') {
@@ -118,7 +118,7 @@ const NavBar = () => {
           >
             <div className={styles.navLinks}>
 
-              <li onClick={() => previousMenu ('/packs')}>
+              {/* <li onClick={() => previousMenu ('/packs')}>
                 <span
                   onClick={comingSoon}
                   href
@@ -127,7 +127,7 @@ const NavBar = () => {
                 >
                   PACKS
                 </span>
-              </li>
+              </li> */}
               <li onClick={() => previousMenu ('/marketplace')}>
                 <a
                   href
@@ -263,10 +263,9 @@ const NavBar = () => {
                       <p>{coins} NCoins</p>
                       <img src={NCoin} alt="NCoin" />
                     </div>
+                      <button className={styles.buyMore} onClick={handleFortePayload}>BUY MORE</button>
                   </div>
-                  <div className={styles.buyMore}>
-                    <button onClick={handleFortePayload}>BUY MORE</button>
-                  </div>
+
                 </div>
                 <li onClick={() => logout ()} className={styles.logoutBtn}>
                   LOGOUT
