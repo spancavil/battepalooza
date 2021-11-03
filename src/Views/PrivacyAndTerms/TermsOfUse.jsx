@@ -18,8 +18,8 @@ const TermsOfUse = () => {
     //console.log(terms)
     return (
         <BackgroundTerms 
-        title = {"TERMS OF SERVICE"}
-        sub = {"Last updated: September 14, 2021"}
+        title = {"BATTLEPALOOZA TERMS & CONDITIONS OF USE"}
+        sub = {"Last Updated: November 03, 2021"}
         >
 
         <p id ="contenido" className={styles.textContent}></p>
