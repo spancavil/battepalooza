@@ -9,6 +9,7 @@ import {separator} from '../../Utils/separator';
 import authService from '../../Services/auth.service';
 import Modal from '../../Global-Components/Modal';
 import {logOutAmplitude, sendAmplitudeData} from '../../Utils/amplitude';
+import ReloadForte from './components/ReloadForte';
 
 const NavBar = () => {
   const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT_PAYLOAD;
@@ -21,6 +22,8 @@ const NavBar = () => {
 
   const history = useHistory ();
   const {userData, setPreviousNav, setCoin} = useContext (UserData);
+  const [countReload, setCountReload] = useState(0);
+  const [loadingBalance, setLoadingBalance] = useState(false);
 
   let responsive = useMediaQuery ('(min-width: 1200px)');
 
@@ -35,6 +38,7 @@ const NavBar = () => {
     () => {
       let response;
       const fetchData = async () => {
+        setLoadingBalance(true);
         response = await authService.getForteBalance (userData);
         if (response.error.text.includes ('authorized')) {
           alert ('Session expired, please login again.');
@@ -42,12 +46,15 @@ const NavBar = () => {
           history.push ('/');
           window.location.reload ();
         }
+        if (countReload > 3) setCountReload(0);
         setCoins (separator (response.coin));
         setCoin (response.coin);
+        setLoadingBalance(false)
+        
       };
       userData.email && fetchData ();
     },
-    [userData, setCoin, history]
+    [userData, setCoin, history, countReload]
   );
 
   const onClick = e => {
@@ -94,6 +101,7 @@ const NavBar = () => {
         alert (response.error.text);
       }
     } else {
+      setCountReload(countReload + 1)
       if (response.linked === false) {
         window.open (`${FORTE_REDIRECT}/${response.payload}`);
       } else {
@@ -101,6 +109,10 @@ const NavBar = () => {
       }
     }
   };
+
+  const reloadForte = () => {
+    setCountReload(countReload + 1)
+  }
 
   return (
     <header className={menu === true ? styles.header : ''}>
@@ -217,6 +229,13 @@ const NavBar = () => {
                       <div className={styles.ncoins}>
                         <p>{coins} NCoins </p>
                         <img src={NCoin} alt="NCoin" />
+                        {countReload ?
+                        <ReloadForte
+                        handleClick = {reloadForte}
+                        clase = {loadingBalance ? "reload" : "normal"}
+                        />
+                        : null
+                      }
                       </div>
                     </div>
                   </div>
@@ -262,6 +281,13 @@ const NavBar = () => {
                     <div className={styles.ncoins}>
                       <p>{coins} NCoins</p>
                       <img src={NCoin} alt="NCoin" />
+                      {countReload ?
+                        <ReloadForte
+                        handleClick = {reloadForte}
+                        clase = {loadingBalance ? "reload" : "normal"}
+                        />
+                        : null
+                      }
                     </div>
                       <button className={styles.buyMore} onClick={handleFortePayload}>BUY MORE</button>
                   </div>
