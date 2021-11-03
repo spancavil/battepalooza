@@ -514,9 +514,11 @@
 
   .dataContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
     justify-content: center;
+    align-items: center;
+    padding-right: 20px;
   }
 
   .userData {
@@ -558,22 +560,15 @@
   }
 
   .buyMore {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    padding-bottom: 20px;
-    padding-right: 15px;
-
-    button {
-      border: none;
-      background-color: $logout;
-      color: white;
-      font-family: $font-monkyta;
-      padding: 1px 0px;
-      width: 90px;
-      border-radius: 3px;
-      cursor: pointer;
-    }
+    border: none;
+    background-color: $logout;
+    color: white;
+    font-family: $font-monkyta;
+    padding: 1px 0px;
+    width: 90px;
+    height: 50px;
+    border-radius: 3px;
+    cursor: pointer;
   }
 
   .flex {
