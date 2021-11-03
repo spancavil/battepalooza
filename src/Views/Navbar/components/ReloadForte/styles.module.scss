@@ -1,0 +1,29 @@
+$desktop: 1200px;
+
+@media (max-width: 1199px){
+  .normal {
+    position: relative;
+    left: 2px
+  }
+  
+  .reload {
+    position: relative;
+    left: 2px;
+    transform: rotate(720deg);
+    transition: all 0.6s ease;
+  }
+}
+
+@media (min-width: $desktop){
+  .normal {
+      position: relative;
+      right: 10px;
+    }
+    
+    .reload {
+      position: relative;
+      right: 10px;
+      transform: rotate(720deg);
+      transition: all 0.6s ease;
+  }
+}
