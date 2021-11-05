@@ -4,8 +4,8 @@ import authHeader from "./auth-header";
 const API_URL = process.env.REACT_APP_API_URL;
 
 class AuthService {
-  login(username, code, endpoint) {
-    return axios
+  async login(username, code, endpoint) {
+    return await axios
       .post(API_URL + `login${endpoint}`, {
           email: username,
           code
@@ -21,20 +21,16 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
-  register(name, lastName, email, getMails, role) {
-    return axios.post(API_URL + "user/create", {
-      name,
-      lastName,
+  async register(email, getMails, role) {
+    console.log(email, getMails, role)
+    const response = await axios.post(API_URL + "user/create", {
       email,
       getMails,
       role: role ? role : "user",
     })
-    .then( response => {
-      if (response.data) {
-        return (response.data)
-        }
+    if (response.data) {
+      return (response.data)
       }
-    );
   }
 
   validateUser({userId, token}){
@@ -43,25 +39,25 @@ class AuthService {
     return axios.get(`${API_URL}user?id=${userId}`, {headers: header});
   }
 
-  verifyCaptcha(captchaToken){
-    return axios.post(`${API_URL}user/verify-recaptcha`, {
+  async verifyCaptcha(captchaToken){
+    return await axios.post(`${API_URL}user/verify-recaptcha`, {
       captchaToken
     }).then( response => {
       if (response.data) return response.data
     })
   }
 
-  getVerificationCode(email){
-    return axios.post(API_URL + "login/verify-code", {
+  async getVerificationCode(email){
+    return await axios.post(API_URL + "login/verify-code", {
       email
     }).then( response => {
       return response.data;
     })
   }
 
-  getFortePayload({bpToken, pid}){
+  async getFortePayload({bpToken, pid}){
     const bpTokenHeader = authHeader(bpToken);
-    return axios.post(API_URL + "user/payload-forte", {
+    return await axios.post(API_URL + "user/payload-forte", {
       bpTokenHeader,
       pid
     }).then ( response => {
@@ -69,9 +65,9 @@ class AuthService {
     })
   }
 
-  getForteBalance({bpToken, pid}){
+  async getForteBalance({bpToken, pid}){
     const bpTokenHeader = authHeader(bpToken);
-    return axios.post(API_URL + "user/forte-balance", {
+    return await axios.post(API_URL + "user/forte-balance", {
       bpTokenHeader,
       pid
     }).then ( response => {
