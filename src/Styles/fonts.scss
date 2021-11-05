@@ -1,28 +1,52 @@
 @font-face {
-    font-family: "Monkirta";
-    src: url("../Assets/fonts/Monkirta_Pursuit_NC/Monkirta_Pursuit_NC.ttf")
-      format("truetype");
-  }
-
-@font-face {
-    font-family: "Nasalization";
-    src: url("../Assets/fonts/Nasalization/Nasalization-regular400.ttf")
-      format("truetype");
-  }
-
-@font-face {
-    font-family: "NanumGothic" ;
-    src: url("../Assets/fonts/Nanum_Gothic/NanumGothic-Regular.ttf")
-        format("truetype");
+  font-family: "Monkirta";
+  src: url("../Assets/fonts/Monkirta_Pursuit_NC/Monkirta_Pursuit_NC.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: "Route 159";
-    src: url("../Assets/fonts/Route159/route-159.regular.otf")
-      format("opentype");
+  font-family: "Nasalization";
+  src: url("../Assets/fonts/Nasalization/Nasalization-regular400.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "NanumGothic";
+  src: url("../Assets/fonts/Nanum_Gothic/NanumGothic-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Route 159";
+  src: url("../Assets/fonts/Route159/route-159.regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NotoSans_Regular";
+  src: url("../Assets/fonts/NotoSans/NotoSans-Regular.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "NotoSans_Bold";
+  src: url("../Assets/fonts/NotoSans/NotoSans-Bold.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "NotoSans_Italic";
+  src: url("../Assets/fonts/NotoSans/NotoSans-Italic.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "NotoSans_Italic_Bold";
+  src: url("../Assets/fonts/NotoSans/NotoSans-BoldItalic.ttf")
+    format("opentype");
 }
 
 $font-nanum: "NanumGothic";
 $font-nasalization: "Nasalization";
 $font-monkyta: "Monkirta";
 $font-route159: "Route 159";
+$font-nsRegular: "NotoSans_Regular";
+$font-nsBold: "NotoSans_Bold";
+$font-nsItalic: "NotoSans_Italic";
+$font-nsItalicBold: "NotoSans_Italic_Bold";
