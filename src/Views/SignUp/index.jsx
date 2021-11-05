@@ -90,6 +90,8 @@ const SignUp = () => {
   };
 
   const onSingUp = async () => {
+
+    console.log("Sign up!")
     let error = false;
 
     if (!/\S+@\S+\.\S+/.test (form.email)) {
@@ -134,24 +136,29 @@ const SignUp = () => {
     }
 
     if (!error) {
+      console.log(form.email, form.checkedEmail)
       const response = await authService.register (
-        'firstname',
-        'lastname',
         form.email,
         form.checkedEmail
       );
-      if (response.data.message.includes ('undefined')) {
-        alert ('Email already registered!');
-      } else if (response.data.error) {
-        alert ('Error! please try again later!');
-      } else {
+      console.log(response);
+      if (response.data.error) {
+      alert ('Error! please try again later!');
+
+      }else {
+        if (response.data.message.includes ('undefined')){
+          alert ('Email already registered!');
+          return;
+        } 
+        else {
         setMail (form.email);
         setLoginFirst ();
         alert ('User registered succesfully! \nGo check your inbox!');
-        
         //In case the newsletter checked, send tracking
         if (form.checkedEmail) sendAmplitudeData("Newsletter Suscribe");
         history.push ('/verification');
+        }
+
       }
     }
   };
