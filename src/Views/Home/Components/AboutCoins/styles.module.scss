@@ -18,19 +18,28 @@
       margin-top: 50px;
       padding: 0px 20px;
       text-align: center;
+      font-family: $font-nsItalicBold;
 
       h2 {
-        font-size: 60px;
+        font-size: 50px;
       }
 
       h4 {
         padding: 10px 0px;
-        font-size: 25px;
+        font-size: 20px;
+      }
+
+      b {
+        color: #35dcfe;
+      }
+
+      br {
+        display: none;
       }
 
       p {
         padding-top: 10px;
-        font-size: 14px;
+        font-size: 11px;
       }
     }
   }
@@ -55,6 +64,7 @@
       margin-top: 50px;
       padding: 0px 20px;
       text-align: center;
+      font-family: $font-nsItalicBold;
 
       h2 {
         font-size: 60px;
@@ -63,6 +73,14 @@
       h4 {
         padding: 10px 0px;
         font-size: 25px;
+      }
+
+      b {
+        color: #35dcfe;
+      }
+
+      br {
+        display: none;
       }
 
       p {
@@ -92,6 +110,7 @@
       margin-top: 50px;
       margin-left: 50px;
       text-align: center;
+      font-family: $font-nsItalicBold;
 
       h2 {
         font-size: 60px;
@@ -100,6 +119,10 @@
       h4 {
         padding: 10px 0px;
         font-size: 25px;
+      }
+
+      b {
+        color: #35dcfe;
       }
 
       p {
@@ -124,8 +147,9 @@
     align-items: center;
 
     article {
-      margin-left: 70px;
+      margin-left: 60px;
       text-align: left;
+      font-family: $font-nsItalicBold;
 
       h2 {
         font-size: 60px;
@@ -133,7 +157,11 @@
 
       h4 {
         padding: 10px 0px;
-        font-size: 25px;
+        font-size: 27px;
+      }
+
+      b {
+        color: #35dcfe;
       }
 
       p {
