@@ -10,7 +10,7 @@ const AboutCoins = () => {
         <p>
           Players can buy NCoins and get incredible prizes or get them by playing the game!
           <br />
-          We will release more information regarding NCoin in the future
+          We will release more information regarding NCoin in the future.
         </p>
       </article>
     </div>
