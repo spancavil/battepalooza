@@ -42,6 +42,16 @@
     format("opentype");
 }
 
+@font-face {
+  font-family: "Dimbo_Regular";
+  src: url("../Assets/fonts/Dimbo/Dimbo\ Regular.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "Dimbo_Italic";
+  src: url("../Assets/fonts/Dimbo/Dimbo\ Italic.ttf") format("opentype");
+}
+
 $font-nanum: "NanumGothic";
 $font-nasalization: "Nasalization";
 $font-monkyta: "Monkirta";
@@ -50,3 +60,5 @@ $font-nsRegular: "NotoSans_Regular";
 $font-nsBold: "NotoSans_Bold";
 $font-nsItalic: "NotoSans_Italic";
 $font-nsItalicBold: "NotoSans_Italic_Bold";
+$font-dimboRegular: "Dimbo_Regular";
+$font-dimboItalic: "Dimbo_Italic";

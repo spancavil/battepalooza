@@ -20,19 +20,29 @@ $hd: 1400px;
       margin-top: 50px;
       padding: 0px 20px;
       text-align: center;
-      font-family: $font-nsItalicBold;
 
       h2 {
         font-size: 50px;
+        font-family: $font-dimboRegular;
+        letter-spacing: 3px;
+        font-weight: 500;
+        text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.3);
+
+        b {
+          font-family: $font-dimboItalic;
+        }
       }
 
       h4 {
         padding: 10px 0px;
         font-size: 20px;
-      }
+        font-family: $font-dimboRegular;
+        font-weight: 500;
+        letter-spacing: 1px;
 
-      b {
-        color: #35dcfe;
+        b {
+          color: #35dcfe;
+        }
       }
 
       br {
@@ -42,6 +52,7 @@ $hd: 1400px;
       p {
         padding-top: 10px;
         font-size: 11px;
+        font-family: $font-nsBold;
       }
     }
   }
@@ -70,15 +81,26 @@ $hd: 1400px;
 
       h2 {
         font-size: 60px;
+        font-family: $font-dimboRegular;
+        letter-spacing: 3px;
+        font-weight: 500;
+        text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.3);
+
+        b {
+          font-family: $font-dimboItalic;
+        }
       }
 
       h4 {
         padding: 10px 0px;
         font-size: 25px;
-      }
+        font-family: $font-dimboRegular;
+        font-weight: 500;
+        letter-spacing: 1px;
 
-      b {
-        color: #35dcfe;
+        b {
+          color: #35dcfe;
+        }
       }
 
       br {
@@ -88,6 +110,7 @@ $hd: 1400px;
       p {
         padding-top: 10px;
         font-size: 14px;
+        font-family: $font-nsBold;
       }
     }
   }
@@ -116,20 +139,32 @@ $hd: 1400px;
 
       h2 {
         font-size: 60px;
+        font-family: $font-dimboRegular;
+        letter-spacing: 3px;
+        font-weight: 500;
+        text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.3);
+
+        b {
+          font-family: $font-dimboItalic;
+        }
       }
 
       h4 {
         padding: 10px 0px;
         font-size: 25px;
-      }
+        font-family: $font-dimboRegular;
+        font-weight: 500;
+        letter-spacing: 1px;
 
-      b {
-        color: #35dcfe;
+        b {
+          color: #35dcfe;
+        }
       }
 
       p {
         padding-top: 10px;
         font-size: 14px;
+        font-family: $font-nsBold;
       }
     }
   }
@@ -151,24 +186,35 @@ $hd: 1400px;
     article {
       margin-left: 60px;
       text-align: left;
-      font-family: $font-nsItalicBold;
 
       h2 {
         font-size: 60px;
+        font-family: $font-dimboRegular;
+        letter-spacing: 3px;
+        font-weight: 500;
+        text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.3);
+
+        b {
+          font-family: $font-dimboItalic;
+        }
       }
 
       h4 {
         padding: 10px 0px;
         font-size: 27px;
-      }
+        font-family: $font-dimboRegular;
+        font-weight: 500;
+        letter-spacing: 1px;
 
-      b {
-        color: #35dcfe;
+        b {
+          color: #35dcfe;
+        }
       }
 
       p {
         padding-top: 10px;
-        font-size: 14px;
+        font-size: 12px;
+        font-family: $font-nsBold;
       }
     }
   }
@@ -190,24 +236,35 @@ $hd: 1400px;
     article {
       margin-left: 100px;
       text-align: left;
-      font-family: $font-nsItalicBold;
 
       h2 {
         font-size: 80px;
+        font-family: $font-dimboRegular;
+        letter-spacing: 3px;
+        font-weight: 500;
+        text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.3);
+
+        b {
+          font-family: $font-dimboItalic;
+        }
       }
 
       h4 {
         padding: 10px 0px;
         font-size: 37px;
-      }
+        font-family: $font-dimboRegular;
+        font-weight: 500;
+        letter-spacing: 1px;
 
-      b {
-        color: #35dcfe;
+        b {
+          color: #35dcfe;
+        }
       }
 
       p {
         padding-top: 10px;
-        font-size: 17px;
+        font-size: 16px;
+        font-family: $font-nsBold;
       }
     }
   }

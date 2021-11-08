@@ -5,7 +5,7 @@ const AboutCoins = () => {
   return (
     <div className={styles.content2}>
       <article>
-        <h2> Play to earn!</h2>
+        <h2> Play to earn<b>!</b></h2>
         <h4><b>NCoin</b> is a currency in Battlepalooza.</h4>
         <p>
           Players can buy NCoins and get incredible prizes or get them by playing the game!
