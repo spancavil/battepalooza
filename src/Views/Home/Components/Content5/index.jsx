@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import img2 from '../../../../Assets/img/img2.png';
+import img2 from '../../../../Assets/img/img2.jpg';
 
 const Content5 = () => {
   return (
