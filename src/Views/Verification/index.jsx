@@ -15,8 +15,8 @@ const Verification = () => {
   const [errorCode, setErrorCode] = useState ('');
   const {
     setCodeVerification,
-    setTheToken,
-    email,
+    setDataUser,
+    userSignup,
     navigation,
     firstLogin,
   } = useContext (UserData);
@@ -51,12 +51,12 @@ const Verification = () => {
     if (!/^\d{6}$/.test (code)) {
       setErrorCode ('Input a valid code');
     } else {
+      console.log(userSignup);
       setErrorCode ('');
       setCodeVerification (code);
-
       const response = firstLogin
-        ? await authService.login (email, code, '/first-login')
-        : await authService.login (email, code, '');
+        ? await authService.login (userSignup.email, code, '/first-login', userSignup)
+        : await authService.login (userSignup.email, code, '');
       //Envío de datos de tracking a Amplitude 
       
 
@@ -76,7 +76,7 @@ const Verification = () => {
           sendAmplitudeData("Registration/Log in")
         }
         
-        setTheToken (response);
+        setDataUser(response);
         handleSignOut ();
         history.push (navigation);
       }

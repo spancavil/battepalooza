@@ -4,11 +4,12 @@ import authHeader from "./auth-header";
 const API_URL = process.env.REACT_APP_API_URL;
 
 class AuthService {
-  async login(username, code, endpoint) {
+  async login(username, code, endpoint, userData) {
     return await axios
       .post(API_URL + `login${endpoint}`, {
           email: username,
-          code
+          code,
+          userData
       })
       .then(response => {
         if (response.data) {
