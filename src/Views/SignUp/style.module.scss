@@ -216,7 +216,21 @@ $hd: 1400px;
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: $desktop) and (max-width: $hd - 1){
-  
+  .divRow3{
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .text{
+    font-family: $font-nasalization;
+    font-size: 18px;
+    color: #ffff;
+    font-weight: normal;
+  }
+
   .container {
     position: absolute;
     top: 0;
