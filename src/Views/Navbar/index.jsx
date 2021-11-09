@@ -119,7 +119,7 @@ const NavBar = () => {
   const reloadForte = () => {
     setCountReload(countReload + 1)
   }
-
+  
   return (
     <header className={menu === true ? styles.header : ''}>
       <nav className={styles.navbar}>
