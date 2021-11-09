@@ -59,7 +59,7 @@ const NavBar = () => {
       };
       userData.email && fetchData ();
     },
-    [userData, setCoin, history, countReload]
+    [userData, setCoin, history, countReload, disabled]
   );
 
   const onClick = e => {
