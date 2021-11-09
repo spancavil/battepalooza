@@ -57,7 +57,7 @@ const HomeContainer = () => {
               {dropdown &&
                 <div className={styles.dropdown}>
                   <a
-                    href="https://play.google.com/store/apps/details?id=com.nway.battlepalooza"
+                    href="https://apps.apple.com/app/battlepalooza-battle-royale/id1536697211"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -65,7 +65,7 @@ const HomeContainer = () => {
                   </a>
                   <a
                     rel="noreferrer"
-                    href="https://apps.apple.com/app/battlepalooza-battle-royale/id1536697211"
+                    href="https://play.google.com/store/apps/details?id=com.nway.battlepalooza"
                     target="_blank"
                   >
                     <img src={PlayStore} alt="PlayStore" />
