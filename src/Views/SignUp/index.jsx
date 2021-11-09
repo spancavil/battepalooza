@@ -13,9 +13,16 @@ import CheckboxDisabled from './CheckboxDisabled';
 import {UserData} from '../../Context/UserProvider';
 import CheckboxLinks from './CheckboxWithLinks';
 import { sendAmplitudeData } from '../../Utils/amplitude';
+import CheckboxInLine from './CheckboxInLine';
 
 const SignUp = () => {
   const {setUserSignUp, setLoginFirst} = useContext (UserData);
+
+  const [check1, setCheck1] = useState("");
+  const [check2, setCheck2] = useState("")
+  const [showOptions, setShowOptions] = useState(true);
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   const [form, setForm] = useState ({
     email: '',
@@ -157,9 +164,48 @@ const SignUp = () => {
   const handleClose = () => {
     history.push ('/');
   };
+  console.log(check1, check2);
+
+  const check1Fn = (option) => {
+    setCheck1(option);
+    if (option === "no"){
+      setShowOptions(false);
+      setShowSignUp(true);
+    }
+  }
+
+  const check2Fn = (option) => {
+    setCheck2(option);
+    if (option === "no"){
+      setShowInfo(true);
+      setShowOptions(false)
+    }
+    else {
+      history.push('/login');
+    }
+  }
 
   return (
     <div className={styles.container}>
+      {showOptions &&
+        <Modal title="User Information Request" handleClose={handleClose}>
+          <div className={styles.divRow3}>
+            <h1 className={styles.text}>Please answer the following questions accurately in order to get the best experience.</h1>
+            <CheckboxInLine
+              title="Do you have Battlepalooza account from the mobile app?"
+              check = {(option)=> check1Fn(option)}
+              checked = {check1 !== "" ? true : false}
+            />
+            <CheckboxInLine
+              title="Did you link your account to nWayPlay?"
+              check = {(option)=> check2Fn(option)}
+              checked = {(check2 === "" && (check1 !== "")) ? false : true}
+            />
+          </div>
+        </Modal>
+
+      }
+      {showSignUp &&
       <Modal title="SIGN UP" handleClose={handleClose}>
         <div className={styles.divRow1}>
           <Input
@@ -172,27 +218,7 @@ const SignUp = () => {
           {errorEmail &&
             <span className={styles.errorMessage}>{errorEmail}</span>}
         </div>
-        {/* <div className={styles.divRow2}>
-          <Input
-            label="First Name"
-            width="100%"
-            type="name"
-            handleChange={firstName => changeName (firstName)}
-          />
-
-          <Input
-            label="Last Name"
-            width="100%"
-            type="name"
-            handleChange={lastName => changeLastName (lastName)}
-          />
-        </div> */}
-        {/* <div className={styles.divRow2}>
-          {errorFirstname &&
-            <span className={styles.errorMessage}>{errorFirstname}</span>}
-          {errorLastname &&
-            <span className={styles.errorMessage}>{errorLastname}</span>}
-        </div> */}
+      
         <CheckboxLinks
           width="90%"
           onChecked={checked => changeChecked (checked)}
@@ -224,6 +250,16 @@ const SignUp = () => {
           textLink="Login"
         />
       </Modal>
+      }
+      {
+        showInfo && 
+        <Modal
+          title="Link Account Using Mobile App"
+          handleClose = {handleClose}
+        >
+
+        </Modal>
+      }
     </div>
   );
 };
