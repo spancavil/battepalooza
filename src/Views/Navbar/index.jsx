@@ -23,8 +23,8 @@ const NavBar = () => {
 
   const history = useHistory ();
   const {userData, setPreviousNav, setCoin} = useContext (UserData);
-  const [countReload, setCountReload] = useState(0);
-  const [loadingBalance, setLoadingBalance] = useState(false);
+  const [countReload, setCountReload] = useState (0);
+  const [loadingBalance, setLoadingBalance] = useState (false);
 
   let responsive = useMediaQuery ('(min-width: 1200px)');
 
@@ -39,7 +39,7 @@ const NavBar = () => {
     () => {
       let response;
       const fetchData = async () => {
-        setLoadingBalance(true);
+        setLoadingBalance (true);
         response = await authService.getForteBalance (userData);
         if (response.error.text.includes ('authorized')) {
           alert ('Session expired, please login again.');
@@ -47,11 +47,9 @@ const NavBar = () => {
           history.push ('/');
           window.location.reload ();
         }
-        if (countReload > 3) setCountReload(0);
         setCoins (separator (response.coin));
         setCoin (response.coin);
-        setLoadingBalance(false)
-        
+        setLoadingBalance (false);
       };
       userData.email && fetchData ();
     },
@@ -106,19 +104,16 @@ const NavBar = () => {
       } else {
         alert (response.error.text);
       }
+    } else if (response.linked === false) {
+      window.open (`${FORTE_REDIRECT}/${response.payload}`);
     } else {
-      setCountReload(countReload + 1)
-      if (response.linked === false) {
-        window.open (`${FORTE_REDIRECT}/${response.payload}`);
-      } else {
-        window.open (FORTE_LOGIN_URL);
-      }
+      window.open (FORTE_LOGIN_URL);
     }
   };
 
   const reloadForte = () => {
-    setCountReload(countReload + 1)
-  }
+    setCountReload (countReload + 1);
+  };
 
   return (
     <header className={menu === true ? styles.header : ''}>
@@ -147,20 +142,12 @@ const NavBar = () => {
                 </span>
               </li> */}
               <li onClick={() => previousMenu ('/marketplace')}>
-                <a
-                  href
-                  onClick={comingSoon}
-                  className={styles.navLink}
-                >
+                <a href onClick={comingSoon} className={styles.navLink}>
                   MARKETPLACE
                 </a>
               </li>
               <li>
-                <a
-                  href
-                  onClick={comingSoon3}
-                  className={styles.navLink}
-                >
+                <a href onClick={comingSoon3} className={styles.navLink}>
                   NEWS
                 </a>
               </li>
@@ -233,13 +220,10 @@ const NavBar = () => {
                       <div className={styles.ncoins}>
                         <p>{coins} NCoins </p>
                         <img src={NCoin} alt="NCoin" />
-                        {countReload ?
                         <ReloadForte
-                        handleClick = {reloadForte}
-                        clase = {loadingBalance ? "reload" : "normal"}
+                          handleClick={reloadForte}
+                          clase={loadingBalance ? 'reload' : 'normal'}
                         />
-                        : null
-                      }
                       </div>
                     </div>
                   </div>
@@ -285,15 +269,18 @@ const NavBar = () => {
                     <div className={styles.ncoins}>
                       <p>{coins} NCoins</p>
                       <img src={NCoin} alt="NCoin" />
-                      {countReload ?
-                        <ReloadForte
-                        handleClick = {reloadForte}
-                        clase = {loadingBalance ? "reload" : "normal"}
-                        />
-                        : null
-                      }
+                      <ReloadForte
+                        handleClick={reloadForte}
+                        clase={loadingBalance ? 'reload' : 'normal'}
+                      />
+
                     </div>
-                      <button className={styles.buyMore} onClick={handleFortePayload}>BUY MORE</button>
+                    <button
+                      className={styles.buyMore}
+                      onClick={handleFortePayload}
+                    >
+                      BUY MORE
+                    </button>
                   </div>
 
                 </div>
@@ -337,7 +324,7 @@ const NavBar = () => {
             handleClose={() => setModal2 (false)}
           />
         </div>}
-        {modal3 &&
+      {modal3 &&
         <div className={styles.modalContainer}>
           <Modal
             style={{height: '250px'}}

@@ -12,6 +12,7 @@ $desktop: 1200px;
     left: 2px;
     transform: rotate(720deg);
     transition: all 0.6s ease;
+    cursor: no-drop;
   }
 }
 
@@ -27,5 +28,6 @@ $desktop: 1200px;
       right: 10px;
       transform: rotate(720deg);
       transition: all 0.6s ease;
+      cursor: no-drop;
   }
 }
