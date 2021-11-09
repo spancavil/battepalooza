@@ -16,6 +16,7 @@ const Login = () => {
   const [popUp, setPopUp] = useState (false);
   const [message, setMessage] = useState ('');
   const [loading, setLoading] = useState (false);
+  const [formSend, setFormSend] = useState (false);
 
   const {setUserSignUp} = useContext (UserData);
 
@@ -32,29 +33,33 @@ const Login = () => {
   const onLogin = async e => {
     e.preventDefault ();
 
-    if (!/\S+@\S+\.\S+/.test (email)) {
-      setErrorEmail ('Input a valid email');
-    } else {
-      setErrorEmail ('');
-      setUserSignUp ({
-        email: email,
-      });
-      setLoading (true);
-
-      const response = await authService.getVerificationCode (email);
-
-      if (response.success === false) {
-        setMessage (response.message);
-        setPopUp (true);
-        setTimeout (() => setPopUp (false) && setLoading (false), 1500);
+    if (formSend !== true) {
+      console.log('me active')
+      if (!/\S+@\S+\.\S+/.test (email)) {
+        setErrorEmail ('Input a valid email');
       } else {
-        setMessage (response.message);
-        setPopUp (true);
-        setTimeout (() => setPopUp (false), 1500);
-        setTimeout (
-          () => history.push ('/verification') && setLoading (false),
-          2000
-        );
+        setErrorEmail ('');
+        setUserSignUp ({
+          email: email,
+        });
+        setLoading (true);
+        setFormSend (true);
+
+        const response = await authService.getVerificationCode (email);
+
+        if (response.success === false) {
+          setMessage (response.message);
+          setPopUp (true);
+          setTimeout (() => setPopUp (false) && setLoading (false), 1500);
+        } else {
+          setMessage (response.message);
+          setPopUp (true);
+          setTimeout (() => setPopUp (false), 1500);
+          setTimeout (
+            () => history.push ('/verification') && setLoading (false),
+            2000
+          );
+        }
       }
     }
   };
