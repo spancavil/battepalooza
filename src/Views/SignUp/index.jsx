@@ -15,7 +15,7 @@ import CheckboxLinks from './CheckboxWithLinks';
 import { sendAmplitudeData } from '../../Utils/amplitude';
 
 const SignUp = () => {
-  const {setMail, setLoginFirst} = useContext (UserData);
+  const {setUserSignUp, setLoginFirst} = useContext (UserData);
 
   const [form, setForm] = useState ({
     email: '',
@@ -136,29 +136,20 @@ const SignUp = () => {
     }
 
     if (!error) {
-      console.log(form.email, form.checkedEmail)
-      const response = await authService.register (
+      const response = await authService.getVerificationCode(
         form.email,
-        form.checkedEmail
       );
-      console.log(response);
-      if (response.data.error) {
-      alert ('Error! please try again later!');
-
+      if (response.message.includes("later")){
+        alert ('Please try again later!'); 
       }else {
-        if (response.data.message.includes ('undefined')){
-          alert ('Email already registered!');
-          return;
-        } 
-        else {
-        setMail (form.email);
+        setUserSignUp({
+          email: form.email,
+          checkedEmail: form.checkedEmail})
         setLoginFirst ();
-        alert ('User registered succesfully! \nGo check your inbox!');
+        alert ('Verification code sent!');
         //In case the newsletter checked, send tracking
         if (form.checkedEmail) sendAmplitudeData("Newsletter Suscribe");
         history.push ('/verification');
-        }
-
       }
     }
   };

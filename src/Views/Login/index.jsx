@@ -16,7 +16,7 @@ const Login = () => {
   const [popUp, setPopUp] = useState (false);
   const [message, setMessage] = useState ('');
 
-  const {setMail} = useContext (UserData);
+  const {setUserSignUp} = useContext (UserData);
 
   const history = useHistory ();
 
@@ -35,7 +35,9 @@ const Login = () => {
       setErrorEmail ('Input a valid email');
     } else {
       setErrorEmail ('');
-      setMail (email);
+      setUserSignUp ({
+        email: email
+      });
       const response = await authService.getVerificationCode (email);
 
       if (response.success === false) {
