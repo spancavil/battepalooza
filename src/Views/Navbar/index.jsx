@@ -19,6 +19,7 @@ const NavBar = () => {
   const [dropdown, setDropdown] = useState (false);
   const [modal, setModal] = useState (false);
   const [modal2, setModal2] = useState (false);
+  const [modal3, setModal3] = useState (false);
 
   const history = useHistory ();
   const {userData, setPreviousNav, setCoin} = useContext (UserData);
@@ -70,6 +71,11 @@ const NavBar = () => {
   const comingSoon2 = () => {
     setMenu (!menu);
     setModal2 (true);
+  };
+
+  const comingSoon3 = () => {
+    setMenu (!menu);
+    setModal3 (true);
   };
 
   const logout = () => {
@@ -144,7 +150,6 @@ const NavBar = () => {
                 <a
                   href
                   onClick={comingSoon}
-                  to={userData.email ? '/marketplace' : 'needlogin'}
                   className={styles.navLink}
                 >
                   MARKETPLACE
@@ -152,9 +157,8 @@ const NavBar = () => {
               </li>
               <li>
                 <a
-                  href="https://www.battlepalooza.com/news/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href
+                  onClick={comingSoon3}
                   className={styles.navLink}
                 >
                   NEWS
@@ -331,6 +335,14 @@ const NavBar = () => {
             style={{height: '250px'}}
             title="PREPARING..."
             handleClose={() => setModal2 (false)}
+          />
+        </div>}
+        {modal3 &&
+        <div className={styles.modalContainer}>
+          <Modal
+            style={{height: '250px'}}
+            title="PREPARING..."
+            handleClose={() => setModal3 (false)}
           />
         </div>}
     </header>
