@@ -15,6 +15,7 @@ const Login = () => {
   const [errorEmail, setErrorEmail] = useState ('');
   const [popUp, setPopUp] = useState (false);
   const [message, setMessage] = useState ('');
+  const [loading, setLoading] = useState (false);
 
   const {setUserSignUp} = useContext (UserData);
 
@@ -36,19 +37,24 @@ const Login = () => {
     } else {
       setErrorEmail ('');
       setUserSignUp ({
-        email: email
+        email: email,
       });
+      setLoading (true);
+
       const response = await authService.getVerificationCode (email);
 
       if (response.success === false) {
         setMessage (response.message);
         setPopUp (true);
-        setTimeout (() => setPopUp (false), 1500);
+        setTimeout (() => setPopUp (false) && setLoading (false), 1500);
       } else {
         setMessage (response.message);
         setPopUp (true);
         setTimeout (() => setPopUp (false), 1500);
-        setTimeout (() => history.push ('/verification'), 2000);
+        setTimeout (
+          () => history.push ('/verification') && setLoading (false),
+          2000
+        );
       }
     }
   };
@@ -77,7 +83,9 @@ const Login = () => {
                 justifyContent: 'center',
               }}
             >
-              <Button title="GET CODE" />
+              {loading
+                ? <Button style={{cursor: 'no-drop'}} title="LOADING..." />
+                : <Button title="GET CODE" />}
             </div>
           </form>
           <SubMessage
