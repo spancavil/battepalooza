@@ -25,6 +25,7 @@ const NavBar = () => {
   const {userData, setPreviousNav, setCoin} = useContext (UserData);
   const [countReload, setCountReload] = useState (0);
   const [loadingBalance, setLoadingBalance] = useState (false);
+  const [disabled, setDisabled] = useState (false);
 
   let responsive = useMediaQuery ('(min-width: 1200px)');
 
@@ -39,17 +40,22 @@ const NavBar = () => {
     () => {
       let response;
       const fetchData = async () => {
-        setLoadingBalance (true);
-        response = await authService.getForteBalance (userData);
-        if (response.error.text.includes ('authorized')) {
-          alert ('Session expired, please login again.');
-          localStorage.removeItem ('user');
-          history.push ('/');
-          window.location.reload ();
+        if (disabled !== true) {
+          console.log ('Entre');
+          setDisabled (true);
+          setLoadingBalance (true);
+          response = await authService.getForteBalance (userData);
+          if (response.error.text.includes ('authorized')) {
+            alert ('Session expired, please login again.');
+            localStorage.removeItem ('user');
+            history.push ('/');
+            window.location.reload ();
+          }
+          setCoins (separator (response.coin));
+          setCoin (response.coin);
+          setLoadingBalance (false);
+          setTimeout (() => setDisabled (false), 5000);
         }
-        setCoins (separator (response.coin));
-        setCoin (response.coin);
-        setLoadingBalance (false);
       };
       userData.email && fetchData ();
     },
@@ -114,7 +120,7 @@ const NavBar = () => {
   const reloadForte = () => {
     setCountReload (countReload + 1);
   };
-  
+
   return (
     <header className={menu === true ? styles.header : ''}>
       <nav className={styles.navbar}>
@@ -221,7 +227,7 @@ const NavBar = () => {
                         <p>{coins} NCoins </p>
                         <img src={NCoin} alt="NCoin" />
                         <ReloadForte
-                          handleClick={reloadForte}
+                          handleClick={loadingBalance ? null : reloadForte}
                           clase={loadingBalance ? 'reload' : 'normal'}
                         />
                       </div>
