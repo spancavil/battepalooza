@@ -178,7 +178,7 @@ const NavBar = () => {
                           </Link>
                         </div>
                         <div className={styles.ncoins}>
-                          <p>{coins} NCoins </p>
+                          <p>{coins} NCoin </p>
                           <img src={NCoin} alt="NCoin" />
                           <ReloadForte
                             handleClick={loadingBalance ? null : reloadForte}
@@ -276,7 +276,7 @@ const NavBar = () => {
                       </Link>
                     </div>
                     <div className={styles.ncoins}>
-                      <p>{coins} NCoins</p>
+                      <p>{coins} NCoin</p>
                       <img src={NCoin} alt="NCoin" />
                       <ReloadForte
                         handleClick={reloadForte}

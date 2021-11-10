@@ -50,11 +50,11 @@ const Login = () => {
         if (response.success === false) {
           setMessage (response.message);
           setPopUp (true);
-          setTimeout (() => setPopUp (false) && setLoading (false), 1500);
+          setTimeout (() => setPopUp (false) && setLoading (false), 3000);
         } else {
           setMessage (response.message);
           setPopUp (true);
-          setTimeout (() => setPopUp (false), 1500);
+          setTimeout (() => setPopUp (false), 3000);
           setTimeout (
             () => history.push ('/verification') && setLoading (false),
             2000
