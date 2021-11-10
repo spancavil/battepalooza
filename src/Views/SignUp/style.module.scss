@@ -8,7 +8,20 @@ $hd: 1400px;
 
 // Extra mall devices (< 576px)
 @media (max-width: $mobile - 1){
-  
+  .divRow3{
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .text{
+    font-family: $font-nasalization;
+    font-size: 18px;
+    color: #ffff;
+    font-weight: normal;
+  }
   .container {
     position: absolute;
     top: 0;
@@ -61,7 +74,20 @@ $hd: 1400px;
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: $mobile) and (max-width:$tablet - 1) {
-  
+  .divRow3{
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .text{
+    font-family: $font-nasalization;
+    font-size: 18px;
+    color: #ffff;
+    font-weight: normal;
+  }
   .container {
     position: absolute;
     top: 0;
@@ -113,7 +139,20 @@ $hd: 1400px;
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: $tablet) and (max-width: $laptop - 1){
-  
+  .divRow3{
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .text{
+    font-family: $font-nasalization;
+    font-size: 18px;
+    color: #ffff;
+    font-weight: normal;
+  }
   .container {
     position: absolute;
     top: 0;
@@ -164,7 +203,20 @@ $hd: 1400px;
 
 // Large devices (desktops, 992px and up)
 @media (min-width: $laptop) and (max-width: $desktop - 1){
-  
+  .divRow3{
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .text{
+    font-family: $font-nasalization;
+    font-size: 18px;
+    color: #ffff;
+    font-weight: normal;
+  }
   .container {
     position: absolute;
     top: 0;
@@ -281,6 +333,20 @@ $hd: 1400px;
 }
 
 @media (min-width: $hd){
+  .divRow3{
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .text{
+    font-family: $font-nasalization;
+    font-size: 18px;
+    color: #ffff;
+    font-weight: normal;
+  }
   .container {
     position: absolute;
     top: 0;
