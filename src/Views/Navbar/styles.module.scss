@@ -6,6 +6,9 @@
 @media (max-width: $desktop - 1) {
   .btns {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 
   .cont {
@@ -79,8 +82,8 @@
     }
 
     .login {
-      height: 65px;
-      width: 50%;
+      height: 50px;
+      width: 150px;
       border: none;
       font-weight: 700;
       cursor: pointer;
@@ -93,8 +96,8 @@
     }
 
     .signUp {
-      height: 65px;
-      width: 50%;
+      height: 50px;
+      width: 150px;
       border: none;
       font-weight: 700;
       cursor: pointer;
