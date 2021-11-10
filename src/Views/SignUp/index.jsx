@@ -14,7 +14,7 @@ import {UserData} from '../../Context/UserProvider';
 import CheckboxLinks from './CheckboxWithLinks';
 import {sendAmplitudeData} from '../../Utils/amplitude';
 import CheckboxInLine from './CheckboxInLine';
-import AppNway from '../../Assets/img/App nWayPlay 1.jpg';
+import AppNway from '../../Assets/img/App nWayPlay 1.png';
 import passCode from '../../Assets/img/PassCode 1.png';
 import ModalUnderstood from './ModalUnderstood';
 
