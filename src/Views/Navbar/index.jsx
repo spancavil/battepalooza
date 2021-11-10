@@ -40,22 +40,17 @@ const NavBar = () => {
     () => {
       let response;
       const fetchData = async () => {
-        if (disabled !== true) {
-          console.log ('Entre');
-          setDisabled (true);
-          setLoadingBalance (true);
-          response = await authService.getForteBalance (userData);
-          if (response.error.text.includes ('authorized')) {
-            alert ('Session expired, please login again.');
-            localStorage.removeItem ('user');
-            history.push ('/');
-            window.location.reload ();
-          }
-          setCoins (separator (response.coin));
-          setCoin (response.coin);
-          setLoadingBalance (false);
-          setTimeout (() => setDisabled (false), 5000);
+        setLoadingBalance (true);
+        response = await authService.getForteBalance (userData);
+        if (response.error.text.includes ('authorized')) {
+          alert ('Session expired, please login again.');
+          localStorage.removeItem ('user');
+          history.push ('/');
+          window.location.reload ();
         }
+        setCoins (separator (response.coin));
+        setCoin (response.coin);
+        setLoadingBalance (false);
       };
       userData.email && fetchData ();
     },
@@ -118,7 +113,13 @@ const NavBar = () => {
   };
 
   const reloadForte = () => {
-    setCountReload (countReload + 1);
+    if (disabled === false) {
+      setCountReload (countReload + 1);
+      setDisabled(true)
+      setTimeout (() => setDisabled (false), 5000)
+    } else {
+      return
+    };
   };
 
   return (
