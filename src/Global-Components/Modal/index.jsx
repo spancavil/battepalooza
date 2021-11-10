@@ -9,9 +9,9 @@ import {general, cross} from './style.module.scss';
  * @param handleClose La ruta que va al cerrar el dialog
  */
 
-const Modal = ({title, children, handleClose, style}) => {
+const Modal = ({title, children, handleClose}) => {
   return (
-    <div style={style} className={general}>
+    <div className={general}>
       <p>{title}</p>
         <DialogCross className={cross} onClick ={handleClose}/>
       {children}

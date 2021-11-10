@@ -16,6 +16,7 @@ import {sendAmplitudeData} from '../../Utils/amplitude';
 import CheckboxInLine from './CheckboxInLine';
 import AppNway from '../../Assets/img/App nWayPlay 1.jpg';
 import passCode from '../../Assets/img/PassCode 1.png';
+import ModalUnderstood from './ModalUnderstood';
 
 const SignUp = () => {
   const {setUserSignUp, setLoginFirst} = useContext (UserData);
@@ -245,7 +246,7 @@ const SignUp = () => {
           />
         </Modal>}
       {showInfo &&
-        <Modal style={{marginTop: '275px'}} title="Link Account Using Mobile App" handleClose={handleClose}>
+        <ModalUnderstood title="Link Account Using Mobile App" handleClose={handleClose}>
           <p
             className={styles.textResponsive}
             style={{
@@ -270,7 +271,7 @@ const SignUp = () => {
           <div>
             <Button title="UNDERSTOOD" onClick={handleClose} />
           </div>
-        </Modal>}
+        </ModalUnderstood>}
     </div>
   );
 };
