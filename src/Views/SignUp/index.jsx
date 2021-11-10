@@ -265,8 +265,8 @@ const SignUp = () => {
             4) Input the Passcode sent to your email and press Verify.<br />
           </p>
           <div className={styles.imgContainer}>
-            <img src={AppNway} alt="App Nway" />
-            <img src={passCode} alt="Passcode" />
+            <img className={styles.imgModal} src={AppNway} alt="App Nway" />
+            <img className={styles.imgModal} src={passCode} alt="Passcode" />
           </div>
           <div>
             <Button title="UNDERSTOOD" onClick={handleClose} />
