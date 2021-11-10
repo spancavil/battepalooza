@@ -7,8 +7,8 @@ $desktop: 1200px;
 $hd: 1400px;
 
 // Extra mall devices (< 576px)
-@media (max-width: $mobile - 1){
-  .divRow3{
+@media (max-width: $mobile - 1) {
+  .divRow3 {
     padding: 10px 30px;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@ $hd: 1400px;
     text-align: center;
     width: 100%;
   }
-  .text{
+  .text {
     font-family: $font-nasalization;
     font-size: 18px;
     color: #ffff;
@@ -34,15 +34,15 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
-  .divRow1{
+
+  .divRow1 {
     padding: 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
   }
-  .divRow2{
+  .divRow2 {
     gap: 20px;
     padding: 0 20px;
     display: flex;
@@ -50,31 +50,45 @@ $hd: 1400px;
     justify-content: space-between;
     width: 100%;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
     width: 100%;
     position: absolute;
     top: 0;
-
   }
   .errorMessage {
     font-size: 14px;
     color: #730909;
     font-family: $font-nasalization;
   }
-};
+
+  .imgContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+    gap: 20px;
+  }
+
+  .textResponsive {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+  }
+}
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: $mobile) and (max-width:$tablet - 1) {
-  .divRow3{
+@media (min-width: $mobile) and (max-width: $tablet - 1) {
+  .divRow3 {
     padding: 10px 30px;
     display: flex;
     flex-direction: column;
@@ -82,7 +96,7 @@ $hd: 1400px;
     text-align: center;
     width: 100%;
   }
-  .text{
+  .text {
     font-family: $font-nasalization;
     font-size: 18px;
     color: #ffff;
@@ -100,8 +114,8 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
-  .divRow1{
+
+  .divRow1 {
     padding: 0 30px;
     display: flex;
     flex-direction: column;
@@ -109,20 +123,20 @@ $hd: 1400px;
     width: 100%;
   }
 
-  .divRow2{
+  .divRow2 {
     gap: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -134,12 +148,21 @@ $hd: 1400px;
     font-size: 14px;
     color: #730909;
     font-family: $font-nasalization;
+  }
+
+  .imgContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0px;
+    gap: 30px;
   }
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: $tablet) and (max-width: $laptop - 1){
-  .divRow3{
+@media (min-width: $tablet) and (max-width: $laptop - 1) {
+  .divRow3 {
     padding: 10px 30px;
     display: flex;
     flex-direction: column;
@@ -147,7 +170,7 @@ $hd: 1400px;
     text-align: center;
     width: 100%;
   }
-  .text{
+  .text {
     font-family: $font-nasalization;
     font-size: 18px;
     color: #ffff;
@@ -165,16 +188,16 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
-  .divRow1{
+
+  .divRow1 {
     padding: 0 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
   }
-  
-  .divRow2{
+
+  .divRow2 {
     gap: 30px;
     display: flex;
     flex-direction: row;
@@ -186,7 +209,7 @@ $hd: 1400px;
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -198,12 +221,21 @@ $hd: 1400px;
     font-size: 20px;
     color: #730909;
     font-family: $font-nasalization;
+  }
+
+  .imgContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0px;
+    gap: 30px;
   }
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: $laptop) and (max-width: $desktop - 1){
-  .divRow3{
+@media (min-width: $laptop) and (max-width: $desktop - 1) {
+  .divRow3 {
     padding: 10px 30px;
     display: flex;
     flex-direction: column;
@@ -211,7 +243,7 @@ $hd: 1400px;
     text-align: center;
     width: 100%;
   }
-  .text{
+  .text {
     font-family: $font-nasalization;
     font-size: 18px;
     color: #ffff;
@@ -229,8 +261,8 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
-  .divRow1{
+
+  .divRow1 {
     padding: 0 30px;
     display: flex;
     flex-direction: column;
@@ -238,20 +270,20 @@ $hd: 1400px;
     width: 100%;
   }
 
-  .divRow2{
+  .divRow2 {
     gap: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -264,11 +296,20 @@ $hd: 1400px;
     color: #730909;
     font-family: $font-nasalization;
   }
+
+  .imgContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0px;
+    gap: 30px;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: $desktop) and (max-width: $hd - 1){
-  .divRow3{
+@media (min-width: $desktop) and (max-width: $hd - 1) {
+  .divRow3 {
     padding: 10px 30px;
     display: flex;
     flex-direction: column;
@@ -276,7 +317,7 @@ $hd: 1400px;
     text-align: center;
     width: 100%;
   }
-  .text{
+  .text {
     font-family: $font-nasalization;
     font-size: 18px;
     color: #ffff;
@@ -296,7 +337,7 @@ $hd: 1400px;
     justify-content: center;
     width: 100%;
   }
-  .divRow1{
+  .divRow1 {
     padding: 0 30px;
     display: flex;
     flex-direction: column;
@@ -304,7 +345,7 @@ $hd: 1400px;
     width: 100%;
   }
 
-    .divRow2{
+  .divRow2 {
     gap: 30px;
     display: flex;
     flex-direction: row;
@@ -317,7 +358,7 @@ $hd: 1400px;
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 105vh;
     opacity: 0.6;
@@ -330,10 +371,19 @@ $hd: 1400px;
     color: #730909;
     font-family: $font-nasalization;
   }
+
+  .imgContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0px;
+    gap: 30px;
+  }
 }
 
-@media (min-width: $hd){
-  .divRow3{
+@media (min-width: $hd) {
+  .divRow3 {
     padding: 10px 30px;
     display: flex;
     flex-direction: column;
@@ -341,7 +391,7 @@ $hd: 1400px;
     text-align: center;
     width: 100%;
   }
-  .text{
+  .text {
     font-family: $font-nasalization;
     font-size: 18px;
     color: #ffff;
@@ -360,7 +410,7 @@ $hd: 1400px;
     justify-content: center;
     width: 100%;
   }
-  .divRow1{
+  .divRow1 {
     padding: 0 30px;
     display: flex;
     flex-direction: column;
@@ -368,7 +418,7 @@ $hd: 1400px;
     width: 100%;
   }
 
-    .divRow2{
+  .divRow2 {
     gap: 30px;
     display: flex;
     flex-direction: row;
@@ -381,7 +431,7 @@ $hd: 1400px;
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -394,5 +444,13 @@ $hd: 1400px;
     color: #730909;
     font-family: $font-nasalization;
   }
-}
 
+  .imgContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0px;
+    gap: 30px;
+  }
+}

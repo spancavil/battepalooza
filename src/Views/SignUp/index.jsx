@@ -12,17 +12,19 @@ import {useGoogleReCaptcha} from 'react-google-recaptcha-v3';
 import CheckboxDisabled from './CheckboxDisabled';
 import {UserData} from '../../Context/UserProvider';
 import CheckboxLinks from './CheckboxWithLinks';
-import { sendAmplitudeData } from '../../Utils/amplitude';
+import {sendAmplitudeData} from '../../Utils/amplitude';
 import CheckboxInLine from './CheckboxInLine';
+import AppNway from '../../Assets/img/App nWayPlay 1.jpg';
+import passCode from '../../Assets/img/PassCode 1.png';
 
 const SignUp = () => {
   const {setUserSignUp, setLoginFirst} = useContext (UserData);
 
-  const [check1, setCheck1] = useState("");
-  const [check2, setCheck2] = useState("")
-  const [showOptions, setShowOptions] = useState(true);
-  const [showSignUp, setShowSignUp] = useState(false);
-  const [showInfo, setShowInfo] = useState(false);
+  const [check1, setCheck1] = useState ('');
+  const [check2, setCheck2] = useState ('');
+  const [showOptions, setShowOptions] = useState (true);
+  const [showSignUp, setShowSignUp] = useState (false);
+  const [showInfo, setShowInfo] = useState (false);
 
   const [form, setForm] = useState ({
     email: '',
@@ -137,19 +139,18 @@ const SignUp = () => {
     }
 
     if (!error) {
-      const response = await authService.getVerificationCode(
-        form.email,
-      );
-      if (response.message.includes("later")){
-        alert ('Please try again later!'); 
-      }else {
-        setUserSignUp({
+      const response = await authService.getVerificationCode (form.email);
+      if (response.message.includes ('later')) {
+        alert ('Please try again later!');
+      } else {
+        setUserSignUp ({
           email: form.email,
-          getMails: form.checkedEmail})
+          getMails: form.checkedEmail,
+        });
         setLoginFirst ();
         alert ('Verification code sent!');
         //In case the newsletter checked, send tracking
-        if (form.checkedEmail) sendAmplitudeData("Newsletter Suscribe");
+        if (form.checkedEmail) sendAmplitudeData ('Newsletter Suscribe');
         history.push ('/verification');
       }
     }
@@ -158,102 +159,118 @@ const SignUp = () => {
   const handleClose = () => {
     history.push ('/');
   };
-  console.log(check1, check2);
+  console.log (check1, check2);
 
-  const check1Fn = (option) => {
-    setCheck1(option);
-    if (option === "no"){
-      setShowOptions(false);
-      setShowSignUp(true);
+  const check1Fn = option => {
+    setCheck1 (option);
+    if (option === 'no') {
+      setShowOptions (false);
+      setShowSignUp (true);
     }
-  }
+  };
 
-  const check2Fn = (option) => {
-    setCheck2(option);
-    if (option === "no"){
-      setShowInfo(true);
-      setShowOptions(false)
+  const check2Fn = option => {
+    setCheck2 (option);
+    if (option === 'no') {
+      setShowInfo (true);
+      setShowOptions (false);
+    } else {
+      history.push ('/login');
     }
-    else {
-      history.push('/login');
-    }
-  }
+  };
 
   return (
     <div className={styles.container}>
       {showOptions &&
         <Modal title="User Information Request" handleClose={handleClose}>
           <div className={styles.divRow3}>
-            <h1 className={styles.text}>Please answer the following questions accurately in order to get the best experience.</h1>
+            <h1 className={styles.text}>
+              Please answer the following questions accurately in order to get the best experience.
+            </h1>
             <CheckboxInLine
               title="Do you have Battlepalooza account from the mobile app?"
-              check = {(option)=> check1Fn(option)}
-              checked = {check1 !== "" ? true : false}
+              check={option => check1Fn (option)}
+              checked={check1 !== '' ? true : false}
             />
             <CheckboxInLine
               title="Did you link your account to nWayPlay?"
-              check = {(option)=> check2Fn(option)}
-              checked = {(check2 === "" && (check1 !== "")) ? false : true}
+              check={option => check2Fn (option)}
+              checked={check2 === '' && check1 !== '' ? false : true}
             />
           </div>
-        </Modal>
-
-      }
+        </Modal>}
       {showSignUp &&
-      <Modal title="SIGN UP" handleClose={handleClose}>
-        <div className={styles.divRow1}>
-          <Input
-            label="Email"
-            width="100%"
-            type="email"
-            handleChange={email => changeEmail (email)}
-            autofocus
+        <Modal title="SIGN UP" handleClose={handleClose}>
+          <div className={styles.divRow1}>
+            <Input
+              label="Email"
+              width="100%"
+              type="email"
+              handleChange={email => changeEmail (email)}
+              autofocus
+            />
+            {errorEmail &&
+              <span className={styles.errorMessage}>{errorEmail}</span>}
+          </div>
+
+          <CheckboxLinks
+            width="90%"
+            onChecked={checked => changeChecked (checked)}
           />
-          {errorEmail &&
-            <span className={styles.errorMessage}>{errorEmail}</span>}
-        </div>
-      
-        <CheckboxLinks
-          width="90%"
-          onChecked={checked => changeChecked (checked)}
-        />
-        {errorChecked &&
-          <span className={styles.errorMessage}>{errorChecked}</span>}
-        <Checkbox
-          label="I want to receive emails from nWay including information about our upcoming drops as well as news, offers and surveys"
-          width="90%"
-          onChecked={checked => changeCheckedEmails (checked)}
-        />
+          {errorChecked &&
+            <span className={styles.errorMessage}>{errorChecked}</span>}
+          <Checkbox
+            label="I want to receive emails from nWay including information about our upcoming drops as well as news, offers and surveys"
+            width="90%"
+            onChecked={checked => changeCheckedEmails (checked)}
+          />
 
-        <CheckboxDisabled
-          className={form.reCaptchaToken ? null : styles.disabled}
-          label={`I AM NOT A ROBOT - reCAPTCHA ${statusVerify}`}
-          width="90%"
-          onChecked={checked => handleReCAPTCHA (checked)}
-          checked={form.checkedReCaptcha}
-        />
+          <CheckboxDisabled
+            className={form.reCaptchaToken ? null : styles.disabled}
+            label={`I AM NOT A ROBOT - reCAPTCHA ${statusVerify}`}
+            width="90%"
+            onChecked={checked => handleReCAPTCHA (checked)}
+            checked={form.checkedReCaptcha}
+          />
 
-        {errorCaptcha &&
-          <span className={styles.errorMessage}>{errorCaptcha}</span>}
-        <div style={{paddingTop: '40px'}}>
-          <Button title="SIGN UP" onClick={onSingUp} />
-        </div>
-        <SubMessage
-          text="Already have an account?"
-          link="/login"
-          textLink="Login"
-        />
-      </Modal>
-      }
-      {
-        showInfo && 
-        <Modal
-          title="Link Account Using Mobile App"
-          handleClose = {handleClose}
-        >
-
-        </Modal>
-      }
+          {errorCaptcha &&
+            <span className={styles.errorMessage}>{errorCaptcha}</span>}
+          <div style={{paddingTop: '40px'}}>
+            <Button title="SIGN UP" onClick={onSingUp} />
+          </div>
+          <SubMessage
+            text="Already have an account?"
+            link="/login"
+            textLink="Login"
+          />
+        </Modal>}
+      {showInfo &&
+        <Modal style={{marginTop: '275px'}} title="Link Account Using Mobile App" handleClose={handleClose}>
+          <p
+            className={styles.textResponsive}
+            style={{
+              textAlign: 'left',
+              fontSize: '14px',
+              fontWeight: '500',
+              padding: '15px 20px',
+            }}
+          >
+            Please link your account with nWayPlay using the mobile app in order to bring your saved data or game progress. If you do not link your Battlepalooza account using the mobile app, you might lose your game progress. We will not be responsible for lost data, or merge accounts for users who have more than one account. Please follow the following steps using the mobile app in order to link your account:
+            <br />
+            <br />
+            1) From the Lobby go to Settings<br />
+            2) Press nWayPlay <br />
+            3) Input your email and press Send Passcode<br />
+            4) Input the Passcode sent to your email and press Verify.<br />
+          </p>
+          <div className={styles.imgContainer}>
+            <img src={AppNway} alt="App Nway" />
+            <img src={passCode} alt="Passcode" />
+          </div>
+          <div>
+            <Button title="UNDERSTOOD" onClick={handleClose} />
+          </div>
+        </Modal>}
     </div>
   );
 };
