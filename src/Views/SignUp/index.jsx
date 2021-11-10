@@ -74,11 +74,7 @@ const SignUp = () => {
 
     try {
       const token = await executeRecaptcha ('');
-
-      console.log (token);
       const response = await authService.verifyCaptcha (token);
-      console.log (response);
-
       if (response.success === true) {
         setForm ({...form, checkedReCaptcha: true, reCaptchaToken: token});
         setSatatusVerify ('.. ✓');
@@ -97,8 +93,6 @@ const SignUp = () => {
   };
 
   const onSingUp = async () => {
-
-    console.log("Sign up!")
     let error = false;
 
     if (!/\S+@\S+\.\S+/.test (form.email)) {
@@ -151,7 +145,7 @@ const SignUp = () => {
       }else {
         setUserSignUp({
           email: form.email,
-          checkedEmail: form.checkedEmail})
+          getMails: form.checkedEmail})
         setLoginFirst ();
         alert ('Verification code sent!');
         //In case the newsletter checked, send tracking

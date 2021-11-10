@@ -11,13 +11,10 @@ const UserProvider = ({ children }) => {
     const [coins, setCoins] = useState(null);
 
     const setUserSignUp = (data) => {
-        console.log(data);
         setUserSignUpData(data);
     }
 
     const setDataUser= async (data) => {
-        console.log("En context: ");
-        console.log (data);
         const user = data.data;
         localStorage.setItem('user', JSON.stringify(user))
         setUserData(user);
@@ -42,7 +39,6 @@ const UserProvider = ({ children }) => {
     useEffect( () => {
         (async () => {
             const user =JSON.parse(localStorage.getItem('user'))
-            console.log(user);
             if (user) {
                 setUserData(user);
             }
