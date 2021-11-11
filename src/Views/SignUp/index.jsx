@@ -145,7 +145,7 @@ const SignUp = () => {
         alert ('Please try again later!');
       } else {
         setUserSignUp ({
-          email: form.email,
+          email: form.email.toLowerCase(),
           getMails: form.checkedEmail,
         });
         setLoginFirst ();

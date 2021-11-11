@@ -34,13 +34,12 @@ const Login = () => {
     e.preventDefault ();
 
     if (formSend !== true) {
-      console.log('me active')
       if (!/\S+@\S+\.\S+/.test (email)) {
         setErrorEmail ('Input a valid email');
       } else {
         setErrorEmail ('');
         setUserSignUp ({
-          email: email,
+          email: email.toLowerCase(),
         });
         setLoading (true);
         setFormSend (true);
