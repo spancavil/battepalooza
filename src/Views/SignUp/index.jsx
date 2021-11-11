@@ -164,7 +164,7 @@ const SignUp = () => {
 
   const check1Fn = option => {
     setCheck1 (option);
-    if (option === 'no') {
+    if (option === 'No') {
       setShowOptions (false);
       setShowSignUp (true);
     }
@@ -172,7 +172,7 @@ const SignUp = () => {
 
   const check2Fn = option => {
     setCheck2 (option);
-    if (option === 'no') {
+    if (option === 'No') {
       setShowInfo (true);
       setShowOptions (false);
     } else {
@@ -191,12 +191,12 @@ const SignUp = () => {
             <CheckboxInLine
               title="Do you have Battlepalooza account from the mobile app?"
               check={option => check1Fn (option)}
-              checked={check1 !== '' ? true : false}
+              deshabilitado ={false}
             />
             <CheckboxInLine
               title="Did you link your account to nWayPlay?"
               check={option => check2Fn (option)}
-              checked={check2 === '' && check1 !== '' ? false : true}
+              deshabilitado = {check2 === '' && check1 !== '' ? false : true}
             />
           </div>
         </Modal>}
