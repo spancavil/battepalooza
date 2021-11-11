@@ -231,7 +231,7 @@ $hd: 1400px;
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: $desktop) and (max-width: $hd - 1){
+@media (min-width: $hd){
     .text{
         font-family: $font-nasalization;
         font-weight: normal;
