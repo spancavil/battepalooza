@@ -10,8 +10,6 @@ const CollectionNfts = ({flex, short}) => {
   const queryTablet = useMediaQuery ('(max-width: 766px)');
   const {nfts} = useContext (NftData);
 
-  console.log (nfts);
-
   const handleScroll = e => {
     setScroll ({
       scrollLeft: e.target.scrollLeft,
