@@ -23,6 +23,7 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import ToMarketplace from "./Views/ToMarketplace";
 import Privacy from "./Views/PrivacyAndTerms/Privacy";
 import TermsOfUse from "./Views/PrivacyAndTerms/TermsOfUse";
+import MarketPlace from "./Views/MarketPlace";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
                 />
                 <Route exact path="/privacy-policy" component={Privacy}></Route>
                 <Route exact path="/terms-of-use" component={TermsOfUse}></Route>
+                <Route exact path = "/marketPlace" component={MarketPlace}></Route>
                 <Route path="" component={NotFound} />
               </Switch>
             </CardDataProvider>

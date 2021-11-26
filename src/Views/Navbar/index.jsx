@@ -136,10 +136,7 @@ const NavBar = () => {
               menu && !responsive ? styles.navMenuActive : styles.navMenu
             }
           >
-            <div
-              style={{paddingTop: `${userData.email ? '' : '100px'}`}}
-              className={styles.navLinks}
-            >
+            <div className={styles.navLinks}>
 
               {/* <li onClick={() => previousMenu ('/packs')}>
                 <span
