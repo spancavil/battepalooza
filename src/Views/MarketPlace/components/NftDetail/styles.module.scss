@@ -1,0 +1,227 @@
+@import '../../../../Styles/colors.scss';
+@import '../../../../Styles/fonts.scss';
+@import '../../../../Styles/breakpoints.scss';
+
+@media (max-width: $mobile - 1){
+    .detailContainer {
+        padding-top: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+    }
+    .videoContainer {
+        height: 52vh;
+        width: 100%;
+        .pinVideo{
+            height: 100%;
+            position: relative;
+            top: 0;
+            left: 50%; /*Center the vid, withouth black spaces*/
+            transform: translate(-50%);
+        }
+    }
+    .detailDescription{
+        width: 100%;
+        display: flex;
+        background-color: $card-bg;
+        flex-direction: column;
+        justify-content: center;
+        padding: 25px 0px 25px 10px;
+        gap: 15px;
+        font-family: $font-nasalization;
+        color: #fff;
+        overflow-y: visible;
+        .title {
+            font-size: 20px;
+        }
+        .price{
+            color: $account-border
+        }
+        .seller{
+            font-size: 12px;
+        }
+        .sellerYellow{
+            color: #FFFF00;
+        }
+        .buttonsContainer{
+            padding-top: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 30px
+        }
+    }
+}
+
+@media (min-width: $mobile) and (max-width: $desktop - 1){
+    .detailContainer {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        align-items: stretch;
+    }
+    .videoContainer {
+        width: 35%;
+        .pinVideo{
+            position: relative;
+            top: 0;
+            left: 50%; /*Center the vid, withouth black spaces*/
+            transform: translate(-50%);
+        }
+    }
+    .detailDescription{
+        width: 45%;
+        display: flex;
+        background-color: $card-bg;
+        flex-direction: column;
+        justify-content: center;
+        padding: 35px 0px 35px 20px;
+        gap: 25px;
+        font-family: $font-nasalization;
+        color: #fff;
+        overflow-y: visible;
+        .title {
+            font-size: 30px;
+        }
+        .price{
+            color: $account-border
+        }
+        .seller{
+            font-size: 20px;
+        }
+        .sellerYellow{
+            color: #FFFF00;
+        }
+        .buttonsContainer{
+            padding-top: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            button {
+                width: 150px;
+            }
+        }
+    }
+}
+
+
+@media (min-width: $desktop) and (max-width: $HD - 1){
+    .detailContainer {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 35px;
+        align-items: stretch;
+    }
+    .videoContainer {
+        width: 21%;
+        .pinVideo{
+            position: relative;
+            top: 0;
+            left: 50%; /*Center the vid, withouth black spaces*/
+            transform: translate(-50%);
+        }
+    }
+    .detailDescription{
+        width: 40%;
+        display: flex;
+        background-color: $card-bg;
+        flex-direction: column;
+        justify-content: center;
+        padding: 35px 0px 35px 25px;
+        gap: 25px;
+        font-family: $font-nasalization;
+        color: #fff;
+        overflow-y: visible;
+        .title {
+            font-size: 30px;
+        }
+        .price{
+            color: $account-border
+        }
+        .seller{
+            font-size: 20px;
+        }
+        .sellerYellow{
+            color: #FFFF00;
+        }
+        .buttonsContainer{
+            padding-top: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            button {
+                width: 200px;
+            }
+        }
+    }
+}
+
+@media (min-width: $HD){
+
+    .detailContainer {
+        padding-top: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+        align-items: stretch;
+    }
+    .videoContainer {
+        width: 15%;
+        .pinVideo{
+            position: relative;
+            top: 0;
+            left: 50%; /*Center the vid, withouth black spaces*/
+            transform: translate(-50%);
+        }
+    }
+    .detailDescription{
+        width: 40%;
+        display: flex;
+        background-color: $card-bg;
+        flex-direction: column;
+        justify-content: center;
+        padding: 35px 0px 35px 40px;
+        gap: 25px;
+        font-family: $font-nasalization;
+        color: #fff;
+        overflow-y: visible;
+        .title {
+            font-size: 30px;
+        }
+        .price{
+            color: $account-border
+        }
+        .seller{
+            font-size: 20px;
+        }
+        .sellerYellow{
+            color: #FFFF00;
+        }
+        .buttonsContainer{
+            padding-top: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            button{
+                width: 280px;
+            }
+        }
+    }
+}
