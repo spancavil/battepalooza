@@ -60,7 +60,7 @@ const CollectionNfts = ({flex, short}) => {
                       <p className={styles.price}>{nft.price} NCoin</p>
                     </div>
                   </div>
-                // </Link>
+                </Link>
               );
             })}
       </div>
