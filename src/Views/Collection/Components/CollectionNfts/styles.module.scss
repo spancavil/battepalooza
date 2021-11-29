@@ -391,7 +391,7 @@
         overflow: visible;
         position: relative;
         height: 300px;
-        width: 180px;
+        width: 160px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -421,14 +421,13 @@
       }
 
       .imgNft {
-        width: 130px;
+        width: 115px;
       }
 
       .texts {
         display: flex;
         flex-direction: column;
-        grid-gap: 7px;
-        gap: 7px;
+        gap: 3px;
 
         p {
           font-size: 13px;
@@ -436,6 +435,10 @@
           text-align: center;
           color: white;
           font-family: "Nasalization";
+        }
+
+        .price {
+          color: $logout;
         }
 
         .text2 {
@@ -458,7 +461,7 @@
         overflow: visible;
         position: relative;
         height: 300px;
-        width: 180px;
+        width: 160px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -471,14 +474,13 @@
       }
 
       .imgNft {
-        width: 130px;
+        width: 115px;
       }
 
       .texts {
         display: flex;
         flex-direction: column;
-        grid-gap: 7px;
-        gap: 7px;
+        gap: 3px;
 
         p {
           font-size: 13px;
@@ -486,6 +488,10 @@
           text-align: center;
           color: white;
           font-family: "Nasalization";
+        }
+
+        .price {
+          color: $logout;
         }
 
         .text2 {

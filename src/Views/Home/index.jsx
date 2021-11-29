@@ -225,27 +225,25 @@ const HomeContainer = () => {
                   <div>
                     <ul>
                       <li>
-                        <a
-                          href
+                        <span
                           onClick={() => {
                             history.push ('/privacy-policy');
                             window.scroll (0, 0);
                           }}
                         >
                           Privacy Policy
-                        </a>
+                        </span>
                       </li>
                       <li>|</li>
                       <li>
-                        <a
-                          href
+                        <span
                           onClick={() => {
                             history.push ('/terms-of-use');
                             window.scroll (0, 0);
                           }}
                         >
                           Terms of Service
-                        </a>
+                        </span>
                       </li>
                       <li>|</li>
                       <li id="menu-item-42">

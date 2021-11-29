@@ -32,9 +32,10 @@ const CollectionNfts = ({flex, short}) => {
               return (
                 <Link
                   style={{textDecoration: 'none', overflow: 'visible'}}
-                  to={`/to-marketplace/${nft.id}`}
+                  to={`/marketplace/${nft.id}`}
+                  key = {nft.id}
                 >
-                  <div className={styles.cardNft} key={nft.id}>
+                  <div className={styles.cardNft} key = {nft.id} >
                     <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
                     <div className={styles.texts}>
                       <p>Series 1 </p>
@@ -46,21 +47,21 @@ const CollectionNfts = ({flex, short}) => {
             })
           : nfts.map (nft => {
               return (
-                // <Link
-                //   style={{textDecoration: 'none', overflow: 'visible'}}
-                //   to={`/to-marketplace/${nft.id}`}
-                // >
+                <Link
+                  style={{textDecoration: 'none', overflow: 'visible'}}
+                  to={`/marketplace/${nft.id}`}
+                  key = {nft.id}
+                >
                   <div className={styles.cardNft} key={nft.id}>
                     <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
                     <div className={styles.texts}>
                       <p>Series 1 </p>
                       <p className={styles.text2}>Tron Warrior</p>
                       <p>#{nft.id}</p>
-                      <p>{nft.price}</p>
+                      <p className={styles.price}>{nft.price} NCoin</p>
                     </div>
                   </div>
-
-                // </Link>
+                </Link>
               );
             })}
       </div>
