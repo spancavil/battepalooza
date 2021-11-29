@@ -1,0 +1,21 @@
+@import "../../../../Styles/fonts.scss";
+
+.form {
+    width: 84vw;
+
+    input {
+        height: 40px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        background: #1892f01f;
+        border: 1.5px solid #0149DB;
+    }
+
+    ::placeholder {
+        font-family: $font-nasalization;
+        padding-left: 15px;
+        color: white;
+        opacity: 0.5;
+    }
+}
