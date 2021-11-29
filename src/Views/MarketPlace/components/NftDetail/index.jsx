@@ -41,8 +41,8 @@ const NftDetail = () => {
                 <p className={styles.title}>Price: <span className={styles.price}>{nft.price}</span> NCoin</p>
                 <span className={styles.seller}>Lowest price: {nft.lowestPrice}<br/>Highest price: {nft.highestPrice}</span>
                 <div className={styles.buttonsContainer}>
-                    <Button title="Buy" onClick={()=>handleBuy()} width="281px"/>
-                    <Button title="Listing" onClick={()=>handleList()} width="281px"/>
+                    <Button title="Buy" onClick={()=>handleBuy()}/>
+                    <Button title="Listing" onClick={()=>handleList()}/>
                 </div>
             </div>
         </div>
