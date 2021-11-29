@@ -1,0 +1,47 @@
+@import '../../../../Styles/fonts.scss';
+@import '../../../../Styles/colors.scss';
+
+.container {
+    width: 175px;
+    border-radius: 10px;
+    font-family: $font-nasalization;
+    color: white;
+
+    .title {
+        width: 100%;
+        background-color: $account-border;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        border-radius: 10px 10px 0px 0px;
+
+        h2 {
+            font-size: 20px;
+        }
+    }
+
+    .filters {
+        width: 100%;
+        padding: 30px 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: left;
+        justify-content: center;
+        background: #1892f01f;
+        border: 1.5px solid #0149DB;
+        border-radius: 0px 0px 10px 10px;
+
+        .filter {
+            display: flex;
+            margin-left: 35px;
+            gap: 10px;
+
+            p {
+                font-size: 13px;
+            }
+        }
+    }
+
+}
