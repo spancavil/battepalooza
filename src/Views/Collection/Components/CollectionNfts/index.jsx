@@ -56,10 +56,9 @@ const CollectionNfts = ({flex, short}) => {
                       <p>Series 1 </p>
                       <p className={styles.text2}>Tron Warrior</p>
                       <p>#{nft.id}</p>
-                      <p>{nft.price}</p>
+                      <p className={styles.price}>{nft.price} NCoin</p>
                     </div>
                   </div>
-
                 // </Link>
               );
             })}
