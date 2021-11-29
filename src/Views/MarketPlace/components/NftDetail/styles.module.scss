@@ -1,0 +1,55 @@
+@import '../../../../Styles/colors.scss';
+@import '../../../../Styles/fonts.scss';
+@import '../../../../Styles/breakpoints.scss';
+
+.detailContainer {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    align-items: stretch;
+}
+.videoContainer {
+    width: 15%;
+    .pinVideo{
+        position: relative;
+        top: 0;
+        left: -110px; /*Center the vid, withouth black spaces*/
+        //top: 3%;
+        //transform: translate(-20%, -20%); /* % of current element */
+    }
+}
+.detailDescription{
+    width: 40%;
+    display: flex;
+    background-color: $card-bg;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px 0px 35px 25px;
+    gap: 25px;
+    font-family: $font-nasalization;
+    color: #fff;
+    overflow-y: visible;
+    .title {
+        font-size: 30px;
+    }
+    .price{
+        color: $account-border
+    }
+    .seller{
+        font-size: 20px;
+    }
+    .sellerYellow{
+        color: #FFFF00;
+    }
+    .buttonsContainer{
+        padding-top: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px
+    }
+}

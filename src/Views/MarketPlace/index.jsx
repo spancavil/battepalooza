@@ -1,10 +1,12 @@
 import React from 'react'
+import Background from '../../Global-Components/Background'
+import NftDetail from './components/NftDetail'
 
 const MarketPlace = () => {
     return (
-        <div>
-            Marketplace
-        </div>
+        <Background>
+            <NftDetail/>
+        </Background>
     )
 }
 

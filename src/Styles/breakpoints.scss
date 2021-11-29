@@ -2,6 +2,7 @@ $mobile: 576px;
 $tablet: 767px;
 $laptop: 992px;
 $desktop: 1200px;
+$HD: 1900px;
 
 // Extra mall devices (< 576px)
 @media (max-width: $mobile - 1){};
@@ -16,4 +17,6 @@ $desktop: 1200px;
 @media (min-width: $laptop) and (max-width: $desktop - 1){}
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: $desktop){}
+@media (min-width: $desktop) and (max-width: $HD - 1){}
+
+@media (min-width: $HD){}
