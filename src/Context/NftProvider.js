@@ -46,7 +46,7 @@ const NftProvider = ({ children }) => {
         sale: true,
       },
       {
-        id: 1,
+        id: 3,
         imgSrc: img,
         description: {
           text1: "Series 1",
@@ -59,7 +59,7 @@ const NftProvider = ({ children }) => {
         sale: false,
       },
       {
-        id: 2,
+        id: 4,
         imgSrc: img,
         description: {
           text1: "Series 1",

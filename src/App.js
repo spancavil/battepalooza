@@ -24,6 +24,7 @@ import ToMarketplace from "./Views/ToMarketplace";
 import Privacy from "./Views/PrivacyAndTerms/Privacy";
 import TermsOfUse from "./Views/PrivacyAndTerms/TermsOfUse";
 import MarketPlace from "./Views/MarketPlace";
+import MarketplaceDetail from "./Views/MarketplaceDetail";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
                 <Route exact path="/privacy-policy" component={Privacy}></Route>
                 <Route exact path="/terms-of-use" component={TermsOfUse}></Route>
                 <Route exact path = "/marketPlace" component={MarketPlace}></Route>
+                <Route exact path="/marketplace/:nftId" component={MarketplaceDetail}/>
                 <Route path="" component={NotFound} />
               </Switch>
             </CardDataProvider>

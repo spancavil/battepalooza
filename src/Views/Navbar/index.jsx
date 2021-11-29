@@ -62,10 +62,10 @@ const NavBar = () => {
     setDropdown (!dropdown);
   };
 
-  const comingSoon = () => {
+  /* const comingSoon = () => {
     setMenu (!menu);
     setModal (true);
-  };
+  }; */
 
   const comingSoon2 = () => {
     setMenu (!menu);
@@ -194,7 +194,9 @@ const NavBar = () => {
                     </div>}
               </div>
               <li onClick={() => previousMenu ('/marketplace')}>
-                <a href onClick={comingSoon} className={styles.navLink}>
+                <a href onClick={()=>
+                userData.email ? history.push('/marketplace'): history.push('/needlogin')} 
+                className={styles.navLink}>
                   MARKETPLACE
                 </a>
               </li>

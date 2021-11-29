@@ -1,21 +1,25 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import Button from '../../../../Global-Components/Button';
+import { useParams } from 'react-router';
 
 const NftDetail = () => {
 
+    const {nftId} = useParams();
+
     const nft = {
+        id: 1,
         title1: "Rare Skin for Letti",
         title2: "Can be used in Battlepalooza",
         seller: "Jane#7894",
         price: 2000,
         lowestPrice: 1900,
         highestPrice: 50000,
-        source: require('../../Assets/VideosNft/Videos/Characters/Letti/Tronrider_Rare_1.mp4')
+        source: require('../../Assets/Videos/Characters/Letti/Tronrider_Rare_1.mp4')
     }
 
     const handleBuy = () => {
-        console.log("Click on buy");
+        console.log(`Click on buy ${nftId}`);
     }
 
     const handleList = () => {
