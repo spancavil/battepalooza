@@ -12,8 +12,8 @@ const Filters = () => {
         </h2>
       </div>
       <div className={styles.filters}>
-        {filters.map (filter => (
-          <div className={styles.filter}>
+        {filters.map ((filter, idx) => (
+          <div className={styles.filter} key={idx}>
             <input type="checkbox" />
             <p>{filter}</p>
           </div>

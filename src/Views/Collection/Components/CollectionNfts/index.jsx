@@ -35,7 +35,7 @@ const CollectionNfts = ({flex, short}) => {
                   to={`/marketplace/${nft.id}`}
                   key = {nft.id}
                 >
-                  <div className={styles.cardNft} >
+                  <div className={styles.cardNft} key = {nft.id} >
                     <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
                     <div className={styles.texts}>
                       <p>Series 1 </p>
@@ -50,6 +50,7 @@ const CollectionNfts = ({flex, short}) => {
                 <Link
                   style={{textDecoration: 'none', overflow: 'visible'}}
                   to={`/marketplace/${nft.id}`}
+                  key = {nft.id}
                 >
                   <div className={styles.cardNft} key={nft.id}>
                     <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
