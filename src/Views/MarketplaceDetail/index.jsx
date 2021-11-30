@@ -28,6 +28,8 @@ const MarketplaceDetail = () => {
         setBuyComplete(true);
     }
 
+    console.log(nfts);
+
     return (
         <Background>
             <NftDetail setNft = {(nftSelected) => setBuy(nftSelected)} nfts = {nfts}/>
