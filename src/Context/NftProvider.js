@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import img from "../Assets/sprites/cardnft01.png";
-
+import nftService from "../Services/nft.service";
 export const NftData = createContext({});
 
 const NftProvider = ({ children }) => {
@@ -17,8 +16,13 @@ const NftProvider = ({ children }) => {
   };
 
   useEffect(() => {
+
+    (async ()=>{
+      const nfts = await nftService.getNfts()
+      setNfts(nfts);
+    })()
     //Nft hardcoded
-    setNfts([
+    /* setNfts([
       {
         id: 1,
         imgSrc: img,
@@ -71,7 +75,8 @@ const NftProvider = ({ children }) => {
         soldOut: false,
         sale: true,
       },
-    ]);
+    ]); */
+
   }, []);
 
   return (
