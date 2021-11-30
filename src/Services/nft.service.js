@@ -1,8 +1,9 @@
-import axios from 'axios';
+//import axios from 'axios';
+import dataNft from './nftList'
 
 class nftService {
     async getNfts(){
-        return await axios.get('./user.service.js')
+        return dataNft;
     }
 }
 

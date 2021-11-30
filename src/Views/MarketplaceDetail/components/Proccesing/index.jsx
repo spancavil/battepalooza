@@ -1,23 +1,23 @@
-import React from 'react';
+import React from 'react'
 import Modal from '../../../../Global-Components/Modal';
-import './styles.module.scss';
+import styles from './styles.module.scss';
 
-const Proccesing = () => {
+const Proccesing = ({nftBuy, handleClose}) => {
+
+    setTimeout(()=> {
+      //Hardcodeamos el time
+      handleClose(false);
+    }, 2000)
+
     return (
         <div className={styles.parentContainerModal}>
-          <Modal title="Checkout" handleClose={handleClose}>
-            <h3 className={styles.textDrop}>
-              Will you use
-              {pack.price}
-              nCoin to buy
-              {pack.description.text1}
-              {}?
+          <Modal title="Checkout" handleClose={()=>console.log("No hace nada")}>
+            <h3 className={styles.textDrop}> {nftBuy.title1} is being transferred. Please wait while the transfer is being completed
             </h3>
-            <Button title="BUY" width="176px" onClick={handleBuy} />
-            <SubMessage
-              text="Not enough nCoin?"
-              link="/account"
-              textLink="Charge now"
+            <img src={nftBuy.imgSrc.default} alt="nftToBuy"
+            style={{
+              paddingBottom: 15
+            }}
             />
           </Modal>
         </div>
