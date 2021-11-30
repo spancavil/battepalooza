@@ -105,6 +105,7 @@ const Filters = () => {
                 value={filters.COMMON}
                 type="checkbox"
                 name="COMMON"
+                checked={filters.COMMON ?? true}
               />
               COMMON
             </label>
@@ -115,6 +116,7 @@ const Filters = () => {
                 value={filters.RARE}
                 type="checkbox"
                 name="RARE"
+                checked={filters.RARE ?? true}
               />
               RARE
             </label>
@@ -122,9 +124,10 @@ const Filters = () => {
             <label className={styles.filter}>
               <input
                 onClick={e => onClick (e)}
-                value={filters.LEGENDARY}
+                value={filters.EPIC}
                 type="checkbox"
                 name="EPIC"
+                checked={filters.EPIC ?? true}
               />
               EPIC
             </label>
@@ -135,6 +138,7 @@ const Filters = () => {
                 value={filters.LEGENDARY}
                 type="checkbox"
                 name="LEGENDARY"
+                checked={filters.LEGENDARY ?? true}
               />
               LEGENDARY
             </label>
@@ -156,6 +160,7 @@ const Filters = () => {
               value={filters.COMMON}
               type="checkbox"
               name="COMMON"
+              checked={filters.COMMON ?? true}
             />
             COMMON
           </label>
@@ -166,6 +171,7 @@ const Filters = () => {
               value={filters.RARE}
               type="checkbox"
               name="RARE"
+              checked={filters.RARE ?? true}
             />
             RARE
           </label>
@@ -176,6 +182,7 @@ const Filters = () => {
               value={filters.LEGENDARY}
               type="checkbox"
               name="EPIC"
+              checked={filters.EPIC ?? true}
             />
             EPIC
           </label>
@@ -186,6 +193,7 @@ const Filters = () => {
               value={filters.LEGENDARY}
               type="checkbox"
               name="LEGENDARY"
+              checked={filters.LEGENDARY ?? true}
             />
             LEGENDARY
           </label>
