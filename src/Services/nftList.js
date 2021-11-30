@@ -1,6 +1,7 @@
 const nfts = [
     {
     id: 1,
+    rare: 'EPIC',
     title1: "Rare Skin for Letti",
     title2: "Can be used in Battlepalooza",
     seller: "Jane#7894",
@@ -12,6 +13,7 @@ const nfts = [
     },
     {
     id: 2,
+    rare: 'COMMON',
     title1: "Rare Skin for Letti",
     title2: "Can be used in Battlepalooza",
     seller: "Jane#7894",
@@ -23,6 +25,7 @@ const nfts = [
     },
     {
     id: 3,
+    rare: 'RARE',
     title1: "Rare Skin for Letti",
     title2: "Can be used in Battlepalooza",
     seller: "Jane#7894",
@@ -34,6 +37,7 @@ const nfts = [
     },
     {
     id: 4,
+    rare: 'LEGENDARY',
     title1: "Rare Skin for Letti",
     title2: "Can be used in Battlepalooza",
     seller: "Jane#7894",
