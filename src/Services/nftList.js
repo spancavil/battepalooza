@@ -1,6 +1,7 @@
 const nfts = [
     {
     id: 1,
+    rare: 'EPIC',
     title1: "Rare Skin for Letti",
     title2: "Can be used in Battlepalooza",
     seller: "Jane#7894",
