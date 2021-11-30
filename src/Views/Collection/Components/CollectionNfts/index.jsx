@@ -10,8 +10,6 @@ const CollectionNfts = ({flex, short}) => {
   const queryTablet = useMediaQuery ('(max-width: 766px)');
   const {nfts} = useContext (NftData);
 
-  console.log (nfts);
-
   const handleScroll = e => {
     setScroll ({
       scrollLeft: e.target.scrollLeft,
@@ -36,7 +34,7 @@ const CollectionNfts = ({flex, short}) => {
                   key = {nft.id}
                 >
                   <div className={styles.cardNft} key = {nft.id} >
-                    <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
+                    <img className={styles.imgNft} src={nft.imgSrc.default} alt="nft" />
                     <div className={styles.texts}>
                       <p>Series 1 </p>
                       <p className={styles.text2}>Tron Warrior</p>
@@ -53,7 +51,7 @@ const CollectionNfts = ({flex, short}) => {
                   key = {nft.id}
                 >
                   <div className={styles.cardNft} key={nft.id}>
-                    <img className={styles.imgNft} src={nft.imgSrc} alt="nft" />
+                    <img className={styles.imgNft} src={nft.imgSrc.default} alt="nft" />
                     <div className={styles.texts}>
                       <p>Series 1 </p>
                       <p className={styles.text2}>Tron Warrior</p>
