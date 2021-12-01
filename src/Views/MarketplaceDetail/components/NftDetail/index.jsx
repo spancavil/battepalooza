@@ -9,7 +9,7 @@ const NftDetail = ({nfts, setNft, setNftListing}) => {
 
   useEffect (
     () => {
-      const chosen = nfts.find (nft => nft.id === parseInt (nftId));
+      const chosen = nfts.find (nft => nft.id === parseInt(nftId));
       setChosenNft (chosen);
     },
     [nftId, nfts]
@@ -22,7 +22,7 @@ const NftDetail = ({nfts, setNft, setNftListing}) => {
 
   const handleList = () => {
     console.log ('Click on list');
-    setNftListing();
+    setNftListing(chosenNft);
   };
 
   return (
