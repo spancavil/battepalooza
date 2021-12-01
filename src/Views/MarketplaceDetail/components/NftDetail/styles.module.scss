@@ -1,8 +1,8 @@
-@import '../../../../Styles/colors.scss';
-@import '../../../../Styles/fonts.scss';
-@import '../../../../Styles/breakpoints.scss';
+@import "../../../../Styles/colors.scss";
+@import "../../../../Styles/fonts.scss";
+@import "../../../../Styles/breakpoints.scss";
 
-@media (max-width: $mobile - 1){
+@media (max-width: $mobile - 1) {
     .detailContainer {
         padding-top: 0px;
         display: flex;
@@ -13,7 +13,7 @@
     .videoContainer {
         height: 52vh;
         width: 100%;
-        .pinVideo{
+        .pinVideo {
             height: 100%;
             position: relative;
             top: 0;
@@ -21,7 +21,7 @@
             transform: translate(-50%);
         }
     }
-    .detailDescription{
+    .detailDescription {
         width: 100%;
         display: flex;
         background-color: $card-bg;
@@ -35,28 +35,28 @@
         .title {
             font-size: 20px;
         }
-        .price{
-            color: $account-border
+        .price {
+            color: $account-border;
         }
-        .seller{
+        .seller {
             font-size: 12px;
         }
-        .sellerYellow{
-            color: #FFFF00;
+        .sellerYellow {
+            color: #ffff00;
         }
-        .buttonsContainer{
+        .buttonsContainer {
             padding-top: 10px;
             width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            gap: 30px
+            gap: 30px;
         }
     }
 }
 
-@media (min-width: $mobile) and (max-width: $desktop - 1){
+@media (min-width: $mobile) and (max-width: $desktop - 1) {
     .detailContainer {
         padding-top: 20px;
         display: flex;
@@ -67,14 +67,14 @@
     }
     .videoContainer {
         width: 35%;
-        .pinVideo{
+        .pinVideo {
             position: relative;
             top: 0;
             left: 50%; /*Center the vid, withouth black spaces*/
             transform: translate(-50%);
         }
     }
-    .detailDescription{
+    .detailDescription {
         width: 45%;
         display: flex;
         background-color: $card-bg;
@@ -88,16 +88,16 @@
         .title {
             font-size: 30px;
         }
-        .price{
-            color: $account-border
+        .price {
+            color: $account-border;
         }
-        .seller{
+        .seller {
             font-size: 20px;
         }
-        .sellerYellow{
-            color: #FFFF00;
+        .sellerYellow {
+            color: #ffff00;
         }
-        .buttonsContainer{
+        .buttonsContainer {
             padding-top: 10px;
             width: 100%;
             display: flex;
@@ -112,10 +112,9 @@
     }
 }
 
-
-@media (min-width: $desktop) and (max-width: $HD - 1){
+@media (min-width: $desktop) and (max-width: $HD - 1) {
     .detailContainer {
-        padding-top: 30px;
+        margin-top: 30px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -124,14 +123,14 @@
     }
     .videoContainer {
         width: 21%;
-        .pinVideo{
+        .pinVideo {
             position: relative;
             top: 0;
             left: 50%; /*Center the vid, withouth black spaces*/
             transform: translate(-50%);
         }
     }
-    .detailDescription{
+    .detailDescription {
         width: 40%;
         display: flex;
         background-color: $card-bg;
@@ -143,18 +142,19 @@
         color: #fff;
         overflow-y: visible;
         .title {
-            font-size: 30px;
+            font-size: 28px;
+            font-weight: bold;
         }
-        .price{
-            color: $account-border
+        .price {
+            color: $logout;
         }
-        .seller{
-            font-size: 20px;
+        .seller {
+            font-size: 18px;
         }
-        .sellerYellow{
-            color: #FFFF00;
+        .sellerYellow {
+            color: #ffff00;
         }
-        .buttonsContainer{
+        .buttonsContainer {
             padding-top: 10px;
             width: 100%;
             display: flex;
@@ -169,8 +169,7 @@
     }
 }
 
-@media (min-width: $HD){
-
+@media (min-width: $HD) {
     .detailContainer {
         padding-top: 40px;
         display: flex;
@@ -181,14 +180,14 @@
     }
     .videoContainer {
         width: 15%;
-        .pinVideo{
+        .pinVideo {
             position: relative;
             top: 0;
             left: 50%; /*Center the vid, withouth black spaces*/
             transform: translate(-50%);
         }
     }
-    .detailDescription{
+    .detailDescription {
         width: 40%;
         display: flex;
         background-color: $card-bg;
@@ -202,16 +201,16 @@
         .title {
             font-size: 30px;
         }
-        .price{
-            color: $account-border
+        .price {
+            color: $account-border;
         }
-        .seller{
+        .seller {
             font-size: 20px;
         }
-        .sellerYellow{
-            color: #FFFF00;
+        .sellerYellow {
+            color: #ffff00;
         }
-        .buttonsContainer{
+        .buttonsContainer {
             padding-top: 10px;
             width: 100%;
             display: flex;
@@ -219,7 +218,7 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-            button{
+            button {
                 width: 280px;
             }
         }
