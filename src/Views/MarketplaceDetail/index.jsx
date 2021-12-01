@@ -16,17 +16,21 @@ const MarketplaceDetail = () => {
 
   const desktop = useMediaQuery('(min-width: 768px)');
 
-  console.log(desktop);
-  const [nftBuy, setNftBuy] = useState ({});
+  const [nft, setNft] = useState ({});
   const [checkout, setCheckout] = useState (false);
   const [proccesing, setProccesing] = useState (false);
   const [buyComplete, setBuyComplete] = useState (false);
-  const [listing, setListing] = useState(false)
+  const [listing, setListing] = useState(false);
 
   const setBuy = nftSelected => {
-    setNftBuy (nftSelected);
+    setNft (nftSelected);
     setCheckout (true);
   };
+
+  const setNftListing = nftSelected => {
+    setNft(nftSelected)
+    setListing(true);
+  }
 
   const processingComplete = estado => {
     setCheckout (false);
@@ -34,30 +38,33 @@ const MarketplaceDetail = () => {
     setBuyComplete (true);
   };
 
-  console.log (nfts);
-
   return (
     <Background>
       <NftDetail 
       setNft={nftSelected => setBuy (nftSelected)}
-      setNftListing = {() => setListing(true)}
+      setNftListing = {nftSelected => setNftListing(nftSelected)}
       nfts={nfts} />
       {checkout &&
         <Checkout
-          nftBuy={nftBuy}
+          nftBuy={nft}
           nftProccesing={setProccesing}
           handleClose={setCheckout}
         />}
       {proccesing &&
-        <Proccesing nftBuy={nftBuy} handleClose={processingComplete} />}
+        <Proccesing nftBuy={nft} handleClose={processingComplete} />}
       {buyComplete &&
         <Complete
-          title={nftBuy.title1}
+          title={nft.title1}
           goCollection={() => history.push ('/collection')}
           goMarketPlace={() => history.push ('/marketPlace')}
         />}
       {(listing && !desktop) && <ListingMobile/>}
-      {(listing && desktop) && <Listing/>}
+      {(listing && desktop) && 
+      <Listing 
+      handleClose={()=> setListing(false)}
+      nfts={nfts}
+      nftSelected = {nft}
+      />}
     </Background>
   );
 };
