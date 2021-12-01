@@ -1,5 +1,5 @@
 import React from 'react';
-import CollectionNfts from '../../../Collection/Components/CollectionNfts';
+import CollectionNfts from '../../components/CollectionNfts';
 import styles from './styles.module.scss';
 
 const Products = () => {
