@@ -58,7 +58,10 @@ const MarketplaceDetail = () => {
           goCollection={() => history.push ('/collection')}
           goMarketPlace={() => history.push ('/marketPlace')}
         />}
-      {(listing && !desktop) && <ListingMobile/>}
+      {(listing && !desktop) && <ListingMobile 
+      handleClose={()=> setListing(false)}
+      nfts={nfts}
+      nftSelected = {nft}/>}
       {(listing && desktop) && 
       <Listing 
       handleClose={()=> setListing(false)}

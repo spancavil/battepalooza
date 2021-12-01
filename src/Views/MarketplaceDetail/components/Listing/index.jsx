@@ -4,7 +4,6 @@ import Button from '../../../../Global-Components/Button';
 import ModalTable from './ModalTable';
 
 const Listing = ({handleClose, nfts, nftSelected}) => {
-
     const [nftListing, setNftListing] = useState([]);
     const [indexSelected, setIndexSelected] = useState(0);
 
