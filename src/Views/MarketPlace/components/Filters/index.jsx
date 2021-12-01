@@ -13,7 +13,7 @@ const Filters = () => {
   const breakpoint = useMediaQuery ('(max-width: 1199px)');
   const [menu, setMenu] = useState (false);
 
-  const onClick = e => {
+  const onChange = e => {
     setFilters ({...filters, [e.target.name]: e.target.checked});
   };
 
@@ -30,65 +30,65 @@ const Filters = () => {
           <path
             d="M4.91016 14.5105V2.04926"
             stroke="white"
-            stroke-width="2.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M4.91016 25.8692V18.7641"
             stroke="white"
-            stroke-width="2.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M23 16.3413V2.04926"
             stroke="white"
-            stroke-width="2.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M23 25.8692V20.5744"
             stroke="white"
-            stroke-width="2.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M13.9551 4.43125V2.04926"
             stroke="white"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M13.9551 25.8693V8.86179"
             stroke="white"
-            stroke-width="2.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M2.44727 14.5105H7.0207"
             stroke="white"
-            stroke-width="3.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="3.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M20.7129 16.3548H25.2863"
             stroke="white"
-            stroke-width="3.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="3.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M11.668 8.27646H16.2414"
             stroke="white"
-            stroke-width="3.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="3.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>
@@ -101,7 +101,7 @@ const Filters = () => {
           <div className={styles.filtersMobile}>
             <label className={styles.filter}>
               <input
-                onClick={e => onClick (e)}
+                onChange={e => onChange (e)}
                 value={filters.COMMON}
                 type="checkbox"
                 name="COMMON"
@@ -112,7 +112,7 @@ const Filters = () => {
 
             <label className={styles.filter}>
               <input
-                onClick={e => onClick (e)}
+                onChange={e => onChange (e)}
                 value={filters.RARE}
                 type="checkbox"
                 name="RARE"
@@ -123,7 +123,7 @@ const Filters = () => {
 
             <label className={styles.filter}>
               <input
-                onClick={e => onClick (e)}
+                onChange={e => onChange (e)}
                 value={filters.EPIC}
                 type="checkbox"
                 name="EPIC"
@@ -134,7 +134,7 @@ const Filters = () => {
 
             <label className={styles.filter}>
               <input
-                onClick={e => onClick (e)}
+                onChange={e => onChange (e)}
                 value={filters.LEGENDARY}
                 type="checkbox"
                 name="LEGENDARY"
@@ -156,7 +156,7 @@ const Filters = () => {
         <div className={styles.filters}>
           <label className={styles.filter}>
             <input
-              onClick={e => onClick (e)}
+              onChange={e => onChange (e)}
               value={filters.COMMON}
               type="checkbox"
               name="COMMON"
@@ -167,7 +167,7 @@ const Filters = () => {
 
           <label className={styles.filter}>
             <input
-              onClick={e => onClick (e)}
+              onChange={e => onChange (e)}
               value={filters.RARE}
               type="checkbox"
               name="RARE"
@@ -178,7 +178,7 @@ const Filters = () => {
 
           <label className={styles.filter}>
             <input
-              onClick={e => onClick (e)}
+              onChange={e => onChange (e)}
               value={filters.LEGENDARY}
               type="checkbox"
               name="EPIC"
@@ -189,7 +189,7 @@ const Filters = () => {
 
           <label className={styles.filter}>
             <input
-              onClick={e => onClick (e)}
+              onChange={e => onChange (e)}
               value={filters.LEGENDARY}
               type="checkbox"
               name="LEGENDARY"
