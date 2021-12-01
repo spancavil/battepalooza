@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import Button from '../../../../Global-Components/Button';
 import {useParams} from 'react-router';
 
-const NftDetail = ({nfts, setNft}) => {
+const NftDetail = ({nfts, setNft, setNftListing}) => {
   const {nftId} = useParams ();
   const [chosenNft, setChosenNft] = useState ([]);
 
@@ -22,6 +22,7 @@ const NftDetail = ({nfts, setNft}) => {
 
   const handleList = () => {
     console.log ('Click on list');
+    setNftListing();
   };
 
   return (
