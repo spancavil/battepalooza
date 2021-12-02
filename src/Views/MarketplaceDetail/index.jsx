@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import {useHistory} from 'react-router';
 import {NftData} from '../../Context/NftProvider';
 import Background from '../../Global-Components/Background';
-import { useMediaQuery } from '../../Hooks/useMediaQuery';
+import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import Checkout from './components/Checkout';
 import Complete from './components/Complete';
 import Listing from './components/Listing';
@@ -14,26 +14,26 @@ const MarketplaceDetail = () => {
   const history = useHistory ();
   const {nfts} = useContext (NftData);
 
-  const desktop = useMediaQuery('(min-width: 768px)');
+  const desktop = useMediaQuery ('(min-width: 768px)');
 
   const [nft, setNft] = useState ({});
   const [checkout, setCheckout] = useState (false);
   const [proccesing, setProccesing] = useState (false);
   const [buyComplete, setBuyComplete] = useState (false);
-  const [listing, setListing] = useState(false);
+  const [listing, setListing] = useState (false);
 
   const setBuy = nftSelected => {
     if (listing) {
-      setListing(false)
+      setListing (false);
     }
     setNft (nftSelected);
     setCheckout (true);
   };
 
   const setNftListing = nftSelected => {
-    setNft(nftSelected)
-    setListing(true);
-  }
+    setNft (nftSelected);
+    setListing (true);
+  };
 
   const processingComplete = estado => {
     setCheckout (false);
@@ -43,10 +43,11 @@ const MarketplaceDetail = () => {
 
   return (
     <Background>
-      <NftDetail 
-      setNft={nftSelected => setBuy (nftSelected)}
-      setNftListing = {nftSelected => setNftListing(nftSelected)}
-      nfts={nfts} />
+      <NftDetail
+        setNft={nftSelected => setBuy (nftSelected)}
+        setNftListing={nftSelected => setNftListing (nftSelected)}
+        nfts={nfts}
+      />
       {checkout &&
         <Checkout
           nftBuy={nft}
@@ -61,17 +62,22 @@ const MarketplaceDetail = () => {
           goCollection={() => history.push ('/collection')}
           goMarketPlace={() => history.push ('/marketPlace')}
         />}
-      {(listing && !desktop) && <ListingMobile 
-      handleClose={()=> setListing(false)}
-      nfts={nfts}
-      nftSelected = {nft}/>}
-      {(listing && desktop) && 
-      <Listing 
-      handleClose={()=> setListing(false)}
-      nfts={nfts}
-      nftSelected = {nft}
-      setNft={nftSelected => setBuy (nftSelected)}
-      />}
+      {listing &&
+        !desktop &&
+        <ListingMobile
+          handleClose={() => setListing (false)}
+          nfts={nfts}
+          nftSelected={nft}
+          setNft={nftSelected => setBuy (nftSelected)}
+        />}
+      {listing &&
+        desktop &&
+        <Listing
+          handleClose={() => setListing (false)}
+          nfts={nfts}
+          nftSelected={nft}
+          setNft={nftSelected => setBuy (nftSelected)}
+        />}
     </Background>
   );
 };

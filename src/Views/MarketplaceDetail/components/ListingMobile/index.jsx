@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react/cjs/react.development';
 import ModalMobile from './Modal/index';
 import styles from './styles.module.scss';
 
-const ListingMobile = ({handleClose, nfts, nftSelected}) => {
+const ListingMobile = ({handleClose, nfts, nftSelected, setNft}) => {
   const [nftListing, setNftListing] = useState ([]);
 
   useEffect (
@@ -18,7 +18,10 @@ const ListingMobile = ({handleClose, nfts, nftSelected}) => {
     [nfts, nftSelected]
   );
 
-  console.log (nftListing);
+  const handleBuy = nft => {
+    console.log (nft);
+    setNft (nft);
+  };
 
   return (
     <div className={styles.listingMobileContainer}>
@@ -27,15 +30,15 @@ const ListingMobile = ({handleClose, nfts, nftSelected}) => {
           Tron Warrior Full Listing
         </h3>
         <div className={styles.container}>
-          {nftListing.map (({id, seller, price, serial}) => (
-            <div key={id}>
+          {nftListing.map ((nft) => (
+            <div key={nft.id}>
               <div className={styles.top}>
                 <div className={styles.infoContainer}>
                   <h5 className={styles.title}>
                     Serial#
                   </h5>
                   <div className={styles.info}>
-                    #{serial}
+                    #{nft.serial}
                   </div>
                 </div>
                 <div className={styles.infoContainer}>
@@ -43,21 +46,21 @@ const ListingMobile = ({handleClose, nfts, nftSelected}) => {
                     NCoin
                   </h5>
                   <div className={styles.info}>
-                    {price}
+                    {nft.price}
                   </div>
                 </div>
               </div>
               <div>
-              <div className={styles.seller}>
+                <div className={styles.seller}>
                   <h5 className={styles.title}>
                     Seller
                   </h5>
                   <div className={styles.info}>
-                    {seller}
+                    {nft.seller}
                   </div>
                 </div>
               </div>
-              <button>
+              <button onClick={() => handleBuy (nft)}>
                 BUY
               </button>
               <hr />
