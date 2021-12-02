@@ -23,6 +23,9 @@ const MarketplaceDetail = () => {
   const [listing, setListing] = useState(false);
 
   const setBuy = nftSelected => {
+    if (listing) {
+      setListing(false)
+    }
     setNft (nftSelected);
     setCheckout (true);
   };
@@ -67,6 +70,7 @@ const MarketplaceDetail = () => {
       handleClose={()=> setListing(false)}
       nfts={nfts}
       nftSelected = {nft}
+      setNft={nftSelected => setBuy (nftSelected)}
       />}
     </Background>
   );

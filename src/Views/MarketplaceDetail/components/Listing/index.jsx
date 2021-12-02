@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import Button from '../../../../Global-Components/Button';
 import ModalTable from './ModalTable';
 
-const Listing = ({handleClose, nfts, nftSelected}) => {
+const Listing = ({handleClose, nfts, nftSelected, setNft}) => {
     const [nftListing, setNftListing] = useState([]);
     const [indexSelected, setIndexSelected] = useState(0);
 
@@ -25,6 +25,7 @@ const Listing = ({handleClose, nfts, nftSelected}) => {
 
     const handleBuy = (nft) => {
         console.log(nft)
+        setNft(nft);
     }
 
     const TableContent = () => {
