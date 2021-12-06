@@ -3,13 +3,19 @@ import { Link, useHistory } from 'react-router-dom';
 import Button from '../../Global-Components/Button';
 import Modal from '../../Global-Components/Modal';
 import styles from './styles.module.scss';
+import { useContext } from 'react';
+import { UserData } from '../../Context/UserProvider';
 
 const NeedLogin = () => {
 
+  const {userData} = useContext(UserData);
   const history = useHistory()
+
   const handleClose = () => {
     history.push('/')
   }
+
+  if (Object.keys(userData).length !== 0) history.goBack();
 
   return (
     <div className={styles.container}>

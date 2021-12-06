@@ -53,9 +53,8 @@ const Login = () => {
         } else {
           setMessage (response.message);
           setPopUp (true);
-          setTimeout (() => setPopUp (false), 3000);
           setTimeout (
-            () => history.push ('/verification') && setLoading (false),
+            () => history.push ('/verification'),
             2000
           );
         }
