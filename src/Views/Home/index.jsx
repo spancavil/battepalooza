@@ -48,9 +48,8 @@ const HomeContainer = () => {
                 embedId={'fMevuQyBLjE'}
                 onExit={() => handleWatchTrailer ()}
               />}
-            <div className={styles.downloadContainer}>
+              <div style={{overflow: "visible"}}>
               <Button
-                width="100%"
                 onClick={() => setDropdown (!dropdown)}
                 title="Download now"
               />
@@ -71,7 +70,7 @@ const HomeContainer = () => {
                     <img src={PlayStore} alt="PlayStore" />
                   </a>
                 </div>}
-            </div>
+              </div>
           </div>
 
         </div>
