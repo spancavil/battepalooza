@@ -87,8 +87,8 @@ const Login = () => {
               }}
             >
               {loading
-                ? <Button style={{cursor: 'no-drop'}} title="LOADING..." />
-                : <Button title="GET CODE" />}
+                ? <Button style={{cursor: 'no-drop'}} title="LOADING..." modal = {true}/>
+                : <Button title="GET CODE" modal ={true} />}
             </div>
           </form>
           <SubMessage

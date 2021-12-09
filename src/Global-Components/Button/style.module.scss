@@ -33,3 +33,14 @@
         text-shadow: 6px 6px 12px rgba(0,0,0, 1);
     }
 }
+
+.botonGenericoModal {
+    @extend .botonGenerico;
+
+    &:hover{
+        -webkit-box-shadow:0px 0px 12px 8px rgba(65,113,209,1);
+        -moz-box-shadow: 0px 0px 12px 8px rgba(65,113,209,1);
+        box-shadow: 0px 0px 12px 8px rgba(65,113,209,1);
+        text-shadow: 6px 6px 12px rgba(0,0,0, 1);
+    }
+}

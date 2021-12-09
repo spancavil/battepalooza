@@ -237,7 +237,7 @@ const SignUp = () => {
           {errorCaptcha &&
             <span className={styles.errorMessage}>{errorCaptcha}</span>}
           <div style={{paddingTop: '40px', overflow: 'visible'}}>
-            <Button title="SIGN UP" onClick={onSingUp} />
+            <Button title="SIGN UP" onClick={onSingUp} modal = {true} />
           </div>
           <SubMessage
             text="Already have an account?"
