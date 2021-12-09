@@ -101,13 +101,13 @@ const Verification = () => {
           </div>
           <div
             style={{
-              paddingTop: '25px',
+              padding: '20px 0',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}
           >
-            <Button title="VERIFY" />
+            <Button title="VERIFY" modal ={true}/>
           </div>
         </form>
         <span className={styles.message}>

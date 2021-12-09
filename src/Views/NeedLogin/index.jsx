@@ -22,8 +22,8 @@ const NeedLogin = () => {
       <Modal title="NEED LOGIN" handleClose = {handleClose}>
         <span className={styles.text}>You need to login in order to proceed.</span>
         <div className={styles.btns}>
-            <Button title="LOGIN" onClick ={()=> history.push('/login')}/>
-            <Button title="SIGN UP" onClick ={()=> history.push('/signup')}/>
+            <Button title="LOGIN" modal = {true} onClick ={()=> history.push('/login')}/>
+            <Button title="SIGN UP" modal = {true} onClick ={()=> history.push('/signup')}/>
         </div>
       </Modal>
     </div>
