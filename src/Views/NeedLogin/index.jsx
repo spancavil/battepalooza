@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Button from '../../Global-Components/Button';
 import Modal from '../../Global-Components/Modal';
 import styles from './styles.module.scss';
