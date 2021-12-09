@@ -42,6 +42,7 @@ const HomeContainer = () => {
           <img src={bpBrand} alt="bp-brand" />
           <div className={styles.botones}>
             <Button
+              main = {true}
               title="Watch trailer"
               onClick={() => handleWatchTrailer ()}
             />
@@ -52,6 +53,7 @@ const HomeContainer = () => {
               />}
               <div style={{overflow: "visible"}}>
               <Button
+                main = {true}
                 onClick={() => setDropdown (!dropdown)}
                 title="Download now"
                 width = {mobile ? '100%': null}
