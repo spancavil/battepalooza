@@ -80,7 +80,7 @@ const Login = () => {
             </div>
             <div
               style={{
-                paddingTop: '25px',
+                padding: '25px 0px 12px 0px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',

@@ -19,11 +19,13 @@ import PlayStore from '../../Assets/img/playStore.png';
 import YoutubeEmbed from './Components/Youtube';
 import {useHistory} from 'react-router';
 import {sendAmplitudeData} from '../../Utils/amplitude';
+import { useMediaQuery } from '../../Hooks/useMediaQuery';
 
 const HomeContainer = () => {
   const [dropdown, setDropdown] = useState (false);
   const [ytDisplay, setYtDisplay] = useState (false);
   const history = useHistory ();
+  const mobile = useMediaQuery('(max-width: 766px)');
 
   const handleWatchTrailer = () => {
     setYtDisplay (!ytDisplay);
@@ -40,6 +42,7 @@ const HomeContainer = () => {
           <img src={bpBrand} alt="bp-brand" />
           <div className={styles.botones}>
             <Button
+              main = {true}
               title="Watch trailer"
               onClick={() => handleWatchTrailer ()}
             />
@@ -48,11 +51,12 @@ const HomeContainer = () => {
                 embedId={'fMevuQyBLjE'}
                 onExit={() => handleWatchTrailer ()}
               />}
-            <div className={styles.downloadContainer}>
+              <div style={{overflow: "visible"}}>
               <Button
-                width="100%"
+                main = {true}
                 onClick={() => setDropdown (!dropdown)}
                 title="Download now"
+                width = {mobile ? '100%': null}
               />
               {dropdown &&
                 <div className={styles.dropdown}>
@@ -71,7 +75,7 @@ const HomeContainer = () => {
                     <img src={PlayStore} alt="PlayStore" />
                   </a>
                 </div>}
-            </div>
+              </div>
           </div>
 
         </div>

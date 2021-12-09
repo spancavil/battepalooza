@@ -236,7 +236,7 @@ const SignUp = () => {
 
           {errorCaptcha &&
             <span className={styles.errorMessage}>{errorCaptcha}</span>}
-          <div style={{paddingTop: '40px'}}>
+          <div style={{paddingTop: '40px', overflow: 'visible'}}>
             <Button title="SIGN UP" onClick={onSingUp} />
           </div>
           <SubMessage
@@ -268,7 +268,7 @@ const SignUp = () => {
             <img className={styles.imgModal} src={AppNway} alt="App Nway" />
             <img className={styles.imgModal} src={passCode} alt="Passcode" />
           </div>
-          <div>
+          <div style={{overflow: "visible"}}>
             <Button title="UNDERSTOOD" onClick={handleClose} />
           </div>
         </ModalUnderstood>}

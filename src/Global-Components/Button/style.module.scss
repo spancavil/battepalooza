@@ -13,4 +13,23 @@
     text-align: center;
     cursor: pointer;
     border-radius: 3px;
+    transition: 0.3s;
+
+    &:hover{
+        -webkit-box-shadow:0px 0px 12px 6px rgba(48,0,150, 0.8);
+        -moz-box-shadow: 0px 0px 12px 6px rgba(48,0,150, 0.8);
+        box-shadow: 0px 0px 12px 6px rgba(48,0,150, 0.8);
+        text-shadow: 6px 6px 12px rgba(0,0,0, 1);
+    }
+}
+
+.botonGenericoMainPage {
+    @extend .botonGenerico;
+
+    &:hover{
+        -webkit-box-shadow:0px 0px 15px 11px rgba(1,74,219,0.79);
+        -moz-box-shadow: 0px 0px 12px 11px rgba(1,74,219,0.79);
+        box-shadow: 0px 0px 11px 9px rgba(1,74,219,0.79);
+        text-shadow: 6px 6px 12px rgba(0,0,0, 1);
+    }
 }
