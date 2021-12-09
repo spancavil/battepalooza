@@ -112,11 +112,11 @@
         position: absolute;
         top: -8px;
         left:-8px;
-        background-size: 500%;
+        background-size: 300%;
         filter: blur(4px);
         width: calc(100% + 16px);
         height: calc(100% + 16px);
-        animation: glowing 10s linear infinite;
+        animation: glowing 3s linear infinite;
         opacity: 0;
         transition: opacity .3s ease-in-out;
         border-radius: 10px;
@@ -142,7 +142,7 @@
     //La animación del before
     @keyframes glowing {
         0% { background-position: 0 0; }
-        100% { background-position: 500% 0; }
+        100% { background-position: 300% 0; }
     } 
 
 }
