@@ -1,9 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import styles from './styles.module.scss';
 import {NftData} from '../../../../Context/NftProvider';
 import {Link} from 'react-router-dom';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
-import {useEffect} from 'react/cjs/react.development';
 import Pagination from '../Pagination';
 
 const CollectionNfts = () => {
@@ -19,6 +18,8 @@ const CollectionNfts = () => {
     },
     [breakpoint]
   );
+
+  console.log(breakpoint);
 
   const max = nfts.length / xPage;
 
