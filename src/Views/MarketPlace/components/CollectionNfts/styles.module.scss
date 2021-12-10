@@ -79,7 +79,6 @@
       padding: 0px 15px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
       grid-column-gap: 15px;
       grid-row-gap: 30px;
 
@@ -141,7 +140,6 @@
       padding: 0px 15px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
       grid-column-gap: 15px;
       grid-row-gap: 30px;
 
@@ -207,7 +205,7 @@
       padding: 0px 15px;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: repeat(5, 1fr);
+      grid-template-rows: repeat(min(2), 1fr);
       grid-column-gap: 15px;
       grid-row-gap: 30px;
 
