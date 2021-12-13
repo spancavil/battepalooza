@@ -19,8 +19,6 @@ const CollectionNfts = () => {
     [breakpoint]
   );
 
-  console.log(breakpoint);
-
   const max = nfts.length / xPage;
 
   return (
