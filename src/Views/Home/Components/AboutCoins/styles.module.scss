@@ -183,6 +183,32 @@ $hd: 1400px;
     justify-content: left;
     align-items: center;
 
+    &:hover{
+      animation: zoom-in-zoom-out 2s linear ;
+    }
+  
+    @keyframes zoom-in-zoom-out {
+      0% {
+        transform: scale(1, 1);
+      }
+  
+      25% {
+        transform: scale(1.01, 1.01);
+      }
+  
+      50% {
+        transform: scale(1.02,1.02);
+      }
+  
+      75% {
+        transform: scale (1.01, 1.01);
+      }
+  
+      100% {
+        transform: scale(1.00, 1.00);
+      }
+    }
+
     article {
       margin-left: 60px;
       text-align: left;
@@ -232,6 +258,32 @@ $hd: 1400px;
     display: flex;
     justify-content: left;
     align-items: center;
+
+    &:hover{
+      animation: zoom-in-zoom-out 2s linear ;
+    }
+  
+    @keyframes zoom-in-zoom-out {
+      0% {
+        transform: scale(1, 1);
+      }
+  
+      25% {
+        transform: scale(1.01, 1.01);
+      }
+  
+      50% {
+        transform: scale(1.02,1.02);
+      }
+  
+      75% {
+        transform: scale (1.01, 1.01);
+      }
+  
+      100% {
+        transform: scale(1.00, 1.00);
+      }
+    }
 
     article {
       margin-left: 100px;

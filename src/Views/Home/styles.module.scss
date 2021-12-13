@@ -23,6 +23,8 @@ $hd: 1400px;
     overflow-y: hidden;
   }
 
+
+
   .battle {
     display: flex;
     align-items: center;
@@ -614,6 +616,33 @@ $hd: 1400px;
     top: 0;
     height: 105vh;
     overflow-y: hidden;
+    // animation: zoom-in-zoom-out 4s linear ;
+  }
+
+  .content1:hover{
+    animation: zoom-in-zoom-out 2s linear ;
+  }
+
+  @keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+
+    25% {
+      transform: scale(1.01, 1.01);
+    }
+
+    50% {
+      transform: scale(1.02,1.02);
+    }
+
+    75% {
+      transform: scale (1.01, 1.01);
+    }
+
+    100% {
+      transform: scale(1.00, 1.00);
+    }
   }
 
   .battle {
@@ -810,6 +839,32 @@ $hd: 1400px;
     overflow-y: hidden;
   }
 
+  .content1:hover{
+    animation: zoom-in-zoom-out 2s linear ;
+  }
+
+  @keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+
+    25% {
+      transform: scale(1.01, 1.01);
+    }
+
+    50% {
+      transform: scale(1.02,1.02);
+    }
+
+    75% {
+      transform: scale (1.01, 1.01);
+    }
+
+    100% {
+      transform: scale(1.00, 1.00);
+    }
+  }
+  
   .battle {
     display: flex;
     align-items: center;
