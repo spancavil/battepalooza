@@ -1,21 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './styles.module.scss';
 
 const Pagination = ({page, setPage, max}) => {
-  const nextPage = () => setPage (parseInt (page) + 1);
-  const previousPage = () => setPage (parseInt (page) - 1);
-
-  const handleChange = e => {
-    setPage (e.target.value);
+  const [input, setInput] = useState (1);
+  const nextPage = () => {
+    setPage (parseInt (page) + 1);
+    setInput (parseInt (input) + 1);
+  };
+  const previousPage = () => {
+    setPage (parseInt (page) - 1);
+    setInput (parseInt (input) - 1);
   };
 
-  const handleBlur = e => {
-    if (
-      e.target.value < 1 ||
-      e.target.value > Math.ceil (max) ||
-      typeof e.target.value !== 'number'
-    )
-      setPage (1);
+  const onKeyDown = e => {
+    if (e.keyCode === 13) {
+      setPage (parseInt (e.target.value));
+      if (
+        parseInt (e.target.value) < 1 ||
+        parseInt (e.target.value) > Math.ceil (max) ||
+        isNaN (parseInt (e.target.value))
+      ) {
+        setPage (1);
+        setInput (1);
+      } else {
+        setPage (parseInt (e.target.value));
+      }
+    }
+  };
+
+  const handleChange = e => {
+    setInput (e.target.value);
   };
 
   return (
@@ -36,11 +50,11 @@ const Pagination = ({page, setPage, max}) => {
       </button>
       <input
         className={styles.input}
+        onKeyDown={e => onKeyDown (e)}
+        onChange={e => handleChange (e)}
         autoComplete="off"
         name="page"
-        onBlur={e => handleBlur (e)}
-        onChange={e => handleChange (e)}
-        value={page}
+        value={input}
       />
       <p>of</p>
       <input
