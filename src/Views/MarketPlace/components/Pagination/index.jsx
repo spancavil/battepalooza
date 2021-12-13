@@ -6,13 +6,21 @@ const Pagination = ({page, setPage, max}) => {
   const previousPage = () => setPage (parseInt (page) - 1);
 
   const handleChange = e => {
-    if (e.target.value < 1 || e.target.value > Math.ceil (max)) setPage (page);
-    else setPage (e.target.value);
+    setPage (e.target.value);
+  };
+
+  const handleBlur = e => {
+    if (
+      e.target.value < 1 ||
+      e.target.value > Math.ceil (max) ||
+      typeof e.target.value !== 'number'
+    )
+      setPage (1);
   };
 
   return (
     <div className={styles.container}>
-      <button disabled={page === 1} onClick={previousPage}>
+      <button disabled={page === 1 || page < 1} onClick={previousPage}>
         <svg
           width="12"
           height="14"
@@ -30,6 +38,7 @@ const Pagination = ({page, setPage, max}) => {
         className={styles.input}
         autoComplete="off"
         name="page"
+        onBlur={e => handleBlur (e)}
         onChange={e => handleChange (e)}
         value={page}
       />
@@ -39,7 +48,10 @@ const Pagination = ({page, setPage, max}) => {
         disabled
         value={Math.ceil (max)}
       />
-      <button disabled={page === Math.ceil (max)} onClick={nextPage}>
+      <button
+        disabled={page === Math.ceil (max) || page > Math.ceil (max)}
+        onClick={nextPage}
+      >
         <svg
           width="12"
           height="14"
