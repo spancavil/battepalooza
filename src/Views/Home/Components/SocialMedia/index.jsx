@@ -7,19 +7,35 @@ import styles from './styles.module.scss';
 const SocialMedia = () => {
     return (
         <div className={styles.socialMedia}>
-            <a href="https://www.facebook.com/Battlepalooza-112765480597639"
+            <a 
+            href="https://www.facebook.com/Battlepalooza-112765480597639"
             target="_blank"
             rel="noopener noreferrer"
-            ><img className={styles.fb}src={facebookLogo} alt="fb-logo" /></a>
+            style={{overflow: "visible"}}
+            >
+                <div>
+                    <img src={facebookLogo} alt="fb-logo" />    
+                </div>
+            </a>
             <a href="https://www.instagram.com/BATTLEPALOOZA"
             target="_blank"
             rel="noopener noreferrer"
-            ><img className={styles.ig}src={instagramLogo} alt="ig-logo" /></a>
+            style={{overflow: "visible"}}
+            >
+                <div>
+                    <img src={instagramLogo} alt="ig-logo" />
+                </div>
+            </a>
             <a
-                href="https://discord.com/channels/836387983635644416/836387983635644420"
-                target="_blank"
-                rel="noopener noreferrer"
-            ><img className={styles.discord}src={discordLogo} alt="discord-logo" /></a>
+            href="https://discord.com/channels/836387983635644416/836387983635644420"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{overflow: "visible"}}
+            >
+                <div>
+                    <img src={discordLogo} alt="discord-logo" />
+                </div>
+            </a>
         </div>
     )
 }
