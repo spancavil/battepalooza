@@ -9,8 +9,8 @@ const Complete = ({title, goMarketPlace, goCollection}) => {
           <Modal title="Complete" handleClose={goMarketPlace}>
             <h3 className={styles.textDrop}>You have successfully buyed {title}</h3>
             <div className={styles.buttonsContainer}>
-                <Button title="Collection" onClick={goCollection} />
-                <Button title="Marketplace" onClick={goMarketPlace} />
+                <Button title="Collection" onClick={goCollection} modal = {true} />
+                <Button title="Marketplace" onClick={goMarketPlace} modal = {true} />
             </div>
           </Modal>
         </div>
