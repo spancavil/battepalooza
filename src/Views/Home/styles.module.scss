@@ -13,18 +13,12 @@ $hd: 1400px;
   }
 
   .content1 {
-    background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
-    background-position-x: center;
-    background-position-y: bottom;
     text-align: center;
     height: 100vh;
     width: 100%;
-    background-size: cover;
     top: 0;
     overflow-y: hidden;
   }
-
-
 
   .battle {
     display: flex;
@@ -32,12 +26,21 @@ $hd: 1400px;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-top: 300px;
+    height: 100vh;
     overflow-y: hidden;
-    padding-bottom: 30px;
+    position: relative;
 
-    img {
+    .homePic{
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      object-fit: cover;
+      animation: easyZoom 20s ease-in-out 0s infinite alternate;
+    }
+
+    .bpBrand {
       width: 310px;
+      z-index: 1;
       padding: 0px 20px;
     }
 
@@ -218,9 +221,6 @@ $hd: 1400px;
   }
 
   .content1 {
-    background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
-    background-position-x: center;
-    background-position-y: bottom;
     text-align: center;
     height: 100vh;
     width: 100%;
@@ -235,16 +235,26 @@ $hd: 1400px;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-top: 310px;
     overflow-y: hidden;
-    padding-bottom: 30px;
+    height: 100vh;
+    position: relative;
+    padding-top: 300px;
 
-    img {
+    .homePic{
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      object-fit: cover;
+      animation: easyZoom 20s ease-in-out 0s infinite alternate;
+    }
+
+    .bpBrand {
       width: 310px;
-      padding: 0px 20px;
+      z-index: 1;
     }
 
     .botones {
+      padding-bottom: 150px;
       overflow: visible;
       width: 230px;
       display: flex;
@@ -413,13 +423,9 @@ $hd: 1400px;
   }
 
   .content1 {
-    background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
-    background-position-x: center;
-    background-position-y: bottom;
     height: 100vh;
     text-align: center;
     width: 100%;
-    background-size: cover;
     top: 0;
     overflow-y: hidden;
   }
@@ -430,20 +436,31 @@ $hd: 1400px;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-top: 285px;
     overflow-y: hidden;
-    padding-bottom: 50px;
+    height: 100vh;
+    position: relative;
+    padding-top: 200px;
 
-    img {
-      width: 350px;
+    .homePic{
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      object-fit: cover;
+      animation: easyZoom 20s ease-in-out 0s infinite alternate;
+    }
+
+    .bpBrand {
+      width: 310px;
+      z-index: 1;
     }
 
     .botones {
       overflow: visible;
+      width: 230px;
       display: flex;
+      flex-direction: column;
       gap: 20px;
-      margin-top: -3%;
-      padding: 12px;
+      font-size: 1em;
     }
   }
 
@@ -622,7 +639,6 @@ $hd: 1400px;
     flex-direction: column;
     width: 100%;
     overflow-y: hidden;
-    // padding-top: 65px;
     padding-bottom: 150px;
     height: 105vh;
     position: relative;
@@ -632,7 +648,6 @@ $hd: 1400px;
       bottom: 0;
       left: 0;
       width: 100%;
-      // height:k 100vh;
       object-fit: contain;
       animation: easyZoom 20s ease-in-out 0s infinite alternate;
     }
@@ -825,7 +840,7 @@ $hd: 1400px;
     flex-direction: column;
     width: 100%;
     overflow-y: hidden;
-    padding-bottom: 150px;
+    padding-bottom: 350px;
     height: 105vh;
 
     .homePic{
@@ -834,7 +849,6 @@ $hd: 1400px;
       bottom: 55px;
       left: 0;
       width: 100%;
-      // height:k 100vh;
       object-fit: contain;
       animation: easyZoom 20s ease-in-out 0s infinite alternate;
     }
