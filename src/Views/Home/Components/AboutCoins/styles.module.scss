@@ -183,8 +183,8 @@ $hd: 1400px;
     mask-position: top bottom;
     mask-size: 100% 23%, 100% 78%;
     mask-repeat: no-repeat;
-    top: -80px;
-    margin-bottom: -80px;
+    top: -70px;
+    margin-bottom: -70px;
     width: 100%;
     height: 340px;
     color: #fff;
@@ -194,32 +194,6 @@ $hd: 1400px;
     justify-content: left;
     align-items: center;
     position: relative;
-
-    &:hover{
-      animation: zoom-in-zoom-out 2s linear ;
-    }
-  
-    @keyframes zoom-in-zoom-out {
-      0% {
-        transform: scale(1, 1);
-      }
-  
-      25% {
-        transform: scale(1.01, 1.01);
-      }
-  
-      50% {
-        transform: scale(1.02,1.02);
-      }
-  
-      75% {
-        transform: scale (1.01, 1.01);
-      }
-  
-      100% {
-        transform: scale(1.00, 1.00);
-      }
-    }
 
     article {
       margin-left: 60px;
@@ -261,7 +235,6 @@ $hd: 1400px;
 @media (min-width: $hd) {
   .content2 {
     background: url("../../../../Assets/img//BannerNcoins.png");
-    background-position: right 50% bottom 1500%;
     -webkit-mask-image: url('../../../../Assets/img/headPrivacy.png'), linear-gradient(black, black);
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: top, bottom;
@@ -271,8 +244,8 @@ $hd: 1400px;
     mask-size: 100% 23%, 100% 78%;
     mask-repeat: no-repeat;
     position: relative;
-    top: -95px;
-    margin-bottom: -95px;
+    top: -120px;
+    margin-bottom: -120px;
     width: 100%;
     height: 496px;
     color: #fff;
@@ -281,32 +254,8 @@ $hd: 1400px;
     display: flex;
     justify-content: left;
     align-items: center;
-
-    &:hover{
-      animation: zoom-in-zoom-out 2s linear ;
-    }
   
-    @keyframes zoom-in-zoom-out {
-      0% {
-        transform: scale(1, 1);
-      }
-  
-      25% {
-        transform: scale(1.01, 1.01);
-      }
-  
-      50% {
-        transform: scale(1.02,1.02);
-      }
-  
-      75% {
-        transform: scale (1.01, 1.01);
-      }
-  
-      100% {
-        transform: scale(1.00, 1.00);
-      }
-    }
+    
 
     article {
       margin-left: 100px;

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from './styles.module.scss';
 import bpBrand from '../../Assets/img/BI-BP-2.png';
+import Home from '../../Assets/img/Bg-Home.png';
 import SocialMedia from './Components/SocialMedia';
 import Button from '../../Global-Components/Button';
 import AboutCoins from './Components/AboutCoins';
@@ -39,7 +40,8 @@ const HomeContainer = () => {
     <div className={styles.container}>
       <div className={styles.content1}>
         <div className={styles.battle}>
-          <img src={bpBrand} alt="bp-brand" />
+          <img src={Home} alt="home" className={styles.homePic}/>
+          <img src={bpBrand} alt="bp-brand" className={styles.bpBrand}/>
           <div className={styles.botones}>
             <Button
               main = {true}

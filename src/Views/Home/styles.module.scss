@@ -1,6 +1,7 @@
 @import "../../Styles/colors.scss";
 @import "../../Styles/fonts.scss";
 @import "../../Styles/breakpoints.scss";
+@import "../../Styles/animations.scss";
 
 $hd: 1400px;
 
@@ -607,46 +608,12 @@ $hd: 1400px;
   }
 
   .content1 {
-    background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
-    background-position-x: center;
-    background-position-y: bottom;
     text-align: center;
     width: 100%;
-    background-size: cover;
     top: 0;
     height: 105vh;
     overflow-y: hidden;
-    transition: transform .2s;
-
-    &:hover{
-      transform: scale(1.02);
-    }
   }
-  // .content1:hover{
-  //   animation: zoom-in-zoom-out 2s linear ;
-  // }
-
-  // @keyframes zoom-in-zoom-out {
-  //   0% {
-  //     transform: scale(1, 1);
-  //   }
-
-  //   25% {
-  //     transform: scale(1.01, 1.01);
-  //   }
-
-  //   50% {
-  //     transform: scale(1.02,1.02);
-  //   }
-
-  //   75% {
-  //     transform: scale (1.01, 1.01);
-  //   }
-
-  //   100% {
-  //     transform: scale(1.00, 1.00);
-  //   }
-  // }
 
   .battle {
     display: flex;
@@ -655,12 +622,24 @@ $hd: 1400px;
     flex-direction: column;
     width: 100%;
     overflow-y: hidden;
-    padding-top: 65px;
+    // padding-top: 65px;
     padding-bottom: 150px;
-    height: 100vh;
+    height: 105vh;
+    position: relative;
 
-    img {
+    .homePic{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      // height:k 100vh;
+      object-fit: contain;
+      animation: easyZoom 20s ease-in-out 0s infinite alternate;
+    }
+
+    .bpBrand {
       width: 350px;
+      z-index: 1;
     }
 
     .botones {
@@ -831,47 +810,13 @@ $hd: 1400px;
   }
 
   .content1 {
-    background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
-    background-position-x: center;
-    background-position-y: bottom;
     text-align: center;
     width: 100%;
-    background-size: cover;
     top: 0;
-    height: 100vh;
+    height: 105vh;
     overflow-y: hidden;
-    transition: transform .2s;
-
-    &:hover{
-      transform: scale(1.02);
-    }
+    position: relative;
   }
-
-  // .content1:hover{
-  //   animation: zoom-in-zoom-out 2s linear ;
-  // }
-
-  // @keyframes zoom-in-zoom-out {
-  //   0% {
-  //     transform: scale(1, 1);
-  //   }
-
-  //   25% {
-  //     transform: scale(1.01, 1.01);
-  //   }
-
-  //   50% {
-  //     transform: scale(1.02,1.02);
-  //   }
-
-  //   75% {
-  //     transform: scale (1.01, 1.01);
-  //   }
-
-  //   100% {
-  //     transform: scale(1.00, 1.00);
-  //   }
-  // }
   
   .battle {
     display: flex;
@@ -880,12 +825,23 @@ $hd: 1400px;
     flex-direction: column;
     width: 100%;
     overflow-y: hidden;
-    padding-top: 65px;
     padding-bottom: 150px;
-    height: 100vh;
+    height: 105vh;
+
+    .homePic{
+      z-index: 0;
+      position: absolute;
+      bottom: 55px;
+      left: 0;
+      width: 100%;
+      // height:k 100vh;
+      object-fit: contain;
+      animation: easyZoom 20s ease-in-out 0s infinite alternate;
+    }
 
     img {
       width: 400px;
+      z-index: 1;
     }
 
     .botones {
