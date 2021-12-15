@@ -20,25 +20,31 @@ const CollectionNfts = ({filters}) => {
     [breakpoint]
   );
 
-  useEffect (
+/*   useEffect (
     () => {
       setNftFiltered (nfts);
     },
     [nfts]
-  );
+  ); */
 
   console.log (nftsFiltered);
 
   useEffect (
     () => {
+      const auxFilter = [...nfts];
+      let filtro1 = [];
+      let filtro2 = [];
+      let filtro3 = [];
+      let filtro4 = [];
+
       if (filters.COMMON)
-        setNftFiltered (nftsFiltered.filter (nft => nft.rare === 'COMMON'));
+        filtro1 = auxFilter.filter (nft => nft.rare === 'COMMON');
       if (filters.RARE)
-        setNftFiltered (nftsFiltered.filter (nft => nft.rare === 'RARE'));
+        filtro2 = auxFilter.filter (nft => nft.rare === 'RARE');
       if (filters.EPIC)
-        setNftFiltered (nftsFiltered.filter (nft => nft.rare === 'EPIC'));
+        filtro3= auxFilter.filter (nft => nft.rare === 'EPIC');
       if (filters.LEGENDARY)
-        setNftFiltered (nftsFiltered.filter (nft => nft.rare === 'LEGENDARY'));
+        filtro4 = auxFilter.filter (nft => nft.rare === 'LEGENDARY');
       if (
         !filters.COMMON &&
         !filters.RARE &&
@@ -46,8 +52,11 @@ const CollectionNfts = ({filters}) => {
         !filters.LEGENDARY
       )
         setNftFiltered (nfts);
+      else {
+        setNftFiltered ([...filtro1, ...filtro2, ...filtro3, ...filtro4])
+      }
     },
-    [filters, nfts, nftsFiltered]
+    [filters, nfts]
   );
 
   const max = nftsFiltered.length / xPage;
