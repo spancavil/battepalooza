@@ -3,13 +3,7 @@ import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 
 import styles from './styles.module.scss';
 
-const Filters = () => {
-  const [filters, setFilters] = useState ({
-    COMMON: false,
-    RARE: false,
-    EPIC: false,
-    LEGENDARY: false,
-  });
+const Filters = ({filters, setFilters}) => {
   const breakpoint = useMediaQuery ('(max-width: 1199px)');
   const [menu, setMenu] = useState (false);
 
