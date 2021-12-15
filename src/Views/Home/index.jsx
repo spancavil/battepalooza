@@ -27,6 +27,8 @@ const HomeContainer = () => {
   const [ytDisplay, setYtDisplay] = useState (false);
   const history = useHistory ();
   const mobile = useMediaQuery('(max-width: 766px)');
+  const desktop = useMediaQuery('(min-width: 1200px) and (max-width: 1399px)');
+  const hd = useMediaQuery('(min-width: 1400px)');
 
   const handleWatchTrailer = () => {
     setYtDisplay (!ytDisplay);
@@ -85,12 +87,12 @@ const HomeContainer = () => {
 
       <AboutCoins />
       {/*<AboutPacks />*/}
-      <Content3 />
-      <Content4 />
-      <Content5 />
-      <Content6 />
-      <Content7 />
-      <Content8 />
+      <Content3 hd = {hd} desktop = {desktop}/>
+      <Content4 hd = {hd} desktop = {desktop}/>
+      <Content5 hd = {hd} desktop = {desktop}/>
+      <Content6 hd = {hd} desktop = {desktop}/>
+      <Content7 hd = {hd} desktop = {desktop}/>
+      <Content8 hd = {hd} desktop = {desktop}/>
       <footer>
         <article>
           <section>

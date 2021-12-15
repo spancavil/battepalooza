@@ -193,6 +193,7 @@
         flex-direction: row;
         justify-content: space-around;
         flex-flow: wrap;
+        overflow: hidden;
 
         div {
           z-index: 2;
