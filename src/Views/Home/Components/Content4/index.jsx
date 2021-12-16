@@ -44,7 +44,7 @@ const Content4 = ({desktop, hd}) => {
               data-pagespeed-url-hash="626340491"
             />
           </div>
-          <div className={styles.box2} id = "text1" style={{top: hd ? '-18px': '-28px'}} >
+          <div className={styles.box2} id = "text1" style={{top: hd ? '-18px': desktop ? '-28px': null}} >
             <h3>REAL CITY MAPS ARE YOUR BATTLEGROUNDS</h3>
             <p>
               Battlepalooza uses Google Maps geospatial data to create arenas. Compete in real-world cities, including Las Vegas, San Francisco and Paris. Different cities offer different levels of prizes.
