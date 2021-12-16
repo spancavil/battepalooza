@@ -31,7 +31,7 @@ $hd: 1400px;
     position: relative;
     padding-top: 80px;
 
-    .homePic{
+    .homePic {
       position: absolute;
       top: 0;
       height: 100vh;
@@ -107,6 +107,22 @@ $hd: 1400px;
                 width: 26px;
                 padding: 5px 3px;
               }
+
+              p:hover {
+                text-decoration: overline;
+              }
+            }
+
+            a:hover {
+              svg {
+                transition-duration: 0.3s;
+                transform: scale(1.3);
+              }
+
+              p {
+                transition-duration: 0.3s;
+                text-decoration: underline;
+              }
             }
           }
 
@@ -163,9 +179,13 @@ $hd: 1400px;
                   font-size: 13px;
                 }
 
+                a:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+
                 span {
                   color: #fff;
-                  text-decoration: none;
                   list-style: none;
                   transition: all 300ms ease;
                   background-color: transparent;
@@ -212,6 +232,15 @@ $hd: 1400px;
       width: 150px;
     }
   }
+
+  .linkFooter {
+    cursor: pointer;
+  }
+
+  .linkFooter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: $mobile) and (max-width: $tablet - 1) {
@@ -241,7 +270,7 @@ $hd: 1400px;
     position: relative;
     padding-top: 300px;
 
-    .homePic{
+    .homePic {
       position: absolute;
       top: 0;
       height: 100vh;
@@ -317,6 +346,18 @@ $hd: 1400px;
                 padding: 5px 3px;
               }
             }
+
+            a:hover {
+              svg {
+                transition-duration: 0.3s;
+                transform: scale(1.3);
+              }
+
+              p {
+                transition-duration: 0.3s;
+                text-decoration: underline;
+              }
+            }
           }
 
           .brands {
@@ -371,6 +412,11 @@ $hd: 1400px;
                   cursor: pointer;
                   font-size: 13px;
                 }
+
+                a:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
               }
             }
           }
@@ -414,6 +460,15 @@ $hd: 1400px;
       width: 150px;
     }
   }
+
+  .linkFooter {
+    cursor: pointer;
+  }
+
+  .linkFooter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
@@ -442,7 +497,7 @@ $hd: 1400px;
     position: relative;
     padding-top: 200px;
 
-    .homePic{
+    .homePic {
       position: absolute;
       top: 0;
       height: 100vh;
@@ -515,6 +570,18 @@ $hd: 1400px;
                 padding: 5px 3px;
               }
             }
+
+            a:hover {
+              svg {
+                transition-duration: 0.3s;
+                transform: scale(1.3);
+              }
+
+              p {
+                transition-duration: 0.3s;
+                text-decoration: underline;
+              }
+            }
           }
 
           .brands {
@@ -567,6 +634,11 @@ $hd: 1400px;
                   background-color: transparent;
                   cursor: pointer;
                 }
+
+                a:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
               }
             }
           }
@@ -611,6 +683,15 @@ $hd: 1400px;
       width: 150px;
     }
   }
+
+  .linkFooter {
+    cursor: pointer;
+  }
+
+  .linkFooter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: $desktop) and (max-width: $hd - 1) {
@@ -621,7 +702,7 @@ $hd: 1400px;
     position: absolute;
   }
 
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     display: none;
   }
 
@@ -644,7 +725,7 @@ $hd: 1400px;
     height: 105vh;
     position: relative;
 
-    .homePic{
+    .homePic {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -715,6 +796,22 @@ $hd: 1400px;
                 width: 26px;
                 padding: 5px 3px;
               }
+
+              p:hover {
+                text-decoration: overline;
+              }
+            }
+
+            a:hover {
+              svg {
+                transition-duration: 0.3s;
+                transform: scale(1.3);
+              }
+
+              p {
+                transition-duration: 0.3s;
+                text-decoration: underline;
+              }
             }
           }
 
@@ -768,6 +865,11 @@ $hd: 1400px;
                   background-color: transparent;
                   cursor: pointer;
                 }
+
+                a:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
               }
             }
           }
@@ -812,6 +914,15 @@ $hd: 1400px;
       width: 150px;
     }
   }
+
+  .linkFooter {
+    cursor: pointer;
+  }
+
+  .linkFooter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: $hd) {
@@ -833,7 +944,7 @@ $hd: 1400px;
     overflow-y: hidden;
     position: relative;
   }
-  
+
   .battle {
     display: flex;
     align-items: center;
@@ -844,7 +955,7 @@ $hd: 1400px;
     padding-bottom: 350px;
     height: 105vh;
 
-    .homePic{
+    .homePic {
       z-index: 0;
       position: absolute;
       bottom: 55px;
@@ -916,6 +1027,22 @@ $hd: 1400px;
                 width: 26px;
                 padding: 5px 3px;
               }
+              
+              p:hover {
+                text-decoration: overline;
+              }
+            }
+
+            a:hover {
+              svg {
+                transition-duration: 0.3s;
+                transform: scale(1.3);
+              }
+
+              p {
+                transition-duration: 0.3s;
+                text-decoration: underline;
+              }
             }
           }
 
@@ -1012,5 +1139,14 @@ $hd: 1400px;
       padding: 10px 10px;
       width: 150px;
     }
+  }
+
+  .linkFooter {
+    cursor: pointer;
+  }
+
+  .linkFooter:hover {
+    cursor: pointer;
+    text-decoration: underline;
   }
 }
