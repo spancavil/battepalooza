@@ -11,19 +11,20 @@ const AboutCoins = ({desktop, hd}) => {
       let scrollY = window.scrollY;
       if (hd) {
         if (scrollY > 300 && scrollY < 1000){
-          fondo.style.left = (scrollY - 750) * 0.030 + 'px';
-          about.style.right = (scrollY - 750) * 0.030 + 'px';
+          fondo.style.left = (scrollY - 750) * 0.030 - 5 + 'px';
+          about.style.right = (scrollY - 750) * 0.030 + 14 + 'px';
 
-          about.style.top = (scrollY - 400) * 0.10 + 'px';  
+          about.style.top = (scrollY - 400) * 0.10 + 10 + 'px';  
         } 
       } else if (desktop) {
         if (scrollY > 300 && scrollY < 700){
-          fondo.style.left = (scrollY - 750) * 0.04 + 'px';
-          about.style.right = (scrollY - 750) * 0.04 + 'px';
+          fondo.style.left = (scrollY - 750) * 0.04 - 10.5 + 'px';
+          about.style.right = (scrollY - 750) * 0.04 + 18 + 'px';
 
           about.style.top = (scrollY - 400) * 0.05 + 'px';  
         } 
       }
+      console.log(scrollY);
     }
 
     window.addEventListener('scroll', parallax)
