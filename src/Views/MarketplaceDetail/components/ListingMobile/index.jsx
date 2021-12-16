@@ -19,7 +19,6 @@ const ListingMobile = ({handleClose, nfts, nftSelected, setNft}) => {
   );
 
   const handleBuy = nft => {
-    console.log (nft);
     setNft (nft);
   };
 

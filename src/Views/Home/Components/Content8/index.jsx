@@ -21,7 +21,6 @@ const Content8 = ({desktop, hd}) => {
           imagen.style.top = (scrollY - 3300) * 0.15 + 'px';
           text5.style.top = (scrollY - 3100) * 0.32 + 'px';
         } else return;
-        console.log(scrollY);
       }
     }
 
@@ -29,7 +28,6 @@ const Content8 = ({desktop, hd}) => {
 
     return () => {
       window.removeEventListener('scroll', parallax);
-      console.log("No más parallax");
     }
   }, [desktop, hd])
 

@@ -23,7 +23,6 @@ class AuthService {
   }
 
   async register(email, getMails, role) {
-    console.log(email, getMails, role)
     const response = await axios.post(API_URL + "user/create", {
       email,
       getMails,

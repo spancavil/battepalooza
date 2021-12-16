@@ -8,7 +8,7 @@ import {UserData} from '../../Context/UserProvider';
 import authService from '../../Services/auth.service';
 import {useHistory} from 'react-router';
 import {Link} from 'react-router-dom';
-import { sendAmplitudeData, setAmplitudeUserId } from '../../Utils/amplitude';
+import {sendAmplitudeData, setAmplitudeUserId} from '../../Utils/amplitude';
 
 const Verification = () => {
   const [code, setCode] = useState ('');
@@ -23,10 +23,8 @@ const Verification = () => {
   const history = useHistory ();
 
   const handleChange = codigo => {
-    console.log (codigo.length);
     if (codigo.length === 7) {
       const codigoAux = codigo.replace (/\s+/g, '');
-      console.log (codigoAux);
       setCode (codigoAux);
     } else {
       setCode (codigo);
@@ -51,32 +49,31 @@ const Verification = () => {
     if (!/^\d{6}$/.test (code)) {
       setErrorCode ('Input a valid code');
     } else {
-      console.log(userSignup);
       setErrorCode ('');
       setCodeVerification (code);
       const response = firstLogin
-        ? await authService.login (userSignup.email, code, '/first-login', userSignup)
+        ? await authService.login (
+            userSignup.email,
+            code,
+            '/first-login',
+            userSignup
+          )
         : await authService.login (userSignup.email, code, '');
-      //Envío de datos de tracking a Amplitude 
-      
-
-      //console.log(response);
+      //Envío de datos de tracking a Amplitude
 
       if (response.data.message) {
         alert (response.data.message);
       } else {
-
         //Send tracking data to amplitude
         if (firstLogin) {
-          console.log(response)
-          setAmplitudeUserId(response.data.pid)
-          sendAmplitudeData("Registration/Sign Up")
+          setAmplitudeUserId (response.data.pid);
+          sendAmplitudeData ('Registration/Sign Up');
         } else {
-          setAmplitudeUserId(response.data.pid)
-          sendAmplitudeData("Registration/Log in")
+          setAmplitudeUserId (response.data.pid);
+          sendAmplitudeData ('Registration/Log in');
         }
-        
-        setDataUser(response);
+
+        setDataUser (response);
         handleSignOut ();
         history.push (navigation);
       }
@@ -107,7 +104,7 @@ const Verification = () => {
               justifyContent: 'center',
             }}
           >
-            <Button title="VERIFY" modal ={true}/>
+            <Button title="VERIFY" modal={true} />
           </div>
         </form>
         <span className={styles.message}>

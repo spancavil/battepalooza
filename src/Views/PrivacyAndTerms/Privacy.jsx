@@ -15,7 +15,7 @@ const Privacy = () => {
         document.getElementById("contenido").innerHTML = lineaEntera;
         
     }, [])
-    //console.log(terms)
+    //(terms)
     return (
         <BackgroundTerms 
         title = {"BATTLEPALOOZA PRIVACY POLICY"}

@@ -34,8 +34,6 @@ const CardAnimation = () => {
     history.push ('/my-skins');
   };
 
-  console.log (countReveal);
-
   return (
     <Background>
       <div className={styles.container}>

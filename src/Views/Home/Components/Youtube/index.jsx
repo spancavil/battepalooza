@@ -33,7 +33,6 @@ const YoutubeEmbed = ({ embedId, onExit }) => {
     }
 
     const handleExit = (e) => {
-        console.log("Hola!")
         e.code === "Escape" && onExit()
     }
 

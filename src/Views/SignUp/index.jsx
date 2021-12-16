@@ -160,7 +160,6 @@ const SignUp = () => {
   const handleClose = () => {
     history.push ('/');
   };
-  console.log (check1, check2);
 
   const check1Fn = option => {
     setCheck1 (option);

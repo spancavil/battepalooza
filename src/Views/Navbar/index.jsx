@@ -97,7 +97,6 @@ const NavBar = () => {
     };
     sendAmplitudeData ('Click', properties);
     const response = await authService.getFortePayload (userData);
-    console.log (response);
     if (response.error.text !== '') {
       if (response.error.text.includes ('authorized')) {
         alert ('Session expired, please login again.');

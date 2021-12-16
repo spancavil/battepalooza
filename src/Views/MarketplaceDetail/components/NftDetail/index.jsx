@@ -16,12 +16,11 @@ const NftDetail = ({nfts, setNft, setNftListing}) => {
   );
 
   const handleBuy = () => {
-    console.log (`Click on buy ${nftId}`);
     setNft (chosenNft);
   };
 
   const handleList = () => {
-    console.log ('Click on list');
+     ('Click on list');
     setNftListing(chosenNft);
   };
 
