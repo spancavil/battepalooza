@@ -21,10 +21,8 @@ const Listing = ({handleClose, nfts, nftSelected, setNft}) => {
     }, [nfts, nftSelected])
 
     //Index ok. Hay que pintar de ahí para abajo
-    //console.log(indexSelected);
 
     const handleBuy = (nft) => {
-        console.log(nft)
         setNft(nft);
     }
 
