@@ -212,7 +212,7 @@
     -webkit-mask-image: url('../../../../Assets/img/headPrivacyFlipped.png'), linear-gradient(black, black);
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: top, bottom;
-    -webkit-mask-size: 100% 12%, 100% 88%;
+    -webkit-mask-size: 100% 12%, 100% 89%;
     mask-image: url('../../../../Assets/img/headPrivacyFlipped.png'), linear-gradient(black, black);
     mask-position: top bottom;
     mask-size: 100% 12%, 100% 88%;
@@ -232,6 +232,8 @@
       flex-direction: row;
       justify-content: space-around;
       flex-flow: wrap;
+      position: relative;
+      overflow: hidden;
 
       h3 {
         font-size: 2.4em;
