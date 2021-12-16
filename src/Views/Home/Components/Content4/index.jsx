@@ -13,12 +13,12 @@ const Content4 = ({desktop, hd}) => {
       let scrollY = window.scrollY;
       if (hd) {
         if (scrollY > 1200 && scrollY < 1800){
-          imagen.style.top = (scrollY - 1300) * 0.06 + 'px';
+          imagen.style.top = (scrollY - 1100) * 0.06 + 'px';
           text1.style.top = (scrollY - 1300) * 0.25 + 'px';  
         } 
       } else if (desktop) {
         if (scrollY > 1000 && scrollY < 1800){
-          imagen.style.top = (scrollY - 1200) * 0.12 + 'px';
+          imagen.style.top = (scrollY - 1000) * 0.08 + 'px';
           text1.style.top = (scrollY - 1100) * 0.32 + 'px';
         } else return;
         console.log(scrollY);
