@@ -85,7 +85,7 @@ const HomeContainer = () => {
         </div>
       </div>
 
-      <AboutCoins />
+      <AboutCoins hd={hd} desktop={desktop} />
       {/*<AboutPacks />*/}
       <Content3 hd={hd} desktop={desktop} />
       <Content4 hd={hd} desktop={desktop} />
