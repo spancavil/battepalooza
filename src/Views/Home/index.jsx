@@ -38,11 +38,29 @@ const HomeContainer = () => {
     sendAmplitudeData ('Main page visit');
   }, []);
 
+  //Desplazamiento en parallax de la imagen de fondo.
+  useEffect(() => {
+   
+    const imagen = document.getElementById("homeImage");
+
+    const parallax = () => {
+      let scrollY = window.scrollY;
+      imagen.style.bottom = - (scrollY) * 0.6  + 'px';
+      console.log(scrollY);
+    }
+
+    window.addEventListener('scroll', parallax)
+
+    return () => {
+      window.removeEventListener('scroll', parallax);
+    }
+  }, [])
+
   return (
     <div className={styles.container}>
       <div className={styles.content1}>
         <div className={styles.battle}>
-          <img src={Home} alt="home" className={styles.homePic} />
+          <img src={Home} alt="home" className={styles.homePic} id="homeImage"/>
           <img src={bpBrand} alt="bp-brand" className={styles.bpBrand} />
           <div className={styles.botones}>
             <Button
