@@ -46,7 +46,6 @@ const HomeContainer = () => {
     const parallax = () => {
       let scrollY = window.scrollY;
       imagen.style.bottom = - (scrollY) * 0.6  + 'px';
-      console.log(scrollY);
     }
 
     window.addEventListener('scroll', parallax)

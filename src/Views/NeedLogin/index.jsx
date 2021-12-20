@@ -15,10 +15,14 @@ const NeedLogin = () => {
     history.push('/')
   }
 
+  const closeWithEsc = (event) => {
+    console.log(event)
+  }
+
   if (Object.keys(userData).length !== 0) history.goBack();
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onKeyDown={closeWithEsc}>
       <Modal title="NEED LOGIN" handleClose = {handleClose}>
         <span className={styles.text}>You need to login in order to proceed.</span>
         <div className={styles.btns}>

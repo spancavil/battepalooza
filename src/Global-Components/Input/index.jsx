@@ -10,13 +10,13 @@ import styles from './style.module.scss';
  * @param handleChange Función que devuelve el valor del input
  */
 
-const Input = ({label, subtitle, width, type, handleChange, autofocus}) => {
+const Input = ({label, subtitle, width, type, handleChange, autofocus, autoComplete = "off"}) => {
   return (
     <div className={styles.inputContainer}>
       <label htmlFor={label}>{label}</label>
       <input
         required
-        autoComplete="off"
+        autoComplete= {autoComplete}
         type={type}
         id={label}
         name={label}
