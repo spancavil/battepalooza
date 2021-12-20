@@ -35,14 +35,14 @@ const Verification = () => {
     history.push ('/');
   };
 
-  const handleSignOut = () => {
+ /*  const handleSignOut = () => {
     setTimeout (() => {
       localStorage.removeItem ('user');
       history.push ('/');
       alert ('Session expired. Please login again.');
       window.location.reload ();
     }, 15 * 60 * 1000);
-  };
+  }; */
 
   const submitCode = async e => {
     e.preventDefault ();
@@ -74,7 +74,7 @@ const Verification = () => {
         }
 
         setDataUser (response);
-        handleSignOut ();
+        //handleSignOut ();
         history.push (navigation);
       }
     }
