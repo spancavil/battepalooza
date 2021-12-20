@@ -74,6 +74,7 @@ const Login = () => {
                 type="email"
                 handleChange={email => changeEmail (email)}
                 autofocus
+                autoComplete='on'
               />
               {errorEmail &&
                 <span className={styles.errorMessage}>{errorEmail}</span>}

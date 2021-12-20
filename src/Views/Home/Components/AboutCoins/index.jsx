@@ -24,14 +24,12 @@ const AboutCoins = ({desktop, hd}) => {
           about.style.top = (scrollY - 400) * 0.05 + 'px';  
         } 
       }
-      console.log(scrollY);
     }
 
     window.addEventListener('scroll', parallax)
 
     return () => {
       window.removeEventListener('scroll', parallax);
-      console.log("No más parallax");
     }
   }, [desktop, hd])
 

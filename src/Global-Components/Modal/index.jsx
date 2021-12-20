@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DialogCross from './Assets/DialogCross';
 import {general, cross} from './style.module.scss';
 
@@ -10,6 +10,22 @@ import {general, cross} from './style.module.scss';
  */
 
 const Modal = ({title, children, handleClose}) => {
+
+  //On escape it will close
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.keyCode === 27) {
+        handleClose()
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [handleClose])
+
   return (
     <div className={general}>
       <p>{title}</p>
