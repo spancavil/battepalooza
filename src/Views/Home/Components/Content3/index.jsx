@@ -22,7 +22,7 @@ const Content3 = ({hd, desktop, mobile}) => {
             imagen.style.top = (scrollY) * 0.35 - 280 + 'px';
           }
         } else if (mobile){
-          if (scrollY > 500 && scrollY < 1400){
+          if (scrollY > 450 && scrollY < 1400){
             imagen.style.top = (scrollY) * 0.25 - 280 + 'px';
           }
         } else {
