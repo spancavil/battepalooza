@@ -22,9 +22,9 @@ const Content6 = ({desktop, hd, mobile}) => {
           text3.style.top = (scrollY - 2150) * 0.32 + 'px';
         } else return;
       } else if (mobile) {
-        if (scrollY > 2400 && scrollY < 4100){
+        if (scrollY > 2300 && scrollY < 4100){
           imagen.style.top = (scrollY - 1600) * 0.06 - 80 + 'px';
-          text3.style.top = (scrollY - 1600) * 0.08 - 105 + 'px';
+          text3.style.top = (scrollY - 1600) * 0.08 - 100 + 'px';
         }
       } else {
         if (scrollY > 2800 && scrollY < 4100){

@@ -22,9 +22,9 @@ const Content4 = ({desktop, hd, mobile}) => {
           text1.style.top = (scrollY - 1100) * 0.32 + 'px';
         }
       } else if (mobile) {
-        if (scrollY > 950 && scrollY < 2000){
+        if (scrollY > 900 && scrollY < 2000){
           imagen.style.top = (scrollY - 1000) * 0.06 - 30 + 'px';
-          text1.style.top = (scrollY - 1100) * 0.1 - 20 + 'px';
+          text1.style.top = (scrollY - 1100) * 0.06 - 10 + 'px';
         }
       } else {
         if (scrollY > 950 && scrollY < 2000){
