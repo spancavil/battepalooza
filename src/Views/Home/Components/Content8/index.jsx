@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import styles from './styles.module.scss';
 import img5 from '../../../../Assets/img/img5.png';
 
-const Content8 = ({desktop, hd}) => {
+const Content8 = ({desktop, hd, mobile}) => {
 
   useEffect(() => {
    
@@ -21,6 +21,16 @@ const Content8 = ({desktop, hd}) => {
           imagen.style.top = (scrollY - 3300) * 0.15 + 'px';
           text5.style.top = (scrollY - 3100) * 0.32 + 'px';
         } else return;
+      } else if (mobile) {
+        if (scrollY > 3700 && scrollY < 5000){
+          imagen.style.top = (scrollY - 2900) * 0.06 - 100 + 'px';
+          text5.style.top = (scrollY - 2900) * 0.08 - 100 + 'px';
+        }
+      } else {
+        if (scrollY > 4700){
+          imagen.style.top = (scrollY - 1600) * 0.04 - 200 + 'px';
+          text5.style.top = (scrollY - 1600) * 0.06 - 200 + 'px';
+        }
       }
     }
 
@@ -29,7 +39,7 @@ const Content8 = ({desktop, hd}) => {
     return () => {
       window.removeEventListener('scroll', parallax);
     }
-  }, [desktop, hd])
+  }, [desktop, hd, mobile])
 
   return (
     <div className={styles.content8}>
