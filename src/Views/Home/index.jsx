@@ -39,31 +39,38 @@ const HomeContainer = () => {
   }, []);
 
   //Desplazamiento en parallax de la imagen de fondo.
-  useEffect(() => {
-   
-    const imagen = document.getElementById("homeImage");
+  useEffect (
+    () => {
+      const imagen = document.getElementById ('homeImage');
 
-    const parallax = () => {
-      let scrollY = window.scrollY;
-      if (desktop || hd ) {
-        imagen.style.bottom = - (scrollY) * 0.6  + 'px';
-      } else {
-        imagen.style.top = (scrollY) * 0.3  + 'px';
-      }
-    }
+      const parallax = () => {
+        let scrollY = window.scrollY;
+        if (desktop || hd) {
+          imagen.style.bottom = -scrollY * 0.6 + 'px';
+        } else {
+          imagen.style.top = scrollY * 0.3 + 'px';
+        }
+      };
 
-    window.addEventListener('scroll', parallax)
+      window.addEventListener ('scroll', parallax);
 
-    return () => {
-      window.removeEventListener('scroll', parallax);
-    }
-  }, [mobile, desktop, hd])
+      return () => {
+        window.removeEventListener ('scroll', parallax);
+      };
+    },
+    [mobile, desktop, hd]
+  );
 
   return (
     <div className={styles.container}>
       <div className={styles.content1}>
         <div className={styles.battle}>
-          <img src={Home} alt="home" className={styles.homePic} id="homeImage"/>
+          <img
+            src={Home}
+            alt="home"
+            className={styles.homePic}
+            id="homeImage"
+          />
           <img src={bpBrand} alt="bp-brand" className={styles.bpBrand} />
           <div className={styles.botones}>
             <Button
@@ -108,12 +115,12 @@ const HomeContainer = () => {
 
       <AboutCoins hd={hd} desktop={desktop} />
       {/*<AboutPacks />*/}
-      <Content3 hd={hd} desktop={desktop} mobile ={mobile}/>
-      <Content4 hd={hd} desktop={desktop} mobile ={mobile}/>
-      <Content5 hd={hd} desktop={desktop} mobile ={mobile}/>
-      <Content6 hd={hd} desktop={desktop} mobile ={mobile}/>
-      <Content7 hd={hd} desktop={desktop} mobile ={mobile}/>
-      <Content8 hd={hd} desktop={desktop} mobile ={mobile}/>
+      <Content3 hd={hd} desktop={desktop} mobile={mobile} />
+      <Content4 hd={hd} desktop={desktop} mobile={mobile} />
+      <Content5 hd={hd} desktop={desktop} mobile={mobile} />
+      <Content6 hd={hd} desktop={desktop} mobile={mobile} />
+      <Content7 hd={hd} desktop={desktop} mobile={mobile} />
+      <Content8 hd={hd} desktop={desktop} mobile={mobile} />
       <footer>
         <article>
           <section>
@@ -254,7 +261,8 @@ const HomeContainer = () => {
                   <div>
                     <ul>
                       <li>
-                        <span className={styles.linkFooter}
+                        <span
+                          className={styles.linkFooter}
                           onClick={() => {
                             history.push ('/privacy-policy');
                             window.scroll (0, 0);
@@ -265,7 +273,8 @@ const HomeContainer = () => {
                       </li>
                       <li>|</li>
                       <li>
-                        <span className={styles.linkFooter}
+                        <span
+                          className={styles.linkFooter}
                           onClick={() => {
                             history.push ('/terms-of-use');
                             window.scroll (0, 0);
@@ -276,7 +285,14 @@ const HomeContainer = () => {
                       </li>
                       <li>|</li>
                       <li>
-                        <a className={styles.linkFooter}
+                        <span className={styles.linkFooter}>
+                          Whitepaper
+                        </span>
+                      </li>
+                      <li>|</li>
+                      <li>
+                        <a
+                          className={styles.linkFooter}
                           href="https://nway.helpshift.com/a/battlepalooza/?p=web"
                           target="_blank"
                           rel="noopener noreferrer"
