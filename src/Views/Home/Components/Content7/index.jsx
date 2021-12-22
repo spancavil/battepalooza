@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import styles from './styles.module.scss';
 import img4 from '../../../../Assets/img/img4.png';
 
-const Content7 = ({desktop, hd}) => {
+const Content7 = ({desktop, hd, mobile}) => {
   useEffect (
     () => {
       const text4 = document.getElementById ('text4');
@@ -10,16 +10,28 @@ const Content7 = ({desktop, hd}) => {
 
       const parallax = () => {
         let scrollY = window.scrollY;
-        if (scrollY > 2600 && scrollY < 3100) {
-          if (hd) {
+        if (hd) {
+            if (scrollY > 2600 && scrollY < 3100) {
             imagen.style.top = (scrollY - 2800) * 0.06 + 'px';
             text4.style.top = (scrollY - 2600) * 0.27 + 'px';
-          } else if (desktop) {
+            }
+        } else if (desktop) {
+          if (scrollY > 2600 && scrollY < 3100) {
             imagen.style.top = (scrollY - 2800) * 0.15 + 'px';
             text4.style.top = (scrollY - 2700) * 0.32 + 'px';
-          } else return;
+          }
+        } else if (mobile) {
+          if (scrollY > 2900 && scrollY < 4200){
+            imagen.style.top = (scrollY - 2900) * 0.06 - 60 + 'px';
+            text4.style.top = (scrollY - 2900) * 0.08 - 50 + 'px';
+          }
+        } else {
+          if (scrollY > 3700 && scrollY < 5300){
+            imagen.style.top = (scrollY - 1600) * 0.05 - 150 + 'px';
+            text4.style.top = (scrollY - 1600) * 0.06 - 150 + 'px';
+          }
         }
-      };
+      }
 
       window.addEventListener ('scroll', parallax);
 
@@ -27,7 +39,7 @@ const Content7 = ({desktop, hd}) => {
         window.removeEventListener ('scroll', parallax);
       };
     },
-    [desktop, hd]
+    [desktop, hd, mobile]
   );
 
   return (

@@ -20,10 +20,16 @@ const AboutCoins = ({desktop, hd}) => {
         if (scrollY > 300 && scrollY < 700){
           fondo.style.left = (scrollY - 750) * 0.04 - 10.5 + 'px';
           about.style.right = (scrollY - 750) * 0.04 + 18 + 'px';
-
           about.style.top = (scrollY - 400) * 0.05 + 'px';  
-        } 
+        }
+        //Mobile and ipads 
+      } else {
+        if (scrollY > 200 && scrollY < 1000){
+          fondo.style.left = (scrollY - 750) * 0.025 - 10 + 'px';
+          about.style.left = - (scrollY - 750) * 0.025 - 8 + 'px';
+        }
       }
+
     }
 
     window.addEventListener('scroll', parallax)

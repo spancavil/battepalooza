@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import styles from './styles.module.scss';
 import img3 from '../../../../Assets/img/img3.png';
 
-const Content6 = ({desktop, hd}) => {
+const Content6 = ({desktop, hd, mobile}) => {
 
   useEffect(() => {
     
@@ -21,6 +21,16 @@ const Content6 = ({desktop, hd}) => {
           imagen.style.top = (scrollY - 2300) * 0.15 + 'px';
           text3.style.top = (scrollY - 2150) * 0.32 + 'px';
         } else return;
+      } else if (mobile) {
+        if (scrollY > 2300 && scrollY < 4100){
+          imagen.style.top = (scrollY - 1600) * 0.06 - 80 + 'px';
+          text3.style.top = (scrollY - 1600) * 0.08 - 100 + 'px';
+        }
+      } else {
+        if (scrollY > 2800 && scrollY < 4100){
+          imagen.style.top = (scrollY - 1600) * 0.05 - 80 + 'px';
+          text3.style.top = (scrollY - 1600) * 0.06 - 80 + 'px';
+        }
       }
     }
 
@@ -29,7 +39,7 @@ const Content6 = ({desktop, hd}) => {
     return () => {
       window.removeEventListener('scroll', parallax);
     }
-  }, [desktop, hd]);
+  }, [desktop, hd, mobile]);
 
   return (
     <div className={styles.content6}>

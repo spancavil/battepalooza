@@ -16,6 +16,7 @@
     width: 100%;
     flex-direction: column;
     height: 100%;
+    overflow: hidden;
   }
 
   .box {
@@ -75,6 +76,8 @@
     width: 100%;
     flex-direction: column;
     height: 100%;
+    overflow: hidden;
+
   }
 
   .box {
@@ -83,6 +86,7 @@
     margin: 0;
     text-align: left;
     position: relative;
+    overflow: hidden;
 
     h3 {
       font-size: 1.3em;
@@ -173,6 +177,7 @@
     margin: 0 auto;
     position: relative;
     height: 100%;
+    overflow: hidden;
   }
 }
 

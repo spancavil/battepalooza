@@ -45,7 +45,11 @@ const HomeContainer = () => {
 
     const parallax = () => {
       let scrollY = window.scrollY;
-      imagen.style.bottom = - (scrollY) * 0.6  + 'px';
+      if (desktop || hd ) {
+        imagen.style.bottom = - (scrollY) * 0.6  + 'px';
+      } else {
+        imagen.style.top = (scrollY) * 0.3  + 'px';
+      }
     }
 
     window.addEventListener('scroll', parallax)
@@ -53,7 +57,7 @@ const HomeContainer = () => {
     return () => {
       window.removeEventListener('scroll', parallax);
     }
-  }, [])
+  }, [mobile, desktop, hd])
 
   return (
     <div className={styles.container}>
@@ -104,12 +108,12 @@ const HomeContainer = () => {
 
       <AboutCoins hd={hd} desktop={desktop} />
       {/*<AboutPacks />*/}
-      <Content3 hd={hd} desktop={desktop} />
-      <Content4 hd={hd} desktop={desktop} />
-      <Content5 hd={hd} desktop={desktop} />
-      <Content6 hd={hd} desktop={desktop} />
-      <Content7 hd={hd} desktop={desktop} />
-      <Content8 hd={hd} desktop={desktop} />
+      <Content3 hd={hd} desktop={desktop} mobile ={mobile}/>
+      <Content4 hd={hd} desktop={desktop} mobile ={mobile}/>
+      <Content5 hd={hd} desktop={desktop} mobile ={mobile}/>
+      <Content6 hd={hd} desktop={desktop} mobile ={mobile}/>
+      <Content7 hd={hd} desktop={desktop} mobile ={mobile}/>
+      <Content8 hd={hd} desktop={desktop} mobile ={mobile}/>
       <footer>
         <article>
           <section>

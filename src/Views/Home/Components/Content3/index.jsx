@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import arrow from '../../../../Assets/img/arrow.png';
 import bgSection from '../../../../Assets/img/bg-section01.jpg'
 
-const Content3 = ({hd, desktop}) => {
+const Content3 = ({hd, desktop, mobile}) => {
 
     //Desplazamiento en parallax de la imagen de fondo.
     useEffect(() => {
@@ -17,9 +17,17 @@ const Content3 = ({hd, desktop}) => {
             imagen.style.top = (scrollY) * 0.35 - 430 + 'px';
           }
         }
-        if (desktop) {
+        else if (desktop) {
           if (scrollY > 500 && scrollY < 1100){
             imagen.style.top = (scrollY) * 0.35 - 280 + 'px';
+          }
+        } else if (mobile){
+          if (scrollY > 450 && scrollY < 1400){
+            imagen.style.top = (scrollY) * 0.25 - 280 + 'px';
+          }
+        } else {
+          if (scrollY > 500 && scrollY < 1500){
+            imagen.style.top = (scrollY) * 0.15 - 200 + 'px';
           }
         }
       }
@@ -29,7 +37,7 @@ const Content3 = ({hd, desktop}) => {
       return () => {
         window.removeEventListener('scroll', parallax);
       }
-    }, [desktop, hd])
+    }, [desktop, hd, mobile])
 
   return (
     <div className={styles.content3}>
