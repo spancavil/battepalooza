@@ -1,0 +1,256 @@
+@import "../../../../Styles/colors.scss";
+@import "../../../../Styles/breakpoints.scss";
+@import "../../../../Styles/fonts.scss";
+
+@media (max-width: $tablet - 1) {
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .cards {
+      width: 100%;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: row;
+      gap: 45px;
+      overflow-x: scroll;
+      justify-content: left;
+      padding: 0px 15px;
+
+      .cardNft {
+        overflow: visible;
+        position: relative;
+        height: 350px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #030b23;
+        border-radius: 3px;
+        justify-content: center;
+        grid-gap: 20px;
+        gap: 20px;
+      }
+
+      .imgNft {
+        width: 130px;
+      }
+
+      .texts {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 7px;
+        gap: 7px;
+
+        p {
+          font-size: 14px;
+          padding: 0px 15px;
+          text-align: center;
+          color: white;
+          font-family: "Nasalization";
+        }
+
+        .price {
+          color: $logout;
+        }
+
+        .text2 {
+          color: $account-name;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet) and (max-width: $laptop - 1) {
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    a {
+      width: 0;
+    }
+
+    .cards {
+      margin-top: 30px;
+      justify-content: left;
+      padding: 0px 15px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 15px;
+      grid-row-gap: 30px;
+
+      .cardNft {
+        overflow: visible;
+        position: relative;
+        height: 350px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #030b23;
+        border-radius: 3px;
+        justify-content: left;
+        grid-gap: 20px;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .imgNft {
+        width: 130px;
+      }
+
+      .texts {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 7px;
+        gap: 7px;
+
+        p {
+          font-size: 13px;
+          padding: 0px 15px;
+          text-align: center;
+          color: white;
+          font-family: "Nasalization";
+        }
+
+        .price {
+          color: $logout;
+        }
+
+        .text2 {
+          color: $account-name;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $laptop) and (max-width: $desktop - 1) {
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .cards {
+      margin-top: 30px;
+      justify-content: left;
+      padding: 0px 15px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: 15px;
+      grid-row-gap: 30px;
+
+      .cardNft {
+        overflow: visible;
+        position: relative;
+        height: 350px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #030b23;
+        border-radius: 3px;
+        justify-content: left;
+        grid-gap: 20px;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .imgNft {
+        width: 130px;
+      }
+
+      .texts {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 7px;
+        gap: 7px;
+
+        p {
+          font-size: 13px;
+          padding: 0px 15px;
+          text-align: center;
+          color: white;
+          font-family: "Nasalization";
+        }
+
+        .price {
+          color: $logout;
+        }
+
+        .text2 {
+          color: $account-name;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    a {
+      width: 0;
+    }
+
+    .cards {
+      margin-top: 30px;
+      justify-content: left;
+      padding: 0px 15px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(min(1), 1fr);
+      grid-column-gap: 15px;
+      grid-row-gap: 30px;
+
+      .cardNft {
+        cursor: pointer;
+        overflow: visible;
+        position: relative;
+        height: 350px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #030b23;
+        border-radius: 3px;
+        justify-content: left;
+        grid-gap: 20px;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .imgNft {
+        width: 130px;
+      }
+
+      .texts {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+
+        p {
+          font-size: 13px;
+          padding: 0px 15px;
+          text-align: center;
+          color: white;
+          font-family: "Nasalization";
+        }
+
+        .price {
+          color: $logout;
+        }
+
+        .text2 {
+          color: $account-name;
+        }
+      }
+    }
+  }
+}
