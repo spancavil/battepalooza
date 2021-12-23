@@ -48,11 +48,8 @@ function App () {
         {/* <Route exact path="/my-packs" component={MyPacks} />
         <Route exact path="/my-skins" component={MyNfts} /> */}
         {/* <Route exact path="/card-animation" component={CardAnimation} /> */}
-<<<<<<< HEAD
         <Route exact path="/drop" component={Drop} />
-=======
         <Route exact path="/collection" component={Collection} />
->>>>>>> Collection ok, TODO: register in marketplace
         <Route exact path="/to-marketplace/:id" component={ToMarketplace} />
         <Route exact path="/privacy-policy" component={Privacy} />
         <Route exact path="/terms-of-use" component={TermsOfUse} />

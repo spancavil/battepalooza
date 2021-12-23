@@ -1,7 +1,7 @@
 @import "../../../../../Styles/colors.scss";
 @import "../../../../../Styles/fonts.scss";
 @import "../../../../../Styles/breakpoints.scss";
-
+@import "../../../../../Styles/animations.scss";
 
 // Extra mall devices (< 576px)
 @media (max-width: $mobile - 1) {
@@ -19,6 +19,7 @@
     background-color: $blue-dialog-background;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.35);
     border-radius: 15px;
+    animation: modalLeftRight 0.2s, modalFade 0.25s;
 
     p {
       font-family: $font-nasalization;
@@ -53,6 +54,7 @@
     background-color: $blue-dialog-background;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.35);
     border-radius: 15px;
+    animation: modalLeftRight 0.2s, modalFade 0.25s;
 
     p {
       font-family: $font-nasalization;

@@ -7,6 +7,9 @@ import styles from './styles.module.scss';
 import CollectionNfts from './Components/CollectionNfts';
 
 const Collection = () => {
+
+  const charEsc = "<"
+
   return (
     <Background>
        {/* <div className={styles.container}> */}
@@ -23,9 +26,10 @@ const Collection = () => {
         </div>  */}
 
         <div className={styles.content2}>
+          <p className = {styles.goBack}> {charEsc} Go Back</p>
           <p className={styles.title}>NFT</p>
           <div className={styles.rectangle}>
-            <CollectionNfts short />
+            <CollectionNfts/>
           </div>
         </div>
       {/* </div> */}
