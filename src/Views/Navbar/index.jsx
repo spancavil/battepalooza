@@ -85,6 +85,7 @@ const NavBar = () => {
   };
 
   const previousMenu = async link => {
+    setMenu(false)
     await setPreviousNav (link);
     return;
   };
@@ -136,17 +137,6 @@ const NavBar = () => {
             }
           >
             <div className={styles.navLinks}>
-
-              {/* <li onClick={() => previousMenu ('/packs')}>
-                <span
-                  onClick={comingSoon}
-                  href
-                  // to={userData.email ? '/packs' : '/needLogin'}
-                  className={styles.navLink}
-                >
-                  PACKS
-                </span>
-              </li> */}
               <div className={styles.cont}>
                 {userData.email
                   ? <div className={styles.bottomContainer}>
@@ -192,10 +182,23 @@ const NavBar = () => {
                       </Link>
                     </div>}
               </div>
+              <li onClick={() => previousMenu ('/packs')}>
+                <Link
+                  href
+                  to={userData.email ? '/drop' : '/needLogin'}
+                  className={styles.navLink}
+                >
+                  DROP
+                </Link>
+              </li>
               <li onClick={() => previousMenu ('/marketplace')}>
-                <span onClick={()=>
-                userData.email ? history.push('/marketplace'): history.push('/needlogin')} 
-                className={styles.navLink}>
+                <span
+                  onClick={() =>
+                    userData.email
+                      ? history.push ('/marketplace')
+                      : history.push ('/needlogin')}
+                  className={styles.navLink}
+                >
                   MARKETPLACE
                 </span>
               </li>

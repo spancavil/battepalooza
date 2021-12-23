@@ -3,12 +3,14 @@ import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 
 import styles from './styles.module.scss';
 
-const Filters = ({filters, setFilters}) => {
+const Filters = ({filters, setFilters, setPage, input, setInput}) => {
   const breakpoint = useMediaQuery ('(max-width: 1199px)');
   const [menu, setMenu] = useState (false);
 
   const onChange = e => {
     setFilters ({...filters, [e.target.name]: e.target.checked});
+    setPage(1)
+    setInput(1)
   };
 
   return breakpoint

@@ -13,14 +13,31 @@ const MarketPlace = () => {
     EPIC: false,
     LEGENDARY: false,
   });
+  const [page, setPage] = useState (1);
+  const [xPage, setxPage] = useState (25);
+  const [input, setInput] = useState (1);
 
   return (
     <Background>
       <div className={styles.container}>
-        <Filters filters={filters} setFilters={setFilters} />
+        <Filters
+          input={input}
+          setInput={setInput}
+          setPage={setPage}
+          filters={filters}
+          setFilters={setFilters}
+        />
         <div className={styles.products}>
           <SearchBar />
-          <Products filters={filters} />
+          <Products
+            filters={filters}
+            page={page}
+            setPage={setPage}
+            xPage={xPage}
+            setxPage={setxPage}
+            input={input}
+            setInput={setInput}
+          />
         </div>
       </div>
     </Background>

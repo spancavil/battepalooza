@@ -5,9 +5,15 @@ import {Link} from 'react-router-dom';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import Pagination from '../Pagination';
 
-const CollectionNfts = ({filters}) => {
-  const [page, setPage] = useState (1);
-  const [xPage, setxPage] = useState (25);
+const CollectionNfts = ({
+  filters,
+  page,
+  xPage,
+  setPage,
+  setxPage,
+  input,
+  setInput,
+}) => {
   const {nfts} = useContext (NftData);
   const [nftsFiltered, setNftFiltered] = useState (nfts);
 
@@ -17,17 +23,8 @@ const CollectionNfts = ({filters}) => {
     () => {
       breakpoint ? setxPage (4) : setxPage (25);
     },
-    [breakpoint]
+    [breakpoint, setxPage]
   );
-
-/*   useEffect (
-    () => {
-      setNftFiltered (nfts);
-    },
-    [nfts]
-  ); */
-
-  console.log (nftsFiltered);
 
   useEffect (
     () => {
@@ -39,10 +36,8 @@ const CollectionNfts = ({filters}) => {
 
       if (filters.COMMON)
         filtro1 = auxFilter.filter (nft => nft.rare === 'COMMON');
-      if (filters.RARE)
-        filtro2 = auxFilter.filter (nft => nft.rare === 'RARE');
-      if (filters.EPIC)
-        filtro3= auxFilter.filter (nft => nft.rare === 'EPIC');
+      if (filters.RARE) filtro2 = auxFilter.filter (nft => nft.rare === 'RARE');
+      if (filters.EPIC) filtro3 = auxFilter.filter (nft => nft.rare === 'EPIC');
       if (filters.LEGENDARY)
         filtro4 = auxFilter.filter (nft => nft.rare === 'LEGENDARY');
       if (
@@ -53,7 +48,7 @@ const CollectionNfts = ({filters}) => {
       )
         setNftFiltered (nfts);
       else {
-        setNftFiltered ([...filtro1, ...filtro2, ...filtro3, ...filtro4])
+        setNftFiltered ([...filtro1, ...filtro2, ...filtro3, ...filtro4]);
       }
     },
     [filters, nfts]
@@ -90,7 +85,13 @@ const CollectionNfts = ({filters}) => {
             );
           })}
       </div>
-      <Pagination page={page} setPage={setPage} max={max} />
+      <Pagination
+        input={input}
+        setInput={setInput}
+        page={page}
+        setPage={setPage}
+        max={max}
+      />
     </div>
   );
 };
