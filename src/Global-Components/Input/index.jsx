@@ -10,9 +10,9 @@ import styles from './style.module.scss';
  * @param handleChange Función que devuelve el valor del input
  */
 
-const Input = ({label, subtitle, width, type, handleChange, autofocus, autoComplete = "off"}) => {
+const Input = ({label, subtitle, width, widthContainer, type, handleChange, autofocus, autoComplete = "off"}) => {
   return (
-    <div className={styles.inputContainer}>
+    <div className={styles.inputContainer} style={{width: widthContainer ? widthContainer: null}}>
       <label htmlFor={label}>{label}</label>
       <input
         required

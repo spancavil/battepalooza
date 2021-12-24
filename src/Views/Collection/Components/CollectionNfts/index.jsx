@@ -62,6 +62,8 @@ const CollectionNfts = () => {
 
   const max = nfts.length / xPage;
 
+  console.log(nfts)
+
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.cards}>
@@ -70,11 +72,12 @@ const CollectionNfts = () => {
           .map (nft => {
             return (
               <Link
-                style={{textDecoration: 'none', overflow: 'visible'}}
-                to={`/to-marketplace/${nft.id}`}
-                key={nft.id}
+              style={{textDecoration: 'none', overflow: 'visible'}}
+              to={`/to-marketplace/${nft.id}`}
+              key={nft.id}
               >
                 <div className={styles.cardNft} key={nft.id}>
+                {nft.inMarket && <div className={styles.sale}>Sale</div>}
                   <img
                     className={styles.imgNft}
                     src={nft.imgSrc.default}

@@ -18,6 +18,24 @@
       overflow-x: scroll;
       justify-content: left;
       padding: 0px 15px;
+      overflow-y: visible;
+
+      .sale{
+        background-color: $secondary-blue;
+        width: 45px;
+        height: 45px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top: 0px;
+        right: -18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
 
       .cardNft {
         overflow: visible;
@@ -83,6 +101,24 @@
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: 15px;
       grid-row-gap: 30px;
+      overflow: visible;
+
+      .sale{
+        background-color: $secondary-blue;
+        width: 45px;
+        height: 45px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top: -18px;
+        right: -18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
 
       .cardNft {
         overflow: visible;
@@ -145,6 +181,24 @@
       grid-template-columns: repeat(4, 1fr);
       grid-column-gap: 15px;
       grid-row-gap: 30px;
+      overflow: visible;
+
+      .sale{
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
 
       .cardNft {
         overflow: visible;
@@ -212,6 +266,24 @@
       grid-template-rows: repeat(min(1), 1fr);
       grid-column-gap: 15px;
       grid-row-gap: 30px;
+      overflow: visible;
+
+      .sale{
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
 
       .cardNft {
         cursor: pointer;

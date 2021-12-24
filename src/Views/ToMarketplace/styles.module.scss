@@ -28,12 +28,14 @@
         display: flex;
         flex-direction: column;
         padding: 0px 20px;
+        width: 100%;
 
       .subtitle {
         font-weight: normal;
         font-size: 16px;
         text-align: center;
         margin-top: 20px;
+        padding: 0 5px;
       }
 
       .content {
@@ -45,22 +47,20 @@
 
       .inputContainer {
         display: flex;
+        flex-direction: row;
+        justify-content: center;
         align-items: center;
         padding-top: 15px;
+        width: 100%;
 
         label {
           font-size: 14px;
         }
 
-        Input {
-          width: 325px;
-          height: 40px;
-        }
-
         p {
           margin-top: 35px;
-          padding-left: 20px;
           font-size: 14px;
+          padding: 0 10px;
         }
       }
 
@@ -129,6 +129,14 @@
           #0146d5 0%,
           rgba(1, 70, 213, 0) 100%
         );
+        .pinVideo {
+          position: relative;
+          top: 0;
+          left: 50%; /*Center the vid, withouth black spaces*/
+          transform: translate(-50%);
+          width: 100%;
+          height: 100%;
+        }
       }
 
       .text {
@@ -229,6 +237,7 @@
       .buttonsContainer {
         display: flex;
         gap: 20px;
+        overflow-y: visible;
       }
 
       .modalContent {
@@ -259,14 +268,9 @@
             font-size: 16px;
           }
 
-          Input {
-            width: 325px;
-            height: 45px;
-          }
-
           p {
             margin-top: 35px;
-            padding-left: 20px;
+            padding-left: 10px;
             font-size: 16px;
           }
         }
@@ -319,11 +323,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(
-          180deg,
-          #0146d5 0%,
-          rgba(1, 70, 213, 0) 100%
-        );
+        // background: linear-gradient(
+        //   180deg,
+        //   #0146d5 0%,
+        //   rgba(1, 70, 213, 0) 100%
+        // );
+        background: linear-gradient(180deg, rgba(0,0,0,1) 90%, rgba(4,18,55,1) 99.7%);
+        .pinVideo {
+          position: relative;
+          top: 0;
+          left: 50%; /*Center the vid, withouth black spaces*/
+          transform: translate(-50%);
+        }
       }
 
       .text {
@@ -380,6 +391,7 @@
           width: 100%;
           display: flex;
           justify-content: center;
+          overflow: visible;
 
           button {
             font-size: 15px;

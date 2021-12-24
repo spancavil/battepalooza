@@ -15,6 +15,30 @@ const NftProvider = ({ children }) => {
     setNftToOpen(nft);
   };
 
+  const setNftPrice = (nft, priceAssigned, seller, sale) => {
+    const nftToSet = nfts.find(element => element.id === nft.id);
+    //Asignación de parámetros
+    Object.defineProperty(nftToSet, 'price', {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: priceAssigned,
+    })
+    Object.defineProperty(nftToSet, 'seller', {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: seller,
+    })
+    Object.defineProperty(nftToSet, 'inMarket', {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: sale,
+    })
+    setNfts([...nfts]);
+  }
+
   useEffect(() => {
 
     (async ()=>{
@@ -81,7 +105,7 @@ const NftProvider = ({ children }) => {
 
   return (
     <NftData.Provider
-      value={{ setNft, setNftForOpen, nfts, nftSelected, nftToOpen }}
+      value={{ setNft, setNftForOpen, setNftPrice, nfts, nftSelected, nftToOpen }}
     >
       {children}
     </NftData.Provider>
