@@ -162,15 +162,15 @@
         width: 95vw;
         border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
         border-top: 2px solid;
-        border-right: 2px solid;
-        border-left: 2px solid;
         border-bottom: none;
         display: flex;
         flex-direction: row;
         align-items: center;
+        border-right: 2.1px solid;
         justify-content: center;
         gap: 50px;
         background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+        border-left: 2.2px solid;
 
         .link {
           padding: 30px 0px;
@@ -264,14 +264,14 @@
         width: 95vw;
         border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
         border-top: 2px solid;
-        border-right: 2px solid;
-        border-left: 2px solid;
         border-bottom: none;
         display: flex;
         flex-direction: row;
+        border-right: 2.1px solid;
         align-items: center;
         justify-content: center;
         gap: 50px;
+        border-left: 2.3px solid;
         background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
 
         .link {
@@ -364,14 +364,14 @@
         width: 95vw;
         border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
         border-top: 2px solid;
-        border-right: 2px solid;
-        border-left: 2px solid;
         border-bottom: none;
         display: flex;
         flex-direction: row;
         align-items: center;
+        border-right: 2.1px solid;
         justify-content: center;
         gap: 50px;
+        border-left: 2.3px solid;
         background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
 
         .link {
