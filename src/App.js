@@ -12,10 +12,10 @@ import './Styles/Global.scss';
 // import PackDetail from "./Views/PackDetail";
 // import JoinDrop from "./Views/JoinDrop";
 // import OpenPack from "./Views/OpenPack";
-//import Collection from "./Views/Collection";
 // import MyPacks from "./Views/MyPacks";
 // import MyNfts from "./Views/MyNfts";
 // import CardAnimation from "./Views/CardAnimation";
+import Collection from "./Views/Collection";
 import ToMarketplace from './Views/ToMarketplace';
 import Privacy from './Views/PrivacyAndTerms/Privacy';
 import TermsOfUse from './Views/PrivacyAndTerms/TermsOfUse';
@@ -45,11 +45,11 @@ function App () {
         <Route exact path="/packs/:id" component={PackDetail} />
         <Route exact path="/join-drop" component={JoinDrop} />
         <Route exact path="/open-pack" component={OpenPack} /> */}
-        {/* <Route exact path="/collection" component={Collection} /> */}
         {/* <Route exact path="/my-packs" component={MyPacks} />
         <Route exact path="/my-skins" component={MyNfts} /> */}
         {/* <Route exact path="/card-animation" component={CardAnimation} /> */}
         <Route exact path="/drop" component={Drop} />
+        <Route exact path="/collection" component={Collection} />
         <Route exact path="/to-marketplace/:id" component={ToMarketplace} />
         <Route exact path="/privacy-policy" component={Privacy} />
         <Route exact path="/terms-of-use" component={TermsOfUse} />

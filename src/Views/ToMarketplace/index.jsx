@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router';
 import {NftData} from '../../Context/NftProvider';
+import {UserData} from '../../Context/UserProvider';
 import Background from '../../Global-Components/Background';
 import Button from '../../Global-Components/Button';
 import Input from '../../Global-Components/Input';
@@ -12,8 +13,10 @@ const ToMarketplace = () => {
   const [modalUnregister, setmodalUnregister] = useState (false);
   const [modalRegister1, setmodalRegister1] = useState (false);
   const [modalRegister2, setmodalRegister2] = useState (false);
+  const [inputPrice, setInputPrice] = useState(0);
 
-  const {nfts, setNft} = useContext (NftData);
+  const {userData} = useContext(UserData)
+  const {nfts, setNft, setNftPrice} = useContext (NftData);
   const {id} = useParams ();
   const history = useHistory ();
 
@@ -36,28 +39,45 @@ const ToMarketplace = () => {
     history.goBack ();
   };
   const unRegister = () => {
+    const sale = false
+    const user = "BOT"
+    setNftPrice(nftSelected, inputPrice, user, sale)
     history.push ('/collection');
   };
   const Register = () => {
-    setmodalRegister1 (false);
-    setmodalRegister2 (true);
+    if (inputPrice > 0) {
+      const sale = true
+      setNftPrice(nftSelected, inputPrice, userData.pid, sale)
+      setmodalRegister1 (false);
+      setmodalRegister2 (true);
+    } else {
+      return
+    }
   };
   const Confirmation = () => {
     history.push ('/nfts');
   };
-
+  const handleInputChange = (value) => {
+    setInputPrice(value)
+  }
 
   return (
     <Background>
       <p className={styles.back} onClick={goBack}>
         &#60; Go back to Collection
       </p>
-      {nftSelected?.sale
+      {nftSelected?.inMarket
         ? nftSelected &&
             <div className={styles.container}>
               <div className={styles.card}>
                 <div className={styles.imgContainer}>
-                  {/* Aca iria el video */}
+                  <video
+                    className={styles.pinVideo}
+                    src={nftSelected.source.default}
+                    muted
+                    autoPlay
+                    loop
+                  />
                 </div>
                 <div className={styles.text}>
                   <p className={styles.contentNft}>
@@ -65,12 +85,12 @@ const ToMarketplace = () => {
                   </p>
                   <div>
                     <h3 className={styles.rare}>
-                      Rare Skin for Leti.
+                      {nftSelected.title1}
                       <br />
-                      Can be used in Battlepalooza.
+                      {nftSelected.title2}
                     </h3>
                     <p>Currently registered in Marketplace</p>
-                    <p className={styles.price}>Price 2000</p>
+                    <p className={styles.price}>Price {nftSelected.price}</p>
                   </div>
                   <div className={styles.buttonContainer}>
                     <Button
@@ -85,12 +105,14 @@ const ToMarketplace = () => {
                   <Modal
                     title="Confirmation"
                     handleClose={() => setmodalUnregister (false)}
+
                   >
                     <h3 className={styles.textDrop}>
                       Tron Warrior #1234 has been unregistered
                       for sale in the Marketplace
                     </h3>
                     <Button
+                      modal = {true}
                       title="CONFIRM"
                       width="176px"
                       onClick={unRegister}
@@ -102,16 +124,22 @@ const ToMarketplace = () => {
             <div className={styles.container}>
               <div className={styles.card}>
                 <div className={styles.imgContainer}>
-                  {/* Aca iria el video */}
+                  <video
+                      className={styles.pinVideo}
+                      src={nftSelected.source.default}
+                      muted
+                      autoPlay
+                      loop
+                  />
                 </div>
                 <div className={styles.text}>
                   <p className={styles.contentNft}>
                     SERIES 1 - TRON WARRIOR <br /> #1234
                   </p>
                   <h3 className={styles.rare}>
-                    Rare Skin for Leti.
+                    {nftSelected.title1}
                     <br />
-                    Can be used in Battlepalooza.
+                    {nftSelected.title2}
                   </h3>
                   <div className={styles.buttonContainer}>
                     <Button
@@ -133,17 +161,17 @@ const ToMarketplace = () => {
                       </p>
                       <p className={styles.content}>Tron Warrior #1234</p>
                       <div className={styles.inputContainer}>
-                        <Input label="Input price" />
+                        <Input label="Input price" handleChange={(precio) => handleInputChange(precio)} widthContainer={"90%"} width={"100%"}/>
                         <p>NCoin</p>
                       </div>
                       <p className={styles.fee}>Fee (5%)</p>
-                      <p className={styles.ncoin}>100 NCoin</p>
+                      <p className={styles.ncoin}>{inputPrice > 0 ? (inputPrice * 0.05).toFixed(0): 0} NCoin</p>
                       <hr />
                       <p className={styles.afterFee}>
-                        1900 NCoin (Amount received after fee)
+                        {inputPrice > 0 ? (inputPrice - inputPrice * 0.05).toFixed(0): 0} NCoin (Amount received after fee)
                       </p>
                     </div>
-                    <Button title="REGISTER" width="176px" onClick={Register} />
+                    <Button title="REGISTER" width="176px" onClick={Register} modal = {true} />
                   </Modal>
                 </div>}
               {modalRegister2 &&
@@ -158,11 +186,13 @@ const ToMarketplace = () => {
                     </h3>
                     <div className={styles.buttonsContainer}>
                       <Button
+                        modal = {true}
                         title="MARKETPLACE"
                         width="198px"
                         onClick={Confirmation}
                       />
                       <Button
+                        modal = {true}
                         title="CONFIRM"
                         width="198px"
                         onClick={Confirmation}

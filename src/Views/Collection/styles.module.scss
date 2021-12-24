@@ -3,7 +3,7 @@
 @import "../../Styles/breakpoints.scss";
 
 @media (max-width: $tablet - 1) {
-  .container {
+  /* .container {
     padding: 40px 0px;
 
     .content {
@@ -38,27 +38,45 @@
           padding: 7px 0px;
         }
       }
-    }
+    } */
 
     .content2 {
+
+      .goBack{
+        font-size: 12px;
+        color: #3D91EF;
+        font-family: $font-nasalization;
+        text-align: left;
+        width: 100%;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 10vw 0 0 2.5vw;
+      }
+
+      .goBack:hover{
+        text-decoration: underline;
+      }
+
       .title {
-        margin-top: 20px;
-        padding-bottom: 5px;
-        font-size: 25px;
+        font-size: 22px;
         color: white;
         font-family: $font-nasalization;
-        text-align: center;
+        text-align: left;
         width: 100%;
+        padding: 2vw 0 2vw 2.5vw;
       }
 
       .rectangle {
+        border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
         border-top: 3px solid transparent;
         border-image: linear-gradient(
-            180deg,
-            #0146d5 0%,
-            rgba(1, 70, 213, 0) 100%
+          180deg,
+          #0146d5 0%,
+          rgba(1, 70, 213, 0) 100%
           )
           1;
+        border-bottom: none;
+        background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
 
         .link {
           padding: 30px 0px;
@@ -66,19 +84,12 @@
           align-items: center;
           justify-content: center;
         }
-
-        Button {
-          width: 150px;
-          font-size: 15px;
-          padding: 7px 0px;
-        }
       }
     }
   }
-}
 
 @media (min-width: $tablet) and (max-width: $laptop - 1) {
-  .container {
+  /* .container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,30 +132,49 @@
           padding: 7px 0px;
         }
       }
-    }
+    } */
 
     .content2 {
-      max-width: 680px;
-      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .goBack{
+        font-size: 10px;
+        color: #3D91EF;
+        font-family: $font-nasalization;
+        text-align: left;
+        width: 100%;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 2vw 0 0 2.5vw;
+      }
+
+      .goBack:hover{
+        text-decoration: underline;
+      }
 
       .title {
-        margin-top: 20px;
-        padding-bottom: 5px;
         font-size: 25px;
         color: white;
         font-family: $font-nasalization;
         text-align: left;
         width: 100%;
+        padding: 0.3vw 0 1vw 2.5vw;
       }
 
       .rectangle {
-        border: 3px solid transparent;
-        border-image: linear-gradient(
-            180deg,
-            #0146d5 0%,
-            rgba(1, 70, 213, 0) 100%
-          )
-          1;
+        width: 95vw;
+        border: 2px solid;
+        border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+        border-bottom: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
 
         .link {
           padding: 30px 0px;
@@ -153,18 +183,13 @@
           justify-content: center;
         }
 
-        Button {
-          width: 200px;
-          font-size: 15px;
-          padding: 7px 0px;
-        }
       }
     }
   }
-}
 
 @media (min-width: $laptop) and (max-width: $desktop - 1) {
-  .container {
+/*
+ .container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -206,30 +231,51 @@
           padding: 7px 0px;
         }
       }
-    }
+    } */
 
     .content2 {
-      max-width: 850px;
-      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .goBack{
+        font-size: 14px;
+        color: #3D91EF;
+        font-family: $font-nasalization;
+        text-align: left;
+        width: 100%;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 2vw 0 0 2.5vw;
+      }
+
+      .goBack:hover{
+        text-decoration: underline;
+      }
 
       .title {
-        margin-top: 20px;
-        padding-bottom: 5px;
         font-size: 25px;
         color: white;
         font-family: $font-nasalization;
         text-align: left;
         width: 100%;
+        padding: 0.3vw 0 1vw 2.5vw;
+
       }
 
       .rectangle {
-        border: 3px solid transparent;
-        border-image: linear-gradient(
-            180deg,
-            #0146d5 0%,
-            rgba(1, 70, 213, 0) 100%
-          )
-          1;
+        width: 95vw;
+        border: 2px solid;
+        border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+        border-bottom: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+
 
         .link {
           padding: 30px 0px;
@@ -238,18 +284,13 @@
           justify-content: center;
         }
 
-        Button {
-          width: 200px;
-          font-size: 15px;
-          padding: 7px 0px;
-        }
+      
       }
     }
   }
-}
 
 @media (min-width: $desktop) {
-  .container {
+  /* .container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -290,40 +331,49 @@
           padding: 7px 0px;
         }
       }
-    }
+    } */
 
     .content2 {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      justify-content: center;
+      align-items: center;
 
-      p {
+      .goBack{
+        font-size: 14px;
+        color: #3D91EF;
+        font-family: $font-nasalization;
+        text-align: left;
+        width: 100%;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 2vw 0 0 2.5vw;
+      }
+
+      .goBack:hover{
+        text-decoration: underline;
+      }
+
+      .title {
         font-size: 25px;
         color: white;
         font-family: $font-nasalization;
         text-align: left;
         width: 100%;
+        padding: 0.3vw 0 1vw 2.5vw;
       }
 
       .rectangle {
-        width: 650px;
-        border: 3px solid transparent;
-        border-image: linear-gradient(
-            180deg,
-            #0146d5 0%,
-            rgba(1, 70, 213, 0) 100%
-          )
-          1;
+        width: 95vw;
+        border: 2px solid;
+        border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+        border-bottom: none;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         gap: 50px;
-
-        Button {
-          width: 200px;
-          font-size: 15px;
-          padding: 7px 0px;
-        }
+        background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
 
         .link {
           width: 100%;
@@ -333,5 +383,4 @@
         }
       }
     }
-  }
 }

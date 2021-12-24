@@ -67,9 +67,9 @@ const NavBar = () => {
     setModal (true);
   }; */
 
-  const comingSoon2 = () => {
+  const goCollection = () => {
     setMenu (!menu);
-    setModal2 (true);
+    history.push('/collection');
   };
 
   const comingSoon3 = () => {
@@ -222,7 +222,7 @@ const NavBar = () => {
                 ? <ul className={styles.collection}>
                     <li
                       onClick={
-                        comingSoon2
+                        () => goCollection()
                       } /* onClick={() => setDropdown (!dropdown)} */
                     >
                       COLLECTION
@@ -300,10 +300,10 @@ const NavBar = () => {
               </div>
             : <div>
                 <Link to="/login">
-                  <button className={styles.login}>LOGIN</button>
+                  <button className={styles.login} onClick={()=> setMenu (!menu)}>LOGIN</button>
                 </Link>
                 <Link to="/signup">
-                  <button className={styles.signUp}>SIGN UP</button>
+                  <button className={styles.signUp} onClick={()=> setMenu (!menu)}>SIGN UP</button>
                 </Link>
               </div>}
 
