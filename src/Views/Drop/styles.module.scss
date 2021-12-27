@@ -1,0 +1,420 @@
+@import "../../Styles/fonts.scss";
+@import "../../Styles/colors.scss";
+@import "../../Styles/breakpoints.scss";
+
+@media (max-width: $tablet - 1) {
+  .cards {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+    overflow-x: scroll;
+    justify-content: left;
+    padding: 0px 15px;
+    overflow-y: visible;
+
+    .sale {
+      background-color: $secondary-blue;
+      width: 45px;
+      height: 45px;
+      border-radius: 50px;
+      font-family: $font-nasalization;
+      font-size: 15px;
+      color: white;
+      position: absolute;
+      top: 0px;
+      right: -18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cardNft {
+      overflow: visible;
+      position: relative;
+      height: 350px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #030b23;
+      border-radius: 3px;
+      justify-content: center;
+      grid-gap: 20px;
+      gap: 20px;
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 7px;
+      gap: 7px;
+
+      p {
+        font-size: 14px;
+        padding: 0px 15px;
+        text-align: center;
+        color: white;
+        font-family: "Nasalization";
+      }
+
+      .price {
+        color: $logout;
+      }
+
+      .text2 {
+        color: $account-name;
+      }
+    }
+  }
+
+  .content2 {
+    .goBack {
+      font-size: 12px;
+      color: #3d91ef;
+      font-family: $font-nasalization;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 10vw 0 0 2.5vw;
+    }
+
+    .goBack:hover {
+      text-decoration: underline;
+    }
+
+    .title {
+      font-size: 22px;
+      color: white;
+      font-family: $font-nasalization;
+      text-align: left;
+      width: 100%;
+      padding: 2vw 0 2vw 2.5vw;
+    }
+
+    .rectangle {
+      border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+      border-top: 3px solid transparent;
+      border-bottom: none;
+      background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+
+      .link {
+        padding: 30px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+/* TABLET */
+@media (min-width: $tablet) and (max-width: $laptop - 1) {
+  .cards {
+    margin-top: 30px;
+    justify-content: left;
+    padding: 0px 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 30px;
+
+    .cardNft {
+      overflow: visible;
+      position: relative;
+      height: 350px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #030b23;
+      border-radius: 3px;
+      justify-content: left;
+      grid-gap: 20px;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 7px;
+      gap: 7px;
+
+      p {
+        font-size: 13px;
+        padding: 0px 15px;
+        text-align: center;
+        color: white;
+        font-family: "Nasalization";
+      }
+
+      .price {
+        color: $logout;
+      }
+
+      .text2 {
+        color: $account-name;
+      }
+    }
+  }
+
+  .content2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .goBack {
+      font-size: 10px;
+      color: #3d91ef;
+      font-family: $font-nasalization;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 2vw 0 0 2.5vw;
+    }
+
+    .goBack:hover {
+      text-decoration: underline;
+    }
+
+    .title {
+      font-size: 25px;
+      color: white;
+      font-family: $font-nasalization;
+      text-align: left;
+      width: 100%;
+      padding: 0.3vw 0 1vw 2.5vw;
+    }
+
+    .rectangle {
+      width: 95vw;
+      border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+      border-top: 2px solid;
+      border-bottom: none;
+      border-right: 2.1px solid;
+      justify-content: center;
+      gap: 50px;
+      background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+      border-left: 2.2px solid;
+
+      .link {
+        padding: 30px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+/* LAPTOP */
+@media (min-width: $laptop) and (max-width: $desktop - 1) {
+  .cards {
+    margin-top: 30px;
+    justify-content: left;
+    padding: 0px 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 30px;
+
+    .cardNft {
+      overflow: visible;
+      position: relative;
+      height: 350px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #030b23;
+      border-radius: 3px;
+      justify-content: left;
+      grid-gap: 20px;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 7px;
+      gap: 7px;
+
+      p {
+        font-size: 13px;
+        padding: 0px 15px;
+        text-align: center;
+        color: white;
+        font-family: "Nasalization";
+      }
+
+      .price {
+        color: $logout;
+      }
+
+      .text2 {
+        color: $account-name;
+      }
+    }
+  }
+
+  .content2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .goBack {
+      font-size: 14px;
+      color: #3d91ef;
+      font-family: $font-nasalization;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 2vw 0 0 2.5vw;
+    }
+
+    .goBack:hover {
+      text-decoration: underline;
+    }
+
+    .title {
+      font-size: 25px;
+      color: white;
+      font-family: $font-nasalization;
+      text-align: left;
+      width: 100%;
+      padding: 0.3vw 0 1vw 2.5vw;
+    }
+
+    .rectangle {
+      width: 95vw;
+      border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+      border-top: 2px solid;
+      border-bottom: none;
+      border-right: 2.1px solid;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      border-left: 2.3px solid;
+      background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+
+      .link {
+        padding: 30px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+/* DESKTOP */
+@media (min-width: $desktop) {
+  .cards {
+    margin-top: 30px;
+    justify-content: left;
+    padding: 0px 15px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(min(1), 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 30px;
+
+    .cardNft {
+      cursor: pointer;
+      overflow: visible;
+      position: relative;
+      height: 350px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #030b23;
+      border-radius: 3px;
+      justify-content: left;
+      grid-gap: 20px;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      p {
+        font-size: 13px;
+        padding: 0px 15px;
+        text-align: center;
+        color: white;
+        font-family: "Nasalization";
+      }
+
+      .price {
+        color: $logout;
+      }
+
+      .text2 {
+        color: $account-name;
+      }
+    }
+  }
+
+  .content2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .goBack {
+      font-size: 14px;
+      color: #3d91ef;
+      font-family: $font-nasalization;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 2vw 0 0 2.5vw;
+    }
+
+    .goBack:hover {
+      text-decoration: underline;
+    }
+
+    .title {
+      font-size: 25px;
+      color: white;
+      font-family: $font-nasalization;
+      text-align: left;
+      width: 100%;
+      padding: 0.3vw 0 1vw 2.5vw;
+    }
+
+    .rectangle {
+      width: 95vw;
+      border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+      border-top: 2px solid;
+      border-bottom: none;
+      border-right: 2.1px solid;
+      justify-content: center;
+      gap: 50px;
+      border-left: 2.3px solid;
+      background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+
+      .link {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
