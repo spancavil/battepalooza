@@ -24,6 +24,7 @@ import MarketplaceDetail from './Views/MarketplaceDetail';
 import {useContext} from 'react';
 import {UserData} from './Context/UserProvider';
 import Drop from './Views/Drop';
+import DropDetail from './Views/DropDetail';
 
 function App () {
   const {userData} = useContext (UserData);
@@ -49,6 +50,7 @@ function App () {
         <Route exact path="/my-skins" component={MyNfts} /> */}
         {/* <Route exact path="/card-animation" component={CardAnimation} /> */}
         <Route exact path="/drop" component={Drop} />
+        <Route exact path="/drop/:id" component={DropDetail} />
         <Route exact path="/collection" component={Collection} />
         <Route exact path="/to-marketplace/:id" component={ToMarketplace} />
         <Route exact path="/privacy-policy" component={Privacy} />
