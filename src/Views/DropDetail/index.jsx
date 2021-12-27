@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, Fragment, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import {Fragment, useState} from 'react/cjs/react.development';
 import Background from '../../Global-Components/Background';
 import Button from '../../Global-Components/Button';
 import styles from './styles.module.scss';
