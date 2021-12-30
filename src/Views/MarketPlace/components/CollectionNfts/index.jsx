@@ -75,8 +75,8 @@ const CollectionNfts = ({
                     alt="nft"
                   />
                   <div className={styles.texts}>
-                    <p>Series 1 </p>
-                    <p className={styles.text2}>Tron Warrior</p>
+                    <p>{nft.title1}</p>
+                    <p className={styles.text2}>{nft.rare}</p>
                     <p>#{nft.id}</p>
                     <p className={styles.price}>{nft.price} NCoin</p>
                   </div>

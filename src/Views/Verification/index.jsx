@@ -37,7 +37,7 @@ const Verification = () => {
 
  /*  const handleSignOut = () => {
     setTimeout (() => {
-      localStorage.removeItem ('user');
+      localStorage.removeItem ('userBP');
       history.push ('/');
       alert ('Session expired. Please login again.');
       window.location.reload ();

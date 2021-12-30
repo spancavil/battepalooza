@@ -16,7 +16,7 @@ const UserProvider = ({ children }) => {
 
     const setDataUser= async (data) => {
         const user = data.data;
-        localStorage.setItem('user', JSON.stringify(user))
+        localStorage.setItem('userBP', JSON.stringify(user))
         setUserData(user);
     }
 
@@ -38,7 +38,7 @@ const UserProvider = ({ children }) => {
 
     useEffect( () => {
         (async () => {
-            const user =JSON.parse(localStorage.getItem('user'))
+            const user =JSON.parse(localStorage.getItem('userBP'))
             if (user) {
                 setUserData(user);
             }

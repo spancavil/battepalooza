@@ -16,17 +16,17 @@ const ToMarketplace = () => {
   const [inputPrice, setInputPrice] = useState(0);
 
   const {userData} = useContext(UserData)
-  const {nfts, setNft, setNftPrice} = useContext (NftData);
+  const {userNft, setNft, setNftPrice} = useContext (NftData);
   const {id} = useParams ();
   const history = useHistory ();
 
   useEffect (
     () => {
-      const selectedNft = nfts.find (nfts => nfts.id === Number (id));
+      const selectedNft = userNft.find (nfts => nfts.id === Number (id));
       setNftSelected (selectedNft);
       setNft (selectedNft);
     },
-    [id, nfts, setNft]
+    [id, userNft, setNft]
   );
 
   const openModalUnregister = () => {
@@ -46,7 +46,9 @@ const ToMarketplace = () => {
   };
   const Register = () => {
     if (inputPrice > 0) {
+      console.log("Registraaaa")
       const sale = true
+      console.log(nftSelected, inputPrice, userData.pid, sale)
       setNftPrice(nftSelected, inputPrice, userData.pid, sale)
       setmodalRegister1 (false);
       setmodalRegister2 (true);
@@ -54,8 +56,8 @@ const ToMarketplace = () => {
       return
     }
   };
-  const Confirmation = () => {
-    history.push ('/nfts');
+  const handleMarket = () => {
+    history.push ('/marketplace');
   };
   const handleInputChange = (value) => {
     setInputPrice(value)
@@ -189,13 +191,13 @@ const ToMarketplace = () => {
                         modal = {true}
                         title="MARKETPLACE"
                         width="198px"
-                        onClick={Confirmation}
+                        onClick={handleMarket}
                       />
                       <Button
                         modal = {true}
                         title="CONFIRM"
                         width="198px"
-                        onClick={Confirmation}
+                        onClick={()=> setmodalRegister2(false)}
                       />
                     </div>
                   </Modal>

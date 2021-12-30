@@ -4,6 +4,7 @@ export const NftData = createContext({});
 
 const NftProvider = ({ children }) => {
   const [nfts, setNfts] = useState([]);
+  const [userNft, setUserNft] = useState([])
   const [nftSelected, setNftSelected] = useState({});
   const [nftToOpen, setNftToOpen] = useState({});
 
@@ -16,7 +17,9 @@ const NftProvider = ({ children }) => {
   };
 
   const setNftPrice = (nft, priceAssigned, seller, sale) => {
-    const nftToSet = nfts.find(element => element.id === nft.id);
+    console.log('Entro a nft Price')
+    const nftToSet = userNft.find(element => element.id === nft.id);
+    console.log(nftToSet)
     //Asignación de parámetros
     Object.defineProperty(nftToSet, 'price', {
       configurable: true,
@@ -36,13 +39,17 @@ const NftProvider = ({ children }) => {
       writable: true,
       value: sale,
     })
-    setNfts([...nfts]);
+    setUserNft([...userNft]);
   }
 
   useEffect(() => {
 
     (async ()=>{
       const nfts = await nftService.getNfts()
+
+      //Seteamos los NFT del usuario (hardcoded)
+      setUserNft([{...nfts[2]} , {...nfts[4]}])
+
       setNfts(nfts);
     })()
     //Nft hardcoded
@@ -105,7 +112,7 @@ const NftProvider = ({ children }) => {
 
   return (
     <NftData.Provider
-      value={{ setNft, setNftForOpen, setNftPrice, nfts, nftSelected, nftToOpen }}
+      value={{ setNft, setNftForOpen, setNftPrice, nfts, userNft, nftSelected, nftToOpen }}
     >
       {children}
     </NftData.Provider>
