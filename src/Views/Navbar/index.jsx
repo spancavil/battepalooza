@@ -44,7 +44,7 @@ const NavBar = () => {
         response = await authService.getForteBalance (userData);
         if (response.error.text.includes ('authorized')) {
           alert ('Session expired, please login again.');
-          localStorage.removeItem ('user');
+          localStorage.removeItem ('userBP');
           history.push ('/');
           window.location.reload ();
         }
@@ -78,7 +78,7 @@ const NavBar = () => {
   };
 
   const logout = () => {
-    localStorage.removeItem ('user');
+    localStorage.removeItem('userBP');
     logOutAmplitude ();
     history.push ('/');
     window.location.reload ();

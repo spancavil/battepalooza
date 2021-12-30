@@ -9,7 +9,7 @@ import Pagination from '../Pagination';
 const CollectionNfts = () => {
   const [page, setPage] = useState (1);
   const [xPage, setxPage] = useState (25);
-  const {nfts} = useContext (NftData);
+  const {userNft} = useContext (NftData);
   // const [nftsFiltered, setNftFiltered] = useState (nfts);
 
   const breakpoint = useMediaQuery ('(max-width: 1200px)');
@@ -60,16 +60,19 @@ const CollectionNfts = () => {
     [filters, nfts]
   ); */
 
-  const max = nfts.length / xPage;
-
-  console.log(nfts)
+  // useEffect(()=> {
+  //   setSome[{...nfts[2]},{...nfts[4]}]
+  // }, [nfts])
+  
+  const max = userNft.length / xPage;
 
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.cards}>
-        {nfts
+        {userNft
           .slice ((page - 1) * xPage, (page - 1) * xPage + xPage)
           .map (nft => {
+            console.log(nft)
             return (
               <Link
               style={{textDecoration: 'none', overflow: 'visible'}}
@@ -84,10 +87,10 @@ const CollectionNfts = () => {
                     alt="nft"
                   />
                   <div className={styles.texts}>
-                    <p>Series 1 </p>
-                    <p className={styles.text2}>Tron Warrior</p>
+                    <p>{nft.title1}</p>
+                    <p className={styles.text2}>{nft.rare}</p>
                     <p>#{nft.id}</p>
-                    <p className={styles.price}>{nft.price} NCoin</p>
+                    {nft.inMarket && <p className={styles.price}>{nft.price} NCoin</p>}
                   </div>
                 </div>
               </Link>

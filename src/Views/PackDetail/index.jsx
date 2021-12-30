@@ -6,7 +6,7 @@ import CardDetail from './Components/CardDetail';
 import styles from './styles.module.scss';
 
 const PackDetail = () => {
-  const userStorage = JSON.parse (localStorage.getItem ('user'));
+  const userStorage = JSON.parse (localStorage.getItem ('userBP'));
 
   return !userStorage
     ? <Redirect to="/needlogin" />

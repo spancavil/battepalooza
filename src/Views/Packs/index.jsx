@@ -13,7 +13,7 @@ const Packs = () => {
   const {packs, setPack} = useContext (CardData);
   const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});
   const queryTablet = useMediaQuery ('(max-width: 766px)');
-  const userStorage = JSON.parse (localStorage.getItem ('user'));
+  const userStorage = JSON.parse (localStorage.getItem ('userBP'));
 
   const history = useHistory ();
 
