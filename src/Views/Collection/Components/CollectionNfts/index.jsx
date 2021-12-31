@@ -1,18 +1,27 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState, useEffect, useMemo, createRef} from 'react';
 import styles from './styles.module.scss';
 import {NftData} from '../../../../Context/NftProvider';
 import {Link} from 'react-router-dom';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import Pagination from '../Pagination';
+import VanillaTilt from 'vanilla-tilt';
 
 //No hace falta los filters en la collection esta
 const CollectionNfts = () => {
   const [page, setPage] = useState (1);
   const [xPage, setxPage] = useState (25);
   const {userNft} = useContext (NftData);
-  // const [nftsFiltered, setNftFiltered] = useState (nfts);
 
+  //Creamos un array de referencias por cada item que haya en userNft,
+  //Utilizamos useMemo, que se actualiza, al actualizarse userNft. Como es info que viene de context, inicialmente viene sin valores
+  //Una vez que se cargan, se vuelve a mappear y se crean distintas referencias (que son asociadas a los divs contenedores) por cada uno de los items.
+  //Recordemos que las "ref" se utilizan para referenciar objetos del DOM, pudiéndose cambiar sus valores internos sin re-render.
+  const tilts = useMemo(() => userNft.map(() => createRef()), [userNft]);
+  
   const breakpoint = useMediaQuery ('(max-width: 1200px)');
+
+  console.log(userNft);
+  console.log(tilts);
 
   useEffect (
     () => {
@@ -60,9 +69,23 @@ const CollectionNfts = () => {
     [filters, nfts]
   ); */
 
-  // useEffect(()=> {
-  //   setSome[{...nfts[2]},{...nfts[4]}]
-  // }, [nfts])
+  useEffect(()=> {
+    
+    //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
+    //mappeamos e inicializamos sus valores utilizando la librería de Vanilla Tilt
+    tilts.map(tilt => 
+      VanillaTilt.init(tilt.current, {
+        scale: 1.06,
+        speed: 200,
+        max: 15,
+        reverse: true,
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        glare: true,
+        "max-glare": 0.25,
+      })
+    )
+    
+  }, [tilts])
   
   const max = userNft.length / xPage;
 
@@ -71,7 +94,8 @@ const CollectionNfts = () => {
       <div className={styles.cards}>
         {userNft
           .slice ((page - 1) * xPage, (page - 1) * xPage + xPage)
-          .map (nft => {
+          .map ((nft, index) => {
+            //Tenemos que pasarle el index al map, para que apunte a la referencia correcta el div contenedor
             console.log(nft)
             return (
               <Link
@@ -79,7 +103,8 @@ const CollectionNfts = () => {
               to={`/to-marketplace/${nft.id}`}
               key={nft.id}
               >
-                <div className={styles.cardNft} key={nft.id}>
+                {/* Aqui el div apunta a su referencia correspondiente */}
+                <div ref={tilts[index]} className={styles.cardNft} key={nft.id}>
                 {nft.inMarket && <div className={styles.sale}>Sale</div>}
                   <img
                     className={styles.imgNft}
