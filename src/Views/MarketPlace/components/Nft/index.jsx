@@ -1,10 +1,27 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 const Nft = (nft) => {
 
     const [flagVideo, setFlagVideo] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    /* const handleLoading = (e) => {
+        console.log(e);
+        console.log("Cargando...");
+    }
+
+    const handleLoaded = (e) => {
+        console.log(e);
+        console.log("Cargó!");
+    } */
+
+    useEffect(() => {
+        setLoading(true)
+    }, [])
+
+    console.log(loading);
 
     return (
         <Link
@@ -16,14 +33,16 @@ const Nft = (nft) => {
             onMouseEnter={()=>setFlagVideo(true)} 
             onMouseLeave ={()=> setFlagVideo(false)}>
                 {flagVideo ? 
-                <div className={styles.videoContainer}>
+                <div className={styles.videoContainer}> 
                     <video
+                    onLoadedMetadata={()=>setLoading(false)}
                     className={styles.pinVideo}
                     src={nft.source.default}
                     muted
                     autoPlay
                     loop
                     />
+                    {loading && <p className={styles.loadMessage}>Loading...</p>}    
                 </div>
                 :
                 <img
