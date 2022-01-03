@@ -1,7 +1,8 @@
 import React from 'react';
+import Display from '../Display';
 import styles from './styles.module.scss';
 
-const Pagination = ({page, setPage, max, input, setInput}) => {
+const Pagination = ({xPage, setxPage, page, setPage, max, input, setInput}) => {
   const nextPage = () => {
     setPage (parseInt (page) + 1);
     setInput (parseInt (input) + 1);
@@ -33,6 +34,7 @@ const Pagination = ({page, setPage, max, input, setInput}) => {
 
   return (
     <div className={styles.container}>
+      <Display xPage={xPage} setxPage={setxPage} />
       <button disabled={page === 1 || page < 1} onClick={previousPage}>
         <svg
           width="12"

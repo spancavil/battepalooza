@@ -56,20 +56,18 @@ const CollectionNfts = ({
 
   const max = nftsFiltered.length / xPage;
 
-  console.log(nftsFiltered);
-
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.cards}>
         {nftsFiltered
           .slice ((page - 1) * xPage, (page - 1) * xPage + xPage)
           .map (nft => {
-            return (
-              <Nft {...nft}/>
-            );
+            return <Nft {...nft} />;
           })}
       </div>
       <Pagination
+        xPage={xPage}
+        setxPage={setxPage}
         input={input}
         setInput={setInput}
         page={page}

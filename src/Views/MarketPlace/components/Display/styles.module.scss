@@ -1,0 +1,36 @@
+@import "../../../../Styles/colors.scss";
+
+.display {
+    background-color: $secondary-blue;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 3px;
+    cursor: pointer;
+
+    .arrow {
+        transform: rotate(-90deg);
+        transition-duration: 0.3s;
+    }
+
+    .arrowActive {
+        transform: rotate(90deg);
+        transition-duration: 0.3s;
+    }
+}
+
+.dropdown {
+    position: absolute;
+    background-color: $secondary-blue;
+
+    .option { 
+        text-align: center;
+        padding: 3px 15px;
+        cursor: pointer;
+    }
+
+    .option:hover {
+        background-color: #003eb9;
+    }
+}
