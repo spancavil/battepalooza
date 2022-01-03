@@ -271,12 +271,13 @@
         display: flex;
         font-family: $font-nasalization;
         color: white;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-end;
         margin-right: 25px;
         margin-top: 10px;
         padding-bottom: 20px;
         gap: 5px;
+        position: relative;
 
         button {
             background: #0049db;

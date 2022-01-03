@@ -62,7 +62,7 @@ const CollectionNfts = ({
         {nftsFiltered
           .slice ((page - 1) * xPage, (page - 1) * xPage + xPage)
           .map (nft => {
-            return <Nft {...nft} />;
+            return <Nft key={nft.id} {...nft} />;
           })}
       </div>
       <Pagination

@@ -21,8 +21,6 @@ const Nft = (nft) => {
         setLoading(true)
     }, [])
 
-    console.log(loading);
-
     return (
         <Link
         style={{textDecoration: 'none', overflow: 'visible'}}
