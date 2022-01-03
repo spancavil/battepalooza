@@ -35,13 +35,14 @@ const Nft = (nft) => {
                 {flagVideo ? 
                 <div className={styles.videoContainer}> 
                     <video
-                    onLoadedMetadata={()=>setLoading(false)}
+                    onCanPlay={()=>setLoading(false)}
                     className={styles.pinVideo}
                     src={nft.source.default}
                     muted
                     autoPlay
                     loop
                     />
+                    {/* La idea es que si está cargando aparezca el loader POR ENCIMA del video que aún no cargó */}
                     {loading && <p className={styles.loadMessage}>Loading...</p>}    
                 </div>
                 :
