@@ -1,0 +1,76 @@
+@import "../../Styles/fonts.scss";
+@import "../../Styles/breakpoints.scss";
+
+@media (max-width: $tablet - 1) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        padding-top: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        h3 {
+            font-family: $font-nasalization;
+            color: white;
+            font-size: 60px;
+            text-align: center;
+        }
+
+        h3:hover {
+            transform: rotate(1deg);
+            transition-duration: 0.3s;
+        }
+
+        h4 {
+            font-family: $font-nasalization;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 30px;
+        }
+    }
+}
+
+@media (min-width: $tablet) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        padding-top: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        h3 {
+            font-family: $font-nasalization;
+            color: white;
+            font-size: 150px;
+            text-align: center;
+        }
+
+        h3:hover {
+            transform: rotate(1deg);
+            transition-duration: 0.3s;
+        }
+
+        h4 {
+            font-family: $font-nasalization;
+            color: white;
+            font-size: 30px;
+        }
+
+        button {
+            margin-top: 30px;
+        }
+    }
+}

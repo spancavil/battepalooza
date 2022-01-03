@@ -1,20 +1,12 @@
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import HomeContainer from './Views/Home';
 import NavBar from './Views/Navbar';
-import NotFound from './Views/NotFound';
+import Error404 from './Views/Error404';
 import Account from './Views/Account';
 import SignUp from './Views/SignUp';
 import Login from './Views/Login';
 import Verification from './Views/Verification';
 import NeedLogin from './Views/NeedLogin';
-import './Styles/Global.scss';
-// import Packs from "./Views/Packs";
-// import PackDetail from "./Views/PackDetail";
-// import JoinDrop from "./Views/JoinDrop";
-// import OpenPack from "./Views/OpenPack";
-// import MyPacks from "./Views/MyPacks";
-// import MyNfts from "./Views/MyNfts";
-// import CardAnimation from "./Views/CardAnimation";
 import Collection from "./Views/Collection";
 import ToMarketplace from './Views/ToMarketplace';
 import Privacy from './Views/PrivacyAndTerms/Privacy';
@@ -25,6 +17,8 @@ import {useContext} from 'react';
 import {UserData} from './Context/UserProvider';
 import Drop from './Views/Drop';
 import DropDetail from './Views/DropDetail';
+
+import './Styles/Global.scss';
 
 function App () {
   const {userData} = useContext (UserData);
@@ -38,7 +32,6 @@ function App () {
         <Route exact path="/login" component={Login} />
         <Route exact path="/verification" component={Verification} />
         <Route exact path="/needlogin" component={NeedLogin} />
-
         <Route exact path="/account">
           {Object.keys (userData).length === 0 ? <NeedLogin /> : <Account />}
         </Route>
@@ -57,7 +50,7 @@ function App () {
         <Route exact path="/terms-of-use" component={TermsOfUse} />
         <Route exact path="/marketplace" component={MarketPlace} />
         <Route exact path="/marketplace/:nftId" component={MarketplaceDetail} />
-        <Route path="" component={NotFound} />
+        <Route path="" component={Error404} />
       </Switch>
     </BrowserRouter>
   );
