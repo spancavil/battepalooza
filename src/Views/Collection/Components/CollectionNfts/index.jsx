@@ -6,7 +6,13 @@ import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import Pagination from '../Pagination';
 import VanillaTilt from 'vanilla-tilt';
 
-//No hace falta los filters en la collection esta
+/* DOCS:
+https://github.com/gijsroge/tilt.js
+https://codesandbox.io/s/n5ptm?file=/src/index.js:973-1024
+https://javascript.plainenglish.io/implementing-useref-in-react-732908aa1998
+*/
+
+//No hace falta los filters en esta collection
 const CollectionNfts = () => {
   const [page, setPage] = useState (1);
   const [xPage, setxPage] = useState (25);
@@ -76,12 +82,12 @@ const CollectionNfts = () => {
     tilts.map(tilt => 
       VanillaTilt.init(tilt.current, {
         scale: 1.06,
-        speed: 200,
+        speed: 800,
         max: 15,
         reverse: true,
         easing: "cubic-bezier(.03,.98,.52,.99)",
         glare: true,
-        "max-glare": 0.25,
+        "max-glare": 0.15,
       })
     )
     
