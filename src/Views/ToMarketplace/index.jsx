@@ -68,7 +68,7 @@ const ToMarketplace = () => {
       <p className={styles.back} onClick={goBack}>
         &#60; Go back to Collection
       </p>
-      {nftSelected?.inMarket
+      {nftSelected?.inMarket && modalRegister2 === false
         ? nftSelected &&
             <div className={styles.container}>
               <div className={styles.card}>
