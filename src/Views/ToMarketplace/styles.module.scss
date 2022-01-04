@@ -22,6 +22,7 @@
     .buttonsContainer {
       display: flex;
       gap: 20px;
+      overflow: visible;
     }
 
     .modalContent {
@@ -188,6 +189,7 @@
           justify-content: flex-start;
           padding-left: 40px;
           padding-bottom: 20px;
+          overflow: visible;
 
           button {
             margin-top: 10px;
@@ -237,7 +239,7 @@
       .buttonsContainer {
         display: flex;
         gap: 20px;
-        overflow-y: visible;
+        overflow: visible;
       }
 
       .modalContent {
