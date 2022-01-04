@@ -34,7 +34,12 @@ const Pagination = ({xPage, setxPage, page, setPage, max, input, setInput}) => {
 
   return (
     <div className={styles.container}>
-      <Display xPage={xPage} setxPage={setxPage} />
+      <Display
+        setInput={setInput}
+        setPage={setPage}
+        xPage={xPage}
+        setxPage={setxPage}
+      />
       <button disabled={page === 1 || page < 1} onClick={previousPage}>
         <svg
           width="12"

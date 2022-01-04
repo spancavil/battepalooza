@@ -1,21 +1,31 @@
-import React, {useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
+import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import styles from './styles.module.scss';
 
-const Display = ({xPage, setxPage}) => {
+const Display = ({xPage, setxPage, setPage, setInput}) => {
   const [open, setOpen] = useState (false);
 
-  console.log (xPage);
+  const breakpoint = useMediaQuery ('(max-width: 1200px)');
+
+  useEffect (
+    () => {
+      breakpoint ? setxPage (4) : setxPage (25);
+    },
+    [breakpoint, setxPage]
+  );
 
   const onPage = pages => {
     setxPage (pages);
     setOpen (false);
+    setPage (1);
+    setInput(1)
   };
 
   return (
-    <>
+    <Fragment>
       <div className={styles.display} onClick={() => setOpen (!open)}>
         <div className={styles.selected}>
-          <p>25</p>
+          <p>{xPage}</p>
           <svg
             className={open ? styles.arrowActive : styles.arrow}
             width="12"
@@ -31,12 +41,27 @@ const Display = ({xPage, setxPage}) => {
         </div>
         {open &&
           <div className={styles.dropdown}>
-            <p className={styles.option} onClick={() => onPage (25)}>25</p>
-            <p className={styles.option} onClick={() => onPage (50)}>50</p>
-            <p className={styles.option} onClick={() => onPage (100)}>100</p>
+            <p
+              className={styles.option}
+              onClick={() => onPage (breakpoint ? 4 : 25)}
+            >
+              {breakpoint ? 4 : 25}
+            </p>
+            <p
+              className={styles.option}
+              onClick={() => onPage (breakpoint ? 8 : 50)}
+            >
+              {breakpoint ? 8 : 50}
+            </p>
+            <p
+              className={styles.option}
+              onClick={() => onPage (breakpoint ? 16 : 100)}
+            >
+              {breakpoint ? 16 : 100}
+            </p>
           </div>}
       </div>
-    </>
+    </Fragment>
   );
 };
 
