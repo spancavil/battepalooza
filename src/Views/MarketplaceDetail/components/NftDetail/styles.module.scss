@@ -114,26 +114,33 @@
 
 @media (min-width: $desktop) and (max-width: $HD - 1) {
     .detailContainer {
-        margin-top: 30px;
+        height: calc(100vh - 80px);
+        // margin-top: 30px;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap: 35px;
+        // gap: 35px;
         align-items: stretch;
     }
     .videoContainer {
-        width: 21%;
+        background-color: black ;
+        width: 35%;
+        height: 100%;
+        overflow: hidden;
         .pinVideo {
+            height: 100%;
             position: relative;
             top: 0;
             left: 50%; /*Center the vid, withouth black spaces*/
-            transform: translate(-50%);
+            transform: translate(-50%) scale(0.8);
+
         }
     }
     .detailDescription {
-        width: 40%;
+        height: 100%;
+        width: 65%;
         display: flex;
-        background-color: $card-bg;
+        background-color: black;
         flex-direction: column;
         justify-content: center;
         padding: 35px 0px 35px 25px;
@@ -171,15 +178,22 @@
 
 @media (min-width: $HD) {
     .detailContainer {
-        padding-top: 40px;
+        height: calc(80vh - 80px);
+        // padding-top: 40px;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap: 30px;
+        // gap: 30px;
         align-items: stretch;
     }
     .videoContainer {
-        width: 15%;
+        width: 35%;
+        height: 100%;
+        background-color: black ;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .pinVideo {
             position: relative;
             top: 0;
@@ -188,9 +202,11 @@
         }
     }
     .detailDescription {
-        width: 40%;
+        height: 100%;
+        background-color: black;
+        width: 65%;
         display: flex;
-        background-color: $card-bg;
+        // background-color: $card-bg;
         flex-direction: column;
         justify-content: center;
         padding: 35px 0px 35px 40px;
