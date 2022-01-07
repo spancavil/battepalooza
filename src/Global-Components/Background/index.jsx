@@ -6,7 +6,9 @@ const Background = ({children}) => {
     <div className={styles.container}>
       <div className={styles.image}>
         <div className={styles.deg}>
-          {children}
+          <div className={styles.shift}>
+            {children}
+          </div>
         </div>
       </div>
     </div>
