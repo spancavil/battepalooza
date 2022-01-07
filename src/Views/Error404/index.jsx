@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import {useHistory} from 'react-router-dom';
 import { UserData } from '../../Context/UserProvider';
 import Background from '../../Global-Components/Background/index';
