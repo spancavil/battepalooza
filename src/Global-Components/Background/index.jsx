@@ -5,7 +5,9 @@ const Background = ({children}) => {
   return (
     <div className={styles.container}>
       <div className={styles.image}>
-        {children}
+        <div className={styles.deg}>
+          {children}
+        </div>
       </div>
     </div>
   );
