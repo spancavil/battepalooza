@@ -1,28 +1,49 @@
-import React, { useContext, useEffect } from 'react';
+import React, {useContext} from 'react';
 import {useHistory} from 'react-router-dom';
-import { UserData } from '../../Context/UserProvider';
+import {UserData} from '../../Context/UserProvider';
 import Background from '../../Global-Components/Background/index';
 import Button from '../../Global-Components/Button';
 
 import styles from './styles.module.scss';
 
 const Error404 = () => {
-
-  const {handleNavError404} = useContext(UserData);
+  const {handleNavError404} = useContext (UserData);
   const history = useHistory ();
-  handleNavError404(true);
+  handleNavError404 (true);
 
   const backToHome = () => {
-    handleNavError404(false);
+    handleNavError404 (false);
     history.push ('/');
   };
 
   return (
     <Background>
       <div className={styles.container}>
-        <h3>ERROR 404</h3>
-        <h4>PAGE NOT FOUND</h4>
-        <Button title={'BACK TO HOME'} onClick={backToHome} />
+        <div className={styles.deg}>
+          <svg
+            width="81"
+            height="83"
+            viewBox="0 0 81 83"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.9198 24.7188C14.6712 24.7188 15.4209 24.648 16.159 24.5071C21.654 23.4599 25.8083 18.6303 25.8083 12.8302C25.8083 7.03007 21.6563 2.20048 16.159 1.15267C15.4209 1.01183 14.6712 0.94097 13.9198 0.94104C7.35387 0.94104 2.03125 6.26426 2.03125 12.8302C2.03125 19.3961 7.35387 24.7188 13.9198 24.7188Z"
+              fill="white"
+            />
+            <path
+              d="M67.7103 24.7188C68.4617 24.7189 69.2114 24.648 69.9495 24.5071C75.4451 23.4599 79.5994 18.6303 79.5994 12.8302C79.5994 7.03007 75.4474 2.20048 69.9501 1.15267C69.2118 1.0118 68.4619 0.940944 67.7103 0.94104C61.1444 0.94104 55.8218 6.26426 55.8218 12.8302C55.8218 19.3961 61.1444 24.7188 67.7103 24.7188Z"
+              fill="white"
+            />
+            <path
+              d="M80.0403 75.1633C75.1431 69.875 69.2258 65.633 62.6451 62.6929C56.5104 59.9558 49.9114 58.4098 43.1993 58.1373C42.4531 58.1061 41.7065 58.0904 40.9596 58.09C37.1786 58.0891 33.4081 58.4883 29.7111 59.2808C22.5777 60.8173 15.8382 63.8093 9.91413 68.0698C7.00578 70.1601 4.31394 72.5363 1.87886 75.1627L1.92268 75.2031C1.15308 76.1365 0.769495 77.3289 0.850486 78.5359C0.931476 79.743 1.47091 80.8734 2.35831 81.6956C3.24571 82.5179 4.41391 82.9697 5.62363 82.9586C6.83335 82.9475 7.99304 82.4742 8.86517 81.6358L8.89631 81.6646C17.1426 72.7632 28.8311 67.658 40.959 67.658C41.7075 67.658 42.4541 67.6772 43.1988 67.7157C54.5164 68.3022 65.2851 73.3122 73.0222 81.6641L73.0712 81.6191C73.9575 82.3352 75.0722 82.7082 76.211 82.6696C77.3498 82.631 78.4366 82.1835 79.2724 81.409C80.1082 80.6345 80.637 79.5848 80.762 78.4522C80.887 77.3196 80.5999 76.1799 79.9532 75.2418L80.0403 75.1633Z"
+              fill="white"
+            />
+          </svg>
+          <h3>404</h3>
+          <p>Oopss... Page not found</p>
+          <Button title={'BACK TO HOME'} onClick={backToHome} />
+        </div>
       </div>
     </Background>
   );
