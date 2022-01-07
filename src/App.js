@@ -21,11 +21,11 @@ import DropDetail from './Views/DropDetail';
 import './Styles/Global.scss';
 
 function App () {
-  const {userData} = useContext (UserData);
+  const {userData, error404} = useContext (UserData);
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {!error404 && <NavBar />}
       <Switch>
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/signup" component={SignUp} />
