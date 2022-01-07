@@ -207,8 +207,7 @@
 
 @media (min-width: $laptop) {
   .back {
-    width: 1;
-    margin-top: 40px;
+    margin-top: 20px;
     font-family: "Nasalization";
     color: $go-back;
     font-size: 10px;
@@ -218,7 +217,7 @@
 
   .container {
     width: 100vw;
-    height: 75vh;
+    height: calc(100vh - 113px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -317,31 +316,36 @@
     .card {
       display: flex;
       flex-direction: row;
+      justify-content: center;
+      align-items: center;
       color: white;
+      height: 100%;
+      width: 100%;
 
       .imgContainer {
-        width: 325px;
-        height: 420px;
+        width: 30%;
+        height: 90%;
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: black;
         // background: linear-gradient(
         //   180deg,
         //   #0146d5 0%,
         //   rgba(1, 70, 213, 0) 100%
         // );
-        background: linear-gradient(180deg, rgba(0,0,0,1) 90%, rgba(4,18,55,1) 99.7%);
+        // background: linear-gradient(180deg, rgba(0,0,0,1) 96%, rgba(4,18,55,1) 99.8%);
         .pinVideo {
           position: relative;
           top: 0;
           left: 50%; /*Center the vid, withouth black spaces*/
-          transform: translate(-50%);
+          transform: translate(-50%) scale(1.1);
         }
       }
 
       .text {
-        width: 550px;
-        height: 420px;
+        width: 50%;
+        height: 90%;
         display: flex;
         background-color: rgba(3, 11, 35, 0.8);
         flex-direction: column;

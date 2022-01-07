@@ -82,26 +82,21 @@ const ToMarketplace = () => {
                   />
                 </div>
                 <div className={styles.text}>
-                  <p className={styles.contentNft}>
-                    SERIES 1 - TRON WARRIOR <br /> #1234
-                  </p>
-                  <div>
                     <h3 className={styles.rare}>
                       {nftSelected.title1}
                       <br />
                       {nftSelected.title2}
                     </h3>
                     <p>Currently registered in Marketplace</p>
-                    <p className={styles.price}>Price {nftSelected.price}</p>
-                  </div>
-                  <div className={styles.buttonContainer}>
-                    <Button
-                      onClick={openModalUnregister}
-                      title="UNREGISTER TO MARKETPLACE"
-                    />
+                    <p className={styles.price}>Price {nftSelected.price} nCoin</p>
+                    <div className={styles.buttonContainer}>
+                      <Button
+                        onClick={openModalUnregister}
+                        title="UNREGISTER TO MARKETPLACE"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
               {modalUnregister &&
                 <div className={styles.parentContainerModal}>
                   <Modal
@@ -135,9 +130,6 @@ const ToMarketplace = () => {
                   />
                 </div>
                 <div className={styles.text}>
-                  <p className={styles.contentNft}>
-                    SERIES 1 - TRON WARRIOR <br /> #1234
-                  </p>
                   <h3 className={styles.rare}>
                     {nftSelected.title1}
                     <br />
