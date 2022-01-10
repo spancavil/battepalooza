@@ -105,15 +105,17 @@ const ToMarketplace = () => {
 
                   >
                     <h3 className={styles.textDrop}>
-                      Tron Warrior #1234 has been unregistered
+                      Tron Warrior #1234 has been unregistered  
                       for sale in the Marketplace
                     </h3>
+                    <div style={{width: '100%', paddingTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: '25px'}}>                      
                     <Button
                       modal = {true}
                       title="CONFIRM"
                       width="176px"
                       onClick={unRegister}
                     />
+                    </div>
                   </Modal>
                 </div>}
             </div>
@@ -178,7 +180,7 @@ const ToMarketplace = () => {
                       Tron Warrior #1234 has been registered <br />
                       for sale in the Marketplace
                     </h3>
-                    <div className={styles.buttonsContainer}>
+                    <div style={{paddingBottom: '25px'}} className={styles.buttonsContainer}>
                       <Button
                         modal = {true}
                         title="MARKETPLACE"
