@@ -222,7 +222,7 @@
     }
 }
 
-@media (min-width: $laptop) {
+@media (min-width: $laptop) and (max-width: $HD - 1){
     .modalContainer {
         top: 0;
         position: absolute;
@@ -247,18 +247,20 @@
     }
 
     .back {
-        width: 1;
-        margin-top: 40px;
+        padding-top: 20px;
         font-family: "Nasalization";
         color: $go-back;
         font-size: 10px;
         cursor: pointer;
-        margin-left: 20px;
+        padding-left: 20px;
+        background-color: black;
+        position: absolute;
+        top: 80px;
     }
 
     .container {
         width: 100vw;
-        height: 75vh;
+        height: calc(100vh - 80px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -356,14 +358,18 @@
             display: flex;
             flex-direction: row;
             color: white;
+            height: 100%;
+            width: 100%;
 
             .imgContainer {
-                width: 325px;
-                height: 420px;
+                width: 50%;
+                height: 100%;
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                background: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%);
+                padding-right: 50px;
+                justify-content: right;
+                background-color: black;
+                // background: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%);
                 .pinVideo {
                     position: relative;
                     top: 0;
@@ -371,33 +377,35 @@
                     transform: translate(-50%);
                 }
                 img {
-                    height: 75%;
+                    height: 60%;
                 }
             }
 
             .text {
-                width: 550px;
-                height: 420px;
+                width: 50%;
+                height: 100%;
                 display: flex;
-                background-color: rgba(3, 11, 35, 0.8);
+                background-color: black;
                 flex-direction: column;
                 align-items: flex-start;
-                justify-content: space-evenly;
+                justify-content: center;
+                gap: 40px;
 
                 .rare {
                     padding-left: 40px;
                     font-family: $font-nasalization;
                     font-size: 25px;
                     font-weight: 700;
-                    line-height: 35px;
+                    line-height: 26px;
                 }
 
                 p {
                     padding-left: 40px;
                     padding-top: 15px;
                     font-family: $font-nasalization;
-                    font-size: 14px;
+                    font-size: 13px;
                     font-weight: 400;
+                    line-height: 14px;
                 }
 
                 .contentNft {
@@ -441,3 +449,232 @@
         }
     }
 }
+
+@media (min-width: $HD){
+    .modalContainer {
+        top: 0;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .modalText {
+            margin-top: 20px;
+            padding-bottom: 40px;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .chargeNow {
+            font-weight: normal;
+            font-size: 12px;
+           margin-top: 15px;
+        }
+    }
+
+    .back {
+        padding-top: 20px;
+        font-family: "Nasalization";
+        color: $go-back;
+        font-size: 10px;
+        cursor: pointer;
+        padding-left: 20px;
+        background-color: black;
+        position: absolute;
+        top: 80px;
+    }
+
+    .container {
+        width: 100vw;
+        height: calc(80vh - 80px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .parentContainerModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding-top: 80px;
+
+            .buttonsContainer {
+                display: flex;
+                gap: 20px;
+                overflow-y: visible;
+            }
+
+            .modalContent {
+                display: flex;
+                flex-direction: column;
+                padding: 0px 50px;
+
+                .subtitle {
+                    font-weight: normal;
+                    font-size: 18px;
+                    text-align: left;
+                    margin-top: 20px;
+                }
+
+                .content {
+                    font-weight: normal;
+                    font-size: 18px;
+                    text-align: left;
+                    margin-top: 20px;
+                }
+
+                .inputContainer {
+                    display: flex;
+                    align-items: center;
+                    padding-top: 15px;
+
+                    label {
+                        font-size: 16px;
+                    }
+
+                    p {
+                        margin-top: 35px;
+                        padding-left: 10px;
+                        font-size: 16px;
+                    }
+                }
+
+                .fee {
+                    font-size: 16px;
+                    font-weight: normal;
+                    margin-top: 10px;
+                }
+
+                .ncoin {
+                    font-size: 16px;
+                    font-weight: normal;
+                    margin-top: 3px;
+                }
+
+                hr {
+                    margin: 20px 0px;
+                }
+
+                .afterFee {
+                    font-size: 16px;
+                    font-weight: normal;
+                    padding-bottom: 50px;
+                }
+            }
+
+            .textDrop {
+                font-size: 14px;
+                color: white;
+                font-family: $font-nasalization;
+                padding: 0px 130px;
+                padding-top: 25px;
+                padding-bottom: 50px;
+                text-align: center;
+                font-weight: normal;
+            }
+        }
+
+        .card {
+            display: flex;
+            flex-direction: row;
+            color: white;
+            height: 100%;
+            width: 100%;
+
+            .imgContainer {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding-right: 50px;
+                justify-content: right;
+                background-color: black;
+                // background: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%);
+                .pinVideo {
+                    position: relative;
+                    top: 0;
+                    left: 50%; /*Center the vid, withouth black spaces*/
+                    transform: translate(-50%);
+                }
+                img {
+                    height: 60%;
+                }
+            }
+
+            .text {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                background-color: black;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 40px;
+
+                .rare {
+                    padding-left: 40px;
+                    font-family: $font-nasalization;
+                    font-size: 40px;
+                    font-weight: 700;
+                    line-height: 40px;
+                }
+
+                p {
+                    padding-left: 40px;
+                    padding-top: 15px;
+                    font-family: $font-nasalization;
+                    font-size: 20px;
+                    font-weight: 400;
+                    line-height: 23px;
+                }
+
+                .contentNft {
+                    position: absolute;
+                    font-size: 10px;
+                    margin-top: -50px;
+                    margin-bottom: -100px;
+                }
+
+                ul {
+                    list-style: none;
+                    padding-left: 40px;
+                    padding-top: 7px;
+                    font-family: $font-nasalization;
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+
+                .price {
+                    padding-left: 40px;
+                    font-family: $font-nasalization;
+                    font-size: 22px;
+                    font-weight: 700;
+                }
+
+                .buttonContainer {
+                    width: 100%;
+                    padding-left: 40px;
+                    overflow: visible;
+
+
+                    button {
+                        font-size: 15px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 10px 50px;
+                    }
+                }
+            }
+        }
+    }
+}
+
