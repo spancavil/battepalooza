@@ -207,12 +207,13 @@
 
 @media (min-width: $laptop) {
   .back {
-    margin-top: 20px;
+    padding-top: 20px;
     font-family: "Nasalization";
     color: $go-back;
     font-size: 10px;
     cursor: pointer;
-    margin-left: 20px;
+    padding-left: 20px;
+    background-color: black;
   }
 
   .container {
@@ -323,12 +324,12 @@
       width: 100%;
 
       .imgContainer {
-        width: 30%;
-        height: 90%;
+        width: 50%;
+        height: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
         background-color: black;
+        overflow: hidden;
         // background: linear-gradient(
         //   180deg,
         //   #0146d5 0%,
@@ -339,15 +340,16 @@
           position: relative;
           top: 0;
           left: 50%; /*Center the vid, withouth black spaces*/
-          transform: translate(-50%) scale(1.1);
+          transform: translate(-50%);
         }
       }
 
       .text {
         width: 50%;
-        height: 90%;
+        height: 100%;
         display: flex;
-        background-color: rgba(3, 11, 35, 0.8);
+        // background-color: rgba(3, 11, 35, 0.8);
+        background-color: black;
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
@@ -396,8 +398,9 @@
         .buttonContainer {
           width: 100%;
           display: flex;
-          justify-content: center;
+          justify-content: left;
           overflow: visible;
+          padding-left: 40px;
 
           button {
             font-size: 15px;
