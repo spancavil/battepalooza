@@ -167,7 +167,9 @@ const ToMarketplace = () => {
                         {inputPrice > 0 ? (inputPrice - inputPrice * 0.05).toFixed(0): 0} NCoin (Amount received after fee)
                       </p>
                     </div>
-                    <Button title="REGISTER" width="176px" onClick={Register} modal = {true} />
+                    <div style={{paddingBottom: "25px", overflow: "visible"}}>
+                      <Button title="REGISTER" width="176px" onClick={Register} modal = {true} />
+                    </div>
                   </Modal>
                 </div>}
               {modalRegister2 &&

@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import styles from './styles.module.scss';
 import Button from '../../../../Global-Components/Button';
-import {useParams} from 'react-router';
+import {useParams, useHistory} from 'react-router';
 
 const NftDetail = ({nfts, setNft, setNftListing}) => {
+
+  const history = useHistory()
   const {nftId} = useParams ();
   const [chosenNft, setChosenNft] = useState ([]);
 
@@ -24,8 +26,15 @@ const NftDetail = ({nfts, setNft, setNftListing}) => {
     setNftListing(chosenNft);
   };
 
+  const goBack = () => {
+    history.goBack ();
+  };
+
   return (
     <>
+      <p className={styles.back} onClick={goBack}>
+        &#60; Go back to Marketplace
+      </p>
       {chosenNft.length !== 0
         ? <div className={styles.detailContainer}>
             <div className={styles.videoContainer}>
