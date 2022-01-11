@@ -26,10 +26,10 @@
     }
 
     .modalContent {
-        display: flex;
-        flex-direction: column;
-        padding: 0px 20px;
-        width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0px 20px;
+      width: 100%;
 
       .subtitle {
         font-weight: normal;
@@ -66,12 +66,14 @@
       }
 
       .fee {
+        text-align: left;
         font-size: 14px;
         font-weight: normal;
         margin-top: 10px;
       }
 
       .ncoin {
+        text-align: left;
         font-size: 14px;
         font-weight: normal;
         margin-top: 3px;
@@ -84,7 +86,7 @@
       .afterFee {
         font-size: 14px;
         font-weight: normal;
-        padding-bottom: 50px;
+        padding-bottom: 20px;
       }
     }
 
@@ -125,11 +127,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(
-          180deg,
-          #0146d5 0%,
-          rgba(1, 70, 213, 0) 100%
-        );
+        background: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%);
         .pinVideo {
           position: relative;
           top: 0;
@@ -205,7 +203,7 @@
   }
 }
 
-@media (min-width: $laptop ) and (max-width: $HD - 1) {
+@media (min-width: $laptop) and (max-width: $HD - 1) {
   .back {
     padding-top: 20px;
     font-family: "Nasalization";
@@ -245,9 +243,9 @@
       }
 
       .modalContent {
-          display: flex;
-          flex-direction: column;
-          padding: 0px 50px 0px 50px;
+        display: flex;
+        flex-direction: column;
+        padding: 0px 50px 0px 50px;
 
         .subtitle {
           font-weight: normal;
@@ -280,12 +278,14 @@
         }
 
         .fee {
+          text-align: left;
           font-size: 16px;
           font-weight: normal;
           margin-top: 10px;
         }
 
         .ncoin {
+          text-align: left;
           font-size: 16px;
           font-weight: normal;
           margin-top: 3px;
@@ -301,8 +301,6 @@
           padding-bottom: 50px;
         }
       }
-
-
 
       .textDrop {
         font-size: 14px;
@@ -418,7 +416,6 @@
   }
 }
 
-
 @media (min-width: $HD) {
   .back {
     padding-top: 20px;
@@ -459,9 +456,9 @@
       }
 
       .modalContent {
-          display: flex;
-          flex-direction: column;
-          padding: 0px 50px 0px 50px;
+        display: flex;
+        flex-direction: column;
+        padding: 0px 50px 0px 50px;
 
         .subtitle {
           font-weight: normal;
@@ -494,12 +491,14 @@
         }
 
         .fee {
+          text-align: left;
           font-size: 16px;
           font-weight: normal;
           margin-top: 10px;
         }
 
         .ncoin {
+          text-align: left;
           font-size: 16px;
           font-weight: normal;
           margin-top: 3px;
@@ -515,8 +514,6 @@
           padding-bottom: 50px;
         }
       }
-
-
 
       .textDrop {
         font-size: 14px;
