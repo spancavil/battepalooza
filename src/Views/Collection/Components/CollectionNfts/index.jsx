@@ -16,7 +16,11 @@ https://javascript.plainenglish.io/implementing-useref-in-react-732908aa1998
 const CollectionNfts = () => {
   const [page, setPage] = useState (1);
   const [xPage, setxPage] = useState (25);
+
   const {userNft} = useContext (NftData);
+  
+  //Luego utilizaremos userCollection, cuando vengan bien los datos.
+  // const {userCollection} = useContext(NftData)
 
   //Creamos un array de referencias por cada item que haya en userNft,
   //Utilizamos useMemo, que se actualiza, al actualizarse userNft. Como es info que viene de context, inicialmente viene sin valores
@@ -25,9 +29,6 @@ const CollectionNfts = () => {
   const tilts = useMemo(() => userNft.map(() => createRef()), [userNft]);
   
   const breakpoint = useMediaQuery ('(max-width: 1200px)');
-
-  console.log(userNft);
-  console.log(tilts);
 
   useEffect (
     () => {
@@ -102,7 +103,6 @@ const CollectionNfts = () => {
           .slice ((page - 1) * xPage, (page - 1) * xPage + xPage)
           .map ((nft, index) => {
             //Tenemos que pasarle el index al map, para que apunte a la referencia correcta el div contenedor
-            console.log(nft)
             return (
               <Link
               style={{textDecoration: 'none', overflow: 'visible'}}
