@@ -10,7 +10,7 @@ $desktop: 1200px;
 @media (max-width: $mobile - 1){
   .general {
     padding-top: 30px;
-    padding-bottom: 15px;
+    padding-bottom: 30px;
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -26,7 +26,7 @@ $desktop: 1200px;
     p {
       font-family: $font-nasalization;
       font-weight: 700;
-      font-size: 26px;
+      font-size: 22px;
       color: white;
       text-align: center;
     }
@@ -44,8 +44,8 @@ $desktop: 1200px;
 // Small devices (landscape phones, 576px and up)
 @media (min-width: $mobile) and (max-width:$tablet - 1) {
   .general {
-    padding-top: 30px;
-    padding-bottom: 15px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -78,8 +78,8 @@ $desktop: 1200px;
 // Medium devices (tablets, 768px and up)
 @media (min-width: $tablet) and (max-width: $laptop - 1){
     .general {
-    padding-top: 30px;
-    padding-bottom: 15px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -112,8 +112,8 @@ $desktop: 1200px;
 // Large devices (desktops, 992px and up)
 @media (min-width: $laptop) and (max-width: $desktop - 1){
   .general {
-    padding-top: 30px;
-    padding-bottom: 15px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -146,8 +146,8 @@ $desktop: 1200px;
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: $desktop){
   .general {
-    padding-top: 30px;
-    padding-bottom: 15px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     display: flex;
     position: absolute;
     flex-direction: column;
