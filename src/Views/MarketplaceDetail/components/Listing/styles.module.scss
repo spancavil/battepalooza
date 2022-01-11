@@ -1,5 +1,5 @@
-@import '../../../../Styles/fonts.scss';
-@import '../../../../Styles/colors.scss';
+@import "../../../../Styles/fonts.scss";
+@import "../../../../Styles/colors.scss";
 
 .parentContainerModal {
     padding-top: 80px;
@@ -13,7 +13,6 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
-
 }
 .tableList {
     width: 100%;
@@ -23,16 +22,15 @@
     position: relative;
     border-spacing: 15px;
     border-radius: 4px;
-    thead > tr > th{
+    thead > tr > th {
         font-size: 20px;
         font-weight: 400;
         font-family: $font-nasalization;
         color: #fff;
     }
-    tbody > tr > td{
+    tbody > tr > td {
         margin: 5px;
         font-size: 20px;
-        font-weight: 700;
         font-family: $font-nasalization;
         background-color: rgba(8, 31, 145, 0.22);
         color: #fff;
