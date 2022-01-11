@@ -1,12 +1,16 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import nftService from "../Services/nft.service";
+import { UserData } from "./UserProvider";
 export const NftData = createContext({});
 
 const NftProvider = ({ children }) => {
+
+  const {userData} = useContext(UserData);
   const [nfts, setNfts] = useState([]);
   const [userNft, setUserNft] = useState([])
   const [nftSelected, setNftSelected] = useState({});
   const [nftToOpen, setNftToOpen] = useState({});
+  const [userCollection, setUserCollection] = useState([]);
 
   const setNft = (nft) => {
     setNftSelected(nft);
@@ -42,10 +46,27 @@ const NftProvider = ({ children }) => {
     setUserNft([...userNft]);
   }
 
+  useEffect (()=> {
+
+    (async() => {
+
+      if (Object.keys(userData).length !== 0){
+        console.log("Get collection on provider");
+        const userCollection = await nftService.getNftCollection(userData);
+        console.log(userCollection);
+
+        //Luego este setUserCollection debería settearse con los datos reales que vienen de la API
+        setUserCollection([]);
+      }
+
+    })()
+
+  }, [userData])
+
   useEffect(() => {
 
     (async ()=>{
-      const nfts = await nftService.getNfts()
+      const nfts = await nftService.getNfts();
 
       //Seteamos los NFT del usuario (hardcoded)
       setUserNft([{...nfts[2]} , {...nfts[4]}])
@@ -112,7 +133,7 @@ const NftProvider = ({ children }) => {
 
   return (
     <NftData.Provider
-      value={{ setNft, setNftForOpen, setNftPrice, nfts, userNft, nftSelected, nftToOpen }}
+      value={{ setNft, setNftForOpen, setNftPrice, nfts, userNft, nftSelected, nftToOpen, userCollection}}
     >
       {children}
     </NftData.Provider>
