@@ -317,41 +317,151 @@
 }
 
 /* DESKTOP */
-@media (min-width: $desktop) {
+@media (min-width: $desktop) and (max-width: $HD - 1){
   .cards {
     margin-top: 30px;
-    justify-content: left;
     padding: 0px 15px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(min(1), 1fr);
-    grid-column-gap: 15px;
     grid-row-gap: 30px;
 
     .cardNft {
       cursor: pointer;
       overflow: visible;
       position: relative;
-      height: 350px;
-      width: 200px;
+      height: 300px;
+      width: 75%;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
       background-color: #030b23;
       border-radius: 3px;
-      justify-content: left;
-      grid-gap: 20px;
+      justify-content: space-around;
       gap: 20px;
-      justify-content: center;
+      padding: 0 20px;
     }
 
+    .imgNft {
+      width: 45%;
+      transform: scale(1.3);
+    }
     .texts {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 6px;
+      width: 55%;
 
       p {
-        font-size: 13px;
+        font-size: 16px;
+        padding: 0px 15px;
+        text-align: center;
+        color: white;
+        font-family: "Nasalization";
+      }
+
+      .price {
+        color: $logout;
+      }
+
+      .text2 {
+        color: $account-name;
+      }
+    }
+  }
+
+  .content2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .goBack {
+      font-size: 14px;
+      color: #3d91ef;
+      font-family: $font-nasalization;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 2vw 0 0 2.5vw;
+    }
+
+    .goBack:hover {
+      text-decoration: underline;
+    }
+
+    .title {
+      font-size: 25px;
+      color: white;
+      font-family: $font-nasalization;
+      text-align: left;
+      width: 100%;
+      padding: 0.3vw 0 1vw 2.5vw;
+    }
+
+    .rectangle {
+      width: 95vw;
+      border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+      border-top: 2px solid;
+      border-bottom: none;
+      border-right: 2.1px solid;
+      justify-content: center;
+      gap: 50px;
+      border-left: 2.3px solid;
+      background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+
+      .link {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (min-width: $HD) {
+  .cards {
+    margin-top: 30px;
+    padding: 0px 15px;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(min(1), 1fr);
+    // grid-column-gap: 15px;
+    grid-row-gap: 30px;
+
+    .cardNft {
+      cursor: pointer;
+      overflow: visible;
+      position: relative;
+      height: 406px;
+      width: 65%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: #030b23;
+      border-radius: 3px;
+      justify-content: space-around;
+      gap: 20px;
+      padding: 0 20px;
+      
+    }
+
+    .imgNft {
+      width: 50%;
+      transform: scale(1.2);
+    }
+    .texts {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 50%;
+
+      p {
+        font-size: 18px;
         padding: 0px 15px;
         text-align: center;
         color: white;

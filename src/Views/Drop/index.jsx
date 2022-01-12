@@ -16,7 +16,7 @@ const Drop = () => {
             <div className={styles.cards}>
               {dropsList.map (drop => (
                 <Link
-                  style={{textDecoration: 'none', overflow: 'visible'}}
+                  style={{textDecoration: 'none', overflow: 'visible', display: 'flex', justifyContent: 'center'}}
                   to={`/drop/${drop.id}`}
                   key={drop.id}
                 >
