@@ -31,7 +31,7 @@ const DropDetail = () => {
     <Background>
       {dropSelected
         ? <Fragment>
-            <p className={styles.back}>
+            <p className={styles.back} onClick = {()=> history.goBack()}>
               &#60; Go back
             </p>
             <div className={styles.container}>
