@@ -22,8 +22,7 @@ const NftProvider = ({ children }) => {
 
   const setNftPrice = (nft, priceAssigned, seller, sale) => {
     console.log('Entro a nft Price')
-    const nftToSet = userNft.find(element => element.id === nft.id);
-    console.log(nftToSet)
+    const nftToSet = userCollection.find(element => element.uuid === nft.uuid);
     //Asignación de parámetros
     Object.defineProperty(nftToSet, 'price', {
       configurable: true,
@@ -43,7 +42,28 @@ const NftProvider = ({ children }) => {
       writable: true,
       value: sale,
     })
-    setUserNft([...userNft]);
+
+    Object.defineProperty(nft, 'price', {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: priceAssigned,
+    })
+    Object.defineProperty(nft, 'seller', {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: seller,
+    })
+    Object.defineProperty(nft, 'inMarket', {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: sale,
+    })
+    console.log(nftToSet);
+    setUserNft([...userCollection]);
+    return (nft)
   }
 
   useEffect (()=> {
@@ -53,10 +73,9 @@ const NftProvider = ({ children }) => {
       if (Object.keys(userData).length !== 0){
         console.log("Get collection on provider");
         const userCollection = await nftService.getNftCollection(userData);
-        console.log(userCollection);
 
         //Luego este setUserCollection debería settearse con los datos reales que vienen de la API
-        setUserCollection([]);
+        setUserCollection(userCollection.nfts);
       }
 
     })()

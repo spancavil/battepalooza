@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import Pagination from '../Pagination';
 import VanillaTilt from 'vanilla-tilt';
+import imagePlaceholder from '../../../../Assets/img/nft-card-front01.png'
 
 /* DOCS:
 https://github.com/gijsroge/tilt.js
@@ -17,7 +18,7 @@ const CollectionNfts = () => {
   const [page, setPage] = useState (1);
   const [xPage, setxPage] = useState (25);
 
-  const {userNft} = useContext (NftData);
+  const {userCollection} = useContext (NftData);
   
   //Luego utilizaremos userCollection, cuando vengan bien los datos.
   // const {userCollection} = useContext(NftData)
@@ -26,7 +27,7 @@ const CollectionNfts = () => {
   //Utilizamos useMemo, que se actualiza, al actualizarse userNft. Como es info que viene de context, inicialmente viene sin valores
   //Una vez que se cargan, se vuelve a mappear y se crean distintas referencias (que son asociadas a los divs contenedores) por cada uno de los items.
   //Recordemos que las "ref" se utilizan para referenciar objetos del DOM, pudiéndose cambiar sus valores internos sin re-render.
-  const tilts = useMemo(() => userNft.map(() => createRef()), [userNft]);
+  const tilts = useMemo(() => userCollection.map(() => createRef()), [userCollection]);
   
   const breakpoint = useMediaQuery ('(max-width: 1200px)');
 
@@ -94,34 +95,36 @@ const CollectionNfts = () => {
     
   }, [tilts])
   
-  const max = userNft.length / xPage;
+  const max = userCollection.length / xPage;
 
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.cards}>
-        {userNft
+        {userCollection
           .slice ((page - 1) * xPage, (page - 1) * xPage + xPage)
           .map ((nft, index) => {
             //Tenemos que pasarle el index al map, para que apunte a la referencia correcta el div contenedor
             return (
               <Link
               style={{textDecoration: 'none', overflow: 'visible'}}
-              to={`/to-marketplace/${nft.id}`}
-              key={nft.id}
+              to={`/to-marketplace/${nft.uuid}`}
+              key={nft.itemId}
               >
                 {/* Aqui el div apunta a su referencia correspondiente */}
-                <div ref={tilts[index]} className={styles.cardNft} key={nft.id}>
-                {nft.inMarket && <div className={styles.sale}>Sale</div>}
+                <div ref={tilts[index]} className={styles.cardNft} >
+                {nft.salesState === 1 && <div className={styles.sale}>Sale</div>}
+
+                  {/* El source luego cambiara en base al asset */}
                   <img
                     className={styles.imgNft}
-                    src={nft.imgSrc.default}
+                    src= {imagePlaceholder}
                     alt="nft"
                   />
                   <div className={styles.texts}>
-                    <p>{nft.title1}</p>
-                    <p className={styles.text2}>{nft.rare}</p>
-                    <p>#{nft.id}</p>
-                    {nft.inMarket && <p className={styles.price}>{nft.price} NCoin</p>}
+                    <p>{nft.itemName}</p>
+                    <p className={styles.text2}>{nft.rarity}</p>
+                    <p>#{nft.itemId}</p>
+                    {nft.salesState === 1 && <p className={styles.price}>{nft.price} NCoin</p>}
                   </div>
                 </div>
               </Link>

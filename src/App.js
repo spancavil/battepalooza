@@ -45,7 +45,7 @@ function App () {
         <Route exact path="/drop" component={Drop} />
         <Route exact path="/drop/:id" component={DropDetail} />
         <Route exact path="/collection" component={Collection} />
-        <Route exact path="/to-marketplace/:id" component={ToMarketplace} />
+        <Route exact path="/to-marketplace/:uuid" component={ToMarketplace} />
         <Route exact path="/privacy-policy" component={Privacy} />
         <Route exact path="/terms-of-use" component={TermsOfUse} />
         <Route exact path="/marketplace" component={MarketPlace} />
