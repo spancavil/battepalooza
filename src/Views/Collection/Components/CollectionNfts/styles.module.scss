@@ -20,7 +20,7 @@
       padding: 0px 15px;
       overflow-y: visible;
 
-      .sale{
+      .sale {
         background-color: $secondary-blue;
         width: 45px;
         height: 45px;
@@ -103,7 +103,7 @@
       grid-row-gap: 30px;
       overflow: visible;
 
-      .sale{
+      .sale {
         background-color: $secondary-blue;
         width: 45px;
         height: 45px;
@@ -183,7 +183,7 @@
       grid-row-gap: 30px;
       overflow: visible;
 
-      .sale{
+      .sale {
         background-color: $secondary-blue;
         width: 53px;
         height: 53px;
@@ -246,7 +246,7 @@
   }
 }
 
-@media (min-width: $desktop) {
+@media (min-width: $desktop) and (max-width: $HD - 1) {
   .cardsContainer {
     display: flex;
     flex-direction: column;
@@ -265,7 +265,7 @@
       justify-items: center;
       overflow: visible;
 
-      .sale{
+      .sale {
         background-color: $secondary-blue;
         width: 53px;
         height: 53px;
@@ -310,6 +310,88 @@
 
         p {
           font-size: 13px;
+          padding: 0px 15px;
+          text-align: center;
+          color: white;
+          font-family: "Nasalization";
+        }
+
+        .price {
+          color: $logout;
+        }
+
+        .text2 {
+          color: $account-name;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $HD) {
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    a {
+      width: 0;
+    }
+
+    .cards {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(min(1), 1fr);
+      grid-row-gap: 60px;
+      justify-items: center;
+      overflow: visible;
+
+      .sale {
+        background-color: $secondary-blue;
+        width: 53px;
+        height: 53px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .cardNft {
+        cursor: pointer;
+        overflow: visible;
+        position: relative;
+        height: 400px;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #030b23;
+        border-radius: 3px;
+        justify-content: left;
+        grid-gap: 20px;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .imgNft {
+        height: 300px;
+      }
+
+      .texts {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+
+        p {
+          font-size: 14px;
           padding: 0px 15px;
           text-align: center;
           color: white;
