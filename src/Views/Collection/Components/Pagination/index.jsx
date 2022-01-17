@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
+import Display from '../../../MarketPlace/components/Display';
 import styles from './styles.module.scss';
 
-const Pagination = ({page, setPage, max}) => {
-  const [input, setInput] = useState (1);
+const Pagination = ({xPage, setxPage, page, setPage, max, input, setInput}) => {
   const nextPage = () => {
     setPage (parseInt (page) + 1);
     setInput (parseInt (input) + 1);
@@ -34,6 +34,12 @@ const Pagination = ({page, setPage, max}) => {
 
   return (
     <div className={styles.container}>
+      <Display
+        setInput={setInput}
+        setPage={setPage}
+        xPage={xPage}
+        setxPage={setxPage}
+      />
       <button disabled={page === 1 || page < 1} onClick={previousPage}>
         <svg
           width="12"

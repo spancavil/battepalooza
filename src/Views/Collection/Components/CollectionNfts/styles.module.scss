@@ -250,7 +250,6 @@
   .cardsContainer {
     display: flex;
     flex-direction: column;
-    // gap: 20px;
     width: 100%;
 
     a {
@@ -259,12 +258,11 @@
 
     .cards {
       margin-top: 30px;
-      padding: 0px 30px;
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(min(1), 1fr);
-      grid-column-gap: 50px;
-      grid-row-gap: 100px;
+      grid-row-gap: 60px;
+      justify-items: center;
       overflow: visible;
 
       .sale{
