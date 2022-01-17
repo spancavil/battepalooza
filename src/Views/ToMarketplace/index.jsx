@@ -9,10 +9,12 @@ import Modal from '../../Global-Components/Modal';
 import nftService from '../../Services/nft.service';
 import styles from './styles.module.scss';
 import defaultVideo from '../../Services/Videos/Characters/CyborgTed/DarkMax_Epic_1.mp4'
+import { logOutAmplitude } from '../../Utils/amplitude';
 
 const ToMarketplace = () => {
   const [nftSelected, setNftSelected] = useState();
   const [arrayStats, setArrayStats] = useState();
+  const [arrayBonus, setArrayBonus] = useState();
   const [modalUnregister, setmodalUnregister] = useState(false);
   const [modalRegister1, setmodalRegister1] = useState(false);
   const [modalRegister2, setmodalRegister2] = useState(false);
@@ -25,29 +27,45 @@ const ToMarketplace = () => {
 
   useEffect(
     () => {
-      (async () => {
+      const fetchData = async () => {
         if (Object.keys(userData).length !== 0) {
           try {
-            const selectedNft = await nftService.getNftCollectionDetail(
+            const response = await nftService.getNftCollectionDetail(
               userData.bpToken,
               userData.pid,
               uuid)
-            setNftSelected(selectedNft.nft);
+
+            //Logout en caso de error
+            if (response.error.text !== '') {
+              if (response.error.text.includes ('authorized')) {
+                alert ('Session expired, please login again.');
+                localStorage.removeItem ('userBP');
+                logOutAmplitude();
+                history.push ('/');
+                window.location.reload ();
+              } else {
+                alert (response.error.text);
+              }
+            } else {
+              setNftSelected(response.nft);
+            }
 
           } catch (error) {
             alert(error.message)
           }
         }
-      })()
-
+      }
+      userData.email && fetchData()
     },
-    [uuid, userData]
+    [uuid, userData, history]
   );
 
   useEffect(() => {
     if (nftSelected) {
       const arrayStats = Object.entries(nftSelected.stat);
+      const arrayBonus = Object.entries(nftSelected.buff);
       setArrayStats(arrayStats);
+      setArrayBonus(arrayBonus);
     }
   }, [nftSelected, setArrayStats])
 
@@ -121,7 +139,7 @@ const ToMarketplace = () => {
                 <p>Serial: {nftSelected.serial}</p>
                 <p>gNCoin Battle Count: {nftSelected.playCount}/{nftSelected.maxPlayCount}</p>
                 <p>daily gNCoin Battle Count: {nftSelected.dailyPlayCount}/{nftSelected.maxDailyPlayCount}</p>
-                <p>Bonus: {nftSelected.rewardMultiplier}</p>
+                <p>Bonus: {arrayBonus?.map(bonusProp => `${bonusProp[1]} / `)}</p>
                 <p>Rarity: {nftSelected.rarity}</p>
                 <p>Stats:</p>
                 {
@@ -179,19 +197,21 @@ const ToMarketplace = () => {
                 <h3 className={styles.rare}>
                   {nftSelected.itemName}
                 </h3>
+                <p>Rarity: {nftSelected.rarity}</p>
                 {nftSelected.type === 1 ? <p>Character</p> : <p>Weapon</p>}
                 <p>Serial: {nftSelected.serial}</p>
                 <p>gNCoin Battle Count: {nftSelected.playCount}/{nftSelected.maxPlayCount}</p>
                 <p>daily gNCoin Battle Count: {nftSelected.dailyPlayCount}/{nftSelected.maxDailyPlayCount}</p>
-                <p>Bonus: {nftSelected.rewardMultiplier}</p>
-                <p>Rarity: {nftSelected.rarity}</p>
-                <p>Stats:</p>
+                <p>Bonus: {arrayBonus?.map(bonusProp => `${bonusProp[1]} `)}</p>
+                <p className={styles.price}>Stats</p>
+                <p>Story: {nftSelected.storyText}</p>
                 {
                   arrayStats?.map(stat => {
                     return <p>{stat[0]}: {stat[1]}</p>
                   })
                 }
-                <p>Story: {nftSelected.storyText}</p>
+                <p>{nftSelected.ability.text}</p>
+                <p>{nftSelected.ability.features.map(feature => `- ${feature}`)}</p>
                 <div className={styles.buttonContainer}>
                   <Button
                     title="REGISTER TO MARKETPLACE"
