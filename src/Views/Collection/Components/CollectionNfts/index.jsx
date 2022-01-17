@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import styles from './styles.module.scss';
 import {NftData} from '../../../../Context/NftProvider';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import Pagination from '../Pagination';
 import VanillaTilt from 'vanilla-tilt';
