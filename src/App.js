@@ -8,7 +8,7 @@ import Login from './Views/Login';
 import Verification from './Views/Verification';
 import NeedLogin from './Views/NeedLogin';
 import Collection from "./Views/Collection";
-import ToMarketplace from './Views/ToMarketplace';
+import CollectionDetail from './Views/CollectionDetail';
 import Privacy from './Views/PrivacyAndTerms/Privacy';
 import TermsOfUse from './Views/PrivacyAndTerms/TermsOfUse';
 import MarketPlace from './Views/MarketPlace';
@@ -45,7 +45,7 @@ function App () {
         <Route exact path="/drop" component={Drop} />
         <Route exact path="/drop/:id" component={DropDetail} />
         <Route exact path="/collection" component={Collection} />
-        <Route exact path="/to-marketplace/:uuid" component={ToMarketplace} />
+        <Route exact path="/collection/:uuid" component={CollectionDetail} />
         <Route exact path="/privacy-policy" component={Privacy} />
         <Route exact path="/terms-of-use" component={TermsOfUse} />
         <Route exact path="/marketplace" component={MarketPlace} />
