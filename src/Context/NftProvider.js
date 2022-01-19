@@ -11,6 +11,16 @@ const NftProvider = ({ children }) => {
   const [nftSelected, setNftSelected] = useState({});
   const [nftToOpen, setNftToOpen] = useState({});
   const [userCollection, setUserCollection] = useState([]);
+  const characterMaxStats = {
+    maxHealth: 3312,
+    maxEnergyRecovery: 15,
+    maxMoveSpeed: 11,
+  } 
+
+  const weaponMaxStats = {
+    maxDamage: 726,
+    maxCoolDown: 40,
+  }
 
   const setNft = (nft) => {
     setNftSelected(nft);
@@ -152,7 +162,8 @@ const NftProvider = ({ children }) => {
 
   return (
     <NftData.Provider
-      value={{ setNft, setNftForOpen, setNftPrice, nfts, userNft, nftSelected, nftToOpen, userCollection}}
+      value={{ setNft, setNftForOpen, setNftPrice,
+        nfts, userNft, nftSelected, nftToOpen, userCollection, characterMaxStats, weaponMaxStats}}
     >
       {children}
     </NftData.Provider>

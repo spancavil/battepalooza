@@ -39,8 +39,8 @@ const CollectionNfts = () => {
 
   const history = useHistory ();
 
-  const onClick = id => {
-    history.push (`/to-marketplace/${id}`);
+  const onClick = uuid => {
+    history.push (`/collection/${uuid}`);
   };
 
   const breakpoint = useMediaQuery ('(max-width: 1200px)');
@@ -103,9 +103,10 @@ const CollectionNfts = () => {
                     alt="nft"
                   />
                   <div className={styles.texts}>
+                    <p>{nft.repName}</p>
                     <p>{nft.itemName}</p>
                     <p className={styles.text2}>{nft.rarity}</p>
-                    <p>#{nft.itemId}</p>
+                    {/* <p>#{nft.itemId}</p> */}
                     <p>gNCoin Battle Count: {nft.playCount}/{nft.maxPlayCount}</p>
                     {nft.salesState === 1 &&
                       <p className={styles.price}>{nft.price} NCoin</p>}

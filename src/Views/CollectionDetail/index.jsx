@@ -11,9 +11,9 @@ import styles from './styles.module.scss';
 import defaultVideo from '../../Services/Videos/Characters/CyborgTed/DarkMax_Epic_1.mp4'
 import { logOutAmplitude } from '../../Utils/amplitude';
 
-const ToMarketplace = () => {
+const CollectionDetail = () => {
   const [nftSelected, setNftSelected] = useState();
-  const [arrayStats, setArrayStats] = useState();
+  // const [arrayStats, setArrayStats] = useState();
   const [arrayBonus, setArrayBonus] = useState();
   const [modalUnregister, setmodalUnregister] = useState(false);
   const [modalRegister1, setmodalRegister1] = useState(false);
@@ -21,7 +21,7 @@ const ToMarketplace = () => {
   const [inputPrice, setInputPrice] = useState(0);
 
   const { userData } = useContext(UserData)
-  const { setNftPrice } = useContext(NftData);
+  const { setNftPrice, weaponMaxStats, characterMaxStats } = useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
 
@@ -62,12 +62,10 @@ const ToMarketplace = () => {
 
   useEffect(() => {
     if (nftSelected) {
-      const arrayStats = Object.entries(nftSelected.stat);
       const arrayBonus = Object.entries(nftSelected.buff);
-      setArrayStats(arrayStats);
       setArrayBonus(arrayBonus);
     }
-  }, [nftSelected, setArrayStats])
+  }, [nftSelected, setArrayBonus])
 
   const openModalUnregister = () => {
     setmodalUnregister(true);
@@ -105,8 +103,41 @@ const ToMarketplace = () => {
     setInputPrice(value)
   }
 
-  if (nftSelected) {
-    console.log(nftSelected.inMarket, modalRegister2);
+  const CardContent = () => {
+    return (
+      <>
+        <h3 className={styles.rare}>
+          {nftSelected.itemName}
+        </h3>
+        <p>({nftSelected.repName})</p>
+        <p>Rarity: {nftSelected.rarity}</p>
+        {nftSelected.type === 1 ? <p>Character</p> : <p>Weapon</p>}
+        <p>Serial: {nftSelected.serial}</p>
+        <p>gNCoin Battle Count: {nftSelected.playCount}/{nftSelected.maxPlayCount}</p>
+        <p>daily gNCoin Battle Count: {nftSelected.dailyPlayCount}/{nftSelected.maxDailyPlayCount}</p>
+        <p>Bonus: {arrayBonus?.map(bonusProp => `${bonusProp[1]} `)}</p>
+        <p className={styles.price}>Stats</p>
+        <p>Story: {nftSelected.storyText}</p>
+        {
+          nftSelected.type === 1 ?
+          <>
+            <p>HP: {nftSelected.stat.maxHealth} / {characterMaxStats.maxHealth}</p>
+            <p>Energy: {nftSelected.stat.energyRecovery} / {characterMaxStats.maxEnergyRecovery}</p>
+            <p>Speed: {nftSelected.stat.moveSpeed} / {characterMaxStats.maxMoveSpeed}</p>
+            <p>Skill: {nftSelected.skill.name}</p>
+          </>
+          :
+          nftSelected.type === 2 &&
+          <>
+            <p>Damage: {nftSelected.stat.damage} / {weaponMaxStats.maxDamage}</p>
+            <p>Energy: {nftSelected.stat.consumeEnergy} / {nftSelected.stat.maxEnergy}</p>
+            <p>Cooldown: {nftSelected.stat.coolTime} / {weaponMaxStats.maxCoolDown}</p>
+          </>
+        }
+        <p>{nftSelected.ability.text}</p>
+        <p>Abilities: {nftSelected.ability.features.map(feature => `- ${feature}`)}</p>
+      </>
+    )
   }
 
   return (
@@ -131,23 +162,9 @@ const ToMarketplace = () => {
                 />
               </div>
               <div className={styles.text}>
-                <h3 className={styles.rare}>
-                  {nftSelected.itemName}
-                </h3>
-                <p className={styles.rare} >Currently registered in Marketplace</p>
-                {nftSelected.type === 1 ? <p>Character</p> : <p>Weapon</p>}
-                <p>Serial: {nftSelected.serial}</p>
-                <p>gNCoin Battle Count: {nftSelected.playCount}/{nftSelected.maxPlayCount}</p>
-                <p>daily gNCoin Battle Count: {nftSelected.dailyPlayCount}/{nftSelected.maxDailyPlayCount}</p>
-                <p>Bonus: {arrayBonus?.map(bonusProp => `${bonusProp[1]} / `)}</p>
-                <p>Rarity: {nftSelected.rarity}</p>
-                <p>Stats:</p>
-                {
-                  arrayStats?.map(stat => {
-                    return <p>{stat[0]}: {stat[1]}</p>
-                  })
-                }
-                <p>Story: {nftSelected.storyText}</p>
+
+                <CardContent/>
+                
                 <p className={styles.price}>Price {nftSelected.price} nCoin</p>
                 <div className={styles.buttonContainer}>
                   <Button
@@ -194,24 +211,9 @@ const ToMarketplace = () => {
                 />
               </div>
               <div className={styles.text}>
-                <h3 className={styles.rare}>
-                  {nftSelected.itemName}
-                </h3>
-                <p>Rarity: {nftSelected.rarity}</p>
-                {nftSelected.type === 1 ? <p>Character</p> : <p>Weapon</p>}
-                <p>Serial: {nftSelected.serial}</p>
-                <p>gNCoin Battle Count: {nftSelected.playCount}/{nftSelected.maxPlayCount}</p>
-                <p>daily gNCoin Battle Count: {nftSelected.dailyPlayCount}/{nftSelected.maxDailyPlayCount}</p>
-                <p>Bonus: {arrayBonus?.map(bonusProp => `${bonusProp[1]} `)}</p>
-                <p className={styles.price}>Stats</p>
-                <p>Story: {nftSelected.storyText}</p>
-                {
-                  arrayStats?.map(stat => {
-                    return <p>{stat[0]}: {stat[1]}</p>
-                  })
-                }
-                <p>{nftSelected.ability.text}</p>
-                <p>{nftSelected.ability.features.map(feature => `- ${feature}`)}</p>
+
+                <CardContent/>
+
                 <div className={styles.buttonContainer}>
                   <Button
                     title="REGISTER TO MARKETPLACE"
@@ -278,4 +280,4 @@ const ToMarketplace = () => {
   );
 };
 
-export default ToMarketplace;
+export default CollectionDetail;
