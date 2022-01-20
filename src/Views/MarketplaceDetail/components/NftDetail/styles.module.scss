@@ -147,6 +147,7 @@
         background-color: black;
         position: absolute;
         top: 80px;
+        z-index: 2;
       }
 
     .detailContainer {
@@ -163,12 +164,15 @@
         width: 50%;
         height: 100%;
         overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .pinVideo {
-            height: 100%;
+            height: 90%;
             position: relative;
             top: 0;
             left: 50%; /*Center the vid, withouth black spaces*/
-            transform: translate(-50%) scale(0.85);
+            transform: translate(-50%);
 
         }
     }
@@ -224,6 +228,7 @@
         background-color: black;
         position: absolute;
         top: 80px;
+        z-index: 2;
       }
 
     .detailContainer {
@@ -248,6 +253,7 @@
             top: 0;
             left: 50%; /*Center the vid, withouth black spaces*/
             transform: translate(-50%);
+            height: 90%;
         }
     }
     .detailDescription {

@@ -214,6 +214,7 @@
     background-color: black;
     position: absolute;
     top: 80px;
+    z-index: 2;
   }
 
   .container {
@@ -341,6 +342,7 @@
           top: 0;
           left: 50%; /*Center the vid, withouth black spaces*/
           transform: translate(-50%);
+          height: 100%;
         }
       }
 
@@ -426,6 +428,7 @@
     background-color: black;
     position: absolute;
     top: 80px;
+    z-index: 2;
   }
 
   .container {
@@ -554,6 +557,7 @@
           top: 0;
           left: 50%; /*Center the vid, withouth black spaces*/
           transform: translate(-50%);
+          height: 90%;
         }
       }
 

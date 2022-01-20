@@ -8,7 +8,8 @@ import Input from '../../Global-Components/Input';
 import Modal from '../../Global-Components/Modal';
 import nftService from '../../Services/nft.service';
 import styles from './styles.module.scss';
-import defaultVideo from '../../Services/Videos/Characters/CyborgTed/DarkMax_Epic_1.mp4'
+import defaultVideoCharacter from '../../Services/Videos/Characters/CyborgTed/DarkMax_Epic_1.mp4';
+import defaultVideoWeapon from '../../Services/Videos/Weapons/Hammer/hellGreen.mp4';
 import { logOutAmplitude } from '../../Utils/amplitude';
 
 const CollectionDetail = () => {
@@ -155,7 +156,7 @@ const CollectionDetail = () => {
                 {/* POR AHORA UN VIDEO POR DEFAULT, LUEGO SE CAMBIA POR LOS ASSETS */}
                 <video
                   className={styles.pinVideo}
-                  src={defaultVideo}
+                  src={nftSelected.type === 1 ? defaultVideoCharacter : defaultVideoWeapon}
                   muted
                   autoPlay
                   loop
@@ -204,7 +205,7 @@ const CollectionDetail = () => {
               <div className={styles.imgContainer}>
                 <video
                   className={styles.pinVideo}
-                  src={defaultVideo}
+                  src={nftSelected.type === 1 ? defaultVideoCharacter : defaultVideoWeapon}
                   muted
                   autoPlay
                   loop
