@@ -32,9 +32,13 @@ const Nft = (nft) => {
             onMouseLeave ={()=> setFlagVideo(false)}>
                 {flagVideo ? 
                 <div className={styles.videoContainer}>
-                    {loading ? 
-                    <p className={styles.loadMessage}>Loading...</p>    
-                    :
+                    {/* La idea es que si está cargando aparezca el loader POR ENCIMA del video que aún no cargó */}
+                    {loading && (
+                    <div className={styles.loadMessageContainer}>
+                        <p className={styles.loadMessage}>Loading...</p>
+                    </div>
+                    )
+                    }
                     <video
                     onCanPlayThrough={()=>setLoading(false)}
                     className={styles.pinVideo}
@@ -43,8 +47,6 @@ const Nft = (nft) => {
                     autoPlay
                     loop
                     />
-                    /* La idea es que si está cargando aparezca el loader POR ENCIMA del video que aún no cargó */
-                    }
                 </div>
                 :
                 <img

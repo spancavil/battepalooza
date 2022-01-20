@@ -14,7 +14,7 @@ import { logOutAmplitude } from '../../Utils/amplitude';
 
 const CollectionDetail = () => {
   const [nftSelected, setNftSelected] = useState();
-  // const [arrayStats, setArrayStats] = useState();
+  const [loading, setLoading] = useState(false);
   const [arrayBonus, setArrayBonus] = useState();
   const [modalUnregister, setmodalUnregister] = useState(false);
   const [modalRegister1, setmodalRegister1] = useState(false);
@@ -25,6 +25,10 @@ const CollectionDetail = () => {
   const { setNftPrice, weaponMaxStats, characterMaxStats } = useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
+
+  useEffect(() => {
+    setLoading(true)
+  }, [])
 
   useEffect(
     () => {
@@ -152,9 +156,15 @@ const CollectionDetail = () => {
           <div className={styles.container}>
             <div className={styles.card}>
               <div className={styles.imgContainer}>
-
+                {loading && (
+                  <div className={styles.loadMessageContainer}>
+                      <p className={styles.loadMessage}>Loading...</p>
+                  </div>
+                )
+                }
                 {/* POR AHORA UN VIDEO POR DEFAULT, LUEGO SE CAMBIA POR LOS ASSETS */}
                 <video
+                  onCanPlayThrough={()=>setLoading(false)}
                   className={styles.pinVideo}
                   src={nftSelected.type === 1 ? defaultVideoCharacter : defaultVideoWeapon}
                   muted
@@ -203,7 +213,14 @@ const CollectionDetail = () => {
           <div className={styles.container}>
             <div className={styles.card}>
               <div className={styles.imgContainer}>
+                {loading && (
+                  <div className={styles.loadMessageContainer}>
+                      <p className={styles.loadMessage}>Loading...</p>
+                  </div>
+                )
+                }
                 <video
+                  onCanPlayThrough={()=>setLoading(false)}
                   className={styles.pinVideo}
                   src={nftSelected.type === 1 ? defaultVideoCharacter : defaultVideoWeapon}
                   muted
