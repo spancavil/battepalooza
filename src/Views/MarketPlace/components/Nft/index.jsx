@@ -33,7 +33,7 @@ const Nft = (nft) => {
                 {flagVideo ? 
                 <div className={styles.videoContainer}> 
                     <video
-                    onCanPlay={()=>setLoading(false)}
+                    onCanPlayThrough={()=>setLoading(false)}
                     className={styles.pinVideo}
                     src={nft.source.default}
                     muted
