@@ -11,6 +11,7 @@ import styles from './styles.module.scss';
 import defaultVideoCharacter from '../../Services/Videos/Characters/CyborgTed/DarkMax_Epic_1.mp4';
 import defaultVideoWeapon from '../../Services/Videos/Weapons/Hammer/hellGreen.mp4';
 import { logOutAmplitude } from '../../Utils/amplitude';
+import Loader from '../../Global-Components/Loader';
 
 const CollectionDetail = () => {
   const [nftSelected, setNftSelected] = useState();
@@ -158,7 +159,7 @@ const CollectionDetail = () => {
               <div className={styles.imgContainer}>
                 {loading && (
                   <div className={styles.loadMessageContainer}>
-                      <p className={styles.loadMessage}>Loading...</p>
+                      <Loader />
                   </div>
                 )
                 }
@@ -215,7 +216,7 @@ const CollectionDetail = () => {
               <div className={styles.imgContainer}>
                 {loading && (
                   <div className={styles.loadMessageContainer}>
-                      <p className={styles.loadMessage}>Loading...</p>
+                      <Loader />
                   </div>
                 )
                 }

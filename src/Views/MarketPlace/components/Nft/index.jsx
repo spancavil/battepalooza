@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../../../../Global-Components/Loader';
 import styles from './styles.module.scss';
 
 const Nft = (nft) => {
@@ -35,7 +36,7 @@ const Nft = (nft) => {
                     {/* La idea es que si está cargando aparezca el loader POR ENCIMA del video que aún no cargó */}
                     {loading && (
                     <div className={styles.loadMessageContainer}>
-                        <p className={styles.loadMessage}>Loading...</p>
+                        <Loader />
                     </div>
                     )
                     }
