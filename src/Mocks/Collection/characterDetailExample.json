@@ -1,0 +1,49 @@
+{
+    "nft": {
+        "dailyPlayCount": 0,
+        "maxDailyPlayCount": 12,
+        "rewardMultiplier": 11,
+        "storyText": "Kumarin, who is active as an idol, woke up in an unknown place while running away from the paparazzi. She is looking for a way back to the stage.",
+        "skill": {
+            "id": 40,
+            "name": "Rush attack"
+        },
+        "ability": {
+            "text": "Increases the movement speed for a certain time. \\nIf an opponent clashes during the buff, it will cause stun.",
+            "features": [
+                "Multiple Attack",
+                "Speed Up",
+                "Stun"
+            ]
+        },
+        "stat": {
+            "maxHealth": 2553,
+            "energyRecovery": 15,
+            "moveSpeed": 9
+        },
+        "buff": {
+            "id": 1,
+            "name": "",
+            "value": 11
+        },
+        "uuid": "36b42468-cd1f-47d6-9920-f999ce7b19d0",
+        "type": 1,
+        "itemId": 60,
+        "itemName": "",
+        "repName": "Kumarin",
+        "clan": 4,
+        "rarity": "EPIC",
+        "sealed": true,
+        "salesState": 0,
+        "salesExpiry": 0,
+        "serial": 1,
+        "playCount": 0,
+        "maxPlayCount": 323
+    },
+    "result": 0,
+    "error": {
+        "num": 0,
+        "action": 0,
+        "text": ""
+    }
+}
