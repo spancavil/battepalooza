@@ -67,7 +67,8 @@ const CollectionDetail = () => {
 
   useEffect(() => {
     if (nftSelected) {
-      const arrayBonus = Object.entries(nftSelected.buff);
+      const arrayBonus = Object.entries(nftSelected.buff[0]);
+      console.log(nftSelected.buff);
       setArrayBonus(arrayBonus);
     }
   }, [nftSelected, setArrayBonus])

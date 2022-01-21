@@ -1,0 +1,46 @@
+{
+    "nft": {
+        "dailyPlayCount": 0,
+        "maxDailyPlayCount": 12,
+        "rewardMultiplier": 1,
+        "storyText": "It is a modified weapon from the main weapon used by the Guardians in the past war. Still, the performance is solid.",
+        "skill": null,
+        "ability": {
+            "text": "Attacks a single enemy. \\nAttacks 3 times per attack.",
+            "features": [
+                "Single Attack",
+                "Semi-Auto"
+            ]
+        },
+        "stat": {
+            "damage": 111,
+            "consumeEnergy": 20,
+            "maxEnergy": 100,
+            "coolTime": 0.6
+        },
+        "buff": {
+            "id": 2,
+            "name": "",
+            "value": 1
+        },
+        "uuid": "8cf57c44-964b-4fa7-8212-e4e7d3674489",
+        "type": 2,
+        "itemId": 1022,
+        "itemName": "",
+        "repName": "Rifle",
+        "clan": 2,
+        "rarity": "COMMON",
+        "sealed": true,
+        "salesState": 0,
+        "salesExpiry": 0,
+        "serial": 1,
+        "playCount": 0,
+        "maxPlayCount": 281
+    },
+    "result": 0,
+    "error": {
+        "num": 0,
+        "action": 0,
+        "text": ""
+    }
+}

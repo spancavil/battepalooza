@@ -84,8 +84,12 @@ const NftProvider = ({ children }) => {
         console.log("Get collection on provider");
         const userCollection = await nftService.getNftCollection(userData);
 
+        console.log(userCollection);
+
         //Luego este setUserCollection debería settearse con los datos reales que vienen de la API
-        setUserCollection(userCollection.nfts);
+        if (userCollection.nfts){
+          setUserCollection(userCollection.nfts);
+        }
       }
 
     })()
