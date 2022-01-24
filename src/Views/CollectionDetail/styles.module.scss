@@ -127,7 +127,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%);
+        background: linear-gradient(
+          180deg,
+          #0146d5 0%,
+          rgba(1, 70, 213, 0) 100%
+        );
         .pinVideo {
           position: relative;
           top: 0;
@@ -148,6 +152,18 @@
           font-family: $font-nasalization;
           font-size: 20px;
           font-weight: 700;
+        }
+
+        .repName {
+          color: $account-name;
+        }
+
+        .infoContainer {
+          .btnContainer {
+            .btn {
+              background-color: #0146d5;
+            }
+          }
         }
 
         p {
@@ -345,15 +361,15 @@
           transform: translate(-50%);
           height: 100%;
         }
-        .loadMessageContainer{
-          height: 100%;  
+        .loadMessageContainer {
+          height: 100%;
           width: 100%;
           background-color: black;
           z-index: 2;
           display: flex;
           justify-content: center;
           align-items: center;
-      
+
           .loadMessage {
             font-family: $font-nasalization;
             color: white;
@@ -365,19 +381,132 @@
         width: 50%;
         height: 100%;
         display: flex;
-        // background-color: rgba(3, 11, 35, 0.8);
         background-color: black;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: space-between;
+        gap: 10px;
 
+        .dataContainer {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding-left: 30px;
+       
         .rare {
-          padding-left: 40px;
           padding-top: 45px;
           font-family: $font-nasalization;
           font-size: 25px;
           font-weight: 700;
         }
+
+        .repName {
+          padding-left: 0;
+          color: $account-name;
+        }
+
+        .infoContainer {
+          display: flex;
+          flex-direction: column;
+
+          .btnContainer {
+            display: flex;
+            gap: 10px;
+            .btn {
+              font-family: $font-nasalization;
+              background-color: #0146d5;
+              border: none;
+              color: white;
+              padding: 8px 35px;
+              border-top-left-radius: 3px;
+              border-top-right-radius: 3px;
+              font-weight: bold;
+              cursor: pointer;
+            }
+
+            .btnDes {
+              font-family: $font-nasalization;
+              background-color: #0146d5;
+              border: none;
+              color: white;
+              padding: 8px 35px;
+              border-top-left-radius: 3px;
+              border-top-right-radius: 3px;
+              font-weight: bold;
+              opacity: 50%;
+              cursor: pointer;
+            }
+          }
+
+          .info {
+            padding: 10px 20px;
+            border-image: linear-gradient(
+                180deg,
+                #0146d5 0%,
+                rgba(1, 70, 213, 0) 100%
+              )
+              1;
+            border-top: 2px solid;
+            border-bottom: none;
+            border-right: 2.1px solid;
+            border-left: 2.3px solid;
+            background: linear-gradient(
+              180deg,
+              rgba(4, 18, 55, 0.65) 0%,
+              rgba(4, 18, 55, 0) 100%
+            );
+
+            .item {
+              margin-top: 5px;
+              width: 500px;
+              padding: 8px 10px;
+              display: flex;
+              justify-content: space-between;
+              background: linear-gradient(
+                180deg,
+                rgba(4, 18, 55, 0.65) 0%,
+                rgba(4, 18, 55, 0.65) 100%
+              );
+
+              p {
+                padding: 0;
+              }
+
+              .abilitiesItem::after {
+                content: " - ";
+              }
+              .abilitiesItem:last-child::after {
+                content: none;
+              }
+            }
+
+            .itemBlue {
+              margin-top: 5px;
+              width: 500px;
+              padding: 8px 10px;
+              display: flex;
+              justify-content: space-between;
+              background: linear-gradient(
+                180deg,
+                rgba(4, 18, 55, 0.65) 0%,
+                rgba(4, 18, 55, 0.65) 100%
+              );
+              color: $go-back;
+
+              p {
+                padding: 0;
+              }
+            }
+
+            .desc {
+              text-align: center;
+              width: 500px;
+              padding: 0;
+              font-size: 12px;
+              padding: 5px 0;
+            }
+          }
+        }
+      }
 
         p {
           padding-left: 40px;
@@ -576,15 +705,15 @@
           height: 90%;
           top: 5%;
         }
-        .loadMessageContainer{
-          height: 100%;  
+        .loadMessageContainer {
+          height: 100%;
           width: 100%;
           background-color: black;
           z-index: 2;
           display: flex;
           justify-content: center;
           align-items: center;
-      
+
           .loadMessage {
             font-family: $font-nasalization;
             color: white;
@@ -609,6 +738,10 @@
           font-family: $font-nasalization;
           font-size: 20px;
           font-weight: 700;
+        }
+
+        .repName {
+          color: $account-name;
         }
 
         p {
