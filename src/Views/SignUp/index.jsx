@@ -145,7 +145,7 @@ const SignUp = () => {
         alert ('Please try again later!');
       } else {
         setUserSignUp ({
-          email: form.email.toLowerCase(),
+          email: form.email.toLowerCase (),
           getMails: form.checkedEmail,
         });
         setLoginFirst ();
@@ -160,7 +160,6 @@ const SignUp = () => {
   const handleClose = () => {
     history.push ('/');
   };
-  console.log (check1, check2);
 
   const check1Fn = option => {
     setCheck1 (option);
@@ -191,12 +190,12 @@ const SignUp = () => {
             <CheckboxInLine
               title="Do you have Battlepalooza account from the mobile app?"
               check={option => check1Fn (option)}
-              deshabilitado ={false}
+              deshabilitado={false}
             />
             <CheckboxInLine
               title="Did you link your account to nWayPlay?"
               check={option => check2Fn (option)}
-              deshabilitado = {check2 === '' && check1 !== '' ? false : true}
+              deshabilitado={check2 === '' && check1 !== '' ? false : true}
             />
           </div>
         </Modal>}
@@ -246,7 +245,10 @@ const SignUp = () => {
           />
         </Modal>}
       {showInfo &&
-        <ModalUnderstood title="Link Account Using Mobile App" handleClose={handleClose}>
+        <ModalUnderstood
+          title="Link Account Using Mobile App"
+          handleClose={handleClose}
+        >
           <p
             className={styles.textResponsive}
             style={{

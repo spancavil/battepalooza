@@ -26,8 +26,6 @@ const ToMarketplace = () => {
     [id, nfts, setNft]
   );
 
-  console.log(nftSelected)
-
   const openModalUnregister = () => {
     setmodalUnregister (true);
   };

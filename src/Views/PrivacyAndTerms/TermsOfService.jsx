@@ -15,7 +15,7 @@ const TermsOfService = () => {
         document.getElementById("contenido").innerHTML = lineaEntera;
         
     }, [])
-    //console.log(terms)
+    
     return (
         <BackgroundTerms 
         title = {"BATTLEPALOOZA TERMS & CONDITIONS OF USE"}
