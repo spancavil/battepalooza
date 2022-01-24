@@ -240,7 +240,7 @@ const HomeContainer = () => {
                         <a
                           href
                           onClick={() => {
-                            history.push ('/terms-of-use');
+                            history.push ('/terms-of-service');
                             window.scroll (0, 0);
                           }}
                         >

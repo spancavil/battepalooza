@@ -18,7 +18,7 @@ const CheckboxLinks = ({width, onChecked}) => {
             I agree to the 
                 <span 
                 className = {styles.links}
-                onClick={()=>history.push('/terms-of-use')}
+                onClick={()=>history.push('/terms-of-service')}
                 > Terms of Service</span> and 
                 <span 
                 className = {styles.links}

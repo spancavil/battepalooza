@@ -3,7 +3,7 @@ import BackgroundTerms from './components/Background';
 import { terms } from './components/Texts/termsOfUse';
 import styles from './styles.module.scss';
 
-const TermsOfUse = () => {
+const TermsOfService = () => {
 
     useEffect(() => {
         let termsII = terms.split(/\n/);
@@ -28,4 +28,4 @@ const TermsOfUse = () => {
     )
 }
 
-export default TermsOfUse
+export default TermsOfService

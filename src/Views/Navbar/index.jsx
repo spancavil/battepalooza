@@ -137,7 +137,6 @@ const NavBar = () => {
             }
           >
             <div
-              style={{paddingTop: `${userData.email ? '' : '100px'}`}}
               className={styles.navLinks}
             >
 

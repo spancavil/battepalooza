@@ -22,7 +22,7 @@ import NftProvider from "./Context/NftProvider";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import ToMarketplace from "./Views/ToMarketplace";
 import Privacy from "./Views/PrivacyAndTerms/Privacy";
-import TermsOfUse from "./Views/PrivacyAndTerms/TermsOfUse";
+import TermsOfService from "./Views/PrivacyAndTerms/TermsOfService";
 
 function App() {
   return (
@@ -62,7 +62,7 @@ function App() {
                   component={ToMarketplace}
                 />
                 <Route exact path="/privacy-policy" component={Privacy}></Route>
-                <Route exact path="/terms-of-use" component={TermsOfUse}></Route>
+                <Route exact path="/terms-of-service" component={TermsOfService}></Route>
                 <Route path="" component={NotFound} />
               </Switch>
             </CardDataProvider>
