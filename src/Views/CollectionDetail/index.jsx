@@ -170,13 +170,15 @@ const CollectionDetail = () => {
           ) : (
             <div className={styles.info}>
               <p className={styles.desc}>{nftSelected.storyText}</p>
-              <div className={styles.item}>
-                <p>HP:</p>
-                <p>{characterMaxStats.maxHealth}</p>
-              </div>
 
               {nftSelected.type === 1 ? (
                 <>
+                  <div className={styles.item}>
+                    <p>HP:</p>
+                    <p>
+                      {nftSelected.stat.maxHealth} /{characterMaxStats.maxHealth}
+                    </p>
+                  </div>
                   <div className={styles.item}>
                     <p>Energy:</p>
                     <p>
@@ -196,10 +198,10 @@ const CollectionDetail = () => {
                     <p>{nftSelected.skill.name}</p>
                   </div>
                   <div className={styles.item}>
-                    <p>Abilities:</p>
+                    <p>Abilities: </p>
                     <p>
-                      {nftSelected.ability.features.map((feature) => (
-                        <span className={styles.abilitiesItem}>{feature}</span>
+                      {nftSelected.ability.features.map((feature, index) => (
+                        <span className={styles.abilitiesItem}> {index === 0 ? "" : "-" } {feature}</span>
                       ))}
                     </p>
                   </div>
@@ -231,6 +233,14 @@ const CollectionDetail = () => {
                         {weaponMaxStats.maxCoolDown}
                       </p>
                     </div>
+                    <div className={styles.item}>
+                    <p>Abilities: </p>
+                    <p>
+                      {nftSelected.ability.features.map((feature, index) => (
+                        <span className={styles.abilitiesItem}> {index === 0 ? "" : "-" } {feature}</span>
+                        ))}
+                    </p>
+                  </div>
                   </>
                 )
               )}
