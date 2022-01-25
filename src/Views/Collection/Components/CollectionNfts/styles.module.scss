@@ -2,7 +2,7 @@
 @import "../../../../Styles/breakpoints.scss";
 @import "../../../../Styles/fonts.scss";
 
-@media (max-width: $tablet - 1) {
+@media (max-width: $mobile - 1) {
   .cardsContainer {
     display: flex;
     flex-direction: column;
@@ -10,15 +10,14 @@
     width: 100%;
 
     .cards {
-      width: 100%;
-      margin-top: 40px;
-      display: flex;
-      flex-direction: row;
-      gap: 45px;
-      overflow-x: scroll;
-      justify-content: left;
-      padding: 0px 15px;
-      overflow-y: visible;
+      margin-top: 30px;
+      justify-content: center;
+      padding: 0px 40px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 2vw;
+      grid-row-gap: 30px;
+      overflow: visible;
 
       .sale {
         background-color: $secondary-blue;
@@ -40,8 +39,8 @@
       .cardNft {
         overflow: visible;
         position: relative;
-        height: 350px;
-        width: 200px;
+        height: 400px;
+        width: 180px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -53,18 +52,99 @@
       }
 
       .imgNft {
-        width: 130px;
+        width: 140px;
       }
 
       .texts {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly;
         grid-gap: 7px;
         gap: 7px;
 
         p {
-          font-size: 14px;
-          padding: 0px 15px;
+          font-size: 11px;
+          padding: 0px 5px;
+          text-align: center;
+          color: white;
+          font-family: "Nasalization";
+        }
+
+        .price {
+          color: $logout;
+        }
+
+        .text2 {
+          color: $account-name;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $mobile) and (max-width: $tablet - 1) {
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    // gap: 20px;
+    width: 100%;
+
+    .cards {
+      margin-top: 30px;
+      justify-content: center;
+      padding: 0px 100px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 80px;
+      grid-row-gap: 30px;
+      overflow: visible;
+
+      .sale {
+        background-color: $secondary-blue;
+        width: 45px;
+        height: 45px;
+        border-radius: 50px;
+        font-family: $font-nasalization;
+        font-size: 15px;
+        color: white;
+        position: absolute;
+        top: 0px;
+        right: -18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .cardNft {
+        overflow: visible;
+        position: relative;
+        height: 400px;
+        width: 210px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #030b23;
+        border-radius: 3px;
+        justify-content: center;
+        grid-gap: 20px;
+        gap: 20px;
+      }
+
+      .imgNft {
+        width: 140px;
+      }
+
+      .texts {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        grid-gap: 7px;
+        gap: 7px;
+
+        p {
+          font-size: 13px;
+          padding: 0px 5px;
           text-align: center;
           color: white;
           font-family: "Nasalization";
@@ -95,11 +175,11 @@
 
     .cards {
       margin-top: 30px;
-      justify-content: left;
-      padding: 0px 15px;
+      justify-content: center;
+      padding: 0px 100px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 80px;
       grid-row-gap: 30px;
       overflow: visible;
 
@@ -123,8 +203,8 @@
       .cardNft {
         overflow: visible;
         position: relative;
-        height: 350px;
-        width: 200px;
+        height: 440px;
+        width: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -137,7 +217,7 @@
       }
 
       .imgNft {
-        width: 130px;
+        width: 170px;
       }
 
       .texts {
@@ -147,7 +227,7 @@
         gap: 7px;
 
         p {
-          font-size: 13px;
+          font-size: 15px;
           padding: 0px 15px;
           text-align: center;
           color: white;
@@ -175,11 +255,12 @@
 
     .cards {
       margin-top: 30px;
-      justify-content: left;
-      padding: 0px 15px;
+      justify-content: center;
+      padding: 0px 150px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-column-gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      grid-column-gap: 150px;
       grid-row-gap: 30px;
       overflow: visible;
 
@@ -203,8 +284,8 @@
       .cardNft {
         overflow: visible;
         position: relative;
-        height: 350px;
-        width: 200px;
+        height: 440px;
+        width: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -217,17 +298,17 @@
       }
 
       .imgNft {
-        width: 130px;
+        width: 170px;
       }
 
       .texts {
         display: flex;
         flex-direction: column;
-        grid-gap: 7px;
-        gap: 7px;
+        grid-gap: 3px;
+        gap: 3px;
 
         p {
-          font-size: 13px;
+          font-size: 15px;
           padding: 0px 15px;
           text-align: center;
           color: white;
