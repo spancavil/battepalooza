@@ -47,7 +47,7 @@ const CollectionNfts = () => {
 
   useEffect (
     () => {
-      breakpoint ? setxPage (4) : setxPage (25);
+      breakpoint ? setxPage (16) : setxPage (25);
     },
     [breakpoint]
   );
