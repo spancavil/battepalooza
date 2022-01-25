@@ -172,9 +172,7 @@ const CollectionDetail = () => {
               <p className={styles.desc}>{nftSelected.storyText}</p>
               <div className={styles.item}>
                 <p>HP:</p>
-                <p>
-                  {nftSelected.stat.maxHealth} /{characterMaxStats.maxHealth}
-                </p>
+                <p>{characterMaxStats.maxHealth}</p>
               </div>
 
               {nftSelected.type === 1 ? (
