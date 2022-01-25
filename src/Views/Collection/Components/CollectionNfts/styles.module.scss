@@ -204,7 +204,7 @@
       .cardNft {
         overflow: visible;
         position: relative;
-        height: 450px;
+        height: 440px;
         width: 300px;
         display: flex;
         flex-direction: column;
@@ -218,17 +218,17 @@
       }
 
       .imgNft {
-        width: 180px;
+        width: 170px;
       }
 
       .texts {
         display: flex;
         flex-direction: column;
-        grid-gap: 4px;
-        gap: 4px;
+        grid-gap: 3px;
+        gap: 3px;
 
         p {
-          font-size: 16px;
+          font-size: 15px;
           padding: 0px 15px;
           text-align: center;
           color: white;
