@@ -19,7 +19,7 @@ const TermsOfService = () => {
     return (
         <BackgroundTerms 
         title = {"BATTLEPALOOZA TERMS & CONDITIONS OF USE"}
-        sub = {"Last Updated: November 03, 2021"}
+        sub = {"Last Updated: January 23, 2022"}
         >
 
         <p id ="contenido" className={styles.textContent}></p>

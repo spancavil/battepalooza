@@ -17,7 +17,7 @@ const Privacy = () => {
   return (
     <BackgroundTerms
       title={'BATTLEPALOOZA PRIVACY POLICY'}
-      sub={'Last updated: September 14, 2021'}
+      sub={'Last updated: January 23, 2022'}
     >
 
       <p id="contenido" className={styles.textContent} />
