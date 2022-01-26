@@ -92,6 +92,7 @@ const CollectionNfts = () => {
                   onClick={() => onClick (nft.uuid)}
                   ref={tilts[index]}
                   className={styles.cardNft}
+                  key={nft.itemId}
                 >
                   {nft.salesState === 1 &&
                     <div className={styles.sale}>Sale</div>}
