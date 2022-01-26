@@ -8,8 +8,8 @@ import Input from "../../Global-Components/Input";
 import Modal from "../../Global-Components/Modal";
 import nftService from "../../Services/nft.service";
 import styles from "./styles.module.scss";
-import defaultVideoCharacter from "../../Services/Videos/Characters/CyborgTed/DarkMax_Epic_1.mp4";
-import defaultVideoWeapon from "../../Services/Videos/Weapons/Hammer/hellGreen.mp4";
+// import defaultVideoCharacter from "../../Services/Videos/Characters/CyborgTed/DarkMax_Epic_1.mp4";
+// import defaultVideoWeapon from "../../Services/Videos/Weapons/Hammer/hellGreen.mp4";
 import { logOutAmplitude } from "../../Utils/amplitude";
 import Loader from "../../Global-Components/Loader";
 
@@ -261,24 +261,29 @@ const CollectionDetail = () => {
           <div className={styles.container}>
             <div className={styles.card}>
               <div className={styles.imgContainer}>
-                {loading && (
-                  <div className={styles.loadMessageContainer}>
-                    <Loader />
-                  </div>
-                )}
-                {/* POR AHORA UN VIDEO POR DEFAULT, LUEGO SE CAMBIA POR LOS ASSETS */}
-                <video
-                  onCanPlayThrough={() => setLoading(false)}
-                  className={styles.pinVideo}
-                  src={
-                    nftSelected.type === 1
-                      ? defaultVideoCharacter
-                      : defaultVideoWeapon
-                  }
-                  muted
-                  autoPlay
-                  loop
-                />
+              { nftSelected.movieUrl ?
+                <>
+                  {loading && (
+                    <div className={styles.loadMessageContainer}>
+                      <Loader />
+                    </div>
+                  )}
+                  <video
+                    onCanPlayThrough={() => setLoading(false)}
+                    className={styles.pinVideo}
+                    src={
+                    nftSelected.movieUrl
+                    }
+                    muted
+                    autoPlay
+                    loop
+                  />
+                </>
+                :
+                <h2 style={{textAlign: "center"}}>
+                  No video for this character
+                </h2>
+                }
               </div>
               <div className={styles.text}>
                 <CardContent />
@@ -327,23 +332,29 @@ const CollectionDetail = () => {
           <div className={styles.container}>
             <div className={styles.card}>
               <div className={styles.imgContainer}>
-                {loading && (
-                  <div className={styles.loadMessageContainer}>
-                    <Loader />
-                  </div>
-                )}
-                <video
-                  onCanPlayThrough={() => setLoading(false)}
-                  className={styles.pinVideo}
-                  src={
-                    nftSelected.type === 1
-                      ? defaultVideoCharacter
-                      : defaultVideoWeapon
-                  }
-                  muted
-                  autoPlay
-                  loop
-                />
+                { nftSelected.movieUrl ?
+                <>
+                  {loading && (
+                    <div className={styles.loadMessageContainer}>
+                      <Loader />
+                    </div>
+                  )}
+                  <video
+                    onCanPlayThrough={() => setLoading(false)}
+                    className={styles.pinVideo}
+                    src={
+                    nftSelected.movieUrl
+                    }
+                    muted
+                    autoPlay
+                    loop
+                  />
+                </>
+                :
+                <h2>
+                  No video for this character
+                </h2>
+                }
               </div>
               <div className={styles.text}>
                 <CardContent />
