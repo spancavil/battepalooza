@@ -29,7 +29,6 @@ const NftDetail = ({nfts, setNft, setNftListing}) => {
   const goBack = () => {
     history.goBack ();
   };
-
   return (
     <>
       <p className={styles.back} onClick={goBack}>
