@@ -11,7 +11,7 @@ import {useHistory} from 'react-router-dom';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
 import Pagination from '../Pagination';
 import VanillaTilt from 'vanilla-tilt';
-import imagePlaceholder from '../../../../Assets/img/nft-card-front01.png';
+// import imagePlaceholder from '../../../../Assets/img/nft-card-front01.png';
 
 /* DOCS:
 https://github.com/gijsroge/tilt.js
@@ -100,8 +100,8 @@ const CollectionNfts = () => {
                   {/* El source luego cambiara en base al asset */}
                   <img
                     className={styles.imgNft}
-                    src={imagePlaceholder}
-                    alt="nft"
+                    src={nft.thumbnailUrl}
+                    alt="nft-thumb"
                   />
                   <div className={styles.texts}>
                     <p>{nft.repName}</p>
