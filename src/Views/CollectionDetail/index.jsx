@@ -68,7 +68,6 @@ const CollectionDetail = () => {
   useEffect(() => {
     if (nftSelected) {
       const arrayBonus = Object.entries(nftSelected.buff[0]);
-      console.log(nftSelected.buff);
       setArrayBonus(arrayBonus);
     }
   }, [nftSelected, setArrayBonus]);
@@ -90,7 +89,6 @@ const CollectionDetail = () => {
   };
   const Register = () => {
     if (inputPrice > 0) {
-      // console.log("Registraaaa")
       const sale = true;
       // console.log(nftSelected, inputPrice, userData.pid, sale)
       const nftUpdated = setNftPrice(
@@ -99,7 +97,6 @@ const CollectionDetail = () => {
         userData.pid,
         sale
       );
-      console.log(nftUpdated);
       setNftSelected(nftUpdated);
       setmodalRegister1(false);
       setmodalRegister2(true);
@@ -156,6 +153,7 @@ const CollectionDetail = () => {
               <p className={styles.itemName}>{nftSelected.itemName}</p>
               <p className={styles.repName}>[ {nftSelected.repName} ]</p>
             </div>
+
             <div className={styles.rarity}>
               <p>Rarity: {nftSelected.rarity}</p>
             </div>
