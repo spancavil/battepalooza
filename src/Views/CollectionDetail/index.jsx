@@ -16,14 +16,15 @@ import ModalRegister2 from "./Components/ModalRegister2";
 const CollectionDetail = () => {
   const [nftSelected, setNftSelected] = useState();
   const [loading, setLoading] = useState(false);
-  const [arrayBonus, setArrayBonus] = useState();
+  // const [arrayBonus, setArrayBonus] = useState();
   const [modalUnregister, setmodalUnregister] = useState(false);
   const [modalRegister1, setmodalRegister1] = useState(false);
   const [modalRegister2, setmodalRegister2] = useState(false);
   const [inputPrice, setInputPrice] = useState(0);
 
   const { userData } = useContext(UserData);
-  const { setNftPrice, weaponMaxStats, characterMaxStats } = useContext(NftData);
+  const { setNftPrice } = useContext(NftData)
+  // const { setNftPrice, weaponMaxStats, characterMaxStats } = useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
 
@@ -65,10 +66,10 @@ const CollectionDetail = () => {
 
   useEffect(() => {
     if (nftSelected) {
-      const arrayBonus = Object.entries(nftSelected.buff[0]);
-      setArrayBonus(arrayBonus);
+      // const arrayBonus = Object.entries(nftSelected.buff[0]);
+      // setArrayBonus(arrayBonus);
     }
-  }, [nftSelected, setArrayBonus]);
+  }, [nftSelected,]);
 
   const openModalUnregister = () => {
     setmodalUnregister(true);
