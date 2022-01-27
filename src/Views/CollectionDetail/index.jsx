@@ -130,8 +130,16 @@ const CollectionDetail = () => {
                 <div className={styles.cont2a}>
                   <div className={styles.abilities}>
                     <p className={styles.title}>Abilities</p>
-                    <p>{nftSelected.ability.features}</p>
-                    <p>:{nftSelected.ability.text}</p>
+                    <span className={styles.featuresContainer}>
+                      {nftSelected.ability.features.map((x, i) => (
+                        <p key={i} className={styles.features}>
+                          {x} &nbsp;
+                        </p>
+                      ))}
+                    </span>
+                    <p className={styles.abilityText}>
+                      :{nftSelected.ability.text}
+                    </p>
                   </div>
                   <div>
                     <p className={styles.title}>Skill</p>

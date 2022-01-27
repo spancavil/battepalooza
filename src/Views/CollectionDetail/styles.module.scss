@@ -1144,26 +1144,41 @@
       .cardContainer {
         display: flex;
         flex-direction: column;
-        width: 70vw;
+        width: 80vw;
 
         .topContainer {
           height: 400px;
           display: flex;
           justify-content: space-between;
-          
+
           video {
             height: 100%;
-            width: 42%;
           }
 
           .topRightContainer {
             background-color: #060f27;
-            width: calc(100% - 41.5%);
+            width: calc(100% - 400px);
 
             .title {
               color: $logout;
               font-weight: bold;
               padding-bottom: 10px;
+            }
+
+            .featuresContainer {
+              display: flex;
+            }
+
+            .features::before {
+              content: '- ';
+            }
+
+            .features:first-child::before {
+              content: none;
+            }
+
+            .abilityText {
+              padding-right: 50px;
             }
 
             .cont1 {
@@ -1181,11 +1196,12 @@
                   .abilities {
                     display: flex;
                     flex-direction: column;
+                    gap: 7px;
                   }
                 }
               }
             }
-          } 
+          }
         }
 
         .bottomContainer {
