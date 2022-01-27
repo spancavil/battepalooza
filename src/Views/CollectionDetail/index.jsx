@@ -114,138 +114,55 @@ const CollectionDetail = () => {
     setInputPrice(value);
   };
 
+  console.log(nftSelected);
+
   const CardContent = () => {
     return (
-      <div className={styles.dataContainer}>
-        <div>
-          <h3 className={styles.rare}>{nftSelected.itemName}</h3>
-          <p className={styles.repName}>({nftSelected.repName})</p>
-        </div>
-        <div className={styles.infoContainer}>
-          <div className={styles.btnContainer}>
-            <button
-              onClick={() => setNav("INFO")}
-              className={nav === "INFO" ? styles.btn : styles.btnDes}
-            >
-              Info
-            </button>
-            <button
-              onClick={() => setNav("STATS")}
-              className={nav === "STATS" ? styles.btn : styles.btnDes}
-            >
-              Stats
-            </button>
+      <div className={styles.cardContainer}>
+        <div className={styles.topContainer}>
+          <video
+            onCanPlayThrough={() => setLoading(false)}
+            src={nftSelected.movieUrl}
+            muted
+            autoPlay
+            loop
+          />
+          <div className={styles.topRightContainer}>
+            <div className={styles.cont1}>
+              <div className={styles.cont2}>
+                <div className={styles.cont2a}>
+                  <div className={styles.abilities}>
+                    <p className={styles.title}>Abilities</p>
+                    <p>{nftSelected.ability.features}</p>
+                    <p>:{nftSelected.ability.text}</p>
+                  </div>
+                  <div>
+                    <p className={styles.title}>Skill</p>
+                  </div>
+                </div>
+                <div className={styles.cont2b}>
+                  <p className={styles.title}>Character Story</p>
+                </div>
+              </div>
+              <div>
+                <p className={styles.title}>Stat</p>
+              </div>
+            </div>
           </div>
-          {nav === "INFO" ? (
-            <div className={styles.info}>
-              <div className={styles.item}>
-                <p>Rarity: </p>
-                <p>{nftSelected.rarity}</p>
-              </div>
-              <div className={styles.item}>
-                <p>Type: </p>
-                {nftSelected.type === 1 ? <p>CHARACTER</p> : <p>WEAPON</p>}
-              </div>
-              <div className={styles.item}>
-                <p>Serial: </p>
-                <p>{nftSelected.serial}</p>
-              </div>
-              <div className={styles.itemBlue}>
-                <p>gNCoin Battle Count: </p>
-                <p>
-                  {nftSelected.playCount}/{nftSelected.maxPlayCount}
-                </p>
-              </div>
-              <div className={styles.itemBlue}>
-                <p>daily gNCoin Battle Count:</p>
-                <p>
-                  {nftSelected.dailyPlayCount}/{nftSelected.maxDailyPlayCount}
-                </p>
-              </div>
-              <div className={styles.item}>
-                <p>Bonus: </p>
-                <p>{arrayBonus?.map((bonusProp) => `${bonusProp[1]} `)}</p>
-              </div>
+        </div>
+        <div className={styles.bottomContainer}>
+          <div className={styles.bottomLeftContainer}>
+            <div className={styles.item}>
+              <p className={styles.itemName}>{nftSelected.itemName}</p>
+              <p className={styles.repName}>[ {nftSelected.repName} ]</p>
             </div>
-          ) : (
-            <div className={styles.info}>
-              <p className={styles.desc}>{nftSelected.storyText}</p>
-
-              {nftSelected.type === 1 ? (
-                <>
-                  <div className={styles.item}>
-                    <p>HP:</p>
-                    <p>
-                      {nftSelected.stat.maxHealth} /{characterMaxStats.maxHealth}
-                    </p>
-                  </div>
-                  <div className={styles.item}>
-                    <p>Energy:</p>
-                    <p>
-                      {nftSelected.stat.energyRecovery} /
-                      {characterMaxStats.maxEnergyRecovery}
-                    </p>
-                  </div>
-                  <div className={styles.item}>
-                    <p>Speed:</p>
-                    <p>
-                      {nftSelected.stat.moveSpeed} /
-                      {characterMaxStats.maxMoveSpeed}
-                    </p>
-                  </div>
-                  <div className={styles.item}>
-                    <p>Skill: </p>
-                    <p>{nftSelected.skill.name}</p>
-                  </div>
-                  <div className={styles.item}>
-                    <p>Abilities: </p>
-                    <p>
-                      {nftSelected.ability.features.map((feature, index) => (
-                        <span className={styles.abilitiesItem}> {index === 0 ? "" : "-" } {feature}</span>
-                      ))}
-                    </p>
-                  </div>
-                  <div className={styles.item}>
-                    <p>{nftSelected.ability.text}</p>
-                  </div>
-                </>
-              ) : (
-                nftSelected.type === 2 && (
-                  <>
-                    <div className={styles.item}>
-                      <p>Damage:</p>
-                      <p>
-                        {nftSelected.stat.damage} / {weaponMaxStats.maxDamage}
-                      </p>
-                    </div>
-
-                    <div className={styles.item}>
-                      <p>Energy:</p>
-                      <p>
-                        {nftSelected.stat.consumeEnergy} /
-                        {nftSelected.stat.maxEnergy}
-                      </p>
-                    </div>
-                    <div className={styles.item}>
-                      <p>Cooldown:</p>
-                      <p>
-                        {nftSelected.stat.coolTime} /
-                        {weaponMaxStats.maxCoolDown}
-                      </p>
-                    </div>
-                    <div className={styles.item}>
-                    <p>Abilities: </p>
-                    <p>
-                      {nftSelected.ability.features.map((feature, index) => (
-                        <span className={styles.abilitiesItem}> {index === 0 ? "" : "-" } {feature}</span>
-                        ))}
-                    </p>
-                  </div>
-                  </>
-                )
-              )}
+            <div className={styles.rarity}>
+              <p>Rarity: {nftSelected.rarity}</p>
             </div>
-          )}
+          </div>
+          <div className={styles.button}>
+            <button>Register to marketplace</button>
+          </div>
         </div>
       </div>
     );
@@ -260,33 +177,23 @@ const CollectionDetail = () => {
         (nftSelected.inMarket && modalRegister2 === false ? (
           <div className={styles.container}>
             <div className={styles.card}>
-              <div className={styles.imgContainer}>
-              { nftSelected.movieUrl ?
-                <>
-                  {loading && (
-                    <div className={styles.loadMessageContainer}>
-                      <Loader />
-                    </div>
-                  )}
-                  <video
-                    onCanPlayThrough={() => setLoading(false)}
-                    className={styles.pinVideo}
-                    src={
-                    nftSelected.movieUrl
-                    }
-                    muted
-                    autoPlay
-                    loop
-                  />
-                </>
-                :
-                <h2 style={{textAlign: "center"}}>
-                  No video for this character
-                </h2>
-                }
-              </div>
+              {/* <div className={styles.imgContainer}>
+                {nftSelected.movieUrl ? (
+                  <>
+                    {loading && (
+                      <div className={styles.loadMessageContainer}>
+                        <Loader />
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <h2 style={{ textAlign: "center" }}>
+                    No video for this character
+                  </h2>
+                )}
+              </div> */}
               <div className={styles.text}>
-                <CardContent />
+                {/* <CardContent /> */}
 
                 <p className={styles.price}>Price {nftSelected.price} nCoin</p>
                 <div className={styles.buttonContainer}>
@@ -331,39 +238,32 @@ const CollectionDetail = () => {
         ) : (
           <div className={styles.container}>
             <div className={styles.card}>
-              <div className={styles.imgContainer}>
-                { nftSelected.movieUrl ?
-                <>
-                  {loading && (
-                    <div className={styles.loadMessageContainer}>
-                      <Loader />
-                    </div>
-                  )}
-                  <video
-                    onCanPlayThrough={() => setLoading(false)}
-                    className={styles.pinVideo}
-                    src={
-                    nftSelected.movieUrl
-                    }
-                    muted
-                    autoPlay
-                    loop
-                  />
-                </>
-                :
-                <h2>
-                  No video for this character
-                </h2>
-                }
-              </div>
+              {/* <div className={styles.imgContainer}>
+                {nftSelected.movieUrl ? (
+                  <>
+
+                    )} */}
+              {/*                     <video
+                      onCanPlayThrough={() => setLoading(false)}
+                      className={styles.pinVideo}
+                      src={nftSelected.movieUrl}
+                      muted
+                      autoPlay
+                      loop
+                    />
+                  </>
+                ) : (
+                  <h2>No video for this character</h2>
+                )}
+              </div> */}
               <div className={styles.text}>
                 <CardContent />
 
                 <div className={styles.buttonContainer}>
-                  <Button
+                  {/* <Button
                     title="REGISTER TO MARKETPLACE"
                     onClick={openModalRegister1}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
