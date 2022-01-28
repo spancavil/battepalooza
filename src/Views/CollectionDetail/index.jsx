@@ -81,10 +81,10 @@ const CollectionDetail = () => {
     history.goBack();
   };
   const unRegister = () => {
-    const sale = false;
+    const salesState = 0;
     const user = "BOT";
-    setNftPrice(nftSelected, inputPrice, user, sale);
-    history.push("/collection");
+    setNftPrice(nftSelected, inputPrice, user, salesState);
+    setmodalUnregister(false);
   };
   const Register = () => {
     if (inputPrice > 0) {
