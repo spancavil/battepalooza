@@ -28,7 +28,7 @@ const CollectionDetail = () => {
   const [inputPrice, setInputPrice] = useState(0);
 
   const { userData } = useContext(UserData);
-  const { setNftPrice, weaponMaxStats, characterMaxStats } =
+  const { setNftPrice, characterMaxStats } =
     useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
