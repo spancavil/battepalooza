@@ -28,7 +28,7 @@ const CollectionDetail = () => {
   const [inputPrice, setInputPrice] = useState(0);
 
   const { userData } = useContext(UserData);
-  const { setNftPrice, characterMaxStats } =
+  const { setNftPrice, characterMaxStats, weaponMaxStats } =
     useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
@@ -146,7 +146,7 @@ const CollectionDetail = () => {
                     <div className={styles.cont1}>
                       <div className={styles.cont2}>
                         <div className={styles.cont2a}>
-                          <div className={styles.cont3}>
+                          <div className={nftSelected.type === 1 ? styles.cont3 : styles.cont3Weapon}>
                             <div className={styles.cont3a}>
                               <p className={styles.title}>Abilities</p>
                               <span className={styles.featuresContainer}>
@@ -157,7 +157,7 @@ const CollectionDetail = () => {
                                 ))}
                               </span>
                               <p className={styles.abilityText}>
-                                :{nftSelected.ability.text}
+                                {nftSelected.ability.text}
                               </p>
                             </div>
                             <div className={styles.cont3b}>
@@ -170,53 +170,105 @@ const CollectionDetail = () => {
                           {nftSelected.skill && (
                             <div className={styles.skillsContainer}>
                               <p className={styles.title}>Skill</p>
-                              <p>{nftSelected.skill?.name}</p>
+                              <p className={styles.body}>{nftSelected.skill?.name}</p>
                             </div>
                           )}
                           <div className={styles.statsContainer}>
-                            <p className={styles.title}>Stat</p>
-                            <div className={styles.itemStatContainer}>
-                              <img
-                                className={styles.icon}
-                                src={HP}
-                                alt="HP icon"
-                              />
-                              <div className={styles.itemStatInfo}>
-                                <p className={styles.itemStatTitle}>HP</p>
-                                <p className={styles.itemStatNumbers}>
-                                  {nftSelected.stat?.maxHealth} /{" "}
-                                  {characterMaxStats.maxHealth}
-                                </p>
+                            {nftSelected.type === 1 ?
+                            <>
+                            {/* CHARACTER */}
+                              <p className={styles.title}>Stat</p>
+                              <div className={styles.itemStatContainer}>
+                                <img
+                                  className={styles.icon}
+                                  src={HP}
+                                  alt="HP icon"
+                                />
+                                <div className={styles.itemStatInfo}>
+                                  <p className={styles.itemStatTitle}>HP</p>
+                                  <p className={styles.itemStatNumbers}>
+                                    {nftSelected.stat?.maxHealth} /{" "}
+                                    {characterMaxStats.maxHealth}
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                            <div className={styles.itemStatContainer}>
-                              <img
-                                className={styles.icon}
-                                src={ENERGY}
-                                alt="Energy icon"
-                              />
-                              <div className={styles.itemStatInfo}>
-                                <p className={styles.itemStatTitle}>Energy</p>
-                                <p className={styles.itemStatNumbers}>
-                                  {nftSelected.stat?.energyRecovery} /{" "}
-                                  {characterMaxStats.maxEnergyRecovery}
-                                </p>
+                              <div className={styles.itemStatContainer}>
+                                <img
+                                  className={styles.icon}
+                                  src={ENERGY}
+                                  alt="Energy icon"
+                                />
+                                <div className={styles.itemStatInfo}>
+                                  <p className={styles.itemStatTitle}>Energy</p>
+                                  <p className={styles.itemStatNumbers}>
+                                    {nftSelected.stat?.energyRecovery} /{" "}
+                                    {characterMaxStats.maxEnergyRecovery}
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                            <div className={styles.itemStatContainer}>
-                              <img
-                                className={styles.icon}
-                                src={SPEED}
-                                alt="Speed icon"
-                              />
-                              <div className={styles.itemStatInfo}>
-                                <p className={styles.itemStatTitle}>Speed</p>
-                                <p className={styles.itemStatNumbers}>
-                                  {nftSelected.stat?.moveSpeed} /{" "}
-                                  {characterMaxStats.maxMoveSpeed}
-                                </p>
+                              <div className={styles.itemStatContainer}>
+                                <img
+                                  className={styles.icon}
+                                  src={SPEED}
+                                  alt="Speed icon"
+                                />
+                                <div className={styles.itemStatInfo}>
+                                  <p className={styles.itemStatTitle}>Speed</p>
+                                  <p className={styles.itemStatNumbers}>
+                                    {nftSelected.stat?.moveSpeed} /{" "}
+                                    {characterMaxStats.maxMoveSpeed}
+                                  </p>
+                                </div>
                               </div>
-                            </div>
+                            </> 
+                              :
+                            <>
+                            {/* WEAPON */}
+                              <p className={styles.title}>Stat</p>
+                              <div className={styles.itemStatContainer}>
+                                <img
+                                  className={styles.icon}
+                                  src={HP}
+                                  alt="HP icon"
+                                />
+                                <div className={styles.itemStatInfo}>
+                                  <p className={styles.itemStatTitle}>Damage</p>
+                                  <p className={styles.itemStatNumbers}>
+                                    {nftSelected.stat?.damage} /{" "}
+                                    {weaponMaxStats.maxDamage}
+                                  </p>
+                                </div>
+                              </div>
+                              <div className={styles.itemStatContainer}>
+                                <img
+                                  className={styles.icon}
+                                  src={ENERGY}
+                                  alt="Energy icon"
+                                />
+                                <div className={styles.itemStatInfo}>
+                                  <p className={styles.itemStatTitle}>Energy</p>
+                                  <p className={styles.itemStatNumbers}>
+                                    {nftSelected.stat?.consumeEnergy} /{" "}
+                                    {nftSelected.stat?.maxEnergy}
+                                  </p>
+                                </div>
+                              </div>
+                              <div className={styles.itemStatContainer}>
+                                <img
+                                  className={styles.icon}
+                                  src={SPEED}
+                                  alt="Speed icon"
+                                />
+                                <div className={styles.itemStatInfo}>
+                                  <p className={styles.itemStatTitle}>Cooltime</p>
+                                  <p className={styles.itemStatNumbers}>
+                                    {nftSelected.stat?.coolTime} /{" "}
+                                    {weaponMaxStats.maxCoolDown}
+                                  </p>
+                                </div>
+                              </div>
+                            </>
+                          }
                           </div>
                         </div>
                         <div className={styles.cont2b}>

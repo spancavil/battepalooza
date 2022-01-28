@@ -795,10 +795,18 @@
               color: $logout;
               font-weight: bold;
               padding-bottom: 10px;
+              font-family: $font-nsBold;
+              font-size: 16px;
             }
 
             .featuresContainer {
               display: flex;
+            }
+            
+            .features{
+              font-family: $font-nsRegular;
+              font-size: 16px;
+              line-height: 1.3em;
             }
 
             .features::before {
@@ -811,17 +819,19 @@
 
             .abilityText {
               padding-right: 50px;
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
             }
 
             .cont1 {
               display: flex;
               padding-left: 30px;
-              margin-top: 40px;
+              margin-top: 30px;
 
               .cont2 {
                 display: flex;
                 flex-direction: column;
-                gap: 25px;
+                gap: 30px;
 
                 .cont2a {
                   display: flex;
@@ -830,7 +840,8 @@
                     display: flex;
                     flex-direction: column;
                     width: 55%;
-                    gap: 50px;
+                    gap: 30px;
+                    overflow: visible;
 
                     .cont3a {
                       display: flex;
@@ -839,8 +850,34 @@
                     }
 
                     .cont3b {
+                      width: 140%;
                       .storyText {
                         padding-right: 50px;
+                        font-family: $font-nsRegular;
+                        line-height: 1.3em;
+                      }
+                    }
+                  }
+
+                  .cont3Weapon {
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+                    gap: 30px;
+                    overflow: visible;
+
+                    .cont3a {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 7px;
+                    }
+
+                    .cont3b {
+                      width: 100%;
+                      .storyText {
+                        padding-right: 50px;
+                        font-family: $font-nsRegular;
+                        line-height: 1.3em;
                       }
                     }
                   }
@@ -850,9 +887,17 @@
                     display: flex;
                     flex-direction: column;
                     gap: 7px;
+                    .title {
+                      font-family: $font-nsBold;
+                    }
+                    .body {
+                      font-family: $font-nsRegular;
+                    }
                   }
 
                   .statsContainer {
+                    position: absolute;
+                    right: 0;
                     width: 20%;
                     display: flex;
                     flex-direction: column;
@@ -875,6 +920,10 @@
 
                         .itemStatTitle {
                           font-weight: bold;
+                          font-family: $font-nsBold;
+                        }
+                        .itemStatNumbers {
+                          font-family: $font-nsBold;
                         }
                       }
                     }
@@ -888,14 +937,18 @@
                     .p2eContainerA {
                       display: flex;
                       flex-direction: column;
-                      gap: 10px;
+                      gap: 5px;
                       width: 55%;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
                     }
 
                     .p2eContainerB {
                       display: flex;
                       flex-direction: column;
-                      gap: 10px;
+                      gap: 5px;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
                     }
 
                     .p2eItemContainer {
@@ -938,11 +991,28 @@
 
               .itemName {
                 color: $account-name;
-                font-size: 24px;
+                font-size: 28px;
+                font-family: $font-nasalization;
+                font-weight: bold;
               }
 
               .repName {
-                font-size: 12px;
+                font-size: 16px;
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+              }
+
+              .price {
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+                color: yellow;
+                padding-left: 30px;
+              }
+
+              .rarity {
+                font-size: 14px;
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
               }
             }
           }
@@ -955,9 +1025,11 @@
               height: 60px;
               border: none;
               cursor: pointer;
-              font-size: 16px;
+              font-size: 20px;
               background-color: $secondary-blue;
               color: white;
+              font-family: $font-nasalization;
+              font-weight: bold;
             }
           }
         }
