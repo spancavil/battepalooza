@@ -113,12 +113,21 @@
             }
             .info {
               padding: 10px 20px;
-              border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+              border-image: linear-gradient(
+                  180deg,
+                  #0146d5 0%,
+                  rgba(1, 70, 213, 0) 100%
+                )
+                1;
               border-top: 2px solid;
               border-bottom: none;
               border-right: 2.1px solid;
               border-left: 2.3px solid;
-              background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+              background: linear-gradient(
+                180deg,
+                rgba(4, 18, 55, 0.65) 0%,
+                rgba(4, 18, 55, 0) 100%
+              );
 
               .item {
                 margin-top: 5px;
@@ -126,7 +135,11 @@
                 padding: 8px 10px;
                 display: flex;
                 justify-content: space-between;
-                background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0.65) 100%);
+                background: linear-gradient(
+                  180deg,
+                  rgba(4, 18, 55, 0.65) 0%,
+                  rgba(4, 18, 55, 0.65) 100%
+                );
 
                 p {
                   padding: 0;
@@ -149,7 +162,11 @@
                 padding: 8px 10px;
                 display: flex;
                 justify-content: space-between;
-                background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0.65) 100%);
+                background: linear-gradient(
+                  180deg,
+                  rgba(4, 18, 55, 0.65) 0%,
+                  rgba(4, 18, 55, 0.65) 100%
+                );
                 color: $go-back;
 
                 p {
@@ -332,12 +349,21 @@
             }
             .info {
               padding: 10px 20px;
-              border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+              border-image: linear-gradient(
+                  180deg,
+                  #0146d5 0%,
+                  rgba(1, 70, 213, 0) 100%
+                )
+                1;
               border-top: 2px solid;
               border-bottom: none;
               border-right: 2.1px solid;
               border-left: 2.3px solid;
-              background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+              background: linear-gradient(
+                180deg,
+                rgba(4, 18, 55, 0.65) 0%,
+                rgba(4, 18, 55, 0) 100%
+              );
 
               .item {
                 margin-top: 5px;
@@ -345,7 +371,11 @@
                 padding: 8px 10px;
                 display: flex;
                 justify-content: space-between;
-                background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0.65) 100%);
+                background: linear-gradient(
+                  180deg,
+                  rgba(4, 18, 55, 0.65) 0%,
+                  rgba(4, 18, 55, 0.65) 100%
+                );
 
                 p {
                   padding: 0;
@@ -358,7 +388,11 @@
                 padding: 8px 10px;
                 display: flex;
                 justify-content: space-between;
-                background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0.65) 100%);
+                background: linear-gradient(
+                  180deg,
+                  rgba(4, 18, 55, 0.65) 0%,
+                  rgba(4, 18, 55, 0.65) 100%
+                );
                 color: $go-back;
 
                 p {
@@ -559,12 +593,21 @@
 
             .info {
               padding: 10px 20px;
-              border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+              border-image: linear-gradient(
+                  180deg,
+                  #0146d5 0%,
+                  rgba(1, 70, 213, 0) 100%
+                )
+                1;
               border-top: 2px solid;
               border-bottom: none;
               border-right: 2.1px solid;
               border-left: 2.3px solid;
-              background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+              background: linear-gradient(
+                180deg,
+                rgba(4, 18, 55, 0.65) 0%,
+                rgba(4, 18, 55, 0) 100%
+              );
 
               .item {
                 margin-top: 5px;
@@ -572,7 +615,11 @@
                 padding: 8px 10px;
                 display: flex;
                 justify-content: space-between;
-                background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0.65) 100%);
+                background: linear-gradient(
+                  180deg,
+                  rgba(4, 18, 55, 0.65) 0%,
+                  rgba(4, 18, 55, 0.65) 100%
+                );
 
                 p {
                   padding: 0;
@@ -592,7 +639,11 @@
                 padding: 8px 10px;
                 display: flex;
                 justify-content: space-between;
-                background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0.65) 100%);
+                background: linear-gradient(
+                  180deg,
+                  rgba(4, 18, 55, 0.65) 0%,
+                  rgba(4, 18, 55, 0.65) 100%
+                );
                 color: $go-back;
 
                 p {
@@ -693,12 +744,12 @@
       height: 100%;
       width: 100%;
 
-      
       .cardContainer {
         display: flex;
         flex-direction: column;
         width: 90vw;
-        
+        margin-top: 30px;
+
         .topContainer {
           height: 440px;
           display: flex;
@@ -710,18 +761,13 @@
             position: relative;
             display: flex;
             align-items: center;
+            justify-content: center;
             background-color: black;
             overflow: hidden;
-            // background: linear-gradient(
-            //   180deg,
-            //   #0146d5 0%,
-            //   rgba(1, 70, 213, 0) 100%
-            // );
-            // background: linear-gradient(180deg, rgba(0,0,0,1) 96%, rgba(4,18,55,1) 99.8%);
             .pinVideo {
               position: absolute;
               top: 0;
-              left: 50%; /*Center the vid, withouth black spaces*/
+              left: 50%;
               transform: translate(-50%);
               height: 100%;
             }
@@ -733,7 +779,7 @@
               display: flex;
               justify-content: center;
               align-items: center;
-    
+
               .loadMessage {
                 font-family: $font-nasalization;
                 color: white;
@@ -775,14 +821,93 @@
               .cont2 {
                 display: flex;
                 flex-direction: column;
+                gap: 25px;
 
                 .cont2a {
                   display: flex;
 
-                  .abilities {
+                  .cont3 {
+                    display: flex;
+                    flex-direction: column;
+                    width: 55%;
+                    gap: 50px;
+
+                    .cont3a {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 7px;
+                    }
+
+                    .cont3b {
+                      .storyText {
+                        padding-right: 50px;
+                      }
+                    }
+                  }
+
+                  .skillsContainer {
+                    width: 20%;
                     display: flex;
                     flex-direction: column;
                     gap: 7px;
+                  }
+
+                  .statsContainer {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+
+                    .itemStatContainer {
+                      display: flex;
+                      gap: 15px;
+                      align-items: center;
+                      justify-content: flex-start;
+
+                      img {
+                        width: 60px;
+                      }
+
+                      .itemStatInfo {
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 15px;
+
+                        .itemStatTitle {
+                          font-weight: bold;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .cont2b {
+                  .p2eContainer {
+                    display: flex;
+
+                    .p2eContainerA {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 10px;
+                      width: 55%;
+                    }
+
+                    .p2eContainerB {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 10px;
+                    }
+
+                    .p2eItemContainer {
+                      display: flex;
+                      align-items: center;
+                      gap: 10px;
+                      font-size: 15px;
+
+                      .p2eIcon {
+                        width: 25px;
+                      }
+                    }
                   }
                 }
               }
@@ -900,6 +1025,225 @@
 
           .loadMessage {
             font-family: $font-nasalization;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .cardContainer {
+      display: flex;
+      flex-direction: column;
+      width: 90vw;
+      margin-top: 30px;
+
+      .topContainer {
+        height: 440px;
+        display: flex;
+        width: 90vw;
+
+        .videoContainer {
+          width: 30%;
+          height: 100%;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: black;
+          overflow: hidden;
+          .pinVideo {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%);
+            height: 100%;
+          }
+          .loadMessageContainer {
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .loadMessage {
+              font-family: $font-nasalization;
+              color: white;
+            }
+          }
+        }
+
+        .topRightContainer {
+          background-color: #060f27;
+          width: 70%;
+
+          .title {
+            color: $logout;
+            font-weight: bold;
+            padding-bottom: 10px;
+          }
+
+          .featuresContainer {
+            display: flex;
+          }
+
+          .features::before {
+            content: "- ";
+          }
+
+          .features:first-child::before {
+            content: none;
+          }
+
+          .abilityText {
+            padding-right: 50px;
+          }
+
+          .cont1 {
+            display: flex;
+            padding-left: 30px;
+            margin-top: 40px;
+
+            .cont2 {
+              display: flex;
+              flex-direction: column;
+              gap: 25px;
+
+              .cont2a {
+                display: flex;
+
+                .cont3 {
+                  display: flex;
+                  flex-direction: column;
+                  width: 55%;
+                  gap: 50px;
+
+                  .cont3a {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                  }
+
+                  .cont3b {
+                    .storyText {
+                      padding-right: 50px;
+                    }
+                  }
+                }
+
+                .skillsContainer {
+                  width: 20%;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 7px;
+                }
+
+                .statsContainer {
+                  width: 20%;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 7px;
+
+                  .itemStatContainer {
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    img {
+                      width: 60px;
+                    }
+
+                    .itemStatInfo {
+                      display: flex;
+                      flex-direction: column;
+                      font-size: 15px;
+
+                      .itemStatTitle {
+                        font-weight: bold;
+                      }
+                    }
+                  }
+                }
+              }
+
+              .cont2b {
+                .p2eContainer {
+                  display: flex;
+
+                  .p2eContainerA {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    width: 55%;
+                  }
+
+                  .p2eContainerB {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                  }
+
+                  .p2eItemContainer {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 15px;
+
+                    .p2eIcon {
+                      width: 25px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .bottomContainer {
+        height: 60px;
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .bottomLeftContainer {
+          height: 60px;
+          background-color: #242339;
+          padding: 0 25px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 75%;
+
+          .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .itemName {
+              color: $account-name;
+              font-size: 24px;
+            }
+
+            .repName {
+              font-size: 12px;
+            }
+          }
+        }
+
+        .button {
+          width: 30%;
+
+          button {
+            width: 100%;
+            height: 60px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: $secondary-blue;
             color: white;
           }
         }

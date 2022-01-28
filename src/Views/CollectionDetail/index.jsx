@@ -2,35 +2,42 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { NftData } from "../../Context/NftProvider";
 import { UserData } from "../../Context/UserProvider";
+import { logOutAmplitude } from "../../Utils/amplitude";
 import Background from "../../Global-Components/Background";
 import nftService from "../../Services/nft.service";
 import styles from "./styles.module.scss";
-// import defaultVideoCharacter from "../../Services/Videos/Characters/CyborgTed/DarkMax_Epic_1.mp4";
-// import defaultVideoWeapon from "../../Services/Videos/Weapons/Hammer/hellGreen.mp4";
-import { logOutAmplitude } from "../../Utils/amplitude";
 import Loader from "../../Global-Components/Loader";
 import ModalUnregister from "./Components/ModalUnregister";
 import ModalRegister1 from "./Components/ModalRegister1";
 import ModalRegister2 from "./Components/ModalRegister2";
+import HP from "./Assets/Sprite_Icon_Stat_01.png";
+import ENERGY from "./Assets/Sprite_Icon_Stat_02.png";
+import SPEED from "./Assets/Sprite_Icon_Stat_04.png";
+import DAILY from "./Assets/Sprite_Icon_Reward_35.png";
+import PREMIUM from "./Assets/Sprite_Icon_Premium_03.png";
+import COPY from "./Assets/Sprite_Icon_Premium_05.png";
+import SERIAL from "./Assets/Sprite_Icon_Premium_02.png";
+import BONUS from "./Assets/Sprite_Icon_Premium_04.png";
 
 const CollectionDetail = () => {
   const [nftSelected, setNftSelected] = useState();
   const [loading, setLoading] = useState(false);
-  // const [arrayBonus, setArrayBonus] = useState();
   const [modalUnregister, setmodalUnregister] = useState(false);
   const [modalRegister1, setmodalRegister1] = useState(false);
   const [modalRegister2, setmodalRegister2] = useState(false);
   const [inputPrice, setInputPrice] = useState(0);
 
   const { userData } = useContext(UserData);
-  const { setNftPrice } = useContext(NftData)
-  // const { setNftPrice, weaponMaxStats, characterMaxStats } = useContext(NftData);
+  const { setNftPrice, weaponMaxStats, characterMaxStats } =
+    useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
 
   useEffect(() => {
     setLoading(true);
   }, []);
+
+  console.log(nftSelected);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,7 +49,6 @@ const CollectionDetail = () => {
             uuid
           );
 
-          //Logout en caso de error
           if (response.error.text !== "") {
             if (response.error.text.includes("authorized")) {
               alert("Session expired, please login again.");
@@ -64,13 +70,6 @@ const CollectionDetail = () => {
     userData.email && fetchData();
   }, [uuid, userData, history]);
 
-  useEffect(() => {
-    if (nftSelected) {
-      // const arrayBonus = Object.entries(nftSelected.buff[0]);
-      // setArrayBonus(arrayBonus);
-    }
-  }, [nftSelected,]);
-
   const openModalUnregister = () => {
     setmodalUnregister(true);
   };
@@ -89,7 +88,6 @@ const CollectionDetail = () => {
   const Register = () => {
     if (inputPrice > 0) {
       const sale = 1;
-      // console.log(nftSelected, inputPrice, userData.pid, sale)
       const nftUpdated = setNftPrice(
         nftSelected,
         inputPrice,
@@ -115,12 +113,10 @@ const CollectionDetail = () => {
       <p className={styles.back} onClick={goBack}>
         &#60; Go back to Collection
       </p>
-        <div className={styles.container}>
-          {nftSelected &&
+      <div className={styles.container}>
+        {nftSelected && (
           <div className={styles.card}>
             <div className={styles.text}>
-
-              {/* Card content */}
               <div className={styles.cardContainer}>
                 <div className={styles.topContainer}>
                   <div className={styles.videoContainer}>
@@ -140,38 +136,149 @@ const CollectionDetail = () => {
                           loop
                         />
                       </>
-                    )
-                      :
-                      <h2 className={styles.loadMessage}>No video for this NFT</h2>
-                    }
+                    ) : (
+                      <h2 className={styles.loadMessage}>
+                        No video for this NFT
+                      </h2>
+                    )}
                   </div>
                   <div className={styles.topRightContainer}>
                     <div className={styles.cont1}>
                       <div className={styles.cont2}>
                         <div className={styles.cont2a}>
-                          <div className={styles.abilities}>
-                            <p className={styles.title}>Abilities</p>
-                            <span className={styles.featuresContainer}>
-                              {nftSelected.ability.features.map((x, i) => (
-                                <p key={i} className={styles.features}>
-                                  {x} &nbsp;
-                                </p>
-                              ))}
-                            </span>
-                            <p className={styles.abilityText}>
-                              :{nftSelected.ability.text}
-                            </p>
+                          <div className={styles.cont3}>
+                            <div className={styles.cont3a}>
+                              <p className={styles.title}>Abilities</p>
+                              <span className={styles.featuresContainer}>
+                                {nftSelected.ability.features.map((x, i) => (
+                                  <p key={i} className={styles.features}>
+                                    {x} &nbsp;
+                                  </p>
+                                ))}
+                              </span>
+                              <p className={styles.abilityText}>
+                                :{nftSelected.ability.text}
+                              </p>
+                            </div>
+                            <div className={styles.cont3b}>
+                              <p className={styles.title}>Character Story</p>
+                              <p className={styles.storyText}>
+                                {nftSelected.storyText}
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <p className={styles.title}>Skill</p>
+                          {nftSelected.skill && (
+                            <div className={styles.skillsContainer}>
+                              <p className={styles.title}>Skill</p>
+                              <p>{nftSelected.skill?.name}</p>
+                            </div>
+                          )}
+                          <div className={styles.statsContainer}>
+                            <p className={styles.title}>Stat</p>
+                            <div className={styles.itemStatContainer}>
+                              <img
+                                className={styles.icon}
+                                src={HP}
+                                alt="HP icon"
+                              />
+                              <div className={styles.itemStatInfo}>
+                                <p className={styles.itemStatTitle}>HP</p>
+                                <p className={styles.itemStatNumbers}>
+                                  {nftSelected.stat?.maxHealth} /{" "}
+                                  {characterMaxStats.maxHealth}
+                                </p>
+                              </div>
+                            </div>
+                            <div className={styles.itemStatContainer}>
+                              <img
+                                className={styles.icon}
+                                src={ENERGY}
+                                alt="Energy icon"
+                              />
+                              <div className={styles.itemStatInfo}>
+                                <p className={styles.itemStatTitle}>Energy</p>
+                                <p className={styles.itemStatNumbers}>
+                                  {nftSelected.stat?.energyRecovery} /{" "}
+                                  {characterMaxStats.maxEnergyRecovery}
+                                </p>
+                              </div>
+                            </div>
+                            <div className={styles.itemStatContainer}>
+                              <img
+                                className={styles.icon}
+                                src={SPEED}
+                                alt="Speed icon"
+                              />
+                              <div className={styles.itemStatInfo}>
+                                <p className={styles.itemStatTitle}>Speed</p>
+                                <p className={styles.itemStatNumbers}>
+                                  {nftSelected.stat?.moveSpeed} /{" "}
+                                  {characterMaxStats.maxMoveSpeed}
+                                </p>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         <div className={styles.cont2b}>
-                          <p className={styles.title}>Character Story</p>
+                          <p className={styles.title}>P2E Info</p>
+                          <div className={styles.p2eContainer}>
+                            <div className={styles.p2eContainerA}>
+                              <div className={styles.p2eItemContainer}>
+                                <img
+                                  className={styles.p2eIcon}
+                                  src={DAILY}
+                                  alt="Dayly gNCoin"
+                                />
+                                <p className={styles.p2eText}>
+                                  Daily gNCoin Battle Count:{" "}
+                                  {nftSelected.dailyPlayCount} /{" "}
+                                  {nftSelected.maxDailyPlayCount}{" "}
+                                </p>
+                              </div>
+                              <div className={styles.p2eItemContainer}>
+                                <img
+                                  className={styles.p2eIcon}
+                                  src={PREMIUM}
+                                  alt="Battle count"
+                                />
+                                <p className={styles.p2eText}>
+                                  gNCoin Battle Count: {nftSelected.playCount} /{" "}
+                                  {nftSelected.maxPlayCount}{" "}
+                                </p>
+                              </div>
+                              <div className={styles.p2eItemContainer}>
+                                <img
+                                  className={styles.p2eIcon}
+                                  src={COPY}
+                                  alt="Copy"
+                                />
+                                <p className={styles.p2eText}>Copy: VER</p>
+                              </div>
+                            </div>
+                            <div className={styles.p2eContainerB}>
+                              <div className={styles.p2eItemContainer}>
+                                <img
+                                  className={styles.p2eIcon}
+                                  src={SERIAL}
+                                  alt="Serial"
+                                />
+                                <p className={styles.p2eText}>
+                                  Serial Number: #{nftSelected.serial}
+                                </p>
+                              </div>
+                              <div className={styles.p2eItemContainer}>
+                                <img
+                                  className={styles.p2eIcon}
+                                  src={BONUS}
+                                  alt="Bonus"
+                                />
+                                <p className={styles.p2eText}>
+                                  Bonus: {nftSelected.rewardMultiplier}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <div>
-                        <p className={styles.title}>Stat</p>
                       </div>
                     </div>
                   </div>
@@ -180,47 +287,59 @@ const CollectionDetail = () => {
                   <div className={styles.bottomLeftContainer}>
                     <div className={styles.item}>
                       <p className={styles.itemName}>{nftSelected.itemName}</p>
-                      <p className={styles.repName}>[ {nftSelected.repName} ]</p>
-                      {nftSelected.salesState === 1 && <p className={styles.price}>Price {nftSelected.price} nCoin</p>}
+                      <p className={styles.repName}>
+                        [ {nftSelected.repName} ]
+                      </p>
+                      {nftSelected.salesState === 1 && (
+                        <p className={styles.price}>
+                          Price {nftSelected.price} nCoin
+                        </p>
+                      )}
                     </div>
 
                     <div className={styles.rarity}>
                       <p>Rarity: {nftSelected.rarity}</p>
                     </div>
                   </div>
-                  {
-                    nftSelected.salesState === 1 ?
-                      <div className={styles.button}>
-                        <button onClick={openModalUnregister}>Unregister to marketplace</button>
-                      </div>
-                      :
-                      <div className={styles.button}>
-                        <button onClick={openModalRegister1}>Register to marketplace</button>
-                      </div>
-                  }
+                  {nftSelected.salesState === 1 ? (
+                    <div className={styles.button}>
+                      <button onClick={openModalUnregister}>
+                        Unregister to marketplace
+                      </button>
+                    </div>
+                  ) : (
+                    <div className={styles.button}>
+                      <button onClick={openModalRegister1}>
+                        Register to marketplace
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
-
             </div>
-          </div>}
-          {modalUnregister && (
-            <ModalUnregister setmodalUnregister={setmodalUnregister} unRegister={unRegister} />
-          )}
-          {modalRegister1 && (
-            <ModalRegister1
-              setmodalRegister1={setmodalRegister1}
-              handleInputChange={handleInputChange}
-              Register={Register}
-              inputPrice={inputPrice}
-            />
-          )}
-          {modalRegister2 && (
-            <ModalRegister2
-              setmodalRegister2={setmodalRegister2}
-              handleMarket={handleMarket}
-            />
-          )}
-        </div>
+          </div>
+        )}
+        {modalUnregister && (
+          <ModalUnregister
+            setmodalUnregister={setmodalUnregister}
+            unRegister={unRegister}
+          />
+        )}
+        {modalRegister1 && (
+          <ModalRegister1
+            setmodalRegister1={setmodalRegister1}
+            handleInputChange={handleInputChange}
+            Register={Register}
+            inputPrice={inputPrice}
+          />
+        )}
+        {modalRegister2 && (
+          <ModalRegister2
+            setmodalRegister2={setmodalRegister2}
+            handleMarket={handleMarket}
+          />
+        )}
+      </div>
     </Background>
   );
 };
