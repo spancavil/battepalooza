@@ -1110,7 +1110,7 @@
       margin-top: 30px;
 
       .topContainer {
-        height: 440px;
+        height: 600px;
         display: flex;
         width: 90vw;
 
@@ -1154,6 +1154,7 @@
             color: $logout;
             font-weight: bold;
             padding-bottom: 10px;
+            font-size: 25px;
           }
 
           .featuresContainer {
@@ -1174,8 +1175,9 @@
 
           .cont1 {
             display: flex;
-            padding-left: 30px;
+            padding-left: 50px;
             margin-top: 40px;
+            font-size: 20px;
 
             .cont2 {
               display: flex;
@@ -1224,13 +1226,13 @@
                     justify-content: flex-start;
 
                     img {
-                      width: 60px;
+                      width: 80px;
                     }
 
                     .itemStatInfo {
                       display: flex;
                       flex-direction: column;
-                      font-size: 15px;
+                      font-size: 20px;
 
                       .itemStatTitle {
                         font-weight: bold;
@@ -1241,6 +1243,7 @@
               }
 
               .cont2b {
+
                 .p2eContainer {
                   display: flex;
 
@@ -1261,10 +1264,10 @@
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    font-size: 15px;
+                    font-size: 20px;
 
                     .p2eIcon {
-                      width: 25px;
+                      width: 35px;
                     }
                   }
                 }
@@ -1275,46 +1278,47 @@
       }
 
       .bottomContainer {
-        height: 60px;
-        background-color: black;
+        height: 100px;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
         .bottomLeftContainer {
-          height: 60px;
+          height: 100%;
           background-color: #242339;
-          padding: 0 25px;
+          padding: 0 45px;
           display: flex;
           justify-content: space-between;
           align-items: center;
           width: 75%;
+          font-size: 25px;
 
           .item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
 
             .itemName {
               color: $account-name;
-              font-size: 24px;
+              font-size: 35px;
             }
 
             .repName {
-              font-size: 12px;
+              font-size: 20px;
             }
           }
         }
 
         .button {
           width: 30%;
+          height: 100%;
 
           button {
             width: 100%;
-            height: 60px;
+            height: 100%;
             border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 26px;
             background-color: $secondary-blue;
             color: white;
           }
