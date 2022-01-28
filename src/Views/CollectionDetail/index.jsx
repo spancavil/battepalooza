@@ -88,7 +88,7 @@ const CollectionDetail = () => {
   };
   const Register = () => {
     if (inputPrice > 0) {
-      const sale = true;
+      const sale = 1;
       // console.log(nftSelected, inputPrice, userData.pid, sale)
       const nftUpdated = setNftPrice(
         nftSelected,

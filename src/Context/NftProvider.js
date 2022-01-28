@@ -32,7 +32,9 @@ const NftProvider = ({ children }) => {
 
   const setNftPrice = (nft, priceAssigned, seller, sale) => {
     const nftToSet = userCollection.find(element => element.uuid === nft.uuid);
-    //Asignación de parámetros
+
+    //Asignación de parámetros, price seller y salesState.
+    //Después deberá ser cambiado por el servicio correspondiente.
     Object.defineProperty(nftToSet, 'price', {
       configurable: true,
       enumerable: true,
@@ -45,12 +47,7 @@ const NftProvider = ({ children }) => {
       writable: true,
       value: seller,
     })
-    Object.defineProperty(nftToSet, 'inMarket', {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: sale,
-    })
+    nftToSet.salesState = 1;
 
     Object.defineProperty(nft, 'price', {
       configurable: true,
@@ -64,12 +61,8 @@ const NftProvider = ({ children }) => {
       writable: true,
       value: seller,
     })
-    Object.defineProperty(nft, 'inMarket', {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: sale,
-    })
+    nft.salesState = 1
+    
     setUserNft([...userCollection]);
     return (nft)
   }
