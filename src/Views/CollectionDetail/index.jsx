@@ -163,7 +163,7 @@ const CollectionDetail = () => {
                                 ))}
                               </span>
                               <p className={styles.abilityText}>
-                                {nftSelected.ability.text}
+                                :{nftSelected.ability.text}
                               </p>
                             </div>
                             <div className={styles.cont3b}>
