@@ -1,30 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import Background from '../../Global-Components/Background';
-import marketService from '../../Services/market.service';
-import Filters from './components/Filters';
-import Products from './components/Products';
-import SearchBar from './components/SearchBar';
-import {logOutAmplitude} from '../../Utils/amplitude';
+import React, { useEffect, useState } from "react";
+import Background from "../../Global-Components/Background";
+import marketService from "../../Services/market.service";
+import Filters from "./components/Filters";
+import Products from "./components/Products";
+import SearchBar from "./components/SearchBar";
+import { logOutAmplitude } from "../../Utils/amplitude";
 
-import styles from './styles.module.scss';
-import { useHistory } from 'react-router-dom';
+import styles from "./styles.module.scss";
+import { useHistory } from "react-router-dom";
 
 const MarketPlace = () => {
-  const [filters, setFilters] = useState ({
-    // COMMON: false,
-    // RARE: false,
-    // EPIC: false,
-    // LEGENDARY: false,
-  });
-  const [page, setPage] = useState (1);
-  const [xPage, setxPage] = useState (25);
-  const [input, setInput] = useState (1);
+  const [filters, setFilters] = useState({});
+  const [page, setPage] = useState(1);
+  const [xPage, setxPage] = useState(25);
+  const [input, setInput] = useState(1);
 
-  const history = useHistory()
+  const history = useHistory();
 
-  useEffect(()=> {
-
-    ( async()=> {
+  useEffect(() => {
+    (async () => {
       try {
         const response = await marketService.getData();
         if (response.error.text !== "") {
@@ -36,29 +30,26 @@ const MarketPlace = () => {
             window.location.reload();
           } else {
             alert(response.error.text);
-            return
+            return;
           }
         }
 
-        let rarityItem = {}
-        response.rarityList.forEach(rarity => {
+        let rarityItem = {};
+        response.rarityList.forEach((rarity) => {
           Object.defineProperty(rarityItem, rarity.name, {
             configurable: true,
             enumerable: true,
             writable: true,
             value: false,
-          })
+          });
         });
-        setFilters(rarityItem)
-
+        setFilters(rarityItem);
       } catch (error) {
-        alert(error.message)
-        return
+        alert(error.message);
+        return;
       }
-
-    })()
-    
-  }, [setFilters, history])
+    })();
+  }, [setFilters, history]);
 
   return (
     <Background>

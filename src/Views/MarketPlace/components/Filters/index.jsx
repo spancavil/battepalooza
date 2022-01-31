@@ -1,22 +1,22 @@
-import React, {useState} from 'react';
-import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
-import Filter from './Filter';
+import React, { useState } from "react";
+import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
+import Filter from "./Filter";
 
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 
-const Filters = ({filters, setFilters, setPage, input, setInput}) => {
-  const breakpoint = useMediaQuery ('(max-width: 1199px)');
-  const [menu, setMenu] = useState (false);
+const Filters = ({ filters, setFilters, setPage, input, setInput }) => {
+  const breakpoint = useMediaQuery("(max-width: 1199px)");
+  const [menu, setMenu] = useState(false);
 
-  const onChange = e => {
-    setFilters ({...filters, [e.target.name]: e.target.checked});
-    setPage(1)
-    setInput(1)
+  const onChange = (e) => {
+    setFilters({ ...filters, [e.target.name]: e.target.checked });
+    setPage(1);
+    setInput(1);
   };
 
-  return breakpoint
-    ? <>
-    <div onClick={() => setMenu (!menu)} className={styles.btnFilter}>
+  return breakpoint ? (
+    <>
+      <div onClick={() => setMenu(!menu)} className={styles.btnFilter}>
         <svg
           width="28"
           height="28"
@@ -89,119 +89,44 @@ const Filters = ({filters, setFilters, setPage, input, setInput}) => {
           />
         </svg>
       </div>
-      {menu &&
-        breakpoint &&
+      {menu && (
         <div className={styles.menuFilter}>
-          <h2>
-            FILTERS
-          </h2>
+          <h2>FILTERS</h2>
           <div className={styles.filtersMobile}>
             {Object.keys(filters).map((key) => {
-              return <Filter key = {key} name = {key} value= {filters[key]} onChange={onChange}/>
+              return (
+                <Filter
+                  key={key}
+                  name={key}
+                  value={filters[key]}
+                  onChange={onChange}
+                />
+              );
             })}
-            {/* <label className={styles.filter}>
-              <input
-                onChange={e => onChange (e)}
-                value={filters.COMMON}
-                type="checkbox"
-                name="COMMON"
-                checked={filters.COMMON ?? true}
-              />
-              COMMON
-            </label>
-
-            <label className={styles.filter}>
-              <input
-                onChange={e => onChange (e)}
-                value={filters.RARE}
-                type="checkbox"
-                name="RARE"
-                checked={filters.RARE ?? true}
-              />
-              RARE
-            </label>
-
-            <label className={styles.filter}>
-              <input
-                onChange={e => onChange (e)}
-                value={filters.EPIC}
-                type="checkbox"
-                name="EPIC"
-                checked={filters.EPIC ?? true}
-              />
-              EPIC
-            </label>
-
-            <label className={styles.filter}>
-              <input
-                onChange={e => onChange (e)}
-                value={filters.LEGENDARY}
-                type="checkbox"
-                name="LEGENDARY"
-                checked={filters.LEGENDARY ?? true}
-              />
-              LEGENDARY
-            </label> */}
           </div>
-        </div>}
-        {menu &&
-        breakpoint && <div onClick={() => setMenu(false)} className={styles.bg}></div> }
-</>
-    : <div className={styles.container}>
-        <div className={styles.title}>
-          <h2>
-            FILTERS
-          </h2>
         </div>
-        <div className={styles.filters}>
-          {Object.keys(filters).map((key) => {
-            return <Filter key = {key} name = {key} value= {filters[key]} onChange={onChange}/>
-          })}
-          {/* <label className={styles.filter}>
-            <input
-              onChange={e => onChange (e)}
-              value={filters.COMMON}
-              type="checkbox"
-              name="COMMON"
-              checked={filters.COMMON ?? true}
+      )}
+      {menu && <div onClick={() => setMenu(false)} className={styles.bg}></div>}
+    </>
+  ) : (
+    <div className={styles.container}>
+      <div className={styles.title}>
+        <h2>FILTERS</h2>
+      </div>
+      <div className={styles.filters}>
+        {Object.keys(filters).map((key) => {
+          return (
+            <Filter
+              key={key}
+              name={key}
+              value={filters[key]}
+              onChange={onChange}
             />
-            COMMON
-          </label>
-
-          <label className={styles.filter}>
-            <input
-              onChange={e => onChange (e)}
-              value={filters.RARE}
-              type="checkbox"
-              name="RARE"
-              checked={filters.RARE ?? true}
-            />
-            RARE
-          </label>
-
-          <label className={styles.filter}>
-            <input
-              onChange={e => onChange (e)}
-              value={filters.LEGENDARY}
-              type="checkbox"
-              name="EPIC"
-              checked={filters.EPIC ?? true}
-            />
-            EPIC
-          </label>
-
-          <label className={styles.filter}>
-            <input
-              onChange={e => onChange (e)}
-              value={filters.LEGENDARY}
-              type="checkbox"
-              name="LEGENDARY"
-              checked={filters.LEGENDARY ?? true}
-            />
-            LEGENDARY
-          </label> */}
-        </div>
-      </div>;
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default Filters;
