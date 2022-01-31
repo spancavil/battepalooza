@@ -1097,13 +1097,12 @@
 
 @media (min-width: $HD) {
   .back {
-    padding-top: 20px;
+    padding-top: 50px;
     font-family: "Nasalization";
     color: $go-back;
-    font-size: 10px;
+    font-size: 15px;
     cursor: pointer;
     padding-left: 20px;
-    background-color: black;
     position: absolute;
     top: 80px;
     z-index: 2;
@@ -1211,11 +1210,18 @@
             color: $logout;
             font-weight: bold;
             padding-bottom: 10px;
+            font-family: $font-nsBold;
             font-size: 25px;
           }
 
           .featuresContainer {
             display: flex;
+          }
+
+          .features{
+            font-family: $font-nsRegular;
+            line-height: 1.3em;
+            font-size: 20px;
           }
 
           .features::before {
@@ -1228,6 +1234,8 @@
 
           .abilityText {
             padding-right: 50px;
+            font-family: $font-nsRegular;
+            line-height: 1.3em;
           }
 
           .cont1 {
@@ -1235,11 +1243,13 @@
             padding-left: 50px;
             margin-top: 40px;
             font-size: 20px;
+            font-family: $font-nsRegular;
+            line-height: 1.3em;
 
             .cont2 {
               display: flex;
               flex-direction: column;
-              gap: 25px;
+              gap: 50px;
 
               .cont2a {
                 display: flex;
@@ -1249,6 +1259,7 @@
                   flex-direction: column;
                   width: 55%;
                   gap: 50px;
+                  overflow: visible;
 
                   .cont3a {
                     display: flex;
@@ -1257,8 +1268,34 @@
                   }
 
                   .cont3b {
+                    width: 140%;
                     .storyText {
                       padding-right: 50px;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
+                    }
+                  }
+                }
+
+                .cont3Weapon {
+                  display: flex;
+                  flex-direction: column;
+                  width: 70%;
+                  gap: 30px;
+                  overflow: visible;
+
+                  .cont3a {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                  }
+
+                  .cont3b {
+                    width: 100%;
+                    .storyText {
+                      padding-right: 50px;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
                     }
                   }
                 }
@@ -1271,6 +1308,8 @@
                 }
 
                 .statsContainer {
+                  position: absolute;
+                  right: 0;
                   width: 20%;
                   display: flex;
                   flex-direction: column;
@@ -1308,12 +1347,16 @@
                     flex-direction: column;
                     gap: 10px;
                     width: 55%;
+                    font-family: $font-nsRegular;
+                    line-height: 1.3em;
                   }
 
                   .p2eContainerB {
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
+                    font-family: $font-nsRegular;
+                    line-height: 1.3em;
                   }
 
                   .p2eItemContainer {
@@ -1357,11 +1400,29 @@
             .itemName {
               color: $account-name;
               font-size: 35px;
+              font-family: $font-nasalization;
+              font-weight: bold;
             }
 
             .repName {
               font-size: 20px;
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
             }
+
+            .price {
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+              color: yellow;
+              padding-left: 60px;
+            }
+
+            .rarity {
+              font-size: 20px;
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+
           }
         }
 
@@ -1377,6 +1438,8 @@
             font-size: 26px;
             background-color: $secondary-blue;
             color: white;
+            font-family: $font-nasalization;
+            font-weight: bold;
           }
         }
       }
