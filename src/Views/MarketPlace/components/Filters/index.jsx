@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {useMediaQuery} from '../../../../Hooks/useMediaQuery';
+import Filter from './Filter';
 
 import styles from './styles.module.scss';
 
@@ -95,7 +96,10 @@ const Filters = ({filters, setFilters, setPage, input, setInput}) => {
             FILTERS
           </h2>
           <div className={styles.filtersMobile}>
-            <label className={styles.filter}>
+            {Object.keys(filters).map((key) => {
+              return <Filter key = {key} name = {key} value= {filters[key]} onChange={onChange}/>
+            })}
+            {/* <label className={styles.filter}>
               <input
                 onChange={e => onChange (e)}
                 value={filters.COMMON}
@@ -137,7 +141,7 @@ const Filters = ({filters, setFilters, setPage, input, setInput}) => {
                 checked={filters.LEGENDARY ?? true}
               />
               LEGENDARY
-            </label>
+            </label> */}
           </div>
         </div>}
         {menu &&
@@ -150,7 +154,10 @@ const Filters = ({filters, setFilters, setPage, input, setInput}) => {
           </h2>
         </div>
         <div className={styles.filters}>
-          <label className={styles.filter}>
+          {Object.keys(filters).map((key) => {
+            return <Filter key = {key} name = {key} value= {filters[key]} onChange={onChange}/>
+          })}
+          {/* <label className={styles.filter}>
             <input
               onChange={e => onChange (e)}
               value={filters.COMMON}
@@ -192,7 +199,7 @@ const Filters = ({filters, setFilters, setPage, input, setInput}) => {
               checked={filters.LEGENDARY ?? true}
             />
             LEGENDARY
-          </label>
+          </label> */}
         </div>
       </div>;
 };

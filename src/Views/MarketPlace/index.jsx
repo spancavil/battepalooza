@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Background from '../../Global-Components/Background';
+import marketService from '../../Services/market.service';
 import Filters from './components/Filters';
 import Products from './components/Products';
 import SearchBar from './components/SearchBar';
@@ -8,14 +9,32 @@ import styles from './styles.module.scss';
 
 const MarketPlace = () => {
   const [filters, setFilters] = useState ({
-    COMMON: false,
-    RARE: false,
-    EPIC: false,
-    LEGENDARY: false,
+    // COMMON: false,
+    // RARE: false,
+    // EPIC: false,
+    // LEGENDARY: false,
   });
   const [page, setPage] = useState (1);
   const [xPage, setxPage] = useState (25);
   const [input, setInput] = useState (1);
+
+  useEffect(()=> {
+
+    ( async()=> {
+      const response = await marketService.getData();
+      let rarityItem = {}
+      response.rarityList.forEach(rarity => {
+        Object.defineProperty(rarityItem, rarity.name, {
+          configurable: true,
+          enumerable: true,
+          writable: true,
+          value: false,
+        })
+      });
+      setFilters(rarityItem)
+    })()
+    
+  }, [setFilters])
 
   return (
     <Background>
