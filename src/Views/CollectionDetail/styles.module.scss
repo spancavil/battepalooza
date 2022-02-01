@@ -14,6 +14,7 @@
   }
 
   .container {
+    padding-bottom: 50px;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -24,213 +25,281 @@
       flex-direction: column;
       color: white;
 
-      .imgContainer {
-        margin-top: 10px;
-        width: 100vw;
-        height: 51vh;
-        background-color: black;
-        overflow: hidden;
-        .pinVideo {
-          position: relative;
-          top: 0;
-          left: 50%; /*Center the vid, withouth black spaces*/
-          transform: translate(-50%);
-          width: 100%;
-          height: 100%;
-        }
-        .loadMessageContainer {
-          height: 100%;
-          width: 100%;
-          background-color: black;
-          z-index: 2;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+      .cardContainer {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        margin-top: 30px;
 
-          .loadMessage {
-            font-family: $font-nasalization;
-            color: white;
-          }
-        }
-      }
-
-      .text {
-        width: 100vw;
-        background-color: rgba(3, 11, 35, 0.8);
-
-        .dataContainer {
+        .topContainer {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          width: 90vw;
 
-          .rare {
-            padding-left: 40px;
-            padding-top: 15px;
-            font-family: $font-nasalization;
-            font-size: 20px;
-            font-weight: 700;
-          }
-
-          .repName {
-            color: $account-name;
-            padding-bottom: 15px;
-          }
-
-          .infoContainer {
+          .videoContainer {
             display: flex;
-            flex-direction: column;
-            width: 85vw;
-            align-self: center;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow: hidden;
 
-            .btnContainer {
+            .loadMessageContainer {
+              height: 100%;
+              width: 100%;
+              background-color: black;
+              z-index: 2;
               display: flex;
-              gap: 10px;
+              justify-content: center;
+              align-items: center;
 
-              .btn {
+              .loadMessage {
                 font-family: $font-nasalization;
-                background-color: #0146d5;
-                border: none;
                 color: white;
-                padding: 8px 35px;
-                border-top-left-radius: 3px;
-                border-top-right-radius: 3px;
-                font-weight: bold;
-                cursor: pointer;
-              }
-
-              .btnDes {
-                font-family: $font-nasalization;
-                background-color: #0146d5;
-                border: none;
-                color: white;
-                padding: 8px 35px;
-                border-top-left-radius: 3px;
-                border-top-right-radius: 3px;
-                font-weight: bold;
-                opacity: 0.5;
-                cursor: pointer;
-              }
-            }
-            .info {
-              padding: 10px 20px;
-              border-image: linear-gradient(
-                  180deg,
-                  #0146d5 0%,
-                  rgba(1, 70, 213, 0) 100%
-                )
-                1;
-              border-top: 2px solid;
-              border-bottom: none;
-              border-right: 2.1px solid;
-              border-left: 2.3px solid;
-              background: linear-gradient(
-                180deg,
-                rgba(4, 18, 55, 0.65) 0%,
-                rgba(4, 18, 55, 0) 100%
-              );
-
-              .item {
-                margin-top: 5px;
-                width: 100%;
-                padding: 8px 10px;
-                display: flex;
-                justify-content: space-between;
-                background: linear-gradient(
-                  180deg,
-                  rgba(4, 18, 55, 0.65) 0%,
-                  rgba(4, 18, 55, 0.65) 100%
-                );
-
-                p {
-                  padding: 0;
-                }
-                .abilitiesItem {
-                  width: 100%;
-                }
-
-                // .abilitiesItem::after {
-                //   content: " - ";
-                // }
-                // .abilitiesItem:last-child::after {
-                //   content: none;
-                // }
-              }
-
-              .itemBlue {
-                margin-top: 5px;
-                width: 100%;
-                padding: 8px 10px;
-                display: flex;
-                justify-content: space-between;
-                background: linear-gradient(
-                  180deg,
-                  rgba(4, 18, 55, 0.65) 0%,
-                  rgba(4, 18, 55, 0.65) 100%
-                );
-                color: $go-back;
-
-                p {
-                  padding: 0;
-                }
-              }
-
-              .desc {
-                text-align: left;
-                width: 100%;
-                padding: 0;
-                font-size: 12px;
-                padding: 5px 0;
               }
             }
           }
 
-          p {
-            padding-left: 40px;
-            padding-top: 15px;
-            font-family: $font-nasalization;
-            font-size: 14px;
-            font-weight: 400;
-          }
+          .topRightContainer {
+            background-color: #060f27;
 
-          .contentNft {
-            position: relative;
-            font-size: 10px;
-          }
+            .title {
+              color: $logout;
+              font-weight: bold;
+              padding-bottom: 10px;
+              font-family: $font-nsBold;
+              font-size: 14px;
+            }
 
-          ul {
-            list-style: none;
-            padding-left: 40px;
-            padding-top: 7px;
-            font-family: $font-nasalization;
-            font-size: 14px;
-            font-weight: 400;
-          }
+            .featuresContainer {
+              display: flex;
+              padding-right: 15px;
+            }
 
-          .price {
-            padding-left: 40px;
-            padding-top: 15px;
-            font-family: $font-nasalization;
-            font-size: 17px;
-            font-weight: 700;
-            color: $account-name;
+            .features {
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+
+            .features::before {
+              content: "- ";
+            }
+
+            .features:first-child::before {
+              content: none;
+            }
+
+            .abilityText {
+              padding-right: 50px;
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+
+            .cont1 {
+              display: flex;
+              padding-left: 25px;
+              margin-top: 30px;
+
+              .cont2 {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                .cont2a {
+                  display: flex;
+                  flex-direction: column;
+
+                  .cont3 {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    overflow: visible;
+
+                    .cont3a {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 7px;
+                      font-size: 12px;
+                    }
+
+                    .cont3b {
+                      font-size: 12px;
+
+                      .storyText {
+                        padding-right: 50px;
+                        font-family: $font-nsRegular;
+                        line-height: 1.3em;
+                      }
+                    }
+                  }
+
+                  .cont3Weapon {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    overflow: visible;
+                    font-size: 12px;
+
+                    .cont3a {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 7px;
+                    }
+
+                    .cont3b {
+                      width: 100%;
+
+                      .storyText {
+                        padding-right: 50px;
+                        font-family: $font-nsRegular;
+                        line-height: 1.3em;
+                      }
+                    }
+                  }
+
+                  .skillsContainer {
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 12px;
+
+                    .body {
+                      font-family: $font-nsRegular;
+                    }
+                  }
+
+                  .statsContainer {
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+
+                    .itemStatContainer {
+                      display: flex;
+                      gap: 15px;
+                      align-items: center;
+                      justify-content: flex-start;
+
+                      img {
+                        width: 45px;
+                      }
+
+                      .itemStatInfo {
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 12px;
+                        font-family: $font-nsRegular;
+                      }
+                    }
+                  }
+                }
+
+                .cont2b {
+                  padding-bottom: 25px;
+
+                  .p2eContainer {
+                    display: flex;
+                    flex-direction: column;
+
+                    .p2eContainerA {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 5px;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
+                    }
+
+                    .p2eContainerB {
+                      margin-top: 5px;
+                      display: flex;
+                      flex-direction: column;
+                      gap: 5px;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
+                    }
+
+                    .p2eItemContainer {
+                      display: flex;
+                      align-items: center;
+                      gap: 10px;
+                      font-size: 12px;
+
+                      .p2eIcon {
+                        width: 25px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
-      }
-      .buttonContainer {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        padding-bottom: 20px;
-        overflow: visible;
 
-        button {
-          width: 80%;
-          margin-top: 10px;
-          font-size: 15px;
+        .bottomContainer {
+          background-color: black;
           display: flex;
+          flex-direction: column;
+          justify-content: space-between;
           align-items: center;
-          justify-content: center;
-          padding: 10px 15px;
+
+          .bottomLeftContainer {
+            width: 90vw;
+            height: 60px;
+            background-color: #242339;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: $font-nsRegular;
+            font-size: 10px;
+
+            .item {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .itemName {
+                color: $account-name;
+                font-size: 18px;
+                font-family: $font-nasalization;
+                font-weight: bold;
+              }
+
+              .repName {
+                font-size: 10px;
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+              }
+
+              .price {
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+                color: yellow;
+                padding-left: 30px;
+              }
+
+              .rarity {
+                font-size: 10px;
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+              }
+            }
+          }
+
+          .button {
+            width: 100%;
+
+            button {
+              width: 100%;
+              height: 60px;
+              border: none;
+              cursor: pointer;
+              font-size: 14px;
+              background-color: $secondary-blue;
+              color: white;
+              font-family: $font-nasalization;
+              font-weight: bold;
+            }
+          }
         }
       }
     }
@@ -249,6 +318,7 @@
   }
 
   .container {
+    padding-bottom: 50px;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -259,204 +329,279 @@
       flex-direction: column;
       color: white;
 
-      .imgContainer {
-        margin-top: 10px;
-        width: 100vw;
-        height: 51vh;
-        background-color: black;
-        overflow: hidden;
+      .cardContainer {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        margin-top: 30px;
 
-        .pinVideo {
-          position: relative;
-          top: 0;
-          left: 50%; /*Center the vid, withouth black spaces*/
-          transform: translate(-50%);
-          width: 100%;
-          height: 100%;
-        }
-        .loadMessageContainer {
-          height: 100%;
-          width: 100%;
-          background-color: black;
-          z-index: 2;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          .loadMessage {
-            font-family: $font-nasalization;
-            color: white;
-          }
-        }
-      }
-
-      .text {
-        width: 100vw;
-        background-color: rgba(3, 11, 35, 0.8);
-
-        .dataContainer {
+        .topContainer {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          width: 90vw;
 
-          .rare {
-            padding-left: 40px;
-            padding-top: 15px;
-            font-family: $font-nasalization;
-            font-size: 20px;
-            font-weight: 700;
-          }
-
-          .repName {
-            color: $account-name;
-            padding-bottom: 15px;
-          }
-
-          .infoContainer {
+          .videoContainer {
             display: flex;
-            flex-direction: column;
-            width: 85vw;
-            align-self: center;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow: hidden;
 
-            .btnContainer {
+            .loadMessageContainer {
+              height: 100%;
+              width: 100%;
+              background-color: black;
+              z-index: 2;
               display: flex;
-              gap: 10px;
+              justify-content: center;
+              align-items: center;
 
-              .btn {
+              .loadMessage {
                 font-family: $font-nasalization;
-                background-color: #0146d5;
-                border: none;
                 color: white;
-                padding: 8px 35px;
-                border-top-left-radius: 3px;
-                border-top-right-radius: 3px;
-                font-weight: bold;
-                cursor: pointer;
-              }
-
-              .btnDes {
-                font-family: $font-nasalization;
-                background-color: #0146d5;
-                border: none;
-                color: white;
-                padding: 8px 35px;
-                border-top-left-radius: 3px;
-                border-top-right-radius: 3px;
-                font-weight: bold;
-                opacity: 0.5;
-                cursor: pointer;
-              }
-            }
-            .info {
-              padding: 10px 20px;
-              border-image: linear-gradient(
-                  180deg,
-                  #0146d5 0%,
-                  rgba(1, 70, 213, 0) 100%
-                )
-                1;
-              border-top: 2px solid;
-              border-bottom: none;
-              border-right: 2.1px solid;
-              border-left: 2.3px solid;
-              background: linear-gradient(
-                180deg,
-                rgba(4, 18, 55, 0.65) 0%,
-                rgba(4, 18, 55, 0) 100%
-              );
-
-              .item {
-                margin-top: 5px;
-                width: 100%;
-                padding: 8px 10px;
-                display: flex;
-                justify-content: space-between;
-                background: linear-gradient(
-                  180deg,
-                  rgba(4, 18, 55, 0.65) 0%,
-                  rgba(4, 18, 55, 0.65) 100%
-                );
-
-                p {
-                  padding: 0;
-                }
-              }
-
-              .itemBlue {
-                margin-top: 5px;
-                width: 100%;
-                padding: 8px 10px;
-                display: flex;
-                justify-content: space-between;
-                background: linear-gradient(
-                  180deg,
-                  rgba(4, 18, 55, 0.65) 0%,
-                  rgba(4, 18, 55, 0.65) 100%
-                );
-                color: $go-back;
-
-                p {
-                  padding: 0;
-                }
-              }
-
-              .desc {
-                text-align: left;
-                width: 100%;
-                padding: 0;
-                font-size: 12px;
-                padding: 5px 0;
               }
             }
           }
 
-          p {
-            padding-left: 40px;
-            padding-top: 15px;
-            font-family: $font-nasalization;
-            font-size: 14px;
-            font-weight: 400;
-          }
+          .topRightContainer {
+            background-color: #060f27;
 
-          .contentNft {
-            position: relative;
-            font-size: 10px;
-          }
+            .title {
+              color: $logout;
+              font-weight: bold;
+              padding-bottom: 10px;
+              font-family: $font-nsBold;
+              font-size: 14px;
+            }
 
-          ul {
-            list-style: none;
-            padding-left: 40px;
-            padding-top: 7px;
-            font-family: $font-nasalization;
-            font-size: 14px;
-            font-weight: 400;
-          }
+            .featuresContainer {
+              display: flex;
+            }
 
-          .price {
-            padding-left: 40px;
-            padding-top: 15px;
-            font-family: $font-nasalization;
-            font-size: 17px;
-            font-weight: 700;
-            color: $account-name;
+            .features {
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+
+            .features::before {
+              content: "- ";
+            }
+
+            .features:first-child::before {
+              content: none;
+            }
+
+            .abilityText {
+              padding-right: 50px;
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+
+            .cont1 {
+              display: flex;
+              padding-left: 30px;
+              margin-top: 30px;
+
+              .cont2 {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                .cont2a {
+                  display: flex;
+
+                  .cont3 {
+                    display: flex;
+                    flex-direction: column;
+                    width: 55%;
+                    gap: 30px;
+                    overflow: visible;
+
+                    .cont3a {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 7px;
+                      font-size: 13px;
+                    }
+
+                    .cont3b {
+                      font-size: 13px;
+                      .storyText {
+                        padding-right: 50px;
+                        font-family: $font-nsRegular;
+                        line-height: 1.3em;
+                      }
+                    }
+                  }
+
+                  .cont3Weapon {
+                    display: flex;
+                    flex-direction: column;
+                    width: 75%;
+                    gap: 30px;
+                    overflow: visible;
+
+                    .cont3a {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 7px;
+                    }
+
+                    .cont3b {
+                      width: 100%;
+
+                      .storyText {
+                        padding-right: 50px;
+                        font-family: $font-nsRegular;
+                        line-height: 1.3em;
+                      }
+                    }
+                  }
+
+                  .skillsContainer {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                    font-size: 13px;
+
+                    .body {
+                      font-family: $font-nsRegular;
+                    }
+                  }
+
+                  .statsContainer {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+
+                    .itemStatContainer {
+                      display: flex;
+                      gap: 15px;
+                      align-items: center;
+                      justify-content: flex-start;
+
+                      img {
+                        width: 45px;
+                      }
+
+                      .itemStatInfo {
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 13px;
+                        font-family: $font-nsRegular;
+                      }
+                    }
+                  }
+                }
+
+                .cont2b {
+                  padding-bottom: 25px;
+
+                  .p2eContainer {
+                    display: flex;
+
+                    .p2eContainerA {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 5px;
+                      width: 55%;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
+                    }
+
+                    .p2eContainerB {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 5px;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
+                    }
+
+                    .p2eItemContainer {
+                      display: flex;
+                      align-items: center;
+                      gap: 10px;
+                      font-size: 13px;
+
+                      .p2eIcon {
+                        width: 25px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
-      }
-      .buttonContainer {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        padding-bottom: 20px;
-        overflow: visible;
 
-        button {
-          width: 80%;
-          margin-top: 10px;
-          font-size: 15px;
+        .bottomContainer {
+          height: 60px;
+          background-color: black;
           display: flex;
+          justify-content: space-between;
           align-items: center;
-          justify-content: center;
-          padding: 10px 15px;
+
+          .bottomLeftContainer {
+            height: 60px;
+            background-color: #242339;
+            padding: 0 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 75%;
+            font-family: $font-nsRegular;
+            font-size: 13px;
+
+            .item {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .itemName {
+                color: $account-name;
+                font-size: 22px;
+                font-family: $font-nasalization;
+                font-weight: bold;
+              }
+
+              .repName {
+                font-size: 13px;
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+              }
+
+              .price {
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+                color: yellow;
+                padding-left: 30px;
+              }
+
+              .rarity {
+                font-size: 13px;
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+              }
+            }
+          }
+
+          .button {
+            width: 30%;
+
+            button {
+              width: 100%;
+              height: 60px;
+              border: none;
+              cursor: pointer;
+              font-size: 14px;
+              background-color: $secondary-blue;
+              color: white;
+              font-family: $font-nasalization;
+              font-weight: bold;
+            }
+          }
         }
       }
     }
