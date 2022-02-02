@@ -427,7 +427,7 @@
                     .cont3b {
                       font-size: 13px;
                       .storyText {
-                        padding-right: 50px;
+                        padding-right: 30px;
                         font-family: $font-nsRegular;
                         line-height: 1.3em;
                       }
@@ -440,6 +440,7 @@
                     width: 75%;
                     gap: 30px;
                     overflow: visible;
+                    font-size: 13px;
 
                     .cont3a {
                       display: flex;
@@ -451,7 +452,7 @@
                       width: 100%;
 
                       .storyText {
-                        padding-right: 50px;
+                        padding-right: 30px;
                         font-family: $font-nsRegular;
                         line-height: 1.3em;
                       }
@@ -1413,7 +1414,8 @@
                   }
 
                   .cont3b {
-                    width: 140%;
+                    width: 120%;
+
                     .storyText {
                       padding-right: 50px;
                       font-family: $font-nsRegular;
@@ -1453,8 +1455,6 @@
                 }
 
                 .statsContainer {
-                  position: absolute;
-                  right: 0;
                   width: 20%;
                   display: flex;
                   flex-direction: column;
@@ -1476,7 +1476,7 @@
                       font-size: 20px;
 
                       .itemStatTitle {
-                        font-weight: bold;
+                        font-weight: normal;
                       }
                     }
                   }
@@ -1536,6 +1536,7 @@
           align-items: center;
           width: 75%;
           font-size: 25px;
+          font-family: $font-nsRegular;
 
           .item {
             display: flex;
