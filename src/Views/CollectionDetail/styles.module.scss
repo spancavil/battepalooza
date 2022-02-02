@@ -332,13 +332,13 @@
       .cardContainer {
         display: flex;
         flex-direction: column;
-        width: 90vw;
+        width: 80vw;
         margin-top: 30px;
 
         .topContainer {
           display: flex;
           flex-direction: column;
-          width: 90vw;
+          width: 80vw;
 
           .videoContainer {
             display: flex;
@@ -547,7 +547,7 @@
           .bottomLeftContainer {
             height: 60px;
             background-color: #242339;
-            padding: 0 25px;
+            padding: 0 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -562,13 +562,13 @@
 
               .itemName {
                 color: $account-name;
-                font-size: 22px;
+                font-size: 18px;
                 font-family: $font-nasalization;
                 font-weight: bold;
               }
 
               .repName {
-                font-size: 13px;
+                font-size: 11px;
                 font-family: $font-nsRegular;
                 line-height: 1.3em;
               }
@@ -581,7 +581,7 @@
               }
 
               .rarity {
-                font-size: 13px;
+                font-size: 11px;
                 font-family: $font-nsRegular;
                 line-height: 1.3em;
               }
