@@ -8,7 +8,7 @@ const Checkout = ({nftBuy, nftProccesing, handleClose}) => {
     return (
         <div className={styles.parentContainerModal}>
           <Modal title="Checkout" handleClose={()=> handleClose(false)}>
-            <h3 className={styles.textDrop}> Will you use {nftBuy.price} nCoin to buy {nftBuy.title1}?</h3>
+            <h3 className={styles.textDrop}> Will you use {nftBuy.price} nCoin to buy {nftBuy.itemName}?</h3>
             <Button title="BUY" modal={true} width="176px" onClick={()=> nftProccesing(true)} />
             <SubMessage
               text="Not enough nCoin?"

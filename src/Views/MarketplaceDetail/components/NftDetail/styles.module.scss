@@ -164,16 +164,41 @@
         width: 50%;
         height: 100%;
         overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
         .pinVideo {
             height: 90%;
             position: relative;
-            top: 0;
+            top: 5%;
             left: 50%; /*Center the vid, withouth black spaces*/
             transform: translate(-50%);
 
+        }
+        .loadMessageContainer {
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loadMessage {
+            font-family: $font-nasalization;
+            color: white;
+        }
+    }
+    .loadMessageContainer {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .loadMessage {
+          font-family: $font-nasalization;
+          color: white;
         }
     }
     .detailDescription {
@@ -241,19 +266,45 @@
         align-items: stretch;
     }
     .videoContainer {
+        background-color: black ;
         width: 50%;
         height: 100%;
-        background-color: black ;
         overflow: hidden;
+
+        .pinVideo {
+            height: 90%;
+            position: relative;
+            top: 5%;
+            left: 50%; /*Center the vid, withouth black spaces*/
+            transform: translate(-50%);
+
+        }
+        .loadMessageContainer {
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loadMessage {
+            font-family: $font-nasalization;
+            color: white;
+        }
+    }
+    .loadMessageContainer {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        z-index: 2;
         display: flex;
         justify-content: center;
         align-items: center;
-        .pinVideo {
-            position: relative;
-            top: 0;
-            left: 50%; /*Center the vid, withouth black spaces*/
-            transform: translate(-50%);
-            height: 90%;
+
+        .loadMessage {
+          font-family: $font-nasalization;
+          color: white;
         }
     }
     .detailDescription {

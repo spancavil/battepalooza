@@ -60,7 +60,7 @@ const MarketplaceDetail = () => {
         <Proccesing nftBuy={nft} handleClose={processingComplete} />}
       {buyComplete &&
         <Complete
-          title={nft.title1}
+          title={nft.itemName}
           goCollection={() => history.push ('/collection')}
           goMarketPlace={() => history.push ('/marketPlace')}
         />}

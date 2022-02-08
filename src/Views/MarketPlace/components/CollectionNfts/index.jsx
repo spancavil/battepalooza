@@ -14,7 +14,7 @@ const CollectionNfts = ({
   input,
   setInput,
 }) => {
-  const {nfts} = useContext (NftData);
+  const {nfts, nftMarket} = useContext (NftData);
   const [nftsFiltered, setNftFiltered] = useState (nfts);
 
   const breakpoint = useMediaQuery ('(max-width: 1200px)');
@@ -28,32 +28,33 @@ const CollectionNfts = ({
 
   useEffect (
     () => {
-      const auxFilter = [...nfts];
+      const auxFilter = [...nftMarket];
       let filtro1 = [];
       let filtro2 = [];
       let filtro3 = [];
       let filtro4 = [];
 
       if (filters.COMMON)
-        filtro1 = auxFilter.filter (nft => nft.rare === 'COMMON');
-      if (filters.RARE) filtro2 = auxFilter.filter (nft => nft.rare === 'RARE');
-      if (filters.EPIC) filtro3 = auxFilter.filter (nft => nft.rare === 'EPIC');
+        filtro1 = auxFilter.filter (nft => nft.rarity === 'COMMON');
+      if (filters.RARE) filtro2 = auxFilter.filter (nft => nft.rarity === 'RARE');
+      if (filters.EPIC) filtro3 = auxFilter.filter (nft => nft.rarity === 'EPIC');
       if (filters.LEGENDARY)
-        filtro4 = auxFilter.filter (nft => nft.rare === 'LEGENDARY');
+        filtro4 = auxFilter.filter (nft => nft.rarity === 'LEGENDARY');
       if (
         !filters.COMMON &&
         !filters.RARE &&
         !filters.EPIC &&
         !filters.LEGENDARY
       )
-        setNftFiltered (nfts);
+        setNftFiltered (nftMarket);
       else {
         setNftFiltered ([...filtro1, ...filtro2, ...filtro3, ...filtro4]);
       }
     },
-    [filters, nfts]
+    [filters, nftMarket]
   );
 
+  console.log(nftMarket);
   const max = nftsFiltered.length / xPage;
 
   return (
@@ -62,7 +63,7 @@ const CollectionNfts = ({
         {nftsFiltered
           .slice ((page - 1) * xPage, (page - 1) * xPage + xPage)
           .map (nft => {
-            return <Nft key={nft.id} {...nft} />;
+            return <Nft key={nft.uniqueId} {...nft} />;
           })}
       </div>
       <Pagination
