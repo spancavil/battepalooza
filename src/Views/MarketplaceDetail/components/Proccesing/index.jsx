@@ -12,9 +12,9 @@ const Proccesing = ({nftBuy, handleClose}) => {
     return (
         <div className={styles.parentContainerModal}>
           <Modal title="Proccesing" handleClose={()=>("No hace nada")}>
-            <h3 className={styles.textDrop}> {nftBuy.title1} is being transferred. Please wait while the transfer is being completed
+            <h3 className={styles.textDrop}> {nftBuy.itemName} is being transferred. Please wait while the transfer is being completed
             </h3>
-            <img src={nftBuy.imgSrc.default} alt="nftToBuy"
+            <img src={nftBuy.thumbnailUrl} alt="nftToBuy"
             style={{
               paddingBottom: 15
             }}

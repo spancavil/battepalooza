@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
+import marketService from "../Services/market.service";
 import nftService from "../Services/nft.service";
 import { UserData } from "./UserProvider";
 export const NftData = createContext({});
@@ -7,6 +8,7 @@ const NftProvider = ({ children }) => {
 
   const {userData} = useContext(UserData);
   const [nfts, setNfts] = useState([]);
+  const [nftMarket, setNftMarket] = useState([])
   const [userNft, setUserNft] = useState([])
   const [nftSelected, setNftSelected] = useState({});
   const [nftToOpen, setNftToOpen] = useState({});
@@ -70,6 +72,11 @@ const NftProvider = ({ children }) => {
   useEffect (()=> {
 
     (async() => {
+
+      const marketCollection = await marketService.getNftMarketplaceList()
+      if (marketCollection?.error.num === 0) {
+        setNftMarket(marketCollection.products)
+      }
 
       if (Object.keys(userData).length !== 0){
         const userCollection = await nftService.getNftCollection(userData);
@@ -154,7 +161,7 @@ const NftProvider = ({ children }) => {
   return (
     <NftData.Provider
       value={{ setNft, setNftForOpen, setNftPrice,
-        nfts, userNft, nftSelected, nftToOpen, userCollection, characterMaxStats, weaponMaxStats}}
+        nfts, nftMarket, userNft, nftSelected, nftToOpen, userCollection, characterMaxStats, weaponMaxStats}}
     >
       {children}
     </NftData.Provider>

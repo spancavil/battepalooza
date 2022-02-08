@@ -25,41 +25,49 @@ const Nft = (nft) => {
     return (
         <Link
         style={{textDecoration: 'none', overflow: 'visible'}}
-        to={`/marketplace/${nft.id}`}
-        key={nft.id}
+        to={`/marketplace/${nft.uniqueId}-${nft.sellerPid}`}
+        key={nft.uniqueId}
         >
-            <div className={styles.cardNft} key={nft.id} 
+            <div className={styles.cardNft} key={nft.uniqueId} 
             onMouseEnter={()=>setFlagVideo(true)} 
             onMouseLeave ={()=> setFlagVideo(false)}>
-                {flagVideo ? 
                 <div className={styles.videoContainer}>
-                    {/* La idea es que si está cargando aparezca el loader POR ENCIMA del video que aún no cargó */}
-                    {loading && (
-                    <div className={styles.loadMessageContainer}>
-                        <Loader />
-                    </div>
-                    )
-                    }
-                    <video
-                    onCanPlayThrough={()=>setLoading(false)}
-                    className={styles.pinVideo}
-                    src={nft.source.default}
-                    muted
-                    autoPlay
-                    loop
+                    {flagVideo ? 
+                        nft.movieUrl?
+                        <>
+                            {loading && (
+                            <div className={styles.loadMessageContainer}>
+                                <Loader />
+                            </div>
+                            )} 
+                            <video
+                            onCanPlayThrough={()=>setLoading(false)}
+                            className={styles.pinVideo}
+                            src={nft.movieUrl}
+                            muted
+                            autoPlay
+                            loop
+                            />
+                        </>
+                        :
+                        <div className={styles.loadMessageContainer}>
+                            <h2 className={styles.loadMessage}>
+                                No video for this NFT
+                            </h2>
+                        </div>
+                    :
+                    <img
+                    className={styles.imgNft}
+                    src={nft.thumbnailUrl}
+                    alt="nft"
                     />
+                    }
                 </div>
-                :
-                <img
-                className={styles.imgNft}
-                src={nft.imgSrc.default}
-                alt="nft"
-                />
-                }
+                    {/* La idea es que si está cargando aparezca el loader POR ENCIMA del video que aún no cargó */}
                 <div className={styles.texts}>
-                    <p>{nft.title1}</p>
-                    <p className={styles.text2}>{nft.rare}</p>
-                    <p>#{nft.id}</p>
+                    <p>{nft.itemName}</p>
+                    <p className={styles.text2}>{nft.rarity}</p>
+                    <p>#{nft.serial}</p>
                     <p className={styles.price}>{nft.price} NCoin</p>
                 </div>
             </div>

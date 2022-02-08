@@ -9,6 +9,21 @@ class marketService {
             return response.data
         })
     }
+
+    async getNftMarketplaceList(){
+        return await axios.post(API_URL + "market/list").then (response => {
+            return response.data
+        })
+    }
+
+    async getNftMarketplaceDetail(seller, uniqueId){
+        return await axios.post(API_URL + "market/detail",{
+            uniqueId,
+            seller
+        }).then(response => {
+            return response.data
+        })
+    }
 }
 
 export default new marketService();

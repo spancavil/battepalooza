@@ -9,6 +9,7 @@ class nftService {
     async getNfts(){
         return dataNft;
     }
+
     async getNftCollection({bpToken, pid}){
         const bpTokenHeader = authHeader(bpToken);
         return await axios.post(API_URL + "user/collection", {

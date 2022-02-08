@@ -42,6 +42,7 @@
             justify-content: center;
             background-color: black;
             overflow: hidden;
+            position: relative;
 
             .loadMessageContainer {
               height: 100%;
@@ -51,6 +52,8 @@
               display: flex;
               justify-content: center;
               align-items: center;
+              position: absolute;
+              top: 0;
 
               .loadMessage {
                 font-family: $font-nasalization;
@@ -346,6 +349,7 @@
             justify-content: center;
             background-color: black;
             overflow: hidden;
+            position: relative;
 
             .loadMessageContainer {
               height: 100%;
@@ -355,6 +359,8 @@
               display: flex;
               justify-content: center;
               align-items: center;
+              position: absolute;
+              top: 0;
 
               .loadMessage {
                 font-family: $font-nasalization;
@@ -658,6 +664,8 @@
             justify-content: center;
             background-color: black;
             overflow: hidden;
+            position: relative;
+
             .pinVideo {
               position: absolute;
               top: 0;
@@ -673,6 +681,8 @@
               display: flex;
               justify-content: center;
               align-items: center;
+              position: absolute;
+              top:0;
 
               .loadMessage {
                 font-family: $font-nasalization;
