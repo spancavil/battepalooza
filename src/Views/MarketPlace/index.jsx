@@ -30,7 +30,8 @@ const MarketPlace = () => {
             window.location.reload();
           } else {
             alert(response.error.text);
-            return;
+            history.push("/");
+            window.location.reload();
           }
         }
 

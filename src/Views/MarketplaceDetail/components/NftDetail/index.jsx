@@ -4,6 +4,7 @@ import Button from '../../../../Global-Components/Button';
 import {useParams, useHistory} from 'react-router';
 import marketService from '../../../../Services/market.service';
 import Loader from '../../../../Global-Components/Loader';
+import { logOutAmplitude } from '../../../../Utils/amplitude';
 
 const NftDetail = ({nfts, setNft, setNftListing}) => {
 
@@ -23,14 +24,27 @@ const NftDetail = ({nfts, setNft, setNftListing}) => {
     () => {
 
       (async ()=> {
-        console.log("HOLAA");
-        const chosen = await marketService.getNftMarketplaceDetail(seller, uid);
-        console.log(chosen);
-        setChosenNft (chosen.product);
+        
+        const response = await marketService.getNftMarketplaceDetail(seller, uid);
+        if (response.error.text !== "") {
+          if (response.error.text.includes("authorized")) {
+            alert("Session expired, please login again.");
+            localStorage.removeItem("userBP");
+            logOutAmplitude();
+            history.push("/");
+            window.location.reload();
+          } else {
+            alert(response.error.text);
+            history.push("/");
+            window.location.reload();
+          }
+        }
+
+        setChosenNft (response.product);
       })()
 
     },
-    [uid, seller]
+    [uid, seller, history]
   );
 
   useEffect(() => {

@@ -182,7 +182,7 @@ const NavBar = () => {
                       </Link>
                     </div>}
               </div>
-              <li onClick={() => previousMenu ('/packs')}>
+              <li onClick={() => previousMenu ('/drop')}>
                 <Link
                   href
                   to={userData.email ? '/drop' : '/needLogin'}
@@ -193,10 +193,7 @@ const NavBar = () => {
               </li>
               <li onClick={() => previousMenu ('/marketplace')}>
                 <span
-                  onClick={() =>
-                    userData.email
-                      ? history.push ('/marketplace')
-                      : history.push ('/needlogin')}
+                  onClick={() => history.push ('/marketplace')}
                   className={styles.navLink}
                 >
                   MARKETPLACE
