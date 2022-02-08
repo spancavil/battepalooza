@@ -191,7 +191,7 @@ const NavBar = () => {
                   DROP
                 </Link>
               </li>
-              <li onClick={() => previousMenu ('/marketplace')}>
+              <li>
                 <span
                   onClick={() => history.push ('/marketplace')}
                   className={styles.navLink}
