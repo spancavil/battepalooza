@@ -8,6 +8,7 @@ import { logOutAmplitude } from "../../Utils/amplitude";
 
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
+import { TYPE_NFT, NCOIN_BATTLECOUNT } from "../Constants";
 
 const MarketPlace = () => {
   const [filters, setFilters] = useState({});
@@ -44,7 +45,10 @@ const MarketPlace = () => {
             value: false,
           });
         });
-        setFilters(rarityItem);
+        //Tendrá todos los filtros
+        console.log(rarityItem);
+        setFilters({...rarityItem, ...TYPE_NFT, ...NCOIN_BATTLECOUNT});
+
       } catch (error) {
         alert(error.message);
         return;
