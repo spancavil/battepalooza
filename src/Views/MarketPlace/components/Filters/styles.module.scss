@@ -4,20 +4,26 @@
 
 .container {
     width: 175px;
-    border-radius: 10px;
     font-family: $font-nasalization;
     color: white;
+    height: fit-content;
+    border-radius: 10px;
 
     .title {
         width: 100%;
         background-color: $account-border;
         display: flex;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        padding: 0 10px;
         height: 50px;
-        border-radius: 10px 10px 0px 0px;
+        // border-radius: 10px 10px 0px 0px;
 
         h2 {
+            font-size: 15px;
+        }
+        h3 {
             font-size: 20px;
         }
     }
@@ -32,7 +38,7 @@
         justify-content: center;
         background: #1892f01f;
         border: 1.5px solid #0149db;
-        border-radius: 0px 0px 10px 10px;
+        // border-radius: 0px 0px 10px 10px;
 
         .filter {
             display: flex;
@@ -83,9 +89,6 @@
     border: 2px solid #0149db;
     cursor: pointer;
 
-    svg {
-        width: 22px;
-    }
 }
 
 @media (max-width: $desktop - 1) {
