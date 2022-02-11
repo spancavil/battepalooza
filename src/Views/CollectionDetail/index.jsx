@@ -33,7 +33,7 @@ const CollectionDetail = () => {
   const [forteTxText, setForteTxText] = useState("");
 
   const { userData } = useContext(UserData);
-  const { setNftPrice, characterMaxStats, weaponMaxStats } =
+  const { characterMaxStats, weaponMaxStats } =
     useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
@@ -85,9 +85,6 @@ const CollectionDetail = () => {
     history.goBack();
   };
   const unRegister = () => {
-    const salesState = 0;
-    const user = "BOT";
-    setNftPrice(nftSelected, inputPrice, user, salesState);
     setmodalUnregister(false);
   };
   const Register = () => {
