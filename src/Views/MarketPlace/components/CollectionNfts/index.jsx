@@ -18,7 +18,7 @@ const CollectionNfts = ({
   const [nftsFiltered, setNftFiltered] = useState (nfts);
 
   const breakpoint = useMediaQuery ('(max-width: 1200px)');
-  console.log(nftMarket);
+  
   useEffect (
     () => {
       breakpoint ? setxPage (4) : setxPage (25);
@@ -41,6 +41,7 @@ const CollectionNfts = ({
       let filtro8 = [];
       let filtro9 = [];
       let filtro10 = [];
+      let filtro11 = []
 
       if (filters.COMMON)
         filtro1 = auxFilter.filter (nft => nft.rarity === 'COMMON');
@@ -62,6 +63,9 @@ const CollectionNfts = ({
         filtro9 = auxFilter.filter (nft => nft.playCount <= 300 && nft.playCount > 200)
       if (filters["Over 300"])
         filtro10 = auxFilter.filter (nft => nft.playCount > 300)
+      if (filters.search){
+        filtro11 = auxFilter.filter (nft => nft.itemName.toLowerCase().includes(filters.search))
+      }
 
       const filtroWeapon = !filters.Weapon && !filters.Character? 
                                               [...nftMarket] 
@@ -78,9 +82,12 @@ const CollectionNfts = ({
                                               :
                                               [...filtro7, ...filtro8, ...filtro9, ...filtro10]
 
+      const filtroSearch = filters.search === "" ? [...nftMarket] : [...filtro11]
+
       //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
       const coincidencias = filtroWeapon.filter(value => filtroRarity.includes(value))
                                         .filter(value => filtroPlayCount.includes(value))
+                                        .filter(value => filtroSearch.includes(value))
 
       setNftFiltered (coincidencias);
       

@@ -1,24 +1,20 @@
 import React, {useState} from 'react';
 import styles from './styles.module.scss';
 
-const SearchBar = () => {
+const SearchBar = ({onChange}) => {
   const [search, setSearch] = useState ('');
 
-  const onChange = e => {
+  const handleChange = e => {
     setSearch (e.target.value);
-  };
-
-  const onSubmit = e => {
-    e.preventDefault ();
-    setSearch ('');
+    onChange (e.target.value.toLowerCase())
   };
 
   return (
-    <form className={styles.form} onSubmit={e => onSubmit (e)}>
+    <form className={styles.form} onSubmit={e => e.preventDefault()}>
       <input
         value={search}
         name={search}
-        onChange={e => onChange (e)}
+        onChange={handleChange}
         placeholder="SEARCH..."
       />
     </form>

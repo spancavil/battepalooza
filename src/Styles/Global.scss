@@ -1,3 +1,5 @@
+@import './fonts.scss';
+
 * {
     margin: 0;
     padding: 0;
@@ -7,5 +9,10 @@
     scrollbar-width: none;
     .grecaptcha-badge { 
         visibility: hidden;
+    }
+    //Custom font for sweet alert2
+    .swal2-html-container {
+        font-family: $font-nasalization;
+        color: #fff;
     }
 }

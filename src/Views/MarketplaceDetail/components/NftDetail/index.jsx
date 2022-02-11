@@ -5,6 +5,9 @@ import {useParams, useHistory} from 'react-router';
 import marketService from '../../../../Services/market.service';
 import Loader from '../../../../Global-Components/Loader';
 import { logOutAmplitude } from '../../../../Utils/amplitude';
+import { useContext } from 'react/cjs/react.development';
+import { UserData } from '../../../../Context/UserProvider';
+import fireToast from '../../../../Utils/fireToast';
 
 const NftDetail = ({nfts, setNft, setNftListing}) => {
 
@@ -15,10 +18,10 @@ const NftDetail = ({nfts, setNft, setNftListing}) => {
   const uid = nftSplitted[0];
   const seller = nftSplitted[1];
 
-  console.log(uid, seller);
-
   const [chosenNft, setChosenNft] = useState ({});
   const [loading, setLoading] = useState(false);
+
+  const {userData} = useContext(UserData);
 
   useEffect (
     () => {
@@ -52,7 +55,11 @@ const NftDetail = ({nfts, setNft, setNftListing}) => {
   }, []);
 
   const handleBuy = () => {
+    if (Object.keys(userData).length !== 0)
     setNft (chosenNft);
+    else {
+      fireToast("Need login", 1200, '300px');
+    }
   };
 
   const handleList = () => {
@@ -111,6 +118,9 @@ const NftDetail = ({nfts, setNft, setNftListing}) => {
               </span>
               <p className={styles.title}>
                 Price <span className={styles.price}>{chosenNft.price} NCoin </span>
+              </p>
+              <p className={styles.subTitle}>
+                Fee (5%) <span className={styles.price}>{chosenNft.fee} NCoin</span> 
               </p>
               {/* <span className={styles.seller}>
                 Lowest price {chosenNft.lowestPrice}
