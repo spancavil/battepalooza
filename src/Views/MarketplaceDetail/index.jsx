@@ -41,8 +41,6 @@ const MarketplaceDetail = () => {
     setBuyComplete (true);
   };
 
-  console.log("New render on market detail");
-
   return (
     <Background>
       <NftDetail

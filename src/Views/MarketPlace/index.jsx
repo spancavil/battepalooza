@@ -46,8 +46,7 @@ const MarketPlace = () => {
           });
         });
         //Tendrá todos los filtros
-        console.log(rarityItem);
-        setFilters({...rarityItem, ...TYPE_NFT, ...NCOIN_BATTLECOUNT});
+        setFilters({...rarityItem, ...TYPE_NFT, ...NCOIN_BATTLECOUNT, search: ""});
 
       } catch (error) {
         alert(error.message);
@@ -67,7 +66,7 @@ const MarketPlace = () => {
           setFilters={setFilters}
         />
         <div className={styles.products}>
-          <SearchBar />
+          <SearchBar onChange={(value)=> setFilters({...filters, search: value})}/>
           <Products
             filters={filters}
             page={page}

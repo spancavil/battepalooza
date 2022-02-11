@@ -47,6 +47,9 @@
         .title {
             font-size: 20px;
         }
+        .subTitle{
+            font-size: 18px;
+        }
         .price {
             color: $account-border;
         }
@@ -111,6 +114,9 @@
         overflow-y: visible;
         .title {
             font-size: 30px;
+        }
+        .subTitle{
+            font-size: 24px;
         }
         .price {
             color: $account-border;
@@ -209,13 +215,16 @@
         flex-direction: column;
         justify-content: center;
         padding: 35px 0px 35px 25px;
-        gap: 25px;
+        gap: 20px;
         font-family: $font-nasalization;
         color: #fff;
         overflow-y: visible;
         .title {
             font-size: 28px;
             font-weight: bold;
+        }
+        .subTitle{
+            font-size: 24px;
         }
         .price {
             color: $logout;
@@ -322,6 +331,9 @@
         overflow-y: visible;
         .title {
             font-size: 30px;
+        }
+        .subTitle{
+            font-size: 26px;
         }
         .price {
             color: $account-border;

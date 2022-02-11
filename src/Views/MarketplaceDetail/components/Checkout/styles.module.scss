@@ -21,6 +21,22 @@ $hd: 1400px;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
+    .totalContainer{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px 5px 20px;
+    }
+  }
+  .textDrop2 {
+    font-size: 20px;
+    font-weight: normal;
+    color: white;
+    font-family: $font-nasalization;
+    padding: 5px 20px;
+    text-align: center;
   }
 
   .textDrop {
@@ -54,6 +70,22 @@ $hd: 1400px;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
+    .totalContainer{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px 5px 20px;
+    }
+  }
+  .textDrop2 {
+    font-size: 20px;
+    font-weight: normal;
+    color: white;
+    font-family: $font-nasalization;
+    padding: 5px 20px;
+    text-align: center;
   }
 
   .textDrop {
@@ -88,6 +120,22 @@ $hd: 1400px;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
+    .totalContainer{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px 5px 20px;
+    }
+  }
+  .textDrop2 {
+    font-size: 20px;
+    font-weight: normal;
+    color: white;
+    font-family: $font-nasalization;
+    padding: 5px 20px;
+    text-align: center;
   }
 
   .textDrop {

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import authHeader from './auth-header';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -20,6 +21,65 @@ class marketService {
         return await axios.post(API_URL + "market/detail",{
             uniqueId,
             seller
+        }).then(response => {
+            return response.data
+        })
+    }
+
+    async registerProductMarketplace(pid, uuid, price, expiry, bpTokenContent){
+        const bpToken = authHeader(bpTokenContent);
+
+        return await axios.post(API_URL + 'market/register', {
+            pid,
+            uuid,
+            price,
+            expiry,
+            bpToken
+        }).then(response => {
+            return response.data
+        })
+    }
+
+    async buyProductMarketplace(pid, seller, uniqueId, bpTokenContent){
+        const bpToken = authHeader(bpTokenContent);
+        return await axios.post(API_URL + 'market/buy-product', {
+            pid,
+            seller,
+            uniqueId,
+            bpToken
+        }).then(response => {
+            return response.data
+        })
+    }
+
+    async getTransactionStatus(pid, forteTxId, bpTokenContent){
+        const bpToken = authHeader(bpTokenContent);
+        return await axios.post(API_URL + 'market/tx-status', {
+            pid,
+            forteTxId,
+            bpToken
+        }).then(response => {
+            return response.data
+        })
+    }
+
+    async cancelSellingMarketplace(pid, uniqueId, bpTokenContent){
+        const bpToken = authHeader(bpTokenContent);
+        return await axios.post(API_URL + 'market/cancel-selling', {
+            pid,
+            uniqueId,
+            bpToken
+        }).then(response => {
+            return response.data
+        })
+    }
+
+    async requestWithdrawCoins(pid, uniqueId, bpTokenContent){
+        const bpToken = authHeader(bpTokenContent);
+        return await axios.post(API_URL + 'market/request-withdraw',{
+            pid,
+            uniqueId,
+            bpToken
         }).then(response => {
             return response.data
         })
