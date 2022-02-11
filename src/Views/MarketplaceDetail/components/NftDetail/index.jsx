@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import styles from './styles.module.scss';
 import Button from '../../../../Global-Components/Button';
 import {useParams, useHistory} from 'react-router';
 import marketService from '../../../../Services/market.service';
 import Loader from '../../../../Global-Components/Loader';
 import { logOutAmplitude } from '../../../../Utils/amplitude';
-import { useContext } from 'react/cjs/react.development';
 import { UserData } from '../../../../Context/UserProvider';
 import fireToast from '../../../../Utils/sweetAlert2';
 
