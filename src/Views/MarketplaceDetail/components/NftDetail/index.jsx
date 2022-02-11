@@ -7,7 +7,7 @@ import Loader from '../../../../Global-Components/Loader';
 import { logOutAmplitude } from '../../../../Utils/amplitude';
 import { useContext } from 'react/cjs/react.development';
 import { UserData } from '../../../../Context/UserProvider';
-import fireToast from '../../../../Utils/fireToast';
+import fireToast from '../../../../Utils/sweetAlert2';
 
 const NftDetail = ({nfts, setNft, setNftListing}) => {
 

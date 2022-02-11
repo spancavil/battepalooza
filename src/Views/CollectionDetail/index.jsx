@@ -18,6 +18,8 @@ import PREMIUM from "./Assets/Sprite_Icon_Premium_03.png";
 import COPY from "./Assets/Sprite_Icon_Premium_05.png";
 import SERIAL from "./Assets/Sprite_Icon_Premium_02.png";
 import BONUS from "./Assets/Sprite_Icon_Premium_04.png";
+import fireToast, { fireAlert } from "../../Utils/sweetAlert2";
+import marketService from "../../Services/market.service";
 
 const CollectionDetail = () => {
   const [nftSelected, setNftSelected] = useState();
@@ -25,7 +27,10 @@ const CollectionDetail = () => {
   const [modalUnregister, setmodalUnregister] = useState(false);
   const [modalRegister1, setmodalRegister1] = useState(false);
   const [modalRegister2, setmodalRegister2] = useState(false);
+
   const [inputPrice, setInputPrice] = useState(0);
+  const [expiryTime, setExpiryTime] = useState(0);
+  const [forteTxText, setForteTxText] = useState("");
 
   const { userData } = useContext(UserData);
   const { setNftPrice, characterMaxStats, weaponMaxStats } =
@@ -37,7 +42,7 @@ const CollectionDetail = () => {
     setLoading(true);
   }, []);
 
-  console.log(nftSelected);
+  //console.log(nftSelected);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,18 +91,49 @@ const CollectionDetail = () => {
     setmodalUnregister(false);
   };
   const Register = () => {
-    if (inputPrice > 0) {
-      const sale = 1;
-      const nftUpdated = setNftPrice(
-        nftSelected,
-        inputPrice,
-        userData.pid,
-        sale
-      );
-      setNftSelected(nftUpdated);
-      setmodalRegister1(false);
-      setmodalRegister2(true);
+    
+    if (Number(inputPrice) > 10000 && expiryTime >= 3600) {
+
+      const registerNft = async () => {
+
+        try {
+          const response = await marketService.registerProductMarketplace(
+            userData.pid,
+            nftSelected.uuid,
+            inputPrice,
+            expiryTime,
+            userData.bpToken,
+          )
+
+          if (response.error.text !== "") {
+            if (response.error.text.includes("authorized")) {
+              fireToast("Session expired, please login again.");
+              localStorage.removeItem("userBP");
+              logOutAmplitude();
+              history.push("/");
+              window.location.reload();
+            } else {
+              fireAlert("Oops, an error ocurred", response.error.text, '500px');
+            }
+          //No errors, the forte transaction text id is returned. With that text
+          //we call the transaction status in the next step (modal register 2)
+          } else {
+            console.log(response);
+            setForteTxText(response.forteTxId);
+            setmodalRegister1(false);
+            setmodalRegister2(true);
+          }
+          
+        } catch (error) {
+          fireAlert("Oops, an error ocurred", error.message, '500px');
+        }
+
+      }
+
+      registerNft()
+
     } else {
+      fireToast("Price should be greater than 10000 and expiry time should be greater than 1", 3000, '500px', '22px')
       return;
     }
   };
@@ -105,8 +141,14 @@ const CollectionDetail = () => {
     history.push("/marketplace");
   };
   const handleInputChange = (value) => {
-    setInputPrice(value);
+    setInputPrice(parseInt(value));
   };
+
+  const handleExpiryChange = (value) => {
+    setExpiryTime(Math.round(value*3600))
+  }
+
+  console.log(expiryTime);
 
   return (
     <Background>
@@ -401,6 +443,7 @@ const CollectionDetail = () => {
           <ModalRegister1
             setmodalRegister1={setmodalRegister1}
             handleInputChange={handleInputChange}
+            handleExpiryChange={handleExpiryChange}
             Register={Register}
             inputPrice={inputPrice}
           />
@@ -409,6 +452,9 @@ const CollectionDetail = () => {
           <ModalRegister2
             setmodalRegister2={setmodalRegister2}
             handleMarket={handleMarket}
+            forteTxText = {forteTxText}
+            bpToken = {userData.bpToken}
+            pid = {userData.pid}
           />
         )}
       </div>

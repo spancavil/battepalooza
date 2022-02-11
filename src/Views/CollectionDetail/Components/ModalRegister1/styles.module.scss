@@ -330,10 +330,38 @@
                 margin-top: 20px;
             }
 
-            .inputContainer {
+            .inputsGroup {
                 display: flex;
+                flex-direction: row;
+                justify-content: center;
                 align-items: center;
-                padding-top: 15px;
+                width: 100%;
+            }
+
+            .inputContainerExpiry {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30%;
+                //padding-top: 15px;
+
+                label {
+                    font-size: 16px;
+                }
+
+                p {
+                    margin-top: 35px;
+                    padding-left: 10px;
+                    font-size: 16px;
+                }
+            }
+
+            .inputContainerPrice {
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                width: 70%;
+                //padding-top: 15px;
 
                 label {
                     font-size: 16px;
@@ -422,20 +450,47 @@
                 text-align: left;
                 margin-top: 20px;
             }
-
-            .inputContainer {
+            .inputsGroup {
                 display: flex;
+                flex-direction: row;
+                justify-content: center;
                 align-items: center;
-                padding-top: 15px;
+                width: 100%;
+            }
+
+            .inputContainerExpiry {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30%;
+                //padding-top: 15px;
 
                 label {
-                    font-size: 16px;
+                    font-size: 20px;
                 }
 
                 p {
                     margin-top: 35px;
                     padding-left: 10px;
-                    font-size: 16px;
+                    font-size: 20px;
+                }
+            }
+
+            .inputContainerPrice {
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                width: 70%;
+                //padding-top: 15px;
+
+                label {
+                    font-size: 20px;
+                }
+
+                p {
+                    margin-top: 35px;
+                    padding-left: 10px;
+                    font-size: 20px;
                 }
             }
 
