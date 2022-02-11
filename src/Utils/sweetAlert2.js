@@ -5,6 +5,7 @@ const fireToast = (text, time, width = '350px', fontSize = '27px') => {
         html: `<h3 style="text-align: center; font-size: ${fontSize}; color: fff">${text}</h3>`,
         toast: true,
         background: "rgba(1, 73, 219, 0.85)",
+        color: "#fff",
         timer: time,
         width,
         position: 'center',
