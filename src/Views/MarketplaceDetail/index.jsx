@@ -12,7 +12,7 @@ import Proccesing from './components/Proccesing';
 
 const MarketplaceDetail = () => {
   const history = useHistory ();
-  const {nfts} = useContext (NftData);
+  const {nftMarket} = useContext (NftData);
 
   const desktop = useMediaQuery ('(min-width: 768px)');
 
@@ -46,7 +46,7 @@ const MarketplaceDetail = () => {
       <NftDetail
         setNft={nftSelected => setBuy (nftSelected)}
         setNftListing={nftSelected => setNftListing (nftSelected)}
-        nfts={nfts}
+        nfts={nftMarket}
       />
       {checkout &&
         <Checkout
@@ -66,7 +66,7 @@ const MarketplaceDetail = () => {
         !desktop &&
         <ListingMobile
           handleClose={() => setListing (false)}
-          nfts={nfts}
+          nfts={nftMarket}
           nftSelected={nft}
           setNft={nftSelected => setBuy (nftSelected)}
         />}
@@ -74,7 +74,7 @@ const MarketplaceDetail = () => {
         desktop &&
         <Listing
           handleClose={() => setListing (false)}
-          nfts={nfts}
+          nfts={nftMarket}
           nftSelected={nft}
           setNft={nftSelected => setBuy (nftSelected)}
         />}

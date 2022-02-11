@@ -5,7 +5,7 @@ const fireToast = (text, time, width = '350px', fontSize = '27px') => {
         html: `<h3 style="text-align: center; font-size: ${fontSize}; color: fff">${text}</h3>`,
         toast: true,
         background: "rgba(1, 73, 219, 0.85)",
-        color: "#fff",
+        color: "white",
         timer: time,
         width,
         position: 'center',
@@ -21,7 +21,7 @@ export const fireAlert = (title, text, width) => {
         width,
         background: "rgba(1, 73, 219, 0.85)",
         position: 'center',
-        color: "fff",
+        color: "white",
         showConfirmButton: true,
         confirmButtonColor: '#081f91',
     })

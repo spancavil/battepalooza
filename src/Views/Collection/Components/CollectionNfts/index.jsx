@@ -29,8 +29,8 @@ const CollectionNfts = () => {
   //Luego utilizaremos userCollection, cuando vengan bien los datos.
   // const {userCollection} = useContext(NftData)
 
-  //Creamos un array de referencias por cada item que haya en userNft,
-  //Utilizamos useMemo, que se actualiza, al actualizarse userNft. Como es info que viene de context, inicialmente viene sin valores
+  //Creamos un array de referencias por cada item que haya en userCollection,
+  //Utilizamos useMemo, que se actualiza, al actualizarse userCollection. Como es info que viene de context, inicialmente viene sin valores
   //Una vez que se cargan, se vuelve a mappear y se crean distintas referencias (que son asociadas a los divs contenedores) por cada uno de los items.
   //Recordemos que las "ref" se utilizan para referenciar objetos del DOM, pudiéndose cambiar sus valores internos sin re-render.
   const tilts = useMemo (() => userCollection.map (() => createRef ()), [

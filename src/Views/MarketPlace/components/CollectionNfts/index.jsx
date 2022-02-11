@@ -14,8 +14,9 @@ const CollectionNfts = ({
   input,
   setInput,
 }) => {
-  const {nfts, nftMarket} = useContext (NftData);
-  const [nftsFiltered, setNftFiltered] = useState (nfts);
+  
+  const {nftMarket} = useContext (NftData);
+  const [nftsFiltered, setNftFiltered] = useState (nftMarket);
 
   const breakpoint = useMediaQuery ('(max-width: 1200px)');
   

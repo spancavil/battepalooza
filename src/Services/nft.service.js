@@ -1,14 +1,9 @@
-//import axios from 'axios';
-import dataNft from './nftList';
 import authHeader from "./auth-header";
 import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
 class nftService {
-    async getNfts(){
-        return dataNft;
-    }
 
     async getNftCollection({bpToken, pid}){
         const bpTokenHeader = authHeader(bpToken);
