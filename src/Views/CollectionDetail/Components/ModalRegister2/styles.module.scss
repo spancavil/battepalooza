@@ -375,15 +375,16 @@
       }
     }
 
-    .textDrop {
-      font-size: 14px;
-      color: white;
-      font-family: $font-nasalization;
-      padding: 0px 130px;
-      padding-top: 25px;
-      padding-bottom: 50px;
-      text-align: center;
-      font-weight: normal;
+        .textDrop {
+            font-size: 22px;
+            color: white;
+            font-family: $font-nasalization;
+            padding: 0px 130px;
+            padding-top: 25px;
+            padding-bottom: 50px;
+            text-align: center;
+            font-weight: normal;
+        }
     }
   }
 }

@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom';
 const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, pid}) => {
   
   const [status, setStatus] = useState("")
+  const [transactionType, setTransactionType] = useState("")
   const history = useHistory();
   
   useEffect(()=> {
@@ -38,6 +39,7 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
 
         //Response OK, no errors
           setStatus(response.status);
+          setTransactionType(response.txType);
         }
         
       } catch (error) {
@@ -66,7 +68,8 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
     {status === "completed" ?
     <>
       <h3 className={styles.textDrop}>
-        The NFT has been registered <br />
+        {/* Imprimimos UNregistered si el código de transacción es el de borrar del market (cancelSelling) */}
+        The NFT has been {transactionType.includes("delete") && "un"}registered <br />
         for sale in the Marketplace
       </h3>
       <div

@@ -32,7 +32,7 @@ const CollectionDetail = () => {
   const [forteTxText, setForteTxText] = useState("");
 
   const { userData } = useContext(UserData);
-  const { characterMaxStats, weaponMaxStats } =
+  const { characterMaxStats, weaponMaxStats, nftMarket } =
     useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
@@ -84,15 +84,12 @@ const CollectionDetail = () => {
   const goBack = () => {
     history.goBack();
   };
-  const unRegister = () => {
-    setmodalUnregister(false);
-  };
   const Register = () => {
     
     if (Number(inputPrice) > 10000) {
 
       const registerNft = async () => {
-
+        
         try {
           const response = await marketService.registerProductMarketplace(
             userData.pid,
@@ -124,19 +121,61 @@ const CollectionDetail = () => {
         } catch (error) {
           fireAlert("Oops, an error ocurred", error.message, '500px');
         }
-
+        
       }
-
+      
       registerNft()
-
+      
     } else {
       fireToast("Price should be greater than 10000", 3000, '500px', '22px')
       return;
     }
   };
+
+  const confirmUnregister = () => {
+
+    const unRegisterNft = async () => {
+      try {
+        //Necesitamos obtener el NFT del market porque de ahí sacamos el uniqueId de Forte
+        const nftFromMarket = nftMarket.find(nft => nft.expiry === nftSelected.expiryTime)
+        const response = await marketService.cancelSellingMarketplace(
+          userData.pid,
+          nftFromMarket.uniqueId,
+          userData.bpToken,
+        )
+
+        if (response.error.text !== "") {
+          if (response.error.text.includes("authorized")) {
+            fireToast("Session expired, please login again.");
+            localStorage.removeItem("userBP");
+            logOutAmplitude();
+            history.push("/");
+            window.location.reload();
+          } else {
+            fireAlert("Oops, an error ocurred", response.error.text, '500px');
+          }
+        //No errors, the forte transaction text id is returned. With that text
+        //we call the transaction status in the next step (modal register 2)
+      } else {
+          console.log(response);
+          setForteTxText(response.forteTxId);
+          setmodalUnregister(false);
+          setmodalRegister2(true);
+        }
+        
+      } catch (error) {
+        fireAlert("Oops, an error ocurred", error.message, '500px');
+      }
+      
+    }
+    unRegisterNft()
+
+  }
+
   const handleMarket = () => {
     history.push("/marketplace");
   };
+
   const handleInputChange = (value) => {
     setInputPrice(parseInt(value));
   };
@@ -427,7 +466,8 @@ const CollectionDetail = () => {
         {modalUnregister && (
           <ModalUnregister
             setmodalUnregister={setmodalUnregister}
-            unRegister={unRegister}
+            confirmUnregister={confirmUnregister}
+            name = {nftSelected.itemName}
           />
         )}
         {modalRegister1 && (
