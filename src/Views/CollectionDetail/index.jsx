@@ -18,7 +18,7 @@ import PREMIUM from "./Assets/Sprite_Icon_Premium_03.png";
 import COPY from "./Assets/Sprite_Icon_Premium_05.png";
 import SERIAL from "./Assets/Sprite_Icon_Premium_02.png";
 import BONUS from "./Assets/Sprite_Icon_Premium_04.png";
-import fireToast, { fireAlert } from "../../Utils/sweetAlert2";
+import fireToast, { fireAlert, fireAlertAsync } from "../../Utils/sweetAlert2";
 import marketService from "../../Services/market.service";
 
 const CollectionDetail = () => {
@@ -56,11 +56,13 @@ const CollectionDetail = () => {
 
           if (response.error.text !== "") {
             if (response.error.text.includes("authorized")) {
-              alert("Session expired, please login again.");
-              localStorage.removeItem("userBP");
-              logOutAmplitude();
-              history.push("/");
-              window.location.reload();
+              fireAlertAsync("Session expired, please login again.")
+              .then (()=> {
+                localStorage.removeItem("userBP");
+                logOutAmplitude();
+                history.push("/");
+                window.location.reload();
+              })
             } else {
               alert(response.error.text);
             }
@@ -78,12 +80,15 @@ const CollectionDetail = () => {
   const openModalUnregister = () => {
     setmodalUnregister(true);
   };
+
   const openModalRegister1 = () => {
     setmodalRegister1(true);
   };
+
   const goBack = () => {
     history.goBack();
   };
+
   const Register = () => {
     
     if (Number(inputPrice) > 10000 && expiryTime >= 3600) {
@@ -101,11 +106,13 @@ const CollectionDetail = () => {
 
           if (response.error.text !== "") {
             if (response.error.text.includes("authorized")) {
-              fireToast("Session expired, please login again.");
-              localStorage.removeItem("userBP");
-              logOutAmplitude();
-              history.push("/");
-              window.location.reload();
+              fireAlertAsync("Session expired, please login again.")
+              .then(()=>{
+                localStorage.removeItem("userBP");
+                logOutAmplitude();
+                history.push("/");
+                window.location.reload();
+              })
             } else {
               fireAlert("Oops, an error ocurred", response.error.text, '500px');
             }
@@ -146,11 +153,12 @@ const CollectionDetail = () => {
 
         if (response.error.text !== "") {
           if (response.error.text.includes("authorized")) {
-            fireToast("Session expired, please login again.");
-            localStorage.removeItem("userBP");
-            logOutAmplitude();
-            history.push("/");
-            window.location.reload();
+            fireAlertAsync("Warning","Session expired, please login again.").then(()=> {
+              localStorage.removeItem("userBP");
+              logOutAmplitude();
+              history.push("/");
+              window.location.reload();
+            })
           } else {
             fireAlert("Oops, an error ocurred", response.error.text, '500px');
           }

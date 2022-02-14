@@ -5,7 +5,7 @@ import marketService from '../../../../Services/market.service';
 import styles from './styles.module.scss';
 import { logOutAmplitude } from '../../../../Utils/amplitude';
 import { useHistory } from 'react-router-dom';
-import fireToast from '../../../../Utils/sweetAlert2';
+import fireToast, { fireAlertAsync } from '../../../../Utils/sweetAlert2';
 import { fireAlert } from '../../../../Utils/sweetAlert2';
 
 const Proccesing = ({nftBuy, handleClose}) => {
@@ -32,11 +32,13 @@ const Proccesing = ({nftBuy, handleClose}) => {
           console.log(response);
           if (response.error.text !== "") {
             if (response.error.text.includes("authorized")) {
-              fireToast("Session expired, please login again.");
-              localStorage.removeItem("userBP");
-              logOutAmplitude();
-              history.push("/");
-              //window.location.reload();
+              fireAlertAsync("Warning","Session expired, please login again.")
+              .then(()=> {
+                localStorage.removeItem("userBP");
+                logOutAmplitude();
+                history.push("/");
+                //window.location.reload();
+              })
 
             } else {
               fireAlert("Oops, an error ocurred", response.error.text, '500px');
