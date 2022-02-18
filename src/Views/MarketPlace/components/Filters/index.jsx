@@ -50,7 +50,6 @@ const Filters = ({ filters, setFilters, setPage, input, setInput }) => {
     </>
   ) : (
     <div className={styles.container}>
-
       <div className={styles.title} onClick={()=> setMenuRarity(!menuRarity)}>
         <h2>Rarity</h2>
         <h3>{menuRarity ? '-': '+'}</h3>
