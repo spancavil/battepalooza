@@ -3,183 +3,195 @@
 @import "../../../../Styles/breakpoints.scss";
 
 @media (max-width: $mobile - 1) {
-    .back {
-        padding-top: 20px;
-        font-family: "Nasalization";
-        color: $go-back;
-        font-size: 10px;
-        cursor: pointer;
-        padding-left: 20px;
-        background-color: black;
-        position: absolute;
-        top: 80px;
-      }
+  .back {
+    padding-top: 20px;
+    font-family: "Nasalization";
+    color: $go-back;
+    font-size: 10px;
+    cursor: pointer;
+    padding-left: 20px;
+    background-color: black;
+    position: absolute;
+    top: 80px;
+  }
 
-    .detailContainer {
-        padding-top: 0px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: stretch;
+  .detailContainer {
+    padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .videoContainer {
+    height: 52vh;
+    width: 100%;
+    .pinVideo {
+      height: 100%;
+      position: relative;
+      top: 0;
+      left: 50%; /*Center the vid, withouth black spaces*/
+      transform: translate(-50%);
     }
-    .videoContainer {
-        height: 52vh;
-        width: 100%;
-        .pinVideo {
-            height: 100%;
-            position: relative;
-            top: 0;
-            left: 50%; /*Center the vid, withouth black spaces*/
-            transform: translate(-50%);
-        }
+  }
+  .detailDescription {
+    width: 100%;
+    display: flex;
+    background-color: $card-bg;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px 0px 25px 10px;
+    gap: 15px;
+    font-family: $font-nasalization;
+    color: #fff;
+    overflow-y: visible;
+    .title {
+      font-size: 20px;
     }
-    .detailDescription {
-        width: 100%;
-        display: flex;
-        background-color: $card-bg;
-        flex-direction: column;
-        justify-content: center;
-        padding: 25px 0px 25px 10px;
-        gap: 15px;
-        font-family: $font-nasalization;
-        color: #fff;
-        overflow-y: visible;
-        .title {
-            font-size: 20px;
-        }
-        .subTitle{
-            font-size: 18px;
-        }
-        .price {
-            color: $account-border;
-        }
-        .seller {
-            font-size: 12px;
-        }
-        .sellerYellow {
-            color: #ffff00;
-        }
-        .buttonsContainer {
-            padding: 12px 0px;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-        }
+    .subTitle {
+      font-size: 18px;
     }
+    .price {
+      color: $account-border;
+    }
+    .seller {
+      font-size: 12px;
+    }
+    .sellerYellow {
+      color: #ffff00;
+    }
+    .buttonsContainer {
+      padding: 12px 0px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+  }
 }
 
 @media (min-width: $mobile) and (max-width: $desktop - 1) {
-    .back {
-        padding-top: 20px;
-        font-family: "Nasalization";
-        color: $go-back;
-        font-size: 10px;
-        cursor: pointer;
-        padding-left: 20px;
-        background-color: black;
-        position: absolute;
-        top: 80px;
-      }
+  .back {
+    padding-top: 20px;
+    font-family: "Nasalization";
+    color: $go-back;
+    font-size: 10px;
+    cursor: pointer;
+    padding-left: 20px;
+    background-color: black;
+    position: absolute;
+    top: 80px;
+  }
 
-    .detailContainer {
-        padding-top: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-        align-items: stretch;
+  .detailContainer {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    align-items: stretch;
+  }
+  .videoContainer {
+    width: 35%;
+    .pinVideo {
+      position: relative;
+      top: 0;
+      left: 50%; /*Center the vid, withouth black spaces*/
+      transform: translate(-50%);
     }
-    .videoContainer {
-        width: 35%;
-        .pinVideo {
-            position: relative;
-            top: 0;
-            left: 50%; /*Center the vid, withouth black spaces*/
-            transform: translate(-50%);
-        }
+  }
+  .detailDescription {
+    width: 45%;
+    display: flex;
+    background-color: $card-bg;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px 0px 35px 20px;
+    gap: 25px;
+    font-family: $font-nasalization;
+    color: #fff;
+    overflow-y: visible;
+    .title {
+      font-size: 30px;
     }
-    .detailDescription {
-        width: 45%;
-        display: flex;
-        background-color: $card-bg;
-        flex-direction: column;
-        justify-content: center;
-        padding: 35px 0px 35px 20px;
-        gap: 25px;
-        font-family: $font-nasalization;
-        color: #fff;
-        overflow-y: visible;
-        .title {
-            font-size: 30px;
-        }
-        .subTitle{
-            font-size: 24px;
-        }
-        .price {
-            color: $account-border;
-        }
-        .seller {
-            font-size: 20px;
-        }
-        .sellerYellow {
-            color: #ffff00;
-        }
-        .buttonsContainer {
-            padding: 12px 0px;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            button {
-                width: 150px;
-            }
-        }
+    .subTitle {
+      font-size: 24px;
     }
+    .price {
+      color: $account-border;
+    }
+    .seller {
+      font-size: 20px;
+    }
+    .sellerYellow {
+      color: #ffff00;
+    }
+    .buttonsContainer {
+      padding: 12px 0px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      button {
+        width: 150px;
+      }
+    }
+  }
 }
 
 @media (min-width: $desktop) and (max-width: $HD - 1) {
-    .back {
-        padding-top: 20px;
-        font-family: "Nasalization";
-        color: $go-back;
-        font-size: 10px;
-        cursor: pointer;
-        padding-left: 20px;
-        background-color: black;
-        position: absolute;
-        top: 80px;
-        z-index: 2;
-      }
+  .back {
+    padding-top: 20px;
+    font-family: "Nasalization";
+    color: $go-back;
+    font-size: 10px;
+    cursor: pointer;
+    padding-left: 20px;
+    position: absolute;
+    top: 80px;
+    z-index: 2;
+  }
 
-    .detailContainer {
-        height: calc(100vh - 80px);
-        // margin-top: 30px;
+  .card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+    width: 100%;
+
+    .cardContainer {
+      display: flex;
+      flex-direction: column;
+      width: 90vw;
+      margin-top: 30px;
+
+      .topContainer {
+        height: 440px;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        // gap: 35px;
-        align-items: stretch;
-    }
-    .videoContainer {
-        background-color: black ;
-        width: 50%;
-        height: 100%;
-        overflow: hidden;
+        width: 90vw;
 
-        .pinVideo {
-            height: 90%;
-            position: relative;
-            top: 5%;
-            left: 50%; /*Center the vid, withouth black spaces*/
+        .videoContainer {
+          width: 30%;
+          height: 100%;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: black;
+          overflow: hidden;
+          .pinVideo {
+            position: absolute;
+            top: 0;
+            left: 50%;
             transform: translate(-50%);
-
-        }
-        .loadMessageContainer {
+            height: 100%;
+          }
+          .loadMessageContainer {
             height: 100%;
             width: 100%;
             background-color: black;
@@ -187,174 +199,268 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            .loadMessage {
+              font-family: $font-nasalization;
+              color: white;
+            }
+          }
         }
-        .loadMessage {
-            font-family: $font-nasalization;
-            color: white;
+
+        .topRightContainer {
+          background-color: #060f27;
+          width: 70%;
+          display: flex;
+          align-items: center;
+
+          .cont1 {
+            display: flex;
+            padding-left: 30px;
+            margin-top: 30px;
+
+            .cont2 {
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+
+              .cont2a {
+                display: flex;
+                align-items: flex-end;
+                gap: 10px;
+
+                .priceTitle {
+                  color: $logout;
+                  font-weight: bold;
+                  padding-bottom: 5px;
+                  font-family: $font-nsBold;
+                  font-size: 30px;
+                }
+
+                .price {
+                  color: white;
+                  font-weight: bold;
+                  font-family: $font-nsBold;
+                  font-size: 35px;
+                }
+
+                .feeCont {
+                  display: flex;
+                  font-family: $font-nsBold;
+                  padding-bottom: 6px;
+                  font-size: 14px;
+                  gap: 5px;
+                  align-items: flex-end;
+
+                  .feeTitle {
+                    color: white;
+                  }
+
+                  .fee {
+                    color: $account-name;
+                  }
+                }
+              }
+
+              .cont2b {
+                display: flex;
+                flex-direction: column;
+
+                .soldbyTitle {
+                  color: white;
+                  font-weight: bold;
+                  font-family: $font-nsBold;
+                  font-size: 18px;
+                }
+
+                .soldbyCont {
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+
+                  .soldby {
+                    color: $account-name;
+                    font-weight: bold;
+                    font-family: $font-nsBold;
+                    font-size: 18px;
+                  }
+
+                  .soldbyPID {
+                    color: white;
+                    font-weight: bold;
+                    font-family: $font-nsBold;
+                    font-size: 14px;
+                  }
+                }
+              }
+
+              .cont2c {
+                margin-top: 10px;
+                display: flex;
+                gap: 25px;
+              }
+            }
+          }
         }
-    }
-    .loadMessageContainer {
-        height: 100%;
-        width: 100%;
+      }
+
+      .bottomContainer {
+        height: 60px;
         background-color: black;
-        z-index: 2;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
 
-        .loadMessage {
-          font-family: $font-nasalization;
-          color: white;
-        }
-    }
-    .detailDescription {
-        height: 100%;
-        width: 50%;
-        display: flex;
-        background-color: black;
-        flex-direction: column;
-        justify-content: center;
-        padding: 35px 0px 35px 25px;
-        gap: 20px;
-        font-family: $font-nasalization;
-        color: #fff;
-        overflow-y: visible;
-        .title {
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .subTitle{
-            font-size: 24px;
-        }
-        .price {
-            color: $logout;
-        }
-        .seller {
-            font-size: 18px;
-        }
-        .sellerYellow {
-            color: #ffff00;
-        }
-        .buttonsContainer {
-            padding: 12px 0px;
-            width: 100%;
+        .bottomLeftContainer {
+          height: 60px;
+          background-color: #242339;
+          padding: 0 25px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          font-family: $font-nsRegular;
+          font-size: 14px;
+
+          .item {
             display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
             align-items: center;
-            gap: 20px;
-            overflow: visible;
-            button {
-                width: 200px;
+            gap: 10px;
+
+            .itemName {
+              color: $account-name;
+              font-size: 24px;
+              font-family: $font-nasalization;
+              font-weight: bold;
             }
+
+            .repName {
+              font-size: 14px;
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+
+            .price {
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+              color: yellow;
+              padding-left: 30px;
+            }
+
+            .rarity {
+              font-size: 14px;
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+          }
         }
+      }
     }
+  }
 }
 
 @media (min-width: $HD) {
-    .back {
-        padding-top: 20px;
-        font-family: "Nasalization";
-        color: $go-back;
-        font-size: 10px;
-        cursor: pointer;
-        padding-left: 20px;
-        background-color: black;
-        position: absolute;
-        top: 80px;
-        z-index: 2;
-      }
+  .back {
+    padding-top: 20px;
+    font-family: "Nasalization";
+    color: $go-back;
+    font-size: 10px;
+    cursor: pointer;
+    padding-left: 20px;
+    background-color: black;
+    position: absolute;
+    top: 80px;
+    z-index: 2;
+  }
 
-    .detailContainer {
-        height: calc(80vh - 80px);
-        // padding-top: 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        // gap: 30px;
-        align-items: stretch;
-    }
-    .videoContainer {
-        background-color: black ;
-        width: 50%;
-        height: 100%;
-        overflow: hidden;
+  .detailContainer {
+    height: calc(80vh - 80px);
+    // padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // gap: 30px;
+    align-items: stretch;
+  }
+  .videoContainer {
+    background-color: black;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
 
-        .pinVideo {
-            height: 90%;
-            position: relative;
-            top: 5%;
-            left: 50%; /*Center the vid, withouth black spaces*/
-            transform: translate(-50%);
-
-        }
-        .loadMessageContainer {
-            height: 100%;
-            width: 100%;
-            background-color: black;
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .loadMessage {
-            font-family: $font-nasalization;
-            color: white;
-        }
+    .pinVideo {
+      height: 90%;
+      position: relative;
+      top: 5%;
+      left: 50%; /*Center the vid, withouth black spaces*/
+      transform: translate(-50%);
     }
     .loadMessageContainer {
-        height: 100%;
-        width: 100%;
-        background-color: black;
-        z-index: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .loadMessage {
+      font-family: $font-nasalization;
+      color: white;
+    }
+  }
+  .loadMessageContainer {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        .loadMessage {
-          font-family: $font-nasalization;
-          color: white;
-        }
+    .loadMessage {
+      font-family: $font-nasalization;
+      color: white;
     }
-    .detailDescription {
-        height: 100%;
-        background-color: black;
-        width: 50%;
-        display: flex;
-        // background-color: $card-bg;
-        flex-direction: column;
-        justify-content: center;
-        padding: 35px 0px 35px 40px;
-        gap: 25px;
-        font-family: $font-nasalization;
-        color: #fff;
-        overflow-y: visible;
-        .title {
-            font-size: 30px;
-        }
-        .subTitle{
-            font-size: 26px;
-        }
-        .price {
-            color: $account-border;
-        }
-        .seller {
-            font-size: 20px;
-        }
-        .sellerYellow {
-            color: #ffff00;
-        }
-        .buttonsContainer {
-            padding: 12px 0px;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 20px;
-            button {
-                width: 280px;
-            }
-        }
+  }
+  .detailDescription {
+    height: 100%;
+    background-color: black;
+    width: 50%;
+    display: flex;
+    // background-color: $card-bg;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px 0px 35px 40px;
+    gap: 25px;
+    font-family: $font-nasalization;
+    color: #fff;
+    overflow-y: visible;
+    .title {
+      font-size: 30px;
     }
+    .subTitle {
+      font-size: 26px;
+    }
+    .price {
+      color: $account-border;
+    }
+    .seller {
+      font-size: 20px;
+    }
+    .sellerYellow {
+      color: #ffff00;
+    }
+    .buttonsContainer {
+      padding: 12px 0px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+      button {
+        width: 280px;
+      }
+    }
+  }
 }
