@@ -79,6 +79,8 @@ const HomeContainer = () => {
               />
             )}
             <a
+              rel="noreferrer"
+              target="_blank"
               className={styles.newButton}
               href="https://apps.apple.com/app/battlepalooza-battle-royale/id1536697211"
             >
@@ -141,6 +143,8 @@ const HomeContainer = () => {
               </button>
             </a>
             <a
+              rel="noreferrer"
+              target="_blank"
               className={styles.newButton}
               href="https://play.google.com/store/apps/details?id=com.nway.battlepalooza"
             >
