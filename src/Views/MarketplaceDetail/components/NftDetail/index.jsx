@@ -4,7 +4,7 @@ import Button from "../../../../Global-Components/Button";
 import { useParams, useHistory } from "react-router";
 import marketService from "../../../../Services/market.service";
 import Loader from "../../../../Global-Components/Loader";
-import { logOutAmplitude } from "../../../../Utils/amplitude";
+import { logOutAmplitude, sendAmplitudeData } from "../../../../Utils/amplitude";
 import { UserData } from "../../../../Context/UserProvider";
 import fireToast from "../../../../Utils/sweetAlert2";
 
@@ -47,8 +47,10 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
   }, []);
 
   const handleBuy = () => {
-    if (Object.keys(userData).length !== 0) setNft(chosenNft);
-    else {
+    if (Object.keys(userData).length !== 0) {
+      setNft(chosenNft);
+      sendAmplitudeData("Buy request Marketplace")
+    }else {
       fireToast("Need login", 1200, "300px");
     }
   };

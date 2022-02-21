@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { NftData } from "../../Context/NftProvider";
 import { UserData } from "../../Context/UserProvider";
-import { logOutAmplitude } from "../../Utils/amplitude";
+import { logOutAmplitude, sendAmplitudeData } from "../../Utils/amplitude";
 import Background from "../../Global-Components/Background";
 import nftService from "../../Services/nft.service";
 import styles from "./styles.module.scss";
@@ -78,6 +78,7 @@ const CollectionDetail = () => {
     setmodalUnregister(true);
   };
   const openModalRegister1 = () => {
+    sendAmplitudeData("Collection place for sale request")
     setmodalRegister1(true);
   };
   const goBack = () => {
@@ -114,6 +115,7 @@ const CollectionDetail = () => {
           //we call the transaction status in the next step (modal register 2)
           } else {
             console.log(response);
+            sendAmplitudeData("Collection place for sale confirm")
             setForteTxText(response.forteTxId);
             setmodalRegister1(false);
             setmodalRegister2(true);
