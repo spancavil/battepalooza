@@ -26,14 +26,13 @@ class marketService {
         })
     }
 
-    async registerProductMarketplace(pid, uuid, price, expiry, bpTokenContent){
+    async registerProductMarketplace(pid, uuid, price, bpTokenContent){
         const bpToken = authHeader(bpTokenContent);
 
         return await axios.post(API_URL + 'market/register', {
             pid,
             uuid,
             price,
-            expiry,
             bpToken
         }).then(response => {
             return response.data

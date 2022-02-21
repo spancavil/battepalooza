@@ -9,7 +9,6 @@ const ModalRegister1 = ({
   handleInputChange,
   Register,
   inputPrice,
-  handleExpiryChange,
 }) => {
   return (
     <div className={styles.parentContainerModal}>
