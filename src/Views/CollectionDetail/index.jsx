@@ -29,7 +29,6 @@ const CollectionDetail = () => {
   const [modalRegister2, setmodalRegister2] = useState(false);
 
   const [inputPrice, setInputPrice] = useState(0);
-  const [expiryTime, setExpiryTime] = useState(0);
   const [forteTxText, setForteTxText] = useState("");
 
   const { userData } = useContext(UserData);
@@ -89,7 +88,7 @@ const CollectionDetail = () => {
   };
   const Register = () => {
     
-    if (Number(inputPrice) > 10000 && expiryTime >= 3600) {
+    if (Number(inputPrice) > 10000) {
 
       const registerNft = async () => {
 
@@ -98,7 +97,6 @@ const CollectionDetail = () => {
             userData.pid,
             nftSelected.uuid,
             inputPrice,
-            expiryTime,
             userData.bpToken,
           )
 
@@ -130,7 +128,7 @@ const CollectionDetail = () => {
       registerNft()
 
     } else {
-      fireToast("Price should be greater than 10000 and expiry time should be greater than 1", 3000, '500px', '22px')
+      fireToast("Price should be greater than 10000", 3000, '500px', '22px')
       return;
     }
   };
@@ -140,13 +138,7 @@ const CollectionDetail = () => {
   const handleInputChange = (value) => {
     setInputPrice(parseInt(value));
   };
-
-  const handleExpiryChange = (value) => {
-    setExpiryTime(Math.round(value*3600))
-  }
-
-  console.log(expiryTime);
-
+  
   return (
     <Background>
       <p className={styles.back} onClick={goBack}>
@@ -440,7 +432,6 @@ const CollectionDetail = () => {
           <ModalRegister1
             setmodalRegister1={setmodalRegister1}
             handleInputChange={handleInputChange}
-            handleExpiryChange={handleExpiryChange}
             Register={Register}
             inputPrice={inputPrice}
           />
