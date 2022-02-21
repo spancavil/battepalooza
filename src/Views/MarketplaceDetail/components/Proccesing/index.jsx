@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Modal from '../../../../Global-Components/Modal';
 import styles from './styles.module.scss';
+import { sendAmplitudeData } from '../../../../Utils/amplitude';
 
 const Proccesing = ({nftBuy, handleClose}) => {
 
+  useEffect(()=> {
     setTimeout(()=> {
-      //Hardcodeamos el time
+      //Hardcodeamos el time. Acá iría la llamada a la API
       handleClose(false);
+      sendAmplitudeData('Buy Confirmation Marketplace')
     }, 2000)
+  }, [handleClose])
 
     return (
         <div className={styles.parentContainerModal}>

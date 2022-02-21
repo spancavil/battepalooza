@@ -47,7 +47,7 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
 
     //We call the status of the transaction in forte each 0.5 secs
     const forteStatusInterval = setInterval(getStatusForte, 500);
-    if (status === "completed") {
+    if (status !== "pending" && status !== "") {
       clearInterval(forteStatusInterval)
     }
     //Interval clear at component will unmount
@@ -56,6 +56,7 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
     }
 
   }, [forteTxText, status, bpToken, history, pid])
+
   return (
     <div className={styles.parentContainerModal}>
     <Modal

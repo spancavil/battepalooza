@@ -45,6 +45,7 @@ const NavBar = () => {
         if (response.error.text.includes ('authorized')) {
           alert ('Session expired, please login again.');
           localStorage.removeItem ('userBP');
+          logOutAmplitude();
           history.push ('/');
           window.location.reload ();
         }
