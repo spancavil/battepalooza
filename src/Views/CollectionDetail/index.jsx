@@ -92,7 +92,6 @@ const CollectionDetail = () => {
   const Register = () => {
     
     if (Number(inputPrice) > 10000) {
-
       const registerNft = async () => {
         
         try {
