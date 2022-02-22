@@ -6,7 +6,7 @@ import marketService from "../../../../Services/market.service";
 import Loader from "../../../../Global-Components/Loader";
 import { logOutAmplitude, sendAmplitudeData } from "../../../../Utils/amplitude";
 import { UserData } from "../../../../Context/UserProvider";
-import fireToast from "../../../../Utils/sweetAlert2";
+import fireToast, { fireAlertAsync } from "../../../../Utils/sweetAlert2";
 
 const NftDetail = ({ nfts, setNft, setNftListing }) => {
   const history = useHistory();
@@ -26,15 +26,18 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
       const response = await marketService.getNftMarketplaceDetail(seller, uid);
       if (response.error.text !== "") {
         if (response.error.text.includes("authorized")) {
-          alert("Session expired, please login again.");
-          localStorage.removeItem("userBP");
-          logOutAmplitude();
-          history.push("/");
-          window.location.reload();
+          fireAlertAsync("Warning", "Session expired, please login again.")
+          .then (()=> {
+            localStorage.removeItem("userBP");
+            logOutAmplitude();
+            history.push("/");
+            window.location.reload();
+          })
         } else {
-          alert(response.error.text);
-          history.push("/");
-          window.location.reload();
+          fireAlertAsync(response.error.text)
+          .then(()=> {
+            history.push("/");
+          })
         }
       }
 
@@ -63,8 +66,6 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
   const goBack = () => {
     history.goBack();
   };
-
-  console.log(chosenNft);
 
   return (
     <>

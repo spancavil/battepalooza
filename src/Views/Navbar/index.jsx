@@ -10,6 +10,7 @@ import authService from '../../Services/auth.service';
 import Modal from '../../Global-Components/Modal';
 import {logOutAmplitude, sendAmplitudeData} from '../../Utils/amplitude';
 import ReloadForte from './components/ReloadForte';
+import { fireAlertAsync } from '../../Utils/sweetAlert2';
 
 const NavBar = () => {
   const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT_PAYLOAD;
@@ -43,11 +44,13 @@ const NavBar = () => {
         setLoadingBalance (true);
         response = await authService.getForteBalance (userData);
         if (response.error.text.includes ('authorized')) {
-          alert ('Session expired, please login again.');
-          localStorage.removeItem ('userBP');
-          logOutAmplitude();
-          history.push ('/');
-          window.location.reload ();
+          fireAlertAsync("Warning", "Session expired, please login again.")
+            .then (()=> {
+              localStorage.removeItem("userBP");
+              logOutAmplitude();
+              history.push("/");
+              window.location.reload();
+            })
         }
         setCoins (separator (response.coin));
         setCoin (response.coin);
@@ -79,10 +82,10 @@ const NavBar = () => {
   };
 
   const logout = () => {
-    localStorage.removeItem('userBP');
-    logOutAmplitude ();
-    history.push ('/');
-    window.location.reload ();
+    localStorage.removeItem("userBP");
+    logOutAmplitude();
+    history.push("/");
+    window.location.reload();
   };
 
   const previousMenu = async link => {
@@ -101,10 +104,12 @@ const NavBar = () => {
     const response = await authService.getFortePayload (userData);
     if (response.error.text !== '') {
       if (response.error.text.includes ('authorized')) {
-        alert ('Session expired, please login again.');
-        logout ();
+        fireAlertAsync("Warning", "Session expired, please login again.")
+        .then (()=> {
+          logout ();
+        })
       } else {
-        alert (response.error.text);
+        fireAlertAsync(response.error.text);
       }
     } else if (response.linked === false) {
       window.open (`${FORTE_REDIRECT}/${response.payload}`);

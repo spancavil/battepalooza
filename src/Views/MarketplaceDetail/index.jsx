@@ -35,7 +35,7 @@ const MarketplaceDetail = () => {
     setListing (true);
   };
 
-  const processingComplete = estado => {
+  const processingComplete = () => {
     setCheckout (false);
     setProccesing (false);
     setBuyComplete (true);
@@ -55,7 +55,7 @@ const MarketplaceDetail = () => {
           handleClose={setCheckout}
         />}
       {proccesing &&
-        <Proccesing nftBuy={nft} handleClose={processingComplete} />}
+        <Proccesing nftBuy={nft} processingComplete={processingComplete} handleClose={()=>setProccesing(false)}/>}
       {buyComplete &&
         <Complete
           title={nft.itemName}

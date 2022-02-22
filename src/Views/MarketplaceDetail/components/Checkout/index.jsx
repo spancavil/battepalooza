@@ -3,8 +3,15 @@ import Modal from '../../../../Global-Components/Modal';
 import styles from './styles.module.scss';
 import Button from '../../../../Global-Components/Button';
 import SubMessage from '../../../../Global-Components/SubMessage';
+import { sendAmplitudeData } from '../../../../Utils/amplitude';
 
 const Checkout = ({nftBuy, nftProccesing, handleClose}) => {
+
+    const handleProccessing = () => {
+      sendAmplitudeData('Buy Confirmation Marketplace');
+      nftProccesing(true);
+    }
+    
     return (
         <div className={styles.parentContainerModal}>
           <Modal title="Checkout" handleClose={()=> handleClose(false)}>
@@ -24,7 +31,7 @@ const Checkout = ({nftBuy, nftProccesing, handleClose}) => {
               </div>
             </div>
             <h3 className={styles.textDrop}> Will you use {nftBuy.price + nftBuy.fee} nCoin to buy {nftBuy.itemName}?</h3>
-            <Button title="BUY" modal={true} width="176px" onClick={()=> nftProccesing(true)} />
+            <Button title="BUY" modal={true} width="176px" onClick={()=> handleProccessing()} />
             <SubMessage
               text="Not enough nCoin?"
               link="/account"

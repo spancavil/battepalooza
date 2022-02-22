@@ -4,12 +4,13 @@ import Button from '../../../../Global-Components/Button';
 import styles from './styles.module.scss';
 import marketService from '../../../../Services/market.service';
 import { logOutAmplitude } from '../../../../Utils/amplitude';
-import fireToast from '../../../../Utils/sweetAlert2';
+import { fireAlertAsync } from '../../../../Utils/sweetAlert2';
 import { useHistory } from 'react-router-dom';
 
 const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, pid}) => {
   
   const [status, setStatus] = useState("")
+  const [transactionType, setTransactionType] = useState("")
   const history = useHistory();
   
   useEffect(()=> {
@@ -26,11 +27,13 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
         ) 
         if (response.error.text !== "") {
           if (response.error.text.includes("authorized")) {
-            fireToast("Session expired, please login again.");
-            localStorage.removeItem("userBP");
-            logOutAmplitude();
-            history.push("/");
-            window.location.reload();
+            fireAlertAsync("Warning","Session expired, please login again.")
+            .then(()=> {
+              localStorage.removeItem("userBP");
+              logOutAmplitude();
+              history.push("/");
+              window.location.reload();
+            })
           } else {
             setStatus("Oops, an error ocurred", response.error.text, '500px');
           }
@@ -38,6 +41,7 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
 
         //Response OK, no errors
           setStatus(response.status);
+          setTransactionType(response.txType);
         }
         
       } catch (error) {
@@ -66,7 +70,8 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
     {status === "completed" ?
     <>
       <h3 className={styles.textDrop}>
-        The NFT has been registered <br />
+        {/* Imprimimos UNregistered si el código de transacción es el de borrar del market (cancelSelling) */}
+        The NFT has been {transactionType.includes("delete") && "un"}registered <br />
         for sale in the Marketplace
       </h3>
       <div
