@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import styles from "./styles.module.scss";
-import Button from "../../../../Global-Components/Button";
+/* import Button from "../../../../Global-Components/Button"; */
 import { useParams, useHistory } from "react-router";
 import marketService from "../../../../Services/market.service";
 import Loader from "../../../../Global-Components/Loader";
@@ -349,11 +349,11 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                   </div>
                   {chosenNft.salesState === 1 ? (
                     <div className={styles.button}>
-                      <button>Unregister to marketplace</button>
+                      <button onClick={() => handleList()} >Unregister to marketplace</button>
                     </div>
                   ) : (
                     <div className={styles.button}>
-                      <button>Register to marketplace</button>
+                      <button onClick={() => handleBuy()} >Register to marketplace</button>
                     </div>
                   )}
                 </div>
