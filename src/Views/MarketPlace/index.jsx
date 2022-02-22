@@ -9,6 +9,7 @@ import { logOutAmplitude } from "../../Utils/amplitude";
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
 import { TYPE_NFT, NCOIN_BATTLECOUNT } from "../Constants";
+import { fireAlertAsync } from "../../Utils/sweetAlert2";
 
 const MarketPlace = () => {
   const [filters, setFilters] = useState({});
@@ -24,15 +25,18 @@ const MarketPlace = () => {
         const response = await marketService.getData();
         if (response.error.text !== "") {
           if (response.error.text.includes("authorized")) {
-            alert("Session expired, please login again.");
-            localStorage.removeItem("userBP");
-            logOutAmplitude();
-            history.push("/");
-            window.location.reload();
+            fireAlertAsync("Warning", "Session expired, please login again.")
+            .then (()=> {
+              localStorage.removeItem("userBP");
+              logOutAmplitude();
+              history.push("/");
+              window.location.reload();
+            })
           } else {
-            alert(response.error.text);
-            history.push("/");
-            window.location.reload();
+            fireAlertAsync(response.error?.text)
+            .then(()=> {
+              history.push("/");
+            })
           }
         }
 

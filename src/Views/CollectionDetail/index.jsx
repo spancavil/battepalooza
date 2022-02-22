@@ -74,7 +74,7 @@ const CollectionDetail = () => {
       }
     };
     userData.email && fetchData();
-  }, [uuid, userData, history]);
+  }, [uuid, userData, history, modalRegister2]);
 
   const openModalUnregister = () => {
     setmodalUnregister(true);
@@ -117,7 +117,6 @@ const CollectionDetail = () => {
           //No errors, the forte transaction text id is returned. With that text
           //we call the transaction status in the next step (modal register 2)
           } else {
-            console.log(response);
             sendAmplitudeData("Collection place for sale confirm")
             setForteTxText(response.forteTxId);
             setmodalRegister1(false);
@@ -143,7 +142,7 @@ const CollectionDetail = () => {
     const unRegisterNft = async () => {
       try {
         //Necesitamos obtener el NFT del market porque de ahí sacamos el uniqueId de Forte
-        const nftFromMarket = nftMarket.find(nft => nft.expiry === nftSelected.expiryTime)
+        const nftFromMarket = nftMarket.find(nft => nft.itemName === nftSelected.itemName && nft.sellerPid === userData.pid && nft.serial === nftSelected.serial)
         const response = await marketService.cancelSellingMarketplace(
           userData.pid,
           nftFromMarket.uniqueId,
@@ -181,6 +180,7 @@ const CollectionDetail = () => {
 
   const handleMarket = () => {
     history.push("/marketplace");
+    window.location.reload();
   };
 
   const handleInputChange = (value) => {

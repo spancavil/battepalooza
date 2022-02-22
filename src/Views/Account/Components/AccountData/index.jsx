@@ -7,6 +7,7 @@ import generateDate from '../../../../Utils/createDate';
 import {useHistory} from 'react-router';
 import authService from '../../../../Services/auth.service';
 import { logOutAmplitude } from '../../../../Utils/amplitude';
+import { fireAlertAsync } from '../../../../Utils/sweetAlert2';
 
 // Por ahora esta Hardcodeado pero cuando
 // tengamos la api hay que crear los estados
@@ -24,11 +25,13 @@ const AccountData = () => {
       const fetchData = async () => {
         response = await authService.getForteBalance (userData);
         if (response.error.text.includes ('authorized')) {
-          alert ('Session expired, please login again.');
-          localStorage.removeItem ('userBP');
-          logOutAmplitude();
-          history.push ('/');
-          window.location.reload ();
+          fireAlertAsync("Warning", "Session expired, please login again.")
+            .then (()=> {
+              localStorage.removeItem("userBP");
+              logOutAmplitude();
+              history.push("/");
+              window.location.reload();
+            })
         }
         setMonedas (separator (response.coin));
         setCoin (response.coin);
