@@ -8,7 +8,7 @@ import { logOutAmplitude } from "../../Utils/amplitude";
 
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
-import { TYPE_NFT, NCOIN_BATTLECOUNT } from "../Constants";
+import { TYPE_NFT, NCOIN_BATTLECOUNT, PRICE_NFT } from "../Constants";
 import { fireAlertAsync } from "../../Utils/sweetAlert2";
 
 const MarketPlace = () => {
@@ -25,18 +25,19 @@ const MarketPlace = () => {
         const response = await marketService.getData();
         if (response.error.text !== "") {
           if (response.error.text.includes("authorized")) {
-            fireAlertAsync("Warning", "Session expired, please login again.")
-            .then (()=> {
+            fireAlertAsync(
+              "Warning",
+              "Session expired, please login again."
+            ).then(() => {
               localStorage.removeItem("userBP");
               logOutAmplitude();
               history.push("/");
               window.location.reload();
-            })
+            });
           } else {
-            fireAlertAsync(response.error?.text)
-            .then(()=> {
+            fireAlertAsync(response.error?.text).then(() => {
               history.push("/");
-            })
+            });
           }
         }
 
@@ -50,8 +51,13 @@ const MarketPlace = () => {
           });
         });
         //Tendrá todos los filtros
-        setFilters({...rarityItem, ...TYPE_NFT, ...NCOIN_BATTLECOUNT, search: ""});
-
+        setFilters({
+          ...rarityItem,
+          ...TYPE_NFT,
+          ...NCOIN_BATTLECOUNT,
+          ...PRICE_NFT,
+          search: "",
+        });
       } catch (error) {
         alert(error.message);
         return;
@@ -70,7 +76,9 @@ const MarketPlace = () => {
           setFilters={setFilters}
         />
         <div className={styles.products}>
-          <SearchBar onChange={(value)=> setFilters({...filters, search: value})}/>
+          <SearchBar
+            onChange={(value) => setFilters({ ...filters, search: value })}
+          />
           <Products
             filters={filters}
             page={page}
