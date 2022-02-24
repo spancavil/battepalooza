@@ -1,0 +1,102 @@
+@import "../../../../Styles/fonts.scss";
+@import "../../../../Styles/colors.scss";
+@import "../../../../Styles/breakpoints.scss";
+
+@media (max-width: $tablet - 1) {
+    .parentContainer {
+        position: relative;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+
+        .orderByContainer {
+            width: calc(34vw - 60px);
+            height: 40px;
+            background-color: $primary-blue;
+            font-family: $font-nasalization;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .filtersContainer {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: calc(34vw - 60px);
+            height: fit-content;
+            background-color: $primary-blue;
+            font-family: $font-nasalization;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+    .parentContainer {
+        position: relative;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+
+        .orderByContainer {
+            width: calc(19vw - 8px);
+            height: 40px;
+            background-color: $primary-blue;
+            font-family: $font-nasalization;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .filtersContainer {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: calc(19vw - 8px);
+            height: fit-content;
+            background-color: $primary-blue;
+            font-family: $font-nasalization;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+@media (min-width: $desktop) {
+    .parentContainer {
+        position: relative;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+
+        .orderByContainer {
+            width: calc(9vw - 8px);
+            height: 40px;
+            background-color: $primary-blue;
+            font-family: $font-nasalization;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .filtersContainer {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: calc(9vw - 8px);
+            height: fit-content;
+            background-color: $primary-blue;
+            font-family: $font-nasalization;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

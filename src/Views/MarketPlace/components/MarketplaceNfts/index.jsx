@@ -20,14 +20,16 @@ const MarketplaceNfts = ({
   setxPage,
   input,
   setInput,
+  orderBy
 }) => {
   const { nftMarket } = useContext(NftData);
   const [nftsFiltered, setNftFiltered] = useState(nftMarket);
   const [filterByPrice, setFilterByPrice] = useState(0);
+  const [filterNewest, setFilterNewest] = useState(0);
 
   const breakpoint = useMediaQuery("(max-width: 1200px)");
 
-  const tilts = useMemo(() => nftMarket.map(() => createRef()), [nftMarket]);
+  const tilts = useMemo(() => nftsFiltered.map(() => createRef()), [nftsFiltered]);
 
   useEffect(() => {
     //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
@@ -45,9 +47,15 @@ const MarketplaceNfts = ({
     );
   }, [tilts]);
 
+  // console.log(tilts);
+
   useEffect(() => {
     breakpoint ? setxPage(4) : setxPage(25);
   }, [breakpoint, setxPage]);
+
+  console.log(orderBy);
+  console.log(nftMarket);
+  console.log(nftsFiltered);
 
   useEffect(() => {
     const auxFilter = [...nftMarket];
@@ -85,17 +93,23 @@ const MarketplaceNfts = ({
       );
     if (filters["Over 300"])
       filtro10 = auxFilter.filter((nft) => nft.playCount > 300);
-    if (filters["Lower to higher price"]) {
-      setFilterByPrice(1);
-    }
-    if (filters["Higher at lower price"]) {
-      setFilterByPrice(2);
-    }
-    filtro10 = auxFilter.filter((nft) => nft.playCount > 300);
+      filtro10 = auxFilter.filter((nft) => nft.playCount > 300);
     if (filters.search) {
       filtro13 = auxFilter.filter((nft) =>
-        nft.itemName.toLowerCase().includes(filters.search)
+      nft.itemName.toLowerCase().includes(filters.search)
       );
+    }
+    if (orderBy.LowestPrice){
+      setFilterByPrice(1)
+    }
+    if (orderBy.HighestPrice){
+      setFilterByPrice(2)
+    }
+    if (orderBy.Newest){
+      setFilterNewest(1)
+    }
+    if (orderBy.Oldest){
+      setFilterNewest(2)
     }
 
     const filtroWeapon =
@@ -125,22 +139,41 @@ const MarketplaceNfts = ({
       .filter((value) => filtroSearch.includes(value));
 
     setNftFiltered(coincidencias);
-  }, [filters, nftMarket]);
+  }, [filters, nftMarket, orderBy, setNftFiltered]);
 
   const max = nftsFiltered.length / xPage;
 
+  //Order by functions
   const lth = (a, b) => a.price - b.price;
   const htl = (a, b) => b.price - a.price;
+
+  useEffect(()=> {
+    console.log("Entro al effect");
+    console.log(filterNewest);
+    if (filterNewest === 1){
+      console.log("Deberia ordernarse por nuevo");
+      setNftFiltered([...nftMarket].reverse());
+    } else if (filterNewest === 2){
+      console.log("Deberia ordernarse por viejo");
+      setNftFiltered([...nftMarket]);
+    }
+  },[orderBy, filterNewest, nftMarket])
 
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.cards}>
+
         {nftsFiltered
           .sort(filterByPrice === 1 ? lth : htl, filterByPrice === 0 ?? null)
           .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
-          .map((nft, index) => {
+          .map((nft) => {
+            const indice = nftMarket?.indexOf(nft)
             return (
-              <Nft key={nft.uniqueId} nft={nft} index={index} tilts={tilts} />
+              <Nft 
+              key={nft.uniqueId} 
+              nft={nft} 
+              tilt={tilts[indice]} 
+              />
             );
           })}
       </div>

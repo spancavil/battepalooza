@@ -10,12 +10,14 @@ const Products = ({
   setxPage,
   input,
   setInput,
+  orderBy,
 }) => {
   return (
     <div className={styles.container}>
       <MarketplaceNfts
         flex
         filters={filters}
+        orderBy={orderBy}
         page={page}
         setPage={setPage}
         xPage={xPage}

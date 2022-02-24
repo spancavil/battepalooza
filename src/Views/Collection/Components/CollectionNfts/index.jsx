@@ -64,7 +64,9 @@ const CollectionNfts = () => {
         "max-glare": 0.15,
       })
     );
-  }, [tilts]);
+  }, [tilts, page]);
+
+  console.log(xPage);
 
   const max = userCollection.length / xPage;
 
@@ -73,15 +75,16 @@ const CollectionNfts = () => {
       <div className={styles.cards}>
         {userCollection
           .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
-          .map((nft, index) => {
-            //Tenemos que pasarle el index al map, para que apunte a la referencia correcta el div contenedor
+          .map((nft) => {
+            //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
+            const indice = userCollection?.indexOf(nft);
             return (
               /* Aqui el div apunta a su referencia correspondiente */
               <div
                 onClick={() => onClick(nft.uuid)}
-                ref={tilts[index]}
+                ref={tilts[indice]}
                 className={styles.cardNft}
-                key={nft.itemId}
+                key={nft.uuid}
               >
                 {nft.salesState === 1 && (
                   <div className={styles.sale}>Sale</div>
