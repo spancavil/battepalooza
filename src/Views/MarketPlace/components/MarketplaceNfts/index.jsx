@@ -5,7 +5,7 @@ import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import Pagination from "../Pagination";
 import Nft from "../Nft";
 
-const CollectionNfts = ({
+const MarketplaceNfts = ({
   filters,
   page,
   xPage,
@@ -134,4 +134,4 @@ const CollectionNfts = ({
   );
 };
 
-export default CollectionNfts;
+export default MarketplaceNfts;

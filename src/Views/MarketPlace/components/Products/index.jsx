@@ -1,5 +1,5 @@
 import React from 'react';
-import CollectionNfts from '../../components/CollectionNfts';
+import MarketplaceNfts from '../../components/MarketplaceNfts';
 import styles from './styles.module.scss';
 
 const Products = ({
@@ -13,7 +13,7 @@ const Products = ({
 }) => {
   return (
     <div className={styles.container}>
-      <CollectionNfts
+      <MarketplaceNfts
         flex
         filters={filters}
         page={page}
