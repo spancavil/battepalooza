@@ -3,243 +3,243 @@
 @import "../../../../Styles/fonts.scss";
 
 @media (max-width: $tablet - 1) {
-    .cardNft {
-        overflow: visible;
-        position: relative;
-        height: 350px;
-        width: 200px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #030b23;
-        border-radius: 3px;
-        justify-content: center;
-        grid-gap: 20px;
-        gap: 20px;
-      }
+  .cardNft {
+    overflow: visible;
+    position: relative;
+    height: 350px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #030b23;
+    border-radius: 3px;
+    justify-content: center;
+    grid-gap: 20px;
+    gap: 20px;
+  }
 
-      .imgNft {
-        width: 130px;
-      }
-
-      .texts {
-        display: flex;
-        flex-direction: column;
-        grid-gap: 7px;
-        gap: 7px;
-
-        p {
-          font-size: 14px;
-          padding: 0px 15px;
-          text-align: center;
-          color: white;
-          font-family: "Nasalization";
-        }
-
-        .price {
-          color: $logout;
-        }
-
-        .text2 {
-          color: $account-name;
-        }
-      }
-      .videoContainer {
-        height: 260px;
-        width: 100%;
-        position: relative;
-        top: -12px;
-        overflow: hidden;
-        margin-bottom: -20px;
-        .pinVideo {
-            height: 100%;
-            position: relative;
-            top: 0;
-            left: 50%; /*Center the vid, withouth black spaces*/
-            transform: translate(-50%);
-        }
-        .loadMessageContainer{
-          height: 100%;  
-          width: 100%;
-          background-color: black;
-          z-index: 2;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      
-          .loadMessage {
-            font-family: $font-nasalization;
-            color: white;
-          }
-        }
-        .loadMessage {
-          font-family: $font-nasalization;
-          color: white;
-          text-align: center;
-        }
-      }
-}
-
-@media (min-width: $tablet) and (max-width: $laptop - 1) {
-    .cardNft {
-        overflow: visible;
-        position: relative;
-        height: 350px;
-        width: 200px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #030b23;
-        border-radius: 3px;
-        justify-content: left;
-        grid-gap: 20px;
-        gap: 20px;
-        justify-content: center;
-      }
-
-      .imgNft {
-        width: 130px;
-      }
-
-      .texts {
-        display: flex;
-        flex-direction: column;
-        grid-gap: 7px;
-        gap: 7px;
-
-        p {
-          font-size: 13px;
-          padding: 0px 15px;
-          text-align: center;
-          color: white;
-          font-family: "Nasalization";
-        }
-
-        .price {
-          color: $logout;
-        }
-
-        .text2 {
-          color: $account-name;
-        }
-      }
-      .videoContainer {
-        height: 260px;
-        width: 100%;
-        position: relative;
-        top: -12px;
-        overflow: hidden;
-        margin-bottom: -20px;
-        .pinVideo {
-            height: 100%;
-            position: relative;
-            top: 0;
-            left: 50%; /*Center the vid, withouth black spaces*/
-            transform: translate(-50%);
-        }
-        .loadMessageContainer{
-          height: 100%;  
-          width: 100%;
-          background-color: black;
-          z-index: 2;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      
-          .loadMessage {
-            font-family: $font-nasalization;
-            color: white;
-          }
-        }
-        .loadMessage {
-          font-family: $font-nasalization;
-          color: white;
-          text-align: center;
-        }
-      }
-}
-
-@media (min-width: $laptop) and (max-width: $desktop - 1) {
-    .cardNft {
-        overflow: visible;
-        position: relative;
-        height: 350px;
-        width: 200px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #030b23;
-        border-radius: 3px;
-        justify-content: left;
-        grid-gap: 20px;
-        gap: 20px;
-        justify-content: center;
-    }
-
-    .imgNft {
+  .imgNft {
     width: 130px;
-    }
+  }
 
-    .texts {
+  .texts {
     display: flex;
     flex-direction: column;
     grid-gap: 7px;
     gap: 7px;
 
-        p {
-            font-size: 13px;
-            padding: 0px 15px;
-            text-align: center;
-            color: white;
-            font-family: "Nasalization";
-        }
-
-        .price {
-            color: $logout;
-        }
-
-        .text2 {
-            color: $account-name;
-        }
+    p {
+      font-size: 14px;
+      padding: 0px 15px;
+      text-align: center;
+      color: white;
+      font-family: "Nasalization";
     }
-    .videoContainer {
-      height: 260px;
-      width: 100%;
+
+    .price {
+      color: $logout;
+    }
+
+    .text2 {
+      color: $account-name;
+    }
+  }
+  .videoContainer {
+    height: 260px;
+    width: 100%;
+    position: relative;
+    top: -12px;
+    overflow: hidden;
+    margin-bottom: -20px;
+    .pinVideo {
+      height: 100%;
       position: relative;
-      top: -12px;
-      overflow: hidden;
-      margin-bottom: -20px;
-      .pinVideo {
-          height: 100%;
-          position: relative;
-          top: 0;
-          left: 50%; /*Center the vid, withouth black spaces*/
-          transform: translate(-50%);
-      }
-      .loadMessageContainer{
-        height: 100%;  
-        width: 100%;
-        background-color: black;
-        z-index: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    
-        .loadMessage {
-          font-family: $font-nasalization;
-          color: white;
-        }
-      }
+      top: 0;
+      left: 50%; /*Center the vid, withouth black spaces*/
+      transform: translate(-50%);
+    }
+    .loadMessageContainer {
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       .loadMessage {
         font-family: $font-nasalization;
         color: white;
-        text-align: center;
       }
     }
+    .loadMessage {
+      font-family: $font-nasalization;
+      color: white;
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: $tablet) and (max-width: $laptop - 1) {
+  .cardNft {
+    overflow: visible;
+    position: relative;
+    height: 350px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #030b23;
+    border-radius: 3px;
+    justify-content: left;
+    grid-gap: 20px;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .imgNft {
+    width: 130px;
+  }
+
+  .texts {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 7px;
+    gap: 7px;
+
+    p {
+      font-size: 13px;
+      padding: 0px 15px;
+      text-align: center;
+      color: white;
+      font-family: "Nasalization";
+    }
+
+    .price {
+      color: $logout;
+    }
+
+    .text2 {
+      color: $account-name;
+    }
+  }
+  .videoContainer {
+    height: 260px;
+    width: 100%;
+    position: relative;
+    top: -12px;
+    overflow: hidden;
+    margin-bottom: -20px;
+    .pinVideo {
+      height: 100%;
+      position: relative;
+      top: 0;
+      left: 50%; /*Center the vid, withouth black spaces*/
+      transform: translate(-50%);
+    }
+    .loadMessageContainer {
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .loadMessage {
+        font-family: $font-nasalization;
+        color: white;
+      }
+    }
+    .loadMessage {
+      font-family: $font-nasalization;
+      color: white;
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: $laptop) and (max-width: $desktop - 1) {
+  .cardNft {
+    overflow: visible;
+    position: relative;
+    height: 350px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #030b23;
+    border-radius: 3px;
+    justify-content: left;
+    grid-gap: 20px;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .imgNft {
+    width: 130px;
+  }
+
+  .texts {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 7px;
+    gap: 7px;
+
+    p {
+      font-size: 13px;
+      padding: 0px 15px;
+      text-align: center;
+      color: white;
+      font-family: "Nasalization";
+    }
+
+    .price {
+      color: $logout;
+    }
+
+    .text2 {
+      color: $account-name;
+    }
+  }
+  .videoContainer {
+    height: 260px;
+    width: 100%;
+    position: relative;
+    top: -12px;
+    overflow: hidden;
+    margin-bottom: -20px;
+    .pinVideo {
+      height: 100%;
+      position: relative;
+      top: 0;
+      left: 50%; /*Center the vid, withouth black spaces*/
+      transform: translate(-50%);
+    }
+    .loadMessageContainer {
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .loadMessage {
+        font-family: $font-nasalization;
+        color: white;
+      }
+    }
+    .loadMessage {
+      font-family: $font-nasalization;
+      color: white;
+      text-align: center;
+    }
+  }
 }
 
 @media (min-width: $desktop) {
-.cardNft {
+  .cardNft {
     cursor: pointer;
     overflow: visible;
     position: relative;
@@ -292,21 +292,21 @@
     overflow: hidden;
     margin-bottom: -20px;
     .pinVideo {
-        height: 100%;
-        position: relative;
-        top: 0;
-        left: 50%; /*Center the vid, withouth black spaces*/
-        transform: translate(-50%);
+      height: 100%;
+      position: relative;
+      top: 0;
+      left: 50%; /*Center the vid, withouth black spaces*/
+      transform: translate(-50%);
     }
-    .loadMessageContainer{
-      height: 100%;  
+    .loadMessageContainer {
+      height: 100%;
       width: 100%;
       background-color: black;
       z-index: 2;
       display: flex;
       justify-content: center;
       align-items: center;
-  
+
       .loadMessage {
         font-family: $font-nasalization;
         color: white;
@@ -316,6 +316,51 @@
       font-family: $font-nasalization;
       color: white;
       text-align: center;
+    }
+  }
+
+  .cardNft {
+    cursor: pointer;
+    overflow: visible;
+    position: relative;
+    height: 305px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #030b23;
+    border-radius: 3px;
+    justify-content: left;
+    grid-gap: 20px;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+
+  .imgNft {
+    width: 200px;
+    background-color: black;
+  }
+
+  .texts {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    p {
+      font-size: 11px;
+      padding: 0px 15px;
+      text-align: center;
+      color: white;
+      font-family: "Nasalization";
+    }
+
+    .price {
+      color: $logout;
+    }
+
+    .text2 {
+      color: $account-name;
     }
   }
 }
