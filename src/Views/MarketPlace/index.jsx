@@ -8,11 +8,13 @@ import { logOutAmplitude } from "../../Utils/amplitude";
 
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
-import { TYPE_NFT, NCOIN_BATTLECOUNT, PRICE_NFT } from "../Constants";
+import { TYPE_NFT, NCOIN_BATTLECOUNT, ORDER_BY } from "../Constants";
 import { fireAlertAsync } from "../../Utils/sweetAlert2";
+import OrderBy from "./components/OrderBy";
 
 const MarketPlace = () => {
   const [filters, setFilters] = useState({});
+  const [orderBy, setOrderBy] = useState({})
   const [page, setPage] = useState(1);
   const [xPage, setxPage] = useState(25);
   const [input, setInput] = useState(1);
@@ -55,9 +57,11 @@ const MarketPlace = () => {
           ...rarityItem,
           ...TYPE_NFT,
           ...NCOIN_BATTLECOUNT,
-          ...PRICE_NFT,
           search: "",
         });
+        setOrderBy({
+          ...ORDER_BY
+        })
       } catch (error) {
         alert(error.message);
         return;
@@ -76,11 +80,18 @@ const MarketPlace = () => {
           setFilters={setFilters}
         />
         <div className={styles.products}>
-          <SearchBar
-            onChange={(value) => setFilters({ ...filters, search: value })}
-          />
+          <div className={styles.search}>
+            <SearchBar
+              onChange={(value) => setFilters({ ...filters, search: value })}
+            />
+            <OrderBy
+              orderBy={orderBy}
+              setOrderBy = {setOrderBy}
+            />
+          </div>
           <Products
             filters={filters}
+            orderBy = {orderBy}
             page={page}
             setPage={setPage}
             xPage={xPage}
