@@ -5,6 +5,7 @@ import SocialMedia from '../Home/Components/SocialMedia';
 import CardDetail from './Components/CardDetail';
 import styles from './styles.module.scss';
 
+/* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /packs/:id */
 const PackDetail = () => {
   const userStorage = JSON.parse (localStorage.getItem ('userBP'));
 

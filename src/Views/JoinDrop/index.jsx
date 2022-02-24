@@ -11,6 +11,7 @@ import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import {useHistory} from 'react-router';
 import ModalII from './components/Modal';
 
+/* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /join-drop */
 const JoinDrop = () => {
   const {packSelected, setPackForOpen} = useContext (CardData);
   const [number, setNumber] = useState ('');

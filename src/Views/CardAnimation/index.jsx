@@ -8,6 +8,7 @@ import {useMediaQuery} from '../../Hooks/useMediaQuery';
 import ScrollBar from '../../Global-Components/ScrollBar';
 import {useHistory} from 'react-router';
 
+/* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /card-animation */
 const CardAnimation = () => {
   const [reveal, setReveal] = useState (false);
   const [scroll, setScroll] = useState ({scrollLeft: '', scrollWidth: ''});

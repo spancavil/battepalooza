@@ -4,6 +4,7 @@ import Background from '../../Global-Components/Background';
 import CollectionNfts from '../Collection/Components/CollectionNfts';
 import styles from './styles.module.scss';
 
+/* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /my-skins */
 const MyNfts = () => {
   const history = useHistory ();
 

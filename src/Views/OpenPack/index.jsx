@@ -6,6 +6,7 @@ import {CardData} from '../../Context/CardDataProvider';
 import {useHistory} from 'react-router';
 import CardAnimation from '../CardAnimation';
 
+/* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /open-pack */
 const OpenPack = () => {
   const [flow, setFlow] = useState (1);
   const {packToOpen} = useContext (CardData);

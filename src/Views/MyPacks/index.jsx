@@ -4,6 +4,7 @@ import Background from '../../Global-Components/Background';
 import CollectionPacks from '../Collection/Components/CollectionPacks';
 import styles from './styles.module.scss';
 
+/* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /my-packs */
 const MyPacks = () => {
   const history = useHistory()
 
