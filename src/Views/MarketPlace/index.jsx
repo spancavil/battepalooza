@@ -21,6 +21,8 @@ const MarketPlace = () => {
 
   const history = useHistory();
 
+  console.log(ORDER_BY);
+
   useEffect(() => {
     (async () => {
       try {
@@ -54,20 +56,29 @@ const MarketPlace = () => {
         });
         //Tendrá todos los filtros
         setFilters({
+          ...filters,
           ...rarityItem,
-          ...TYPE_NFT,
-          ...NCOIN_BATTLECOUNT,
-          search: "",
         });
-        setOrderBy({
-          ...ORDER_BY
-        })
+        
       } catch (error) {
-        alert(error.message);
+        fireAlertAsync("Error: ", error.message)
         return;
       }
     })();
-  }, [setFilters, history]);
+  }, [setFilters, history, filters]);
+
+  useEffect(()=> {
+    setFilters({
+      ...filters,
+      ...TYPE_NFT,
+      ...NCOIN_BATTLECOUNT,
+      search: "",
+    })
+    setOrderBy({
+      ...ORDER_BY
+    })
+
+  }, [setFilters, setOrderBy, filters])
 
   return (
     <Background>

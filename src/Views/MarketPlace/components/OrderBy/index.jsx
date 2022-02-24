@@ -3,7 +3,8 @@ import Filter from './Filter';
 import styles from './styles.module.scss';
 
 const OrderBy = ({ orderBy, setOrderBy }) => {
-    const [hideOrderBy, setHideOrderBy] = useState(true)
+    const [hideOrderBy, setHideOrderBy] = useState(true);
+    console.log(orderBy);
 
     const handleChange = (value) => {
 

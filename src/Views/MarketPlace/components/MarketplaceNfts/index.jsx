@@ -10,11 +10,7 @@ import { NftData } from "../../../../Context/NftProvider";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import Pagination from "../Pagination";
 import Nft from "../Nft";
-<<<<<<< HEAD:src/Views/MarketPlace/components/MarketplaceNfts/index.jsx
 import VanillaTilt from "vanilla-tilt";
-=======
-import usePrevious from "../../../../Hooks/usePrevious";
->>>>>>> Added filter: orderBy:src/Views/MarketPlace/components/CollectionNfts/index.jsx
 
 const MarketplaceNfts = ({
   filters,
@@ -29,13 +25,7 @@ const MarketplaceNfts = ({
   const { nftMarket } = useContext(NftData);
   const [nftsFiltered, setNftFiltered] = useState(nftMarket);
   const [filterByPrice, setFilterByPrice] = useState(0);
-<<<<<<< HEAD:src/Views/MarketPlace/components/MarketplaceNfts/index.jsx
-=======
   const [filterNewest, setFilterNewest] = useState(0);
-
-  //Es necesario esto porque si el estado anterior era 0 y se quiere cambiar a older, no debería hacer ningún reverse.
-  const previousStateNewest = usePrevious(filterNewest);
->>>>>>> Added filter: orderBy:src/Views/MarketPlace/components/CollectionNfts/index.jsx
 
   const breakpoint = useMediaQuery("(max-width: 1200px)");
 
@@ -61,13 +51,10 @@ const MarketplaceNfts = ({
     breakpoint ? setxPage(4) : setxPage(25);
   }, [breakpoint, setxPage]);
 
-<<<<<<< HEAD:src/Views/MarketPlace/components/MarketplaceNfts/index.jsx
-=======
   console.log(orderBy);
   console.log(nftMarket);
   console.log(nftsFiltered);
 
->>>>>>> Added filter: orderBy:src/Views/MarketPlace/components/CollectionNfts/index.jsx
   useEffect(() => {
     const auxFilter = [...nftMarket];
     let filtro1 = [];
@@ -104,17 +91,7 @@ const MarketplaceNfts = ({
       );
     if (filters["Over 300"])
       filtro10 = auxFilter.filter((nft) => nft.playCount > 300);
-<<<<<<< HEAD:src/Views/MarketPlace/components/MarketplaceNfts/index.jsx
-    if (filters["Lower to higher price"]) {
-      setFilterByPrice(1);
-    }
-    if (filters["Higher at lower price"]) {
-      setFilterByPrice(2);
-    }
-    filtro10 = auxFilter.filter((nft) => nft.playCount > 300);
-=======
       filtro10 = auxFilter.filter((nft) => nft.playCount > 300);
->>>>>>> Added filter: orderBy:src/Views/MarketPlace/components/CollectionNfts/index.jsx
     if (filters.search) {
       filtro13 = auxFilter.filter((nft) =>
       nft.itemName.toLowerCase().includes(filters.search)
@@ -168,8 +145,6 @@ const MarketplaceNfts = ({
   const lth = (a, b) => a.price - b.price;
   const htl = (a, b) => b.price - a.price;
 
-<<<<<<< HEAD:src/Views/MarketPlace/components/MarketplaceNfts/index.jsx
-=======
   useEffect(()=> {
     console.log("Entro al effect");
     console.log(filterNewest);
@@ -182,7 +157,6 @@ const MarketplaceNfts = ({
     }
   },[orderBy, filterNewest, nftMarket])
 
->>>>>>> Added filter: orderBy:src/Views/MarketPlace/components/CollectionNfts/index.jsx
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.cards}>

@@ -13,10 +13,9 @@ const Filters = ({ filters, setFilters, setPage, input, setInput }) => {
   const [menuType, setMenuType] = useState(false);
   const [menuPrice, setMenuPrice] = useState(false);
 
-  const filtersRarity = sliceObject(filters, 0, 4);
-  const filtersType = sliceObject(filters, 4, 6);
-  const filtersBCount = sliceObject(filters, 6, 10);
-  const filtersPrice = sliceObject(filters, 10, 12);
+  const filtersType = sliceObject(filters, 0, 2);
+  const filtersBCount = sliceObject(filters, 2, 6);
+  const filtersRarity = sliceObject(filters, 7, 11);
 
 
   const onChange = (e) => {
@@ -106,26 +105,8 @@ const Filters = ({ filters, setFilters, setPage, input, setInput }) => {
             );
           })}
         </div>
-      )}
-
-      <div className={styles.title} onClick={() => setMenuPrice(!menuPrice)}>
-        <h2>Price</h2>
-        <h3>{menuPrice ? "-" : "+"}</h3>
-      </div>
-      {menuPrice && (
-        <div className={styles.filters}>
-          {Object.keys(filtersPrice).map((key) => {
-            return (
-              <Filter
-                key={key}
-                name={key}
-                value={filters[key]}
-                onChange={onChange}
-              />
-            );
-          })}
-        </div>
-      )}
+      )}  
+      
     </div>
   );
 };
