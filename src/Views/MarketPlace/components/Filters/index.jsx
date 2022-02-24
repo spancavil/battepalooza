@@ -11,12 +11,10 @@ const Filters = ({ filters, setFilters, setPage, input, setInput }) => {
   const [menuRarity, setMenuRarity] = useState(false);
   const [menuNCoin, setMenuNCoin] = useState(false);
   const [menuType, setMenuType] = useState(false);
-  const [menuPrice, setMenuPrice] = useState(false);
 
-  const filtersType = sliceObject(filters, 0, 2);
-  const filtersBCount = sliceObject(filters, 2, 6);
-  const filtersRarity = sliceObject(filters, 7, 11);
-
+  const filtersRarity = sliceObject(filters, 0, 4);
+  const filtersType = sliceObject(filters, 4, 6);
+  const filtersBCount = sliceObject(filters, 6, 10);
 
   const onChange = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.checked });

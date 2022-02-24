@@ -29,7 +29,7 @@ const MarketplaceNfts = ({
 
   const breakpoint = useMediaQuery("(max-width: 1200px)");
 
-  const tilts = useMemo(() => nftMarket.map(() => createRef()), [nftMarket]);
+  const tilts = useMemo(() => nftsFiltered.map(() => createRef()), [nftsFiltered]);
 
   useEffect(() => {
     //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
@@ -46,6 +46,8 @@ const MarketplaceNfts = ({
       })
     );
   }, [tilts]);
+
+  // console.log(tilts);
 
   useEffect(() => {
     breakpoint ? setxPage(4) : setxPage(25);
@@ -137,7 +139,7 @@ const MarketplaceNfts = ({
       .filter((value) => filtroSearch.includes(value));
 
     setNftFiltered(coincidencias);
-  }, [filters, nftMarket, orderBy]);
+  }, [filters, nftMarket, orderBy, setNftFiltered]);
 
   const max = nftsFiltered.length / xPage;
 
@@ -164,9 +166,14 @@ const MarketplaceNfts = ({
         {nftsFiltered
           .sort(filterByPrice === 1 ? lth : htl, filterByPrice === 0 ?? null)
           .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
-          .map((nft, index) => {
+          .map((nft) => {
+            const indice = nftMarket?.indexOf(nft)
             return (
-              <Nft key={nft.uniqueId} nft={nft} index={index} tilts={tilts} />
+              <Nft 
+              key={nft.uniqueId} 
+              nft={nft} 
+              tilt={tilts[indice]} 
+              />
             );
           })}
       </div>

@@ -56,29 +56,22 @@ const MarketPlace = () => {
         });
         //Tendrá todos los filtros
         setFilters({
-          ...filters,
           ...rarityItem,
+          ...TYPE_NFT,
+          ...NCOIN_BATTLECOUNT,
+          search: "",
         });
+
+        setOrderBy({
+          ...ORDER_BY
+        })
         
       } catch (error) {
         fireAlertAsync("Error: ", error.message)
         return;
       }
     })();
-  }, [setFilters, history, filters]);
-
-  useEffect(()=> {
-    setFilters({
-      ...filters,
-      ...TYPE_NFT,
-      ...NCOIN_BATTLECOUNT,
-      search: "",
-    })
-    setOrderBy({
-      ...ORDER_BY
-    })
-
-  }, [setFilters, setOrderBy, filters])
+  }, [setFilters, history]);
 
   return (
     <Background>
