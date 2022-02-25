@@ -9,19 +9,18 @@
         padding: 0px 10px;
         overflow: visible;
 
+        .filtersAndOrder {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 20px;
+        }
+
         .products {
             display: flex;
             flex-direction: column;
             gap: 15px;
             width: 100%;
             overflow: visible;
-            .search {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                overflow: visible;
-                z-index: 3;
-            }
         }
     }
 }
@@ -32,17 +31,16 @@
         justify-content: space-around;
         margin-top: 30px;
 
+        .filtersAndOrder {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         .products {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            .search {
-                display: flex;
-                flex-direction: row;
-                gap: 8px;
-                overflow: visible;
-                z-index: 3;
-            }
         }
     }
 }

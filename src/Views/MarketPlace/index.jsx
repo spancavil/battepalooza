@@ -21,7 +21,7 @@ const MarketPlace = () => {
 
   const history = useHistory();
 
-  console.log(ORDER_BY);
+  console.log(orderBy);
 
   useEffect(() => {
     (async () => {
@@ -75,20 +75,20 @@ const MarketPlace = () => {
   return (
     <Background>
       <div className={styles.container}>
-        <Filters
-          input={input}
-          setInput={setInput}
-          setPage={setPage}
-          filters={filters}
-          setFilters={setFilters}
-        />
+        <div className={styles.filtersAndOrder}>
+          <Filters
+            input={input}
+            setInput={setInput}
+            setPage={setPage}
+            filters={filters}
+            setFilters={setFilters}
+          />
+          <OrderBy orderBy={orderBy} setOrderBy={setOrderBy} />
+        </div>
         <div className={styles.products}>
-          <div className={styles.search}>
-            <SearchBar
-              onChange={(value) => setFilters({ ...filters, search: value })}
-            />
-            <OrderBy orderBy={orderBy} setOrderBy={setOrderBy} />
-          </div>
+          <SearchBar
+            onChange={(value) => setFilters({ ...filters, search: value })}
+          />
           <Products
             filters={filters}
             orderBy={orderBy}
