@@ -334,7 +334,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                     <div className={styles.item}>
                       <p className={styles.itemName}>{chosenNft.itemName}</p>
                       <p className={styles.repName}>[ {chosenNft.repName} ]</p>
-                      {chosenNft.salesState === 1 && (
+                      {chosenNft.price && (
                         <p className={styles.price}>
                           Price {chosenNft.price} nCoin
                         </p>
@@ -353,7 +353,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                     </div>
                   ) : (
                     <div className={styles.button}>
-                      <button onClick={() => handleBuy()} >Register to marketplace</button>
+                      <button onClick={() => handleBuy()} >Buy</button>
                     </div>
                   )}
                 </div>

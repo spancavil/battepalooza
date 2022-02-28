@@ -11,6 +11,7 @@ import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import Pagination from "../Pagination";
 import Nft from "../Nft";
 import VanillaTilt from "vanilla-tilt";
+import { useHistory } from "react-router-dom";
 
 const MarketplaceNfts = ({
   filters,
@@ -26,6 +27,8 @@ const MarketplaceNfts = ({
   const [nftsFiltered, setNftFiltered] = useState(nftMarket);
   const [filterByPrice, setFilterByPrice] = useState(0);
   const [filterNewest, setFilterNewest] = useState(0);
+
+  const history = useHistory();
 
   const breakpoint = useMediaQuery("(max-width: 1200px)");
 
@@ -159,6 +162,10 @@ const MarketplaceNfts = ({
     }
   },[orderBy, filterNewest, nftMarket])
 
+  const handleDetail = (uniqueId, sellerPid) => {
+    history.push(`/marketplace/${uniqueId}-${sellerPid}`);
+  }
+
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.cards}>
@@ -173,6 +180,7 @@ const MarketplaceNfts = ({
               key={nft.uniqueId} 
               nft={nft} 
               tilt={tilts[indice]} 
+              onClick ={handleDetail}
               />
             );
           })}

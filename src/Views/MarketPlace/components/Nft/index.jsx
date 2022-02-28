@@ -1,9 +1,16 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const Nft = ({ nft, tilt }) => {
+const Nft = ({ nft, tilt, onClick }) => {
+
+  console.log(nft);
   return (
-    <div ref={tilt} className={styles.cardNft} key={nft.itemId}>
+    <div
+      ref={tilt}
+      className={styles.cardNft}
+      key={nft.itemId}
+      onClick={() => onClick(nft.uniqueId, nft.sellerPid)}
+    >
       {/* El source luego cambiara en base al asset */}
       <img className={styles.imgNft} src={nft.thumbnailUrl} alt="nft-thumb" />
       <div className={styles.texts}>
