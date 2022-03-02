@@ -434,6 +434,10 @@
                 line-height: 1.3em;
               }
             }
+
+            .rarityContainer {
+              display: flex; gap: 20px;
+            }
           }
 
           .button {

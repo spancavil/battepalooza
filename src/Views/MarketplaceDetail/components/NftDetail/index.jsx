@@ -72,10 +72,10 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
     }
   };
 
-  const handleList = () => {
+/*   const handleList = () => {
     ("Click on list");
     setNftListing(chosenNft);
-  };
+  }; */
 
   const goBack = () => {
     history.goBack();
@@ -334,28 +334,24 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                     <div className={styles.item}>
                       <p className={styles.itemName}>{chosenNft.itemName}</p>
                       <p className={styles.repName}>[ {chosenNft.repName} ]</p>
-                      {chosenNft.price && (
-                        <p className={styles.price}>
-                          Price {chosenNft.price} nCoin
-                        </p>
-                      )}
                     </div>
 
-                    <div>
+                    <div className={styles.rarityContainer}>
+                      <p className={styles.rarity}>Fee: {chosenNft.fee}</p>
+                      <p className={styles.rarity}>
+                        Seller: {chosenNft.sellerName}
+                      </p>
                       <p className={styles.rarity}>
                         Rarity: {chosenNft.rarity}
                       </p>
                     </div>
                   </div>
-                  {chosenNft.salesState === 1 ? (
-                    <div className={styles.button}>
-                      <button onClick={() => handleList()} >Unregister to marketplace</button>
-                    </div>
-                  ) : (
-                    <div className={styles.button}>
-                      <button onClick={() => handleBuy()} >Buy</button>
-                    </div>
-                  )}
+
+                  <div className={styles.button}>
+                    <button onClick={() => handleBuy()}>
+                      Buy {chosenNft.price} NCoin
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

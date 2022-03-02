@@ -3,7 +3,6 @@ import styles from "./styles.module.scss";
 
 const Nft = ({ nft, tilt, onClick }) => {
 
-  console.log(nft);
   return (
     <div
       ref={tilt}
