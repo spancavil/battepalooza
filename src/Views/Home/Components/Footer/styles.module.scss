@@ -1,0 +1,755 @@
+@import "../../../../Styles/breakpoints.scss";
+@import "../../../../Styles/fonts.scss";
+
+@media (max-width: $mobile - 1) {
+  footer {
+    width: 100%;
+    clear: both;
+    position: relative;
+    background: url("../../../../Assets/img/bg-footer.jpg") top center no-repeat #000;
+    overflow: hidden;
+    padding: 400px 20px 0px 20px;
+    margin-top: -270px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    display: flex;
+
+    article {
+      width: 450px;
+      clear: both;
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+
+      section {
+        height: 100%;
+
+        .div1 {
+          padding-bottom: 30px;
+          z-index: 99999;
+
+          h2 {
+            font-size: 3em;
+            padding-bottom: 30px;
+            line-height: 0.9em;
+            font-family: $font-monkyta;
+          }
+
+          .social {
+            font-family: $font-route159;
+            text-align: center;
+
+            a {
+              text-decoration: none;
+              color: #fff;
+              display: inline-block;
+              font-size: 0.9em;
+              padding: 10px;
+              background-color: transparent;
+              transition: all 300ms ease;
+
+              svg {
+                width: 26px;
+                padding: 5px 3px;
+              }
+
+              p:hover {
+                text-decoration: overline;
+              }
+            }
+
+            a:hover {
+              svg {
+                transition-duration: 0.3s;
+                transform: scale(1.3);
+              }
+
+              p {
+                transition-duration: 0.3s;
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .brands {
+            font-family: $font-route159;
+            display: block;
+            text-decoration: none;
+            color: white;
+
+            img {
+              padding: 55px 20px 20px;
+              max-width: 200px;
+              border: 0;
+            }
+          }
+
+          .widget {
+            font-family: $font-route159;
+            display: block;
+            font-size: 1em;
+
+            p {
+              font-size: 13px;
+              padding: 8px 0 10px;
+              max-width: 800px;
+              margin: 0 auto;
+            }
+          }
+
+          .menu {
+            display: block;
+
+            ul {
+              list-style: none;
+              margin-block-start: 0;
+              margin-block-end: 0;
+              margin-inline-start: 0;
+              margin-inline-end: 0;
+              padding-inline-start: 0;
+
+              li {
+                display: inline-block;
+                margin-right: 12px;
+                position: relative;
+                font-family: $font-route159;
+
+                a {
+                  color: #fff;
+                  text-decoration: none;
+                  list-style: none;
+                  transition: all 300ms ease;
+                  background-color: transparent;
+                  cursor: pointer;
+                  font-size: 13px;
+                }
+
+                a:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+
+                span {
+                  color: #fff;
+                  list-style: none;
+                  transition: all 300ms ease;
+                  background-color: transparent;
+                  cursor: pointer;
+                  font-size: 13px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bear {
+    display: none;
+  }
+
+  .linkFooter {
+    cursor: pointer;
+  }
+
+  .linkFooter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: $mobile) and (max-width: $tablet - 1) {
+  footer {
+    width: 100%;
+    clear: both;
+    position: relative;
+    background: url("../../../../Assets/img/bg-footer.jpg") top center no-repeat
+      #000;
+    overflow: hidden;
+    padding: 500px 0px 0px 50px;
+    margin-top: -270px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+
+    article {
+      width: 450px;
+      clear: both;
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+
+      section {
+        height: 100%;
+
+        .div1 {
+          padding-bottom: 30px;
+          z-index: 99999;
+
+          h2 {
+            font-size: 3em;
+            padding-bottom: 30px;
+            line-height: 0.9em;
+            font-family: $font-monkyta;
+          }
+
+          .social {
+            font-family: $font-route159;
+            text-align: center;
+
+            a {
+              text-decoration: none;
+              color: #fff;
+              display: inline-block;
+              font-size: 0.9em;
+              padding: 10px;
+              background-color: transparent;
+              transition: all 300ms ease;
+
+              svg {
+                width: 26px;
+                padding: 5px 3px;
+              }
+            }
+
+            a:hover {
+              svg {
+                transition-duration: 0.3s;
+                transform: scale(1.3);
+              }
+
+              p {
+                transition-duration: 0.3s;
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .brands {
+            font-family: $font-route159;
+            display: block;
+            text-decoration: none;
+            color: white;
+
+            img {
+              padding: 55px 20px 20px;
+              max-width: 200px;
+              border: 0;
+            }
+          }
+
+          .widget {
+            font-family: $font-route159;
+            display: block;
+            font-size: 1em;
+
+            p {
+              font-size: 13px;
+              padding: 8px 0 10px;
+              max-width: 800px;
+              margin: 0 auto;
+            }
+          }
+
+          .menu {
+            display: block;
+
+            ul {
+              list-style: none;
+              margin-block-start: 0;
+              margin-block-end: 0;
+              margin-inline-start: 0;
+              margin-inline-end: 0;
+              padding-inline-start: 0;
+
+              li {
+                display: inline-block;
+                margin-right: 12px;
+                position: relative;
+                font-family: $font-route159;
+
+                a {
+                  color: #fff;
+                  text-decoration: none;
+                  list-style: none;
+                  transition: all 300ms ease;
+                  background-color: transparent;
+                  cursor: pointer;
+                  font-size: 13px;
+                }
+
+                a:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bear {
+    display: none;
+  }
+
+  .linkFooter {
+    cursor: pointer;
+  }
+
+  .linkFooter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  footer {
+    width: 100%;
+    clear: both;
+    position: relative;
+    background: url("../../../../Assets/img/bg-footer.jpg") top center no-repeat
+      #000;
+    overflow: hidden;
+    padding: 500px 0px 0px 50px;
+    margin-top: -270px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+
+    article {
+      width: 730px;
+      clear: both;
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+
+      section {
+        height: 100%;
+
+        .div1 {
+          padding-bottom: 30px;
+
+          h2 {
+            font-size: 3em;
+            padding-bottom: 30px;
+            line-height: 0.9em;
+            font-family: $font-monkyta;
+          }
+
+          .social {
+            font-family: $font-route159;
+            text-align: center;
+
+            a {
+              text-decoration: none;
+              color: #fff;
+              display: inline-block;
+              font-size: 0.9em;
+              padding: 10px;
+              background-color: transparent;
+              transition: all 300ms ease;
+
+              svg {
+                width: 26px;
+                padding: 5px 3px;
+              }
+            }
+
+            a:hover {
+              svg {
+                transition-duration: 0.3s;
+                transform: scale(1.3);
+              }
+
+              p {
+                transition-duration: 0.3s;
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .brands {
+            font-family: $font-route159;
+            display: block;
+            text-decoration: none;
+            color: white;
+
+            img {
+              padding: 55px 20px 20px;
+              max-width: 200px;
+              border: 0;
+            }
+          }
+
+          .widget {
+            font-family: $font-route159;
+            display: block;
+            font-size: 1em;
+
+            p {
+              padding: 8px 0 10px;
+              max-width: 800px;
+              margin: 0 auto;
+            }
+          }
+
+          .menu {
+            display: block;
+
+            ul {
+              list-style: none;
+              margin-block-start: 0;
+              margin-block-end: 0;
+              margin-inline-start: 0;
+              margin-inline-end: 0;
+              padding-inline-start: 0;
+
+              li {
+                display: inline-block;
+                margin-right: 12px;
+                position: relative;
+                font-family: $font-route159;
+
+                a {
+                  color: #fff;
+                  text-decoration: none;
+                  list-style: none;
+                  transition: all 300ms ease;
+                  background-color: transparent;
+                  cursor: pointer;
+                }
+
+                a:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bear {
+    position: absolute;
+    bottom: 0;
+    right: -60px;
+    width: 360px;
+    margin: 0;
+  }
+
+  .linkFooter {
+    cursor: pointer;
+  }
+
+  .linkFooter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: $desktop) and (max-width: $HD - 1) {
+  footer {
+    width: 100%;
+    clear: both;
+    position: relative;
+    background: url("../../../../Assets/img/bg-footer.jpg") top center no-repeat
+      #000;
+    overflow: hidden;
+    padding: 500px 0px 0px 50px;
+    margin-top: -270px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+
+    article {
+      width: 960px;
+      clear: both;
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+
+      section {
+        height: 100%;
+
+        .div1 {
+          padding-bottom: 30px;
+
+          h2 {
+            font-size: 3em;
+            padding-bottom: 30px;
+            line-height: 0.9em;
+            font-family: $font-monkyta;
+          }
+
+          .social {
+            font-family: $font-route159;
+            text-align: center;
+
+            a {
+              text-decoration: none;
+              color: #fff;
+              display: inline-block;
+              font-size: 0.9em;
+              padding: 10px;
+              background-color: transparent;
+              transition: all 300ms ease;
+
+              svg {
+                width: 26px;
+                padding: 5px 3px;
+              }
+
+              p:hover {
+                text-decoration: overline;
+              }
+            }
+
+            a:hover {
+              svg {
+                transition-duration: 0.3s;
+                transform: scale(1.3);
+              }
+
+              p {
+                transition-duration: 0.3s;
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .brands {
+            font-family: $font-route159;
+            display: block;
+            text-decoration: none;
+            color: white;
+
+            img {
+              padding: 55px 20px 20px;
+              max-width: 200px;
+              border: 0;
+            }
+          }
+
+          .widget {
+            font-family: $font-route159;
+            display: block;
+            font-size: 1em;
+
+            p {
+              padding: 8px 0 10px;
+              max-width: 800px;
+              margin: 0 auto;
+            }
+          }
+
+          .menu {
+            display: block;
+
+            ul {
+              list-style: none;
+              margin-block-start: 0;
+              margin-block-end: 0;
+              margin-inline-start: 0;
+              margin-inline-end: 0;
+              padding-inline-start: 0;
+
+              li {
+                display: inline-block;
+                margin-right: 12px;
+                position: relative;
+                font-family: $font-route159;
+
+                a {
+                  color: #fff;
+                  text-decoration: none;
+                  list-style: none;
+                  transition: all 300ms ease;
+                  background-color: transparent;
+                  cursor: pointer;
+                }
+
+                a:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bear {
+    position: absolute;
+    bottom: 0;
+    right: -130px;
+    width: 430px;
+    margin: 0;
+  }
+
+  .linkFooter {
+    cursor: pointer;
+  }
+
+  .linkFooter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: $HD) {
+  footer {
+    width: 100%;
+    clear: both;
+    position: relative;
+    background: url("../../../../Assets/img/bg-footer.jpg") top center no-repeat
+      #000;
+    overflow: hidden;
+    padding: 500px 0px 0px 50px;
+    margin-top: -270px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+
+    article {
+      width: 960px;
+      clear: both;
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+
+      section {
+        height: 100%;
+
+        .div1 {
+          padding-bottom: 30px;
+
+          h2 {
+            font-size: 3em;
+            padding-bottom: 30px;
+            line-height: 0.9em;
+            font-family: $font-monkyta;
+          }
+
+          .social {
+            font-family: $font-route159;
+            text-align: center;
+
+            a {
+              text-decoration: none;
+              color: #fff;
+              display: inline-block;
+              font-size: 0.9em;
+              padding: 10px;
+              background-color: transparent;
+              transition: all 300ms ease;
+
+              svg {
+                width: 26px;
+                padding: 5px 3px;
+              }
+
+              p:hover {
+                text-decoration: overline;
+              }
+            }
+
+            a:hover {
+              svg {
+                transition-duration: 0.3s;
+                transform: scale(1.3);
+              }
+
+              p {
+                transition-duration: 0.3s;
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .brands {
+            font-family: $font-route159;
+            display: block;
+            text-decoration: none;
+            color: white;
+
+            img {
+              padding: 55px 20px 20px;
+              max-width: 200px;
+              border: 0;
+            }
+          }
+
+          .widget {
+            font-family: $font-route159;
+            display: block;
+            font-size: 1em;
+
+            p {
+              padding: 8px 0 10px;
+              max-width: 800px;
+              margin: 0 auto;
+            }
+          }
+
+          .menu {
+            display: block;
+
+            ul {
+              list-style: none;
+              margin-block-start: 0;
+              margin-block-end: 0;
+              margin-inline-start: 0;
+              margin-inline-end: 0;
+              padding-inline-start: 0;
+
+              li {
+                display: inline-block;
+                margin-right: 12px;
+                position: relative;
+                font-family: $font-route159;
+
+                a {
+                  color: #fff;
+                  text-decoration: none;
+                  list-style: none;
+                  transition: all 300ms ease;
+                  background-color: transparent;
+                  cursor: pointer;
+                }
+
+                a:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bear {
+    position: absolute;
+    bottom: 0;
+    right: -130px;
+    width: 430px;
+    margin: 0;
+  }
+
+  .linkFooter {
+    cursor: pointer;
+  }
+
+  .linkFooter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
