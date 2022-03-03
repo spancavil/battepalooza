@@ -29,7 +29,7 @@
       height: 100%;
       position: relative;
       top: 0;
-      left: 50%; /*Center the vid, withouth black spaces*/
+      left: 50%;
       transform: translate(-50%);
     }
   }
@@ -71,7 +71,313 @@
   }
 }
 
-@media (min-width: $mobile) and (max-width: $desktop - 1) {
+@media (min-width: $mobile) and (max-width: $laptop - 1) {
+  .back {
+    width: 1;
+    margin-top: 30px;
+    font-family: "Nasalization";
+    color: $go-back;
+    font-size: 10px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+
+  .container {
+    padding-bottom: 50px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      color: white;
+
+      .cardContainer {
+        display: flex;
+        flex-direction: column;
+        width: 80vw;
+        margin-top: 30px;
+
+        .topContainer {
+          display: flex;
+          flex-direction: column;
+          width: 80vw;
+
+          .videoContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow: hidden;
+            position: relative;
+
+            .loadMessageContainer {
+              height: 100%;
+              width: 100%;
+              background-color: black;
+              z-index: 2;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              top: 0;
+
+              .loadMessage {
+                font-family: $font-nasalization;
+                color: white;
+              }
+            }
+          }
+
+          .topRightContainer {
+            background-color: #060f27;
+
+            .title {
+              color: $logout;
+              font-weight: bold;
+              padding-bottom: 10px;
+              font-family: $font-nsBold;
+              font-size: 14px;
+            }
+
+            .featuresContainer {
+              display: flex;
+            }
+
+            .features {
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+
+            .features::before {
+              content: "- ";
+            }
+
+            .features:first-child::before {
+              content: none;
+            }
+
+            .abilityText {
+              padding-right: 50px;
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+
+            .cont1 {
+              display: flex;
+              padding-left: 30px;
+              margin-top: 30px;
+
+              .cont2 {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                .cont2a {
+                  display: flex;
+
+                  .cont3 {
+                    display: flex;
+                    flex-direction: column;
+                    width: 55%;
+                    gap: 30px;
+                    overflow: visible;
+
+                    .cont3a {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 7px;
+                      font-size: 13px;
+                    }
+
+                    .cont3b {
+                      font-size: 13px;
+                      .storyText {
+                        padding-right: 30px;
+                        font-family: $font-nsRegular;
+                        line-height: 1.3em;
+                      }
+                    }
+                  }
+
+                  .cont3Weapon {
+                    display: flex;
+                    flex-direction: column;
+                    width: 75%;
+                    gap: 30px;
+                    overflow: visible;
+                    font-size: 13px;
+
+                    .cont3a {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 7px;
+                    }
+
+                    .cont3b {
+                      width: 100%;
+
+                      .storyText {
+                        padding-right: 30px;
+                        font-family: $font-nsRegular;
+                        line-height: 1.3em;
+                      }
+                    }
+                  }
+
+                  .skillsContainer {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                    font-size: 13px;
+
+                    .body {
+                      font-family: $font-nsRegular;
+                    }
+                  }
+
+                  .statsContainer {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+
+                    .itemStatContainer {
+                      display: flex;
+                      gap: 15px;
+                      align-items: center;
+                      justify-content: flex-start;
+
+                      img {
+                        width: 45px;
+                      }
+
+                      .itemStatInfo {
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 13px;
+                        font-family: $font-nsRegular;
+                      }
+                    }
+                  }
+                }
+
+                .cont2b {
+                  padding-bottom: 25px;
+
+                  .p2eContainer {
+                    display: flex;
+
+                    .p2eContainerA {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 5px;
+                      width: 55%;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
+                    }
+
+                    .p2eContainerB {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 5px;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
+                    }
+
+                    .p2eItemContainer {
+                      display: flex;
+                      align-items: center;
+                      gap: 10px;
+                      font-size: 13px;
+
+                      .p2eIcon {
+                        width: 25px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .bottomContainer {
+          height: 60px;
+          background-color: black;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .bottomLeftContainer {
+            height: 60px;
+            background-color: #242339;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 75%;
+            font-family: $font-nsRegular;
+            font-size: 13px;
+
+            .item {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .itemName {
+                color: $account-name;
+                font-size: 18px;
+                font-family: $font-nasalization;
+                font-weight: bold;
+              }
+
+              .repName {
+                font-size: 11px;
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+              }
+
+              .price {
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+                color: yellow;
+                padding-left: 30px;
+              }
+
+              .rarity {
+                font-size: 11px;
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+              }
+            }
+          }
+
+          .button {
+            width: 30%;
+
+            button {
+              width: 100%;
+              height: 60px;
+              border: none;
+              cursor: pointer;
+              font-size: 14px;
+              background-color: $secondary-blue;
+              color: white;
+              font-family: $font-nasalization;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $laptop) and (max-width: $desktop - 1) {
   .back {
     padding-top: 20px;
     font-family: "Nasalization";
@@ -79,64 +385,318 @@
     font-size: 10px;
     cursor: pointer;
     padding-left: 20px;
-    background-color: black;
     position: absolute;
     top: 80px;
+    z-index: 2;
   }
 
-  .detailContainer {
-    padding-top: 20px;
+  .container {
+    width: 100vw;
+    height: calc(100vh - 80px);
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
-    align-items: stretch;
-  }
-  .videoContainer {
-    width: 35%;
-    .pinVideo {
-      position: relative;
-      top: 0;
-      left: 50%; /*Center the vid, withouth black spaces*/
-      transform: translate(-50%);
-    }
-  }
-  .detailDescription {
-    width: 45%;
-    display: flex;
-    background-color: $card-bg;
-    flex-direction: column;
-    justify-content: center;
-    padding: 35px 0px 35px 20px;
-    gap: 25px;
-    font-family: $font-nasalization;
-    color: #fff;
-    overflow-y: visible;
-    .title {
-      font-size: 30px;
-    }
-    .subTitle {
-      font-size: 24px;
-    }
-    .price {
-      color: $account-border;
-    }
-    .seller {
-      font-size: 20px;
-    }
-    .sellerYellow {
-      color: #ffff00;
-    }
-    .buttonsContainer {
-      padding: 12px 0px;
-      width: 100%;
+
+    .card {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      gap: 10px;
-      button {
-        width: 150px;
+      color: white;
+      height: 100%;
+      width: 100%;
+
+      .cardContainer {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        margin-top: 30px;
+
+        .topContainer {
+          height: 440px;
+          display: flex;
+          width: 90vw;
+
+          .videoContainer {
+            width: 30%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            overflow: hidden;
+            position: relative;
+
+            .pinVideo {
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translate(-50%);
+              height: 100%;
+            }
+            .loadMessageContainer {
+              height: 100%;
+              width: 100%;
+              background-color: black;
+              z-index: 2;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              top:0;
+
+              .loadMessage {
+                font-family: $font-nasalization;
+                color: white;
+              }
+            }
+          }
+
+          .topRightContainer {
+            background-color: #060f27;
+            width: 70%;
+
+            .title {
+              color: $logout;
+              font-weight: bold;
+              padding-bottom: 10px;
+              font-family: $font-nsBold;
+              font-size: 14px;
+            }
+
+            .featuresContainer {
+              display: flex;
+            }
+
+            .features {
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+
+            .features::before {
+              content: "- ";
+            }
+
+            .features:first-child::before {
+              content: none;
+            }
+
+            .abilityText {
+              padding-right: 50px;
+              font-family: $font-nsRegular;
+              line-height: 1.3em;
+            }
+
+            .cont1 {
+              display: flex;
+              padding-left: 30px;
+              margin-top: 30px;
+
+              .cont2 {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                .cont2a {
+                  display: flex;
+
+                  .cont3 {
+                    display: flex;
+                    flex-direction: column;
+                    width: 55%;
+                    gap: 30px;
+                    overflow: visible;
+
+                    .cont3a {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 7px;
+                      font-size: 13px;
+                    }
+
+                    .cont3b {
+                      font-size: 13px;
+                      .storyText {
+                        padding-right: 50px;
+                        font-family: $font-nsRegular;
+                        line-height: 1.3em;
+                      }
+                    }
+                  }
+
+                  .cont3Weapon {
+                    display: flex;
+                    flex-direction: column;
+                    width: 75%;
+                    gap: 30px;
+                    overflow: visible;
+
+                    .cont3a {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 7px;
+                    }
+
+                    .cont3b {
+                      width: 100%;
+
+                      .storyText {
+                        padding-right: 50px;
+                        font-family: $font-nsRegular;
+                        line-height: 1.3em;
+                      }
+                    }
+                  }
+
+                  .skillsContainer {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                    font-size: 13px;
+
+                    .body {
+                      font-family: $font-nsRegular;
+                    }
+                  }
+
+                  .statsContainer {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+
+                    .itemStatContainer {
+                      display: flex;
+                      gap: 15px;
+                      align-items: center;
+                      justify-content: flex-start;
+
+                      img {
+                        width: 60px;
+                      }
+
+                      .itemStatInfo {
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 13px;
+                        font-family: $font-nsRegular;
+                      }
+                    }
+                  }
+                }
+
+                .cont2b {
+                  .p2eContainer {
+                    display: flex;
+
+                    .p2eContainerA {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 5px;
+                      width: 55%;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
+                    }
+
+                    .p2eContainerB {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 5px;
+                      font-family: $font-nsRegular;
+                      line-height: 1.3em;
+                    }
+
+                    .p2eItemContainer {
+                      display: flex;
+                      align-items: center;
+                      gap: 10px;
+                      font-size: 13px;
+
+                      .p2eIcon {
+                        width: 25px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .bottomContainer {
+          height: 60px;
+          background-color: black;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .bottomLeftContainer {
+            height: 60px;
+            background-color: #242339;
+            padding: 0 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 75%;
+            font-family: $font-nsRegular;
+            font-size: 13px;
+
+            .item {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .itemName {
+                color: $account-name;
+                font-size: 22px;
+                font-family: $font-nasalization;
+                font-weight: bold;
+              }
+
+              .repName {
+                font-size: 13px;
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+              }
+
+              .price {
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+                color: yellow;
+                padding-left: 30px;
+              }
+
+              .rarity {
+                font-size: 13px;
+                font-family: $font-nsRegular;
+                line-height: 1.3em;
+              }
+            }
+
+            .rarityContainer {
+              display: flex;
+              gap: 15px;
+            }
+          }
+
+          .button {
+            width: 30%;
+
+            button {
+              width: 100%;
+              height: 60px;
+              border: none;
+              cursor: pointer;
+              font-size: 14px;
+              background-color: $secondary-blue;
+              color: white;
+              font-family: $font-nasalization;
+              font-weight: bold;
+            }
+          }
+        }
       }
     }
   }
@@ -436,7 +996,8 @@
             }
 
             .rarityContainer {
-              display: flex; gap: 20px;
+              display: flex;
+              gap: 20px;
             }
           }
 
@@ -789,6 +1350,11 @@
               font-family: $font-nsRegular;
               line-height: 1.3em;
             }
+          }
+
+          .rarityContainer {
+            display: flex;
+            gap: 20px;
           }
         }
 
