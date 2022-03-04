@@ -14,14 +14,9 @@ import Footer from "./Components/Footer";
 import Main from "./Components/Main";
 
 const HomeContainer = () => {
-  // const [ytDisplay, setYtDisplay] = useState(false);
   const mobile = useMediaQuery("(max-width: 766px)");
   const desktop = useMediaQuery("(min-width: 1200px) and (max-width: 1399px)");
   const hd = useMediaQuery("(min-width: 1400px)");
-
-  /* const handleWatchTrailer = () => {
-    setYtDisplay(!ytDisplay);
-  }; */
 
   useEffect(() => {
     sendAmplitudeData("Main page visit");
