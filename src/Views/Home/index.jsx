@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./styles.module.scss";
 import SocialMedia from "./Components/SocialMedia";
 import AboutCoins from "./Components/AboutCoins";
@@ -14,14 +14,14 @@ import Footer from "./Components/Footer";
 import Main from "./Components/Main";
 
 const HomeContainer = () => {
-  const [ytDisplay, setYtDisplay] = useState(false);
+  // const [ytDisplay, setYtDisplay] = useState(false);
   const mobile = useMediaQuery("(max-width: 766px)");
   const desktop = useMediaQuery("(min-width: 1200px) and (max-width: 1399px)");
   const hd = useMediaQuery("(min-width: 1400px)");
 
-  const handleWatchTrailer = () => {
+  /* const handleWatchTrailer = () => {
     setYtDisplay(!ytDisplay);
-  };
+  }; */
 
   useEffect(() => {
     sendAmplitudeData("Main page visit");
