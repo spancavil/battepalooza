@@ -1,0 +1,40 @@
+@import "../../../../Styles/colors.scss";
+@import "../../../../Styles/fonts.scss";
+@import "../../../../Styles/breakpoints.scss";
+
+// Extra mall devices (< 576px)
+@media (max-width: $mobile - 1) {
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: $mobile) and (max-width: $tablet - 1) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: $tablet) and (max-width: $laptop - 1) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: $laptop) and (max-width: $desktop - 1) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: $desktop) and (max-width: $HD - 1) {
+}
+
+@media (min-width: $HD) {
+    .cardDropDetail {
+        background: #030b23;
+        box-shadow: 0px 0px 10px #3d92ef, inset 0px 0px 15px #3d92ef;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 375px;
+        height: 44vh;
+
+        .imageContainer{
+
+        }
+    }
+}

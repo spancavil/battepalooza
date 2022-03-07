@@ -317,7 +317,7 @@
 }
 
 /* DESKTOP */
-@media (min-width: $desktop) and (max-width: $HD - 1){
+@media (min-width: $desktop) and (max-width: $HD - 1) {
   .cards {
     margin-top: 30px;
     padding: 0px 15px;
@@ -423,61 +423,6 @@
 }
 
 @media (min-width: $HD) {
-  .cards {
-    margin-top: 30px;
-    padding: 0px 15px;
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(min(1), 1fr);
-    // grid-column-gap: 15px;
-    grid-row-gap: 30px;
-
-    .cardNft {
-      cursor: pointer;
-      overflow: visible;
-      position: relative;
-      height: 406px;
-      width: 65%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: #030b23;
-      border-radius: 3px;
-      justify-content: space-around;
-      gap: 20px;
-      padding: 0 20px;
-      
-    }
-
-    .imgNft {
-      width: 50%;
-      transform: scale(1.2);
-    }
-    .texts {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      width: 50%;
-
-      p {
-        font-size: 18px;
-        padding: 0px 15px;
-        text-align: center;
-        color: white;
-        font-family: "Nasalization";
-      }
-
-      .price {
-        color: $logout;
-      }
-
-      .text2 {
-        color: $account-name;
-      }
-    }
-  }
-
   .content2 {
     display: flex;
     flex-direction: column;
@@ -518,13 +463,114 @@
       gap: 50px;
       border-left: 2.3px solid;
       background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+      padding: 24px;
 
-      .link {
+      .hero {
+        width: 100%;
+        height: 30vh;
+        padding-left: 146px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .information {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .mainImages {
+          width: 60%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          overflow: visible;
+        }
+      }
+
+      .olderTitle {
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        padding: 32px 0 24px 0;
+        .older {
+          font-family: $font-nasalization;
+          font-size: 24px;
+          line-height: 28px;
+          color: #fff;
+        }
+        .allContainer {
+          width: fit-content;
+          .all {
+            font-family: $font-nasalization;
+            font-size: 16px;
+            line-height: 19px;
+            color: $account-name;
+          }
+          .line {
+            margin-top: 6px;
+            border-top: solid 2px $account-name;
+          }
+        }
       }
+
+      .cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .cardNft {
+          cursor: pointer;
+          overflow: visible;
+          position: relative;
+          height: 28vh;
+          width: 32.5%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 4px;
+          gap: 20px;
+          padding: 0 20px;
+          .texts {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .imagesContainer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 19vh;
+            overflow: visible;
+          }
+        }
+      }
+    }
+    .roboto {
+      font-family: $font-nsRegular;
+      font-size: 16px;
+      line-height: 19px;
+      color: #fff;
+      max-width: 577px;
+    }
+    .release {
+      font-family: $font-nasalization;
+      font-size: 20px;
+      line-height: 24px;
+      color: #fff;
+    }
+    .name {
+      font-family: $font-nasalization;
+      font-size: 36px;
+      line-height: 42px;
+      color: $account-name;
     }
   }
 }
