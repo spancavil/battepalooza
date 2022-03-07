@@ -52,6 +52,16 @@
   src: url("../Assets/fonts/Dimbo/Dimbo\ Italic.ttf") format("opentype");
 }
 
+@font-face {
+  font-family: "Mont_Heavy";
+  src: url("../Assets/fonts/Mont/Mont-HeavyDEMO.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Mont_extra_light";
+  src: url("../Assets/fonts/Mont/Mont-ExtraLightDEMO.otf") format("opentype");
+}
+
 $font-nanum: "NanumGothic";
 $font-nasalization: "Nasalization";
 $font-monkyta: "Monkirta";
@@ -62,3 +72,5 @@ $font-nsItalic: "NotoSans_Italic";
 $font-nsItalicBold: "NotoSans_Italic_Bold";
 $font-dimboRegular: "Dimbo_Regular";
 $font-dimboItalic: "Dimbo_Italic";
+$font-montHeavy: "Mont_Heavy";
+$font-montExtraLight: "Mont_extra_light";

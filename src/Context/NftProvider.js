@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
+import dropService from "../Services/drop.service";
 import marketService from "../Services/market.service";
 import nftService from "../Services/nft.service";
 import { UserData } from "./UserProvider";
@@ -11,6 +12,12 @@ const NftProvider = ({ children }) => {
   const [nftSelected, setNftSelected] = useState({});
   const [nftToOpen, setNftToOpen] = useState({});
   const [userCollection, setUserCollection] = useState([]);
+  const [drops, setDrops] = useState([])
+
+  const [reloadMarket, setReloadMarket] = useState(false);
+  const [reloadCollection, setReloadCollection] = useState(false);
+  const [reloadDrops, setReloadDrops] = useState(false);
+
   const characterMaxStats = {
     maxHealth: 3312,
     maxEnergyRecovery: 15,
@@ -46,7 +53,7 @@ const NftProvider = ({ children }) => {
 
     })()
 
-  }, [userData])
+  }, [userData, reloadCollection])
 
   useEffect(()=> {
 
@@ -56,16 +63,28 @@ const NftProvider = ({ children }) => {
       if (marketCollection?.error.num === 0) {
         setNftMarket(marketCollection.products)
       }
-
     })()
 
-  }, [])
+  }, [reloadMarket])
 
+  useEffect(()=> {
+
+    //Get drops
+    ( async ()=> {
+      const response = await dropService.getDrops();
+      console.log(response);
+      if (response?.error.num === 0) {
+        setDrops(response)
+      }
+    })()
+
+  }, [reloadDrops])
 
   return (
     <NftData.Provider
-      value={{ setNft, setNftForOpen,
-        nftMarket, nftSelected, nftToOpen, userCollection, characterMaxStats, weaponMaxStats}}
+      value={{ setNft, setNftForOpen, setReloadMarket, setReloadCollection, setReloadDrops,
+        nftMarket, nftSelected, nftToOpen, userCollection, characterMaxStats, weaponMaxStats, drops,
+        reloadMarket, reloadCollection, reloadDrops}}
     >
       {children}
     </NftData.Provider>
