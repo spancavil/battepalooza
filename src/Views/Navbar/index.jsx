@@ -23,7 +23,7 @@ const NavBar = () => {
   const [modal3, setModal3] = useState (false);
 
   const history = useHistory ();
-  const {userData, setPreviousNav, setCoin} = useContext (UserData);
+  const {userData, setCoin} = useContext (UserData);
   const [countReload, setCountReload] = useState (0);
   const [loadingBalance, setLoadingBalance] = useState (false);
   const [disabled, setDisabled] = useState (false);
@@ -88,11 +88,11 @@ const NavBar = () => {
     window.location.reload();
   };
 
-  const previousMenu = async link => {
+/*   const previousMenu = async link => {
     setMenu(false)
     await setPreviousNav (link);
     return;
-  };
+  }; */
 
   const handleFortePayload = async () => {
     let site = 'Buy More';
@@ -188,10 +188,10 @@ const NavBar = () => {
                       </Link>
                     </div>}
               </div>
-              <li onClick={() => previousMenu ('/drop')}>
+              <li>
                 <Link
                   href
-                  to={userData.email ? '/drop' : '/needLogin'}
+                  to={'/drop'}
                   className={styles.navLink}
                 >
                   DROP
