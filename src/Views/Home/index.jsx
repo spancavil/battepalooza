@@ -1,17 +1,10 @@
 import React, { useEffect } from "react";
-import styles from "./styles.module.scss";
-import SocialMedia from "./Components/SocialMedia";
-import AboutCoins from "./Components/AboutCoins";
-import Content3 from "./Components/Content3";
-import Content4 from "./Components/Content4";
-import Content5 from "./Components/Content5";
-import Content6 from "./Components/Content6";
-import Content7 from "./Components/Content7";
-import Content8 from "./Components/Content8";
+import { ComponentsHome } from "./Components";
+
 import { sendAmplitudeData } from "../../Utils/amplitude";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
-import Footer from "./Components/Footer";
-import Main from "./Components/Main";
+
+import styles from "./styles.module.scss";
 
 const HomeContainer = () => {
   const mobile = useMediaQuery("(max-width: 766px)");
@@ -44,16 +37,16 @@ const HomeContainer = () => {
 
   return (
     <div className={styles.container}>
-      <Main />
-      <AboutCoins hd={hd} desktop={desktop} />
-      <Content3 hd={hd} desktop={desktop} mobile={mobile} />
-      <Content4 hd={hd} desktop={desktop} mobile={mobile} />
-      <Content5 hd={hd} desktop={desktop} mobile={mobile} />
-      <Content6 hd={hd} desktop={desktop} mobile={mobile} />
-      <Content7 hd={hd} desktop={desktop} mobile={mobile} />
-      <Content8 hd={hd} desktop={desktop} mobile={mobile} />
-      <Footer />
-      <SocialMedia />
+      <ComponentsHome.Main />
+      <ComponentsHome.Tokenomics />
+      <ComponentsHome.Content3 hd={hd} desktop={desktop} mobile={mobile} />
+      <ComponentsHome.Content4 hd={hd} desktop={desktop} mobile={mobile} />
+      <ComponentsHome.Content5 hd={hd} desktop={desktop} mobile={mobile} />
+      <ComponentsHome.Content6 hd={hd} desktop={desktop} mobile={mobile} />
+      <ComponentsHome.Content7 hd={hd} desktop={desktop} mobile={mobile} />
+      <ComponentsHome.Content8 hd={hd} desktop={desktop} mobile={mobile} />
+      <ComponentsHome.Footer />
+      <ComponentsHome.SocialMedia />
     </div>
   );
 };
