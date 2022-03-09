@@ -120,13 +120,6 @@ const Main = () => {
             </button>
           </a>
         </div>
-        <div className={styles.contractContainer}>
-          <p className={styles.title}>$NCOIN Contract Address</p>
-          <div className={styles.contract}>
-            <p>BEP20</p>
-            <p>0x9fd87ae23fc441b123c3c32677cd9db4c578618f</p>
-          </div>
-        </div>
         <button className={styles.tradeNow}>TRADE NOW</button>
       </div>
     </div>
