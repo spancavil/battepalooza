@@ -11,7 +11,8 @@ class DropService {
         })
     }
 
-    async getDropDetail(pid = "", dropId){
+    async getDropDetail(pid, dropId){
+        console.log(pid, dropId);
         return await axios.post(API_URL + "drops/detail",{
             pid,
             dropId
