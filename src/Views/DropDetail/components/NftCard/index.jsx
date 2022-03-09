@@ -7,8 +7,6 @@ import LEGENDARY from "../../Assets/Tiericon_Legendary.png";
 const NftCard = ({ nft }) => {
   console.log(nft);
 
-  const rarityImg = () => {};
-
   return (
     <div className={styles.cardDropDetail}>
       <div className={styles.cardTop}>
