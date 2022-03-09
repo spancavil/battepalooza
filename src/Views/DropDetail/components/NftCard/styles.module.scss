@@ -23,18 +23,54 @@
 }
 
 @media (min-width: $HD) {
-    .cardDropDetail {
-        background: #030b23;
-        box-shadow: 0px 0px 10px #3d92ef, inset 0px 0px 15px #3d92ef;
-        border-radius: 16px;
+  .cardDropDetail {
+    background: #191919;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    gap: 25px;
+    padding-bottom: 25px;
+
+    .cardTop {
+      margin-top: 25px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+
+      p {
+        color: white;
+      }
+
+      .rarityContainer {
+        background: #3d3938;
+        padding: 5px 15px;
+        border-radius: 15px;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        width: 375px;
-        height: 44vh;
-
-        .imageContainer{
-
-        }
+        gap: 30px;
+      }
     }
+
+    .imgContainer {
+      background-size: cover;
+      background-color: black;
+      padding: 10px 0;
+
+      img {
+        height: 240px;
+      }
+    }
+
+    h3 {
+      width: 100%;
+      font-family: $font-nasalization;
+      color: $account-name;
+      text-align: left;
+      margin-left: 40px;
+    }
+  }
 }
