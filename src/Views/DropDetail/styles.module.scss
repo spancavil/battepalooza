@@ -489,6 +489,15 @@
     top: 80px;
   }
 
+  .title {
+    font-size: 25px;
+    color: white;
+    font-family: $font-nasalization;
+    text-align: left;
+    width: 100%;
+    padding: 0.3vw 0 1vw 2.5vw;
+  }
+
   .container {
     width: 100vw;
     display: flex;

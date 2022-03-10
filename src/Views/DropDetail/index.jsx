@@ -72,6 +72,7 @@ const DropDetail = () => {
             &#60; Go back
           </p>
           <div className={styles.container}>
+            <p className={styles.title}>Drop Detail</p>
             <div className={styles.rectangle}>
               <div className={styles.hero} ref={divHero}>
                 <div className={styles.information}>
