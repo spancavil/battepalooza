@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Modal from '../../../../Global-Components/Modal';
 import Button from '../../../../Global-Components/Button';
 import styles from './styles.module.scss';
@@ -6,12 +6,14 @@ import marketService from '../../../../Services/market.service';
 import { logOutAmplitude } from '../../../../Utils/amplitude';
 import { fireAlertAsync } from '../../../../Utils/sweetAlert2';
 import { useHistory } from 'react-router-dom';
+import { NftData } from '../../../../Context/NftProvider';
 
 const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, pid}) => {
   
   const [status, setStatus] = useState("")
   const [transactionType, setTransactionType] = useState("")
   const history = useHistory();
+  const {setReloadMarket, setReloadCollection} = useContext(NftData);
   
   useEffect(()=> {
 
@@ -61,6 +63,12 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
 
   }, [forteTxText, status, bpToken, history, pid])
 
+  const handleCloseModal = () => {
+    setReloadMarket(value => !value)
+    setReloadCollection(value => !value)
+    setmodalRegister2(false)
+  }
+
   return (
     <div className={styles.parentContainerModal}>
     <Modal
@@ -88,7 +96,7 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
           modal={true}
           title="CONFIRM"
           width="198px"
-          onClick={() => setmodalRegister2(false)}
+          onClick={() => handleCloseModal()}
         />
       </div>
     </>
