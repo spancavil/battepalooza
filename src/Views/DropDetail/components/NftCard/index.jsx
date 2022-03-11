@@ -5,7 +5,7 @@ import RARE from "../../Assets/Tiericon_Rare.png";
 import EPIC from "../../Assets/Tiericon_Epic.png";
 import LEGENDARY from "../../Assets/Tiericon_Legendary.png";
 
-const NftCard = ({ nft }) => {
+const NftCard = ({ nft, showNft }) => {
   return (
     <div
       className={
@@ -43,7 +43,7 @@ const NftCard = ({ nft }) => {
           <img src={nft.thumbnailUrl} alt={nft.itemName} />
         </div>
         <h3>{nft.itemName}</h3>
-        <Button title={`BUY ${nft.price} nCoin`} />
+        <Button title={`BUY ${nft.price} nCoin`} onClick={()=> showNft(nft)} />
       </div>
     </div>
   );

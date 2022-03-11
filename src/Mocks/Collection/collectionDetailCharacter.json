@@ -1,0 +1,51 @@
+{
+    "nft": {
+        "dailyPlayCount": 0,
+        "maxDailyPlayCount": 12,
+        "rewardMultiplier": 1.7,
+        "storyText": "Unidentified object which wants to fill the box with something.",
+        "skill": {
+            "id": 33,
+            "name": "Shadow Binder"
+        },
+        "ability": {
+            "text": "It binds all the enemies around the skill user, making them unable to move for a certain period of time.",
+            "features": [
+                "Multiple Attack",
+                "Restrict Movement"
+            ]
+        },
+        "stat": {
+            "maxHealth": 2205,
+            "energyRecovery": 15,
+            "moveSpeed": 10
+        },
+        "buff": [
+            {
+                "id": 1,
+                "name": "HP",
+                "value": 5
+            }
+        ],
+        "uuid": "987375a9-b6cc-47ba-9302-f0fc6b3d19c2",
+        "type": 1,
+        "itemId": 34,
+        "itemName": "Medic Box",
+        "repName": "Crappy Box",
+        "clan": 1,
+        "rarity": "RARE",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 2,
+        "playCount": 0,
+        "maxPlayCount": 312,
+        "movieUrl": "https://battlepalooza-web.s3.amazonaws.com/movieClips/characters/MedicBox_Common.mp4",
+        "thumbnailUrl": "https://battlepalooza-web.s3.amazonaws.com/thumbnails/characters/Sprite_Shop_Character_04_Pre3.png"
+    },
+    "result": 0,
+    "error": {
+        "num": 0,
+        "action": 0,
+        "text": ""
+    }
+}
