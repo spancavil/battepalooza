@@ -12,15 +12,24 @@ import dropService from "../../Services/drop.service";
 import heroBannerImage from "../../Assets/img/dropHeroBg.png";
 import { UserData } from "../../Context/UserProvider";
 import NftDetail from "./components/NftDetail";
+import Checkout from "./components/Checkout";
+import Proccesing from "./components/Proccesing";
+import Complete from "./components/Complete";
+import { NftData } from "../../Context/NftProvider";
 
 const DropDetail = () => {
   const [dropSelected, setDropSelected] = useState();
   const [chosenNft, setChosenNft] = useState();
 
+  const [checkout, setCheckout] = useState(false);
+  const [processing, setProcessing] = useState(false);
+  const [buyComplete, setBuyComplete] = useState(false);
+
   const { id } = useParams();
   const history = useHistory();
 
-  const { userData } = useContext(UserData);
+  const { userData} = useContext(UserData);
+  const {setReloadMarket, setReloadCollection} = useContext(NftData);
 
   const divHero = useRef();
 
@@ -66,9 +75,23 @@ const DropDetail = () => {
     setChosenNft(nft);
   }
 
-  const handleBuy = (nft) => {
-    console.log("confirmo compra");
+  const handleBuy = () => {
+    setCheckout (true);
+  };
+
+  const processingComplete = () => {
+    setCheckout (false);
+    setProcessing (false);
+    setBuyComplete (true);
+  };
+
+  const handleReload = (destiny) => {
+    setReloadMarket(value => !value)
+    setReloadCollection(value => !value)
+    history.push(`/${destiny}`)
   }
+
+  console.log(chosenNft);
 
   return (
     <Background>
@@ -101,8 +124,31 @@ const DropDetail = () => {
       ) : (
         <p>Loading</p>
       )}
-      {chosenNft && <NftDetail chosenNft={chosenNft} confirmBuy={handleBuy} handleClose={()=> setChosenNft()}/>}
-
+      {chosenNft && 
+        <NftDetail 
+        chosenNft={chosenNft} 
+        confirmBuy={handleBuy} 
+        handleClose={()=> setChosenNft()}
+        checkout = {checkout}
+        processing = {processing}
+        buyComplete = {buyComplete}
+        />}
+      {checkout &&
+        <Checkout
+          nftBuy={chosenNft}
+          nftProccesing={setProcessing}
+          handleClose={setCheckout}
+        />}
+      {processing &&
+        <Proccesing nftBuy={chosenNft} 
+        processingComplete={processingComplete} 
+        handleClose={()=>setProcessing(false)}/>}
+      {buyComplete &&
+        <Complete
+          title={chosenNft.itemName}
+          goCollection={() => handleReload('collection')}
+          goMarketPlace={() => handleReload('marketPlace')}
+        />}
     </Background>
   );
 };
