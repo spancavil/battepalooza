@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import styles from "./styles.module.scss";
 /* import Button from "../../../../Global-Components/Button"; */
 import Loader from "../../../../Global-Components/Loader";
@@ -12,10 +12,19 @@ import BONUS from "../../Assets/Sprite_Icon_Premium_04.png";
 import cross from "../../../../Assets/img/crossNftMarketDetail.png";
 import { NftData } from "../../../../Context/NftProvider";
 
-const NftDetail = ({ chosenNft, confirmBuy, handleClose }) => {
+const NftDetail = ({ 
+  chosenNft, 
+  confirmBuy, 
+  handleClose, 
+  checkout,
+  processing,
+  buyComplete
+}) => {
 
   const { characterMaxStats, weaponMaxStats } = useContext(NftData);
   const [loading, setLoading] = useState(false);
+
+  const div = useRef();
 
   useEffect(() => {
     setLoading(true);
@@ -24,21 +33,25 @@ const NftDetail = ({ chosenNft, confirmBuy, handleClose }) => {
   //On escape it will close
   useEffect(() => {
     const handleEsc = (event) => {
-      if (event.keyCode === 27) {
-        handleClose()
-      }
-    };
-
-    window.addEventListener('keydown', handleEsc);
+        if (event.keyCode === 27 && !checkout && !processing && !buyComplete) {
+          handleClose()
+        }
+      };
+    
+      window.addEventListener('keydown', handleEsc);
 
     return () => {
       window.removeEventListener('keydown', handleEsc);
     };
-  }, [handleClose])
+  }, [handleClose, checkout, processing, buyComplete])
+
+  const handleBuy = () => {
+    confirmBuy(chosenNft);
+  }
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} ref ={div}>
         {chosenNft && (
           <div className={styles.card}>
             <div className={styles.text}>
@@ -307,7 +320,7 @@ const NftDetail = ({ chosenNft, confirmBuy, handleClose }) => {
                   </div>
 
                   <div className={styles.button}>
-                    <button onClick={() => confirmBuy(chosenNft)}>
+                    <button onClick={() => handleBuy(chosenNft)}>
                       Buy {chosenNft.price} NCoin
                     </button>
                   </div>
