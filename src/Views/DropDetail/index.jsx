@@ -29,7 +29,7 @@ const DropDetail = () => {
   const history = useHistory();
 
   const { userData} = useContext(UserData);
-  const {setReloadMarket, setReloadCollection} = useContext(NftData);
+  const {setReloadDrops, setReloadCollection} = useContext(NftData);
 
   const divHero = useRef();
 
@@ -85,10 +85,11 @@ const DropDetail = () => {
     setBuyComplete (true);
   };
 
-  const handleReload = (destiny) => {
-    setReloadMarket(value => !value)
+  const handleCloseComplete = (destiny) => {
+    setReloadDrops(value => !value)
     setReloadCollection(value => !value)
-    history.push(`/${destiny}`)
+    if (destiny === 'collection') history.push(`/${destiny}`)
+    else setBuyComplete(false)
   }
 
   console.log(chosenNft);
@@ -146,8 +147,8 @@ const DropDetail = () => {
       {buyComplete &&
         <Complete
           title={chosenNft.itemName}
-          goCollection={() => handleReload('collection')}
-          goMarketPlace={() => handleReload('marketPlace')}
+          goCollection={() => handleCloseComplete('collection')}
+          closeComplete = {()=> handleCloseComplete('')}
         />}
     </Background>
   );
