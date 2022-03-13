@@ -2,12 +2,13 @@ import { createContext, useState, useEffect, useContext } from "react";
 import dropService from "../Services/drop.service";
 import marketService from "../Services/market.service";
 import nftService from "../Services/nft.service";
+import { fireAlert } from "../Utils/sweetAlert2";
 import { UserData } from "./UserProvider";
 export const NftData = createContext({});
 
 const NftProvider = ({ children }) => {
 
-  const {userData} = useContext(UserData);
+  const { userData } = useContext(UserData);
   const [nftMarket, setNftMarket] = useState([])
   const [nftSelected, setNftSelected] = useState({});
   const [nftToOpen, setNftToOpen] = useState({});
@@ -22,7 +23,7 @@ const NftProvider = ({ children }) => {
     maxHealth: 3312,
     maxEnergyRecovery: 15,
     maxMoveSpeed: 11,
-  } 
+  }
 
   const weaponMaxStats = {
     maxDamage: 726,
@@ -37,44 +38,58 @@ const NftProvider = ({ children }) => {
     setNftToOpen(nft);
   };
 
-  useEffect (()=> {
+  useEffect(() => {
 
-    (async() => {
+    (async () => {
+      try {
 
-      
-
-      //Get user collection
-      if (Object.keys(userData).length !== 0){
-        const userCollection = await nftService.getNftCollection(userData);
-        if (userCollection.nfts){
-          setUserCollection(userCollection.nfts);
+        //Get user collection
+        if (Object.keys(userData).length !== 0) {
+          const userCollection = await nftService.getNftCollection(userData);
+          if (userCollection.nfts) {
+            setUserCollection(userCollection.nfts);
+          }
         }
+
+      } catch (error) {
+        fireAlert("Oops, an error ocurred", error.message, '500px');
+
       }
 
     })()
 
   }, [userData, reloadCollection])
 
-  useEffect(()=> {
+  useEffect(() => {
 
     //Get marketplace collection
-    ( async ()=> {
-      const marketCollection = await marketService.getNftMarketplaceList()
-      if (marketCollection?.error.num === 0) {
-        setNftMarket(marketCollection.products)
+    (async () => {
+      try {
+        const marketCollection = await marketService.getNftMarketplaceList()
+        if (marketCollection?.error.num === 0) {
+          setNftMarket(marketCollection.products)
+        }
+
+      } catch (error) {
+        fireAlert("Oops, an error ocurred", error.message, '500px');
       }
+
     })()
 
   }, [reloadMarket])
 
-  useEffect(()=> {
+  useEffect(() => {
 
     //Get drops
-    ( async ()=> {
-      const response = await dropService.getDrops();
-      console.log(response);
-      if (response?.error.num === 0) {
-        setDrops(response)
+    (async () => {
+      try {
+        const response = await dropService.getDrops();
+        console.log(response);
+        if (response?.error.num === 0) {
+          setDrops(response)
+        }
+      } catch (error) {
+        fireAlert("Oops, an error ocurred", error.message, '500px');
       }
     })()
 
@@ -82,9 +97,11 @@ const NftProvider = ({ children }) => {
 
   return (
     <NftData.Provider
-      value={{ setNft, setNftForOpen, setReloadMarket, setReloadCollection, setReloadDrops,
+      value={{
+        setNft, setNftForOpen, setReloadMarket, setReloadCollection, setReloadDrops,
         nftMarket, nftSelected, nftToOpen, userCollection, characterMaxStats, weaponMaxStats, drops,
-        reloadMarket, reloadCollection, reloadDrops}}
+        reloadMarket, reloadCollection, reloadDrops
+      }}
     >
       {children}
     </NftData.Provider>
