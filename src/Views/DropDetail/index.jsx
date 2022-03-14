@@ -93,6 +93,7 @@ const DropDetail = () => {
   }
 
   console.log(chosenNft);
+  console.log(dropSelected)
 
   return (
     <Background>
@@ -106,8 +107,8 @@ const DropDetail = () => {
             <div className={styles.rectangle}>
               <div className={styles.hero} ref={divHero}>
                 <div className={styles.information}>
-                  <h2 className={styles.release}>Release Date</h2>
-                  <h2 className={styles.name}>Battlepalooza Series 1 Drop 1</h2>
+                  <h2 className={styles.release}>Release Date {new Date(dropSelected.dropInfo?.startTime).toLocaleDateString()}</h2>
+                  <h2 className={styles.name}>{dropSelected.dropInfo?.name}</h2>
                 </div>
               </div>
               <div className={styles.olderTitle}>

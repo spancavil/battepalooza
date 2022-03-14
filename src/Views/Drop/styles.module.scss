@@ -571,11 +571,12 @@
       }
 
       .cards {
-        display: flex;
+        width: 100%;
+        display: grid;
         flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        row-gap: 24px;
+        grid-template-columns: repeat(3, 0fr);
+        grid-row-gap: 24px;
+        grid-column-gap: 22px;
 
         .cardNft {
           cursor: pointer;

@@ -47,6 +47,7 @@ const Drop = () => {
   }
 
   const handleFindOut = () => {
+    history.push(`/drop/1`)
   }
 
   console.log(drops);
@@ -91,9 +92,10 @@ const Drop = () => {
 
           <div className={styles.olderTitle}>
             <h3 className={styles.older}>Older drops</h3>
-            <div className={styles.allContainer}>
+            {/* <div className={styles.allContainer}>
+              <h3 className={styles.all}>View all drops</h3>
               <div className={styles.line}></div>
-            </div>
+            </div> */}
           </div>
 
           <div className={styles.cards}>
