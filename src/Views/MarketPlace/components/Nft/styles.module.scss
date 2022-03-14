@@ -18,7 +18,7 @@
     gap: 20px;
   }
 
-  .imgNft {    
+  .imgNft {
     width: 130px;
   }
 
@@ -239,6 +239,68 @@
 }
 
 @media (min-width: $desktop) {
+  .borderCommon {
+    width: 210px;
+    height: 315px;
+    background: linear-gradient(
+      819deg,
+      #6c6c6c 6.25%,
+      #c5c5c5 52.19%,
+      #6c6c6c 92.72%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderRare {
+    width: 210px;
+    height: 315px;
+    background: linear-gradient(
+      81.09deg,
+      #a78043 6.25%,
+      #fef7eb 52.19%,
+      #8a6a2e 92.72%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderEpic {
+    width: 210px;
+    height: 315px;
+    background: linear-gradient(
+      81.09deg,
+      #636ed9 6.25%,
+      #0fb2ce 28.32%,
+      #f371b7 64.8%,
+      #495093 92.72%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderLegendary {
+    width: 210px;
+    height: 315px;
+    background: linear-gradient(
+      153.06deg,
+      #f2cd54 -0.31%, 
+      #bca0ff 49.17%,
+      #b3dfa1 99.69%,
+      #91d370 99.69%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
   .cardNft {
     cursor: pointer;
     overflow: visible;
