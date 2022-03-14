@@ -1,11 +1,9 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Background from "../../Global-Components/Background";
-import Button from "../../Global-Components/Button";
 import styles from "./styles.module.scss";
 // import { dropsList } from '../../Services/dropList';
 import { useHistory } from "react-router-dom";
-import Modal from "../../Global-Components/Modal";
 import NftCard from "./components/NftCard";
 import { fireAlertAsync } from "../../Utils/sweetAlert2";
 import { logOutAmplitude } from "../../Utils/amplitude";
@@ -13,14 +11,25 @@ import dropService from "../../Services/drop.service";
 
 import heroBannerImage from "../../Assets/img/dropHeroBg.png";
 import { UserData } from "../../Context/UserProvider";
+import NftDetail from "./components/NftDetail";
+import Checkout from "./components/Checkout";
+import Proccesing from "./components/Proccesing";
+import Complete from "./components/Complete";
+import { NftData } from "../../Context/NftProvider";
 
 const DropDetail = () => {
   const [dropSelected, setDropSelected] = useState();
-  const [open, setOpen] = useState(false);
+  const [chosenNft, setChosenNft] = useState();
+
+  const [checkout, setCheckout] = useState(false);
+  const [processing, setProcessing] = useState(false);
+  const [buyComplete, setBuyComplete] = useState(false);
+
   const { id } = useParams();
   const history = useHistory();
 
-  const { userData } = useContext(UserData);
+  const { userData} = useContext(UserData);
+  const {setReloadDrops, setReloadCollection} = useContext(NftData);
 
   const divHero = useRef();
 
@@ -62,7 +71,28 @@ const DropDetail = () => {
     fetchData();
   }, [setDropSelected, userData, history, id]);
 
-  console.log(dropSelected);
+  const showNft = (nft) => {
+    setChosenNft(nft);
+  }
+
+  const handleBuy = () => {
+    setCheckout (true);
+  };
+
+  const processingComplete = () => {
+    setCheckout (false);
+    setProcessing (false);
+    setBuyComplete (true);
+  };
+
+  const handleCloseComplete = (destiny) => {
+    setReloadDrops(value => !value)
+    setReloadCollection(value => !value)
+    if (destiny === 'collection') history.push(`/${destiny}`)
+    else setBuyComplete(false)
+  }
+
+  console.log(chosenNft);
 
   return (
     <Background>
@@ -86,7 +116,7 @@ const DropDetail = () => {
 
               <div className={styles.nftsContainer}>
                 {dropSelected?.nftProducts?.map((nft) => {
-                  return <NftCard nft={nft} key={nft.id} />;
+                  return <NftCard nft={nft} key={nft.id} showNft={showNft}/>;
                 })}
               </div>
             </div>
@@ -95,17 +125,31 @@ const DropDetail = () => {
       ) : (
         <p>Loading</p>
       )}
-      {open ? (
-        <div className={styles.modalContainer}>
-          <Modal handleClose={() => setOpen(!open)} title={"Checkout"}>
-            <p className={styles.modalText}>
-              Will you use 20.000 Ncoin to buy Rare Pack?
-            </p>
-            <Button title="BUY" />
-            <p className={styles.chargeNow}>Not enough Ncoin? Charge now</p>
-          </Modal>
-        </div>
-      ) : null}
+      {chosenNft && 
+        <NftDetail 
+        chosenNft={chosenNft} 
+        confirmBuy={handleBuy} 
+        handleClose={()=> setChosenNft()}
+        checkout = {checkout}
+        processing = {processing}
+        buyComplete = {buyComplete}
+        />}
+      {checkout &&
+        <Checkout
+          nftBuy={chosenNft}
+          nftProccesing={setProcessing}
+          handleClose={setCheckout}
+        />}
+      {processing &&
+        <Proccesing nftBuy={chosenNft} 
+        processingComplete={processingComplete} 
+        handleClose={()=>setProcessing(false)}/>}
+      {buyComplete &&
+        <Complete
+          title={chosenNft.itemName}
+          goCollection={() => handleCloseComplete('collection')}
+          closeComplete = {()=> handleCloseComplete('')}
+        />}
     </Background>
   );
 };

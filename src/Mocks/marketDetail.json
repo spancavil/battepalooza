@@ -1,0 +1,49 @@
+{
+    "product": {
+        "rewardMultiplier": 1,
+        "storyText": "It is a modified weapon from the main weapon used by the Guardians in the past war. Still, the performance is solid.",
+        "skill": null,
+        "ability": {
+            "text": "Attacks a single enemy. \\nAttacks 3 times per attack.",
+            "features": [
+                "Single Attack",
+                "Semi-Auto"
+            ]
+        },
+        "stat": {
+            "damage": 112,
+            "consumeEnergy": 20,
+            "maxEnergy": 100,
+            "coolTime": 0.6
+        },
+        "buff": [
+            {
+                "id": 2,
+                "name": "Damage",
+                "value": 2
+            }
+        ],
+        "uniqueId": "570036590010009098878864585479400786509100437252",
+        "sellerPid": "TM77P4RSTX",
+        "sellerName": "Player162014",
+        "price": 400000,
+        "fee": 20000,
+        "type": 2,
+        "itemId": 1019,
+        "itemName": "Pop Rifle",
+        "repName": "Rifle",
+        "rarity": "COMMON",
+        "clan": 2,
+        "serial": 2,
+        "playCount": 0,
+        "maxPlayCount": 281,
+        "movieUrl": "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/PopRifle_Common.mp4",
+        "thumbnailUrl": "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_01_Pre1.png"
+    },
+    "result": 0,
+    "error": {
+        "num": 0,
+        "action": 0,
+        "text": ""
+    }
+}

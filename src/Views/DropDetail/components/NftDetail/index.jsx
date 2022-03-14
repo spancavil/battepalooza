@@ -1,206 +1,75 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
-import { NftData } from "../../Context/NftProvider";
-import { UserData } from "../../Context/UserProvider";
-import { logOutAmplitude, sendAmplitudeData } from "../../Utils/amplitude";
-import Background from "../../Global-Components/Background";
-import nftService from "../../Services/nft.service";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import styles from "./styles.module.scss";
-import Loader from "../../Global-Components/Loader";
-import ModalUnregister from "./Components/ModalUnregister";
-import ModalRegister1 from "./Components/ModalRegister1";
-import ModalRegister2 from "./Components/ModalRegister2";
-import HP from "./Assets/Sprite_Icon_Stat_01.png";
-import ENERGY from "./Assets/Sprite_Icon_Stat_02.png";
-import SPEED from "./Assets/Sprite_Icon_Stat_04.png";
-import DAILY from "./Assets/Sprite_Icon_Reward_35.png";
-import PREMIUM from "./Assets/Sprite_Icon_Premium_03.png";
-import COPY from "./Assets/Sprite_Icon_Premium_05.png";
-import SERIAL from "./Assets/Sprite_Icon_Premium_02.png";
-import BONUS from "./Assets/Sprite_Icon_Premium_04.png";
-import fireToast, { fireAlert, fireAlertAsync } from "../../Utils/sweetAlert2";
-import marketService from "../../Services/market.service";
+/* import Button from "../../../../Global-Components/Button"; */
+import Loader from "../../../../Global-Components/Loader";
+import HP from "../../Assets/Sprite_Icon_Stat_01.png";
+import ENERGY from "../../Assets/Sprite_Icon_Stat_02.png";
+import SPEED from "../../Assets/Sprite_Icon_Stat_04.png";
+import DAILY from "../../Assets/Sprite_Icon_Reward_35.png";
+import PREMIUM from "../../Assets/Sprite_Icon_Premium_03.png";
+import COPY from "../../Assets/Sprite_Icon_Premium_05.png";
+import BONUS from "../../Assets/Sprite_Icon_Premium_04.png";
+import cross from "../../../../Assets/img/crossNftMarketDetail.png";
+import { NftData } from "../../../../Context/NftProvider";
 
-const CollectionDetail = () => {
-  const [nftSelected, setNftSelected] = useState();
+const NftDetail = ({ 
+  chosenNft, 
+  confirmBuy, 
+  handleClose, 
+  checkout,
+  processing,
+  buyComplete
+}) => {
+
+  const { characterMaxStats, weaponMaxStats } = useContext(NftData);
   const [loading, setLoading] = useState(false);
-  const [modalUnregister, setmodalUnregister] = useState(false);
-  const [modalRegister1, setmodalRegister1] = useState(false);
-  const [modalRegister2, setmodalRegister2] = useState(false);
 
-  const [inputPrice, setInputPrice] = useState(0);
-  const [forteTxText, setForteTxText] = useState("");
-
-  const { userData } = useContext(UserData);
-  const { characterMaxStats, weaponMaxStats, nftMarket, setReloadMarket, setReloadCollection } =
-    useContext(NftData);
-  const { uuid } = useParams();
-  const history = useHistory();
+  const div = useRef();
 
   useEffect(() => {
     setLoading(true);
   }, []);
 
-  //console.log(nftSelected);
-
+  //On escape it will close
   useEffect(() => {
-    const fetchData = async () => {
-      if (Object.keys(userData).length !== 0) {
-        try {
-          const response = await nftService.getNftCollectionDetail(
-            userData.bpToken,
-            userData.pid,
-            uuid
-          );
-
-          if (response.error.text !== "") {
-            if (response.error.text.includes("authorized")) {
-              fireAlertAsync("Session expired, please login again.")
-              .then (()=> {
-                localStorage.removeItem("userBP");
-                logOutAmplitude();
-                history.push("/");
-                window.location.reload();
-              })
-            } else {
-              alert(response.error.text);
-            }
-          } else {
-            setNftSelected(response.nft);
-          }
-        } catch (error) {
-          alert(error.message);
+    const handleEsc = (event) => {
+        if (event.keyCode === 27 && !checkout && !processing && !buyComplete) {
+          handleClose()
         }
-      }
-    };
-    userData.email && fetchData();
-  }, [uuid, userData, history, modalRegister2]);
-
-  const openModalUnregister = () => {
-    setmodalUnregister(true);
-  };
-
-  const openModalRegister1 = () => {
-    sendAmplitudeData("Collection place for sale request")
-    setmodalRegister1(true);
-  };
-
-  const goBack = () => {
-    history.goBack();
-  };
-
-  const Register = () => {
+      };
     
-    if (Number(inputPrice) > 10000) {
-      const registerNft = async () => {
-        
-        try {
-          const response = await marketService.registerProductMarketplace(
-            userData.pid,
-            nftSelected.uuid,
-            inputPrice,
-            userData.bpToken,
-          )
+      window.addEventListener('keydown', handleEsc);
 
-          if (response.error.text !== "") {
-            if (response.error.text.includes("authorized")) {
-              fireAlertAsync("Session expired, please login again.")
-              .then(()=>{
-                localStorage.removeItem("userBP");
-                logOutAmplitude();
-                history.push("/");
-                window.location.reload();
-              })
-            } else {
-              fireAlert("Oops, an error ocurred", response.error.text, '500px');
-            }
-          //No errors, the forte transaction text id is returned. With that text
-          //we call the transaction status in the next step (modal register 2)
-          } else {
-            sendAmplitudeData("Collection place for sale confirm")
-            setForteTxText(response.forteTxId);
-            setmodalRegister1(false);
-            setmodalRegister2(true);
-          }
-          
-        } catch (error) {
-          fireAlert("Oops, an error ocurred", error.message, '500px');
-        }
-        
-      }
-      
-      registerNft()
-      
-    } else {
-      fireToast("Price should be greater than 10000", 3000, '500px', '22px')
-      return;
-    }
-  };
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [handleClose, checkout, processing, buyComplete])
 
-  const confirmUnregister = () => {
-
-    const unRegisterNft = async () => {
-      try {
-        //Necesitamos obtener el NFT del market porque de ahí sacamos el uniqueId de Forte
-        const nftFromMarket = nftMarket.find(nft => nft.itemName === nftSelected.itemName && nft.sellerPid === userData.pid && nft.serial === nftSelected.serial)
-        const response = await marketService.cancelSellingMarketplace(
-          userData.pid,
-          nftFromMarket.uniqueId,
-          userData.bpToken,
-        )
-
-        if (response.error.text !== "") {
-          if (response.error.text.includes("authorized")) {
-            fireAlertAsync("Warning","Session expired, please login again.").then(()=> {
-              localStorage.removeItem("userBP");
-              logOutAmplitude();
-              history.push("/");
-              window.location.reload();
-            })
-          } else {
-            fireAlert("Oops, an error ocurred", response.error.text, '500px');
-          }
-        //No errors, the forte transaction text id is returned. With that text
-        //we call the transaction status in the next step (modal register 2)
-      } else {
-          console.log(response);
-          setForteTxText(response.forteTxId);
-          setmodalUnregister(false);
-          setmodalRegister2(true);
-        }
-        
-      } catch (error) {
-        fireAlert("Oops, an error ocurred", error.message, '500px');
-      }
-      
-    }
-    unRegisterNft()
-
+  const handleBuy = () => {
+    confirmBuy(chosenNft);
   }
 
-  const handleMarket = () => {
-    setReloadMarket(value => !value)
-    setReloadCollection(value => !value)
-    history.push("/marketplace");
-  };
-
-  const handleInputChange = (value) => {
-    setInputPrice(parseInt(value));
-  };
-  
   return (
-    <Background>
-      <p className={styles.back} onClick={goBack}>
-        &#60; Go back to Collection
-      </p>
-      <div className={styles.container}>
-        {nftSelected && (
+    <>
+      <div className={styles.container} ref ={div}>
+        {chosenNft && (
           <div className={styles.card}>
             <div className={styles.text}>
               <div className={styles.cardContainer}>
+
+                <div className={styles.header}>
+                  <h2 className={styles.remain}>Remain: {chosenNft.leftAmount}/{chosenNft.limitAmount}</h2>
+                  <div onClick={handleClose} style = {{display: 'flex', alignItems: 'center'}}>
+                    <img
+                      src = {cross}
+                      alt="close"
+                    />
+                  </div>
+                </div>
+
                 <div className={styles.topContainer}>
                   <div className={styles.videoContainer}>
-                    {nftSelected.movieUrl ? (
+                    {chosenNft.movieUrl ? (
                       <>
                         {loading && (
                           <div className={styles.loadMessageContainer}>
@@ -210,7 +79,7 @@ const CollectionDetail = () => {
                         <video
                           onCanPlayThrough={() => setLoading(false)}
                           className={styles.pinVideo}
-                          src={nftSelected.movieUrl}
+                          src={chosenNft.movieUrl}
                           muted
                           autoPlay
                           loop
@@ -228,7 +97,7 @@ const CollectionDetail = () => {
                         <div className={styles.cont2a}>
                           <div
                             className={
-                              nftSelected.type === 1
+                              chosenNft.type === 1
                                 ? styles.cont3
                                 : styles.cont3Weapon
                             }
@@ -236,33 +105,33 @@ const CollectionDetail = () => {
                             <div className={styles.cont3a}>
                               <p className={styles.title}>Abilities</p>
                               <span className={styles.featuresContainer}>
-                                {nftSelected.ability.features.map((x, i) => (
+                                {chosenNft.ability?.features.map((x, i) => (
                                   <p key={i} className={styles.features}>
                                     {x} &nbsp;
                                   </p>
                                 ))}
                               </span>
                               <p className={styles.abilityText}>
-                                :{nftSelected.ability.text}
+                                :{chosenNft.ability?.text}
                               </p>
                             </div>
                             <div className={styles.cont3b}>
                               <p className={styles.title}>Character Story</p>
                               <p className={styles.storyText}>
-                                {nftSelected.storyText}
+                                {chosenNft.storyText}
                               </p>
                             </div>
                           </div>
-                          {nftSelected.skill && (
+                          {chosenNft.skill && (
                             <div className={styles.skillsContainer}>
                               <p className={styles.title}>Skill</p>
                               <p className={styles.body}>
-                                {nftSelected.skill?.name}
+                                {chosenNft.skill?.name}
                               </p>
                             </div>
                           )}
                           <div className={styles.statsContainer}>
-                            {nftSelected.type === 1 ? (
+                            {chosenNft.type === 1 ? (
                               <>
                                 {/* CHARACTER */}
                                 <p className={styles.title}>Stat</p>
@@ -275,7 +144,7 @@ const CollectionDetail = () => {
                                   <div className={styles.itemStatInfo}>
                                     <p className={styles.itemStatTitle}>HP</p>
                                     <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.maxHealth} /{" "}
+                                      {chosenNft.stat?.maxHealth} /{" "}
                                       {characterMaxStats.maxHealth}
                                     </p>
                                   </div>
@@ -291,7 +160,7 @@ const CollectionDetail = () => {
                                       Energy
                                     </p>
                                     <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.energyRecovery} /{" "}
+                                      {chosenNft.stat?.energyRecovery} /{" "}
                                       {characterMaxStats.maxEnergyRecovery}
                                     </p>
                                   </div>
@@ -307,7 +176,7 @@ const CollectionDetail = () => {
                                       Speed
                                     </p>
                                     <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.moveSpeed} /{" "}
+                                      {chosenNft.stat?.moveSpeed} /{" "}
                                       {characterMaxStats.maxMoveSpeed}
                                     </p>
                                   </div>
@@ -328,7 +197,7 @@ const CollectionDetail = () => {
                                       Damage
                                     </p>
                                     <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.damage} /{" "}
+                                      {chosenNft.stat?.damage} /{" "}
                                       {weaponMaxStats.maxDamage}
                                     </p>
                                   </div>
@@ -344,8 +213,8 @@ const CollectionDetail = () => {
                                       Energy
                                     </p>
                                     <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.consumeEnergy} /{" "}
-                                      {nftSelected.stat?.maxEnergy}
+                                      {chosenNft.stat?.consumeEnergy} /{" "}
+                                      {chosenNft.stat?.maxEnergy}
                                     </p>
                                   </div>
                                 </div>
@@ -360,7 +229,7 @@ const CollectionDetail = () => {
                                       Cooltime
                                     </p>
                                     <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.coolTime} /{" "}
+                                      {chosenNft.stat?.coolTime} /{" "}
                                       {weaponMaxStats.maxCoolDown}
                                     </p>
                                   </div>
@@ -380,9 +249,8 @@ const CollectionDetail = () => {
                                   alt="Dayly gNCoin"
                                 />
                                 <p className={styles.p2eText}>
-                                  Daily gNCoin Battle Count:{" "}
-                                  {nftSelected.dailyPlayCount} /{" "}
-                                  {nftSelected.maxDailyPlayCount}{" "}
+                                  Max Daily gNCoin Battle Count:{" "}
+                                  {chosenNft.maxDailyPlayCount}{" "}
                                 </p>
                               </div>
                               <div className={styles.p2eItemContainer}>
@@ -392,8 +260,8 @@ const CollectionDetail = () => {
                                   alt="Battle count"
                                 />
                                 <p className={styles.p2eText}>
-                                  gNCoin Battle Count: {nftSelected.playCount} /{" "}
-                                  {nftSelected.maxPlayCount}{" "}
+                                  Max gNCoin Battle Count: 
+                                  {chosenNft.maxPlayCount}{" "}
                                 </p>
                               </div>
                               <div className={styles.p2eItemContainer}>
@@ -402,20 +270,20 @@ const CollectionDetail = () => {
                                   src={COPY}
                                   alt="Copy"
                                 />
-                                <p className={styles.p2eText}>Copy: -</p>
+                                <p className={styles.p2eText}>Copy: VER</p>
                               </div>
                             </div>
                             <div className={styles.p2eContainerB}>
-                              <div className={styles.p2eItemContainer}>
+                              {/* <div className={styles.p2eItemContainer}>
                                 <img
                                   className={styles.p2eIcon}
                                   src={SERIAL}
                                   alt="Serial"
                                 />
                                 <p className={styles.p2eText}>
-                                  Serial Number: #{nftSelected.serial}
+                                  Serial Number: #{chosenNft.serial}
                                 </p>
-                              </div>
+                              </div> */}
                               <div className={styles.p2eItemContainer}>
                                 <img
                                   className={styles.p2eIcon}
@@ -423,7 +291,7 @@ const CollectionDetail = () => {
                                   alt="Bonus"
                                 />
                                 <p className={styles.p2eText}>
-                                  Bonus: {nftSelected.rewardMultiplier}
+                                  Bonus: {chosenNft.rewardMultiplier}
                                 </p>
                               </div>
                             </div>
@@ -436,68 +304,34 @@ const CollectionDetail = () => {
                 <div className={styles.bottomContainer}>
                   <div className={styles.bottomLeftContainer}>
                     <div className={styles.item}>
-                      <p className={styles.itemName}>{nftSelected.itemName}</p>
-                      <p className={styles.repName}>
-                        [ {nftSelected.repName} ]
-                      </p>
-                      {nftSelected.salesState === 1 && (
-                        <p className={styles.price}>
-                          Price {nftSelected.price} nCoin
-                        </p>
-                      )}
+                      <p className={styles.itemName}>{chosenNft.itemName}</p>
+                      <p className={styles.repName}>[ {chosenNft.repName} ]</p>
                     </div>
 
-                    <div>
+                    <div className={styles.rarityContainer}>
+                      {/* <p className={styles.rarity}>Fee: {chosenNft.fee}</p>
                       <p className={styles.rarity}>
-                        Rarity: {nftSelected.rarity}
+                        Seller: {chosenNft.sellerName}
+                      </p> */}
+                      <p className={styles.rarity}>
+                        Rarity: {chosenNft.rarity}
                       </p>
                     </div>
                   </div>
-                  {nftSelected.salesState === 1 ? (
-                    <div className={styles.button}>
-                      <button onClick={openModalUnregister}>
-                        Unregister to marketplace
-                      </button>
-                    </div>
-                  ) : (
-                    <div className={styles.button}>
-                      <button onClick={openModalRegister1}>
-                        Register to marketplace
-                      </button>
-                    </div>
-                  )}
+
+                  <div className={styles.button}>
+                    <button onClick={() => handleBuy(chosenNft)}>
+                      Buy {chosenNft.price} NCoin
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         )}
-        {modalUnregister && (
-          <ModalUnregister
-            setmodalUnregister={setmodalUnregister}
-            confirmUnregister={confirmUnregister}
-            name = {nftSelected.itemName}
-          />
-        )}
-        {modalRegister1 && (
-          <ModalRegister1
-            setmodalRegister1={setmodalRegister1}
-            handleInputChange={handleInputChange}
-            Register={Register}
-            inputPrice={inputPrice}
-          />
-        )}
-        {modalRegister2 && (
-          <ModalRegister2
-            setmodalRegister2={setmodalRegister2}
-            handleMarket={handleMarket}
-            forteTxText = {forteTxText}
-            bpToken = {userData.bpToken}
-            pid = {userData.pid}
-          />
-        )}
       </div>
-    </Background>
+    </>
   );
 };
 
-export default CollectionDetail;
+export default NftDetail;

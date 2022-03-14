@@ -12,7 +12,7 @@ import Proccesing from './components/Proccesing';
 
 const MarketplaceDetail = () => {
   const history = useHistory ();
-  const {nftMarket} = useContext (NftData);
+  const {nftMarket, setReloadCollection, setReloadMarket} = useContext (NftData);
 
   const desktop = useMediaQuery ('(min-width: 768px)');
 
@@ -35,11 +35,17 @@ const MarketplaceDetail = () => {
     setListing (true);
   };
 
-  const processingComplete = () => {
+  const proccessingComplete = () => {
     setCheckout (false);
     setProccesing (false);
     setBuyComplete (true);
   };
+
+  const handleReload = (destiny) => {
+    setReloadMarket(value => !value)
+    setReloadCollection(value => !value)
+    history.push(`/${destiny}`)
+  }
 
   return (
     <Background>
@@ -55,12 +61,12 @@ const MarketplaceDetail = () => {
           handleClose={setCheckout}
         />}
       {proccesing &&
-        <Proccesing nftBuy={nft} processingComplete={processingComplete} handleClose={()=>setProccesing(false)}/>}
+        <Proccesing nftBuy={nft} proccessingComplete={proccessingComplete} handleClose={()=>setProccesing(false)}/>}
       {buyComplete &&
         <Complete
           title={nft.itemName}
-          goCollection={() => history.push ('/collection')}
-          goMarketPlace={() => history.push ('/marketPlace')}
+          goCollection={() => handleReload('collection')}
+          goMarketPlace={() => handleReload('marketPlace')}
         />}
       {listing &&
         !desktop &&

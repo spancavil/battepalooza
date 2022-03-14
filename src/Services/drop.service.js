@@ -1,4 +1,5 @@
 import axios from "axios";
+import authHeader from "./auth-header";
 // import authHeader from "./auth-header";
 
 const API_URL = process.env.REACT_APP_API_URL;
@@ -16,6 +17,37 @@ class DropService {
         return await axios.post(API_URL + "drops/detail",{
             pid,
             dropId
+        }).then(response => {
+            return response.data
+        })
+    }
+    async payCoin (pid, productId, bpTokenContent){
+        const bpToken = authHeader(bpTokenContent);
+        return await axios.post(API_URL + "drops/pay-coin-nft",{
+            bpToken,
+            productId,
+            pid
+        }).then(response => {
+            return response.data
+        })
+    }
+    async buyShop (payForteTxId, pid, bpTokenContent){
+        const bpToken = authHeader(bpTokenContent);
+        return await axios.post(API_URL + "drops/buy-shop-nft",{
+            bpToken,
+            payForteTxId,
+            pid
+        }).then(response => {
+            return response.data
+        })
+    }
+
+    async getTransactionStatus (pid, forteTxId, bpTokenContent){
+        const bpToken = authHeader(bpTokenContent);
+        return await axios.post(API_URL + "drops/txstatus", {
+            bpToken,
+            pid,
+            forteTxId
         }).then(response => {
             return response.data
         })
