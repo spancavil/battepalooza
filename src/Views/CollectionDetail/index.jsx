@@ -401,7 +401,7 @@ const CollectionDetail = () => {
                                   src={COPY}
                                   alt="Copy"
                                 />
-                                <p className={styles.p2eText}>Copy: VER</p>
+                                <p className={styles.p2eText}>Copy: -</p>
                               </div>
                             </div>
                             <div className={styles.p2eContainerB}>
