@@ -16,6 +16,7 @@ import Checkout from "./components/Checkout";
 import Proccesing from "./components/Proccesing";
 import Complete from "./components/Complete";
 import { NftData } from "../../Context/NftProvider";
+import { getDaysMinutesSeconds } from "../../Utils/createDate";
 
 const DropDetail = () => {
   const [dropSelected, setDropSelected] = useState();
@@ -24,12 +25,13 @@ const DropDetail = () => {
   const [checkout, setCheckout] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [buyComplete, setBuyComplete] = useState(false);
+  const [timerRelease, setTimerRelease] = useState({ message: "", state: "" });
 
   const { id } = useParams();
   const history = useHistory();
 
-  const { userData} = useContext(UserData);
-  const {setReloadDrops, setReloadCollection} = useContext(NftData);
+  const { userData } = useContext(UserData);
+  const { setReloadDrops, setReloadCollection } = useContext(NftData);
 
   const divHero = useRef();
 
@@ -42,6 +44,7 @@ const DropDetail = () => {
   }, [divHero, dropSelected]);
 
   useEffect(() => {
+    let intervalTimer;
     const fetchData = async () => {
       try {
         const dropDetail = await dropService.getDropDetail(
@@ -62,6 +65,16 @@ const DropDetail = () => {
           }
         } else {
           setDropSelected(dropDetail);
+          //Sandbox
+          // const {message, state} = getDaysMinutesSeconds(Date.now() + 2016000010, Date.now() + 172800000);
+          intervalTimer = setInterval(() => {
+            const date = getDaysMinutesSeconds(dropDetail.dropInfo.startTime, dropDetail.dropInfo.endTime)
+            const { message, state } = date;
+            console.log(message, state)
+            setTimerRelease({ message, state });
+            if (state !== ("active" || "willBeActive")) clearInterval(intervalTimer);
+          }, 1000
+          )
         }
       } catch (error) {
         fireAlertAsync(error.message);
@@ -69,6 +82,11 @@ const DropDetail = () => {
     };
 
     fetchData();
+
+    return () => {
+      console.log("Unmounted Drop Detail");
+      clearInterval(intervalTimer)
+    }
   }, [setDropSelected, userData, history, id]);
 
   const showNft = (nft) => {
@@ -76,13 +94,13 @@ const DropDetail = () => {
   }
 
   const handleBuy = () => {
-    setCheckout (true);
+    setCheckout(true);
   };
 
   const processingComplete = () => {
-    setCheckout (false);
-    setProcessing (false);
-    setBuyComplete (true);
+    setCheckout(false);
+    setProcessing(false);
+    setBuyComplete(true);
   };
 
   const handleCloseComplete = (destiny) => {
@@ -92,8 +110,8 @@ const DropDetail = () => {
     else setBuyComplete(false)
   }
 
-  console.log(chosenNft);
-  console.log(dropSelected)
+  // console.log(chosenNft);
+  // console.log(dropSelected)
 
   return (
     <Background>
@@ -109,6 +127,7 @@ const DropDetail = () => {
                 <div className={styles.information}>
                   <h2 className={styles.release}>Release Date {new Date(dropSelected.dropInfo?.startTime).toLocaleDateString()}</h2>
                   <h2 className={styles.name}>{dropSelected.dropInfo?.name}</h2>
+                  <h2 className={styles.timer}>{timerRelease.message}</h2>
                 </div>
               </div>
               <div className={styles.olderTitle}>
@@ -117,7 +136,7 @@ const DropDetail = () => {
 
               <div className={styles.nftsContainer}>
                 {dropSelected?.nftProducts?.map((nft) => {
-                  return <NftCard nft={nft} key={nft.id} showNft={showNft}/>;
+                  return <NftCard nft={nft} key={nft.id} showNft={showNft} />;
                 })}
               </div>
             </div>
@@ -126,14 +145,14 @@ const DropDetail = () => {
       ) : (
         <p>Loading</p>
       )}
-      {chosenNft && 
-        <NftDetail 
-        chosenNft={chosenNft} 
-        confirmBuy={handleBuy} 
-        handleClose={()=> setChosenNft()}
-        checkout = {checkout}
-        processing = {processing}
-        buyComplete = {buyComplete}
+      {chosenNft &&
+        <NftDetail
+          chosenNft={chosenNft}
+          confirmBuy={handleBuy}
+          handleClose={() => setChosenNft()}
+          checkout={checkout}
+          processing={processing}
+          buyComplete={buyComplete}
         />}
       {checkout &&
         <Checkout
@@ -142,14 +161,14 @@ const DropDetail = () => {
           handleClose={setCheckout}
         />}
       {processing &&
-        <Proccesing nftBuy={chosenNft} 
-        processingComplete={processingComplete} 
-        handleClose={()=>setProcessing(false)}/>}
+        <Proccesing nftBuy={chosenNft}
+          processingComplete={processingComplete}
+          handleClose={() => setProcessing(false)} />}
       {buyComplete &&
         <Complete
           title={chosenNft.itemName}
           goCollection={() => handleCloseComplete('collection')}
-          closeComplete = {()=> handleCloseComplete('')}
+          closeComplete={() => handleCloseComplete('')}
         />}
     </Background>
   );
