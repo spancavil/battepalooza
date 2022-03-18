@@ -262,191 +262,91 @@
     top: 80px;
   }
 
+  .title {
+    font-size: 25px;
+    color: white;
+    font-family: $font-nasalization;
+    text-align: left;
+    width: 100%;
+    padding: 0.3vw 0 1vw 2.5vw;
+  }
+
   .container {
     width: 100vw;
-    height: calc(100vh - 80px);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    position: relative;
+    top: 40px;
 
-    .parentContainerModal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding-top: 80px;
+    .rectangle {
+      width: 95vw;
+      border-image: linear-gradient(
+          180deg,
+          #0146d5 0%,
+          rgba(1, 70, 213, 0) 100%
+        )
+        1;
+      border-top: 2px solid;
+      border-bottom: none;
+      border-right: 2.1px solid;
+      gap: 50px;
+      border-left: 2.3px solid;
+      background: linear-gradient(
+        180deg,
+        rgba(4, 18, 55, 0.65) 0%,
+        rgba(4, 18, 55, 0) 100%
+      );
+      padding: 24px;
 
-      .buttonsContainer {
+      .hero {
+        width: 100%;
+        height: 250px;
+        padding-left: 146px;
         display: flex;
-        gap: 20px;
-        overflow-y: visible;
-      }
+        flex-direction: row;
+        justify-content: space-between;
+        background-size: cover;
 
-      .modalContent {
-        display: flex;
-        flex-direction: column;
-        padding: 0px 50px;
-
-        .subtitle {
-          font-weight: normal;
-          font-size: 18px;
-          text-align: left;
-          margin-top: 20px;
-        }
-
-        .content {
-          font-weight: normal;
-          font-size: 18px;
-          text-align: left;
-          margin-top: 20px;
-        }
-
-        .inputContainer {
+        .information {
           display: flex;
-          align-items: center;
-          padding-top: 15px;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
 
-          label {
-            font-size: 16px;
+          .release {
+            font-family: $font-nasalization;
+            font-size: 20px;
+            line-height: 24px;
+            color: #fff;
           }
-
-          p {
-            margin-top: 35px;
-            padding-left: 10px;
-            font-size: 16px;
+          .name {
+            font-family: $font-montHeavy;
+            font-size: 36px;
+            line-height: 42px;
+            color: $account-name;
           }
-        }
-
-        .fee {
-          font-size: 16px;
-          font-weight: normal;
-          margin-top: 10px;
-        }
-
-        .ncoin {
-          font-size: 16px;
-          font-weight: normal;
-          margin-top: 3px;
-        }
-
-        hr {
-          margin: 20px 0px;
-        }
-
-        .afterFee {
-          font-size: 16px;
-          font-weight: normal;
-          padding-bottom: 50px;
         }
       }
 
-      .textDrop {
-        font-size: 14px;
-        color: white;
-        font-family: $font-nasalization;
-        padding: 0px 130px;
-        padding-top: 25px;
-        padding-bottom: 50px;
-        text-align: center;
-        font-weight: normal;
+      .nftsContainer {
+        display: grid;
+        grid-template-columns: repeat(5, 0fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 70px;
       }
-    }
 
-    .card {
-      display: flex;
-      flex-direction: row;
-      color: white;
-      height: 100%;
-      width: 100%;
-
-      .imgContainer {
-        width: 50%;
-        height: 100%;
+      .olderTitle {
+        width: 100%;
         display: flex;
         align-items: center;
-        padding-right: 50px;
-        justify-content: right;
-        background-color: black;
-        // background: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%);
-        .pinVideo {
-          position: relative;
-          top: 0;
-          left: 50%; /*Center the vid, withouth black spaces*/
-          transform: translate(-50%);
-        }
-        img {
-          height: 60%;
-        }
-      }
-
-      .text {
-        width: 50%;
-        height: 100%;
-        display: flex;
-        background-color: black;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 40px;
-
-        .rare {
-          padding-left: 40px;
+        justify-content: space-between;
+        padding: 32px 0 24px 0;
+        .older {
           font-family: $font-nasalization;
-          font-size: 25px;
-          font-weight: 700;
-          line-height: 26px;
-        }
-
-        p {
-          padding-left: 40px;
-          padding-top: 15px;
-          font-family: $font-nasalization;
-          font-size: 13px;
-          font-weight: 400;
-          line-height: 14px;
-        }
-
-        .contentNft {
-          position: absolute;
-          font-size: 10px;
-          margin-top: -50px;
-          margin-bottom: -100px;
-        }
-
-        ul {
-          list-style: none;
-          padding-left: 40px;
-          padding-top: 7px;
-          font-family: $font-nasalization;
-          font-size: 14px;
-          font-weight: 400;
-        }
-
-        .price {
-          padding-left: 40px;
-          font-family: $font-nasalization;
-          font-size: 22px;
-          font-weight: 700;
-        }
-
-        .buttonContainer {
-          width: 100%;
-          padding-left: 40px;
-          overflow: visible;
-
-          button {
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 50px;
-          }
+          font-size: 24px;
+          line-height: 28px;
+          color: #fff;
         }
       }
     }

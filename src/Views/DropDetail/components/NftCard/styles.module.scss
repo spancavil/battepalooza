@@ -20,6 +20,132 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: $desktop) and (max-width: $HD - 1) {
+  .borderCommon {
+    width: 225px;
+    height: 400px;
+    background: linear-gradient(
+      819deg,
+      #6c6c6c 6.25%,
+      #c5c5c5 52.19%,
+      #6c6c6c 92.72%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderRare {
+    width: 225px;
+    height: 400px;
+    background: linear-gradient(
+      81.09deg,
+      #a78043 6.25%,
+      #fef7eb 52.19%,
+      #8a6a2e 92.72%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderEpic {
+    width: 225px;
+    height: 400px;
+    background: linear-gradient(
+      156.45deg,
+      #ecafef 0%,
+      #ff0079 25.52%,
+      #b53067 67.71%,
+      #8343a8 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderLegendary {
+    width: 225px;
+    height: 400px;
+    background: linear-gradient(
+      153.06deg,
+      #1bfcfd -0.31%,
+      #0ca5d2 49.17%,
+      #033060 80.94%,
+      #14c5d5 99.69%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .cardDropDetail {
+    width: 210px;
+    height: 385px;
+    background: #191919;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 10px;
+    box-shadow: 0px 8px 24px 0px #1919194d;
+    font-family: $font-nasalization;
+
+    button {
+      width: 80%;
+      font-size: 14px;
+    }
+
+    .cardTop {
+      margin-top: 15px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 12px;
+
+      p {
+        font-size: 12px;
+        color: white;
+      }
+
+      .rarityContainer {
+        background: #3d3938;
+        padding: 8px 12px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        img {
+          height: 18px;
+        }
+      }
+    }
+
+    .imgContainer {
+      background-size: cover;
+      background-color: black;
+      height: 60%;
+
+      img {
+        height: 100%;
+        background-size: cover;
+      }
+    }
+
+    h3 {
+      width: 100%;
+      font-family: $font-nasalization;
+      color: $account-name;
+      text-align: left;
+      margin-left: 40px;
+      font-size: 14px;
+    }
+  }
 }
 
 @media (min-width: $HD) {
@@ -57,11 +183,11 @@
     width: 295px;
     height: 505px;
     background: linear-gradient(
-      81.09deg,
-      #636ed9 6.25%,
-      #0fb2ce 28.32%,
-      #f371b7 64.8%,
-      #495093 92.72%
+      156.45deg,
+      #ecafef 0%,
+      #ff0079 25.52%,
+      #b53067 67.71%,
+      #8343a8 100%
     );
     display: flex;
     align-items: center;
@@ -74,10 +200,10 @@
     height: 505px;
     background: linear-gradient(
       153.06deg,
-      #f2cd54 -0.31%,
-      #bca0ff 49.17%,
-      #b3dfa1 99.69%,
-      #91d370 99.69%
+      #1bfcfd -0.31%,
+      #0ca5d2 49.17%,
+      #033060 80.94%,
+      #14c5d5 99.69%
     );
     display: flex;
     align-items: center;
