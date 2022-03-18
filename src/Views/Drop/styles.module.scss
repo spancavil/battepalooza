@@ -530,6 +530,22 @@
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          overflow:visible;
+
+          .findOut {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 14px;
+            overflow: visible;
+            .available{
+              font-family: $font-nasalization;
+              font-size: 24px;
+              line-height: 29px;
+              color: white;
+            }
+          }
         }
 
         .mainImages {
@@ -629,5 +645,7 @@
       line-height: 42px;
       color: $account-name;
     }
+
+    
   }
 }

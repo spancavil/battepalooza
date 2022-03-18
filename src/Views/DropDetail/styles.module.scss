@@ -442,15 +442,21 @@
 
           .release {
             font-family: $font-nasalization;
-            font-size: 20px;
-            line-height: 24px;
+            font-size: 36px;
+            line-height: 42px;
             color: #fff;
           }
           .name {
             font-family: $font-montHeavy;
-            font-size: 36px;
-            line-height: 42px;
+            font-size: 48px;
+            line-height: 61px;
             color: $account-name;
+          }
+          .timer {
+            font-family: $font-nasalization;
+            font-size: 24px;
+            line-height: 29px;
+            color: #fff;
           }
         }
       }
