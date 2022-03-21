@@ -706,11 +706,14 @@
 @media (min-width: $desktop) and (max-width: $HD - 1) {
 
   .container {
+    position: fixed;
+    top: 20px;
     width: 100vw;
-    height: calc(100vh - 80px);
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0,0,0,.6);
 
     .card {
       display: flex;
@@ -720,12 +723,32 @@
       color: white;
       height: 100%;
       width: 100%;
+      animation: modalLeftRight 0.2s, modalFade 0.25s;
 
+      .header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 50px;
+        width: 100%;
+        background-color: $market-footer;
+        justify-content: space-between;
+        padding: 12px 32px;
+
+        .remain{
+          font-family: $font-nsRegular;
+          font-size: 20px;
+          line-height: 24px;
+          color: #fff;
+        }
+      }
+      
       .cardContainer {
         display: flex;
         flex-direction: column;
         width: 90vw;
         margin-top: 30px;
+
 
         .topContainer {
           height: 440px;

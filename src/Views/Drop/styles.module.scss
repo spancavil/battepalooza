@@ -373,6 +373,21 @@
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+
+          .findOut {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 14px;
+            overflow: visible;
+            .available{
+              font-family: $font-nasalization;
+              font-size: 20px;
+              line-height: 24px;
+              color: white;
+            }
+          }
         }
         
         .mainImages {

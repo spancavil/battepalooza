@@ -1,1 +1,46 @@
-{"products":[{"uniqueId":"330852298663919172853279310512024480611102512602","sellerPid":"TLWEMOVBCT","sellerName":"Player769581","price":50000,"fee":2500,"type":2,"itemId":1047,"itemName":"Blue Light Smasher","repName":"Battle Hammer","rarity":"EPIC","clan":11,"serial":1,"playCount":0,"maxPlayCount":323,"movieUrl":"https://battlepalooza-web.s3.amazonaws.com/movieClips/items/BlueLightSmasher_Rare.mp4","thumbnailUrl":"https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_04_Pre1.png"},{"uniqueId":"570036590010009098878864585479400786509100437252","sellerPid":"TM77P4RSTX","sellerName":"Player162014","price":400000,"fee":20000,"type":2,"itemId":1019,"itemName":"Pop Rifle","repName":"Rifle","rarity":"COMMON","clan":2,"serial":2,"playCount":0,"maxPlayCount":281,"movieUrl":"https://battlepalooza-web.s3.amazonaws.com/movieClips/items/PopRifle_Common.mp4","thumbnailUrl":"https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_01_Pre1.png"}],"result":0,"error":{"num":0,"action":0,"text":""}}
+{
+    "products": [
+        {
+            "uniqueId": "330852298663919172853279310512024480611102512602",
+            "sellerPid": "TLWEMOVBCT",
+            "sellerName": "Player769581",
+            "price": 50000,
+            "fee": 2500,
+            "type": 2,
+            "itemId": 1047,
+            "itemName": "Blue Light Smasher",
+            "repName": "Battle Hammer",
+            "rarity": "EPIC",
+            "clan": 11,
+            "serial": 1,
+            "playCount": 0,
+            "maxPlayCount": 323,
+            "movieUrl": "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/BlueLightSmasher_Rare.mp4",
+            "thumbnailUrl": "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_04_Pre1.png"
+        },
+        {
+            "uniqueId": "570036590010009098878864585479400786509100437252",
+            "sellerPid": "TM77P4RSTX",
+            "sellerName": "Player162014",
+            "price": 400000,
+            "fee": 20000,
+            "type": 2,
+            "itemId": 1019,
+            "itemName": "Pop Rifle",
+            "repName": "Rifle",
+            "rarity": "COMMON",
+            "clan": 2,
+            "serial": 2,
+            "playCount": 0,
+            "maxPlayCount": 281,
+            "movieUrl": "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/PopRifle_Common.mp4",
+            "thumbnailUrl": "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_01_Pre1.png"
+        }
+    ],
+    "result": 0,
+    "error": {
+        "num": 0,
+        "action": 0,
+        "text": ""
+    }
+}
