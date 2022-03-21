@@ -1,1 +1,49 @@
-{"nft":{"dailyPlayCount":0,"maxDailyPlayCount":12,"rewardMultiplier":1,"storyText":"It is the main weapon loved by ninjas. It is said that when ninjas receive a shuriken for the first time, they give it a unique name.","skill":null,"ability":{"text":"It stays stationary in a place for a period of time then it returns.\\nIt damages enemies even when it moves","features":["AOE Attack","Return"]},"stat":{"damage":116,"consumeEnergy":25,"maxEnergy":100,"coolTime":1.5},"buff":[{"id":2,"name":"Damage","value":6}],"uuid":"af518bb3-d6d0-4954-a472-e5d2baedbc56","type":2,"itemId":1060,"itemName":"Dark Blue","repName":"Boomerang","clan":5,"rarity":"COMMON","sealed":true,"salesState":0,"serial":2,"playCount":0,"maxPlayCount":281,"movieUrl":"https://battlepalooza-web.s3.amazonaws.com/movieClips/items/DarkBlue_Common.mp4","thumbnailUrl":"https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_28_Pre1.png"},"result":0,"error":{"num":0,"action":0,"text":""}}
+{
+    "nft": {
+        "dailyPlayCount": 0,
+        "maxDailyPlayCount": 12,
+        "rewardMultiplier": 1,
+        "storyText": "It is the main weapon loved by ninjas. It is said that when ninjas receive a shuriken for the first time, they give it a unique name.",
+        "skill": null,
+        "ability": {
+            "text": "It stays stationary in a place for a period of time then it returns.\\nIt damages enemies even when it moves",
+            "features": [
+                "AOE Attack",
+                "Return"
+            ]
+        },
+        "stat": {
+            "damage": 116,
+            "consumeEnergy": 25,
+            "maxEnergy": 100,
+            "coolTime": 1.5
+        },
+        "buff": [
+            {
+                "id": 2,
+                "name": "Damage",
+                "value": 6
+            }
+        ],
+        "uuid": "af518bb3-d6d0-4954-a472-e5d2baedbc56",
+        "type": 2,
+        "itemId": 1060,
+        "itemName": "Dark Blue",
+        "repName": "Boomerang",
+        "clan": 5,
+        "rarity": "COMMON",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 2,
+        "playCount": 0,
+        "maxPlayCount": 281,
+        "movieUrl": "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/DarkBlue_Common.mp4",
+        "thumbnailUrl": "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_28_Pre1.png"
+    },
+    "result": 0,
+    "error": {
+        "num": 0,
+        "action": 0,
+        "text": ""
+    }
+}

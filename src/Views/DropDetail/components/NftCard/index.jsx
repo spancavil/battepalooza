@@ -12,10 +12,10 @@ const NftCard = ({ nft, showNft }) => {
         nft.rarity === "COMMON"
           ? styles.borderCommon
           : nft.rarity === "RARE"
-          ? styles.borderRare
-          : nft.rarity === "EPIC"
-          ? styles.borderEpic
-          : styles.borderLegendary
+            ? styles.borderRare
+            : nft.rarity === "EPIC"
+              ? styles.borderEpic
+              : styles.borderLegendary
       }
     >
       <div className={styles.cardDropDetail}>
@@ -26,10 +26,10 @@ const NftCard = ({ nft, showNft }) => {
                 nft.rarity === "COMMON"
                   ? COMMON
                   : nft.rarity === "RARE"
-                  ? RARE
-                  : nft.rarity === "EPIC"
-                  ? EPIC
-                  : LEGENDARY
+                    ? RARE
+                    : nft.rarity === "EPIC"
+                      ? EPIC
+                      : LEGENDARY
               }
               alt={nft.rarity}
             />
@@ -43,7 +43,9 @@ const NftCard = ({ nft, showNft }) => {
           <img src={nft.thumbnailUrl} alt={nft.itemName} />
         </div>
         <h3>{nft.itemName}</h3>
-        <Button title={`BUY ${nft.price} nCoin`} onClick={()=> showNft(nft)} />
+        <h3> Max playcount: {nft.maxPlayCount}</h3>
+        <h3> Max daily playcount: {nft.maxDailyPlayCount}</h3>
+        <Button title={`BUY ${nft.price} nCoin`} onClick={() => showNft(nft)} />
       </div>
     </div>
   );
