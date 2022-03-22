@@ -337,6 +337,68 @@
       width: 0;
     }
 
+    .borderCommon {
+      width: 215px;
+      height: 320px;
+      background: linear-gradient(
+        819deg,
+        #6c6c6c 6.25%,
+        #c5c5c5 52.19%,
+        #6c6c6c 92.72%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+  
+    .borderRare {
+      width: 215px;
+      height: 320px;
+      background: linear-gradient(
+        81.09deg,
+        #a78043 6.25%,
+        #fef7eb 52.19%,
+        #8a6a2e 92.72%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+  
+    .borderEpic {
+      width: 215px;
+      height: 320px;
+      background: linear-gradient(
+        156.45deg,
+        #ecafef 0%,
+        #ff0079 25.52%,
+        #b53067 67.71%,
+        #8343a8 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+  
+    .borderLegendary {
+      width: 215px;
+      height: 320px;
+      background: linear-gradient(
+        153.06deg,
+        #1bfcfd -0.31%,
+        #0ca5d2 49.17%,
+        #033060 80.94%,
+        #14c5d5 99.69%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
     .cards {
       margin-top: 30px;
       display: grid;
@@ -419,6 +481,68 @@
 
     a {
       width: 0;
+    }
+
+    .borderCommon {
+      width: 265px;
+      height: 380px;
+      background: linear-gradient(
+        819deg,
+        #6c6c6c 6.25%,
+        #c5c5c5 52.19%,
+        #6c6c6c 92.72%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+  
+    .borderRare {
+      width: 265px;
+      height: 380px;
+      background: linear-gradient(
+        81.09deg,
+        #a78043 6.25%,
+        #fef7eb 52.19%,
+        #8a6a2e 92.72%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+  
+    .borderEpic {
+      width: 265px;
+      height: 380px;
+      background: linear-gradient(
+        156.45deg,
+        #ecafef 0%,
+        #ff0079 25.52%,
+        #b53067 67.71%,
+        #8343a8 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+  
+    .borderLegendary {
+      width: 265px;
+      height: 380px;
+      background: linear-gradient(
+        153.06deg,
+        #1bfcfd -0.31%,
+        #0ca5d2 49.17%,
+        #033060 80.94%,
+        #14c5d5 99.69%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
     }
 
     .cards {

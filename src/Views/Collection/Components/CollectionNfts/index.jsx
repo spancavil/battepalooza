@@ -81,32 +81,41 @@ const CollectionNfts = () => {
             return (
               /* Aqui el div apunta a su referencia correspondiente */
               <div
+                className={
+                  nft.rarity === "COMMON"
+                    ? styles.borderCommon
+                    : nft.rarity === "RARE"
+                    ? styles.borderRare
+                    : nft.rarity === "EPIC"
+                    ? styles.borderEpic
+                    : styles.borderLegendary
+                }
                 onClick={() => onClick(nft.uuid)}
                 ref={tilts[indice]}
-                className={styles.cardNft}
-                key={nft.uuid}
               >
-                {nft.salesState === 1 && (
-                  <div className={styles.sale}>Sale</div>
-                )}
-
-                {/* El source luego cambiara en base al asset */}
-                <img
-                  className={styles.imgNft}
-                  src={nft.thumbnailUrl}
-                  alt="nft-thumb"
-                />
-                <div className={styles.texts}>
-                  <p>{nft.repName}</p>
-                  <p>{nft.itemName}</p>
-                  <p className={styles.text2}>{nft.rarity}</p>
-                  {/* <p>#{nft.itemId}</p> */}
-                  <p>
-                    gNCoin Battle Count: {nft.playCount}/{nft.maxPlayCount}
-                  </p>
+                <div className={styles.cardNft} key={nft.uuid}>
                   {nft.salesState === 1 && (
-                    <p className={styles.price}>{nft.price} NCoin</p>
+                    <div className={styles.sale}>Sale</div>
                   )}
+
+                  {/* El source luego cambiara en base al asset */}
+                  <img
+                    className={styles.imgNft}
+                    src={nft.thumbnailUrl}
+                    alt="nft-thumb"
+                  />
+                  <div className={styles.texts}>
+                    <p>{nft.repName}</p>
+                    <p>{nft.itemName}</p>
+                    <p className={styles.text2}>{nft.rarity}</p>
+                    {/* <p>#{nft.itemId}</p> */}
+                    <p>
+                      gNCoin Battle Count: {nft.playCount}/{nft.maxPlayCount}
+                    </p>
+                    {nft.salesState === 1 && (
+                      <p className={styles.price}>{nft.price} NCoin</p>
+                    )}
+                  </div>
                 </div>
               </div>
             );
