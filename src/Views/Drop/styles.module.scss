@@ -373,6 +373,7 @@
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          overflow: visible;
 
           .findOut {
             display: flex;
@@ -431,12 +432,15 @@
       .cards {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 7px;
         flex-wrap: wrap;
         row-gap: 24px;
 
         .cardNft {
           background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
           cursor: pointer;
           overflow: visible;
           position: relative;

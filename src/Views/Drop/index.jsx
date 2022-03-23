@@ -71,7 +71,7 @@ const Drop = () => {
   return (
     <Background>
       <div className={styles.content2}>
-        <p className={styles.goBack}> {charEsc} Go back</p>
+        <p className={styles.goBack} onClick={()=> history.push('/')}> {charEsc} Go back</p>
         <p className={styles.title}>DROP</p>
         <div className={styles.rectangle}>
 

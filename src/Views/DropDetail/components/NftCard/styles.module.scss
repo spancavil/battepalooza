@@ -89,7 +89,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 5px;
     padding-bottom: 10px;
     box-shadow: 0px 8px 24px 0px #1919194d;
     font-family: $font-nasalization;
@@ -100,7 +100,7 @@
     }
 
     .cardTop {
-      margin-top: 15px;
+      margin-top: 8px;
       width: 100%;
       display: flex;
       justify-content: space-between;
@@ -108,42 +108,62 @@
       padding: 0 12px;
 
       p {
-        font-size: 12px;
+        font-size: 11px;
         color: white;
       }
 
       .rarityContainer {
         background: #3d3938;
-        padding: 8px 12px;
+        padding: 6px 10px;
         border-radius: 15px;
         display: flex;
         align-items: center;
         gap: 10px;
 
         img {
-          height: 18px;
+          height: 15px;
         }
       }
     }
 
     .imgContainer {
-      background-size: cover;
       background-color: black;
       height: 60%;
+      width: 90%;
+      display: flex;
 
       img {
-        height: 100%;
-        background-size: cover;
+        width: 100%;
       }
     }
 
-    h3 {
+    .name {
       width: 100%;
       font-family: $font-nasalization;
       color: $account-name;
       text-align: left;
-      margin-left: 40px;
+      margin-left: 30px;
       font-size: 14px;
+      line-height: 18px;
+    }
+    .count{
+      width: 100%;
+      font-family: $font-nasalization;
+      text-align: left;
+      margin-left: 30px;
+      font-size: 12px;
+      line-height: 16px;
+      color: white;
+    }
+    .count2{
+      width: 100%;
+      font-family: $font-nasalization;
+      text-align: left;
+      margin-left: 30px;
+      font-size: 12px;
+      line-height: 16px;
+      color: white;
+      padding-bottom: 5px;
     }
   }
 }
@@ -218,50 +238,80 @@
     flex-direction: column;
     align-items: center;
     width: 280px;
-    gap: 25px;
-    padding-bottom: 25px;
+    gap: 10px;
+    padding-bottom: 15px;
     box-shadow: 0px 8px 24px 0px #1919194d;
     font-family: $font-nasalization;
 
     .cardTop {
-      margin-top: 25px;
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
+      padding: 12px 20px 0px 20px;
 
       p {
-        font-size: 14px;
+        font-size: 11px;
         color: white;
       }
 
       .rarityContainer {
+        height: 100%;
         background: #3d3938;
-        padding: 8px 15px;
+        padding: 6px 12px;
         border-radius: 15px;
         display: flex;
         align-items: center;
         gap: 20px;
+        img {
+          height: 18px;
+        }
       }
     }
 
     .imgContainer {
-      background-size: cover;
+      height: 322px;
+      width: 90%;
       background-color: black;
-      padding: 10px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
 
       img {
-        height: 240px;
+        height: 95%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
       }
     }
 
-    h3 {
+    .name {
       width: 100%;
       font-family: $font-nasalization;
       color: $account-name;
       text-align: left;
-      margin-left: 40px;
+      margin-left: 30px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+    .count{
+      width: 100%;
+      font-family: $font-nasalization;
+      text-align: left;
+      margin-left: 33px;
+      font-size: 13px;
+      line-height: 16px;
+      color: white;
+    }
+    .count2{
+      width: 100%;
+      font-family: $font-nasalization;
+      text-align: left;
+      margin-left: 33px;
+      font-size: 13px;
+      line-height: 16px;
+      color: white;
+      padding-bottom: 3px;
     }
   }
 }
