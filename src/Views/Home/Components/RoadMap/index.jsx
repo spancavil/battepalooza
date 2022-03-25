@@ -22,40 +22,40 @@ const RoadMap = () => {
     <div className={styles.container}>
       <h2 className={styles.title}>ROADMAP</h2>
       <div className={styles.months}>
-        {months.map((month) => (
-          <span>{month}</span>
+        {months.map((month, i) => (
+          <span key={i}>{month}</span>
         ))}
       </div>
       <div className={styles.q}>
         <div className={styles.q1}>
           <h3>Q1 2022</h3>
           <ul>
-            {items.map((item) => (
-              <li>{item}</li>
+            {items.map((item, i) => (
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
         <div className={styles.q2}>
           <h3>Q1 2022</h3>
           <ul>
-            {items.map((item) => (
-              <li>{item}</li>
+            {items.map((item, i) => (
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
         <div className={styles.q3}>
           <h3>Q1 2022</h3>
           <ul>
-            {items.map((item) => (
-              <li>{item}</li>
+            {items.map((item, i) => (
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
         <div className={styles.q4}>
           <h3>Q1 2022</h3>
           <ul>
-            {items.map((item) => (
-              <li>{item}</li>
+            {items.map((item, i) => (
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
