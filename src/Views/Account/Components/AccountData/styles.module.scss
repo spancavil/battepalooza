@@ -2,123 +2,79 @@
 @import "../../../../Styles/fonts.scss";
 @import "../../../../Styles/breakpoints.scss";
 
-@media (max-width: $laptop - 1) {
-  .container {
-    background-color: $account-bg;
-    width: 90%;
-    max-width: 720px;
-    height: 180px;
-    z-index: 1;
-    border-radius: 10px;
-    border: 2px solid $account-border;
-    font-family: $font-nasalization;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  
-    h4 {
-      text-align: center;
-      margin-top: 10px;
-    }
-  
-    p {
-      width: 100%;
-      text-align: center;
-    }
-  }
-  
-  .title {
-    color: $account-name;
-    font-weight: 400;
-    font-size: 25px;
-  }
-  
-  .joined {
+.container {
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 800px;
+  z-index: 1;
+  border: 1.5px solid;
+  border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
+  border-bottom: none;
+  font-family: $font-nasalization;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgb(4 18 55 / 70%) 10%,
+    rgb(4 18 55) 100%
+  );
+  padding: 15px 0;
+
+  .info {
+    font-size: 14px;
+    font-weight: bold;
     color: white;
-    font-size: 12px;
-    font-weight: 400;
+    font-family: $font-montHeavy;
   }
-  
-  .linked {
-    color: white;
-    font-size: 15px;
-    margin-top: 20px;
+
+  h4 {
+    text-align: center;
+    margin-top: 10px;
   }
-  
-  .nCoin {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    gap: 10px;
-    margin-top: 15px;
-    font-size: 15px;
-  }
-  
-  .img {
-    width: 25px;
+
+  p {
+    width: 100%;
+    text-align: center;
   }
 }
 
+.title {
+  color: $account-name;
+  font-weight: 400;
+  font-size: 25px;
+}
 
-@media (min-width: $laptop) {
-  .container {
-    position: relative;
-    margin-left: 20vw;
-    align-self: center;
-    background-color: $account-bg;
-    width: 720px;
-    height: 180px;
-    z-index: 1;
-    border-radius: 10px;
-    border: 2px solid $account-border;
-    font-family: $font-nasalization;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.joined {
+  margin-top: 5px;
+  color: white;
+  font-size: 10px;
+  font-weight: 400;
+}
 
-    h4 {
-      text-align: center;
-      margin-top: 10px;
-    }
+.linked {
+  font-family: $font-montHeavy;
+  color: white;
+  font-size: 15px;
+  padding: 15px 0;
+}
 
-    p {
-      width: 100%;
-      text-align: center;
-    }
+.nCoin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 10px;
+  font-size: 15px;
+
+  span {
+    color: $go-back;
+    font-family: $font-nanum;
+    font-weight: bold;
   }
+}
 
-  .title {
-    color: $account-name;
-    font-weight: 400;
-    font-size: 25px;
-  }
-
-  .joined {
-    color: white;
-    font-size: 12px;
-    font-weight: 400;
-  }
-
-  .linked {
-    color: white;
-    font-size: 15px;
-    margin-top: 20px;
-  }
-
-  .nCoin {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    gap: 10px;
-    margin-top: 15px;
-    font-size: 15px;
-  }
-
-  .img {
-    width: 25px;
-  }
+.img {
+  width: 18px;
 }
