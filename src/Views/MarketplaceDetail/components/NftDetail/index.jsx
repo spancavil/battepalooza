@@ -349,7 +349,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
 
                   <div className={styles.button}>
                     <button onClick={() => handleBuy()}>
-                      Buy {chosenNft.price} NCoin
+                      {chosenNft.price} NCoin
                     </button>
                   </div>
                 </div>

@@ -96,7 +96,6 @@
     }
 
     .rectangle {
-      
       background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
 
       .link {
@@ -111,19 +110,21 @@
         display: flex;
         flex-direction: column;
         background-size: cover;
+        padding-bottom: 20px;
 
         .information {
           display: flex;
           flex-direction: column;
+          justify-content: center;
           align-items:center;
           overflow: visible;
+          gap: 12px;
 
           .findOut {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 14px 0px;
             gap: 14px;
             overflow: visible;
             .available{
@@ -184,10 +185,12 @@
           border-radius: 4px;
           gap: 20px;
           padding: 0 20px;
+
           .texts {
             width: 100%;
             display: flex;
             flex-direction: column;
+            gap: 12px;
             align-items: center;
           }
           .imagesContainer {
@@ -211,21 +214,20 @@
       color: #fff;
       max-width: 577px;
       text-align: center;
-      padding: 12px 20px;
+      padding: 0 20px;
     }
     .release {
       font-family: $font-nasalization;
       font-size: 16px;
       line-height: 24px;
       color: #fff;
-      padding: 12px 0;
+      text-align: center;
     }
     .name {
       font-family: $font-montHeavy;
       font-size: 28px;
       line-height: 32px;
       color: $account-name;
-      padding-bottom: 12px;
     }
   }
 }
@@ -707,6 +709,8 @@
             align-items: center;
             gap: 14px;
             overflow: visible;
+            padding-top: 20px;
+
             .available{
               font-family: $font-nasalization;
               font-size: 20px;
