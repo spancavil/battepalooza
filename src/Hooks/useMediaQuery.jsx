@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * 
+ * @param {*} query   example use: let responsive = useMediaQuery ('(min-width: 1200px)');
+
+ * @returns true or false
+ */
 export function useMediaQuery(query) {
   const [matches, setMatches] = useState(false);
 
