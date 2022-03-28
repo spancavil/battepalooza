@@ -44,7 +44,7 @@ const TradeHistory = () => {
                 </div>
 
                 <div className={styles.item}>
-                  <p>Buyer</p>
+                  <p>{category === "purchase" ? "Seller" : "Buyer"} </p>
                   <span>{trade.buyer}</span>
                 </div>
 
