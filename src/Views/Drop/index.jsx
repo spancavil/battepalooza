@@ -6,8 +6,10 @@ import styles from './styles.module.scss';
 import Button from '../../Global-Components/Button';
 import { NftData } from '../../Context/NftProvider';
 import heroBannerImage from '../../Assets/img/dropHeroBg.png';
-import heroBannerSecondary from '../../Assets/img/bg-secondary-drop.png'
+import heroBannerSecondary from '../../Assets/img/bg-secondary-drop.png';
+import heroBannerImageMobile from '../../Assets/img/bg-drop-mobile.png';
 import { getDaysMinutesSeconds } from '../../Utils/createDate';
+import { useMediaQuery } from '../../Hooks/useMediaQuery';
 
 const Drop = () => {
   const charEsc = '<';
@@ -18,6 +20,9 @@ const Drop = () => {
   const [olderDrops, setOlderDrops] = useState([]);
   const [hero, setHero] = useState({});
   const [timerRelease, setTimerRelease] = useState({ message: "", state: "" })
+  const mobile = useMediaQuery('(max-width: 991px)');
+
+  console.log(mobile);
 
   const divHero = useRef()
   const divsOlder = useMemo(() => (olderDrops.map(() => createRef())), [olderDrops])
@@ -36,7 +41,6 @@ const Drop = () => {
       intervalTimer = setInterval(() => {
         const date = getDaysMinutesSeconds(drops.mainDrop.startTime, drops.mainDrop.endTime)
         const { message, state } = date;
-        console.log(state);
         setTimerRelease({ message, state });
         if (state !== ("active" || "willBeActive")) clearInterval(intervalTimer);
       }, 1000
@@ -52,13 +56,13 @@ const Drop = () => {
   useEffect(() => {
 
     if (hero.length !== 0 && olderDrops.length !== 0 && divsOlder.length !== 0) {
-      divHero.current.style.backgroundImage = `url(${heroBannerImage})`;
+      divHero.current.style.backgroundImage = mobile ? `url(${heroBannerImageMobile})` : `url(${heroBannerImage})`;
       for (const drop of olderDrops) {
         const index = olderDrops.findIndex(element => element.id === drop.id);
         if (divsOlder[index]?.current) divsOlder[index].current.style.backgroundImage = `url(${heroBannerSecondary})`;
       }
     }
-  }, [divHero, divsOlder, hero, olderDrops])
+  }, [divHero, divsOlder, hero, olderDrops, mobile])
 
   const handleDetail = (id) => {
     history.push(`/drop/${id}`)
@@ -71,15 +75,25 @@ const Drop = () => {
   return (
     <Background>
       <div className={styles.content2}>
-        <p className={styles.goBack} onClick={()=> history.push('/')}> {charEsc} Go back</p>
+        <p className={styles.goBack} onClick={() => history.push('/')}> {charEsc} Go back</p>
         <p className={styles.title}>DROP</p>
         <div className={styles.rectangle}>
 
           <div className={styles.hero} ref={divHero}>
             <div className={styles.information}>
-              <h2 className={styles.release} style={{ padding: '55px 0px 8px 0px' }}>Release date {new Date(hero?.startTime).toLocaleDateString()}</h2>
-              <h2 className={styles.name} style={{ padding: '0px 0px 12px 0px' }}>{hero?.name}</h2>
-              <h2 className={styles.roboto} style={{ padding: '0px 0px 20px 0px' }}>{hero?.desc} </h2>
+              {mobile && <img
+                src={heroBannerSecondary}
+                alt="Hero"
+                style={{
+                  width: '100%',
+                  height: '250px',
+                  objectFit: 'cover',
+                  bottom: '0',
+                }}
+              />}
+              <h2 className={styles.release}>Release date {new Date(hero?.startTime).toLocaleDateString()}</h2>
+              <h2 className={styles.name}>{hero?.name}</h2>
+              <h2 className={styles.roboto}>{hero?.desc} </h2>
               <div className={styles.findOut}>
                 <Button
                   title="Find out more"

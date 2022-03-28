@@ -79,7 +79,7 @@
       width: 100%;
       cursor: pointer;
       text-decoration: none;
-      padding: 10vw 0 0 2.5vw;
+      padding: 2vw 0 0 2.5vw;
     }
 
     .goBack:hover {
@@ -96,9 +96,6 @@
     }
 
     .rectangle {
-      border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
-      border-top: 3px solid transparent;
-      border-bottom: none;
       background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
 
       .link {
@@ -107,6 +104,130 @@
         align-items: center;
         justify-content: center;
       }
+
+      .hero {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-size: cover;
+        padding-bottom: 20px;
+
+        .information {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items:center;
+          overflow: visible;
+          gap: 12px;
+
+          .findOut {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            overflow: visible;
+            .available{
+              font-family: $font-nasalization;
+              font-size: 20px;
+              line-height: 24px;
+              color: white;
+            }
+          }
+        }
+        
+        .mainImages {
+          width: 60%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          overflow: visible;
+        }
+      }
+
+      .olderTitle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 0 0px 12px;
+        .older {
+          font-family: $font-nasalization;
+          font-size: 24px;
+          line-height: 28px;
+          color: #fff;
+        }
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        padding-bottom: 30px;
+
+        .cardNft {
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          cursor: pointer;
+          overflow: visible;
+          position: relative;
+          height: 265px;
+          width: 92vw;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          border-radius: 4px;
+          gap: 20px;
+          padding: 0 20px;
+
+          .texts {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+          }
+          .imagesContainer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 19vh;
+            overflow: visible;
+          }
+        }
+      }
+    }
+    .roboto {
+      font-family: $font-nsRegular;
+      font-size: 14px;
+      line-height: 18px;
+      color: #fff;
+      max-width: 577px;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .release {
+      font-family: $font-nasalization;
+      font-size: 16px;
+      line-height: 24px;
+      color: #fff;
+      text-align: center;
+    }
+    .name {
+      font-family: $font-montHeavy;
+      font-size: 28px;
+      line-height: 32px;
+      color: $account-name;
     }
   }
 }
@@ -114,13 +235,32 @@
 /* TABLET */
 @media (min-width: $tablet) and (max-width: $laptop - 1) {
   .cards {
-    margin-top: 30px;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+    overflow-x: scroll;
     justify-content: left;
     padding: 0px 15px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 30px;
+    overflow-y: visible;
+
+    .sale {
+      background-color: $secondary-blue;
+      width: 45px;
+      height: 45px;
+      border-radius: 50px;
+      font-family: $font-nasalization;
+      font-size: 15px;
+      color: white;
+      position: absolute;
+      top: 0px;
+      right: -18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
     .cardNft {
       overflow: visible;
@@ -132,10 +272,9 @@
       align-items: center;
       background-color: #030b23;
       border-radius: 3px;
-      justify-content: left;
+      justify-content: center;
       grid-gap: 20px;
       gap: 20px;
-      justify-content: center;
     }
 
     .texts {
@@ -145,7 +284,7 @@
       gap: 7px;
 
       p {
-        font-size: 13px;
+        font-size: 14px;
         padding: 0px 15px;
         text-align: center;
         color: white;
@@ -163,13 +302,8 @@
   }
 
   .content2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
     .goBack {
-      font-size: 10px;
+      font-size: 12px;
       color: #3d91ef;
       font-family: $font-nasalization;
       text-align: left;
@@ -184,24 +318,17 @@
     }
 
     .title {
-      font-size: 25px;
+      font-size: 22px;
       color: white;
       font-family: $font-nasalization;
       text-align: left;
       width: 100%;
-      padding: 0.3vw 0 1vw 2.5vw;
+      padding: 2vw 0 2vw 2.5vw;
     }
 
     .rectangle {
-      width: 95vw;
-      border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
-      border-top: 2px solid;
-      border-bottom: none;
-      border-right: 2.1px solid;
-      justify-content: center;
-      gap: 50px;
+      
       background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
-      border-left: 2.2px solid;
 
       .link {
         padding: 30px 0px;
@@ -209,61 +336,133 @@
         align-items: center;
         justify-content: center;
       }
+
+      .hero {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-size: cover;
+
+        .information {
+          display: flex;
+          flex-direction: column;
+          align-items:center;
+          overflow: visible;
+
+          .findOut {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 0px;
+            gap: 14px;
+            overflow: visible;
+            .available{
+              font-family: $font-nasalization;
+              font-size: 20px;
+              line-height: 24px;
+              color: white;
+            }
+          }
+        }
+        
+        .mainImages {
+          width: 60%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          overflow: visible;
+        }
+      }
+
+      .olderTitle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 0 0px 12px;
+        .older {
+          font-family: $font-nasalization;
+          font-size: 24px;
+          line-height: 28px;
+          color: #fff;
+        }
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        padding-bottom: 30px;
+
+        .cardNft {
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          cursor: pointer;
+          overflow: visible;
+          position: relative;
+          height: 265px;
+          width: 92vw;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          border-radius: 4px;
+          gap: 20px;
+          padding: 0 20px;
+          .texts {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .imagesContainer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 19vh;
+            overflow: visible;
+          }
+        }
+      }
+    }
+    .roboto {
+      font-family: $font-nsRegular;
+      font-size: 14px;
+      line-height: 18px;
+      color: #fff;
+      max-width: 577px;
+      text-align: center;
+      padding: 12px 20px;
+    }
+    .release {
+      font-family: $font-nasalization;
+      font-size: 16px;
+      line-height: 24px;
+      color: #fff;
+      padding: 12px 0;
+    }
+    .name {
+      font-family: $font-montHeavy;
+      font-size: 28px;
+      line-height: 32px;
+      color: $account-name;
+      padding-bottom: 12px;
     }
   }
 }
 
 /* LAPTOP */
 @media (min-width: $laptop) and (max-width: $desktop - 1) {
-  .cards {
-    margin-top: 30px;
-    justify-content: left;
-    padding: 0px 15px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 30px;
-
-    .cardNft {
-      overflow: visible;
-      position: relative;
-      height: 350px;
-      width: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #030b23;
-      border-radius: 3px;
-      justify-content: left;
-      grid-gap: 20px;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .texts {
-      display: flex;
-      flex-direction: column;
-      grid-gap: 7px;
-      gap: 7px;
-
-      p {
-        font-size: 13px;
-        padding: 0px 15px;
-        text-align: center;
-        color: white;
-        font-family: "Nasalization";
-      }
-
-      .price {
-        color: $logout;
-      }
-
-      .text2 {
-        color: $account-name;
-      }
-    }
-  }
-
   .content2 {
     display: flex;
     flex-direction: column;
@@ -300,18 +499,145 @@
       border-top: 2px solid;
       border-bottom: none;
       border-right: 2.1px solid;
-      align-items: center;
       justify-content: center;
       gap: 50px;
       border-left: 2.3px solid;
       background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
+      padding: 24px;
 
-      .link {
-        padding: 30px 0px;
+      .hero {
+        width: 100%;
+        height: 330px;
+        display: flex;
+        padding: 0 20px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-size: cover;
+
+        .information {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          overflow: visible;
+
+          .findOut {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 14px;
+            overflow: visible;
+            .available{
+              font-family: $font-nasalization;
+              font-size: 20px;
+              line-height: 24px;
+              color: white;
+            }
+          }
+        }
+        
+        .mainImages {
+          width: 60%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          overflow: visible;
+        }
+      }
+
+      .olderTitle {
+        width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        padding: 32px 0 24px 0;
+        .older {
+          font-family: $font-nasalization;
+          font-size: 24px;
+          line-height: 28px;
+          color: #fff;
+        }
+        .allContainer {
+          width: fit-content;
+          .all {
+            font-family: $font-nasalization;
+            font-size: 16px;
+            line-height: 19px;
+            color: $account-name;
+          }
+          .line {
+            margin-top: 6px;
+            border-top: solid 2px $account-name;
+          }
+        }
       }
+
+      .cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+        flex-wrap: wrap;
+        row-gap: 24px;
+
+        .cardNft {
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          cursor: pointer;
+          overflow: visible;
+          position: relative;
+          height: 55vh;
+          width: 44vw;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 4px;
+          padding: 0 20px;
+          .texts {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .imagesContainer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 19vh;
+            overflow: visible;
+          }
+        }
+      }
+    }
+    .roboto {
+      font-family: $font-nsRegular;
+      font-size: 16px;
+      line-height: 19px;
+      color: #fff;
+      max-width: 577px;
+      padding: '0px 0px 20px 0px';
+    }
+    .release {
+      font-family: $font-nasalization;
+      font-size: 20px;
+      line-height: 24px;
+      color: #fff;
+      padding: '55px 0px 8px 0px'
+    }
+    .name {
+      font-family: $font-montHeavy;
+      font-size: 36px;
+      line-height: 42px;
+      color: $account-name;
+      padding: '0px 0px 12px 0px';
     }
   }
 }
@@ -366,6 +692,7 @@
         padding-left: 146px;
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
         background-size: cover;
 
@@ -382,6 +709,8 @@
             align-items: center;
             gap: 14px;
             overflow: visible;
+            padding-top: 20px;
+
             .available{
               font-family: $font-nasalization;
               font-size: 20px;
@@ -478,18 +807,21 @@
       line-height: 19px;
       color: #fff;
       max-width: 577px;
+      padding: '0px 0px 20px 0px';
     }
     .release {
       font-family: $font-nasalization;
       font-size: 20px;
       line-height: 24px;
       color: #fff;
+      padding: '55px 0px 8px 0px'
     }
     .name {
       font-family: $font-montHeavy;
       font-size: 36px;
       line-height: 42px;
       color: $account-name;
+      padding: '0px 0px 12px 0px';
     }
   }
 }
@@ -543,6 +875,7 @@
         padding-left: 146px;
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
 
         .information {
@@ -552,6 +885,7 @@
           overflow:visible;
 
           .findOut {
+            padding: 24px 0;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -651,18 +985,21 @@
       line-height: 19px;
       color: #fff;
       max-width: 577px;
+      padding: '0px 0px 20px 0px';
     }
     .release {
       font-family: $font-nasalization;
       font-size: 20px;
       line-height: 24px;
       color: #fff;
+      padding: '55px 0px 8px 0px'
     }
     .name {
       font-family: $font-montHeavy;
       font-size: 36px;
       line-height: 42px;
       color: $account-name;
+      padding: '0px 0px 12px 0px'; 
     }
 
     

@@ -10,6 +10,7 @@ import { logOutAmplitude } from "../../Utils/amplitude";
 import dropService from "../../Services/drop.service";
 
 import heroBannerImage from "../../Assets/img/dropHeroBg.png";
+import heroBannerImageMobile from '../../Assets/img/bg-drop-mobile.png';
 import { UserData } from "../../Context/UserProvider";
 import NftDetail from "./components/NftDetail";
 import Checkout from "./components/Checkout";
@@ -17,6 +18,7 @@ import Proccesing from "./components/Proccesing";
 import Complete from "./components/Complete";
 import { NftData } from "../../Context/NftProvider";
 import { getDaysMinutesSeconds } from "../../Utils/createDate";
+import { useMediaQuery } from "../../Hooks/useMediaQuery";
 
 const DropDetail = () => {
   const [dropSelected, setDropSelected] = useState();
@@ -35,13 +37,15 @@ const DropDetail = () => {
 
   const divHero = useRef();
 
+  const mobile = useMediaQuery('(max-width: 991px)');
+
   //Set background with useRef
   useEffect(() => {
     if (dropSelected) {
-      divHero.current.style.background = `url(${heroBannerImage})`;
+      divHero.current.style.background = mobile ? `url(${heroBannerImageMobile})` : `url(${heroBannerImage})`;
       divHero.current.style.backgroundSize = "cover";
     }
-  }, [divHero, dropSelected]);
+  }, [divHero, dropSelected, mobile]);
 
   useEffect(() => {
     let intervalTimer;
@@ -121,9 +125,17 @@ const DropDetail = () => {
             &#60; Go back
           </p>
           <div className={styles.container}>
-            <p className={styles.title}>Drop Detail</p>
             <div className={styles.rectangle}>
               <div className={styles.hero} ref={divHero}>
+                {mobile && <img
+                  src= {heroBannerImage}
+                  style={{
+                    width:'100%',
+                    height: '273px',
+                    objectFit: 'cover',
+                  }}
+                  alt="hero banner"
+                />}
                 <div className={styles.information}>
                   <h2 className={styles.release}>Release Date {new Date(dropSelected.dropInfo?.startTime).toLocaleDateString()}</h2>
                   <h2 className={styles.name}>{dropSelected.dropInfo?.name}</h2>

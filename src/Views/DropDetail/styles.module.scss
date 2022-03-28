@@ -27,199 +27,84 @@
   }
 
   .back {
-    width: 1;
-    margin-top: 30px;
-    font-family: "Nasalization";
-    color: $go-back;
-    font-size: 10px;
+    font-size: 12px;
+    color: #3d91ef;
+    font-family: $font-nasalization;
+    text-align: left;
+    width: 100%;
     cursor: pointer;
-    margin-left: 20px;
+    text-decoration: none;
+    padding: 2vw 0 10px 2.5vw;
   }
 
   .container {
     width: 100vw;
+
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    position: relative;
+    padding-bottom: 30px;
 
-    .buttonsContainer {
-      display: flex;
-      gap: 20px;
-    }
+    .rectangle {
+      background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
 
-    .modalContent {
-      display: flex;
-      flex-direction: column;
-      padding: 0px 20px;
-      width: 100%;
-
-      .subtitle {
-        font-weight: normal;
-        font-size: 16px;
-        text-align: center;
-        margin-top: 20px;
-        padding: 0 5px;
-      }
-
-      .content {
-        font-weight: normal;
-        font-size: 16px;
-        text-align: left;
-        margin-top: 20px;
-      }
-
-      .inputContainer {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding-top: 15px;
+      .hero {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-size: cover;
 
-        label {
-          font-size: 14px;
+        .information {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          gap: 12px;
+          align-items: center;
+          overflow: visible;
+          padding: 12px 0px;
+
+          .release {
+            font-family: $font-nasalization;
+            font-size: 16px;
+            line-height: 24px;
+            color: #fff;
+          }
+          .name {
+            font-family: $font-montHeavy;
+            font-size: 28px;
+            line-height: 32px;
+            color: $account-name;
+          }
+          .timer {
+            font-family: $font-nasalization;
+            font-size: 20px;
+            line-height: 24px;
+            color: #fff;
+          }
         }
-
-        p {
-          margin-top: 35px;
-          font-size: 14px;
-          padding: 0 10px;
-        }
       }
 
-      .fee {
-        font-size: 14px;
-        font-weight: normal;
-        margin-top: 10px;
+      .nftsContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 20px;
       }
 
-      .ncoin {
-        font-size: 14px;
-        font-weight: normal;
-        margin-top: 3px;
-      }
-
-      hr {
-        margin: 20px 0px;
-      }
-
-      .afterFee {
-        font-size: 14px;
-        font-weight: normal;
-        padding-bottom: 50px;
-      }
-    }
-
-    .parentContainerModal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding-top: 80px;
-
-      .textDrop {
-        font-size: 14px;
-        color: white;
-        font-family: $font-nasalization;
-        padding: 0px 50px;
-        padding-top: 25px;
-        padding-bottom: 50px;
-        text-align: center;
-        font-weight: normal;
-      }
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      color: white;
-
-      .imgContainer {
-        margin-top: 10px;
-        width: 100vw;
-        height: 51vh;
+      .olderTitle {
+        width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
-        background: linear-gradient(
-          180deg,
-          #0146d5 0%,
-          rgba(1, 70, 213, 0) 100%
-        );
-        .pinVideo {
-          position: relative;
-          top: 0;
-          left: 50%; /*Center the vid, withouth black spaces*/
-          transform: translate(-50%);
-          width: 100%;
-          height: 100%;
-        }
-      }
-
-      .text {
-        width: 100vw;
-        background-color: rgba(3, 11, 35, 0.8);
-
-        .rare {
-          padding-left: 40px;
-          padding-top: 15px;
+        justify-content: space-between;
+        padding: 32px 0 24px 20px;
+        .older {
           font-family: $font-nasalization;
           font-size: 20px;
-          font-weight: 700;
-        }
-
-        p {
-          padding-left: 40px;
-          padding-top: 15px;
-          font-family: $font-nasalization;
-          font-size: 14px;
-          font-weight: 400;
-        }
-
-        .contentNft {
-          position: relative;
-          font-size: 10px;
-        }
-
-        ul {
-          list-style: none;
-          padding-left: 40px;
-          padding-top: 7px;
-          font-family: $font-nasalization;
-          font-size: 14px;
-          font-weight: 400;
-        }
-
-        .price {
-          padding-left: 40px;
-          padding-top: 15px;
-          font-family: $font-nasalization;
-          font-size: 17px;
-          font-weight: 700;
-          color: $account-name;
-        }
-
-        .buttonContainer {
-          width: 100%;
-          display: flex;
-          justify-content: flex-start;
-          padding-left: 40px;
-          padding-bottom: 20px;
-
-          button {
-            margin-top: 10px;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 15px;
-          }
+          line-height: 24px;
+          color: #fff;
         }
       }
     }
@@ -280,22 +165,13 @@
 
     .rectangle {
       width: 95vw;
-      border-image: linear-gradient(
-          180deg,
-          #0146d5 0%,
-          rgba(1, 70, 213, 0) 100%
-        )
-        1;
+      border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
       border-top: 2px solid;
       border-bottom: none;
       border-right: 2.1px solid;
       gap: 50px;
       border-left: 2.3px solid;
-      background: linear-gradient(
-        180deg,
-        rgba(4, 18, 55, 0.65) 0%,
-        rgba(4, 18, 55, 0) 100%
-      );
+      background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
       padding: 24px;
 
       .hero {
@@ -413,22 +289,13 @@
 
     .rectangle {
       width: 95vw;
-      border-image: linear-gradient(
-          180deg,
-          #0146d5 0%,
-          rgba(1, 70, 213, 0) 100%
-        )
-        1;
+      border-image: linear-gradient(180deg, #0146d5 0%, rgba(1, 70, 213, 0) 100%) 1;
       border-top: 2px solid;
       border-bottom: none;
       border-right: 2.1px solid;
       gap: 50px;
       border-left: 2.3px solid;
-      background: linear-gradient(
-        180deg,
-        rgba(4, 18, 55, 0.65) 0%,
-        rgba(4, 18, 55, 0) 100%
-      );
+      background: linear-gradient(180deg, rgba(4, 18, 55, 0.65) 0%, rgba(4, 18, 55, 0) 100%);
       padding: 24px;
 
       .hero {
