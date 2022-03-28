@@ -532,10 +532,10 @@
   .dataContainer {
     display: flex;
     flex-direction: row;
-    gap: 8px;
+    gap: 16px;
     justify-content: center;
     align-items: center;
-    padding-right: 20px;
+    padding: 0 20px;
   }
 
   .userData {
