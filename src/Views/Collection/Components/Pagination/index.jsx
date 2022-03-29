@@ -1,35 +1,43 @@
-import React from 'react';
-import Display from '../../../MarketPlace/components/Display';
-import styles from './styles.module.scss';
+import React from "react";
+import Display from "../../../../Global-Components/Display";
+import styles from "./styles.module.scss";
 
-const Pagination = ({xPage, setxPage, page, setPage, max, input, setInput}) => {
+const Pagination = ({
+  xPage,
+  setxPage,
+  page,
+  setPage,
+  max,
+  input,
+  setInput,
+}) => {
   const nextPage = () => {
-    setPage (parseInt (page) + 1);
-    setInput (parseInt (input) + 1);
+    setPage(parseInt(page) + 1);
+    setInput(parseInt(input) + 1);
   };
   const previousPage = () => {
-    setPage (parseInt (page) - 1);
-    setInput (parseInt (input) - 1);
+    setPage(parseInt(page) - 1);
+    setInput(parseInt(input) - 1);
   };
 
-  const onKeyDown = e => {
+  const onKeyDown = (e) => {
     if (e.keyCode === 13) {
-      setPage (parseInt (e.target.value));
+      setPage(parseInt(e.target.value));
       if (
-        parseInt (e.target.value) < 1 ||
-        parseInt (e.target.value) > Math.ceil (max) ||
-        isNaN (parseInt (e.target.value))
+        parseInt(e.target.value) < 1 ||
+        parseInt(e.target.value) > Math.ceil(max) ||
+        isNaN(parseInt(e.target.value))
       ) {
-        setPage (1);
-        setInput (1);
+        setPage(1);
+        setInput(1);
       } else {
-        setPage (parseInt (e.target.value));
+        setPage(parseInt(e.target.value));
       }
     }
   };
 
-  const handleChange = e => {
-    setInput (e.target.value);
+  const handleChange = (e) => {
+    setInput(e.target.value);
   };
 
   return (
@@ -56,20 +64,16 @@ const Pagination = ({xPage, setxPage, page, setPage, max, input, setInput}) => {
       </button>
       <input
         className={styles.input}
-        onKeyDown={e => onKeyDown (e)}
-        onChange={e => handleChange (e)}
+        onKeyDown={(e) => onKeyDown(e)}
+        onChange={(e) => handleChange(e)}
         autoComplete="off"
         name="page"
         value={input}
       />
       <p>of</p>
-      <input
-        className={styles.inputDisabled}
-        disabled
-        value={Math.ceil (max)}
-      />
+      <input className={styles.inputDisabled} disabled value={Math.ceil(max)} />
       <button
-        disabled={page === Math.ceil (max) || page > Math.ceil (max)}
+        disabled={page === Math.ceil(max) || page > Math.ceil(max)}
         onClick={nextPage}
       >
         <svg

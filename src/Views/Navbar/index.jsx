@@ -187,13 +187,21 @@ const NavBar = () => {
                 )}
               </div>
               <li>
-                <Link href to={"/drop"} className={styles.navLink}>
+                <Link
+                  onClick={() => setMenu(!menu)}
+                  href
+                  to={"/drop"}
+                  className={styles.navLink}
+                >
                   DROP
                 </Link>
               </li>
               <li>
                 <span
-                  onClick={() => history.push("/marketplace")}
+                  onClick={() => {
+                    history.push("/marketplace");
+                    setMenu(!menu);
+                  }}
                   className={styles.navLink}
                 >
                   MARKETPLACE

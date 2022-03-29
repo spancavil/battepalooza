@@ -21,8 +21,6 @@ const MarketPlace = () => {
 
   const history = useHistory();
 
-  console.log(orderBy);
-
   useEffect(() => {
     (async () => {
       try {

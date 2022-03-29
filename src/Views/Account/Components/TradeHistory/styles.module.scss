@@ -1,108 +1,224 @@
 @import "../../../../Styles/fonts.scss";
+@import "../../../../Styles/breakpoints.scss";
 
 $gray: #7e7e7e;
 
-.container {
-  width: 90vw;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-
-  .top {
-    background-color: #010320;
-    padding-top: 15px;
-
-    .title {
-      color: white;
-      font-family: $font-montHeavy;
-      font-size: 14px;
-      text-align: center;
-    }
-
-    .categories {
-      margin-top: 30px;
-      display: flex;
-      color: white;
-      font-family: $font-nasalization;
-
-      span {
-        cursor: pointer;
-        text-align: center;
-        width: 50%;
-        color: $gray;
-        padding-bottom: 5px;
-        border-bottom: 3px solid transparent;
-      }
-
-      .active {
-        transition-duration: 0.3s;
-        cursor: pointer;
-        text-align: center;
-        width: 50%;
-        color: white;
-        border-bottom: 3px solid #1892f0;
-        padding-bottom: 5px;
-      }
-    }
-  }
-
-  .trades {
+@media (max-width: $mobile - 1) {
+  .container {
+    width: 90vw;
+    max-width: 800px;
     display: flex;
     flex-direction: column;
 
-    .tradeContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #05102f;
+    .top {
+      background-color: #010320;
+      padding-top: 15px;
 
-      .line {
-        background-color: #727272;
-        height: 1px;
-        width: 96%;
+      .title {
+        color: white;
+        font-family: $font-montHeavy;
+        font-size: 14px;
+        text-align: center;
       }
-    }
 
-    .trade {
-      padding: 20px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .item {
+      .categories {
+        margin-top: 30px;
         display: flex;
-        flex-direction: column;
-        gap: 5px;
-
-        p {
-          color: $gray;
-          font-family: $font-nanum;
-          font-size: 12px;
-        }
+        color: white;
+        font-family: $font-nasalization;
 
         span {
-          font-size: 14px;
-          font-family: $font-nanum;
+          cursor: pointer;
+          text-align: center;
+          width: 50%;
+          color: $gray;
+          padding-bottom: 5px;
+          border-bottom: 3px solid transparent;
+        }
+
+        .active {
+          transition-duration: 0.3s;
+          cursor: pointer;
+          text-align: center;
+          width: 50%;
           color: white;
+          border-bottom: 3px solid #1892f0;
+          padding-bottom: 5px;
+        }
+      }
+    }
+
+    .trades {
+      display: flex;
+      flex-direction: column;
+
+      .tradeContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #05102f;
+
+        .line {
+          background-color: #727272;
+          height: 1px;
+          width: 96%;
         }
       }
 
-      button {
-        cursor: pointer;
-        border: none;
-        background-color: #1892f0;
-        color: white;
-        padding: 5px 30px;
-        border-radius: 3px;
-        font-family: $font-monkyta;
+      .trade {
+        padding: 20px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 20px;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          p {
+            color: $gray;
+            font-family: $font-nanum;
+            font-size: 12px;
+          }
+
+          span {
+            font-size: 14px;
+            font-family: $font-nanum;
+            color: white;
+          }
+        }
+
+        button {
+          grid-column: 1 / 3;
+          grid-row: 3 / 3;
+          cursor: pointer;
+          border: none;
+          background-color: #1892f0;
+          color: white;
+          padding: 5px 30px;
+          border-radius: 3px;
+          font-family: $font-monkyta;
+        }
       }
     }
-  }
 
-  .pagination {
-    width: 100%;
-    background-color: #05102f;
-    height: 65px;
+    .pagination {
+      width: 100%;
+      background-color: #05102f;
+      height: fit-content;
+      padding-top: 10px;
+    }
+  }
+}
+
+@media (min-width: $mobile) {
+  .container {
+    width: 90vw;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+
+    .top {
+      background-color: #010320;
+      padding-top: 15px;
+
+      .title {
+        color: white;
+        font-family: $font-montHeavy;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .categories {
+        margin-top: 30px;
+        display: flex;
+        color: white;
+        font-family: $font-nasalization;
+
+        span {
+          cursor: pointer;
+          text-align: center;
+          width: 50%;
+          color: $gray;
+          padding-bottom: 5px;
+          border-bottom: 3px solid transparent;
+        }
+
+        .active {
+          transition-duration: 0.3s;
+          cursor: pointer;
+          text-align: center;
+          width: 50%;
+          color: white;
+          border-bottom: 3px solid #1892f0;
+          padding-bottom: 5px;
+        }
+      }
+    }
+
+    .trades {
+      display: flex;
+      flex-direction: column;
+
+      .tradeContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #05102f;
+
+        .line {
+          background-color: #727272;
+          height: 1px;
+          width: 96%;
+        }
+      }
+
+      .trade {
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          p {
+            color: $gray;
+            font-family: $font-nanum;
+            font-size: 12px;
+          }
+
+          span {
+            font-size: 14px;
+            font-family: $font-nanum;
+            color: white;
+          }
+        }
+
+        button {
+          cursor: pointer;
+          border: none;
+          background-color: #1892f0;
+          color: white;
+          padding: 5px 30px;
+          border-radius: 3px;
+          font-family: $font-monkyta;
+        }
+      }
+    }
+
+    .pagination {
+      width: 100%;
+      background-color: #05102f;
+      height: fit-content;
+      padding-top: 10px;
+    }
   }
 }

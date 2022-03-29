@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Redirect } from "react-router";
 import { UserData } from "../../Context/UserProvider";
 import Background from "../../Global-Components/Background";
@@ -8,12 +8,11 @@ import TradeHistory from "./Components/TradeHistory";
 import styles from "./styles.module.scss";
 
 const Account = () => {
-  // const [menuClickeado, setMenuClickeado] = useState ('OVERVIEW');
-  const { userData } = useContext(UserData);
+  const [page, setPage] = useState(1);
+  const [xPage, setxPage] = useState(25);
+  const [input, setInput] = useState(1);
 
-  /* const handleClick = title => {
-    setMenuClickeado (title);
-  }; */
+  const { userData } = useContext(UserData);
 
   return !userData ? (
     <Redirect to="/needlogin" />
@@ -21,7 +20,14 @@ const Account = () => {
     <Background>
       <div className={styles.dataContainer}>
         <AccountData />
-        <TradeHistory />
+        <TradeHistory
+          page={page}
+          setPage={setPage}
+          xPage={xPage}
+          setxPage={setxPage}
+          input={input}
+          setInput={setInput}
+        />
       </div>
     </Background>
   );
