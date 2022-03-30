@@ -59,9 +59,9 @@ const MarketplaceNfts = ({
     breakpoint ? setxPage(4) : setxPage(25);
   }, [breakpoint, setxPage]);
 
-  console.log(orderBy);
+ /*  console.log(orderBy);
   console.log(nftMarket);
-  console.log(nftsFiltered);
+  console.log(nftsFiltered); */
 
   useEffect(() => {
     const auxFilter = [...nftMarket];

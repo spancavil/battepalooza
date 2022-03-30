@@ -3,11 +3,11 @@
 
 @media (max-width: $tablet - 1) {
     .form {
-        width: 54vw;
+        width: 100%;
 
         input {
             height: 40px;
-            width: 100%;
+            width: 95%;
             border: none;
             border-radius: 5px;
             background: #1892f01f;
@@ -27,7 +27,7 @@
 
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
     .form {
-        width: 65vw;
+        width: 97%;
 
         input {
             height: 40px;
@@ -51,7 +51,7 @@
 
 @media (min-width: $desktop) {
     .form {
-        width: 75vw;
+        width: 100%;
 
         input {
             height: 40px;
