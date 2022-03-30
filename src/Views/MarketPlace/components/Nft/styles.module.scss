@@ -3,33 +3,108 @@
 @import "../../../../Styles/fonts.scss";
 
 @media (max-width: $tablet - 1) {
+  .borderCommon {
+    width: 95vw;
+    height: 149vw;
+    max-width: 344px;
+    max-height: 557px;
+    background: linear-gradient(
+      819deg,
+      #6c6c6c 6.25%,
+      #c5c5c5 52.19%,
+      #6c6c6c 92.72%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderRare {
+    width: 95vw;
+    height: 149vw;
+    max-width: 344px;
+    max-height: 557px;
+    background: linear-gradient(
+      81.09deg,
+      #a78043 6.25%,
+      #fef7eb 52.19%,
+      #8a6a2e 92.72%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderEpic {
+    width: 95vw;
+    height: 149vw;
+    max-width: 344px;
+    max-height: 557px;
+    background: linear-gradient(
+      156.45deg,
+      #ecafef 0%,
+      #ff0079 25.52%,
+      #b53067 67.71%,
+      #8343a8 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderLegendary {
+    width: 95vw;
+    height: 149vw;
+    max-width: 344px;
+    max-height: 557px;
+    background: linear-gradient(
+      153.06deg,
+      #1bfcfd -0.31%,
+      #0ca5d2 49.17%,
+      #033060 80.94%,
+      #14c5d5 99.69%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
   .cardNft {
     overflow: visible;
     position: relative;
-    height: 350px;
-    width: 200px;
+    height: 97%;
+    width: 96%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #030b23;
     border-radius: 3px;
-    justify-content: center;
-    grid-gap: 20px;
-    gap: 20px;
   }
 
   .imgNft {
-    width: 130px;
+    width: 90%;
+    height: 60%;
+    object-fit: cover;
+    background-color: black;
+    border-radius: 6px;
   }
 
   .texts {
+    height: 40%;
+    width: 100%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    grid-gap: 7px;
+    justify-content: center;
+    align-items: flex-start;
     gap: 7px;
 
     p {
-      font-size: 14px;
+      font-size: 18px;
       padding: 0px 15px;
       text-align: center;
       color: white;
@@ -80,114 +155,109 @@
   }
 }
 
-@media (min-width: $tablet) and (max-width: $laptop - 1) {
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+  .borderCommon {
+    width: 45vw;
+    height: 90vw;
+    max-width: 344px;
+    max-height: 557px;
+    background: linear-gradient(
+      819deg,
+      #6c6c6c 6.25%,
+      #c5c5c5 52.19%,
+      #6c6c6c 92.72%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderRare {
+    width: 45vw;
+    max-width: 344px;
+    height: 90vw;
+    max-height: 557px;
+    background: linear-gradient(
+      81.09deg,
+      #a78043 6.25%,
+      #fef7eb 52.19%,
+      #8a6a2e 92.72%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderEpic {
+    width: 45vw;
+    max-width: 344px;
+    height: 90vw;
+    max-height: 557px;
+    background: linear-gradient(
+      156.45deg,
+      #ecafef 0%,
+      #ff0079 25.52%,
+      #b53067 67.71%,
+      #8343a8 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .borderLegendary {
+    width: 45vw;
+    max-width: 344px;
+    height: 90vw;
+    max-height: 557px;
+    background: linear-gradient(
+      153.06deg,
+      #1bfcfd -0.31%,
+      #0ca5d2 49.17%,
+      #033060 80.94%,
+      #14c5d5 99.69%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
   .cardNft {
     overflow: visible;
     position: relative;
-    height: 350px;
-    width: 200px;
+    height: 97%;
+    width: 96%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #030b23;
     border-radius: 3px;
-    justify-content: left;
-    grid-gap: 20px;
-    gap: 20px;
-    justify-content: center;
   }
 
   .imgNft {
-    width: 130px;
+    width: 90%;
+    height: 60%;
+    object-fit: cover;
+    background-color: black;
+    border-radius: 6px;
   }
 
   .texts {
-    display: flex;
-    flex-direction: column;
-    grid-gap: 7px;
-    gap: 7px;
-
-    p {
-      font-size: 13px;
-      padding: 0px 15px;
-      text-align: center;
-      color: white;
-      font-family: "Nasalization";
-    }
-
-    .price {
-      color: $logout;
-    }
-
-    .text2 {
-      color: $account-name;
-    }
-  }
-  .videoContainer {
-    height: 260px;
+    height: 40%;
     width: 100%;
-    position: relative;
-    top: -12px;
-    overflow: hidden;
-    margin-bottom: -20px;
-    .pinVideo {
-      height: 100%;
-      position: relative;
-      top: 0;
-      left: 50%; /*Center the vid, withouth black spaces*/
-      transform: translate(-50%);
-    }
-    .loadMessageContainer {
-      height: 100%;
-      width: 100%;
-      background-color: black;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .loadMessage {
-        font-family: $font-nasalization;
-        color: white;
-      }
-    }
-    .loadMessage {
-      font-family: $font-nasalization;
-      color: white;
-      text-align: center;
-    }
-  }
-}
-
-@media (min-width: $laptop) and (max-width: $desktop - 1) {
-  .cardNft {
-    overflow: visible;
-    position: relative;
-    height: 350px;
-    width: 200px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: #030b23;
-    border-radius: 3px;
-    justify-content: left;
-    grid-gap: 20px;
-    gap: 20px;
     justify-content: center;
-  }
-
-  .imgNft {
-    width: 130px;
-  }
-
-  .texts {
-    display: flex;
-    flex-direction: column;
-    grid-gap: 7px;
+    align-items: flex-start;
     gap: 7px;
 
     p {
-      font-size: 13px;
+      font-size: 20px;
       padding: 0px 15px;
       text-align: center;
       color: white;
@@ -309,13 +379,10 @@
     width: 200px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     background-color: #030b23;
     border-radius: 3px;
-    justify-content: left;
-    grid-gap: 20px;
     gap: 20px;
-    justify-content: center;
   }
 
   .imgNft {

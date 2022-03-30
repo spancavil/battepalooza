@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 import { TYPE_NFT, NCOIN_BATTLECOUNT, ORDER_BY } from "./Constants";
 import { fireAlertAsync } from "../../Utils/sweetAlert2";
 import OrderBy from "./components/OrderBy";
+import { useMediaQuery } from "../../Hooks/useMediaQuery";
 
 const MarketPlace = () => {
   const [filters, setFilters] = useState({});
@@ -18,7 +19,8 @@ const MarketPlace = () => {
   const [page, setPage] = useState(1);
   const [xPage, setxPage] = useState(25);
   const [input, setInput] = useState(1);
-
+  const desktop = useMediaQuery('(min-width: 1200px)')
+  console.log(desktop);
   const history = useHistory();
 
   useEffect(() => {
@@ -81,7 +83,7 @@ const MarketPlace = () => {
             filters={filters}
             setFilters={setFilters}
           />
-          <OrderBy orderBy={orderBy} setOrderBy={setOrderBy} />
+          {desktop && <OrderBy orderBy={orderBy} setOrderBy={setOrderBy} />}
         </div>
         <div className={styles.products}>
           <SearchBar
