@@ -2,266 +2,210 @@
 @import "../../../../Styles/breakpoints.scss";
 @import "../../../../Styles/fonts.scss";
 
-@media (max-width: $mobile - 1) {
+@media (max-width: $tablet - 1) {
   .cardsContainer {
     display: flex;
     flex-direction: column;
-    // gap: 20px;
-    width: 100%;
-
-    .cards {
-      margin-top: 30px;
-      justify-content: center;
-      padding: 0px 40px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: 2vw;
-      grid-row-gap: 30px;
-      overflow: visible;
-
-      .sale {
-        background-color: $secondary-blue;
-        width: 45px;
-        height: 45px;
-        border-radius: 50px;
-        font-family: $font-nasalization;
-        font-size: 15px;
-        color: white;
-        position: absolute;
-        top: 0px;
-        right: -18px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
-
-      .cardNft {
-        overflow: visible;
-        position: relative;
-        height: 380px;
-        width: 180px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #030b23;
-        border-radius: 3px;
-        justify-content: center;
-        grid-gap: 20px;
-        gap: 20px;
-      }
-
-      .imgNft {
-        width: 140px;
-      }
-
-      .texts {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        grid-gap: 7px;
-        gap: 7px;
-
-        p {
-          font-size: 11px;
-          padding: 0px 5px;
-          text-align: center;
-          color: white;
-          font-family: "Nasalization";
-        }
-
-        .price {
-          color: $logout;
-        }
-
-        .text2 {
-          color: $account-name;
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: $mobile) and (max-width: $tablet - 1) {
-  .cardsContainer {
-    display: flex;
-    flex-direction: column;
-    // gap: 20px;
-    width: 100%;
-
-    .cards {
-      margin-top: 30px;
-      justify-content: center;
-      padding: 0px 100px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: 80px;
-      grid-row-gap: 30px;
-      overflow: visible;
-
-      .sale {
-        background-color: $secondary-blue;
-        width: 45px;
-        height: 45px;
-        border-radius: 50px;
-        font-family: $font-nasalization;
-        font-size: 15px;
-        color: white;
-        position: absolute;
-        top: 0px;
-        right: -18px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
-
-      .cardNft {
-        overflow: visible;
-        position: relative;
-        height: 400px;
-        width: 210px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #030b23;
-        border-radius: 3px;
-        justify-content: center;
-        grid-gap: 20px;
-        gap: 20px;
-      }
-
-      .imgNft {
-        width: 140px;
-      }
-
-      .texts {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        grid-gap: 7px;
-        gap: 7px;
-
-        p {
-          font-size: 13px;
-          padding: 0px 5px;
-          text-align: center;
-          color: white;
-          font-family: "Nasalization";
-        }
-
-        .price {
-          color: $logout;
-        }
-
-        .text2 {
-          color: $account-name;
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: $tablet) and (max-width: $laptop - 1) {
-  .cardsContainer {
-    display: flex;
-    flex-direction: column;
-    // gap: 20px;
     width: 100%;
 
     a {
       width: 0;
     }
+    .borderCommon {
+      width: 95vw;
+      height: 149vw;
+      max-width: 344px;
+      max-height: 557px;
+      background: linear-gradient(819deg, #6c6c6c 6.25%, #c5c5c5 52.19%, #6c6c6c 92.72%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
 
+    .borderRare {
+      width: 95vw;
+      height: 149vw;
+      max-width: 344px;
+      max-height: 557px;
+      background: linear-gradient(81.09deg, #a78043 6.25%, #fef7eb 52.19%, #8a6a2e 92.72%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+    .borderEpic {
+      width: 95vw;
+      height: 149vw;
+      max-width: 344px;
+      max-height: 557px;
+      background: linear-gradient(156.45deg, #ecafef 0%, #ff0079 25.52%, #b53067 67.71%, #8343a8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+    .borderLegendary {
+      width: 95vw;
+      height: 149vw;
+      max-width: 344px;
+      max-height: 557px;
+      background: linear-gradient(153.06deg, #1bfcfd -0.31%, #0ca5d2 49.17%, #033060 80.94%, #14c5d5 99.69%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
     .cards {
       margin-top: 30px;
-      justify-content: center;
-      padding: 0px 100px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: 80px;
-      grid-row-gap: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-items: center;
       overflow: visible;
+      gap: 50px;
 
       .sale {
         background-color: $secondary-blue;
-        width: 45px;
-        height: 45px;
+        width: 53px;
+        height: 53px;
         border-radius: 50px;
         font-family: $font-nasalization;
         font-size: 15px;
         color: white;
         position: absolute;
-        top: -18px;
-        right: -18px;
+        top: -15px;
+        right: -15px;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
       }
+    }
 
-      .cardNft {
-        overflow: visible;
-        position: relative;
-        height: 440px;
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #030b23;
-        border-radius: 3px;
-        justify-content: left;
-        grid-gap: 20px;
-        gap: 20px;
-        justify-content: center;
+    .cardNft {
+      overflow: visible;
+      position: relative;
+      height: 95%;
+      width: 94%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #030b23;
+      border-radius: 3px;
+    }
+
+    .imgNft {
+      width: 100%;
+      height: 70%;
+      object-fit: cover;
+      background-color: black;
+      border-radius: 6px;
+    }
+
+    .texts {
+      height: 30%;
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 7px;
+
+      .itemName {
+        font-size: 22px;
+        padding: 0px 15px;
+        text-align: center;
+        color: white;
+        font-family: "Nasalization";
       }
 
-      .imgNft {
-        width: 170px;
+      p {
+        font-size: 14px;
+        padding: 0px 15px;
+        text-align: center;
+        color: white;
+        font-family: "Nasalization";
       }
 
-      .texts {
-        display: flex;
-        flex-direction: column;
-        grid-gap: 7px;
-        gap: 7px;
+      .price {
+        color: $logout;
+      }
 
-        p {
-          font-size: 15px;
-          padding: 0px 15px;
-          text-align: center;
-          color: white;
-          font-family: "Nasalization";
-        }
-
-        .price {
-          color: $logout;
-        }
-
-        .text2 {
-          color: $account-name;
-        }
+      .text2 {
+        color: $account-name;
       }
     }
   }
 }
 
-@media (min-width: $laptop) and (max-width: $desktop - 1) {
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
   .cardsContainer {
     display: flex;
     flex-direction: column;
-    // gap: 20px;
     width: 100%;
+
+    a {
+      width: 0;
+    }
+    .borderCommon {
+      width: 45vw;
+      height: 90vw;
+      max-width: 344px;
+      max-height: 557px;
+      background: linear-gradient(819deg, #6c6c6c 6.25%, #c5c5c5 52.19%, #6c6c6c 92.72%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+    .borderRare {
+      width: 45vw;
+      max-width: 344px;
+      height: 90vw;
+      max-height: 557px;
+      background: linear-gradient(81.09deg, #a78043 6.25%, #fef7eb 52.19%, #8a6a2e 92.72%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+    .borderEpic {
+      width: 45vw;
+      max-width: 344px;
+      height: 90vw;
+      max-height: 557px;
+      background: linear-gradient(156.45deg, #ecafef 0%, #ff0079 25.52%, #b53067 67.71%, #8343a8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+    .borderLegendary {
+      width: 45vw;
+      max-width: 344px;
+      height: 90vw;
+      max-height: 557px;
+      background: linear-gradient(153.06deg, #1bfcfd -0.31%, #0ca5d2 49.17%, #033060 80.94%, #14c5d5 99.69%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
 
     .cards {
       margin-top: 30px;
-      justify-content: center;
-      padding: 0px 150px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      align-items: center;
-      grid-column-gap: 150px;
-      grid-row-gap: 30px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 50px;
+      justify-items: center;
       overflow: visible;
 
       .sale {
@@ -280,48 +224,60 @@
         align-items: center;
         text-align: center;
       }
+    }
 
-      .cardNft {
-        overflow: visible;
-        position: relative;
-        height: 440px;
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #030b23;
-        border-radius: 3px;
-        justify-content: left;
-        grid-gap: 20px;
-        gap: 20px;
-        justify-content: center;
+    .cardNft {
+      overflow: visible;
+      position: relative;
+      height: 95%;
+      width: 94%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #030b23;
+      border-radius: 3px;
+    }
+
+    .imgNft {
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+      background-color: black;
+      border-radius: 6px;
+    }
+
+    .texts {
+      height: 40%;
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 7px;
+
+      .itemName {
+        font-size: 26px;
+        padding: 0px 15px;
+        text-align: center;
+        color: white;
+        font-family: "Nasalization";
       }
 
-      .imgNft {
-        width: 170px;
+      p {
+        font-size: 16px;
+        padding: 0px 15px;
+        text-align: center;
+        color: white;
+        font-family: "Nasalization";
       }
 
-      .texts {
-        display: flex;
-        flex-direction: column;
-        grid-gap: 3px;
-        gap: 3px;
+      .price {
+        color: $logout;
+      }
 
-        p {
-          font-size: 15px;
-          padding: 0px 15px;
-          text-align: center;
-          color: white;
-          font-family: "Nasalization";
-        }
-
-        .price {
-          color: $logout;
-        }
-
-        .text2 {
-          color: $account-name;
-        }
+      .text2 {
+        color: $account-name;
       }
     }
   }
@@ -340,59 +296,37 @@
     .borderCommon {
       width: 215px;
       height: 320px;
-      background: linear-gradient(
-        819deg,
-        #6c6c6c 6.25%,
-        #c5c5c5 52.19%,
-        #6c6c6c 92.72%
-      );
+      background: linear-gradient(819deg, #6c6c6c 6.25%, #c5c5c5 52.19%, #6c6c6c 92.72%);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 8px;
     }
-  
+
     .borderRare {
       width: 215px;
       height: 320px;
-      background: linear-gradient(
-        81.09deg,
-        #a78043 6.25%,
-        #fef7eb 52.19%,
-        #8a6a2e 92.72%
-      );
+      background: linear-gradient(81.09deg, #a78043 6.25%, #fef7eb 52.19%, #8a6a2e 92.72%);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 8px;
     }
-  
+
     .borderEpic {
       width: 215px;
       height: 320px;
-      background: linear-gradient(
-        156.45deg,
-        #ecafef 0%,
-        #ff0079 25.52%,
-        #b53067 67.71%,
-        #8343a8 100%
-      );
+      background: linear-gradient(156.45deg, #ecafef 0%, #ff0079 25.52%, #b53067 67.71%, #8343a8 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 8px;
     }
-  
+
     .borderLegendary {
       width: 215px;
       height: 320px;
-      background: linear-gradient(
-        153.06deg,
-        #1bfcfd -0.31%,
-        #0ca5d2 49.17%,
-        #033060 80.94%,
-        #14c5d5 99.69%
-      );
+      background: linear-gradient(153.06deg, #1bfcfd -0.31%, #0ca5d2 49.17%, #033060 80.94%, #14c5d5 99.69%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -486,59 +420,37 @@
     .borderCommon {
       width: 265px;
       height: 380px;
-      background: linear-gradient(
-        819deg,
-        #6c6c6c 6.25%,
-        #c5c5c5 52.19%,
-        #6c6c6c 92.72%
-      );
+      background: linear-gradient(819deg, #6c6c6c 6.25%, #c5c5c5 52.19%, #6c6c6c 92.72%);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 8px;
     }
-  
+
     .borderRare {
       width: 265px;
       height: 380px;
-      background: linear-gradient(
-        81.09deg,
-        #a78043 6.25%,
-        #fef7eb 52.19%,
-        #8a6a2e 92.72%
-      );
+      background: linear-gradient(81.09deg, #a78043 6.25%, #fef7eb 52.19%, #8a6a2e 92.72%);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 8px;
     }
-  
+
     .borderEpic {
       width: 265px;
       height: 380px;
-      background: linear-gradient(
-        156.45deg,
-        #ecafef 0%,
-        #ff0079 25.52%,
-        #b53067 67.71%,
-        #8343a8 100%
-      );
+      background: linear-gradient(156.45deg, #ecafef 0%, #ff0079 25.52%, #b53067 67.71%, #8343a8 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 8px;
     }
-  
+
     .borderLegendary {
       width: 265px;
       height: 380px;
-      background: linear-gradient(
-        153.06deg,
-        #1bfcfd -0.31%,
-        #0ca5d2 49.17%,
-        #033060 80.94%,
-        #14c5d5 99.69%
-      );
+      background: linear-gradient(153.06deg, #1bfcfd -0.31%, #0ca5d2 49.17%, #033060 80.94%, #14c5d5 99.69%);
       display: flex;
       align-items: center;
       justify-content: center;

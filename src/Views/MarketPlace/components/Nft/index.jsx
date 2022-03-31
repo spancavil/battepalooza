@@ -24,8 +24,8 @@ const Nft = ({ nft, tilt, onClick }) => {
         {/* El source luego cambiara en base al asset */}
         <img className={styles.imgNft} src={nft.thumbnailUrl} alt="nft-thumb" />
         <div className={styles.texts}>
+          <p className={styles.itemName}>{nft.itemName}</p>
           <p>{nft.repName}</p>
-          <p>{nft.itemName}</p>
           <p className={styles.text2}>{nft.rarity}</p>
           <p className={styles.price}>{nft.price} NCoin</p>
           <p> Play count: {nft.playCount}</p>
