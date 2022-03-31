@@ -105,8 +105,8 @@ const CollectionNfts = () => {
                     alt="nft-thumb"
                   />
                   <div className={styles.texts}>
+                    <p className={styles.itemName}>{nft.itemName}</p>
                     <p>{nft.repName}</p>
-                    <p>{nft.itemName}</p>
                     <p className={styles.text2}>{nft.rarity}</p>
                     {/* <p>#{nft.itemId}</p> */}
                     <p>

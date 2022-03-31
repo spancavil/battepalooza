@@ -2,8 +2,8 @@ import * as React from "react"
 
 const FilterIcon = (props) => (
   <svg
-    width={28}
-    height={28}
+    width={34}
+    height={26}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}

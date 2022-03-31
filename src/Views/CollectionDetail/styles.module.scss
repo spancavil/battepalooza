@@ -28,13 +28,13 @@
       .cardContainer {
         display: flex;
         flex-direction: column;
-        width: 90vw;
-        margin-top: 30px;
+        width: 100vw;
+        margin-top: 20px;
 
         .topContainer {
           display: flex;
           flex-direction: column;
-          width: 90vw;
+          width: 100vw;
 
           .videoContainer {
             display: flex;
@@ -245,7 +245,7 @@
           align-items: center;
 
           .bottomLeftContainer {
-            width: 90vw;
+            width: 100vw;
             height: 60px;
             background-color: #242339;
             padding: 0 15px;

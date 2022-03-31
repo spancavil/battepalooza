@@ -76,8 +76,8 @@
   .cardNft {
     overflow: visible;
     position: relative;
-    height: 97%;
-    width: 96%;
+    height: 95%;
+    width: 94%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,7 +86,7 @@
   }
 
   .imgNft {
-    width: 90%;
+    width: 100%;
     height: 60%;
     object-fit: cover;
     background-color: black;
@@ -103,8 +103,16 @@
     align-items: flex-start;
     gap: 7px;
 
+    .itemName{
+      font-size: 22px;
+      padding: 0px 15px;
+      text-align: center;
+      color: white;
+      font-family: "Nasalization";
+    }
+
     p {
-      font-size: 18px;
+      font-size: 14px;
       padding: 0px 15px;
       text-align: center;
       color: white;
@@ -119,40 +127,7 @@
       color: $account-name;
     }
   }
-  .videoContainer {
-    height: 260px;
-    width: 100%;
-    position: relative;
-    top: -12px;
-    overflow: hidden;
-    margin-bottom: -20px;
-    .pinVideo {
-      height: 100%;
-      position: relative;
-      top: 0;
-      left: 50%; /*Center the vid, withouth black spaces*/
-      transform: translate(-50%);
-    }
-    .loadMessageContainer {
-      height: 100%;
-      width: 100%;
-      background-color: black;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
-      .loadMessage {
-        font-family: $font-nasalization;
-        color: white;
-      }
-    }
-    .loadMessage {
-      font-family: $font-nasalization;
-      color: white;
-      text-align: center;
-    }
-  }
 }
 
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
@@ -229,8 +204,8 @@
   .cardNft {
     overflow: visible;
     position: relative;
-    height: 97%;
-    width: 96%;
+    height: 95%;
+    width: 94%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -239,7 +214,7 @@
   }
 
   .imgNft {
-    width: 90%;
+    width: 100%;
     height: 60%;
     object-fit: cover;
     background-color: black;
@@ -256,8 +231,16 @@
     align-items: flex-start;
     gap: 7px;
 
+    .itemName{
+      font-size: 26px;
+      padding: 0px 15px;
+      text-align: center;
+      color: white;
+      font-family: "Nasalization";
+    }
+
     p {
-      font-size: 20px;
+      font-size: 16px;
       padding: 0px 15px;
       text-align: center;
       color: white;
@@ -272,46 +255,13 @@
       color: $account-name;
     }
   }
-  .videoContainer {
-    height: 260px;
-    width: 100%;
-    position: relative;
-    top: -12px;
-    overflow: hidden;
-    margin-bottom: -20px;
-    .pinVideo {
-      height: 100%;
-      position: relative;
-      top: 0;
-      left: 50%; /*Center the vid, withouth black spaces*/
-      transform: translate(-50%);
-    }
-    .loadMessageContainer {
-      height: 100%;
-      width: 100%;
-      background-color: black;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .loadMessage {
-        font-family: $font-nasalization;
-        color: white;
-      }
-    }
-    .loadMessage {
-      font-family: $font-nasalization;
-      color: white;
-      text-align: center;
-    }
-  }
+  
 }
 
 @media (min-width: $desktop) {
   .borderCommon {
-    width: 210px;
-    height: 315px;
+    width: 220px;
+    height: 335px;
     background: linear-gradient(
       819deg,
       #6c6c6c 6.25%,
@@ -325,8 +275,8 @@
   }
 
   .borderRare {
-    width: 210px;
-    height: 315px;
+    width: 220px;
+    height: 335px;
     background: linear-gradient(
       81.09deg,
       #a78043 6.25%,
@@ -340,8 +290,8 @@
   }
 
   .borderEpic {
-    width: 210px;
-    height: 315px;
+    width: 220px;
+    height: 335px;
     background: linear-gradient(
       156.45deg,
       #ecafef 0%,
@@ -356,8 +306,8 @@
   }
 
   .borderLegendary {
-    width: 210px;
-    height: 315px;
+    width: 220px;
+    height: 335px;
     background: linear-gradient(
       153.06deg,
       #1bfcfd -0.31%,
@@ -375,108 +325,40 @@
     cursor: pointer;
     overflow: visible;
     position: relative;
-    height: 350px;
-    width: 200px;
+    height: 95%;
+    width: 94%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     background-color: #030b23;
     border-radius: 3px;
-    gap: 20px;
   }
 
   .imgNft {
-    height: 230px;
-    width: 200px;
-    object-fit: cover;
-  }
-
-  .texts {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-
-    p {
-      font-size: 13px;
-      padding: 0px 15px;
-      text-align: center;
-      color: white;
-      font-family: "Nasalization";
-    }
-
-    .price {
-      color: $logout;
-    }
-
-    .text2 {
-      color: $account-name;
-    }
-  }
-  .videoContainer {
-    height: 260px;
     width: 100%;
-    position: relative;
-    top: -12px;
-    overflow: hidden;
-    margin-bottom: -20px;
-    .pinVideo {
-      height: 100%;
-      position: relative;
-      top: 0;
-      left: 50%; /*Center the vid, withouth black spaces*/
-      transform: translate(-50%);
-    }
-    .loadMessageContainer {
-      height: 100%;
-      width: 100%;
-      background-color: black;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .loadMessage {
-        font-family: $font-nasalization;
-        color: white;
-      }
-    }
-    .loadMessage {
-      font-family: $font-nasalization;
-      color: white;
-      text-align: center;
-    }
-  }
-
-  .cardNft {
-    cursor: pointer;
-    overflow: visible;
-    position: relative;
-    height: 305px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #030b23;
-    border-radius: 3px;
-    justify-content: left;
-    grid-gap: 20px;
-    gap: 20px;
-    justify-content: center;
-    padding-bottom: 20px;
-  }
-
-  .imgNft {
-    width: 200px;
+    object-fit: contain;
     background-color: black;
+    bottom: 0;
   }
 
   .texts {
+    height: calc(100% - 211px);
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    justify-content: center;
+    align-items: flex-start;
+
+    .itemName{
+      font-size: 18px;
+      padding: 0px 15px;
+      text-align: center;
+      color: white;
+      font-family: "Nasalization";
+    }
 
     p {
-      font-size: 11px;
+      font-size: 12px;
       padding: 0px 15px;
       text-align: center;
       color: white;
@@ -491,4 +373,5 @@
       color: $account-name;
     }
   }
+
 }
