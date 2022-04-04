@@ -54,7 +54,6 @@ const NftDetail = ({
       <div className={styles.container} ref ={div}>
         {chosenNft && (
           <div className={styles.card}>
-            <div className={styles.text}>
               <div className={styles.cardContainer}>
 
                 <div className={styles.header}>
@@ -326,7 +325,6 @@ const NftDetail = ({
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         )}
       </div>

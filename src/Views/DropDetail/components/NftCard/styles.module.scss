@@ -7,6 +7,8 @@
   .borderCommon {
     width: 95vw;
     height: 149vw;
+    max-width: 360px;
+    max-height: 570px;
     background: linear-gradient(
       819deg,
       #6c6c6c 6.25%,
@@ -22,6 +24,8 @@
   .borderRare {
     width: 95vw;
     height: 149vw;
+    max-width: 360px;
+    max-height: 570px;
     background: linear-gradient(
       81.09deg,
       #a78043 6.25%,
@@ -37,6 +41,8 @@
   .borderEpic {
     width: 95vw;
     height: 149vw;
+    max-width: 360px;
+    max-height: 570px;
     background: linear-gradient(
       156.45deg,
       #ecafef 0%,
@@ -53,6 +59,8 @@
   .borderLegendary {
     width: 95vw;
     height: 149vw;
+    max-width: 360px;
+    max-height: 570px;
     background: linear-gradient(
       153.06deg,
       #1bfcfd -0.31%,
@@ -419,6 +427,7 @@
 
       img {
         width: 100%;
+        object-fit: cover;
       }
     }
 
