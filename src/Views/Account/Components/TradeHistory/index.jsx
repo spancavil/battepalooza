@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import Pagination from "../../../../Global-Components/Pagination";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
+import NftDetail from "../NftDetail";
+
 import { TradeDataDummy } from "../../Data";
 
 import styles from "./styles.module.scss";
 
 const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
+  const [tradeDetail, setTradeDetail] = useState(false);
   const [category, setCategory] = useState("purchase");
 
   const breakpoint = useMediaQuery("(max-width: 576px)");
@@ -42,33 +45,41 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
           (page - 1) * xPage,
           (page - 1) * xPage + xPage
         ).map((trade, i) => (
-          <div key={i} className={styles.tradeContainer}>
-            <div className={styles.trade}>
-              <div className={styles.item}>
-                <p>Date</p>
-                <span>{trade.date}</span>
+          <>
+            <div key={i} className={styles.tradeContainer}>
+              <div className={styles.trade}>
+                <div className={styles.item}>
+                  <p>Date</p>
+                  <span>{trade.date}</span>
+                </div>
+
+                <div className={styles.item}>
+                  <p>Name</p>
+                  <span>{trade.name}</span>
+                </div>
+
+                <div className={styles.item}>
+                  <p>{category === "purchase" ? "Seller" : "Buyer"} </p>
+                  <span>{trade.buyer}</span>
+                </div>
+
+                <div className={styles.item}>
+                  <p>Price</p>
+                  <span>{trade.price} NCoin</span>
+                </div>
+
+                <button onClick={() => setTradeDetail(true)}>VIEW</button>
               </div>
 
-              <div className={styles.item}>
-                <p>Name</p>
-                <span>{trade.name}</span>
-              </div>
-
-              <div className={styles.item}>
-                <p>{category === "purchase" ? "Seller" : "Buyer"} </p>
-                <span>{trade.buyer}</span>
-              </div>
-
-              <div className={styles.item}>
-                <p>Price</p>
-                <span>{trade.price} NCoin</span>
-              </div>
-
-              <button>VIEW</button>
+              <div className={styles.line} />
             </div>
-
-            <div className={styles.line} />
-          </div>
+            {tradeDetail && (
+              <NftDetail
+                chosenNft={trade}
+                handleClose={() => setTradeDetail(false)}
+              />
+            )}
+          </>
         ))}
       </div>
 
