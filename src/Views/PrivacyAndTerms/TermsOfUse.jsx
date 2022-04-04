@@ -18,7 +18,7 @@ const TermsOfUse = () => {
     //(terms)
     return (
         <BackgroundTerms 
-        title = {"BATTLEPALOOZA TERMS & CONDITIONS OF USE"}
+        title = {"BATTLEPALOOZA TERMS & CONDITIONS OF SERVICE"}
         sub = {"Last Updated: November 03, 2021"}
         >
 
