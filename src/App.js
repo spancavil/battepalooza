@@ -40,7 +40,7 @@ function App() {
         <Route exact path="/collection" component={Collection} />
         <Route exact path="/collection/:uuid" component={CollectionDetail} />
         <Route exact path="/privacy-policy" component={Privacy} />
-        <Route exact path="/terms-of-use" component={TermsOfUse} />
+        <Route exact path="/terms-of-service" component={TermsOfUse} />
         <Route exact path="/marketplace" component={MarketPlace} />
         <Route exact path="/marketplace/:nftId" component={MarketplaceDetail} />
         <Route path="" component={Error404} />

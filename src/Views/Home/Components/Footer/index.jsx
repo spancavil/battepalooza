@@ -164,7 +164,7 @@ const Footer = () => {
                       <span
                         className={styles.linkFooter}
                         onClick={() => {
-                          history.push("/terms-of-use");
+                          history.push("/terms-of-service");
                           window.scroll(0, 0);
                         }}
                       >
