@@ -1,9 +1,38 @@
 @import "../../Styles/colors.scss";
+@import "../../Styles/breakpoints.scss";
 
-.dataContainer {
-  margin: 35px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
+@media (min-width: $desktop) {
+  .accountContainer {
+    margin-top: 35px;
+    display: flex;
+    gap: 50px;
+    width: 100%;
+    margin-left: 20px;
+  }
+
+  .dataContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+}
+
+@media (max-width: $desktop - 1) {
+  .accountContainer {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .dataContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
 }

@@ -3,6 +3,7 @@ import { Redirect } from "react-router";
 import { UserData } from "../../Context/UserProvider";
 import Background from "../../Global-Components/Background";
 import AccountData from "./Components/AccountData";
+import Sections from "./Components/Sections";
 import TradeHistory from "./Components/TradeHistory";
 // import AccountMenu from './Components/AccountMenu';
 import styles from "./styles.module.scss";
@@ -18,16 +19,19 @@ const Account = () => {
     <Redirect to="/needlogin" />
   ) : (
     <Background>
-      <div className={styles.dataContainer}>
-        <AccountData />
-        <TradeHistory
-          page={page}
-          setPage={setPage}
-          xPage={xPage}
-          setxPage={setxPage}
-          input={input}
-          setInput={setInput}
-        />
+      <div className={styles.accountContainer}>
+        <Sections />
+        <div className={styles.dataContainer}>
+          <AccountData />
+          <TradeHistory
+            page={page}
+            setPage={setPage}
+            xPage={xPage}
+            setxPage={setxPage}
+            input={input}
+            setInput={setInput}
+          />
+        </div>
       </div>
     </Background>
   );
