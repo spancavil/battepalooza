@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext} from "react";
 import Pagination from "../../../../Global-Components/Pagination";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import NftDetail from "../NftDetail";
@@ -6,10 +6,14 @@ import NftDetail from "../NftDetail";
 import { TradeDataDummy } from "../../Data";
 
 import styles from "./styles.module.scss";
+import authService from "../../../../Services/auth.service";
+import { UserData } from "../../../../Context/UserProvider";
 
 const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
   const [tradeDetail, setTradeDetail] = useState(false);
   const [category, setCategory] = useState("purchase");
+  const [tradeData, setTradeData] = useState(null);
+  const {userData} = useContext(UserData);
 
   const breakpoint = useMediaQuery("(max-width: 576px)");
 
@@ -19,6 +23,15 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
   }, [breakpoint, setxPage, setInput, setPage]);
 
   const max = TradeDataDummy.length / xPage;
+
+  useEffect(()=> {
+    (async ()=> {
+      const response = await authService.tradeHistoryList(userData.bpToken, userData.pid);
+      console.log(response);
+      const response2 = await authService.tradeHistoryDetail(userData.bpToken, userData.pid, "73e68ad6-bd8c-4a04-8f83-86c30da4d314");
+      console.log(response2);
+    })()
+  }, [userData])
 
   return (
     <div className={styles.container}>
