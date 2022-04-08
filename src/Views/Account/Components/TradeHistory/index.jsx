@@ -12,7 +12,7 @@ import { UserData } from "../../../../Context/UserProvider";
 const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
   const [tradeDetail, setTradeDetail] = useState(false);
   const [category, setCategory] = useState("purchase");
-  const [tradeData, setTradeData] = useState(null);
+  // const [tradeData, setTradeData] = useState(null);
   const {userData} = useContext(UserData);
 
   const breakpoint = useMediaQuery("(max-width: 576px)");
