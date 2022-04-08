@@ -4,21 +4,21 @@ import authHeader from './auth-header';
 const API_URL = process.env.REACT_APP_API_URL;
 
 class marketService {
-    async getData(){
+    async getData() {
         return await axios.post(API_URL + "market/data")
-        .then (response => {
+            .then(response => {
+                return response.data
+            })
+    }
+
+    async getNftMarketplaceList() {
+        return await axios.post(API_URL + "market/list").then(response => {
             return response.data
         })
     }
 
-    async getNftMarketplaceList(){
-        return await axios.post(API_URL + "market/list").then (response => {
-            return response.data
-        })
-    }
-
-    async getNftMarketplaceDetail(seller, uniqueId){
-        return await axios.post(API_URL + "market/detail",{
+    async getNftMarketplaceDetail(seller, uniqueId) {
+        return await axios.post(API_URL + "market/detail", {
             uniqueId,
             seller
         }).then(response => {
@@ -26,7 +26,7 @@ class marketService {
         })
     }
 
-    async registerProductMarketplace(pid, uuid, price, bpTokenContent){
+    async registerProductMarketplace(pid, uuid, price, bpTokenContent) {
         const bpToken = authHeader(bpTokenContent);
 
         return await axios.post(API_URL + 'market/register', {
@@ -39,7 +39,7 @@ class marketService {
         })
     }
 
-    async buyProductMarketplace(pid, seller, uniqueId, bpTokenContent){
+    async buyProductMarketplace(pid, seller, uniqueId, bpTokenContent) {
         const bpToken = authHeader(bpTokenContent);
         return await axios.post(API_URL + 'market/buy-product', {
             pid,
@@ -51,7 +51,7 @@ class marketService {
         })
     }
 
-    async getTransactionStatus(pid, forteTxId, bpTokenContent){
+    async getTransactionStatus(pid, forteTxId, bpTokenContent) {
         const bpToken = authHeader(bpTokenContent);
         return await axios.post(API_URL + 'market/tx-status', {
             pid,
@@ -62,7 +62,7 @@ class marketService {
         })
     }
 
-    async cancelSellingMarketplace(pid, uniqueId, bpTokenContent){
+    async cancelSellingMarketplace(pid, uniqueId, bpTokenContent) {
         const bpToken = authHeader(bpTokenContent);
         return await axios.post(API_URL + 'market/cancel-selling', {
             pid,
@@ -73,9 +73,9 @@ class marketService {
         })
     }
 
-    async requestWithdrawCoins(pid, uniqueId, bpTokenContent){
+    async requestWithdrawCoins(pid, uniqueId, bpTokenContent) {
         const bpToken = authHeader(bpTokenContent);
-        return await axios.post(API_URL + 'market/request-withdraw',{
+        return await axios.post(API_URL + 'market/request-withdraw', {
             pid,
             uniqueId,
             bpToken
@@ -83,6 +83,7 @@ class marketService {
             return response.data
         })
     }
+
 }
 
 export default new marketService();
