@@ -7,9 +7,9 @@ class AuthService {
   async login(username, code, endpoint, userData) {
     return await axios
       .post(API_URL + `login${endpoint}`, {
-          email: username,
-          code,
-          userData
+        email: username,
+        code,
+        userData
       })
       .then(response => {
         if (response.data) {
@@ -30,48 +30,71 @@ class AuthService {
     })
     if (response.data) {
       return (response.data)
-      }
+    }
   }
 
-  validateUser({userId, token}){
-    
+  validateUser({ userId, token }) {
+
     const header = authHeader(token);
-    return axios.get(`${API_URL}user?id=${userId}`, {headers: header});
+    return axios.get(`${API_URL}user?id=${userId}`, { headers: header });
   }
 
-  async verifyCaptcha(captchaToken){
+  async verifyCaptcha(captchaToken) {
     return await axios.post(`${API_URL}user/verify-recaptcha`, {
       captchaToken
-    }).then( response => {
+    }).then(response => {
       if (response.data) return response.data
     })
   }
 
-  async getVerificationCode(email){
+  async getVerificationCode(email) {
     return await axios.post(API_URL + "login/verify-code", {
       email
-    }).then( response => {
+    }).then(response => {
       return response.data;
     })
   }
 
-  async getFortePayload({bpToken, pid}){
+  async getFortePayload({ bpToken, pid }) {
     const bpTokenHeader = authHeader(bpToken);
     return await axios.post(API_URL + "user/payload-forte", {
       bpTokenHeader,
       pid
-    }).then ( response => {
+    }).then(response => {
       return response.data;
     })
   }
 
-  async getForteBalance({bpToken, pid}){
+  async getForteBalance({ bpToken, pid }) {
     const bpTokenHeader = authHeader(bpToken);
     return await axios.post(API_URL + "user/forte-balance", {
       bpTokenHeader,
       pid
-    }).then ( response => {
+    }).then(response => {
       return response.data;
+    })
+  }
+
+  async tradeHistoryList(bpToken, pid, page = 1, pageSize = 10) {
+    const bpTokenHeader = authHeader(bpToken);
+    return await axios.post(API_URL + "user/trade-history-list", {
+      bpTokenHeader,
+      pid,
+      page,
+      pageSize
+    }).then(response => {
+      return response.data
+    })
+  }
+
+  async tradeHistoryDetail(bpToken, pid, listingId) {
+    const bpTokenHeader = authHeader(bpToken);
+    return await axios.post(API_URL + "user/trade-history-detail", {
+      bpTokenHeader,
+      pid,
+      listingId
+    }).then(response => {
+      return response.data
     })
   }
 
