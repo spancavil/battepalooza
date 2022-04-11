@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useCallback } from "react";
+import { useState, useEffect, useContext } from "react";
 import Pagination from "../../../../Global-Components/Pagination";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import NftDetail from "../NftDetail";
@@ -11,6 +11,7 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
   const [tradeDetail, setTradeDetail] = useState(false);
   const [category, setCategory] = useState("purchase");
   const [tradeData, setTradeData] = useState(null);
+  const [changingTrade, setChangingTrade] = useState(null);
   const { userData } = useContext(UserData);
 
   const breakpoint = useMediaQuery("(max-width: 576px)");
@@ -22,30 +23,31 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
 
   const max = tradeData?.length / xPage;
 
-  const getTradeHistory = useCallback(async () => {
-    const response = await authService.tradeHistoryList(
-      userData.bpToken,
-      userData.pid
-    );
-
-    setTradeData(response.asBuyer.historyList);
-
-    if (category === "sold") {
-      setTradeData(response.asSeller.historyList);
+  useEffect(() => {
+    if (Object.keys(userData) !== 0) {
+      (async () => {
+        const response = await authService.tradeHistoryList(
+          userData.bpToken,
+          userData.pid
+        );
+        setTradeData(response);
+      })()
     }
-
-    const response2 = await authService.tradeHistoryDetail(
-      userData.bpToken,
-      userData.pid,
-      "73e68ad6-bd8c-4a04-8f83-86c30da4d314"
-    );
-
-    console.log({ response, response2, tradeData });
-  }, [category, tradeData, userData.bpToken, userData.pid]);
+  }, [userData])
 
   useEffect(() => {
-    getTradeHistory();
-  }, [userData, category]);
+    if (tradeData){
+      if (category === "sold") {
+        setChangingTrade(tradeData.asSeller.historyList)
+      }
+      else {
+        setChangingTrade(tradeData.asBuyer.historyList)
+      }
+    }
+  }, [category, tradeData]);
+
+  console.log(tradeData);
+  console.log(changingTrade);
 
   return (
     <div className={styles.container}>
@@ -70,8 +72,8 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
       </div>
 
       <div className={styles.trades}>
-        {tradeData &&
-          tradeData
+        {changingTrade &&
+          changingTrade
             .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
             .map((trade, i) => (
               <div key={i}>
