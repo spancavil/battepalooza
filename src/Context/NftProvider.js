@@ -11,7 +11,7 @@ export const NftData = createContext({});
 const NftProvider = ({ children }) => {
 
   const { userData } = useContext(UserData);
-  const [nftMarket, setNftMarket] = useState([])
+  const [nftMarket, setNftMarket] = useState([]);
   const [nftSelected, setNftSelected] = useState({});
   const [nftToOpen, setNftToOpen] = useState({});
   const [userCollection, setUserCollection] = useState([]);
@@ -124,12 +124,17 @@ const NftProvider = ({ children }) => {
         setClanStatic(Object.values(staticClans));
         setRarityStatic(Object.values(staticRarity));
         setRepIdStatic(Object.values(staticRepId));
+        console.log("Values changed");
 
       } catch (error) {
-        console.log(error);
+        fireAlert("Oops, an error ocurred", error.message, '500px');
       }
     })()
   }, [BP_BASE_URL])
+
+  // const nftMarketModified = useModifyList(nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic);
+  // console.log(nftMarket)
+  // console.log(nftMarketModified);
 
   return (
     <NftData.Provider

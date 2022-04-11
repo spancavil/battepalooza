@@ -12,6 +12,7 @@ import Nft from "../Nft";
 import VanillaTilt from "vanilla-tilt";
 import { useHistory } from "react-router-dom";
 import Pagination from "../../../../Global-Components/Pagination";
+import useModifyList from "../../../../Hooks/useModifyList";
 
 const MarketplaceNfts = ({
   filters,
@@ -23,7 +24,7 @@ const MarketplaceNfts = ({
   setInput,
   orderBy,
 }) => {
-  const { nftMarket } = useContext(NftData);
+  const { nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic } = useContext(NftData);
   const [nftsFiltered, setNftFiltered] = useState(nftMarket);
   const [filterByPrice, setFilterByPrice] = useState(0);
   const [filterNewest, setFilterNewest] = useState(0);
@@ -31,6 +32,8 @@ const MarketplaceNfts = ({
   const history = useHistory();
 
   const breakpoint = useMediaQuery("(max-width: 1200px)");
+
+  const nftMarketModified = useModifyList(nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic);
 
   const tilts = useMemo(
     () => nftsFiltered.map(() => createRef()),
@@ -64,7 +67,7 @@ const MarketplaceNfts = ({
   console.log(nftsFiltered); */
 
   useEffect(() => {
-    const auxFilter = [...nftMarket];
+    const auxFilter = [...nftMarketModified];
     let filtro1 = [];
     let filtro2 = [];
     let filtro3 = [];
@@ -78,13 +81,13 @@ const MarketplaceNfts = ({
     let filtro13 = [];
 
     if (filters.COMMON)
-      filtro1 = auxFilter.filter((nft) => nft.rarity === "COMMON");
+      filtro1 = auxFilter.filter((nft) => nft.rarity === "Common");
     if (filters.RARE)
-      filtro2 = auxFilter.filter((nft) => nft.rarity === "RARE");
+      filtro2 = auxFilter.filter((nft) => nft.rarity === "Rare");
     if (filters.EPIC)
-      filtro3 = auxFilter.filter((nft) => nft.rarity === "EPIC");
+      filtro3 = auxFilter.filter((nft) => nft.rarity === "Epic");
     if (filters.LEGENDARY)
-      filtro4 = auxFilter.filter((nft) => nft.rarity === "LEGENDARY");
+      filtro4 = auxFilter.filter((nft) => nft.rarity === "Legendary");
     if (filters.Weapon) filtro5 = auxFilter.filter((nft) => nft.type === 2);
     if (filters.Character) filtro6 = auxFilter.filter((nft) => nft.type === 1);
     if (filters["0-100"])
@@ -120,12 +123,12 @@ const MarketplaceNfts = ({
 
     const filtroWeapon =
       !filters.Weapon && !filters.Character
-        ? [...nftMarket]
+        ? [...nftMarketModified]
         : [...filtro5, ...filtro6];
 
     const filtroRarity =
       !filters.COMMON && !filters.RARE && !filters.EPIC && !filters.LEGENDARY
-        ? [...nftMarket]
+        ? [...nftMarketModified]
         : [...filtro1, ...filtro2, ...filtro3, ...filtro4];
 
     const filtroPlayCount =
@@ -133,10 +136,10 @@ const MarketplaceNfts = ({
       !filters["101-200"] &&
       !filters["201-300"] &&
       !filters["Over 300"]
-        ? [...nftMarket]
+        ? [...nftMarketModified]
         : [...filtro7, ...filtro8, ...filtro9, ...filtro10];
 
-    const filtroSearch = filters.search === "" ? [...nftMarket] : [...filtro13];
+    const filtroSearch = filters.search === "" ? [...nftMarketModified] : [...filtro13];
 
     //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
     const coincidencias = filtroWeapon
@@ -145,7 +148,7 @@ const MarketplaceNfts = ({
       .filter((value) => filtroSearch.includes(value));
 
     setNftFiltered(coincidencias);
-  }, [filters, nftMarket, orderBy, setNftFiltered]);
+  }, [filters, nftMarketModified, orderBy, setNftFiltered]);
 
   const max = nftsFiltered.length / xPage;
 
@@ -158,12 +161,12 @@ const MarketplaceNfts = ({
     console.log(filterNewest);
     if (filterNewest === 1) {
       console.log("Deberia ordernarse por nuevo");
-      setNftFiltered([...nftMarket].reverse());
+      setNftFiltered([...nftMarketModified].reverse());
     } else if (filterNewest === 2) {
       console.log("Deberia ordernarse por viejo");
-      setNftFiltered([...nftMarket]);
+      setNftFiltered([...nftMarketModified]);
     }
-  }, [orderBy, filterNewest, nftMarket]);
+  }, [orderBy, filterNewest, nftMarketModified]);
 
   const handleDetail = (uniqueId, sellerPid) => {
     history.push(`/marketplace/${uniqueId}-${sellerPid}`);
@@ -176,7 +179,7 @@ const MarketplaceNfts = ({
           .sort(filterByPrice === 1 ? lth : htl, filterByPrice === 0 ?? null)
           .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
           .map((nft) => {
-            const indice = nftMarket?.indexOf(nft);
+            const indice = nftMarketModified?.indexOf(nft);
             return (
               <Nft
                 key={nft.uniqueId}
