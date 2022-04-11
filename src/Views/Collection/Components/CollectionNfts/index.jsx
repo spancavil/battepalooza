@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import Pagination from "../Pagination";
 import VanillaTilt from "vanilla-tilt";
+import useModifyList from "../../../../Hooks/useModifyList";
 // import imagePlaceholder from '../../../../Assets/img/nft-card-front01.png';
 
 /* DOCS:
@@ -24,7 +25,11 @@ const CollectionNfts = () => {
   const [xPage, setxPage] = useState(25);
   const [input, setInput] = useState(1);
 
-  const { userCollection } = useContext(NftData);
+  const { userCollection, nftStatic, clanStatic, rarityStatic, repIdStatic } = useContext(NftData);
+
+  const nftCollectionModified = useModifyList(userCollection, nftStatic, clanStatic, rarityStatic, repIdStatic);
+
+  console.log(nftCollectionModified);
 
   //Luego utilizaremos userCollection, cuando vengan bien los datos.
   // const {userCollection} = useContext(NftData)
@@ -34,8 +39,8 @@ const CollectionNfts = () => {
   //Una vez que se cargan, se vuelve a mappear y se crean distintas referencias (que son asociadas a los divs contenedores) por cada uno de los items.
   //Recordemos que las "ref" se utilizan para referenciar objetos del DOM, pudiéndose cambiar sus valores internos sin re-render.
   const tilts = useMemo(
-    () => userCollection.map(() => createRef()),
-    [userCollection]
+    () => nftCollectionModified.map(() => createRef()),
+    [nftCollectionModified]
   );
 
   const history = useHistory();
@@ -68,16 +73,16 @@ const CollectionNfts = () => {
 
   console.log(xPage);
 
-  const max = userCollection.length / xPage;
+  const max = nftCollectionModified.length / xPage;
 
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.cards}>
-        {userCollection
+        {nftCollectionModified
           .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
           .map((nft) => {
             //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
-            const indice = userCollection?.indexOf(nft);
+            const indice = nftCollectionModified?.indexOf(nft);
             return (
               /* Aqui el div apunta a su referencia correspondiente */
               <div
