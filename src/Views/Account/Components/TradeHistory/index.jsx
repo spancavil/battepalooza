@@ -79,7 +79,7 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
                   <div className={styles.trade}>
                     <div className={styles.item}>
                       <p>Date</p>
-                      <span>{trade.soldAt}</span>
+                      <span>{new Date(trade.soldAt).toLocaleString()}</span>
                     </div>
 
                     <div className={styles.item}>
