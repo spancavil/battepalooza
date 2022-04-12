@@ -6,11 +6,11 @@ const Nft = ({ nft, tilt, onClick }) => {
     <div
       ref={tilt}
       className={
-        nft.rarity === "COMMON"
+        nft.rarity === "Common"
           ? styles.borderCommon
-          : nft.rarity === "RARE"
+          : nft.rarity === "Rare"
           ? styles.borderRare
-          : nft.rarity === "EPIC"
+          : nft.rarity === "Epic"
           ? styles.borderEpic
           : styles.borderLegendary
       }
