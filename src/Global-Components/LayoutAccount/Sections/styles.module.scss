@@ -1,0 +1,122 @@
+@import "../../../Styles/breakpoints.scss";
+@import "../../../Styles/colors.scss";
+@import "../../../Styles/fonts.scss";
+
+@media (min-width: $desktop) {
+  .sections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #0146d5;
+    height: fit-content;
+    width: inherit;
+    gap: 10px;
+    padding: 10px 0px;
+    max-width: 250px;
+    background: linear-gradient(
+      180deg,
+      rgba(4, 18, 55, 0.65) 0%,
+      rgba(4, 18, 55, 0) 100%
+    );
+
+    .btnSelected {
+      width: 90%;
+
+      button {
+        width: 100%;
+        background-color: $logout;
+        border: 2px solid $logout;
+        min-width: 100px;
+        font-family: $font-monkyta;
+        color: white;
+        padding: 5px 0;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    }
+
+    .btnSelected:hover {
+      transition-duration: 0.3s;
+      background-color: #00518f;
+    }
+
+    .btn {
+      width: 90%;
+
+      button {
+        width: 100%;
+        border: none;
+        background-color: inherit;
+        border: 2px solid $logout;
+        min-width: 100px;
+        font-family: $font-monkyta;
+        color: white;
+        padding: 5px 0;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    }
+
+    .btn:hover {
+      transition-duration: 0.3s;
+      background-color: $logout;
+    }
+  }
+}
+
+@media (max-width: $desktop - 1) {
+  .sections {
+    width: 90vw;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    gap: 10px;
+    padding: 10px 0px;
+    overflow-x: scroll;
+
+    .btnSelected {
+      width: 90%;
+
+      button {
+        width: 100%;
+        background-color: $logout;
+        border: 2px solid $logout;
+        min-width: 100px;
+        font-family: $font-monkyta;
+        color: white;
+        padding: 5px 0;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    }
+
+    .btnSelected:hover {
+      transition-duration: 0.3s;
+      background-color: #00518f;
+    }
+
+    .btn {
+      width: 90%;
+
+      button {
+        width: 100%;
+        border: none;
+        background-color: inherit;
+        border: 2px solid $logout;
+        min-width: 100px;
+        font-family: $font-monkyta;
+        color: white;
+        padding: 5px 0;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    }
+
+    .btn:hover {
+      transition-duration: 0.3s;
+      background-color: $logout;
+    }
+  }
+}

@@ -149,7 +149,7 @@ const NavBar = () => {
                         <Link
                           className={styles.link}
                           onClick={() => setMenu(!menu)}
-                          to="/account"
+                          to="/account/profile"
                         >
                           <svg
                             width="15"
@@ -261,7 +261,7 @@ const NavBar = () => {
                   <Link
                     className={styles.link}
                     onClick={() => setMenu(!menu)}
-                    to="/account"
+                    to="/account/profile"
                   >
                     <Button
                       style={{ fontSize: ".9em", padding: "6px 16px" }}

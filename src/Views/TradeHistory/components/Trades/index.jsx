@@ -1,13 +1,14 @@
 import { useState, useEffect, useContext } from "react";
-import Pagination from "../../../../Global-Components/Pagination";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
+import { UserData } from "../../../../Context/UserProvider";
+import Pagination from "../../../../Global-Components/Pagination";
 import NftDetail from "../NftDetail";
+import authService from "../../../../Services/auth.service";
 
 import styles from "./styles.module.scss";
-import authService from "../../../../Services/auth.service";
-import { UserData } from "../../../../Context/UserProvider";
+import Loader from "../../../../Global-Components/Loader";
 
-const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
+const Trades = ({ page, setPage, setxPage, xPage, input, setInput }) => {
   const [tradeDetail, setTradeDetail] = useState(false);
   const [category, setCategory] = useState("purchase");
   const [tradeData, setTradeData] = useState(null);
@@ -21,7 +22,7 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
     setPage(1);
   }, [breakpoint, setxPage, setInput, setPage]);
 
-  const max = tradeData?.length / xPage;
+  const max = changingTrade?.length / xPage;
 
   useEffect(() => {
     if (Object.keys(userData) !== 0) {
@@ -31,17 +32,16 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
           userData.pid
         );
         setTradeData(response);
-      })()
+      })();
     }
-  }, [userData])
+  }, [userData]);
 
   useEffect(() => {
-    if (tradeData){
+    if (tradeData) {
       if (category === "sold") {
-        setChangingTrade(tradeData.asSeller.historyList)
-      }
-      else {
-        setChangingTrade(tradeData.asBuyer.historyList)
+        setChangingTrade(tradeData.asSeller.historyList);
+      } else {
+        setChangingTrade(tradeData.asBuyer.historyList);
       }
     }
   }, [category, tradeData]);
@@ -72,7 +72,7 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
       </div>
 
       <div className={styles.trades}>
-        {changingTrade &&
+        {changingTrade ? (
           changingTrade
             .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
             .map((trade, i) => (
@@ -111,7 +111,12 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
                   />
                 )}
               </div>
-            ))}
+            ))
+        ) : (
+          <div className={styles.loader}>
+            <Loader />
+          </div>
+        )}
       </div>
 
       <div className={styles.pagination}>
@@ -129,4 +134,4 @@ const TradeHistory = ({ page, setPage, setxPage, xPage, input, setInput }) => {
   );
 };
 
-export default TradeHistory;
+export default Trades;

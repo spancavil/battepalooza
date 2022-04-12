@@ -1,8 +1,10 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useContext } from "react";
+import { UserData } from "./Context/UserProvider";
+
 import HomeContainer from "./Views/Home";
 import NavBar from "./Views/Navbar";
 import Error404 from "./Views/Error404";
-import Account from "./Views/Account";
 import SignUp from "./Views/SignUp";
 import Login from "./Views/Login";
 import Verification from "./Views/Verification";
@@ -13,10 +15,10 @@ import Privacy from "./Views/PrivacyAndTerms/Privacy";
 import TermsOfUse from "./Views/PrivacyAndTerms/TermsOfUse";
 import MarketPlace from "./Views/MarketPlace";
 import MarketplaceDetail from "./Views/MarketplaceDetail";
-import { useContext } from "react";
-import { UserData } from "./Context/UserProvider";
 import Drop from "./Views/Drop";
 import DropDetail from "./Views/DropDetail";
+import Profile from "./Views/Account";
+import TradeHistory from "./Views/TradeHistory";
 
 import "./Styles/Global.scss";
 
@@ -32,8 +34,15 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/verification" component={Verification} />
         <Route exact path="/needlogin" component={NeedLogin} />
-        <Route exact path="/account">
-          {Object.keys(userData).length === 0 ? <NeedLogin /> : <Account />}
+        <Route exact path="/account/profile">
+          {Object.keys(userData).length === 0 ? <NeedLogin /> : <Profile />}
+        </Route>
+        <Route exact path="/account/trade-history">
+          {Object.keys(userData).length === 0 ? (
+            <NeedLogin />
+          ) : (
+            <TradeHistory />
+          )}
         </Route>
         <Route exact path="/drop" component={Drop} />
         <Route exact path="/drop/:id" component={DropDetail} />

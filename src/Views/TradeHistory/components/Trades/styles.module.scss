@@ -222,3 +222,12 @@ $gray: #7e7e7e;
     }
   }
 }
+
+.loader {
+  width: 100%;
+  background-color: #05102f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
