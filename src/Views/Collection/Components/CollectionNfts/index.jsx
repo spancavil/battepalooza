@@ -86,6 +86,7 @@ const CollectionNfts = () => {
             return (
               /* Aqui el div apunta a su referencia correspondiente */
               <div
+                key={nft.uuid}
                 className={
                   nft.rarity === "Common"
                     ? styles.borderCommon
@@ -98,7 +99,7 @@ const CollectionNfts = () => {
                 onClick={() => onClick(nft.uuid)}
                 ref={tilts[indice]}
               >
-                <div className={styles.cardNft} key={nft.uuid}>
+                <div className={styles.cardNft}>
                   {nft.salesState === 1 && (
                     <div className={styles.sale}>Sale</div>
                   )}

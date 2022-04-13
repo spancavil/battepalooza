@@ -13,12 +13,13 @@ import fireToast, { fireAlertAsync } from "../../../../Utils/sweetAlert2";
 import HP from "../../Assets/Sprite_Icon_Stat_01.png";
 import ENERGY from "../../Assets/Sprite_Icon_Stat_02.png";
 import SPEED from "../../Assets/Sprite_Icon_Stat_04.png";
-import DAILY from "../../Assets/Sprite_Icon_Reward_35.png";
+// import DAILY from "../../Assets/Sprite_Icon_Reward_35.png";
 import PREMIUM from "../../Assets/Sprite_Icon_Premium_03.png";
 import COPY from "../../Assets/Sprite_Icon_Premium_05.png";
 import SERIAL from "../../Assets/Sprite_Icon_Premium_02.png";
 import BONUS from "../../Assets/Sprite_Icon_Premium_04.png";
 import { NftData } from "../../../../Context/NftProvider";
+import useModifyDetail from "../../../../Hooks/useModifyDetail";
 
 const NftDetail = ({ nfts, setNft, setNftListing }) => {
   const history = useHistory();
@@ -27,9 +28,9 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
   let nftSplitted = nftId.split("-");
   const uid = nftSplitted[0];
   const seller = nftSplitted[1];
-  const { characterMaxStats, weaponMaxStats } = useContext(NftData);
+  const { characterMaxStats, weaponMaxStats, nftStatic, clanStatic, rarityStatic, repIdStatic } = useContext(NftData);
 
-  const [chosenNft, setChosenNft] = useState({});
+  const [chosenNftRaw, setChosenNftRaw] = useState({});
   const [loading, setLoading] = useState(false);
 
   const { userData } = useContext(UserData);
@@ -55,7 +56,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
         }
       }
 
-      setChosenNft(response.product);
+      setChosenNftRaw(response.product);
     })();
   }, [uid, seller, history]);
 
@@ -81,7 +82,9 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
     history.goBack();
   };
 
-  console.table(chosenNft);
+  const chosenNft = useModifyDetail(chosenNftRaw, nftStatic, clanStatic, rarityStatic, repIdStatic);
+
+  console.log(chosenNft);
 
   return (
     <>
@@ -269,7 +272,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                           <p className={styles.title}>P2E Info</p>
                           <div className={styles.p2eContainer}>
                             <div className={styles.p2eContainerA}>
-                              <div className={styles.p2eItemContainer}>
+                              {/* <div className={styles.p2eItemContainer}>
                                 <img
                                   className={styles.p2eIcon}
                                   src={DAILY}
@@ -280,7 +283,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                   {chosenNft.dailyPlayCount} /{" "}
                                   {chosenNft.maxDailyPlayCount}{" "}
                                 </p>
-                              </div>
+                              </div> */}
                               <div className={styles.p2eItemContainer}>
                                 <img
                                   className={styles.p2eIcon}
@@ -298,7 +301,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                   src={COPY}
                                   alt="Copy"
                                 />
-                                <p className={styles.p2eText}>Copy: -</p>
+                                <p className={styles.p2eText}>Copy: {chosenNft.cloneCount}</p>
                               </div>
                             </div>
                             <div className={styles.p2eContainerB}>
