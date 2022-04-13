@@ -114,12 +114,12 @@ const DropDetail = () => {
     else setBuyComplete(false)
   }
 
-  // console.log(chosenNft);
+  console.log(chosenNft);
   // console.log(dropSelected)
 
   return (
     <Background>
-      {dropSelected && !(chosenNft && mobile) ? (
+      {dropSelected && !(chosenNft && mobile) && (
         <>
           <p className={styles.back} onClick={() => history.goBack()}>
             &#60; Go back
@@ -154,8 +154,8 @@ const DropDetail = () => {
             </div>
           </div>
         </>
-      ) :
-      chosenNft &&
+      )}
+      {chosenNft &&
         <NftDetail
           chosenNft={chosenNft}
           confirmBuy={handleBuy}
