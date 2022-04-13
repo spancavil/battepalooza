@@ -124,8 +124,6 @@ const NftProvider = ({ children }) => {
         setClanStatic(Object.values(staticClans));
         setRarityStatic(Object.values(staticRarity));
         setRepIdStatic(Object.values(staticRepId));
-        console.log("Values changed");
-
       } catch (error) {
         fireAlert("Oops, an error ocurred", error.message, '500px');
       }

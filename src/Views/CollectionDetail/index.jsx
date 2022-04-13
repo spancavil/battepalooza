@@ -20,9 +20,10 @@ import SERIAL from "./Assets/Sprite_Icon_Premium_02.png";
 import BONUS from "./Assets/Sprite_Icon_Premium_04.png";
 import fireToast, { fireAlert, fireAlertAsync } from "../../Utils/sweetAlert2";
 import marketService from "../../Services/market.service";
+import useModifyDetail from "../../Hooks/useModifyDetail";
 
 const CollectionDetail = () => {
-  const [nftSelected, setNftSelected] = useState();
+  const [nftSelectedRaw, setNftSelectedRaw] = useState();
   const [loading, setLoading] = useState(false);
   const [modalUnregister, setmodalUnregister] = useState(false);
   const [modalRegister1, setmodalRegister1] = useState(false);
@@ -32,7 +33,7 @@ const CollectionDetail = () => {
   const [forteTxText, setForteTxText] = useState("");
 
   const { userData } = useContext(UserData);
-  const { characterMaxStats, weaponMaxStats, nftMarket, setReloadMarket, setReloadCollection } =
+  const { characterMaxStats, weaponMaxStats, nftMarket, setReloadMarket, setReloadCollection, nftStatic, clanStatic, rarityStatic, repIdStatic } =
     useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
@@ -40,6 +41,11 @@ const CollectionDetail = () => {
   useEffect(() => {
     setLoading(true);
   }, []);
+
+  //Modify data from JSON statics
+  const nftSelected = useModifyDetail(nftSelectedRaw, nftStatic, clanStatic, rarityStatic, repIdStatic)
+
+  console.log(nftSelected);
 
   //console.log(nftSelected);
 
@@ -66,7 +72,7 @@ const CollectionDetail = () => {
               alert(response.error.text);
             }
           } else {
-            setNftSelected(response.nft);
+            setNftSelectedRaw(response.nft);
           }
         } catch (error) {
           alert(error.message);
@@ -194,7 +200,7 @@ const CollectionDetail = () => {
         &#60; Go back to Collection
       </p>
       <div className={styles.container}>
-        {nftSelected && (
+        {Object.keys(nftSelected).length > 0 && (
           <div className={styles.card}>
             <div className={styles.text}>
               <div className={styles.cardContainer}>
@@ -402,7 +408,7 @@ const CollectionDetail = () => {
                                   src={COPY}
                                   alt="Copy"
                                 />
-                                <p className={styles.p2eText}>Copy: -</p>
+                                <p className={styles.p2eText}>Copy: {nftSelected.cloneCount}</p>
                               </div>
                             </div>
                             <div className={styles.p2eContainerB}>
