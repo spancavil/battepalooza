@@ -21,7 +21,7 @@ const useModifyDetail = (nftDetailtoModify, nftStatic, clanStatic, rarityStatic,
                 nftDetailtoModify.rarity = rarityFinded.name
                 nftDetailtoModify.rewardMultiplier = rarityFinded.nftCoinRewardMultiplier
                 nftDetailtoModify.maxPlayCount = rarityFinded.totalMaxPlayRewardCount
-                nftDetailtoModify.maxDailyPlayCount = rarityFinded.totalMaxDailyPlayRewardCount || 12
+                nftDetailtoModify.maxDailyPlayCount = rarityFinded.dailyMaxPlayRewardCount || 102
             }
             setNftDetailModified(nftDetailtoModify)
         }

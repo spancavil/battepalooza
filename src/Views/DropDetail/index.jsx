@@ -119,7 +119,7 @@ const DropDetail = () => {
 
   return (
     <Background>
-      {dropSelected ? (
+      {dropSelected && !(chosenNft && mobile) ? (
         <>
           <p className={styles.back} onClick={() => history.goBack()}>
             &#60; Go back
@@ -154,10 +154,8 @@ const DropDetail = () => {
             </div>
           </div>
         </>
-      ) : (
-        <p>Loading</p>
-      )}
-      {chosenNft &&
+      ) :
+      chosenNft &&
         <NftDetail
           chosenNft={chosenNft}
           confirmBuy={handleBuy}

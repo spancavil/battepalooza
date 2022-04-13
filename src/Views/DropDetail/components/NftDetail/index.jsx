@@ -11,9 +11,10 @@ import COPY from "../../Assets/Sprite_Icon_Premium_05.png";
 import BONUS from "../../Assets/Sprite_Icon_Premium_04.png";
 import cross from "../../../../Assets/img/crossNftMarketDetail.png";
 import { NftData } from "../../../../Context/NftProvider";
+import useModifyDetail from "../../../../Hooks/useModifyDetail";
 
 const NftDetail = ({ 
-  chosenNft, 
+  chosenNft: nftRaw, 
   confirmBuy, 
   handleClose, 
   checkout,
@@ -21,10 +22,14 @@ const NftDetail = ({
   buyComplete
 }) => {
 
-  const { characterMaxStats, weaponMaxStats } = useContext(NftData);
+  const { characterMaxStats, weaponMaxStats, nftStatic, clanStatic, rarityStatic, repIdStatic} = useContext(NftData);
   const [loading, setLoading] = useState(false);
 
   const div = useRef();
+
+  const chosenNft = useModifyDetail(nftRaw, nftStatic, clanStatic, rarityStatic, repIdStatic)
+  
+  console.log(chosenNft);
 
   useEffect(() => {
     setLoading(true);

@@ -46,8 +46,10 @@ const Trades = ({ page, setPage, setxPage, xPage, input, setInput }) => {
     }
   }, [category, tradeData]);
 
-  console.log(tradeData);
-  console.log(changingTrade);
+  const handleDetail = (id) => {
+    console.log(id);
+    setTradeDetail(id);
+  }
 
   return (
     <div className={styles.container}>
@@ -73,45 +75,48 @@ const Trades = ({ page, setPage, setxPage, xPage, input, setInput }) => {
 
       <div className={styles.trades}>
         {changingTrade ? (
-          changingTrade
-            .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
-            .map((trade, i) => (
-              <div key={i}>
-                <div className={styles.tradeContainer}>
-                  <div className={styles.trade}>
-                    <div className={styles.item}>
-                      <p>Date</p>
-                      <span>{new Date(trade.soldAt).toLocaleString()}</span>
+          <>
+            {changingTrade
+              .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
+              .map((trade, i) => (
+                <div key={i}>
+                  <div className={styles.tradeContainer}>
+                    <div className={styles.trade}>
+                      <div className={styles.item}>
+                        <p>Date</p>
+                        <span>{new Date(trade.soldAt).toLocaleString()}</span>
+                      </div>
+
+                      <div className={styles.item}>
+                        <p>Name</p>
+                        <span>{trade.itemId}</span>
+                      </div>
+
+                      <div className={styles.item}>
+                        <p>{category === "purchase" ? "Seller" : "Buyer"} </p>
+                        <span>{trade.buyerName}</span>
+                      </div>
+
+                      <div className={styles.item}>
+                        <p>Price</p>
+                        <span>{trade.price} NCoin</span>
+                      </div>
+
+                      <button onClick={() => handleDetail(trade.listingId)}>VIEW</button>
                     </div>
 
-                    <div className={styles.item}>
-                      <p>Name</p>
-                      <span>{trade.itemId}</span>
-                    </div>
-
-                    <div className={styles.item}>
-                      <p>{category === "purchase" ? "Seller" : "Buyer"} </p>
-                      <span>{trade.buyerName}</span>
-                    </div>
-
-                    <div className={styles.item}>
-                      <p>Price</p>
-                      <span>{trade.price} NCoin</span>
-                    </div>
-
-                    <button onClick={() => setTradeDetail(true)}>VIEW</button>
+                    <div className={styles.line} />
                   </div>
 
-                  <div className={styles.line} />
                 </div>
-                {tradeDetail && (
-                  <NftDetail
-                    chosenNft={trade}
-                    handleClose={() => setTradeDetail(false)}
-                  />
-                )}
-              </div>
-            ))
+              ))}
+            {tradeDetail && (
+              <NftDetail
+                listingId={tradeDetail}
+                handleClose={() => setTradeDetail("")}
+              />
+            )}
+          </>
         ) : (
           <div className={styles.loader}>
             <Loader />
