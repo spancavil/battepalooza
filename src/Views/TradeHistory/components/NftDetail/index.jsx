@@ -11,57 +11,74 @@ import COPY from "../../Assets/Sprite_Icon_Premium_05.png";
 import BONUS from "../../Assets/Sprite_Icon_Premium_04.png";
 import cross from "../../../../Assets/img/crossNftMarketDetail.png";
 import { NftData } from "../../../../Context/NftProvider";
+import authService from "../../../../Services/auth.service";
+import { UserData } from "../../../../Context/UserProvider";
+import useModifyDetail from "../../../../Hooks/useModifyDetail";
+import { fireAlertAsync } from "../../../../Utils/sweetAlert2";
 
-const NftDetail = ({ 
-  chosenNft, 
-  confirmBuy, 
-  handleClose, 
-  checkout,
-  processing,
-  buyComplete
+const NftDetail = ({
+  listingId,
+  handleClose,
 }) => {
 
-  const { characterMaxStats, weaponMaxStats } = useContext(NftData);
+  const { characterMaxStats, weaponMaxStats, nftStatic, clanStatic, rarityStatic, repIdStatic } = useContext(NftData);
+  const { userData } = useContext(UserData);
   const [loading, setLoading] = useState(false);
+  const [rawNft, setRawNft] = useState()
 
   const div = useRef();
 
   useEffect(() => {
+    console.log(listingId);
     setLoading(true);
-  }, []);
+    (async () => {
+      if (Object.keys(userData) !== 0) {
+        const response = await authService.tradeHistoryDetail(
+          userData.bpToken,
+          userData.pid,
+          listingId
+        )
+        if (response.error?.num === 0){
+          setRawNft(response.history);
+        } else {
+          fireAlertAsync("Error: ", response.error?.message);
+          return;
+        }
+      }
+    })()
+
+  }, [userData, listingId]);
+
+  const chosenNft = useModifyDetail(rawNft, nftStatic, clanStatic, rarityStatic, repIdStatic);
+  console.log(chosenNft);
 
   //On escape it will close
   useEffect(() => {
     const handleEsc = (event) => {
-        if (event.keyCode === 27 && !checkout && !processing && !buyComplete) {
-          handleClose()
-        }
-      };
-    
-      window.addEventListener('keydown', handleEsc);
+      if (event.keyCode === 27) {
+        handleClose()
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
 
     return () => {
       window.removeEventListener('keydown', handleEsc);
     };
-  }, [handleClose, checkout, processing, buyComplete])
-
-  const handleBuy = () => {
-    confirmBuy(chosenNft);
-  }
+  }, [handleClose])
 
   return (
     <>
-      <div className={styles.container} ref ={div}>
+      <div className={styles.container} ref={div}>
         {chosenNft && (
           <div className={styles.card}>
             <div className={styles.text}>
               <div className={styles.cardContainer}>
 
                 <div className={styles.header}>
-                  <h2 className={styles.remain}>Remain: {chosenNft.leftAmount}/{chosenNft.limitAmount}</h2>
-                  <div onClick={handleClose} style = {{display: 'flex', alignItems: 'center'}}>
+                  <div onClick={handleClose} style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%'}}>
                     <img
-                      src = {cross}
+                      src={cross}
                       alt="close"
                     />
                   </div>
@@ -260,7 +277,7 @@ const NftDetail = ({
                                   alt="Battle count"
                                 />
                                 <p className={styles.p2eText}>
-                                  Max gNCoin Battle Count: 
+                                  Max gNCoin Battle Count:
                                   {chosenNft.maxPlayCount}{" "}
                                 </p>
                               </div>
@@ -320,8 +337,8 @@ const NftDetail = ({
                   </div>
 
                   <div className={styles.button}>
-                    <button onClick={() => handleBuy(chosenNft)}>
-                      {chosenNft.price} NCoin
+                    <button style={{cursor: 'auto'}}>
+                      Transaction price: {chosenNft.price} NCoin
                     </button>
                   </div>
                 </div>
