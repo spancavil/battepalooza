@@ -62,9 +62,9 @@ const MarketplaceNfts = ({
     breakpoint ? setxPage(4) : setxPage(25);
   }, [breakpoint, setxPage]);
 
- /*  console.log(orderBy);
-  console.log(nftMarket);
-  console.log(nftsFiltered); */
+  /*  console.log(orderBy);
+   console.log(nftMarket);
+   console.log(nftsFiltered); */
 
   useEffect(() => {
     const auxFilter = [...nftMarketModified];
@@ -78,7 +78,10 @@ const MarketplaceNfts = ({
     let filtro8 = [];
     let filtro9 = [];
     let filtro10 = [];
+    let filtro11 = [];
+    let filtro12 = [];
     let filtro13 = [];
+    let filtro14 = [];
 
     if (filters.COMMON)
       filtro1 = auxFilter.filter((nft) => nft.rarity === "Common");
@@ -90,21 +93,22 @@ const MarketplaceNfts = ({
       filtro4 = auxFilter.filter((nft) => nft.rarity === "Legendary");
     if (filters.Weapon) filtro5 = auxFilter.filter((nft) => nft.type === 2);
     if (filters.Character) filtro6 = auxFilter.filter((nft) => nft.type === 1);
-    if (filters["0-100"])
-      filtro7 = auxFilter.filter((nft) => nft.playCount <= 100);
-    if (filters["101-200"])
-      filtro8 = auxFilter.filter(
-        (nft) => nft.playCount <= 200 && nft.playCount > 100
-      );
-    if (filters["201-300"])
-      filtro9 = auxFilter.filter(
-        (nft) => nft.playCount <= 300 && nft.playCount > 200
-      );
-    if (filters["Over 300"])
-      filtro10 = auxFilter.filter((nft) => nft.playCount > 300);
-    filtro10 = auxFilter.filter((nft) => nft.playCount > 300);
+    if (filters["1"])
+      filtro7 = auxFilter.filter((nft) => nft.cloneCount === 1);
+    if (filters["2"])
+      filtro8 = auxFilter.filter((nft) => nft.cloneCount === 2);
+    if (filters["3"])
+      filtro9 = auxFilter.filter((nft) => nft.cloneCount === 3);
+    if (filters["4"])
+      filtro10 = auxFilter.filter((nft) => nft.cloneCount === 4);
+    if (filters["5"])
+      filtro11 = auxFilter.filter((nft) => nft.cloneCount === 5);
+    if (filters["6"])
+      filtro12 = auxFilter.filter((nft) => nft.cloneCount === 6);
+    if (filters["7"])
+      filtro13 = auxFilter.filter((nft) => nft.cloneCount === 7);
     if (filters.search) {
-      filtro13 = auxFilter.filter((nft) =>
+      filtro14 = auxFilter.filter((nft) =>
         nft.itemName.toLowerCase().includes(filters.search)
       );
     }
@@ -131,20 +135,24 @@ const MarketplaceNfts = ({
         ? [...nftMarketModified]
         : [...filtro1, ...filtro2, ...filtro3, ...filtro4];
 
-    const filtroPlayCount =
-      !filters["0-100"] &&
-      !filters["101-200"] &&
-      !filters["201-300"] &&
-      !filters["Over 300"]
+    const filtroCloneCount =
+      !filters["0"] &&
+        !filters["1"] &&
+        !filters["2"] &&
+        !filters["3"] &&
+        !filters["4"] &&
+        !filters["5"] &&
+        !filters["6"] &&
+        !filters["7"]
         ? [...nftMarketModified]
-        : [...filtro7, ...filtro8, ...filtro9, ...filtro10];
+        : [...filtro7, ...filtro8, ...filtro9, ...filtro10, filtro11, filtro12, filtro13];
 
-    const filtroSearch = filters.search === "" ? [...nftMarketModified] : [...filtro13];
+    const filtroSearch = filters.search === "" ? [...nftMarketModified] : [...filtro14];
 
     //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
     const coincidencias = filtroWeapon
       .filter((value) => filtroRarity.includes(value))
-      .filter((value) => filtroPlayCount.includes(value))
+      .filter((value) => filtroCloneCount.includes(value))
       .filter((value) => filtroSearch.includes(value));
 
     setNftFiltered(coincidencias);

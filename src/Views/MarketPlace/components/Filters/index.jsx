@@ -12,9 +12,13 @@ const Filters = ({ filters, setFilters, setPage, input, setInput }) => {
   const [menuNCoin, setMenuNCoin] = useState(false);
   const [menuType, setMenuType] = useState(false);
 
-  const filtersRarity = sliceObject(filters, 0, 4);
-  const filtersType = sliceObject(filters, 4, 6);
-  const filtersBCount = sliceObject(filters, 6, 10);
+  const filtersRarity = sliceObject(filters, 7, 11)
+
+  const filtersType = sliceObject(filters, 11, 13)
+
+  const filtersCloneCount = sliceObject(filters, 0, 7);
+
+  console.table(filters["COMMON"]);
 
   const onChange = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.checked });
@@ -68,12 +72,12 @@ const Filters = ({ filters, setFilters, setPage, input, setInput }) => {
       )}
 
       <div className={styles.title} onClick={() => setMenuNCoin(!menuNCoin)}>
-        <h2>NCoin Battle Count</h2>
+        <h2>Cloning Count</h2>
         <h3>{menuNCoin ? "-" : "+"}</h3>
       </div>
       {menuNCoin && (
         <div className={styles.filters}>
-          {Object.keys(filtersBCount).map((key) => {
+          {Object.keys(filtersCloneCount).map((key) => {
             return (
               <Filter
                 key={key}

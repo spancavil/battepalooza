@@ -20,6 +20,7 @@ import SERIAL from "../../Assets/Sprite_Icon_Premium_02.png";
 import BONUS from "../../Assets/Sprite_Icon_Premium_04.png";
 import { NftData } from "../../../../Context/NftProvider";
 import useModifyDetail from "../../../../Hooks/useModifyDetail";
+import Button from "../../../../Global-Components/Button";
 
 const NftDetail = ({ nfts, setNft, setNftListing }) => {
   const history = useHistory();
@@ -81,6 +82,10 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
   const goBack = () => {
     history.goBack();
   };
+
+  const handleShowClone = () => {
+    console.log("show clone info");
+  }
 
   const chosenNft = useModifyDetail(chosenNftRaw, nftStatic, clanStatic, rarityStatic, repIdStatic);
 
@@ -269,7 +274,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                           </div>
                         </div>
                         <div className={styles.cont2b}>
-                          <p className={styles.title}>P2E Info</p>
+                          <p className={styles.title}>Premium buff</p>
                           <div className={styles.p2eContainer}>
                             <div className={styles.p2eContainerA}>
                               {/* <div className={styles.p2eItemContainer}>
@@ -291,8 +296,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                   alt="Battle count"
                                 />
                                 <p className={styles.p2eText}>
-                                  gNCoin Battle Count: {chosenNft.playCount} /{" "}
-                                  {chosenNft.maxPlayCount}{" "}
+                                  Bonus multiplier: {chosenNft.rewardMultiplier}
                                 </p>
                               </div>
                               <div className={styles.p2eItemContainer}>
@@ -301,7 +305,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                   src={COPY}
                                   alt="Copy"
                                 />
-                                <p className={styles.p2eText}>Copy: {chosenNft.cloneCount}</p>
+                                <p className={styles.p2eText}>Clone: {chosenNft.cloneCount} count left</p>
                               </div>
                             </div>
                             <div className={styles.p2eContainerB}>
@@ -326,6 +330,12 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                 </p>
                               </div>
                             </div>
+                            <Button
+                                  title="Clone info"
+                                  onClick={handleShowClone}
+                                  width = {'170px'}
+                                  style = {{margin: '12px 12px 12px 40px'}}
+                            />
                           </div>
                         </div>
                       </div>
@@ -340,7 +350,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                     </div>
 
                     <div className={styles.rarityContainer}>
-                      <p className={styles.rarity}>Fee: {chosenNft.fee}</p>
+                      {/* <p className={styles.rarity}>Fee: {chosenNft.fee}</p> */}
                       <p className={styles.rarity}>
                         Seller: {chosenNft.sellerName}
                       </p>
