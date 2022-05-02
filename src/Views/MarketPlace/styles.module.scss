@@ -57,8 +57,8 @@
 .maintenance {
   width: 100vw;
   text-align: center;
-  color: white;
-  background-color: #3d91ef;
+  color: black;
+  background-color: #f9a91f;
   font-family: $font-nasalization;
   font-size: 12px;
   padding: 10px 20px;
@@ -69,8 +69,8 @@
     bottom: 0;
     position: fixed;
     right: 0;
-    background-color: #3d91ef;
-    color: white;
+    color: black;
+    background-color: #f9a91f;
     display: flex;
     align-items: center;
     font-family: $font-nasalization;
@@ -82,6 +82,7 @@
     margin-bottom: 25px;
 
     svg {
+      background-color: none;
       cursor: pointer;
     }
   }

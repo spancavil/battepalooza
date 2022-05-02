@@ -129,95 +129,20 @@ const MarketPlace = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="24" height="24" fill="#E5E5E5" />
-            <g clip-path="url(#clip0_2538_2187)">
-              <rect
-                width="1920"
-                height="1173"
-                transform="translate(-1829 -978)"
-                fill="url(#paint0_linear_2538_2187)"
-              />
-              <g filter="url(#filter0_d_2538_2187)">
-                <rect
-                  x="-395"
-                  y="-28"
-                  width="435"
-                  height="80"
-                  rx="16"
-                  fill="#3D91EF"
-                />
-              </g>
-              <path
-                d="M18.75 5.25L5.25 18.75"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M18.75 18.75L5.25 5.25"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </g>
-            <defs>
-              <filter
-                id="filter0_d_2538_2187"
-                x="-411"
-                y="-36"
-                width="467"
-                height="112"
-                filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
-              >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  result="hardAlpha"
-                />
-                <feOffset dy="8" />
-                <feGaussianBlur stdDeviation="8" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                />
-                <feBlend
-                  mode="normal"
-                  in2="BackgroundImageFix"
-                  result="effect1_dropShadow_2538_2187"
-                />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="effect1_dropShadow_2538_2187"
-                  result="shape"
-                />
-              </filter>
-              <linearGradient
-                id="paint0_linear_2538_2187"
-                x1="960"
-                y1="-60.4444"
-                x2="960"
-                y2="1354.33"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#212639" />
-                <stop offset="1" stop-color="#000926" />
-              </linearGradient>
-              <clipPath id="clip0_2538_2187">
-                <rect
-                  width="1920"
-                  height="1173"
-                  fill="white"
-                  transform="translate(-1829 -978)"
-                />
-              </clipPath>
-            </defs>
+            <path
+              d="M18.75 5.25L5.25 18.75"
+              stroke="#121212"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M18.75 18.75L5.25 5.25"
+              stroke="#121212"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </div>
       )}
