@@ -155,6 +155,8 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                               <p className={styles.storyText}>
                                 {chosenNft.storyText}
                               </p>
+                              <p className={styles.title}>Premium buff</p>
+                              <p className={styles.p2eText}>Dolor nisi est occaecat exercitation culpa eu irure tempor et.</p>
                             </div>
                           </div>
                           {chosenNft.skill && (
@@ -274,7 +276,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                           </div>
                         </div>
                         <div className={styles.cont2b}>
-                          <p className={styles.title}>Premium buff</p>
+                          <p className={styles.title}>P2E Info</p>
                           <div className={styles.p2eContainer}>
                             <div className={styles.p2eContainerA}>
                               {/* <div className={styles.p2eItemContainer}>
