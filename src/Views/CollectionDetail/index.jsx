@@ -13,14 +13,15 @@ import ModalRegister2 from "./Components/ModalRegister2";
 import HP from "./Assets/Sprite_Icon_Stat_01.png";
 import ENERGY from "./Assets/Sprite_Icon_Stat_02.png";
 import SPEED from "./Assets/Sprite_Icon_Stat_04.png";
-import DAILY from "./Assets/Sprite_Icon_Reward_35.png";
+// import DAILY from "./Assets/Sprite_Icon_Reward_35.png";
 import PREMIUM from "./Assets/Sprite_Icon_Premium_03.png";
 import COPY from "./Assets/Sprite_Icon_Premium_05.png";
 import SERIAL from "./Assets/Sprite_Icon_Premium_02.png";
-import BONUS from "./Assets/Sprite_Icon_Premium_04.png";
+// import BONUS from "./Assets/Sprite_Icon_Premium_04.png";
 import fireToast, { fireAlert, fireAlertAsync } from "../../Utils/sweetAlert2";
 import marketService from "../../Services/market.service";
 import useModifyDetail from "../../Hooks/useModifyDetail";
+import Button from "../../Global-Components/Button";
 
 const CollectionDetail = () => {
   const [nftSelectedRaw, setNftSelectedRaw] = useState();
@@ -193,6 +194,10 @@ const CollectionDetail = () => {
   const handleInputChange = (value) => {
     setInputPrice(parseInt(value));
   };
+
+  const handleShowClone = () => {
+    console.log("show clone info");
+  }
   
   return (
     <Background>
@@ -376,10 +381,10 @@ const CollectionDetail = () => {
                           </div>
                         </div>
                         <div className={styles.cont2b}>
-                          <p className={styles.title}>P2E Info</p>
+                          <p className={styles.title}>Premium buff</p>
                           <div className={styles.p2eContainer}>
                             <div className={styles.p2eContainerA}>
-                              <div className={styles.p2eItemContainer}>
+                              {/* <div className={styles.p2eItemContainer}>
                                 <img
                                   className={styles.p2eIcon}
                                   src={DAILY}
@@ -387,10 +392,10 @@ const CollectionDetail = () => {
                                 />
                                 <p className={styles.p2eText}>
                                   Daily gNCoin Battle Count:{" "}
-                                  {nftSelected.dailyPlayCount} /{" "}
-                                  {nftSelected.maxDailyPlayCount}{" "}
+                                  {chosenNft.dailyPlayCount} /{" "}
+                                  {chosenNft.maxDailyPlayCount}{" "}
                                 </p>
-                              </div>
+                              </div> */}
                               <div className={styles.p2eItemContainer}>
                                 <img
                                   className={styles.p2eIcon}
@@ -398,8 +403,7 @@ const CollectionDetail = () => {
                                   alt="Battle count"
                                 />
                                 <p className={styles.p2eText}>
-                                  gNCoin Battle Count: {nftSelected.playCount} /{" "}
-                                  {nftSelected.maxPlayCount}{" "}
+                                  Bonus multiplier: {nftSelected.rewardMultiplier}
                                 </p>
                               </div>
                               <div className={styles.p2eItemContainer}>
@@ -408,7 +412,7 @@ const CollectionDetail = () => {
                                   src={COPY}
                                   alt="Copy"
                                 />
-                                <p className={styles.p2eText}>Copy: {nftSelected.cloneCount}</p>
+                                <p className={styles.p2eText}>Clone: {nftSelected.cloneCount} count left</p>
                               </div>
                             </div>
                             <div className={styles.p2eContainerB}>
@@ -422,17 +426,23 @@ const CollectionDetail = () => {
                                   Serial Number: #{nftSelected.serial}
                                 </p>
                               </div>
-                              <div className={styles.p2eItemContainer}>
+                              {/* <div className={styles.p2eItemContainer}>
                                 <img
                                   className={styles.p2eIcon}
                                   src={BONUS}
                                   alt="Bonus"
                                 />
                                 <p className={styles.p2eText}>
-                                  Bonus: {nftSelected.rewardMultiplier}
+                                  Bonus: {chosenNft.rewardMultiplier}
                                 </p>
-                              </div>
+                              </div> */}
                             </div>
+                            <Button
+                                  title="Clone info"
+                                  onClick={handleShowClone}
+                                  width = {'170px'}
+                                  style = {{margin: '12px 12px 12px 40px'}}
+                            />
                           </div>
                         </div>
                       </div>

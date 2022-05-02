@@ -115,9 +115,9 @@ const CollectionNfts = () => {
                     <p>{nft.repName}</p>
                     <p className={styles.text2}>{nft.rarity}</p>
                     {/* <p>#{nft.itemId}</p> */}
-                    <p>
+                    {/* <p>
                       gNCoin Battle Count: {nft.playCount}/{nft.maxPlayCount}
-                    </p>
+                    </p> */}
                     {nft.salesState === 1 && (
                       <p className={styles.price}>{nft.price} NCoin</p>
                     )}
