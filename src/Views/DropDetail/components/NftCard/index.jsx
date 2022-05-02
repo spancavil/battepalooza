@@ -42,12 +42,14 @@ const NftCard = ({ nft, showNft }) => {
         <div className={styles.imgContainer}>
           <img src={nft.thumbnailUrl} alt={nft.itemName} />
         </div>
-        <h3 className={styles.name}>{nft.itemName}</h3>
-        <h3 className={styles.count}> Max playcount: {nft.maxPlayCount}</h3>
-        <h3 className={styles.count2}> Max daily playcount: {nft.maxDailyPlayCount}</h3>
-        <Button title={`${nft.price} nCoin`} style={{
-          display: 'flex', alignItems: 'center', justifyContent: 'center', width: '90%'
-        }} onClick={() => showNft(nft)} />
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent: "center", alignItems: "center", width: '100%', overflow: 'visible', paddingTop: '20px'}}>
+          <h3 className={styles.name}>{nft.itemName}</h3>
+          {/* <h3 className={styles.count}> Max playcount: {nft.maxPlayCount}</h3>
+          <h3 className={styles.count2}> Max daily playcount: {nft.maxDailyPlayCount}</h3> */}
+          <Button title={`${nft.price} nCoin`} style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center', width: '90%'
+          }} onClick={() => showNft(nft)} />
+        </div>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { logOutAmplitude } from "../../Utils/amplitude";
 
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
-import { TYPE_NFT, NCOIN_BATTLECOUNT, ORDER_BY } from "./Constants";
+import { TYPE_NFT, CLONE_COUNT, ORDER_BY } from "./Constants";
 import { fireAlertAsync } from "../../Utils/sweetAlert2";
 import OrderBy from "./components/OrderBy";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
@@ -58,7 +58,7 @@ const MarketPlace = () => {
         setFilters({
           ...rarityItem,
           ...TYPE_NFT,
-          ...NCOIN_BATTLECOUNT,
+          ...CLONE_COUNT,
           search: "",
         });
 
@@ -71,6 +71,8 @@ const MarketPlace = () => {
       }
     })();
   }, [setFilters, history]);
+
+  console.log(filters);
 
   return (
     <Background>

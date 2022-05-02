@@ -27,8 +27,8 @@ const Nft = ({ nft, tilt, onClick }) => {
           <p>{nft.repName}</p>
           <p className={styles.text2}>{nft.rarity}</p>
           <p className={styles.price}>{nft.price} NCoin</p>
-          <p> Play count: {nft.playCount}</p>
-          <p> Daily play count: {nft.maxPlayCount}</p>
+          {/* <p> Play count: {nft.playCount}</p>
+          <p> Daily play count: {nft.maxPlayCount}</p> */}
         </div>
       </div>
     </div>
