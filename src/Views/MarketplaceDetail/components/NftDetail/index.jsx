@@ -17,7 +17,7 @@ import SPEED from "../../Assets/Sprite_Icon_Stat_04.png";
 import PREMIUM from "../../Assets/Sprite_Icon_Premium_03.png";
 import COPY from "../../Assets/Sprite_Icon_Premium_05.png";
 import SERIAL from "../../Assets/Sprite_Icon_Premium_02.png";
-import BONUS from "../../Assets/Sprite_Icon_Premium_04.png";
+// import BONUS from "../../Assets/Sprite_Icon_Premium_04.png";
 import { NftData } from "../../../../Context/NftProvider";
 import useModifyDetail from "../../../../Hooks/useModifyDetail";
 import Button from "../../../../Global-Components/Button";
@@ -319,7 +319,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                   Serial Number: #{chosenNft.serial}
                                 </p>
                               </div>
-                              <div className={styles.p2eItemContainer}>
+                              {/* <div className={styles.p2eItemContainer}>
                                 <img
                                   className={styles.p2eIcon}
                                   src={BONUS}
@@ -328,7 +328,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                 <p className={styles.p2eText}>
                                   Bonus: {chosenNft.rewardMultiplier}
                                 </p>
-                              </div>
+                              </div> */}
                             </div>
                             <Button
                                   title="Clone info"
