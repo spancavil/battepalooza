@@ -414,7 +414,7 @@ const CollectionDetail = () => {
                                   src={COPY}
                                   alt="Copy"
                                 />
-                                <p className={styles.p2eText}>Clone: {nftSelected.cloneCount} count left</p>
+                                <p className={styles.p2eText}>Clone: {nftSelected.maxCloneCount - nftSelected.cloneCount} count left</p>
                               </div>
                             </div>
                             <div className={styles.p2eContainerB}>
