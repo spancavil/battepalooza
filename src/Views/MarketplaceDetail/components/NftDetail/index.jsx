@@ -307,7 +307,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                   src={COPY}
                                   alt="Copy"
                                 />
-                                <p className={styles.p2eText}>Clone: {chosenNft.cloneCount} count left</p>
+                                <p className={styles.p2eText}>Clone: {chosenNft.maxCloneCount - chosenNft.cloneCount} count left</p>
                               </div>
                             </div>
                             <div className={styles.p2eContainerB}>
