@@ -155,8 +155,13 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                               <p className={styles.storyText}>
                                 {chosenNft.storyText}
                               </p>
+                            </div>
+                            <div className={styles.cont3b}>
                               <p className={styles.title}>Premium buff</p>
-                              <p className={styles.p2eText}>Dolor nisi est occaecat exercitation culpa eu irure tempor et.</p>
+                              <p className={styles.abilityText}>Bonus multiplier</p>
+                              <p className={styles.abilityText}>Bonus multiplier</p>
+                              <p className={styles.abilityText}>Bonus multiplier</p>
+                              <p className={styles.abilityText}>Bonus multiplier</p>
                             </div>
                           </div>
                           {chosenNft.skill && (
