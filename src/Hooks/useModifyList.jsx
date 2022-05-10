@@ -6,10 +6,7 @@ const useModifyList = (nftsToModify, nftStatic, clanStatic, rarityStatic, repIdS
 
     useEffect(() => {
         if (nftsToModify.length !== 0 && nftStatic.length !== 0 && clanStatic.length !== 0 && rarityStatic.length !== 0 && repIdStatic.length !== 0) {
-            console.log(nftsToModify);
-            console.log(nftStatic);
-            console.log(clanStatic);
-            console.log(rarityStatic);
+            
             for (const nft of nftsToModify) {
                 const nftFinded = nftStatic.find(element => element.id === nft.itemId);
                 if (nftFinded) {
