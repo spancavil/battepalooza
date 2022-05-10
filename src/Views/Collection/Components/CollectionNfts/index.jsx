@@ -12,7 +12,6 @@ import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import Pagination from "../Pagination";
 import VanillaTilt from "vanilla-tilt";
 import useModifyList from "../../../../Hooks/useModifyList";
-// import imagePlaceholder from '../../../../Assets/img/nft-card-front01.png';
 
 /* DOCS:
 https://github.com/gijsroge/tilt.js
@@ -20,16 +19,29 @@ https://codesandbox.io/s/n5ptm?file=/src/index.js:973-1024
 https://javascript.plainenglish.io/implementing-useref-in-react-732908aa1998
 */
 
-const CollectionNfts = () => {
-  const [page, setPage] = useState(1);
-  const [xPage, setxPage] = useState(25);
-  const [input, setInput] = useState(1);
+const CollectionNfts = ({
+  filters,
+  page,
+  setPage,
+  input,
+  setInput,
+  xPage,
+  setxPage,
+}) => {
+  const { userCollection, nftStatic, clanStatic, rarityStatic, repIdStatic } =
+    useContext(NftData);
 
-  const { userCollection, nftStatic, clanStatic, rarityStatic, repIdStatic } = useContext(NftData);
+  const nftCollectionModified = useModifyList(
+    userCollection,
+    nftStatic,
+    clanStatic,
+    rarityStatic,
+    repIdStatic
+  );
 
-  const nftCollectionModified = useModifyList(userCollection, nftStatic, clanStatic, rarityStatic, repIdStatic);
+  const [nftsFiltered, setNftFiltered] = useState(nftCollectionModified);
 
-  console.log(nftCollectionModified);
+  console.log(nftsFiltered);
 
   //Luego utilizaremos userCollection, cuando vengan bien los datos.
   // const {userCollection} = useContext(NftData)
@@ -53,7 +65,7 @@ const CollectionNfts = () => {
 
   useEffect(() => {
     breakpoint ? setxPage(16) : setxPage(25);
-  }, [breakpoint]);
+  }, [breakpoint, setxPage]);
 
   useEffect(() => {
     //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
@@ -71,7 +83,91 @@ const CollectionNfts = () => {
     );
   }, [tilts, page]);
 
-  console.log(xPage);
+  useEffect(() => {
+    const auxFilter = [...nftCollectionModified];
+    let filtro1 = [];
+    let filtro2 = [];
+    let filtro3 = [];
+    let filtro4 = [];
+    let filtro5 = [];
+    let filtro6 = [];
+    let filtro7 = [];
+    let filtro8 = [];
+    let filtro9 = [];
+    let filtro10 = [];
+    let filtro11 = [];
+    let filtro12 = [];
+    let filtro13 = [];
+    let filtro14 = [];
+
+    if (filters.COMMON)
+      filtro1 = auxFilter.filter((nft) => nft.rarity === "Common");
+    if (filters.RARE)
+      filtro2 = auxFilter.filter((nft) => nft.rarity === "Rare");
+    if (filters.EPIC)
+      filtro3 = auxFilter.filter((nft) => nft.rarity === "Epic");
+    if (filters.LEGENDARY)
+      filtro4 = auxFilter.filter((nft) => nft.rarity === "Legendary");
+    if (filters.Weapon) filtro5 = auxFilter.filter((nft) => nft.type === 2);
+    if (filters.Character) filtro6 = auxFilter.filter((nft) => nft.type === 1);
+    if (filters["1"]) filtro7 = auxFilter.filter((nft) => nft.cloneCount === 1);
+    if (filters["2"]) filtro8 = auxFilter.filter((nft) => nft.cloneCount === 2);
+    if (filters["3"]) filtro9 = auxFilter.filter((nft) => nft.cloneCount === 3);
+    if (filters["4"])
+      filtro10 = auxFilter.filter((nft) => nft.cloneCount === 4);
+    if (filters["5"])
+      filtro11 = auxFilter.filter((nft) => nft.cloneCount === 5);
+    if (filters["6"])
+      filtro12 = auxFilter.filter((nft) => nft.cloneCount === 6);
+    if (filters["7"])
+      filtro13 = auxFilter.filter((nft) => nft.cloneCount === 7);
+    if (filters.search) {
+      filtro14 = auxFilter.filter((nft) =>
+        nft.itemName.toLowerCase().includes(filters.search)
+      );
+    }
+
+    const filtroWeapon =
+      !filters.Weapon && !filters.Character
+        ? [...nftCollectionModified]
+        : [...filtro5, ...filtro6];
+
+    const filtroRarity =
+      !filters.COMMON && !filters.RARE && !filters.EPIC && !filters.LEGENDARY
+        ? [...nftCollectionModified]
+        : [...filtro1, ...filtro2, ...filtro3, ...filtro4];
+
+    const filtroCloneCount =
+      !filters["0"] &&
+      !filters["1"] &&
+      !filters["2"] &&
+      !filters["3"] &&
+      !filters["4"] &&
+      !filters["5"] &&
+      !filters["6"] &&
+      !filters["7"]
+        ? [...nftCollectionModified]
+        : [
+            ...filtro7,
+            ...filtro8,
+            ...filtro9,
+            ...filtro10,
+            filtro11,
+            filtro12,
+            filtro13,
+          ];
+
+    const filtroSearch =
+      filters.search === "" ? [...nftCollectionModified] : [...filtro14];
+
+    //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
+    const coincidencias = filtroWeapon
+      .filter((value) => filtroRarity.includes(value))
+      .filter((value) => filtroCloneCount.includes(value))
+      .filter((value) => filtroSearch.includes(value));
+
+    setNftFiltered(coincidencias);
+  }, [filters, nftCollectionModified, setNftFiltered]);
 
   const max = nftCollectionModified.length / xPage;
 

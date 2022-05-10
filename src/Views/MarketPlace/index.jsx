@@ -23,7 +23,6 @@ const MarketPlace = () => {
   const [msj, setMsj] = useState(true);
 
   const desktop = useMediaQuery("(min-width: 1200px)");
-  console.log(desktop);
   const history = useHistory();
 
   useEffect(() => {
@@ -57,6 +56,8 @@ const MarketPlace = () => {
             value: false,
           });
         });
+        console.log(response.rarityList)
+
         //Tendrá todos los filtros
         setFilters({
           ...rarityItem,
@@ -74,8 +75,6 @@ const MarketPlace = () => {
       }
     })();
   }, [setFilters, history]);
-
-  console.log(filters);
 
   return (
     <Background>
