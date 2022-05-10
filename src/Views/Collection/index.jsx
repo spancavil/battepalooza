@@ -48,8 +48,6 @@ const Collection = () => {
             value: false,
           });
         });
-        console.log(response.rarityList);
-
         //Tendrá todos los filtros
         setFilters({
           ...rarityItem,
