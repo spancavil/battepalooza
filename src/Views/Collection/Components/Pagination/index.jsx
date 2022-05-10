@@ -2,6 +2,14 @@ import React from "react";
 import Display from "../../../../Global-Components/Display";
 import styles from "./styles.module.scss";
 
+/**
+ * 
+ * @param xPage cantidad de items por páginas, 4 en caso de resoluciones menores a 1200px y 25 para mayores (default)
+ * @param page el numero de página
+ * @param max el numero maximo de paginas
+ * @param input para colocar el numero de pagina a mano
+ * @returns 
+ */
 const Pagination = ({
   xPage,
   setxPage,

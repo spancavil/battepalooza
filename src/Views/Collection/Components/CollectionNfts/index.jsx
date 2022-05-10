@@ -24,12 +24,45 @@ const CollectionNfts = () => {
   const [page, setPage] = useState(1);
   const [xPage, setxPage] = useState(25);
   const [input, setInput] = useState(1);
+  const [flagMemo, setFlagMemo] = useState(null)
+  const [nftOrdered, setNftOrdered] = useState([]);
 
   const { userCollection, nftStatic, clanStatic, rarityStatic, repIdStatic } = useContext(NftData);
 
   const nftCollectionModified = useModifyList(userCollection, nftStatic, clanStatic, rarityStatic, repIdStatic);
 
-  console.log(nftCollectionModified);
+  // console.log(nftCollectionModified);
+  // console.log(nftOrdered);
+
+  //Effect para ordenar los elementos y que aparezcan los que están en venta primero.
+  useEffect(() => {
+
+    //Movemos un elemento de un array de un index a otro
+    function move(array, from, to) {
+      const elementToMove = array.splice(from, 1)[0]; //Nos devuelve el elemento a mover y lo quita del array
+      array.splice(to, 0, elementToMove); //Insertamos el elemento en la posición especificada en "to". Con el 0 le decimos que no reemplace, sino que haga un shift.
+    }
+
+    if (nftCollectionModified.length !== 0) {
+      const nftOrdered = [...nftCollectionModified]
+      console.log(nftOrdered);
+      nftOrdered.reverse()
+      console.log(nftOrdered);
+      console.log("Array reversed");
+      for (const nft of nftOrdered) {
+        if (nft.salesState === 1) {
+          const nftIndex = nftOrdered.findIndex(element => element === nft)
+          // console.log(nftIndex);
+          move(nftOrdered, nftIndex, 0)
+        }
+      }
+      setFlagMemo(1);
+      setNftOrdered(nftOrdered)
+    }
+
+  }, [nftCollectionModified])
+
+  console.log(flagMemo);
 
   //Luego utilizaremos userCollection, cuando vengan bien los datos.
   // const {userCollection} = useContext(NftData)
@@ -39,8 +72,14 @@ const CollectionNfts = () => {
   //Una vez que se cargan, se vuelve a mappear y se crean distintas referencias (que son asociadas a los divs contenedores) por cada uno de los items.
   //Recordemos que las "ref" se utilizan para referenciar objetos del DOM, pudiéndose cambiar sus valores internos sin re-render.
   const tilts = useMemo(
-    () => nftCollectionModified.map(() => createRef()),
-    [nftCollectionModified]
+    () => {
+      if (flagMemo && nftOrdered.length !== 0) {
+        console.log(flagMemo);
+        console.log(nftOrdered);
+        return nftOrdered.map(() => createRef())
+      }
+    },
+    [nftOrdered, flagMemo]
   );
 
   const history = useHistory();
@@ -55,20 +94,24 @@ const CollectionNfts = () => {
     breakpoint ? setxPage(16) : setxPage(25);
   }, [breakpoint]);
 
+  // console.log(tilts);
+
   useEffect(() => {
     //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
     //mappeamos e inicializamos sus valores utilizando la librería de Vanilla Tilt
-    tilts.map((tilt) =>
-      VanillaTilt.init(tilt.current, {
-        scale: 1.06,
-        speed: 800,
-        max: 15,
-        reverse: true,
-        easing: "cubic-bezier(.03,.98,.52,.99)",
-        glare: true,
-        "max-glare": 0.15,
-      })
-    );
+    if (tilts) {
+      tilts.map((tilt) =>
+        VanillaTilt.init(tilt.current, {
+          scale: 1.06,
+          speed: 800,
+          max: 15,
+          reverse: true,
+          easing: "cubic-bezier(.03,.98,.52,.99)",
+          glare: true,
+          "max-glare": 0.15,
+        })
+      );
+    }
   }, [tilts, page]);
 
   console.log(xPage);
@@ -78,7 +121,7 @@ const CollectionNfts = () => {
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.cards}>
-        {nftCollectionModified
+        {tilts && nftOrdered
           .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
           .map((nft) => {
             //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
@@ -91,10 +134,10 @@ const CollectionNfts = () => {
                   nft.rarity === "Common"
                     ? styles.borderCommon
                     : nft.rarity === "Rare"
-                    ? styles.borderRare
-                    : nft.rarity === "Epic"
-                    ? styles.borderEpic
-                    : styles.borderLegendary
+                      ? styles.borderRare
+                      : nft.rarity === "Epic"
+                        ? styles.borderEpic
+                        : styles.borderLegendary
                 }
                 onClick={() => onClick(nft.uuid)}
                 ref={tilts[indice]}
