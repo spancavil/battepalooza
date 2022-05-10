@@ -133,6 +133,7 @@ const NftProvider = ({ children }) => {
   // const nftMarketModified = useModifyList(nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic);
   // console.log(nftMarket)
   // console.log(nftMarketModified);
+  // console.log(userCollection);
 
   return (
     <NftData.Provider
