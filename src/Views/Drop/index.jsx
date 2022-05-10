@@ -57,9 +57,11 @@ const Drop = () => {
 
     if (hero.length !== 0 && olderDrops.length !== 0 && divsOlder.length !== 0) {
       divHero.current.style.backgroundImage = mobile ? `url(${heroBannerImageMobile})` : `url(${heroBannerImage})`;
+      divHero.current.style.backgroundSize = 'cover';
       for (const drop of olderDrops) {
         const index = olderDrops.findIndex(element => element.id === drop.id);
         if (divsOlder[index]?.current) divsOlder[index].current.style.backgroundImage = `url(${heroBannerSecondary})`;
+        divsOlder[index].current.style.backgroundSize = 'cover';
       }
     }
   }, [divHero, divsOlder, hero, olderDrops, mobile])
