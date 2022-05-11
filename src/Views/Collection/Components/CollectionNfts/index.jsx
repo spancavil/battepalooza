@@ -186,7 +186,14 @@ const CollectionNfts = ({
 
     if (nftCollectionModified.length !== 0) {
       const nftOrdered = [...nftCollectionModified]
-      nftOrdered.reverse()
+      nftOrdered.sort(function(a, b){
+        const acquiredTimeA = a.acquired
+        const acquiredTimeB = b.acquired
+        if (acquiredTimeA < acquiredTimeB) return 1
+        if (acquiredTimeA > acquiredTimeB) return -1
+        return 0
+      })
+      // nftOrdered.reverse()
       for (const nft of nftOrdered) {
         if (nft.salesState === 1) {
           const nftIndex = nftOrdered.findIndex(element => element === nft)
@@ -201,6 +208,8 @@ const CollectionNfts = ({
   }, [nftCollectionModified])
 
   const max = nftCollectionModified.length / xPage;
+
+  console.log(nftsFiltered);
 
   return (
     <div className={styles.cardsContainer}>

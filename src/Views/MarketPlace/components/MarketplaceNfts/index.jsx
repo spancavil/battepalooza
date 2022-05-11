@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useMemo,
   createRef,
+  useRef,
 } from "react";
 import styles from "./styles.module.scss";
 import { NftData } from "../../../../Context/NftProvider";
@@ -25,14 +26,22 @@ const MarketplaceNfts = ({
   orderBy,
 }) => {
   const { nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic } = useContext(NftData);
+
+  //Array para aplicar los filtros primarios al array original
   const [nftsFiltered, setNftFiltered] = useState(nftMarket);
-  const [filterByPrice, setFilterByPrice] = useState(0);
-  const [filterNewest, setFilterNewest] = useState(0);
+
+  //Array auxiliar para un segundo ordenamiento sobre el filtro de arriba.
+  const [nftsFiltered2, setNftFiltered2] = useState(null);
+
+  //Usamos referencias para que la actualización sea instantánea y no esperemos a la actualización del estado
+  const filterByPrice = useRef(0)
+  const filterNewest = useRef(0)
 
   const history = useHistory();
 
   const breakpoint = useMediaQuery("(max-width: 1200px)");
 
+  //El array original de nfts
   const nftMarketModified = useModifyList(nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic);
 
   const tilts = useMemo(
@@ -66,6 +75,7 @@ const MarketplaceNfts = ({
    console.log(nftMarket);
    console.log(nftsFiltered); */
 
+  //Effect para el ordenamiento primario
   useEffect(() => {
     const auxFilter = [...nftMarketModified];
     let filtro1 = [];
@@ -113,16 +123,20 @@ const MarketplaceNfts = ({
       );
     }
     if (orderBy.LowestPrice) {
-      setFilterByPrice(1);
+      filterNewest.current = 0;
+      filterByPrice.current = 1;
     }
     if (orderBy.HighestPrice) {
-      setFilterByPrice(2);
+      filterNewest.current = 0;
+      filterByPrice.current = 2;
     }
     if (orderBy.Newest) {
-      setFilterNewest(1);
+      filterByPrice.current = 0;
+      filterNewest.current = 1;
     }
     if (orderBy.Oldest) {
-      setFilterNewest(2);
+      filterByPrice.current = 0;
+      filterNewest.current = 2;
     }
 
     const filtroWeapon =
@@ -160,21 +174,39 @@ const MarketplaceNfts = ({
 
   const max = nftsFiltered.length / xPage;
 
-  //Order by functions
-  const lth = (a, b) => a.price - b.price;
-  const htl = (a, b) => b.price - a.price;
+  //Ordenamientos secundarios
 
+  //Effect for order by newest / oldest
   useEffect(() => {
-    console.log("Entro al effect");
-    console.log(filterNewest);
-    if (filterNewest === 1) {
-      console.log("Deberia ordernarse por nuevo");
-      setNftFiltered([...nftMarketModified].reverse());
-    } else if (filterNewest === 2) {
-      console.log("Deberia ordernarse por viejo");
-      setNftFiltered([...nftMarketModified]);
+    if (filterNewest.current !== 0) {
+      console.log("Order by time");
+      const nftFiltered2 = [...nftsFiltered];
+      if (filterNewest.current === 2) {
+        console.log("Deberia ordernarse por viejo");
+        setNftFiltered2([...nftFiltered2].reverse());
+      } else if (filterNewest.current === 1) {
+        console.log("Deberia ordernarse por nuevo");
+        setNftFiltered2([...nftFiltered2]);
+      }
     }
-  }, [orderBy, filterNewest, nftMarketModified]);
+  }, [filterNewest, nftMarketModified, nftsFiltered]);
+
+  //Effect for order by price
+  useEffect(() => {
+    if (filterByPrice.current === 1 || filterByPrice.current === 2) {
+      const nftFiltered2 = [...nftsFiltered];
+      console.log("Order by price");
+      nftFiltered2.sort(function (a, b) {
+        if (filterByPrice.current === 1) {
+          return a.price - b.price;
+        }
+        else {
+          return b.price - a.price
+        }
+      })
+      setNftFiltered2(nftFiltered2);
+    }
+  }, [filterByPrice, nftsFiltered])
 
   const handleDetail = (uniqueId, sellerPid) => {
     history.push(`/marketplace/${uniqueId}-${sellerPid}`);
@@ -183,8 +215,8 @@ const MarketplaceNfts = ({
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.cards}>
-        {nftsFiltered
-          .sort(filterByPrice === 1 ? lth : htl, filterByPrice === 0 ?? null)
+        {(nftsFiltered2 || nftsFiltered)
+          // .sort(filterByPrice === 1 ? lth : filterByPrice === 2 ? htl : null)
           .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
           .map((nft) => {
             const indice = nftMarketModified?.indexOf(nft);
