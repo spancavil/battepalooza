@@ -215,7 +215,7 @@ const NavBar = () => {
               <li>
                 <a
                   onClick={() => setMenu(!menu)}
-                  href="https://nway.helpshift.com/a/battlepalooza/?p=web"
+                  href="https://support.nwayplay.com/hc/en-us/sections/5554671847447-Battlepalooza"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.navLink}
