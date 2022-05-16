@@ -21,15 +21,25 @@ import SERIAL from "../../Assets/Sprite_Icon_Premium_02.png";
 import { NftData } from "../../../../Context/NftProvider";
 import useModifyDetail from "../../../../Hooks/useModifyDetail";
 import Button from "../../../../Global-Components/Button";
+import Clone from "../Clone";
 
 const NftDetail = ({ nfts, setNft, setNftListing }) => {
+  const [clone, setClone] = useState(false);
+
   const history = useHistory();
 
   const { nftId } = useParams();
   let nftSplitted = nftId.split("-");
   const uid = nftSplitted[0];
   const seller = nftSplitted[1];
-  const { characterMaxStats, weaponMaxStats, nftStatic, clanStatic, rarityStatic, repIdStatic } = useContext(NftData);
+  const {
+    characterMaxStats,
+    weaponMaxStats,
+    nftStatic,
+    clanStatic,
+    rarityStatic,
+    repIdStatic,
+  } = useContext(NftData);
 
   const [chosenNftRaw, setChosenNftRaw] = useState({});
   const [loading, setLoading] = useState(false);
@@ -74,7 +84,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
     }
   };
 
-/*   const handleList = () => {
+  /*   const handleList = () => {
     ("Click on list");
     setNftListing(chosenNft);
   }; */
@@ -84,10 +94,16 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
   };
 
   const handleShowClone = () => {
-    console.log("show clone info");
-  }
+    setClone(true);
+  };
 
-  const chosenNft = useModifyDetail(chosenNftRaw, nftStatic, clanStatic, rarityStatic, repIdStatic);
+  const chosenNft = useModifyDetail(
+    chosenNftRaw,
+    nftStatic,
+    clanStatic,
+    rarityStatic,
+    repIdStatic
+  );
 
   console.log(chosenNft);
 
@@ -158,10 +174,18 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                             </div>
                             <div className={styles.cont3b}>
                               <p className={styles.title}>Premium buff</p>
-                              <p className={styles.abilityText}>Bonus multiplier</p>
-                              <p className={styles.abilityText}>Bonus multiplier</p>
-                              <p className={styles.abilityText}>Bonus multiplier</p>
-                              <p className={styles.abilityText}>Bonus multiplier</p>
+                              <p className={styles.abilityText}>
+                                Bonus multiplier
+                              </p>
+                              <p className={styles.abilityText}>
+                                Bonus multiplier
+                              </p>
+                              <p className={styles.abilityText}>
+                                Bonus multiplier
+                              </p>
+                              <p className={styles.abilityText}>
+                                Bonus multiplier
+                              </p>
                             </div>
                           </div>
                           {chosenNft.skill && (
@@ -312,7 +336,12 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                   src={COPY}
                                   alt="Copy"
                                 />
-                                <p className={styles.p2eText}>Clone: {chosenNft.maxCloneCount - chosenNft.cloneCount} count left</p>
+                                <p className={styles.p2eText}>
+                                  Clone:{" "}
+                                  {chosenNft.maxCloneCount -
+                                    chosenNft.cloneCount}{" "}
+                                  count left
+                                </p>
                               </div>
                             </div>
                             <div className={styles.p2eContainerB}>
@@ -338,10 +367,10 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                               </div> */}
                             </div>
                             <Button
-                                  title="Clone info"
-                                  onClick={handleShowClone}
-                                  width = {'170px'}
-                                  style = {{margin: '12px 12px 12px 40px'}}
+                              title="Clone info"
+                              onClick={handleShowClone}
+                              width={"170px"}
+                              style={{ margin: "12px 12px 12px 40px" }}
                             />
                           </div>
                         </div>
@@ -378,6 +407,11 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
           </div>
         )}
       </div>
+      {clone && (
+        <div className={styles.bg}>
+          <Clone setClone={() => setClone(false)} />
+        </div>
+      )}
     </>
   );
 };

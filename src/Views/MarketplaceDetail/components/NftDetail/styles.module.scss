@@ -310,7 +310,6 @@
   }
 }
 
-
 @media (min-width: $mobile) and (max-width: $laptop - 1) {
   .back {
     width: 1;
@@ -685,7 +684,7 @@
               justify-content: center;
               align-items: center;
               position: absolute;
-              top:0;
+              top: 0;
 
               .loadMessage {
                 font-family: $font-nasalization;
@@ -804,7 +803,6 @@
                   }
 
                   .statsContainer {
-                    width: 20%;
                     display: flex;
                     flex-direction: column;
                     gap: 7px;
@@ -1059,6 +1057,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 30px;
+                width: 90%;
 
                 .cont2a {
                   display: flex;
@@ -1421,9 +1420,11 @@
               display: flex;
               flex-direction: column;
               gap: 50px;
+              width: 90%;
 
               .cont2a {
                 display: flex;
+                justify-content: space-between;
 
                 .cont3 {
                   display: flex;
@@ -1621,4 +1622,16 @@
       }
     }
   }
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
 }
