@@ -21,6 +21,8 @@ import Profile from "./Views/Account";
 import TradeHistory from "./Views/TradeHistory";
 
 import "./Styles/Global.scss";
+import Packs from "./Views/Packs";
+import PackDetail from "./Views/PackDetail";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
@@ -52,6 +54,9 @@ function App() {
         <Route exact path="/terms-of-service" component={TermsOfUse} />
         <Route exact path="/marketplace" component={MarketPlace} />
         <Route exact path="/marketplace/:nftId" component={MarketplaceDetail} />
+        <Route exact path="/packs" component={Packs} />
+        <Route exact path="/packs/:id" component={PackDetail} />
+
         <Route path="" component={Error404} />
       </Switch>
     </BrowserRouter>

@@ -197,6 +197,16 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
+                <Link
+                  onClick={() => setMenu(!menu)}
+                  href
+                  to={"/packs"}
+                  className={styles.navLink}
+                >
+                  PACKS
+                </Link>
+              </li>
+              <li>
                 <span
                   onClick={() => {
                     history.push("/marketplace");
