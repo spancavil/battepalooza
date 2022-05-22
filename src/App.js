@@ -23,6 +23,8 @@ import TradeHistory from "./Views/TradeHistory";
 import "./Styles/Global.scss";
 import Packs from "./Views/Packs";
 import PackDetail from "./Views/PackDetail";
+import JoinDrop from "./Views/JoinDrop";
+import OpenPack from "./Views/OpenPack";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
@@ -56,7 +58,8 @@ function App() {
         <Route exact path="/marketplace/:nftId" component={MarketplaceDetail} />
         <Route exact path="/packs" component={Packs} />
         <Route exact path="/packs/:id" component={PackDetail} />
-
+        <Route exact path="/join-drop" component={JoinDrop} />
+        <Route exact path="/open-pack" component={OpenPack} />
         <Route path="" component={Error404} />
       </Switch>
     </BrowserRouter>

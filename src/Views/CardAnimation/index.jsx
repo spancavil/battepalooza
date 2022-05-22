@@ -32,7 +32,7 @@ const CardAnimation = () => {
   };
 
   const goCollection = () => {
-    history.push ('/my-skins');
+    history.push ('/collection');
   };
 
   return (
