@@ -39,26 +39,21 @@ const CollectionNfts = ({
     repIdStatic
   );
 
-  const [nftsFiltered, setNftFiltered] = useState(nftCollectionModified);
-  const [flagMemo, setFlagMemo] = useState(null)
+  const [nftsFiltered, setNftFiltered] = useState([]);
   const [nftOrdered, setNftOrdered] = useState([]);
-  
+
   const history = useHistory();
   const breakpoint = useMediaQuery("(max-width: 1200px)");
-  
+
   //Creamos un array de referencias por cada item que haya en userCollection,
   //Utilizamos useMemo, que se actualiza, al actualizarse userCollection. Como es info que viene de context, inicialmente viene sin valores
   //Una vez que se cargan, se vuelve a mappear y se crean distintas referencias (que son asociadas a los divs contenedores) por cada uno de los items.
   //Recordemos que las "ref" se utilizan para referenciar objetos del DOM, pudiéndose cambiar sus valores internos sin re-render.
   const tilts = useMemo(
-    () => {
-      if (flagMemo && nftOrdered.length !== 0) {
-        return nftOrdered.map(() => createRef())
-      }
-    },
-    [nftOrdered, flagMemo]
+    () => nftsFiltered.map(() => createRef()),
+    [nftsFiltered]
   );
-
+  
   const onClick = (uuid) => {
     history.push(`/collection/${uuid}`);
   };
@@ -70,7 +65,6 @@ const CollectionNfts = ({
   useEffect(() => {
     //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
     //mappeamos e inicializamos sus valores utilizando la librería de Vanilla Tilt
-    if (tilts){
       tilts.map((tilt) =>
         VanillaTilt.init(tilt.current, {
           scale: 1.06,
@@ -82,7 +76,6 @@ const CollectionNfts = ({
           "max-glare": 0.15,
         })
       );
-    }
   }, [tilts, page]);
 
   useEffect(() => {
@@ -102,7 +95,7 @@ const CollectionNfts = ({
       let filtro12 = [];
       let filtro13 = [];
       // let filtro14 = [];
-  
+
       if (filters.COMMON)
         filtro1 = auxFilter.filter((nft) => nft.rarity === "Common");
       if (filters.RARE)
@@ -129,54 +122,54 @@ const CollectionNfts = ({
       //     nft.itemName.toLowerCase().includes(filters.search)
       //   );
       // }
-  
+
       const filtroWeapon =
         !filters.Weapon && !filters.Character
           ? [...nftOrdered]
           : [...filtro5, ...filtro6];
-  
+
       const filtroRarity =
         !filters.COMMON && !filters.RARE && !filters.EPIC && !filters.LEGENDARY
           ? [...nftOrdered]
           : [...filtro1, ...filtro2, ...filtro3, ...filtro4];
-        
+
       const filtroCloneCount =
         !filters["0"] &&
-        !filters["1"] &&
-        !filters["2"] &&
-        !filters["3"] &&
-        !filters["4"] &&
-        !filters["5"] &&
-        !filters["6"] &&
-        !filters["7"]
+          !filters["1"] &&
+          !filters["2"] &&
+          !filters["3"] &&
+          !filters["4"] &&
+          !filters["5"] &&
+          !filters["6"] &&
+          !filters["7"]
           ? [...nftOrdered]
           : [
-              ...filtro7,
-              ...filtro8,
-              ...filtro9,
-              ...filtro10,
-              ...filtro11,
-              ...filtro12,
-              ...filtro13,
-            ];
-        
+            ...filtro7,
+            ...filtro8,
+            ...filtro9,
+            ...filtro10,
+            ...filtro11,
+            ...filtro12,
+            ...filtro13,
+          ];
+
       // const filtroSearch =
       //   filters.search === "" ? [...nftOrdered] : [...filtro14];
-      
+
       // console.log(filtroSearch);
-  
+
       //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
       const coincidencias = filtroWeapon
         .filter((value) => filtroRarity.includes(value))
         .filter((value) => filtroCloneCount.includes(value))
-        // .filter((value) => filtroSearch.includes(value));
-  
+      // .filter((value) => filtroSearch.includes(value));
+
       setNftFiltered(coincidencias);
     }
   }, [filters, nftOrdered, setNftFiltered]);
 
-   //Effect para ordenar los elementos y que aparezcan los que están en venta primero.
-   useEffect(() => {
+  //Effect para ordenar los elementos y que aparezcan los que están en venta primero. Además se verán primero los que han sido adquiridos recientemente.
+  useEffect(() => {
 
     //Movemos un elemento de un array de un index a otro
     function move(array, from, to) {
@@ -186,7 +179,7 @@ const CollectionNfts = ({
 
     if (nftCollectionModified.length !== 0) {
       const nftOrdered = [...nftCollectionModified]
-      nftOrdered.sort(function(a, b){
+      nftOrdered.sort(function (a, b) {
         const acquiredTimeA = a.acquired
         const acquiredTimeB = b.acquired
         if (acquiredTimeA < acquiredTimeB) return 1
@@ -201,7 +194,6 @@ const CollectionNfts = ({
           move(nftOrdered, nftIndex, 0)
         }
       }
-      setFlagMemo(1);
       setNftOrdered(nftOrdered)
     }
 
@@ -219,6 +211,8 @@ const CollectionNfts = ({
           .map((nft) => {
             //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
             const indice = nftsFiltered?.indexOf(nft);
+            console.log(indice);
+            console.log(tilts[indice]);
             return (
               /* Aqui el div apunta a su referencia correspondiente */
               <div
@@ -227,10 +221,10 @@ const CollectionNfts = ({
                   nft.rarity === "Common"
                     ? styles.borderCommon
                     : nft.rarity === "Rare"
-                    ? styles.borderRare
-                    : nft.rarity === "Epic"
-                    ? styles.borderEpic
-                    : styles.borderLegendary
+                      ? styles.borderRare
+                      : nft.rarity === "Epic"
+                        ? styles.borderEpic
+                        : styles.borderLegendary
                 }
                 onClick={() => onClick(nft.uuid)}
                 ref={tilts[indice]}

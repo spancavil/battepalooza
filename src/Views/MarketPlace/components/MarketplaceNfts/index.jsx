@@ -65,7 +65,7 @@ const MarketplaceNfts = ({
     );
   }, [tilts]);
 
-  // console.log(tilts);
+  console.log(tilts);
 
   useEffect(() => {
     breakpoint ? setxPage(4) : setxPage(25);

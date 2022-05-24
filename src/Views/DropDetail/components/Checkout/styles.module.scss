@@ -71,6 +71,8 @@ $hd: 1400px;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
+    z-index: 6;
+
     .totalContainer{
       width: 100%;
       display: flex;
@@ -122,6 +124,7 @@ $hd: 1400px;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 6;
+    
     .totalContainer{
       width: 100%;
       display: flex;

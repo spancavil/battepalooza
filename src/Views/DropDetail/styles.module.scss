@@ -215,6 +215,7 @@
         grid-template-columns: repeat(5, 0fr);
         grid-column-gap: 30px;
         grid-row-gap: 70px;
+        overflow: visible;
       }
 
       .olderTitle {
@@ -339,6 +340,7 @@
         grid-template-columns: repeat(5, 0fr);
         grid-column-gap: 74px;
         grid-row-gap: 70px;
+        overflow: visible;
       }
 
       .olderTitle {

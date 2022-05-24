@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useRef, useContext, useMemo, createRef } from "react";
 import { useParams } from "react-router-dom";
 import Background from "../../Global-Components/Background";
 import styles from "./styles.module.scss";
@@ -19,6 +19,7 @@ import Complete from "./components/Complete";
 import { NftData } from "../../Context/NftProvider";
 import { getDaysMinutesSeconds } from "../../Utils/createDate";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
+import VanillaTilt from "vanilla-tilt";
 
 const DropDetail = () => {
   const [dropSelected, setDropSelected] = useState();
@@ -38,6 +39,30 @@ const DropDetail = () => {
   const divHero = useRef();
 
   const mobile = useMediaQuery('(max-width: 991px)');
+
+  const tilts = useMemo(
+    () => dropSelected?.nftProducts?.map(() => createRef()),
+    [dropSelected]
+  );
+
+  useEffect(() => {
+    //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
+    //mappeamos e inicializamos sus valores utilizando la librería de Vanilla Tilt
+    if (tilts) {
+      tilts.map((tilt) => {
+        return VanillaTilt.init(tilt.current, {
+          scale: 1.06,
+          speed: 800,
+          max: 15,
+          reverse: true,
+          easing: "cubic-bezier(.03,.98,.52,.99)",
+          glare: true,
+          "max-glare": 0.15,
+        })
+      }
+      );
+    }
+  }, [tilts]);
 
   //Set background with useRef
   useEffect(() => {
@@ -115,7 +140,7 @@ const DropDetail = () => {
   }
 
   console.log(chosenNft);
-  // console.log(dropSelected)
+  console.log(tilts)
 
   return (
     <Background>
@@ -128,9 +153,9 @@ const DropDetail = () => {
             <div className={styles.rectangle}>
               <div className={styles.hero} ref={divHero}>
                 {mobile && <img
-                  src= {heroBannerImage}
+                  src={heroBannerImage}
                   style={{
-                    width:'100%',
+                    width: '100%',
                     height: '273px',
                     objectFit: 'cover',
                   }}
@@ -148,7 +173,13 @@ const DropDetail = () => {
 
               <div className={styles.nftsContainer}>
                 {dropSelected?.nftProducts?.map((nft) => {
-                  return <NftCard nft={nft} key={nft.id} showNft={showNft} />;
+                  const indice = dropSelected?.nftProducts?.indexOf(nft);
+                  return <NftCard
+                    nft={nft}
+                    key={nft.id}
+                    showNft={showNft}
+                    tilt={tilts[indice]}
+                  />;
                 })}
               </div>
             </div>

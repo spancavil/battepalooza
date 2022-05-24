@@ -5,9 +5,10 @@ import RARE from "../../Assets/Tiericon_Rare.png";
 import EPIC from "../../Assets/Tiericon_Epic.png";
 import LEGENDARY from "../../Assets/Tiericon_Legendary.png";
 
-const NftCard = ({ nft, showNft }) => {
+const NftCard = ({ nft, showNft, tilt }) => {
   return (
     <div
+      ref={tilt}
       className={
         nft.rarity === "COMMON"
           ? styles.borderCommon
