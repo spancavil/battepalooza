@@ -16,7 +16,6 @@ const NeedLogin = () => {
   }
 
   const closeWithEsc = (event) => {
-    console.log(event)
   }
 
   if (Object.keys(userData).length !== 0) history.goBack();

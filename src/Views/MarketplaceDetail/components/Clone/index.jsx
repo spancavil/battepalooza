@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 const Clone = ({ setClone }) => {
   return (
-    <Modal title={"P2E Information"} handleClose={setClone}>
+    <Modal title={"Clone Information"} handleClose={setClone}>
       <div className={styles.container}>
         <div className={styles.generation}>
           <div className={styles.title}>

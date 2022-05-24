@@ -47,7 +47,6 @@ const Trades = ({ page, setPage, setxPage, xPage, input, setInput }) => {
   }, [category, tradeData]);
 
   const handleDetail = (id) => {
-    console.log(id);
     setTradeDetail(id);
   }
 

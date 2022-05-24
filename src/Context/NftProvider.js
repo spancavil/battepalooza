@@ -25,6 +25,7 @@ const NftProvider = ({ children }) => {
   const [clanStatic, setClanStatic] = useState([]);
   const [rarityStatic, setRarityStatic] = useState([]);
   const [repIdStatic, setRepIdStatic] = useState([]);
+  const [premiumStatic, setPremiumStatic] = useState([])
 
   const characterMaxStats = {
     maxHealth: 3312,
@@ -93,7 +94,7 @@ const NftProvider = ({ children }) => {
     (async () => {
       try {
         const response = await dropService.getDrops();
-        console.log(response);
+        
         if (response?.error.num === 0) {
           setDrops(response)
         }
@@ -120,10 +121,12 @@ const NftProvider = ({ children }) => {
         const staticClans = await staticsService.getClans()
         const staticRarity = await staticsService.getRarity()
         const staticRepId = await staticsService.getRepId()
+        const premium = await staticsService.getPremium()
         setNftStatic(Object.values(nftStatic));
         setClanStatic(Object.values(staticClans));
         setRarityStatic(Object.values(staticRarity));
         setRepIdStatic(Object.values(staticRepId));
+        setPremiumStatic(Object.values(premium));
       } catch (error) {
         fireAlert("Oops, an error ocurred", error.message, '500px');
       }
@@ -131,9 +134,6 @@ const NftProvider = ({ children }) => {
   }, [BP_BASE_URL])
 
   // const nftMarketModified = useModifyList(nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic);
-  // console.log(nftMarket)
-  // console.log(nftMarketModified);
-  // console.log(userCollection);
 
   return (
     <NftData.Provider
@@ -141,7 +141,7 @@ const NftProvider = ({ children }) => {
         setNft, setNftForOpen, setReloadMarket, setReloadCollection, setReloadDrops,
         nftMarket, nftSelected, nftToOpen, userCollection, characterMaxStats, weaponMaxStats, drops,
         reloadMarket, reloadCollection, reloadDrops,
-        nftStatic, clanStatic, rarityStatic, repIdStatic
+        nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic,
       }}
     >
       {children}

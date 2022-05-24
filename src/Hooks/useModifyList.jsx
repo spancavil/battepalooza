@@ -25,11 +25,7 @@ const useModifyList = (nftsToModify, nftStatic, clanStatic, rarityStatic, repIdS
                     console.log(nft);
                 }
             }
-            // console.log(nftsToModify)
-            // console.log(nftStatic)
-            // console.log(clanStatic);
-            // console.log(rarityStatic);
-            // console.log(repIdStatic);
+            
             setNftsModified(nftsToModify)
         }
     }, [nftStatic, clanStatic, rarityStatic, repIdStatic, nftsToModify])

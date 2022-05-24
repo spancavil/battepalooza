@@ -34,7 +34,8 @@ const CollectionDetail = () => {
   const [forteTxText, setForteTxText] = useState("");
 
   const { userData } = useContext(UserData);
-  const { characterMaxStats, weaponMaxStats, nftMarket, setReloadMarket, setReloadCollection, nftStatic, clanStatic, rarityStatic, repIdStatic } =
+  const { characterMaxStats, weaponMaxStats, nftMarket, setReloadMarket, setReloadCollection, 
+    nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic  } =
     useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
@@ -44,11 +45,7 @@ const CollectionDetail = () => {
   }, []);
 
   //Modify data from JSON statics
-  const nftSelected = useModifyDetail(nftSelectedRaw, nftStatic, clanStatic, rarityStatic, repIdStatic)
-
-  console.log(nftSelected);
-
-  //console.log(nftSelected);
+  const nftSelected = useModifyDetail(nftSelectedRaw, nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic)
 
   useEffect(() => {
     const fetchData = async () => {

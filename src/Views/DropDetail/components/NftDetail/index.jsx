@@ -30,8 +30,6 @@ const NftDetail = ({
 
   const chosenNft = useModifyDetail(nftRaw, nftStatic, clanStatic, rarityStatic, repIdStatic)
   
-  console.log(chosenNft);
-
   useEffect(() => {
     setLoading(true);
   }, []);

@@ -30,6 +30,13 @@ class StaticsService {
                 return response.data
             })
     }
+
+    async getPremium(){
+        return await axios.get(API_URL + 'static/premium')
+            .then(response => {
+                return response.data
+            })
+    }
 }
 
 export default new StaticsService();
