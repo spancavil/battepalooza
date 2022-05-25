@@ -66,7 +66,7 @@ const DropDetail = () => {
 
   //Set background with useRef
   useEffect(() => {
-    if (dropSelected) {
+    if (dropSelected && divHero.current !== null) {
       divHero.current.style.background = mobile ? `url(${heroBannerImageMobile})` : `url(${heroBannerImage})`;
       divHero.current.style.backgroundSize = "cover";
     }
