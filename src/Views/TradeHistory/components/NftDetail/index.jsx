@@ -50,7 +50,6 @@ const NftDetail = ({
   }, [userData, listingId]);
 
   const chosenNft = useModifyDetail(rawNft, nftStatic, clanStatic, rarityStatic, repIdStatic);
-  console.log(chosenNft);
 
   //On escape it will close
   useEffect(() => {

@@ -156,7 +156,6 @@ const CollectionNfts = ({
       // const filtroSearch =
       //   filters.search === "" ? [...nftOrdered] : [...filtro14];
 
-      // console.log(filtroSearch);
 
       //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
       const coincidencias = filtroWeapon
@@ -190,7 +189,6 @@ const CollectionNfts = ({
       for (const nft of nftOrdered) {
         if (nft.salesState === 1) {
           const nftIndex = nftOrdered.findIndex(element => element === nft)
-          // console.log(nftIndex);
           move(nftOrdered, nftIndex, 0)
         }
       }
@@ -201,7 +199,6 @@ const CollectionNfts = ({
 
   const max = nftCollectionModified.length / xPage;
 
-  console.log(nftsFiltered);
 
   return (
     <div className={styles.cardsContainer}>
@@ -211,8 +208,7 @@ const CollectionNfts = ({
           .map((nft) => {
             //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
             const indice = nftsFiltered?.indexOf(nft);
-            console.log(indice);
-            console.log(tilts[indice]);
+            
             return (
               /* Aqui el div apunta a su referencia correspondiente */
               <div

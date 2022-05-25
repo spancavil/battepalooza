@@ -65,15 +65,9 @@ const MarketplaceNfts = ({
     );
   }, [tilts]);
 
-  console.log(tilts);
-
   useEffect(() => {
     breakpoint ? setxPage(4) : setxPage(25);
   }, [breakpoint, setxPage]);
-
-  /*  console.log(orderBy);
-   console.log(nftMarket);
-   console.log(nftsFiltered); */
 
   //Effect para el ordenamiento primario
   useEffect(() => {

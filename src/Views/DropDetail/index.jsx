@@ -113,7 +113,6 @@ const DropDetail = () => {
     fetchData();
 
     return () => {
-      console.log("Unmounted Drop Detail");
       clearInterval(intervalTimer)
     }
   }, [setDropSelected, userData, history, id]);
@@ -138,9 +137,6 @@ const DropDetail = () => {
     if (destiny === 'collection') history.push(`/${destiny}`)
     else setBuyComplete(false)
   }
-
-  console.log(chosenNft);
-  console.log(tilts)
 
   return (
     <Background>

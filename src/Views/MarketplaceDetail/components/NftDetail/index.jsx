@@ -22,16 +22,23 @@ import { NftData } from "../../../../Context/NftProvider";
 import useModifyDetail from "../../../../Hooks/useModifyDetail";
 import Button from "../../../../Global-Components/Button";
 import Clone from "../Clone";
+import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
+import PremiumModal from "../Premium";
 
 const NftDetail = ({ nfts, setNft, setNftListing }) => {
-  const [clone, setClone] = useState(false);
-
+  
   const history = useHistory();
 
+  const [chosenNftRaw, setChosenNftRaw] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [clone, setClone] = useState(false);
+  const [premium, setPremium] = useState(false)
   const { nftId } = useParams();
+
   let nftSplitted = nftId.split("-");
   const uid = nftSplitted[0];
   const seller = nftSplitted[1];
+
   const {
     characterMaxStats,
     weaponMaxStats,
@@ -39,12 +46,11 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
     clanStatic,
     rarityStatic,
     repIdStatic,
+    premiumStatic,
   } = useContext(NftData);
-
-  const [chosenNftRaw, setChosenNftRaw] = useState({});
-  const [loading, setLoading] = useState(false);
-
   const { userData } = useContext(UserData);
+
+  const hd = useMediaQuery('(min-width: 1400px)')
 
   useEffect(() => {
     (async () => {
@@ -97,12 +103,17 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
     setClone(true);
   };
 
+  const handleShowPremium = () => {
+    setPremium(true)
+  }
+
   const chosenNft = useModifyDetail(
     chosenNftRaw,
     nftStatic,
     clanStatic,
     rarityStatic,
-    repIdStatic
+    repIdStatic,
+    premiumStatic
   );
 
   console.log(chosenNft);
@@ -171,22 +182,15 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                               <p className={styles.storyText}>
                                 {chosenNft.storyText}
                               </p>
+                              <Button
+                                title="Premium buff"
+                                onClick={handleShowPremium}
+                                width={ !hd ? "170px" : "240px"}
+                                style={{margin: "10px 0 10px 10px"}}
+                              />
                             </div>
-                            <div className={styles.cont3b}>
-                              <p className={styles.title}>Premium buff</p>
-                              <p className={styles.abilityText}>
-                                Bonus multiplier
-                              </p>
-                              <p className={styles.abilityText}>
-                                Bonus multiplier
-                              </p>
-                              <p className={styles.abilityText}>
-                                Bonus multiplier
-                              </p>
-                              <p className={styles.abilityText}>
-                                Bonus multiplier
-                              </p>
-                            </div>
+                            {/* <div className={styles.cont3b}>
+                            </div> */}
                           </div>
                           {chosenNft.skill && (
                             <div className={styles.skillsContainer}>
@@ -369,7 +373,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                             <Button
                               title="Clone info"
                               onClick={handleShowClone}
-                              width={"170px"}
+                              width={ !hd ? "170px" : "210px"}
                               style={{ margin: "12px 12px 12px 40px" }}
                             />
                           </div>
@@ -410,6 +414,11 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
       {clone && (
         <div className={styles.bg}>
           <Clone setClone={() => setClone(false)} />
+        </div>
+      )}
+      {premium && (
+        <div className={styles.bg}>
+          <PremiumModal setPremium={()=> setPremium(false)} premiumBuff={chosenNft.premiumBuff}/>
         </div>
       )}
     </>

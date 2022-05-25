@@ -22,8 +22,6 @@ const Drop = () => {
   const [timerRelease, setTimerRelease] = useState({ message: "", state: "" })
   const mobile = useMediaQuery('(max-width: 991px)');
 
-  console.log(mobile);
-
   const divHero = useRef()
   const divsOlder = useMemo(() => (olderDrops.map(() => createRef())), [olderDrops])
 

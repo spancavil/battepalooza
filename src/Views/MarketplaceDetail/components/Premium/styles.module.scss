@@ -1,0 +1,11 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+
+    .imagen {
+        height: 80px;
+        object-fit: contain;
+    }
+}

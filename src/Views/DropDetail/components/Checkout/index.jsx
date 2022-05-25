@@ -11,8 +11,6 @@ const Checkout = ({ nftBuy, nftProccesing, handleClose }) => {
 
   const {userData} = useContext(UserData)
 
-  console.log(nftBuy);
-
   const handleProccessing = () => {
     // sendAmplitudeData('Buy Confirmation Drop');
     if (Object.keys(userData).length !== 0) {

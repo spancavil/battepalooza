@@ -131,16 +131,16 @@ const MarketPlace = () => {
             <path
               d="M18.75 5.25L5.25 18.75"
               stroke="#121212"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M18.75 18.75L5.25 5.25"
               stroke="#121212"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>

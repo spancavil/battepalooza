@@ -5,7 +5,6 @@ import styles from "./styles.module.scss";
 
 const Sections = () => {
   const { pathname } = useLocation();
-  console.log(pathname);
   const [claimClick, setClaimClick] = useState(false)
 
   const handleClaim = () => {
