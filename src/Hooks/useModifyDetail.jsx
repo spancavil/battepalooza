@@ -4,7 +4,7 @@ const useModifyDetail = (nftDetailtoModify, nftStatic, clanStatic, rarityStatic,
 
     const [nftDetailModified, setNftDetailModified] = useState([])
     useEffect(() => {
-        if (nftDetailtoModify && nftDetailtoModify?.length !== 0 && nftStatic.length !== 0 && clanStatic.length !== 0 && rarityStatic.length !== 0 && repIdStatic.length !== 0 && premiumStatic.length !== 0) {
+        if (nftDetailtoModify && nftDetailtoModify?.length !== 0 && nftStatic.length !== 0 && clanStatic.length !== 0 && rarityStatic.length !== 0 && repIdStatic.length !== 0) {
             const nftFinded = nftStatic.find(element => element.id === nftDetailtoModify.itemId);
             if (nftFinded) {
                 const clanFinded = clanStatic.find(clan => clan.clan === nftFinded.clan);
