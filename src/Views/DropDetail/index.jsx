@@ -76,10 +76,12 @@ const DropDetail = () => {
     let intervalTimer;
     const fetchData = async () => {
       try {
+        console.log(id);
         const dropDetail = await dropService.getDropDetail(
           userData?.pid ? userData.pid : "",
           parseInt(id)
         );
+        console.log(dropDetail);
 
         if (dropDetail.error.text !== "") {
           if (dropDetail.error.text.includes("authorized")) {

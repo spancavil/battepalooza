@@ -4,7 +4,7 @@ import Input from './Components/Input';
 import Modal from '../../Global-Components/Modal';
 import Modal2 from './Components/Modal';
 import styles from './styles.module.scss';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { UserData } from '../../Context/UserProvider';
 import authService from '../../Services/auth.service';
 import { useHistory } from 'react-router';
@@ -14,7 +14,6 @@ import { fireAlert, fireAlertAsync } from '../../Utils/sweetAlert2';
 import AppNway from '../../Assets/img/App nWayPlay 1.png';
 import passCode from '../../Assets/img/PassCode 1.png';
 import { useMediaQuery } from '../../Hooks/useMediaQuery';
-import { useRef } from 'react/cjs/react.production.min';
 
 const Verification = () => {
   const [code, setCode] = useState('');
