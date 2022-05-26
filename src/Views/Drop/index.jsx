@@ -69,7 +69,7 @@ const Drop = () => {
   }
 
   const handleFindOut = () => {
-    history.push(`/drop/1`)
+    history.push(`/drop/${hero.id}`)
   }
 
   return (
