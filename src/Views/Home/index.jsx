@@ -39,6 +39,7 @@ const HomeContainer = () => {
     <div className={styles.container}>
       <ComponentsHome.Main />
       <ComponentsHome.AboutCoins />
+      <ComponentsHome.Carrousel />
       <ComponentsHome.Tokenomics />
       <ComponentsHome.Content3 hd={hd} desktop={desktop} mobile={mobile} />
       <ComponentsHome.RoadMap />

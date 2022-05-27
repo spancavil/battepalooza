@@ -1,11 +1,9 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const Nft = ({ nft, tilt, onClick }) => {
-  console.log(nft)
+const Card = ({ nft, onClick }) => {
   return (
     <div
-      ref={tilt}
       className={
         nft.rarity === "Common"
           ? styles.borderCommon
@@ -36,4 +34,4 @@ const Nft = ({ nft, tilt, onClick }) => {
   );
 };
 
-export default Nft;
+export default Card;

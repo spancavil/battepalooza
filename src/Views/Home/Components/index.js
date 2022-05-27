@@ -10,6 +10,7 @@ import SocialMedia from "./SocialMedia";
 import Tokenomics from "./Tokenomics";
 import Footer from "./Footer";
 import RoadMap from "./RoadMap";
+import Carrousel from "./Carrousel";
 
 export const ComponentsHome = {
   AboutCoins,
@@ -24,4 +25,5 @@ export const ComponentsHome = {
   Tokenomics,
   Footer,
   RoadMap,
+  Carrousel,
 };
