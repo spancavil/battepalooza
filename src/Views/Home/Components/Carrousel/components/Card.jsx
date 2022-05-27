@@ -5,11 +5,11 @@ const Card = ({ nft, onClick }) => {
   return (
     <div
       className={
-        nft.rarity === "Common"
+        nft.rarity === "COMMON"
           ? styles.borderCommon
-          : nft.rarity === "Rare"
+          : nft.rarity === "RARE"
           ? styles.borderRare
-          : nft.rarity === "Epic"
+          : nft.rarity === "EPIC"
           ? styles.borderEpic
           : styles.borderLegendary
       }
