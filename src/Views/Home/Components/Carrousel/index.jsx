@@ -1,5 +1,7 @@
 import Carousel from "react-elastic-carousel";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import Button from "../../../../Global-Components/Button";
 import Card from "./components/Card";
 
 import styles from "./styles.module.scss";
@@ -175,6 +177,11 @@ const CarrouselCards = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.btnContainer}>
+        <Link to="/drop">
+          <Button title={"DROPS"} />
+        </Link>
+      </div>
       <Carousel enableAutoPlay breakPoints={breakPoints} autoPlaySpeed={3000}>
         {items.map((nft) => (
           <Card key={nft.uniqueId} nft={nft} onClick={handleDetail} />
