@@ -99,6 +99,7 @@ const Verification = () => {
 
   //Handle link debería registrar al usuario por primera vez.
   const handleLink = async () => {
+    console.log("Loading:" + loading.current);
     if (!loading.current){
       loading.current = true
       const response = await authService.login(
@@ -107,9 +108,11 @@ const Verification = () => {
         '/first-login',
         userSignup
       )
+      console.log(response);
       if (response.data.message) {
         fireAlert("Error at linking", response.data.message)
       } else {
+        await fireAlertAsync('Success', 'The link was successful')
         setDataUser(response)
         history.push('/')
       }
