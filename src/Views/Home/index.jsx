@@ -39,6 +39,7 @@ const HomeContainer = () => {
     <div className={styles.container}>
       <ComponentsHome.Main />
       <ComponentsHome.Tokenomics />
+      <ComponentsHome.AboutCoins />
       <ComponentsHome.Content3 hd={hd} desktop={desktop} mobile={mobile} />
       <ComponentsHome.RoadMap />
       <ComponentsHome.Content4 hd={hd} desktop={desktop} mobile={mobile} />

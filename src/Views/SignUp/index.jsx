@@ -40,7 +40,7 @@ const SignUp = () => {
   // const [errorLastname, setErrorLastname] = useState ('');
   const [errorChecked, setErrorChecked] = useState ('');
   const [errorCaptcha, setErrorReCaptcha] = useState ('');
-  const [statusVerify, setSatatusVerify] = useState ('');
+  const [statusVerify, setStatusVerify] = useState ('');
 
   const history = useHistory ();
   const {executeRecaptcha} = useGoogleReCaptcha ();
@@ -80,7 +80,7 @@ const SignUp = () => {
       const response = await authService.verifyCaptcha (token);
       if (response.success === true) {
         setForm ({...form, checkedReCaptcha: true, reCaptchaToken: token});
-        setSatatusVerify ('.. ✓');
+        setStatusVerify ('.. ✓');
         setErrorReCaptcha ('');
       } else {
         alert ('Cannot verify reCAPTCHA, please reload page');

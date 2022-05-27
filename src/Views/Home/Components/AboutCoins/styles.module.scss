@@ -226,7 +226,7 @@ $hd: 1400px;
     top: -70px;
     margin-bottom: -70px;
     width: 105%;
-    height: 340px;
+    height: 360px;
     color: #fff;
     text-align: center;
     background-size: cover;
@@ -239,6 +239,11 @@ $hd: 1400px;
       margin-left: 60px;
       text-align: left;
       position: relative;
+
+      button {
+        margin: 10px 0;
+      margin-left: 60px;
+      }
 
       h2 {
         font-size: 60px;
@@ -265,7 +270,6 @@ $hd: 1400px;
       }
 
       p {
-        padding-top: 10px;
         font-size: 12px;
         font-family: $font-nsBold;
       }
