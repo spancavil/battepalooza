@@ -38,8 +38,8 @@ const HomeContainer = () => {
   return (
     <div className={styles.container}>
       <ComponentsHome.Main />
-      <ComponentsHome.Tokenomics />
       <ComponentsHome.AboutCoins />
+      <ComponentsHome.Tokenomics />
       <ComponentsHome.Content3 hd={hd} desktop={desktop} mobile={mobile} />
       <ComponentsHome.RoadMap />
       <ComponentsHome.Content4 hd={hd} desktop={desktop} mobile={mobile} />
