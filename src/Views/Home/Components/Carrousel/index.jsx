@@ -1,168 +1,34 @@
+import { useEffect, useState, useContext } from "react";
 import Carousel from "react-elastic-carousel";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { NftData } from "../../../../Context/NftProvider";
 import Button from "../../../../Global-Components/Button";
+import dropService from "../../../../Services/drop.service";
 import Card from "./components/Card";
 
 import styles from "./styles.module.scss";
 
 const CarrouselCards = () => {
-  const items = [
-    {
-      uniqueId: "1376646261177839446058895741306581577315354794160",
-      sellerPid: "UFQ2AM8U6V",
-      sellerName: "Player202259",
-      price: 30000,
-      type: 2,
-      itemId: 1081,
-      itemName: "Golden striker",
-      repName: "Glove",
-      rarity: "Legendary",
-      clan: "SYN",
-      serial: 1,
-      cloneCount: 0,
-      movieUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/GoldenStriker_Legendary.mp4",
-      thumbnailUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_32_Pre3.png",
-      maxPlayCount: 345,
-    },
-    {
-      uniqueId: "1376646261177839446058895741306581577315354794161",
-      sellerPid: "UFQ2AM8U6V",
-      sellerName: "Player202259",
-      price: 30000,
-      type: 2,
-      itemId: 1081,
-      itemName: "Golden striker",
-      repName: "Glove",
-      rarity: "Legendary",
-      clan: "SYN",
-      serial: 1,
-      cloneCount: 0,
-      movieUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/GoldenStriker_Legendary.mp4",
-      thumbnailUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_32_Pre3.png",
-      maxPlayCount: 345,
-    },
-    {
-      uniqueId: "1376646261177839446058895741306581577315354794162",
-      sellerPid: "UFQ2AM8U6V",
-      sellerName: "Player202259",
-      price: 30000,
-      type: 2,
-      itemId: 1081,
-      itemName: "Golden striker",
-      repName: "Glove",
-      rarity: "Legendary",
-      clan: "SYN",
-      serial: 1,
-      cloneCount: 0,
-      movieUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/GoldenStriker_Legendary.mp4",
-      thumbnailUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_32_Pre3.png",
-      maxPlayCount: 345,
-    },
-    {
-      uniqueId: "1376646261177839446058895741306581577315354794163",
-      sellerPid: "UFQ2AM8U6V",
-      sellerName: "Player202259",
-      price: 30000,
-      type: 2,
-      itemId: 1081,
-      itemName: "Golden striker",
-      repName: "Glove",
-      rarity: "Legendary",
-      clan: "SYN",
-      serial: 1,
-      cloneCount: 0,
-      movieUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/GoldenStriker_Legendary.mp4",
-      thumbnailUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_32_Pre3.png",
-      maxPlayCount: 345,
-    },
-    {
-      uniqueId: "1376646261177839446058895741306581577315354794164",
-      sellerPid: "UFQ2AM8U6V",
-      sellerName: "Player202259",
-      price: 30000,
-      type: 2,
-      itemId: 1081,
-      itemName: "Golden striker",
-      repName: "Glove",
-      rarity: "Legendary",
-      clan: "SYN",
-      serial: 1,
-      cloneCount: 0,
-      movieUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/GoldenStriker_Legendary.mp4",
-      thumbnailUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_32_Pre3.png",
-      maxPlayCount: 345,
-    },
-    {
-      uniqueId: "1376646261177839446058895741306581577315354794165",
-      sellerPid: "UFQ2AM8U6V",
-      sellerName: "Player202259",
-      price: 30000,
-      type: 2,
-      itemId: 1081,
-      itemName: "Golden striker",
-      repName: "Glove",
-      rarity: "Legendary",
-      clan: "SYN",
-      serial: 1,
-      cloneCount: 0,
-      movieUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/GoldenStriker_Legendary.mp4",
-      thumbnailUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_32_Pre3.png",
-      maxPlayCount: 345,
-    },
-    {
-      uniqueId: "1376646261177839446058895741306581577315354794166",
-      sellerPid: "UFQ2AM8U6V",
-      sellerName: "Player202259",
-      price: 30000,
-      type: 2,
-      itemId: 1081,
-      itemName: "Golden striker",
-      repName: "Glove",
-      rarity: "Legendary",
-      clan: "SYN",
-      serial: 1,
-      cloneCount: 0,
-      movieUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/GoldenStriker_Legendary.mp4",
-      thumbnailUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_32_Pre3.png",
-      maxPlayCount: 345,
-    },
-    {
-      uniqueId: "1376646261177839446058895741306581577315354794167",
-      sellerPid: "UFQ2AM8U6V",
-      sellerName: "Player202259",
-      price: 30000,
-      type: 2,
-      itemId: 1081,
-      itemName: "Golden striker",
-      repName: "Glove",
-      rarity: "Legendary",
-      clan: "SYN",
-      serial: 1,
-      cloneCount: 0,
-      movieUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/GoldenStriker_Legendary.mp4",
-      thumbnailUrl:
-        "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_32_Pre3.png",
-      maxPlayCount: 345,
-    },
-  ];
+
+  const { drops } = useContext(NftData);
+  const { mainDrop } = drops;
+  
+  const [nftsMainDrop, setNftsMainDrop] = useState([])
 
   const history = useHistory();
+  
+  useEffect(() => {
+
+    (async () => {
+      const dropDetail = await dropService.getDropDetail(
+        "",
+        parseInt(mainDrop.id)
+      );
+      setNftsMainDrop(dropDetail.nftProducts || []);
+    })()
+
+  }, [mainDrop])
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -171,22 +37,22 @@ const CarrouselCards = () => {
     { width: 1200, itemsToShow: 4 },
   ];
 
-  const handleDetail = (uniqueId, sellerPid) => {
-    history.push(`/marketplace/${uniqueId}-${sellerPid}`);
+  const handleDetail = () => {
+    history.push(`/drop/${mainDrop.id}`);
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.btnContainer}>
-        <Link to="/drop">
-          <Button title={"DROPS"} />
-        </Link>
-      </div>
       <Carousel enableAutoPlay breakPoints={breakPoints} autoPlaySpeed={3000}>
-        {items.map((nft) => (
+        {nftsMainDrop.map((nft) => (
           <Card key={nft.uniqueId} nft={nft} onClick={handleDetail} />
         ))}
       </Carousel>
+      <div className={styles.btnContainer}>
+        <Link to="/drop">
+          <Button title={"VIEW ALL DROPS"} />
+        </Link>
+      </div>
     </div>
   );
 };

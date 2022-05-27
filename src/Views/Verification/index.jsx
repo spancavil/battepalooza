@@ -20,6 +20,8 @@ const Verification = () => {
   const [errorCode, setErrorCode] = useState('');
   const [modalNotRegistered, setModalNotRegistered] = useState(false);
   const [modalUserNotFound, setModalUserNotFound] = useState(false);
+  const [linkingMessage, setLinkingMessage] = useState("Link")
+  const [linked, setLinked] = useState(false)
   const loading = useRef(false);
 
   const mobile = useMediaQuery('(max-width: 766px)');
@@ -99,7 +101,10 @@ const Verification = () => {
 
   //Handle link debería registrar al usuario por primera vez.
   const handleLink = async () => {
+    console.log("Loading:" + loading.current);
+    setLinkingMessage("Linking...");
     if (!loading.current){
+
       loading.current = true
       const response = await authService.login(
         userSignup.email,
@@ -107,15 +112,20 @@ const Verification = () => {
         '/first-login',
         userSignup
       )
+      console.log(response);
+
       if (response.data.message) {
-        fireAlert("Error at linking", response.data.message)
+        await fireAlertAsync("Error at linking", response.data.message)
       } else {
         setDataUser(response)
-        history.push('/')
+        setLinked(true)
       }
+
       loading.current = false
     }
   }
+
+  console.log(loading.current);
 
   return (
     <>
@@ -168,7 +178,7 @@ const Verification = () => {
           </Modal>
         </div>
       )}
-      {modalUserNotFound && (
+      {modalUserNotFound && !linked && (
         <div className={styles.container}>
           <Modal2 title="nWay Play Link" handleClose={handleClose} additionalStyles={{width: mobile ? '100vw' : '70vw'}}>
             <span className={styles.contentText}>You are registered to one of nWayPlay's services. Press proceed to link your nWayPlay account.</span>
@@ -197,11 +207,23 @@ const Verification = () => {
             <div style={{
               display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%', gap: '4%', overflow: 'visible',
             }}>
-              <Button title="LINK" modal={true} onClick={handleLink} />
+              <Button title= {linkingMessage} modal={true} onClick={handleLink} />
               <Button title="NO" modal={true} onClick={() => history.push('/')} />
             </div>
           </Modal2>
         </div>
+      )}
+      {linked && (
+        <div className={styles.container}>
+        <Modal title="Success" handleClose={handleClose}>
+          <span className={styles.contentTextCenter}>The email you entered linked successfully!</span>
+          <div style={{
+            display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%', padding: '3%', gap: '4%',
+          }}>
+            <Button title="OK" modal={true} onClick={() => history.push('/')} />
+          </div>
+        </Modal>
+      </div>
       )}
     </>
   );
