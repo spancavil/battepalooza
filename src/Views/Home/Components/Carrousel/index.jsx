@@ -10,25 +10,22 @@ import Card from "./components/Card";
 import styles from "./styles.module.scss";
 
 const CarrouselCards = () => {
-
   const { drops } = useContext(NftData);
   const { mainDrop } = drops;
-  
-  const [nftsMainDrop, setNftsMainDrop] = useState([])
+
+  const [nftsMainDrop, setNftsMainDrop] = useState([]);
 
   const history = useHistory();
-  
-  useEffect(() => {
 
+  useEffect(() => {
     (async () => {
       const dropDetail = await dropService.getDropDetail(
         "",
-        parseInt(mainDrop.id)
+        parseInt(mainDrop?.id)
       );
       setNftsMainDrop(dropDetail.nftProducts || []);
-    })()
-
-  }, [mainDrop])
+    })();
+  }, [mainDrop]);
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -43,7 +40,7 @@ const CarrouselCards = () => {
 
   return (
     <div className={styles.container}>
-      <Carousel enableAutoPlay breakPoints={breakPoints} autoPlaySpeed={3000}>
+      <Carousel breakPoints={breakPoints}>
         {nftsMainDrop.map((nft) => (
           <Card key={nft.uniqueId} nft={nft} onClick={handleDetail} />
         ))}
