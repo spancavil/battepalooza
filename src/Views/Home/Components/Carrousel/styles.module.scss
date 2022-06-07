@@ -2,16 +2,17 @@
   background-color: rgba(0, 2, 36, 0.939);
   background-image: url("../../../../Assets/img/epic_blur.png");
   background-size: cover;
-  padding: 50px 10px;
-  /* 
-  button[type="button"] {
-    background-color: rgb(235, 16, 16);
-    box-shadow: 0 0 1px 3px rgba(235, 16, 16, 0.5);
+  padding: 50px 5px;
+
+  button {
+    background-color: #081f91 !important;
+    box-shadow: 0 0 1px 3px #05197e;
+    color: white !important;
   }
 
-  button[type="button"]:hover {
-    background-color: red !important;
-  } */
+  button:hover {
+    background-color: #081f91 !important;
+  }
 }
 
 .btnContainer {
