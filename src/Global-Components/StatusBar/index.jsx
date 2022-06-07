@@ -12,17 +12,23 @@ function StatusBar({ color, value, maxValue }) {
         yellowDark: "#A49E00",
     }
 
-    const width = `${Math.round(value / maxValue * 100)}%`;
+    let width = `${Math.round(value / maxValue * 100)}%`;
+    const ratio = value/maxValue;
+    if (ratio === 1) {
+        width = `calc(${Math.round(value / maxValue * 100)}% - 6px)`
+    }
 
     return (
         <div className={styles.mainBar}>
             <div className={styles.internalTopBar} style={{
                 backgroundColor: color === "red" ? colors.red: color === "yellow" ? colors.yellow: colors.green,
-                width
+                width,
+                borderTopRightRadius: ratio > 0.95 ? '20px' : null
             }}></div>
             <div className={styles.internalBottomBar} style={{
                 backgroundColor: color === "red" ? colors.redDark: color === "yellow" ? colors.yellowDark: colors.greenDark,
-                width
+                width,
+                borderBottomRightRadius: ratio > 0.95 ? '20px' : null
             }}></div>
         </div>
     )
