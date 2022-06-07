@@ -40,12 +40,14 @@ const CollectionDetail = () => {
   const { uuid } = useParams();
   const history = useHistory();
 
+  
   useEffect(() => {
     setLoading(true);
   }, []);
-
+  
   //Modify data from JSON statics
   const nftSelected = useModifyDetail(nftSelectedRaw, nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic)
+  console.log(nftSelected);
 
   useEffect(() => {
     const fetchData = async () => {

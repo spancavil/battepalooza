@@ -24,9 +24,10 @@ import Button from "../../../../Global-Components/Button";
 import Clone from "../Clone";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import PremiumModal from "../Premium";
+import StatusBar from "../../../../Global-Components/StatusBar";
 
 const NftDetail = ({ nfts, setNft, setNftListing }) => {
-  
+
   const history = useHistory();
 
   const [chosenNftRaw, setChosenNftRaw] = useState({});
@@ -185,8 +186,8 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                               <Button
                                 title="Premium buff"
                                 onClick={handleShowPremium}
-                                width={ !hd ? "170px" : "240px"}
-                                style={{margin: "10px 0 10px 10px"}}
+                                width={!hd ? "170px" : "240px"}
+                                style={{ margin: "10px 0 10px 10px" }}
                               />
                             </div>
                             {/* <div className={styles.cont3b}>
@@ -212,11 +213,16 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                     alt="HP icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>HP</p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {chosenNft.stat?.maxHealth} /{" "}
-                                      {characterMaxStats.maxHealth}
-                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        HP
+                                      </p>
+                                      <p>
+                                        {chosenNft.stat?.maxHealth}
+                                      </p>
+                                    </div>
+                                    <StatusBar color={"red"} value={chosenNft.stat?.maxHealth} maxValue={characterMaxStats.maxHealth} />
+
                                   </div>
                                 </div>
                                 <div className={styles.itemStatContainer}>
@@ -226,13 +232,17 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                     alt="Energy icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>
-                                      Energy
-                                    </p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {chosenNft.stat?.energyRecovery} /{" "}
-                                      {characterMaxStats.maxEnergyRecovery}
-                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        Energy
+                                      </p>
+                                      <p>
+                                        {chosenNft.stat?.energyRecovery}/
+                                        {characterMaxStats.maxEnergyRecovery}
+                                      </p>
+                                    </div>
+                                    <StatusBar color={"green"} value={chosenNft.stat?.energyRecovery} maxValue={characterMaxStats.maxEnergyRecovery} />
+
                                   </div>
                                 </div>
                                 <div className={styles.itemStatContainer}>
@@ -242,13 +252,15 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                     alt="Speed icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>
-                                      Speed
-                                    </p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {chosenNft.stat?.moveSpeed} /{" "}
-                                      {characterMaxStats.maxMoveSpeed}
-                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        Speed
+                                      </p>
+                                      <p>
+                                        {chosenNft.stat?.moveSpeed}
+                                      </p>
+                                    </div>
+                                    <StatusBar color={"yellow"} value={chosenNft.stat?.moveSpeed} maxValue={characterMaxStats.maxMoveSpeed} />
                                   </div>
                                 </div>
                               </>
@@ -263,13 +275,15 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                     alt="HP icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>
-                                      Damage
-                                    </p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {chosenNft.stat?.damage} /{" "}
-                                      {weaponMaxStats.maxDamage}
-                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        Damage
+                                      </p>
+                                      <p>
+                                        {chosenNft.stat?.damage}
+                                      </p>
+                                    </div>
+                                    <StatusBar color={"red"} value={chosenNft.stat?.damage} maxValue={weaponMaxStats.maxDamage} />
                                   </div>
                                 </div>
                                 <div className={styles.itemStatContainer}>
@@ -279,13 +293,17 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                     alt="Energy icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>
-                                      Energy
-                                    </p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {chosenNft.stat?.consumeEnergy} /{" "}
-                                      {chosenNft.stat?.maxEnergy}
-                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        Energy
+                                      </p>
+                                      <p>
+                                        {chosenNft.stat?.consumeEnergy}/
+                                        {chosenNft.stat?.maxEnergy}
+                                      </p>
+                                    </div>
+
+                                    <StatusBar color={"green"} value={chosenNft.stat?.consumeEnergy} maxValue={chosenNft.stat?.maxEnergy} />
                                   </div>
                                 </div>
                                 <div className={styles.itemStatContainer}>
@@ -295,13 +313,16 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                     alt="Speed icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>
-                                      Cooltime
-                                    </p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {chosenNft.stat?.coolTime} /{" "}
-                                      {weaponMaxStats.maxCoolDown}
-                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        Cooltime
+                                      </p>
+                                      <p>
+                                        {chosenNft.stat?.coolTime}
+                                      </p>
+                                    </div>
+
+                                    <StatusBar color={"yellow"} value={chosenNft.stat?.coolTime} maxValue={chosenNft.stat?.coolTime < 2 ? 2 : chosenNft.stat?.maxEnergy} />
                                   </div>
                                 </div>
                               </>
@@ -373,7 +394,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                             <Button
                               title="Clone info"
                               onClick={handleShowClone}
-                              width={ !hd ? "170px" : "210px"}
+                              width={!hd ? "170px" : "210px"}
                               style={{ margin: "12px 12px 12px 40px" }}
                             />
                           </div>
@@ -418,7 +439,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
       )}
       {premium && (
         <div className={styles.bg}>
-          <PremiumModal setPremium={()=> setPremium(false)} premiumBuff={chosenNft.premiumBuff}/>
+          <PremiumModal setPremium={() => setPremium(false)} premiumBuff={chosenNft.premiumBuff} />
         </div>
       )}
     </>
