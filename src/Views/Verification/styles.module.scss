@@ -18,7 +18,7 @@ $hd: 1400px;
   }
 }
 // Extra mall devices (< 576px)
-@media (max-width: $mobile - 1){
+@media (max-width: $mobile - 1) {
   .container {
     position: absolute;
     top: 0;
@@ -31,13 +31,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -45,7 +45,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  
+
   .message {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -53,12 +53,12 @@ $hd: 1400px;
     font-size: 13px;
     color: $sub-message;
     text-align: center;
-  
+
     a {
       color: $sub-message;
     }
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 20px;
   }
@@ -71,20 +71,20 @@ $hd: 1400px;
     font-size: 14px;
     padding: 6px 0 6px 15px;
     font-family: $font-nasalization;
-    text-align: 'left';
+    text-align: "left";
     color: white;
   }
   .contentTextCenter {
     font-size: 14px;
     padding: 10px;
     font-family: $font-nasalization;
-    text-align: 'center';
+    text-align: "center";
     color: white;
   }
-};
+}
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: $mobile) and (max-width:$tablet - 1) {
+@media (min-width: $mobile) and (max-width: $tablet - 1) {
   .container {
     position: absolute;
     top: 0;
@@ -97,13 +97,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -111,7 +111,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  
+
   .message {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -119,12 +119,12 @@ $hd: 1400px;
     font-size: 13px;
     color: $sub-message;
     text-align: center;
-  
+
     a {
       color: $sub-message;
     }
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 20px;
   }
@@ -133,24 +133,24 @@ $hd: 1400px;
     color: #730909;
     font-family: $font-nasalization;
   }
-    .contentText {
-      font-size: 14px;
-      padding: 6px 0 6px 15px;
-      font-family: $font-nasalization;
-      text-align: 'left';
-      color: white;
+  .contentText {
+    font-size: 14px;
+    padding: 6px 0 6px 15px;
+    font-family: $font-nasalization;
+    text-align: "left";
+    color: white;
   }
   .contentTextCenter {
     font-size: 18px;
     padding: 20px;
     font-family: $font-nasalization;
-    text-align: 'center';
+    text-align: "center";
     color: white;
   }
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: $tablet) and (max-width: $laptop - 1){
+@media (min-width: $tablet) and (max-width: $laptop - 1) {
   .container {
     position: absolute;
     top: 0;
@@ -163,13 +163,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -177,7 +177,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  
+
   .message {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -185,12 +185,12 @@ $hd: 1400px;
     font-size: 13px;
     color: $sub-message;
     text-align: center;
-  
+
     a {
       color: $sub-message;
     }
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 20px;
   }
@@ -199,24 +199,24 @@ $hd: 1400px;
     color: #730909;
     font-family: $font-nasalization;
   }
-    .contentText {
-      font-size: 14px;
-      padding: 6px 0 6px 15px;
-      font-family: $font-nasalization;
-      text-align: 'left';
-      color: white;
+  .contentText {
+    font-size: 14px;
+    padding: 6px 0 6px 15px;
+    font-family: $font-nasalization;
+    text-align: "left";
+    color: white;
   }
   .contentTextCenter {
     font-size: 18px;
     padding: 20px;
     font-family: $font-nasalization;
-    text-align: 'center';
+    text-align: "center";
     color: white;
   }
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: $laptop) and (max-width: $desktop - 1){
+@media (min-width: $laptop) and (max-width: $desktop - 1) {
   .container {
     position: absolute;
     top: 0;
@@ -229,13 +229,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -243,7 +243,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  
+
   .message {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -251,12 +251,12 @@ $hd: 1400px;
     font-size: 13px;
     color: $sub-message;
     text-align: center;
-  
+
     a {
       color: $sub-message;
     }
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 20px;
   }
@@ -268,7 +268,7 @@ $hd: 1400px;
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: $desktop) and (max-width: $hd - 1){
+@media (min-width: $desktop) and (max-width: $hd - 1) {
   .container {
     position: absolute;
     top: 0;
@@ -281,13 +281,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 105vh;
     opacity: 0.6;
@@ -295,7 +295,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  
+
   .message {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -303,12 +303,12 @@ $hd: 1400px;
     font-size: 13px;
     color: $sub-message;
     text-align: center;
-  
+
     a {
       color: $sub-message;
     }
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 20px;
   }
@@ -330,11 +330,17 @@ $hd: 1400px;
     padding: 20px;
     font-family: $font-nasalization;
     color: white;
-    text-align: 'center';
+    text-align: "center";
+  }
+  .textResponsive {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 15px 20px;
   }
 }
 
-@media (min-width: $hd){
+@media (min-width: $hd) {
   .container {
     position: absolute;
     top: 0;
@@ -347,13 +353,13 @@ $hd: 1400px;
     align-items: center;
     justify-content: center;
   }
-  
+
   .container:before {
     content: "";
     background: url("../../Assets/img/Bg-Home.png") bottom center no-repeat #000;
     background-position-x: center;
     background-position-y: bottom;
-    background-size: cover;  
+    background-size: cover;
     z-index: 0;
     height: 100vh;
     opacity: 0.6;
@@ -361,7 +367,7 @@ $hd: 1400px;
     position: absolute;
     top: 0;
   }
-  
+
   .message {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -369,12 +375,12 @@ $hd: 1400px;
     font-size: 13px;
     color: $sub-message;
     text-align: center;
-  
+
     a {
       color: $sub-message;
     }
   }
-  .inputContainer{
+  .inputContainer {
     width: 100%;
     padding: 0 20px;
   }
@@ -388,16 +394,25 @@ $hd: 1400px;
     font-size: 20px;
     padding: 20px;
     font-family: $font-nasalization;
-    text-align: 'left';
+    text-align: left;
     color: white;
   }
   .contentTextCenter {
     font-size: 18px;
     padding: 20px;
     font-family: $font-nasalization;
-    text-align: 'center';
+    text-align: center;
     color: white;
+  }
+  .textResponsive {
+    text-align: left;
+    font-size: 14px;
+    padding: 15px 20px;
   }
 }
 
-
+.subtitle {
+  text-align: center;
+  color: white;
+  font-family: $font-nasalization;
+}
