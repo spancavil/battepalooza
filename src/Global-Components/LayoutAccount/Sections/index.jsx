@@ -7,10 +7,10 @@ const Sections = () => {
   const { pathname } = useLocation();
   const [claimClick, setClaimClick] = useState(false)
 
-  const handleClaim = () => {
+/*   const handleClaim = () => {
     window.open("https://auth.nwayplay.com");
     setClaimClick(true)
-  }
+  } */
 
   return (
     <div className={styles.sections}>
