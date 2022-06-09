@@ -5,11 +5,9 @@ import Background from '../../Global-Components/Background';
 import styles from './styles.module.scss';
 import Button from '../../Global-Components/Button';
 import { NftData } from '../../Context/NftProvider';
-import heroBannerImage from '../../Assets/img/dropHeroBg.png';
-import heroBannerSecondary from '../../Assets/img/bg-secondary-drop.png';
-import heroBannerImageMobile from '../../Assets/img/bg-drop-mobile.png';
 import { getDaysMinutesSeconds } from '../../Utils/createDate';
 import { useMediaQuery } from '../../Hooks/useMediaQuery';
+import { MOBILE_1 } from '../../Constants/definitions';
 
 const Drop = () => {
   const charEsc = '<';
@@ -20,7 +18,8 @@ const Drop = () => {
   const [olderDrops, setOlderDrops] = useState([]);
   const [hero, setHero] = useState({});
   const [timerRelease, setTimerRelease] = useState({ message: "", state: "" })
-  const mobile = useMediaQuery('(max-width: 991px)');
+
+  const mobile = useMediaQuery(`(max-width: ${MOBILE_1})`);
 
   const divHero = useRef()
   const divsOlder = useMemo(() => (olderDrops.map(() => createRef())), [olderDrops])
@@ -53,14 +52,17 @@ const Drop = () => {
   //Set backgrounds with useRef
   useEffect(() => {
 
-    if (hero.length !== 0 && olderDrops.length !== 0 && divsOlder.length !== 0) {
-      divHero.current.style.backgroundImage = mobile ? `url(${heroBannerImageMobile})` : `url(${heroBannerImage})`;
+    if (hero.length !== 0) {
+      console.log("Entra aquí");
+      divHero.current.style.backgroundImage = mobile ? null : `url(${hero.bigBannerUrl})`;
       divHero.current.style.backgroundSize = 'cover';
-      for (const drop of olderDrops) {
+      divHero.current.style.backgroundRepeat = 'no-repeat';
+      divHero.current.style.backgroundPosition = '60% 50%'
+      /* for (const drop of olderDrops) {
         const index = olderDrops.findIndex(element => element.id === drop.id);
         if (divsOlder[index]?.current) divsOlder[index].current.style.backgroundImage = `url(${heroBannerSecondary})`;
         divsOlder[index].current.style.backgroundSize = 'cover';
-      }
+      } */
     }
   }, [divHero, divsOlder, hero, olderDrops, mobile])
 
@@ -82,15 +84,15 @@ const Drop = () => {
           <div className={styles.hero} ref={divHero}>
             <div className={styles.information}>
               {mobile && <img
-                src={heroBannerSecondary}
-                alt="Hero"
-                style={{
-                  width: '100%',
-                  height: '250px',
-                  objectFit: 'cover',
-                  bottom: '0',
-                }}
-              />}
+                  src={hero.smallBannerUrl}
+                  alt="Hero"
+                  style={{
+                    width: '100%',
+                    height: '250px',
+                    objectFit: 'cover',
+                    bottom: '0',
+                  }}
+                />}
               <h2 className={styles.release}>Release date {new Date(hero?.startTime).toLocaleDateString()}</h2>
               <h2 className={styles.name}>{hero?.name}</h2>
               <h2 className={styles.roboto}>{hero?.desc} </h2>
