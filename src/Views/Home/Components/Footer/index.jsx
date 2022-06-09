@@ -172,10 +172,10 @@ const Footer = () => {
                       </span>
                     </li>
                     <li>|</li>
-                    <li>
+                    {/* <li>
                       <span className={styles.linkFooter}>Whitepaper</span>
                     </li>
-                    <li>|</li>
+                    <li>|</li> */}
                     <li>
                       <a
                         className={styles.linkFooter}

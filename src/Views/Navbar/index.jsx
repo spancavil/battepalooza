@@ -196,7 +196,7 @@ const NavBar = () => {
                   DROP
                 </Link>
               </li>
-              <li>
+              {/*               <li>
                 <Link
                   onClick={() => setMenu(!menu)}
                   href
@@ -205,7 +205,7 @@ const NavBar = () => {
                 >
                   PACKS
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <span
                   onClick={() => {

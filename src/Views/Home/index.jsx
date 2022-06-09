@@ -40,9 +40,9 @@ const HomeContainer = () => {
       <ComponentsHome.Main />
       <ComponentsHome.AboutCoins />
       <ComponentsHome.Carrousel />
-      <ComponentsHome.Tokenomics />
+      {/* <ComponentsHome.Tokenomics /> */}
       <ComponentsHome.Content3 hd={hd} desktop={desktop} mobile={mobile} />
-      <ComponentsHome.RoadMap />
+      {/* <ComponentsHome.RoadMap /> */}
       <ComponentsHome.Content4 hd={hd} desktop={desktop} mobile={mobile} />
       <ComponentsHome.Content5 hd={hd} desktop={desktop} mobile={mobile} />
       <ComponentsHome.Content6 hd={hd} desktop={desktop} mobile={mobile} />

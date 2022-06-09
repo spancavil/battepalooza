@@ -32,11 +32,11 @@ const Sections = () => {
       >
         <button onClick={()=> setClaimClick(false)}>Trade History</button>
       </Link>
-      <span 
+      {/* <span 
         className = { claimClick ? styles.btnSelected : styles.btn}
       >
         <button onClick={handleClaim}>Claim</button>
-      </span>
+      </span> */}
     </div>
   );
 };
