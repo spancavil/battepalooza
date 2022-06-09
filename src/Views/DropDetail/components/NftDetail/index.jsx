@@ -123,8 +123,6 @@ const NftDetail = ({
                               <p className={styles.storyText}>
                                 {chosenNft.storyText}
                               </p>
-                              <p className={styles.title}>Premium buff</p>
-                              <p className={styles.p2eText}>Dolor nisi est occaecat exercitation culpa eu irure tempor et.</p>
                             </div>
                           </div>
                           {chosenNft.skill && (

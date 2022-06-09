@@ -9,8 +9,8 @@ import { fireAlertAsync } from "../../Utils/sweetAlert2";
 import { logOutAmplitude } from "../../Utils/amplitude";
 import dropService from "../../Services/drop.service";
 
-import heroBannerImage from "../../Assets/img/dropHeroBg.png";
-import heroBannerImageMobile from '../../Assets/img/bg-drop-mobile.png';
+// import heroBannerImage from "../../Assets/img/dropHeroBg.png";
+// import heroBannerImageMobile from '../../Assets/img/bg-drop-mobile.png';
 import { UserData } from "../../Context/UserProvider";
 import NftDetail from "./components/NftDetail";
 import Checkout from "./components/Checkout";
@@ -20,11 +20,12 @@ import { NftData } from "../../Context/NftProvider";
 import { getDaysMinutesSeconds } from "../../Utils/createDate";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import VanillaTilt from "vanilla-tilt";
+import useModifyDropDetailUrl from "../../Hooks/useModifyDropDetailUrl";
 
 const DropDetail = () => {
-  const [dropSelected, setDropSelected] = useState();
+  const [dropSelectedRaw, setDropSelectedRaw] = useState();
   const [chosenNft, setChosenNft] = useState();
-
+  
   const [checkout, setCheckout] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [buyComplete, setBuyComplete] = useState(false);
@@ -37,8 +38,10 @@ const DropDetail = () => {
   const { setReloadDrops, setReloadCollection } = useContext(NftData);
 
   const divHero = useRef();
-
+  
   const mobile = useMediaQuery('(max-width: 991px)');
+
+  const dropSelected = useModifyDropDetailUrl(dropSelectedRaw);
 
   const tilts = useMemo(
     () => dropSelected?.nftProducts?.map(() => createRef()),
@@ -67,7 +70,9 @@ const DropDetail = () => {
   //Set background with useRef
   useEffect(() => {
     if (dropSelected && divHero.current !== null) {
-      divHero.current.style.background = mobile ? `url(${heroBannerImageMobile})` : `url(${heroBannerImage})`;
+      console.log(dropSelected);
+
+      divHero.current.style.background = mobile ? null : `url(${dropSelected.dropInfo.bigBannerUrl})`;
       divHero.current.style.backgroundSize = "cover";
     }
   }, [divHero, dropSelected, mobile]);
@@ -95,7 +100,7 @@ const DropDetail = () => {
             fireAlertAsync("Oops an error ocurred", dropDetail.error.text);
           }
         } else {
-          setDropSelected(dropDetail);
+          setDropSelectedRaw(dropDetail);
           //Sandbox
           // const {message, state} = getDaysMinutesSeconds(Date.now() + 2016000010, Date.now() + 172800000);
           intervalTimer = setInterval(() => {
@@ -117,7 +122,7 @@ const DropDetail = () => {
     return () => {
       clearInterval(intervalTimer)
     }
-  }, [setDropSelected, userData, history, id]);
+  }, [setDropSelectedRaw, userData, history, id]);
 
   const showNft = (nft) => {
     setChosenNft(nft);
@@ -151,7 +156,7 @@ const DropDetail = () => {
             <div className={styles.rectangle}>
               <div className={styles.hero} ref={divHero}>
                 {mobile && <img
-                  src={heroBannerImage}
+                  src={dropSelected.dropInfo?.smallBannerUrl}
                   style={{
                     width: '100%',
                     height: '273px',

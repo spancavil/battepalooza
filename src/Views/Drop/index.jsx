@@ -127,13 +127,13 @@ const Drop = () => {
             </div>
           </div>
 
-          <div className={styles.olderTitle}>
+          {/* <div className={styles.olderTitle}>
             <h3 className={styles.older}>Older drops</h3>
-            {/* <div className={styles.allContainer}>
-              <h3 className={styles.all}>View all drops</h3>
+              <div className={styles.allContainer}>
+                <h3 className={styles.all}>View all drops</h3>
               <div className={styles.line}></div>
-            </div> */}
-          </div>
+            </div>
+          </div> */}
 
           <div className={styles.cards}>
             {olderDrops.length !== 0 && olderDrops.map(drop => {
