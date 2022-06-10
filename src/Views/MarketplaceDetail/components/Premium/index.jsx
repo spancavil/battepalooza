@@ -13,6 +13,7 @@ const PremiumModal = ({ setPremium, premiumBuffs }) => {
                         <div className={styles.content}>
                             <img className={styles.imagen} src={BP_BASE_URL + premiumBuff.icon} alt="buff" />
                             <p>{premiumBuff.engName} </p>
+                            <p>+{premiumBuff.value}%</p>
                         </div>
                     )
                 })}

@@ -54,7 +54,9 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
 
   console.log(premiumStatic);
 
-  const hd = useMediaQuery('(min-width: 1400px)')
+  const desktop = useMediaQuery('(min-width: 799px) and (max-width: 1199px)')
+
+  const hd = useMediaQuery('(min-width: 1200px)')
 
   useEffect(() => {
     (async () => {
@@ -193,7 +195,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                               <Button
                                 title="Premium buff"
                                 onClick={handleShowPremium}
-                                width={!hd ? "170px" : "240px"}
+                                width={hd ? "240px" : desktop ? "200px": "170px"}
                                 style={{ margin: "10px 0 10px 10px" }}
                               />
                             </div>
