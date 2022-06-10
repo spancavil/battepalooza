@@ -8,9 +8,9 @@ const Content3 = ({hd, desktop, mobile}) => {
     //Desplazamiento en parallax de la imagen de fondo.
     useEffect(() => {
    
-      const imagen = document.getElementById("bgSection");
+      // const imagen = document.getElementById("bgSection");
   
-      const parallax = () => {
+      /* const parallax = () => {
         let scrollY = window.scrollY;
         if (hd) {
           if (scrollY > 700 && scrollY < 1800){
@@ -32,10 +32,10 @@ const Content3 = ({hd, desktop, mobile}) => {
         }
       }
   
-      window.addEventListener('scroll', parallax)
+      window.addEventListener('scroll', parallax) */
   
       return () => {
-        window.removeEventListener('scroll', parallax);
+        // window.removeEventListener('scroll', parallax);
       }
     }, [desktop, hd, mobile])
 

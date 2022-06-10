@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styles from './styles.module.scss';
 import img4 from '../../../../Assets/img/img4.png';
 
 const Content7 = ({desktop, hd, mobile}) => {
-  useEffect (
+  /* useEffect (
     () => {
       const text4 = document.getElementById ('text4');
       const imagen = document.getElementById ('img4');
@@ -40,7 +40,7 @@ const Content7 = ({desktop, hd, mobile}) => {
       };
     },
     [desktop, hd, mobile]
-  );
+  ); */
 
   return (
     <div className={styles.content6}>
