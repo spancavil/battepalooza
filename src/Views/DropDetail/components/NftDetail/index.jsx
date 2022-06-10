@@ -20,15 +20,15 @@ const NftDetail = ({
   handleClose, 
   checkout,
   processing,
-  buyComplete
+  buyComplete,
 }) => {
 
-  const { characterMaxStats, weaponMaxStats, nftStatic, clanStatic, rarityStatic, repIdStatic} = useContext(NftData);
+  const { characterMaxStats, weaponMaxStats, nftStatic, clanStatic, rarityStatic, repIdStatic, premiumBuff} = useContext(NftData);
   const [loading, setLoading] = useState(false);
 
   const div = useRef();
 
-  const chosenNft = useModifyDetail(nftRaw, nftStatic, clanStatic, rarityStatic, repIdStatic)
+  const chosenNft = useModifyDetail(nftRaw, nftStatic, clanStatic, rarityStatic, repIdStatic, premiumBuff)
   
   useEffect(() => {
     setLoading(true);

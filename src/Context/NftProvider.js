@@ -137,6 +137,8 @@ const NftProvider = ({ children }) => {
     })()
   }, [BP_BASE_URL])
 
+  console.log(premiumStatic);
+
   // const nftMarketModified = useModifyList(nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic);
 
   return (
