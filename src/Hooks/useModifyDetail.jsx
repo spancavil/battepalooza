@@ -4,14 +4,24 @@ const useModifyDetail = (nftDetailtoModify, nftStatic, clanStatic, rarityStatic,
 
     const [nftDetailModified, setNftDetailModified] = useState([])
     useEffect(() => {
-        if (nftDetailtoModify && nftDetailtoModify?.length !== 0 && nftStatic.length !== 0 && clanStatic.length !== 0 && rarityStatic.length !== 0 && repIdStatic.length !== 0) {
+        if (nftDetailtoModify && nftDetailtoModify?.length !== 0 && nftStatic.length !== 0 && clanStatic.length !== 0 && rarityStatic.length !== 0 && repIdStatic.length !== 0 && premiumStatic?.length!== 0) {
             const nftFinded = nftStatic.find(element => element.id === nftDetailtoModify.itemId);
             if (nftFinded) {
                 const clanFinded = clanStatic.find(clan => clan.clan === nftFinded.clan);
                 const rarityFinded = rarityStatic.find(rarity => rarity.rarityType === nftFinded.rarityType)
                 const representName = repIdStatic.find(repId => repId.representId === nftFinded.representId)
-                const buffFinded = premiumStatic?.find(buff => buff.id === nftDetailtoModify.buff[0].id)
-               
+
+                console.log(premiumStatic);
+                const buffs = []
+                console.log(nftDetailtoModify);
+                if (nftDetailtoModify.buff) {
+                    for (const buffItem of nftDetailtoModify.buff) {
+                        const buffFinded = premiumStatic?.find(buff => buff.id === buffItem.id)
+                        if (buffFinded) buffFinded.value = buffItem.value
+                        buffs.push(buffFinded)
+                    }
+                }
+
                 nftDetailtoModify.itemName = nftFinded.engName
                 nftDetailtoModify.storyText = nftFinded.engStory
                 nftDetailtoModify.movieUrl = nftFinded.movieClip
@@ -23,7 +33,7 @@ const useModifyDetail = (nftDetailtoModify, nftStatic, clanStatic, rarityStatic,
                 nftDetailtoModify.maxPlayCount = rarityFinded.totalMaxPlayRewardCount
                 nftDetailtoModify.maxDailyPlayCount = rarityFinded.dailyMaxPlayRewardCount || 12
                 nftDetailtoModify.maxCloneCount = rarityFinded.maxCloneCount || 1
-                nftDetailtoModify.premiumBuff = buffFinded
+                nftDetailtoModify.premiumBuff = buffs
             }
             setNftDetailModified(nftDetailtoModify)
         }

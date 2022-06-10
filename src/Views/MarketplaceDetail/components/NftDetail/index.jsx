@@ -34,6 +34,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
   const [loading, setLoading] = useState(false);
   const [clone, setClone] = useState(false);
   const [premium, setPremium] = useState(false)
+  const [position, setPosition] = useState({positionX: '', positionY: ''})
   const { nftId } = useParams();
 
   let nftSplitted = nftId.split("-");
@@ -50,6 +51,8 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
     premiumStatic,
   } = useContext(NftData);
   const { userData } = useContext(UserData);
+
+  console.log(premiumStatic);
 
   const hd = useMediaQuery('(min-width: 1400px)')
 
@@ -104,7 +107,11 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
     setClone(true);
   };
 
-  const handleShowPremium = () => {
+  const handleShowPremium = (e) => {
+    console.log(e);
+    setPosition({
+      positionY: e.nativeEvent.offsetY
+    })
     setPremium(true)
   }
 
@@ -438,8 +445,8 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
         </div>
       )}
       {premium && (
-        <div className={styles.bg}>
-          <PremiumModal setPremium={() => setPremium(false)} premiumBuff={chosenNft.premiumBuff} />
+        <div className={styles.bg} style={position.positionY ? {position: 'fixed', top: position.positionY}: null}>
+          <PremiumModal setPremium={() => setPremium(false)} premiumBuffs={chosenNft.premiumBuff} />
         </div>
       )}
     </>

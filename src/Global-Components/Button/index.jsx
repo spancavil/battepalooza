@@ -13,7 +13,7 @@ const Button = ({title, onClick, width, style, main = false, modal = false}) => 
 
       style={{width: `${width}`, ...style}}
       className={main ? styles.botonGenericoMainPage : modal ? styles.botonGenericoModal : styles.botonGenerico}
-      onClick={onClick ? () => onClick () : null}
+      onClick={onClick ? (e) => onClick (e) : null}
     >
       {title}
     </button>

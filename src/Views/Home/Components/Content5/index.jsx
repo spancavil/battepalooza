@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styles from './styles.module.scss';
 import img2 from '../../../../Assets/img/img2.jpg';
 
 const Content5 = ({hd, desktop, mobile}) => {
 
-  useEffect(() => {
+/*   useEffect(() => {
    
     const text2 = document.getElementById("text2");
     const imagen = document.getElementById("img2");
@@ -39,7 +39,7 @@ const Content5 = ({hd, desktop, mobile}) => {
     return () => {
       window.removeEventListener('scroll', parallax);
     }
-  }, [desktop, hd, mobile])
+  }, [desktop, hd, mobile]) */
 
   return (
     <div className={styles.content5}>
