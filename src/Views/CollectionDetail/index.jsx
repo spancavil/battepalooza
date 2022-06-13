@@ -22,6 +22,8 @@ import fireToast, { fireAlert, fireAlertAsync } from "../../Utils/sweetAlert2";
 import marketService from "../../Services/market.service";
 import useModifyDetail from "../../Hooks/useModifyDetail";
 import Button from "../../Global-Components/Button";
+import PremiumModal from './Components/Premium';
+import { useMediaQuery } from "../../Hooks/useMediaQuery";
 
 const CollectionDetail = () => {
   const [nftSelectedRaw, setNftSelectedRaw] = useState();
@@ -32,19 +34,31 @@ const CollectionDetail = () => {
 
   const [inputPrice, setInputPrice] = useState(0);
   const [forteTxText, setForteTxText] = useState("");
+  const [position, setPosition] = useState({ positionX: '', positionY: '' })
+  const [premium, setPremium] = useState(false)
 
   const { userData } = useContext(UserData);
-  const { characterMaxStats, weaponMaxStats, nftMarket, setReloadMarket, setReloadCollection, 
-    nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic  } =
+  const { characterMaxStats, weaponMaxStats, nftMarket, setReloadMarket, setReloadCollection,
+    nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
     useContext(NftData);
   const { uuid } = useParams();
   const history = useHistory();
 
-  
+  const desktop = useMediaQuery('(min-width: 799px) and (max-width: 1199px)')
+  const hd = useMediaQuery('(min-width: 1200px)')
+
   useEffect(() => {
     setLoading(true);
   }, []);
-  
+
+  const handleShowPremium = (e) => {
+    console.log(e);
+    setPosition({
+      positionY: e.nativeEvent.offsetY
+    })
+    setPremium(true)
+  }
+
   //Modify data from JSON statics
   const nftSelected = useModifyDetail(nftSelectedRaw, nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic)
   console.log(nftSelected);
@@ -62,12 +76,12 @@ const CollectionDetail = () => {
           if (response.error.text !== "") {
             if (response.error.text.includes("authorized")) {
               fireAlertAsync("Session expired, please login again.")
-              .then (()=> {
-                localStorage.removeItem("userBP");
-                logOutAmplitude();
-                history.push("/");
-                window.location.reload();
-              })
+                .then(() => {
+                  localStorage.removeItem("userBP");
+                  logOutAmplitude();
+                  history.push("/");
+                  window.location.reload();
+                })
             } else {
               alert(response.error.text);
             }
@@ -96,10 +110,10 @@ const CollectionDetail = () => {
   };
 
   const Register = () => {
-    
+
     if (Number(inputPrice) > 10000) {
       const registerNft = async () => {
-        
+
         try {
           const response = await marketService.registerProductMarketplace(
             userData.pid,
@@ -111,32 +125,32 @@ const CollectionDetail = () => {
           if (response.error.text !== "") {
             if (response.error.text.includes("authorized")) {
               fireAlertAsync("Session expired, please login again.")
-              .then(()=>{
-                localStorage.removeItem("userBP");
-                logOutAmplitude();
-                history.push("/");
-                window.location.reload();
-              })
+                .then(() => {
+                  localStorage.removeItem("userBP");
+                  logOutAmplitude();
+                  history.push("/");
+                  window.location.reload();
+                })
             } else {
               fireAlert("Oops, an error ocurred", response.error.text, '500px');
             }
-          //No errors, the forte transaction text id is returned. With that text
-          //we call the transaction status in the next step (modal register 2)
+            //No errors, the forte transaction text id is returned. With that text
+            //we call the transaction status in the next step (modal register 2)
           } else {
             sendAmplitudeData("Collection place for sale confirm")
             setForteTxText(response.forteTxId);
             setmodalRegister1(false);
             setmodalRegister2(true);
           }
-          
+
         } catch (error) {
           fireAlert("Oops, an error ocurred", error.message, '500px');
         }
-        
+
       }
-      
+
       registerNft()
-      
+
     } else {
       fireToast("Price should be greater than 10000", 3000, '500px', '22px')
       return;
@@ -157,7 +171,7 @@ const CollectionDetail = () => {
 
         if (response.error.text !== "") {
           if (response.error.text.includes("authorized")) {
-            fireAlertAsync("Warning","Session expired, please login again.").then(()=> {
+            fireAlertAsync("Warning", "Session expired, please login again.").then(() => {
               localStorage.removeItem("userBP");
               logOutAmplitude();
               history.push("/");
@@ -166,19 +180,19 @@ const CollectionDetail = () => {
           } else {
             fireAlert("Oops, an error ocurred", response.error.text, '500px');
           }
-        //No errors, the forte transaction text id is returned. With that text
-        //we call the transaction status in the next step (modal register 2)
-      } else {
+          //No errors, the forte transaction text id is returned. With that text
+          //we call the transaction status in the next step (modal register 2)
+        } else {
           console.log(response);
           setForteTxText(response.forteTxId);
           setmodalUnregister(false);
           setmodalRegister2(true);
         }
-        
+
       } catch (error) {
         fireAlert("Oops, an error ocurred", error.message, '500px');
       }
-      
+
     }
     unRegisterNft()
 
@@ -197,7 +211,7 @@ const CollectionDetail = () => {
   const handleShowClone = () => {
     console.log("show clone info");
   }
-  
+
   return (
     <Background>
       <p className={styles.back} onClick={goBack}>
@@ -261,8 +275,12 @@ const CollectionDetail = () => {
                               <p className={styles.storyText}>
                                 {nftSelected.storyText}
                               </p>
-                              <p className={styles.title}>Premium buff</p>
-                              <p className={styles.p2eText}>Dolor nisi est occaecat exercitation culpa eu irure tempor et.</p>
+                              <Button
+                                title="Premium buff"
+                                onClick={handleShowPremium}
+                                width={hd ? "240px" : desktop ? "200px" : "170px"}
+                                style={{ margin: "10px 0 10px 10px" }}
+                              />
                             </div>
                           </div>
                           {nftSelected.skill && (
@@ -439,10 +457,10 @@ const CollectionDetail = () => {
                               </div> */}
                             </div>
                             <Button
-                                  title="Clone info"
-                                  onClick={handleShowClone}
-                                  width = {'170px'}
-                                  style = {{margin: '12px 12px 12px 40px'}}
+                              title="Clone info"
+                              onClick={handleShowClone}
+                              width={'170px'}
+                              style={{ margin: '12px 12px 12px 40px' }}
                             />
                           </div>
                         </div>
@@ -492,7 +510,7 @@ const CollectionDetail = () => {
           <ModalUnregister
             setmodalUnregister={setmodalUnregister}
             confirmUnregister={confirmUnregister}
-            name = {nftSelected.itemName}
+            name={nftSelected.itemName}
           />
         )}
         {modalRegister1 && (
@@ -507,12 +525,17 @@ const CollectionDetail = () => {
           <ModalRegister2
             setmodalRegister2={setmodalRegister2}
             handleMarket={handleMarket}
-            forteTxText = {forteTxText}
-            bpToken = {userData.bpToken}
-            pid = {userData.pid}
+            forteTxText={forteTxText}
+            bpToken={userData.bpToken}
+            pid={userData.pid}
           />
         )}
       </div>
+      {premium && (
+        <div className={styles.bg} style={position.positionY ? { position: 'fixed', top: position.positionY } : null}>
+          <PremiumModal setPremium={() => setPremium(false)} premiumBuffs={nftSelected.premiumBuff} />
+        </div>
+      )}
     </Background>
   );
 };
