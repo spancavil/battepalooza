@@ -24,6 +24,7 @@ import useModifyDetail from "../../Hooks/useModifyDetail";
 import Button from "../../Global-Components/Button";
 import PremiumModal from './Components/Premium';
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
+import StatusBar from "../../Global-Components/StatusBar";
 
 const CollectionDetail = () => {
   const [nftSelectedRaw, setNftSelectedRaw] = useState();
@@ -208,9 +209,9 @@ const CollectionDetail = () => {
     setInputPrice(parseInt(value));
   };
 
-  const handleShowClone = () => {
+/*   const handleShowClone = () => {
     console.log("show clone info");
-  }
+  } */
 
   return (
     <Background>
@@ -303,11 +304,16 @@ const CollectionDetail = () => {
                                     alt="HP icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>HP</p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.maxHealth} /{" "}
-                                      {characterMaxStats.maxHealth}
-                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        HP
+                                      </p>
+                                      <p>
+                                        {nftSelected.stat?.maxHealth}
+                                      </p>
+                                    </div>
+                                    <StatusBar color={"red"} value={nftSelected.stat?.maxHealth} maxValue={characterMaxStats.maxHealth} />
+
                                   </div>
                                 </div>
                                 <div className={styles.itemStatContainer}>
@@ -317,13 +323,17 @@ const CollectionDetail = () => {
                                     alt="Energy icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>
-                                      Energy
-                                    </p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.energyRecovery} /{" "}
-                                      {characterMaxStats.maxEnergyRecovery}
-                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        Energy
+                                      </p>
+                                      <p>
+                                        {nftSelected.stat?.energyRecovery}/
+                                        {characterMaxStats.maxEnergyRecovery}
+                                      </p>
+                                    </div>
+                                    <StatusBar color={"green"} value={nftSelected.stat?.energyRecovery} maxValue={characterMaxStats.maxEnergyRecovery} />
+
                                   </div>
                                 </div>
                                 <div className={styles.itemStatContainer}>
@@ -333,13 +343,15 @@ const CollectionDetail = () => {
                                     alt="Speed icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>
-                                      Speed
-                                    </p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.moveSpeed} /{" "}
-                                      {characterMaxStats.maxMoveSpeed}
-                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        Speed
+                                      </p>
+                                      <p>
+                                        {nftSelected.stat?.moveSpeed}
+                                      </p>
+                                    </div>
+                                    <StatusBar color={"yellow"} value={nftSelected.stat?.moveSpeed} maxValue={characterMaxStats.maxMoveSpeed} />
                                   </div>
                                 </div>
                               </>
@@ -354,14 +366,15 @@ const CollectionDetail = () => {
                                     alt="HP icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>
-                                      Damage
-                                    </p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.damage} /{" "}
-                                      {weaponMaxStats.maxDamage}
-                                    </p>
-                                  </div>
+                                  <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        Damage
+                                      </p>
+                                      <p>
+                                        {nftSelected.stat?.damage}
+                                      </p>
+                                    </div>
+                                    <StatusBar color={"red"} value={nftSelected.stat?.damage} maxValue={weaponMaxStats.maxDamage} />                                  </div>
                                 </div>
                                 <div className={styles.itemStatContainer}>
                                   <img
@@ -370,14 +383,17 @@ const CollectionDetail = () => {
                                     alt="Energy icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>
-                                      Energy
-                                    </p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.consumeEnergy} /{" "}
-                                      {nftSelected.stat?.maxEnergy}
-                                    </p>
-                                  </div>
+                                  <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        Energy
+                                      </p>
+                                      <p>
+                                        {nftSelected.stat?.consumeEnergy}/
+                                        {nftSelected.stat?.maxEnergy}
+                                      </p>
+                                    </div>
+
+                                    <StatusBar color={"green"} value={nftSelected.stat?.consumeEnergy} maxValue={nftSelected.stat?.maxEnergy} />                                  </div>
                                 </div>
                                 <div className={styles.itemStatContainer}>
                                   <img
@@ -386,13 +402,17 @@ const CollectionDetail = () => {
                                     alt="Speed icon"
                                   />
                                   <div className={styles.itemStatInfo}>
-                                    <p className={styles.itemStatTitle}>
-                                      Cooltime
-                                    </p>
-                                    <p className={styles.itemStatNumbers}>
-                                      {nftSelected.stat?.coolTime} /{" "}
-                                      {weaponMaxStats.maxCoolDown}
-                                    </p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                                      <p className={styles.itemStatTitle}>
+                                        Cooltime
+                                      </p>
+                                      <p>
+                                        {nftSelected.stat?.coolTime}
+                                      </p>
+                                    </div>
+
+                                    <StatusBar color={"yellow"} value={nftSelected.stat?.coolTime} maxValue={nftSelected.stat?.coolTime <= 2 ? 2 : nftSelected.stat?.maxEnergy} />
+
                                   </div>
                                 </div>
                               </>
@@ -456,12 +476,12 @@ const CollectionDetail = () => {
                                 </p>
                               </div> */}
                             </div>
-                            <Button
+                            {/* <Button
                               title="Clone info"
                               onClick={handleShowClone}
                               width={'170px'}
                               style={{ margin: '12px 12px 12px 40px' }}
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>
