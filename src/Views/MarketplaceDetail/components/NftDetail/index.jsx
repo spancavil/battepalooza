@@ -330,7 +330,6 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                         {chosenNft.stat?.coolTime}
                                       </p>
                                     </div>
-
                                     <StatusBar color={"yellow"} value={chosenNft.stat?.coolTime} maxValue={chosenNft.stat?.coolTime < 2 ? 2 : chosenNft.stat?.maxEnergy} />
                                   </div>
                                 </div>
