@@ -246,8 +246,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                         Energy
                                       </p>
                                       <p>
-                                        {chosenNft.stat?.energyRecovery}/
-                                        {characterMaxStats.maxEnergyRecovery}
+                                        {chosenNft.stat?.energyRecovery}
                                       </p>
                                     </div>
                                     <StatusBar color={"green"} value={chosenNft.stat?.energyRecovery} maxValue={characterMaxStats.maxEnergyRecovery} />
