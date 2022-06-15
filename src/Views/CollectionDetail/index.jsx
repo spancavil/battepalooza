@@ -328,8 +328,7 @@ const CollectionDetail = () => {
                                         Energy
                                       </p>
                                       <p>
-                                        {nftSelected.stat?.energyRecovery}/
-                                        {characterMaxStats.maxEnergyRecovery}
+                                        {nftSelected.stat?.energyRecovery}
                                       </p>
                                     </div>
                                     <StatusBar color={"green"} value={nftSelected.stat?.energyRecovery} maxValue={characterMaxStats.maxEnergyRecovery} />

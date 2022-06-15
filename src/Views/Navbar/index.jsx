@@ -74,7 +74,7 @@ const NavBar = () => {
 
   const comingSoon3 = () => {
     setMenu(!menu);
-    setModal3(true);
+    setModal(true);
   };
 
   const logout = () => {
