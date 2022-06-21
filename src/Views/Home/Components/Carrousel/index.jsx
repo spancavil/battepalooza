@@ -1,11 +1,14 @@
 import { useEffect, useState, useContext } from "react";
-import Carousel from "react-elastic-carousel";
+import InfiniteCarousel from 'react-leaf-carousel'
+// import Carousel from "react-elastic-carousel";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { NftData } from "../../../../Context/NftProvider";
 import Button from "../../../../Global-Components/Button";
 import dropService from "../../../../Services/drop.service";
 import Card from "./components/Card";
+import NextArrow from "./components/NextArrow";
+import PrevArrow from "./components/PrevArrow";
 
 import styles from "./styles.module.scss";
 
@@ -28,23 +31,54 @@ const CarrouselCards = () => {
   }, [mainDrop]);
 
   const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2 },
-    { width: 768, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 4 },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 1400,
+      setting: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+      }
+    }
   ];
 
   const handleDetail = () => {
     history.push(`/drop/${mainDrop.id}`);
   };
 
+  console.log(nftsMainDrop);
+
   return (
     <div className={styles.container}>
-      <Carousel breakPoints={breakPoints}>
-        {nftsMainDrop.map((nft) => (
-          <Card key={nft.uniqueId} nft={nft} onClick={handleDetail} />
-        ))}
-      </Carousel>
+      {nftsMainDrop.length !== 0 && (
+        <InfiniteCarousel
+          breakpoints={breakPoints}
+          showSides={true}
+          nextArrow = {<NextArrow/>}
+          prevArrow = {<PrevArrow/>}
+          sidesOpacity={0.5}
+          sideSize={0.1}
+          slidesToScroll={1}
+          slidesToShow={5}
+          swipe={true}
+        >
+          {nftsMainDrop.map((nft) => (
+            <Card key={nft.uniqueId} nft={nft} onClick={handleDetail} />
+          ))}
+        </InfiniteCarousel>
+      )}
       <div className={styles.btnContainer}>
         <Link to="/drop">
           <Button title={"VIEW ALL DROPS"} />
