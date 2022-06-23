@@ -21,7 +21,7 @@ import SERIAL from "../../Assets/Sprite_Icon_Premium_02.png";
 import { NftData } from "../../../../Context/NftProvider";
 import useModifyDetail from "../../../../Hooks/useModifyDetail";
 import Button from "../../../../Global-Components/Button";
-import Clone from "../Clone";
+// import Clone from "../Clone";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import PremiumModal from "../Premium";
 import StatusBar from "../../../../Global-Components/StatusBar";
@@ -32,7 +32,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
 
   const [chosenNftRaw, setChosenNftRaw] = useState({});
   const [loading, setLoading] = useState(false);
-  const [clone, setClone] = useState(false);
+  // const [clone, setClone] = useState(false);
   const [premium, setPremium] = useState(false)
   const [position, setPosition] = useState({positionX: '', positionY: ''})
   const { nftId } = useParams();
@@ -105,9 +105,9 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
     history.goBack();
   };
 
-  const handleShowClone = () => {
+  /* const handleShowClone = () => {
     setClone(true);
-  };
+  }; */
 
   const handleShowPremium = (e) => {
     console.log(e);
@@ -398,12 +398,12 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
                                 </p>
                               </div> */}
                             </div>
-                            <Button
+                            {/* <Button
                               title="Clone info"
                               onClick={handleShowClone}
                               width={!hd ? "170px" : "210px"}
                               style={{ margin: "12px 12px 12px 40px" }}
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -439,11 +439,11 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
           </div>
         )}
       </div>
-      {clone && (
+      {/* {clone && (
         <div className={styles.bg}>
           <Clone setClone={() => setClone(false)} />
         </div>
-      )}
+      )} */}
       {premium && (
         <div className={styles.bg} style={position.positionY ? {position: 'fixed', top: position.positionY}: null}>
           <PremiumModal setPremium={() => setPremium(false)} premiumBuffs={chosenNft.premiumBuff} />

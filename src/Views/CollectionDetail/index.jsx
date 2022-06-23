@@ -494,11 +494,11 @@ const CollectionDetail = () => {
                       <p className={styles.repName}>
                         [ {nftSelected.repName} ]
                       </p>
-                      {nftSelected.salesState === 1 && (
+                      {/* {nftSelected.salesState === 1 && (
                         <p className={styles.price}>
                           Price {nftSelected.price} nCoin
                         </p>
-                      )}
+                      )} */}
                     </div>
 
                     <div>

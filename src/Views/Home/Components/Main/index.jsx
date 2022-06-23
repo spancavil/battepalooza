@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import bpBrand from "../../../../Assets/img/BI-BP-2.png";
 import Modal from "../../../../Global-Components/Modal";
 
@@ -7,8 +8,13 @@ import styles from "./styles.module.scss";
 const Main = () => {
 
   const [modal, setModal] = useState(false);
+  const history = useHistory();
 
   console.log(modal);
+
+  const handleTrade = () => {
+    history.push('/marketplace')
+  }
 
   return (
     <>
@@ -128,7 +134,7 @@ const Main = () => {
             </button>
             {/* </a> */}
           </div>
-          <button className={styles.tradeNow}>TRADE NOW</button>
+          <button className={styles.tradeNow} onClick={handleTrade}>TRADE NOW</button>
         </div>
       </div>
       {

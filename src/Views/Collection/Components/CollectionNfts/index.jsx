@@ -208,7 +208,6 @@ const CollectionNfts = ({
           .map((nft) => {
             //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
             const indice = nftsFiltered?.indexOf(nft);
-            
             return (
               /* Aqui el div apunta a su referencia correspondiente */
               <div
@@ -244,9 +243,9 @@ const CollectionNfts = ({
                     {/* <p>
                       gNCoin Battle Count: {nft.playCount}/{nft.maxPlayCount}
                     </p> */}
-                    {nft.salesState === 1 && (
+                    {/* {nft.salesState === 1 && (
                       <p className={styles.price}>{nft.price} NCoin</p>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>
