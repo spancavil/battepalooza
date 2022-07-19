@@ -6,7 +6,7 @@ import Card from "../../Global-Components/Card";
 import { CardData } from "../../Context/CardDataProvider";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import { useHistory } from "react-router-dom";
-import { Redirect } from "react-router";
+
 import ScrollBar from "../../Global-Components/ScrollBar";
 
 /* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /packs */
@@ -14,7 +14,7 @@ const Packs = () => {
   const { packs, setPack } = useContext(CardData);
   const [scroll, setScroll] = useState({ scrollLeft: "", scrollWidth: "" });
   const queryTablet = useMediaQuery("(max-width: 766px)");
-  const userStorage = JSON.parse(localStorage.getItem("userBP"));
+  /* const userStorage = JSON.parse(localStorage.getItem("userBP")); */
 
   const history = useHistory();
 
