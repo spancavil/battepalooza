@@ -14,6 +14,7 @@ import VanillaTilt from "vanilla-tilt";
 import { useHistory } from "react-router-dom";
 import Pagination from "../../../../Global-Components/Pagination";
 import useModifyList from "../../../../Hooks/useModifyList";
+import Loader from "../../../../Global-Components/Loader";
 
 const MarketplaceNfts = ({
   filters,
@@ -25,7 +26,9 @@ const MarketplaceNfts = ({
   setInput,
   orderBy,
 }) => {
-  const { nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic } = useContext(NftData);
+  const { nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic } =
+    useContext(NftData);
+  const [loading, setLoading] = useState(true);
 
   //Array para aplicar los filtros primarios al array original
   const [nftsFiltered, setNftFiltered] = useState(nftMarket);
@@ -34,20 +37,32 @@ const MarketplaceNfts = ({
   const [nftsFiltered2, setNftFiltered2] = useState(null);
 
   //Usamos referencias para que la actualización sea instantánea y no esperemos a la actualización del estado
-  const filterByPrice = useRef(0)
-  const filterNewest = useRef(0)
+  const filterByPrice = useRef(0);
+  const filterNewest = useRef(0);
 
   const history = useHistory();
 
   const breakpoint = useMediaQuery("(max-width: 1200px)");
 
   //El array original de nfts
-  const nftMarketModified = useModifyList(nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic);
+  const nftMarketModified = useModifyList(
+    nftMarket,
+    nftStatic,
+    clanStatic,
+    rarityStatic,
+    repIdStatic
+  );
 
   const tilts = useMemo(
     () => nftsFiltered.map(() => createRef()),
     [nftsFiltered]
   );
+
+  useEffect(() => {
+    if (nftsFiltered.length > 0) {
+      setLoading(false);
+    }
+  }, [nftsFiltered]);
 
   useEffect(() => {
     //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
@@ -97,12 +112,9 @@ const MarketplaceNfts = ({
       filtro4 = auxFilter.filter((nft) => nft.rarity === "Legendary");
     if (filters.Weapon) filtro5 = auxFilter.filter((nft) => nft.type === 2);
     if (filters.Character) filtro6 = auxFilter.filter((nft) => nft.type === 1);
-    if (filters["1"])
-      filtro7 = auxFilter.filter((nft) => nft.cloneCount === 1);
-    if (filters["2"])
-      filtro8 = auxFilter.filter((nft) => nft.cloneCount === 2);
-    if (filters["3"])
-      filtro9 = auxFilter.filter((nft) => nft.cloneCount === 3);
+    if (filters["1"]) filtro7 = auxFilter.filter((nft) => nft.cloneCount === 1);
+    if (filters["2"]) filtro8 = auxFilter.filter((nft) => nft.cloneCount === 2);
+    if (filters["3"]) filtro9 = auxFilter.filter((nft) => nft.cloneCount === 3);
     if (filters["4"])
       filtro10 = auxFilter.filter((nft) => nft.cloneCount === 4);
     if (filters["5"])
@@ -145,17 +157,26 @@ const MarketplaceNfts = ({
 
     const filtroCloneCount =
       !filters["0"] &&
-        !filters["1"] &&
-        !filters["2"] &&
-        !filters["3"] &&
-        !filters["4"] &&
-        !filters["5"] &&
-        !filters["6"] &&
-        !filters["7"]
+      !filters["1"] &&
+      !filters["2"] &&
+      !filters["3"] &&
+      !filters["4"] &&
+      !filters["5"] &&
+      !filters["6"] &&
+      !filters["7"]
         ? [...nftMarketModified]
-        : [...filtro7, ...filtro8, ...filtro9, ...filtro10, filtro11, filtro12, filtro13];
+        : [
+            ...filtro7,
+            ...filtro8,
+            ...filtro9,
+            ...filtro10,
+            filtro11,
+            filtro12,
+            filtro13,
+          ];
 
-    const filtroSearch = filters.search === "" ? [...nftMarketModified] : [...filtro14];
+    const filtroSearch =
+      filters.search === "" ? [...nftMarketModified] : [...filtro14];
 
     //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
     const coincidencias = filtroWeapon
@@ -193,14 +214,13 @@ const MarketplaceNfts = ({
       nftFiltered2.sort(function (a, b) {
         if (filterByPrice.current === 1) {
           return a.price - b.price;
+        } else {
+          return b.price - a.price;
         }
-        else {
-          return b.price - a.price
-        }
-      })
+      });
       setNftFiltered2(nftFiltered2);
     }
-  }, [filterByPrice, nftsFiltered])
+  }, [filterByPrice, nftsFiltered]);
 
   const handleDetail = (uniqueId, sellerPid) => {
     history.push(`/marketplace/${uniqueId}-${sellerPid}`);
@@ -208,31 +228,48 @@ const MarketplaceNfts = ({
 
   return (
     <div className={styles.cardsContainer}>
-      <div className={styles.cards}>
-        {(nftsFiltered2 || nftsFiltered)
-          // .sort(filterByPrice === 1 ? lth : filterByPrice === 2 ? htl : null)
-          .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
-          .map((nft) => {
-            const indice = nftMarketModified?.indexOf(nft);
-            return (
-              <Nft
-                key={nft.uniqueId}
-                nft={nft}
-                tilt={tilts[indice]}
-                onClick={handleDetail}
-              />
-            );
-          })}
-      </div>
-      <Pagination
-        xPage={xPage}
-        setxPage={setxPage}
-        input={input}
-        setInput={setInput}
-        page={page}
-        setPage={setPage}
-        max={max}
-      />
+      {nftsFiltered.length > 0 && loading === false && (
+        <div className={styles.cards}>
+          {(nftsFiltered2 || nftsFiltered)
+            // .sort(filterByPrice === 1 ? lth : filterByPrice === 2 ? htl : null)
+            .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
+            .map((nft) => {
+              const indice = nftMarketModified?.indexOf(nft);
+              return (
+                <Nft
+                  key={nft.uniqueId}
+                  nft={nft}
+                  tilt={tilts[indice]}
+                  onClick={handleDetail}
+                />
+              );
+            })}
+        </div>
+      )}
+
+      {loading === true && (
+        <div className={styles.loadingContainer}>
+          <Loader />
+        </div>
+      )}
+
+      {nftsFiltered.length === 0 && loading === false && (
+        <div className={styles.notNft}>
+          There are no ntfs in your collection
+        </div>
+      )}
+
+      {nftsFiltered.length > 0 && (
+        <Pagination
+          xPage={xPage}
+          setxPage={setxPage}
+          input={input}
+          setInput={setInput}
+          page={page}
+          setPage={setPage}
+          max={max}
+        />
+      )}
     </div>
   );
 };

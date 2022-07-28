@@ -12,6 +12,7 @@ import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import Pagination from "../Pagination";
 import VanillaTilt from "vanilla-tilt";
 import useModifyList from "../../../../Hooks/useModifyList";
+import Loader from "../../../../Global-Components/Loader";
 
 /* DOCS:
 https://github.com/gijsroge/tilt.js
@@ -41,9 +42,16 @@ const CollectionNfts = ({
 
   const [nftsFiltered, setNftFiltered] = useState([]);
   const [nftOrdered, setNftOrdered] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const history = useHistory();
   const breakpoint = useMediaQuery("(max-width: 1200px)");
+
+  useEffect(() => {
+    if (nftsFiltered.length > 0) {
+      setLoading(false);
+    }
+  }, [nftsFiltered]);
 
   //Creamos un array de referencias por cada item que haya en userCollection,
   //Utilizamos useMemo, que se actualiza, al actualizarse userCollection. Como es info que viene de context, inicialmente viene sin valores
@@ -202,7 +210,7 @@ const CollectionNfts = ({
 
   return (
     <div className={styles.cardsContainer}>
-      {nftsFiltered.length > 0 ? (
+      {nftsFiltered.length > 0 && loading === false && (
         <div className={styles.cards}>
           {nftsFiltered
             .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
@@ -253,10 +261,16 @@ const CollectionNfts = ({
               );
             })}
         </div>
-      ) : (
-        <div className={styles.notNft}>
-          There are no NFTS in your collection.
+      )}
+
+      {loading === true && (
+        <div className={styles.loadingContainer}>
+          <Loader />
         </div>
+      )}
+
+      {nftsFiltered.length === 0 && loading === false && (
+        <div className={styles.notNft}>There are no ntfs in your collection</div>
       )}
 
       {nftsFiltered.length > 0 && (
