@@ -157,23 +157,23 @@ const MarketplaceNfts = ({
 
     const filtroCloneCount =
       !filters["0"] &&
-      !filters["1"] &&
-      !filters["2"] &&
-      !filters["3"] &&
-      !filters["4"] &&
-      !filters["5"] &&
-      !filters["6"] &&
-      !filters["7"]
+        !filters["1"] &&
+        !filters["2"] &&
+        !filters["3"] &&
+        !filters["4"] &&
+        !filters["5"] &&
+        !filters["6"] &&
+        !filters["7"]
         ? [...nftMarketModified]
         : [
-            ...filtro7,
-            ...filtro8,
-            ...filtro9,
-            ...filtro10,
-            filtro11,
-            filtro12,
-            filtro13,
-          ];
+          ...filtro7,
+          ...filtro8,
+          ...filtro9,
+          ...filtro10,
+          filtro11,
+          filtro12,
+          filtro13,
+        ];
 
     const filtroSearch =
       filters.search === "" ? [...nftMarketModified] : [...filtro14];
@@ -253,9 +253,15 @@ const MarketplaceNfts = ({
         </div>
       )}
 
+      {nftMarket.length === 0 && loading === false && (
+        <div className={styles.notNft}>
+          There are no NFTs in marketplace
+        </div>
+      )}
+
       {nftsFiltered.length === 0 && loading === false && (
         <div className={styles.notNft}>
-          There are no ntfs in your collection
+          No NFT matches the search criteria
         </div>
       )}
 

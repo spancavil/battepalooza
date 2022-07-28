@@ -147,23 +147,23 @@ const CollectionNfts = ({
 
       const filtroCloneCount =
         !filters["0"] &&
-        !filters["1"] &&
-        !filters["2"] &&
-        !filters["3"] &&
-        !filters["4"] &&
-        !filters["5"] &&
-        !filters["6"] &&
-        !filters["7"]
+          !filters["1"] &&
+          !filters["2"] &&
+          !filters["3"] &&
+          !filters["4"] &&
+          !filters["5"] &&
+          !filters["6"] &&
+          !filters["7"]
           ? [...nftOrdered]
           : [
-              ...filtro7,
-              ...filtro8,
-              ...filtro9,
-              ...filtro10,
-              ...filtro11,
-              ...filtro12,
-              ...filtro13,
-            ];
+            ...filtro7,
+            ...filtro8,
+            ...filtro9,
+            ...filtro10,
+            ...filtro11,
+            ...filtro12,
+            ...filtro13,
+          ];
 
       // const filtroSearch =
       //   filters.search === "" ? [...nftOrdered] : [...filtro14];
@@ -225,10 +225,10 @@ const CollectionNfts = ({
                     nft.rarity === "Common"
                       ? styles.borderCommon
                       : nft.rarity === "Rare"
-                      ? styles.borderRare
-                      : nft.rarity === "Epic"
-                      ? styles.borderEpic
-                      : styles.borderLegendary
+                        ? styles.borderRare
+                        : nft.rarity === "Epic"
+                          ? styles.borderEpic
+                          : styles.borderLegendary
                   }
                   onClick={() => onClick(nft.uuid)}
                   ref={tilts[indice]}
@@ -269,8 +269,14 @@ const CollectionNfts = ({
         </div>
       )}
 
+      {userCollection.length === 0 && loading === false && (
+        <div className={styles.notNft}>There are no NFTs in your collection</div>
+      )}
+
       {nftsFiltered.length === 0 && loading === false && (
-        <div className={styles.notNft}>There are no ntfs in your collection</div>
+        <div className={styles.notNft}>
+          No NFT matches the search criteria
+        </div>
       )}
 
       {nftsFiltered.length > 0 && (
