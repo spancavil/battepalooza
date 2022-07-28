@@ -3,14 +3,18 @@ import styles from "./styles.module.scss";
 import { useParams } from "react-router";
 import { CardData } from "../../../../Context/CardDataProvider";
 import Button from "../../../../Global-Components/Button";
-import fireToast from "../../../../Utils/sweetAlert2";
+import fireToast, { fireAlert, fireAlertAsync } from "../../../../Utils/sweetAlert2";
 import { UserData } from "../../../../Context/UserProvider";
+import walletService from "../../../../Services/wallet.service";
+import { logOutAmplitude } from "../../../../Utils/amplitude";
+import { useHistory } from 'react-router-dom';
 
 const CardDetail = () => {
   const { packs, setPack } = useContext(CardData);
   const { id } = useParams();
   const [pack, setSelectedPack] = useState();
   const { userData } = useContext(UserData);
+  const history = useHistory()
 
   useEffect(() => {
     const selectedPack = packs.find((pack) => pack.id === Number(id));
@@ -18,11 +22,38 @@ const CardDetail = () => {
     setPack(selectedPack);
   }, [id, packs, setPack]);
 
-  const handleBuy = () => {
+  const handleBuy = async () => {
     if (Object.keys(userData).length !== 0) {
-      console.log('Podes comprar')
-      /* setNft(chosenNft); */
-      /* sendAmplitudeData("Buy request Packs"); */
+      try {
+        const response = await walletService.getWalletToken(
+          userData.bpToken,
+          userData.email,
+          userData.pid)
+        console.log(response);
+        if (response.error.num !== 0) {
+          if (response.error.text.includes("authorized")) {
+            fireAlertAsync("Session expired, please login again.")
+              .then(() => {
+                localStorage.removeItem("userBP");
+                logOutAmplitude();
+                history.push("/");
+                window.location.reload();
+              })
+          } else {
+            fireAlert("Oops, an error ocurred", response.error.text, '500px');
+          }
+        //Everything OK
+        } else {
+          const { token } = response;
+          window.open(`${process.env.REACT_APP_NWAY_URL}token=${token}&${process.env.REACT_APP_NWAY_URL_TITLE}`,
+            "Wallet payment",
+            'top=50,left= 200,width=800,height=620'
+          )
+        }
+      } catch (error) {
+        fireAlert("Oops, an error ocurred", error.message, '500px');
+      }
+
     } else {
       fireToast("Need login", 1200, "300px");
     }
