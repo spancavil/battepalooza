@@ -53,7 +53,7 @@ const CollectionNfts = ({
     () => nftsFiltered.map(() => createRef()),
     [nftsFiltered]
   );
-  
+
   const onClick = (uuid) => {
     history.push(`/collection/${uuid}`);
   };
@@ -65,17 +65,17 @@ const CollectionNfts = ({
   useEffect(() => {
     //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
     //mappeamos e inicializamos sus valores utilizando la librería de Vanilla Tilt
-      tilts.map((tilt) =>
-        VanillaTilt.init(tilt.current, {
-          scale: 1.06,
-          speed: 800,
-          max: 15,
-          reverse: true,
-          easing: "cubic-bezier(.03,.98,.52,.99)",
-          glare: true,
-          "max-glare": 0.15,
-        })
-      );
+    tilts.map((tilt) =>
+      VanillaTilt.init(tilt.current, {
+        scale: 1.06,
+        speed: 800,
+        max: 15,
+        reverse: true,
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        glare: true,
+        "max-glare": 0.15,
+      })
+    );
   }, [tilts, page]);
 
   useEffect(() => {
@@ -105,10 +105,14 @@ const CollectionNfts = ({
       if (filters.LEGENDARY)
         filtro4 = auxFilter.filter((nft) => nft.rarity === "Legendary");
       if (filters.Weapon) filtro5 = auxFilter.filter((nft) => nft.type === 2);
-      if (filters.Character) filtro6 = auxFilter.filter((nft) => nft.type === 1);
-      if (filters["1"]) filtro7 = auxFilter.filter((nft) => nft.cloneCount === 1);
-      if (filters["2"]) filtro8 = auxFilter.filter((nft) => nft.cloneCount === 2);
-      if (filters["3"]) filtro9 = auxFilter.filter((nft) => nft.cloneCount === 3);
+      if (filters.Character)
+        filtro6 = auxFilter.filter((nft) => nft.type === 1);
+      if (filters["1"])
+        filtro7 = auxFilter.filter((nft) => nft.cloneCount === 1);
+      if (filters["2"])
+        filtro8 = auxFilter.filter((nft) => nft.cloneCount === 2);
+      if (filters["3"])
+        filtro9 = auxFilter.filter((nft) => nft.cloneCount === 3);
       if (filters["4"])
         filtro10 = auxFilter.filter((nft) => nft.cloneCount === 4);
       if (filters["5"])
@@ -135,32 +139,31 @@ const CollectionNfts = ({
 
       const filtroCloneCount =
         !filters["0"] &&
-          !filters["1"] &&
-          !filters["2"] &&
-          !filters["3"] &&
-          !filters["4"] &&
-          !filters["5"] &&
-          !filters["6"] &&
-          !filters["7"]
+        !filters["1"] &&
+        !filters["2"] &&
+        !filters["3"] &&
+        !filters["4"] &&
+        !filters["5"] &&
+        !filters["6"] &&
+        !filters["7"]
           ? [...nftOrdered]
           : [
-            ...filtro7,
-            ...filtro8,
-            ...filtro9,
-            ...filtro10,
-            ...filtro11,
-            ...filtro12,
-            ...filtro13,
-          ];
+              ...filtro7,
+              ...filtro8,
+              ...filtro9,
+              ...filtro10,
+              ...filtro11,
+              ...filtro12,
+              ...filtro13,
+            ];
 
       // const filtroSearch =
       //   filters.search === "" ? [...nftOrdered] : [...filtro14];
 
-
       //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
       const coincidencias = filtroWeapon
         .filter((value) => filtroRarity.includes(value))
-        .filter((value) => filtroCloneCount.includes(value))
+        .filter((value) => filtroCloneCount.includes(value));
       // .filter((value) => filtroSearch.includes(value));
 
       setNftFiltered(coincidencias);
@@ -169,7 +172,6 @@ const CollectionNfts = ({
 
   //Effect para ordenar los elementos y que aparezcan los que están en venta primero. Además se verán primero los que han sido adquiridos recientemente.
   useEffect(() => {
-
     //Movemos un elemento de un array de un index a otro
     function move(array, from, to) {
       const elementToMove = array.splice(from, 1)[0]; //Nos devuelve el elemento a mover y lo quita del array
@@ -177,90 +179,97 @@ const CollectionNfts = ({
     }
 
     if (nftCollectionModified.length !== 0) {
-      const nftOrdered = [...nftCollectionModified]
+      const nftOrdered = [...nftCollectionModified];
       nftOrdered.sort(function (a, b) {
-        const acquiredTimeA = a.acquired
-        const acquiredTimeB = b.acquired
-        if (acquiredTimeA < acquiredTimeB) return 1
-        if (acquiredTimeA > acquiredTimeB) return -1
-        return 0
-      })
+        const acquiredTimeA = a.acquired;
+        const acquiredTimeB = b.acquired;
+        if (acquiredTimeA < acquiredTimeB) return 1;
+        if (acquiredTimeA > acquiredTimeB) return -1;
+        return 0;
+      });
       // nftOrdered.reverse()
       for (const nft of nftOrdered) {
         if (nft.salesState === 1) {
-          const nftIndex = nftOrdered.findIndex(element => element === nft)
-          move(nftOrdered, nftIndex, 0)
+          const nftIndex = nftOrdered.findIndex((element) => element === nft);
+          move(nftOrdered, nftIndex, 0);
         }
       }
-      setNftOrdered(nftOrdered)
+      setNftOrdered(nftOrdered);
     }
-
-  }, [nftCollectionModified])
+  }, [nftCollectionModified]);
 
   const max = nftCollectionModified.length / xPage;
 
-
   return (
     <div className={styles.cardsContainer}>
-      <div className={styles.cards}>
-        {nftsFiltered
-          .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
-          .map((nft) => {
-            //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
-            const indice = nftsFiltered?.indexOf(nft);
-            return (
-              /* Aqui el div apunta a su referencia correspondiente */
-              <div
-                key={nft.uuid}
-                className={
-                  nft.rarity === "Common"
-                    ? styles.borderCommon
-                    : nft.rarity === "Rare"
+      {nftsFiltered.length > 0 ? (
+        <div className={styles.cards}>
+          {nftsFiltered
+            .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
+            .map((nft) => {
+              //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
+              const indice = nftsFiltered?.indexOf(nft);
+              return (
+                /* Aqui el div apunta a su referencia correspondiente */
+                <div
+                  key={nft.uuid}
+                  className={
+                    nft.rarity === "Common"
+                      ? styles.borderCommon
+                      : nft.rarity === "Rare"
                       ? styles.borderRare
                       : nft.rarity === "Epic"
-                        ? styles.borderEpic
-                        : styles.borderLegendary
-                }
-                onClick={() => onClick(nft.uuid)}
-                ref={tilts[indice]}
-              >
-                <div className={styles.cardNft}>
-                  {nft.salesState === 1 && (
-                    <div className={styles.sale}>Sale</div>
-                  )}
+                      ? styles.borderEpic
+                      : styles.borderLegendary
+                  }
+                  onClick={() => onClick(nft.uuid)}
+                  ref={tilts[indice]}
+                >
+                  <div className={styles.cardNft}>
+                    {nft.salesState === 1 && (
+                      <div className={styles.sale}>Sale</div>
+                    )}
 
-                  {/* El source luego cambiara en base al asset */}
-                  <img
-                    className={styles.imgNft}
-                    src={nft.thumbnailUrl}
-                    alt="nft-thumb"
-                  />
-                  <div className={styles.texts}>
-                    <p className={styles.itemName}>{nft.itemName}</p>
-                    <p>{nft.repName}</p>
-                    <p className={styles.text2}>{nft.rarity}</p>
-                    {/* <p>#{nft.itemId}</p> */}
-                    {/* <p>
-                      gNCoin Battle Count: {nft.playCount}/{nft.maxPlayCount}
-                    </p> */}
-                    {/* {nft.salesState === 1 && (
-                      <p className={styles.price}>{nft.price} NCoin</p>
-                    )} */}
+                    {/* El source luego cambiara en base al asset */}
+                    <img
+                      className={styles.imgNft}
+                      src={nft.thumbnailUrl}
+                      alt="nft-thumb"
+                    />
+                    <div className={styles.texts}>
+                      <p className={styles.itemName}>{nft.itemName}</p>
+                      <p>{nft.repName}</p>
+                      <p className={styles.text2}>{nft.rarity}</p>
+                      {/* <p>#{nft.itemId}</p> */}
+                      {/* <p>
+                    gNCoin Battle Count: {nft.playCount}/{nft.maxPlayCount}
+                  </p> */}
+                      {/* {nft.salesState === 1 && (
+                    <p className={styles.price}>{nft.price} NCoin</p>
+                  )} */}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-      </div>
-      <Pagination
-        xPage={xPage}
-        setxPage={setxPage}
-        input={input}
-        setInput={setInput}
-        page={page}
-        setPage={setPage}
-        max={max}
-      />
+              );
+            })}
+        </div>
+      ) : (
+        <div className={styles.notNft}>
+          There are no NFTS in your collection.
+        </div>
+      )}
+
+      {nftsFiltered.length > 0 && (
+        <Pagination
+          xPage={xPage}
+          setxPage={setxPage}
+          input={input}
+          setInput={setInput}
+          page={page}
+          setPage={setPage}
+          max={max}
+        />
+      )}
     </div>
   );
 };
