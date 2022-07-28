@@ -58,9 +58,9 @@ function App() {
         <Route exact path="/marketplace/:nftId" component={MarketplaceDetail} />
         <Route exact path="/packs" component={Packs} />
         <Route exact path="/packs/:id" component={PackDetail} />
-{/*         <Route exact path="/join-drop" component={JoinDrop} />
-        <Route exact path="/open-pack" component={OpenPack} />
- */}        <Route path="" component={Error404} />
+        {/*<Route exact path="/join-drop" component={JoinDrop} />
+        <Route exact path="/open-pack" component={OpenPack} />*/}
+        <Route path="" component={Error404} />
       </Switch>
     </BrowserRouter>
   );
