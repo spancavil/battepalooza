@@ -46,7 +46,6 @@ const CardDetail = () => {
         } else {
           const { token } = response;
           const popup = window.open(
-            "",
             `${process.env.REACT_APP_NWAY_URL}token=${token}&${process.env.REACT_APP_NWAY_URL_TITLE}`,
             "Wallet payment",
             'top=50,left= 200,width=800,height=620'
