@@ -41,14 +41,47 @@ const CardDetail = () => {
               })
           } else {
             fireAlert("Oops, an error ocurred", response.error.text, '500px');
+
+            const popup = window.open(
+              "",
+              // `${process.env.REACT_APP_NWAY_URL}token=${token}&${process.env.REACT_APP_NWAY_URL_TITLE}`,
+              "Wallet payment",
+              'top=50,left= 200,width=800,height=620'
+            )
+            popup.addEventListener('close', () => {
+              fireAlert("Closed the token payment wallet window", "", '500px');
+            })
+
+            //Intervalo para detectar el cierre del popup
+            const popupTick = setInterval(() => {
+
+              if (popup.closed) {
+                console.log("se cerro la window");
+                fireAlert("Closed the token payment wallet window", "", '500px');
+                clearInterval(popupTick);
+              }
+            }, 500)
+
           }
-        //Everything OK
+          //Everything OK
         } else {
           const { token } = response;
-          window.open(`${process.env.REACT_APP_NWAY_URL}token=${token}&${process.env.REACT_APP_NWAY_URL_TITLE}`,
+          const popup = window.open(
+            "",
+            `${process.env.REACT_APP_NWAY_URL}token=${token}&${process.env.REACT_APP_NWAY_URL_TITLE}`,
             "Wallet payment",
             'top=50,left= 200,width=800,height=620'
           )
+
+          //Intervalo para detectar el cierre del popup
+          const popupTick = setInterval(() => {
+            if (popup.closed) {
+              console.log("se cerro la window");
+              fireAlert("Closed the token payment wallet window", "", '500px');
+              clearInterval(popupTick);
+            }
+          }, 500)
+
         }
       } catch (error) {
         fireAlert("Oops, an error ocurred", error.message, '500px');
