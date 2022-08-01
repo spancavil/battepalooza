@@ -18,7 +18,7 @@ class walletService {
 
     async getWalletCryptoTransactions(bpToken, pid, limit = 10, page = 1) {
         const bpTokenHeader = authHeader(bpToken);
-        return await axios.post(API_URL + 'user/get-wallet-payment-token', {
+        return await axios.post(API_URL + 'user/get-wallet-crypto-transactions', {
             bpTokenHeader,
             pid,
             limit,

@@ -22,6 +22,34 @@ const CardDetail = () => {
     setPack(selectedPack);
   }, [id, packs, setPack]);
 
+  const getTransactions = async () => {
+    const response = await walletService.getWalletCryptoTransactions(
+      userData.bpToken,
+      userData.pid,
+    )
+    //Obtenemos todas las transacciones
+    const {transactions} = response;
+    
+    //En caso que hayan transacciones
+    if (transactions?.length){
+      const sortedTx = response?.transactions.sort( (a, b)=> {
+        if (a.created > b.created) return 1;
+        if (a.created < b.created) return -1;
+        return 0
+      })
+      console.log(sortedTx);
+      //Obtenemos la última transacción (que es la que debemos ir haciendo poll para consultar el estado)
+      const lastTx = sortedTx.pop()
+      await fireAlertAsync("Last transaction", `Your last transaction id is: ${lastTx?.orderId}`, '500px');
+      history.push('/open-pack')
+    
+    //Si no hay tx devolvemos a Home
+    } else {
+      await fireAlertAsync("No transactions registered", "", '500px');
+      history.push('/')
+    }
+  }
+
   const handleBuy = async () => {
     if (Object.keys(userData).length !== 0) {
       try {
@@ -55,8 +83,8 @@ const CardDetail = () => {
           const popupTick = setInterval(() => {
             if (popup.closed) {
               console.log("se cerro la window");
-              fireAlert("Closed the token payment wallet window", "", '500px');
               clearInterval(popupTick);
+              getTransactions();
             }
           }, 500)
 

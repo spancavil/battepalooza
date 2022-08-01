@@ -3,23 +3,20 @@ import Background from '../../Global-Components/Background';
 import Button from '../../Global-Components/Button';
 import styles from './styles.module.scss';
 import {CardData} from '../../Context/CardDataProvider';
-import {useHistory} from 'react-router';
 import CardAnimation from '../CardAnimation';
 
 /* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /open-pack */
 const OpenPack = () => {
   const [flow, setFlow] = useState (1);
-  const {packToOpen} = useContext (CardData);
-
-  const history = useHistory ();
+  const {packSelected} = useContext (CardData);
 
   const nextFlow = () => {
     setFlow (flow + 1);
   };
 
-  const openLater = () => {
-    history.push ('/my-packs');
-  };
+  // const openLater = () => {
+  //   history.push ('/');
+  // };
 
   const timerFlow = () => {
     setTimeout (() => {
@@ -33,10 +30,10 @@ const OpenPack = () => {
         <div className={styles.container}>
           <div className={styles.deg}>
             <div className={styles.card}>
-              <img src={packToOpen.imgSrc} alt="pack" />
+              <img src={packSelected.imgSrc} alt="pack" />
               <div className={styles.down}>
                 <Button title="OPEN" onClick={nextFlow} />
-                <p onClick={openLater}>OPEN LATER</p>
+                {/* <p onClick={openLater}>OPEN LATER</p> */}
               </div>
             </div>
           </div>
