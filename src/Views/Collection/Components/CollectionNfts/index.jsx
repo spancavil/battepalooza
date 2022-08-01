@@ -29,8 +29,14 @@ const CollectionNfts = ({
   xPage,
   setxPage,
 }) => {
-  const { userCollection, nftStatic, clanStatic, rarityStatic, repIdStatic } =
-    useContext(NftData);
+  const {
+    userCollection,
+    nftStatic,
+    clanStatic,
+    rarityStatic,
+    repIdStatic,
+    loadingUserCollection,
+  } = useContext(NftData);
 
   const nftCollectionModified = useModifyList(
     userCollection,
@@ -40,18 +46,13 @@ const CollectionNfts = ({
     repIdStatic
   );
 
+  console.log({ loadingUserCollection });
+
   const [nftsFiltered, setNftFiltered] = useState([]);
   const [nftOrdered, setNftOrdered] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const history = useHistory();
   const breakpoint = useMediaQuery("(max-width: 1200px)");
-
-  useEffect(() => {
-    if (nftsFiltered.length > 0) {
-      setLoading(false);
-    }
-  }, [nftsFiltered]);
 
   //Creamos un array de referencias por cada item que haya en userCollection,
   //Utilizamos useMemo, que se actualiza, al actualizarse userCollection. Como es info que viene de context, inicialmente viene sin valores
@@ -65,6 +66,8 @@ const CollectionNfts = ({
   const onClick = (uuid) => {
     history.push(`/collection/${uuid}`);
   };
+
+  console.log({ nftsFiltered });
 
   useEffect(() => {
     breakpoint ? setxPage(16) : setxPage(25);
@@ -147,23 +150,23 @@ const CollectionNfts = ({
 
       const filtroCloneCount =
         !filters["0"] &&
-          !filters["1"] &&
-          !filters["2"] &&
-          !filters["3"] &&
-          !filters["4"] &&
-          !filters["5"] &&
-          !filters["6"] &&
-          !filters["7"]
+        !filters["1"] &&
+        !filters["2"] &&
+        !filters["3"] &&
+        !filters["4"] &&
+        !filters["5"] &&
+        !filters["6"] &&
+        !filters["7"]
           ? [...nftOrdered]
           : [
-            ...filtro7,
-            ...filtro8,
-            ...filtro9,
-            ...filtro10,
-            ...filtro11,
-            ...filtro12,
-            ...filtro13,
-          ];
+              ...filtro7,
+              ...filtro8,
+              ...filtro9,
+              ...filtro10,
+              ...filtro11,
+              ...filtro12,
+              ...filtro13,
+            ];
 
       // const filtroSearch =
       //   filters.search === "" ? [...nftOrdered] : [...filtro14];
@@ -210,7 +213,7 @@ const CollectionNfts = ({
 
   return (
     <div className={styles.cardsContainer}>
-      {nftsFiltered.length > 0 && loading === false && (
+      {nftsFiltered.length > 0 && loadingUserCollection === false && (
         <div className={styles.cards}>
           {nftsFiltered
             .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
@@ -225,10 +228,10 @@ const CollectionNfts = ({
                     nft.rarity === "Common"
                       ? styles.borderCommon
                       : nft.rarity === "Rare"
-                        ? styles.borderRare
-                        : nft.rarity === "Epic"
-                          ? styles.borderEpic
-                          : styles.borderLegendary
+                      ? styles.borderRare
+                      : nft.rarity === "Epic"
+                      ? styles.borderEpic
+                      : styles.borderLegendary
                   }
                   onClick={() => onClick(nft.uuid)}
                   ref={tilts[indice]}
@@ -263,21 +266,16 @@ const CollectionNfts = ({
         </div>
       )}
 
-      {loading === true && (
+      {loadingUserCollection === true && (
         <div className={styles.loadingContainer}>
           <Loader />
         </div>
       )}
 
-      {userCollection.length === 0 && loading === false && (
-        <div className={styles.notNft}>There are no NFTs in your collection</div>
-      )}
-
-      {nftsFiltered.length === 0 && loading === false && (
-        <div className={styles.notNft}>
-          No NFT matches the search criteria
-        </div>
-      )}
+      {(nftsFiltered.length === 0 || userCollection.length === 0) &&
+        loadingUserCollection === false && (
+          <div className={styles.notNft}>No NFTs found</div>
+        )}
 
       {nftsFiltered.length > 0 && (
         <Pagination
