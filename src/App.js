@@ -15,8 +15,8 @@ import Privacy from "./Views/PrivacyAndTerms/Privacy";
 import TermsOfUse from "./Views/PrivacyAndTerms/TermsOfUse";
 import MarketPlace from "./Views/MarketPlace";
 import MarketplaceDetail from "./Views/MarketplaceDetail";
-/* import Drop from "./Views/Drop";
-import DropDetail from "./Views/DropDetail"; */
+import Drop from "./Views/Drop";
+import DropDetail from "./Views/DropDetail";
 import Profile from "./Views/Account";
 import TradeHistory from "./Views/TradeHistory";
 
@@ -49,8 +49,8 @@ function App() {
             <TradeHistory />
           )}
         </Route>
-        {/* <Route exact path="/drop" component={Drop} />
-        <Route exact path="/drop/:id" component={DropDetail} /> */}
+        <Route exact path="/drop" component={Drop} />
+        <Route exact path="/drop/:id" component={DropDetail} />
         <Route exact path="/collection" component={Collection} />
         <Route exact path="/collection/:uuid" component={CollectionDetail} />
         <Route exact path="/privacy-policy" component={Privacy} />

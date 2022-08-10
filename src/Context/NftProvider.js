@@ -5,7 +5,7 @@ import nftService from "../Services/nft.service";
 import { fireAlert } from "../Utils/sweetAlert2";
 import { UserData } from "./UserProvider";
 import staticsService from '../Services/getstatics.service';
-import changeDropUrl from "../Utils/changeDropURL";
+// import changeDropUrl from "../Utils/changeDropURL";
 
 export const NftData = createContext({});
 
@@ -97,9 +97,9 @@ const NftProvider = ({ children }) => {
         const response = await dropService.getDrops();
         
         if (response?.error.num === 0) {
-          response.mainDrop.bigBannerUrl = changeDropUrl(BP_BASE_URL, response.mainDrop?.bigBannerUrl)
-          response.mainDrop.mediumBannerUrl = changeDropUrl(BP_BASE_URL, response.mainDrop?.mediumBannerUrl)
-          response.mainDrop.smallBannerUrl = changeDropUrl(BP_BASE_URL, response.mainDrop?.smallBannerUrl)
+          // response.mainDrop.bigBannerUrl = changeDropUrl(BP_BASE_URL, response.mainDrop?.bigBannerUrl)
+          // response.mainDrop.mediumBannerUrl = changeDropUrl(BP_BASE_URL, response.mainDrop?.mediumBannerUrl)
+          // response.mainDrop.smallBannerUrl = changeDropUrl(BP_BASE_URL, response.mainDrop?.smallBannerUrl)
           setDrops(response)
         }
       } catch (error) {

@@ -48,6 +48,8 @@ const DropDetail = () => {
     [dropSelected]
   );
 
+  console.log(dropSelected);
+
   useEffect(() => {
     //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
     //mappeamos e inicializamos sus valores utilizando la librería de Vanilla Tilt
