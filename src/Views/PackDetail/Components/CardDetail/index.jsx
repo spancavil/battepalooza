@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import { useParams } from "react-router";
-import { CardData } from "../../../../Context/CardDataProvider";
+import { PackData } from "../../../../Context/PackProvider";
 import Button from "../../../../Global-Components/Button";
 import fireToast, { fireAlert, fireAlertAsync } from "../../../../Utils/sweetAlert2";
 import { UserData } from "../../../../Context/UserProvider";
@@ -10,7 +10,7 @@ import { logOutAmplitude } from "../../../../Utils/amplitude";
 import { useHistory } from 'react-router-dom';
 
 const CardDetail = () => {
-  const { packs, setPack } = useContext(CardData);
+  const { packs, setPack } = useContext(PackData);
   const { id } = useParams();
   const [pack, setSelectedPack] = useState();
   const { userData } = useContext(UserData);

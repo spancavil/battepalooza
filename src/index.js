@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import NftProvider from "./Context/NftProvider";
 import UserProvider from "./Context/UserProvider";
-import CardDataProvider from "./Context/CardDataProvider";
 import { initAmplitude } from "./Utils/amplitude";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import PackDataProvider from "./Context/PackProvider";
 
 
 initAmplitude();
@@ -24,9 +24,9 @@ ReactDOM.render(
             nonce: undefined, // optional, default undefined
           }}
           >
-          <CardDataProvider>
+          <PackDataProvider>
             <App />
-          </CardDataProvider>
+          </PackDataProvider>
         </GoogleReCaptchaProvider>
       </NftProvider>
     </UserProvider>

@@ -1,14 +1,21 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import image1 from "../Assets/sprites/cardpack01.png";
 import image2 from "../Assets/sprites/cardpack02.png";
 import image4 from "../Assets/sprites/cardpack04.png";
+import packService from "../Services/pack.service";
+import { fireAlert } from "../Utils/sweetAlert2";
+import { UserData } from "./UserProvider";
 
-export const CardData = createContext({});
+export const PackData = createContext({});
 
-const CardDataProvider = ({ children }) => {
+const PackDataProvider = ({ children }) => {
+
+  const { userData } = useContext(UserData);
+
   const [packs, setPacks] = useState([]);
   const [packSelected, setPackSelected] = useState({});
   const [packToOpen, setPackToOpen] = useState({});
+  const [packData, setPackData] = useState(null);
 
   const setPack = (pack) => {
     setPackSelected(pack);
@@ -78,15 +85,34 @@ const CardDataProvider = ({ children }) => {
         sale: false,
       },
     ]);
-  }, []);
+    (async () => {
+      //Get user collection
+      try {
+        if (Object.keys(userData).length !== 0) {
+          console.log("Entra en user data");
+          const packData = await packService.getNftPackInfo(userData.pid)
+          console.log(packData);
+          if (packData?.error?.num === 0) {
+            console.log("Entra a packData");
+            setPackData(packData)
+          } else {
+            fireAlert("Oops, an error ocurred", packData?.error?.message, "500px");
+          }
+        }
+      } catch (error) {
+        fireAlert("Oops, an error ocurred", error.message, "500px");
+      }
+
+    })()
+  }, [userData]);
 
   return (
-    <CardData.Provider
-      value={{ setPack, setPackForOpen, packs, packSelected, packToOpen }}
+    <PackData.Provider
+      value={{ setPack, setPackForOpen, packs, packSelected, packToOpen, packData }}
     >
       {children}
-    </CardData.Provider>
+    </PackData.Provider>
   );
 };
 
-export default CardDataProvider;
+export default PackDataProvider;

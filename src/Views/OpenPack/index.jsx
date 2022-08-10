@@ -1,17 +1,17 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import Background from '../../Global-Components/Background';
 import Button from '../../Global-Components/Button';
 import styles from './styles.module.scss';
-import {CardData} from '../../Context/CardDataProvider';
+import { PackData } from '../../Context/PackProvider';
 import CardAnimation from '../CardAnimation';
 
 /* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /open-pack */
 const OpenPack = () => {
-  const [flow, setFlow] = useState (1);
-  const {packSelected} = useContext (CardData);
+  const [flow, setFlow] = useState(1);
+  const { packSelected } = useContext(PackData);
 
   const nextFlow = () => {
-    setFlow (flow + 1);
+    setFlow(flow + 1);
   };
 
   // const openLater = () => {
@@ -19,8 +19,8 @@ const OpenPack = () => {
   // };
 
   const timerFlow = () => {
-    setTimeout (() => {
-      setFlow (flow + 1);
+    setTimeout(() => {
+      setFlow(flow + 1);
     }, 3000);
   };
 
@@ -41,7 +41,7 @@ const OpenPack = () => {
       {flow === 2 &&
         <div className={styles.container2}>
           <h2>Video "open pack" playing...</h2>
-          {timerFlow ()}
+          {timerFlow()}
         </div>}
       {flow === 3 && <CardAnimation />}
     </Background>
