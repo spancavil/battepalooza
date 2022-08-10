@@ -33,7 +33,7 @@ const Packs = () => {
   return (
     <Background>
       <div className={styles.packContainer}>
-        <div className={styles.banner}>BANNER IMG</div>
+        {/* <div className={styles.banner}>BANNER IMG</div> */}
         <h4>SKINS PACKS</h4>
         <div className={styles.cardContainer} onScroll={handleScroll}>
           {packs.map((pack) => {
