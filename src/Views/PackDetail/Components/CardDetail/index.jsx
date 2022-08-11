@@ -13,19 +13,19 @@ import { logOutAmplitude } from "../../../../Utils/amplitude";
 import { useHistory } from "react-router-dom";
 
 const CardDetail = () => {
-  const {  setPack, packData } = useContext(PackData);
+  const { setPack, packData } = useContext(PackData);
   const { id } = useParams();
   const [pack, setSelectedPack] = useState();
   const { userData } = useContext(UserData);
   const history = useHistory();
 
-  console.log(id)
+  console.log(id);
 
   useEffect(() => {
     const selectedPack = packData?.nftPackProducts?.find(
       (pack) => pack?.id === id
     );
-    console.log({selectedPack})
+    console.log({ selectedPack });
     setSelectedPack(selectedPack);
     setPack(selectedPack);
   }, [id, packData, setPack]);
@@ -108,7 +108,7 @@ const CardDetail = () => {
     }
   };
 
-  console.log({pack})
+  console.log({ pack });
 
   return (
     <>
@@ -119,8 +119,7 @@ const CardDetail = () => {
           </div>
           <div className={styles.text}>
             <h3 className={styles.rare}>
-              {pack?.detailTxt} <br />{" "}
-              {pack?.leftAmount} Pack Left
+              {pack?.detailTxt} <br /> {pack?.leftAmount} Pack Left
             </h3>
             <p>You will be able to obtain the following through this pack:</p>
             <h3 className={styles.price}>Price {pack?.price} NCoin</h3>
