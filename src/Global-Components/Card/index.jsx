@@ -22,9 +22,9 @@ const Card = ({imgSrc, text1, text2, text3, sale, soldOut, handleClick}) => {
                 <img className={styles.imagenCard} src={imgSrc} alt="card-pack"></img>
                 {text1 && <p className={styles.texto} style={{color: "white"}}>{text1}</p>}
                 {text2 && <p className={styles.texto} style={{color: "yellow"}}>{text2}</p>}
-                {text3 && <p className={styles.texto} style={{color: "white"}}>{text3}</p>}
+                {/* {text3 && <p className={styles.texto} style={{color: "white"}}>{text3}</p>}
                 {sale && <div className={styles.sale}>Sale</div>}
-                {soldOut && <p className={styles.textSoldOut}>SOLD OUT</p>}
+                {soldOut && <p className={styles.textSoldOut}>SOLD OUT</p>} */}
             </div>
     )
 }
