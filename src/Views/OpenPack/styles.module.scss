@@ -83,14 +83,47 @@
 @media (min-width: $mobile) {
   .container2 {
     width: 100vw;
-    height: 93vh;
-    padding-top: 65px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: black;
     color: white;
     font-family: $font-nasalization;
+    
+    .videoContainer {
+      width: 30%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-color: black;
+      padding-bottom: 10vh;
+      overflow: hidden;
+      .pinVideo {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        height: 100%;
+      }
+      .loadMessageContainer {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .loadMessage {
+          font-family: $font-nasalization;
+          color: white;
+        }
+      }
+    }
   }
 
   .container {

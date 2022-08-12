@@ -68,9 +68,9 @@ const CardDetail = () => {
         const response = await walletService.getWalletToken(
           userData.bpToken,
           userData.email,
-          userData.pid
+          userData.pid,
+          pack?.id
         );
-        console.log(response);
         if (response.error.num !== 0) {
           if (response.error.text.includes("authorized")) {
             fireAlertAsync("Session expired, please login again.").then(() => {
@@ -107,8 +107,6 @@ const CardDetail = () => {
       fireToast("Need login", 1200, "300px");
     }
   };
-
-  console.log({ pack });
 
   return (
     <>

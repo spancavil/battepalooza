@@ -197,16 +197,6 @@ const NavBar = () => {
                 </Link>
               </li> */}
               <li>
-                <Link
-                  onClick={() => setMenu(!menu)}
-                  href
-                  to={"/packs"}
-                  className={styles.navLink}
-                >
-                  PACKS
-                </Link>
-              </li>
-              <li>
                 <span
                   onClick={() => {
                     history.push("/marketplace");
@@ -233,6 +223,18 @@ const NavBar = () => {
                   HELP
                 </a>
               </li>
+              {userData.email && (
+                <li>
+                  <Link
+                    onClick={() => setMenu(!menu)}
+                    href
+                    to={"/packs"}
+                    className={styles.navLink}
+                  >
+                    PACKS
+                  </Link>
+                </li>
+              )}
               {userData.email ? (
                 <ul className={styles.collection}>
                   <li
