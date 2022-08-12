@@ -11,6 +11,7 @@ import { UserData } from "../../../../Context/UserProvider";
 import walletService from "../../../../Services/wallet.service";
 import { logOutAmplitude } from "../../../../Utils/amplitude";
 import { useHistory } from "react-router-dom";
+import PackDetail from "../..";
 
 const CardDetail = () => {
   const { setPack, packData } = useContext(PackData);
@@ -108,6 +109,13 @@ const CardDetail = () => {
     }
   };
 
+  let totalProbabilities = 0;
+  if (pack?.randomWeights) {
+    const weights = pack?.randomWeights
+    totalProbabilities = Object.keys(weights).reduce((acc, currentValue) => acc+=weights[currentValue], 0)
+    console.log(totalProbabilities);
+  }
+
   return (
     <>
       {pack && (
@@ -116,10 +124,13 @@ const CardDetail = () => {
             <img src={pack?.thumbnailUrl} alt="pack" />
           </div>
           <div className={styles.text}>
-            <h3 className={styles.rare}>
-              {pack?.detailTxt} <br /> {pack?.leftAmount} Pack Left
-            </h3>
-            <p>You will be able to obtain the following through this pack:</p>
+            <p className={styles.rare}>{pack.detailTxt.replace('\\n', ' ')}</p>
+            <h3 className={styles.rare}>{pack?.leftAmount} Pack Left </h3>
+            <p>You will be able to obtain the following NFT type through this pack:</p>
+            <p>Normal: {Math.round(pack.randomWeights[1]/totalProbabilities * 100)}%</p>
+            <p>Rare: {Math.round(pack.randomWeights[2]/totalProbabilities * 100)}%</p>
+            <p>Epic: {Math.round(pack.randomWeights[3]/totalProbabilities * 100)}%</p>
+            <p>Legendary: {Math.round(pack.randomWeights[4]/totalProbabilities * 100)}%</p>
             <h3 className={styles.price}>Price {pack?.price} NCoin</h3>
             <Button onClick={handleBuy} title={"BUY"} />
           </div>

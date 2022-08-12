@@ -8,7 +8,7 @@ import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import { useHistory } from "react-router-dom";
 
 import ScrollBar from "../../Global-Components/ScrollBar";
-import { MOBILE_1 } from "../../Constants/definitions";
+import { HD, MOBILE_1 } from "../../Constants/definitions";
 import Button from "../../Global-Components/Button";
 import { getDaysMinutesSeconds } from "../../Utils/createDate";
 
@@ -51,6 +51,7 @@ const Packs = () => {
   ]);
 
   const mobile = useMediaQuery(`(max-width: ${MOBILE_1})`);
+  const hd = useMediaQuery(`(min-width: ${HD})`);
 
   const setSelectedCard = (packId) => {
     setPack(packId);
@@ -72,9 +73,9 @@ const Packs = () => {
         : `url(${packData?.packInfo?.BannerUrl})`;
       divHero.current.style.backgroundSize = "cover";
       divHero.current.style.backgroundRepeat = "no-repeat";
-      divHero.current.style.backgroundPosition = "60% 50%";
+      divHero.current.style.backgroundPosition = hd ? "" : "60% 50%";
     }
-  }, [divHero, packData, mobile]);
+  }, [divHero, packData, mobile, hd]);
 
   const handleFindOut = () => {
     history.push(`/packs/${packData?.packInfo?.id}`);

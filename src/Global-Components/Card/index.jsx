@@ -14,14 +14,17 @@ import styles from './styles.module.scss';
  */
 
 const Card = ({imgSrc, text1, text2, text3, sale, soldOut, handleClick}) => {
-
     return(
             <div
             onClick = {handleClick}
             className={ !soldOut ? styles.container : styles.soldOut}>
                 <img className={styles.imagenCard} src={imgSrc} alt="card-pack"></img>
                 {text1 && <p className={styles.texto} style={{color: "white"}}>{text1}</p>}
-                {text2 && <p className={styles.texto} style={{color: "yellow"}}>{text2}</p>}
+                {text2 && (
+                    text2.split('\\n').map(texto => {
+                        return <p key={texto} className={styles.texto} style={{color: "yellow"}}>{texto}</p>
+                    })
+                )}
                 {/* {text3 && <p className={styles.texto} style={{color: "white"}}>{text3}</p>}
                 {sale && <div className={styles.sale}>Sale</div>}
                 {soldOut && <p className={styles.textSoldOut}>SOLD OUT</p>} */}
