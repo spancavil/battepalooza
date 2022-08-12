@@ -8,7 +8,7 @@ import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import { useHistory } from "react-router-dom";
 
 import ScrollBar from "../../Global-Components/ScrollBar";
-import { MOBILE_1 } from "../../Constants/definitions";
+import { HD, MOBILE_1 } from "../../Constants/definitions";
 
 /* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /packs */
 const Packs = () => {
@@ -22,6 +22,7 @@ const Packs = () => {
   const history = useHistory();
 
   const mobile = useMediaQuery(`(max-width: ${MOBILE_1})`);
+  const hd = useMediaQuery(`(min-width: ${HD})`);
 
   const setSelectedCard = (packId) => {
     setPack(packId);
@@ -43,9 +44,9 @@ const Packs = () => {
         : `url(${packData?.packInfo?.BannerUrl})`;
       divHero.current.style.backgroundSize = "cover";
       divHero.current.style.backgroundRepeat = "no-repeat";
-      divHero.current.style.backgroundPosition = "60% 50%";
+      divHero.current.style.backgroundPosition = hd ? "" : "60% 50%";
     }
-  }, [divHero, packData, mobile]);
+  }, [divHero, packData, mobile, hd]);
 
   /* 
   {

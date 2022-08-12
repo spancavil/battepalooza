@@ -4,6 +4,7 @@ $mobile: 576px;
 $tablet: 767px;
 $laptop: 992px;
 $desktop: 1200px;
+$HD: 1900px;
 
 // Extra mall devices (< 576px)
 @media (max-width: $mobile - 1){
@@ -164,7 +165,7 @@ $desktop: 1200px;
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: $desktop){
+@media (min-width: $desktop) and (max-width: $HD - 1){
   .packContainer {
     width: 100%;
     height: 150vh;
@@ -172,6 +173,42 @@ $desktop: 1200px;
     .banner {
       width: 100%;
       height: 275px;
+      background-color: $secondary-blue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: $font-monkyta;
+      font-size: 20px;
+    }
+  
+    h4 {
+      color: white;
+      font-family: $font-nasalization;
+      width: 100%;
+      text-align: center;
+      padding-top: 20px;
+      font-size: 20px;
+    }
+  
+    .cardContainer{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 40px;
+      padding: 30px;
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: $HD){
+  .packContainer {
+    width: 100%;
+    height: 150vh;
+  
+    .banner {
+      width: 100%;
+      height: 400px;
       background-color: $secondary-blue;
       display: flex;
       align-items: center;

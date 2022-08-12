@@ -79,8 +79,8 @@
     color: white;
 
     .imgContainer {
-      width: 250px;
-      height: 320px;
+      width: 350px;
+      height: 430px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -89,14 +89,15 @@
 
     .text {
       width: 550px;
-      height: 320px;
+      height: 430px;
       background-color: rgba(3, 11, 35, 0.8);
+      padding-top: 20px;
 
       .rare {
         padding-left: 40px;
-        padding-top: 45px;
         font-family: $font-nasalization;
         font-size: 25px;
+        padding-top: 10px;
         font-weight: 700;
       }
 
