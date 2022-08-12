@@ -11,7 +11,6 @@ import { UserData } from "../../../../Context/UserProvider";
 import walletService from "../../../../Services/wallet.service";
 import { logOutAmplitude } from "../../../../Utils/amplitude";
 import { useHistory } from "react-router-dom";
-import PackDetail from "../..";
 
 const CardDetail = () => {
   const { setPack, packData } = useContext(PackData);
