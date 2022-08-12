@@ -9,17 +9,46 @@ import { useHistory } from "react-router-dom";
 
 import ScrollBar from "../../Global-Components/ScrollBar";
 import { MOBILE_1 } from "../../Constants/definitions";
+import Button from "../../Global-Components/Button";
+import { getDaysMinutesSeconds } from "../../Utils/createDate";
 
 /* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /packs */
 const Packs = () => {
   const { packs, setPack, packData } = useContext(PackData);
 
   const [scroll, setScroll] = useState({ scrollLeft: "", scrollWidth: "" });
+  const [timerRelease, setTimerRelease] = useState({ message: "", state: "" });
   const queryTablet = useMediaQuery("(max-width: 766px)");
   /* const userStorage = JSON.parse(localStorage.getItem("userBP")); */
 
   const divHero = useRef();
   const history = useHistory();
+
+  useEffect(() => {
+    let intervalTimer;
+    if (packData?.packInfo?.length !== 0) {
+      //Sandbox
+      // const {message, state} = getDaysMinutesSeconds(Date.now() + 2016000010, Date.now() + 172800000);
+      intervalTimer = setInterval(() => {
+        const date = getDaysMinutesSeconds(
+          packData?.packInfo?.startTime,
+          packData?.packInfo?.endTime
+        );
+        const { message, state } = date;
+        setTimerRelease({ message, state });
+        if (state !== ("active" || "willBeActive"))
+          clearInterval(intervalTimer);
+      }, 1000);
+    }
+    return () => {
+      console.log("Unmounted Drop");
+      clearInterval(intervalTimer);
+    };
+  }, [
+    packData?.packInfo?.endTime,
+    packData?.packInfo?.startTime,
+    packData?.packInfo?.length,
+  ]);
 
   const mobile = useMediaQuery(`(max-width: ${MOBILE_1})`);
 
@@ -47,49 +76,37 @@ const Packs = () => {
     }
   }, [divHero, packData, mobile]);
 
-  /* 
-  {
-            "id": "pack-1-290",
-            "price": 50000,
-            "limitAmount": 100000,
-            "leftAmount": 100000,
-            "repurchaseLimit": 1000,
-            "purchasedCnt": 0,
-            "packId": 5,
-            "packName": "Premium Pack #1",
-            "detailTxt": "Randomly get 1 Premium Item upon purchase. \\nLimited to 1 per player.",
-            "thumbnailUrl": "https://battlepalooza-web.s3.amazonaws.com//thumbnails/packs/Sprite_Shop_Cardpack_05.png",
-            "openMovieUrl": "https://battlepalooza-web.s3.amazonaws.com/movieClips/packs/CardPack_Edition_1.mp4",
-            "randomWeights": {
-                "1": 58000,
-                "2": 30003,
-                "3": 9996,
-                "4": 1999
-            }
-  },
-  */
+  const handleFindOut = () => {
+    history.push(`/packs/${packData?.packInfo?.id}`);
+  };
 
-  /* 
-  {packs.map((pack) => {
-            return (
-              <Card
-                key={pack.id}
-                imgSrc={pack.imgSrc}
-                text1={pack.description.text1}
-                text2={pack.description.text2}
-                text3={pack.description.text3}
-                soldOut={pack.soldOut}
-                sale={pack.sale}
-                handleClick={() => setSelectedCard(pack.id)}
-              />
-            );
-  })}
-  */
+  console.log({ packData });
 
   return (
     <Background>
       <div className={styles.packContainer}>
-        <div className={styles.banner} ref={divHero}></div>
+        <div className={styles.hero} ref={divHero}>
+          <div className={styles.information}>
+            <h2 className={styles.release}>
+              Release date{" "}
+              {new Date(packData?.packInfo?.startTime).toLocaleDateString()}
+            </h2>
+            <h2 className={styles.name}>{packData?.packInfo?.name}</h2>
+            <h2 className={styles.roboto}>{packData?.packInfo?.desc} </h2>
+            <div className={styles.findOut}>
+              <Button
+                title="Find out more"
+                width={"227px"}
+                onClick={handleFindOut}
+                style={{
+                  fontSize: "24px",
+                }}
+              />
+              <h5 className={styles.available}>{timerRelease.message}</h5>
+            </div>
+          </div>
+        </div>
+
         <h4>SKINS PACKS</h4>
         <div className={styles.cardContainer} onScroll={handleScroll}>
           {packData?.nftPackProducts?.map((pack) => {
