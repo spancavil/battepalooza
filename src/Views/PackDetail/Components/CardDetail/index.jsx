@@ -125,8 +125,10 @@ const CardDetail = ({setCheckoutNCoin}) => {
             <p>Epic: {Math.round(pack.randomWeights[3]/totalProbabilities * 100)}%</p>
             <p>Legendary: {Math.round(pack.randomWeights[4]/totalProbabilities * 100)}%</p>
             <h3 className={styles.price}>Price {pack?.price} NCoin</h3>
-            <Button onClick={handleBuy} title={"BUY"} />
-            <Button onClick={handleBuyNCoins} title={"BUY WITH NCOINS"} />
+            <div className={styles.buttons}>
+              <Button onClick={handleBuy} title={"BUY"} />
+              <Button onClick={handleBuyNCoins} title={"BUY WITH NCOINS"} />
+            </div>
           </div>
         </div>
       )}
