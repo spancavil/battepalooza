@@ -6,9 +6,7 @@ import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
 import NftCard from "./components/NftCard";
 import { fireAlertAsync } from "../../Utils/sweetAlert2";
-import { logOutAmplitude } from "../../Utils/amplitude";
 import dropService from "../../Services/drop.service";
-
 // import heroBannerImage from "../../Assets/img/dropHeroBg.png";
 // import heroBannerImageMobile from '../../Assets/img/bg-drop-mobile.png';
 import { UserData } from "../../Context/UserProvider";
@@ -21,6 +19,7 @@ import { getDaysMinutesSeconds } from "../../Utils/createDate";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import VanillaTilt from "vanilla-tilt";
 import useModifyDropDetailUrl from "../../Hooks/useModifyDropDetailUrl";
+import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 
 const DropDetail = () => {
   const [dropSelectedRaw, setDropSelectedRaw] = useState();
@@ -84,29 +83,19 @@ const DropDetail = () => {
     const fetchData = async () => {
       try {
         console.log(id);
-        const dropDetail = await dropService.getDropDetail(
+        const response = await dropService.getDropDetail(
           userData?.pid ? userData.pid : "",
           parseInt(id)
         );
-        console.log(dropDetail);
+        console.log(response);
 
-        if (dropDetail.error.text !== "") {
-          if (dropDetail.error.text.includes("authorized")) {
-            fireAlertAsync("Session expired, please login again.").then(() => {
-              localStorage.removeItem("userBP");
-              logOutAmplitude();
-              history.push("/");
-              window.location.reload();
-            });
-          } else {
-            fireAlertAsync("Oops an error ocurred", dropDetail.error.text);
-          }
-        } else {
-          setDropSelectedRaw(dropDetail);
+        const canContinue = checkErrorMiddleware(response, history);
+        if (canContinue) {
+          setDropSelectedRaw(response);
           //Sandbox
           // const {message, state} = getDaysMinutesSeconds(Date.now() + 2016000010, Date.now() + 172800000);
           intervalTimer = setInterval(() => {
-            const date = getDaysMinutesSeconds(dropDetail.dropInfo.startTime, dropDetail.dropInfo.endTime)
+            const date = getDaysMinutesSeconds(response.dropInfo.startTime, response.dropInfo.endTime)
             const { message, state } = date;
             console.log(message, state)
             setTimerRelease({ message, state });

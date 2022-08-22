@@ -28,9 +28,10 @@ export const fireAlert = (title, text, width) => {
 }
 
 export const fireAlertAsync = async (title, text, width) => {
+    console.log(text);
     return await Swal.fire({
         html: `<h2 style="text-align: center; font-size: 27px; padding-bottom: 15px; color: fff">${title}</h2>
-                <h3 style="text-align: center; font-size: 20px; color: fff">${text}</h3>
+                <h3 style="text-align: center; font-size: 20px; color: fff">${text ? text : ""}</h3>
         `,
         width,
         background: "rgba(1, 73, 219, 0.85)",

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { NftData } from "../../Context/NftProvider";
 import { UserData } from "../../Context/UserProvider";
-import { logOutAmplitude, sendAmplitudeData } from "../../Utils/amplitude";
+import { sendAmplitudeData } from "../../Utils/amplitude";
 import Background from "../../Global-Components/Background";
 import nftService from "../../Services/nft.service";
 import styles from "./styles.module.scss";
@@ -18,13 +18,14 @@ import PREMIUM from "./Assets/Sprite_Icon_Premium_03.png";
 import COPY from "./Assets/Sprite_Icon_Premium_05.png";
 import SERIAL from "./Assets/Sprite_Icon_Premium_02.png";
 // import BONUS from "./Assets/Sprite_Icon_Premium_04.png";
-import fireToast, { fireAlert, fireAlertAsync } from "../../Utils/sweetAlert2";
+import fireToast, { fireAlert } from "../../Utils/sweetAlert2";
 import marketService from "../../Services/market.service";
 import useModifyDetail from "../../Hooks/useModifyDetail";
 import Button from "../../Global-Components/Button";
 import PremiumModal from './Components/Premium';
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import StatusBar from "../../Global-Components/StatusBar";
+import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 
 const CollectionDetail = () => {
   const [nftSelectedRaw, setNftSelectedRaw] = useState();
@@ -73,20 +74,8 @@ const CollectionDetail = () => {
             userData.pid,
             uuid
           );
-
-          if (response.error.text !== "") {
-            if (response.error.text.includes("authorized")) {
-              fireAlertAsync("Session expired, please login again.")
-                .then(() => {
-                  localStorage.removeItem("userBP");
-                  logOutAmplitude();
-                  history.push("/");
-                  window.location.reload();
-                })
-            } else {
-              alert(response.error.text);
-            }
-          } else {
+          const canContinue = checkErrorMiddleware(response, history);
+          if (canContinue) {
             setNftSelectedRaw(response.nft);
           }
         } catch (error) {
@@ -122,22 +111,9 @@ const CollectionDetail = () => {
             inputPrice,
             userData.bpToken,
           )
-
-          if (response.error.text !== "") {
-            if (response.error.text.includes("authorized")) {
-              fireAlertAsync("Session expired, please login again.")
-                .then(() => {
-                  localStorage.removeItem("userBP");
-                  logOutAmplitude();
-                  history.push("/");
-                  window.location.reload();
-                })
-            } else {
-              fireAlert("Oops, an error ocurred", response.error.text, '500px');
-            }
-            //No errors, the forte transaction text id is returned. With that text
-            //we call the transaction status in the next step (modal register 2)
-          } else {
+          
+          const canContinue = checkErrorMiddleware(response, history);
+          if (canContinue) {
             sendAmplitudeData("Collection place for sale confirm")
             setForteTxText(response.forteTxId);
             setmodalRegister1(false);
@@ -170,20 +146,8 @@ const CollectionDetail = () => {
           userData.bpToken,
         )
 
-        if (response.error.text !== "") {
-          if (response.error.text.includes("authorized")) {
-            fireAlertAsync("Warning", "Session expired, please login again.").then(() => {
-              localStorage.removeItem("userBP");
-              logOutAmplitude();
-              history.push("/");
-              window.location.reload();
-            })
-          } else {
-            fireAlert("Oops, an error ocurred", response.error.text, '500px');
-          }
-          //No errors, the forte transaction text id is returned. With that text
-          //we call the transaction status in the next step (modal register 2)
-        } else {
+        const canContinue = checkErrorMiddleware(response, history);
+          if (canContinue) {
           console.log(response);
           setForteTxText(response.forteTxId);
           setmodalUnregister(false);

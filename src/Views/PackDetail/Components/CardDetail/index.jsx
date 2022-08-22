@@ -9,23 +9,23 @@ import fireToast, {
 } from "../../../../Utils/sweetAlert2";
 import { UserData } from "../../../../Context/UserProvider";
 import walletService from "../../../../Services/wallet.service";
-import { logOutAmplitude } from "../../../../Utils/amplitude";
 import { useHistory } from "react-router-dom";
+import checkErrorMiddleware from "../../../../Utils/checkErrorMiddleware";
 
-const CardDetail = () => {
+const CardDetail = ({setCheckoutNCoin}) => {
   const { setPack, packData } = useContext(PackData);
   const { id } = useParams();
   const [pack, setSelectedPack] = useState();
   const { userData } = useContext(UserData);
   const history = useHistory();
 
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     const selectedPack = packData?.nftPackProducts?.find(
       (pack) => pack?.id === id
     );
-    console.log({ selectedPack });
+    // console.log({ selectedPack });
     setSelectedPack(selectedPack);
     setPack(selectedPack);
   }, [id, packData, setPack]);
@@ -71,19 +71,8 @@ const CardDetail = () => {
           userData.pid,
           pack?.id
         );
-        if (response.error.num !== 0) {
-          if (response.error.text.includes("authorized")) {
-            fireAlertAsync("Session expired, please login again.").then(() => {
-              localStorage.removeItem("userBP");
-              logOutAmplitude();
-              history.push("/");
-              window.location.reload();
-            });
-          } else {
-            fireAlert("Oops, an error ocurred", response.error.text, "500px");
-          }
-          //Everything OK
-        } else {
+        const canContinue = checkErrorMiddleware(response, history);
+        if (canContinue) {
           const { token } = response;
           const popup = window.open(
             `${process.env.REACT_APP_NWAY_URL}token=${token}&${process.env.REACT_APP_NWAY_URL_TITLE}`,
@@ -115,6 +104,11 @@ const CardDetail = () => {
     console.log(totalProbabilities);
   }
 
+
+  const handleBuyNCoins = () => {
+    setCheckoutNCoin(true);
+  }
+
   return (
     <>
       {pack && (
@@ -132,6 +126,7 @@ const CardDetail = () => {
             <p>Legendary: {Math.round(pack.randomWeights[4]/totalProbabilities * 100)}%</p>
             <h3 className={styles.price}>Price {pack?.price} NCoin</h3>
             <Button onClick={handleBuy} title={"BUY"} />
+            <Button onClick={handleBuyNCoins} title={"BUY WITH NCOINS"} />
           </div>
         </div>
       )}

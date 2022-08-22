@@ -5,11 +5,10 @@ import { useParams, useHistory } from "react-router";
 import marketService from "../../../../Services/market.service";
 import Loader from "../../../../Global-Components/Loader";
 import {
-  logOutAmplitude,
   sendAmplitudeData,
 } from "../../../../Utils/amplitude";
 import { UserData } from "../../../../Context/UserProvider";
-import fireToast, { fireAlertAsync } from "../../../../Utils/sweetAlert2";
+import fireToast from "../../../../Utils/sweetAlert2";
 import HP from "../../Assets/Sprite_Icon_Stat_01.png";
 import ENERGY from "../../Assets/Sprite_Icon_Stat_02.png";
 import SPEED from "../../Assets/Sprite_Icon_Stat_04.png";
@@ -25,6 +24,7 @@ import Button from "../../../../Global-Components/Button";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import PremiumModal from "../Premium";
 import StatusBar from "../../../../Global-Components/StatusBar";
+import checkErrorMiddleware from "../../../../Utils/checkErrorMiddleware";
 
 const NftDetail = ({ nfts, setNft, setNftListing }) => {
 
@@ -61,25 +61,10 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
   useEffect(() => {
     (async () => {
       const response = await marketService.getNftMarketplaceDetail(seller, uid);
-      if (response.error.text !== "") {
-        if (response.error.text.includes("authorized")) {
-          fireAlertAsync(
-            "Warning",
-            "Session expired, please login again."
-          ).then(() => {
-            localStorage.removeItem("userBP");
-            logOutAmplitude();
-            history.push("/");
-            window.location.reload();
-          });
-        } else {
-          fireAlertAsync(response.error.text).then(() => {
-            history.push("/");
-          });
-        }
+      const canContinue = checkErrorMiddleware(response, history);
+      if (canContinue) {
+        setChosenNftRaw(response.product);
       }
-
-      setChosenNftRaw(response.product);
     })();
   }, [uid, seller, history]);
 

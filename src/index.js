@@ -11,7 +11,7 @@ import PackDataProvider from "./Context/PackProvider";
 initAmplitude();
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <UserProvider>
       <NftProvider>
         <GoogleReCaptchaProvider
@@ -29,7 +29,7 @@ ReactDOM.render(
           </PackDataProvider>
         </GoogleReCaptchaProvider>
       </NftProvider>
-    </UserProvider>
-  </React.StrictMode>,
+    </UserProvider>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );

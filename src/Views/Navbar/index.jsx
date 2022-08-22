@@ -10,8 +10,8 @@ import authService from "../../Services/auth.service";
 import Modal from "../../Global-Components/Modal";
 import { logOutAmplitude, sendAmplitudeData } from "../../Utils/amplitude";
 import ReloadForte from "./components/ReloadForte";
-import { fireAlertAsync } from "../../Utils/sweetAlert2";
 import Button from "../../Global-Components/Button";
+import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 
 const NavBar = () => {
   const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT_PAYLOAD;
@@ -40,19 +40,12 @@ const NavBar = () => {
     const fetchData = async () => {
       setLoadingBalance(true);
       response = await authService.getForteBalance(userData);
-      if (response.error.text.includes("authorized")) {
-        fireAlertAsync("Warning", "Session expired, please login again.").then(
-          () => {
-            localStorage.removeItem("userBP");
-            logOutAmplitude();
-            history.push("/");
-            window.location.reload();
-          }
-        );
+      const canContinue = checkErrorMiddleware(response, history);
+      if (canContinue) {
+        setCoins(separator(response.coin));
+        setCoin(response.coin);
+        setLoadingBalance(false);
       }
-      setCoins(separator(response.coin));
-      setCoin(response.coin);
-      setLoadingBalance(false);
     };
     userData.email && fetchData();
   }, [userData, setCoin, history, countReload, disabled]);
@@ -98,17 +91,8 @@ const NavBar = () => {
     };
     sendAmplitudeData("Click", properties);
     const response = await authService.getFortePayload(userData);
-    if (response.error.text !== "") {
-      if (response.error.text.includes("authorized")) {
-        fireAlertAsync("Warning", "Session expired, please login again.").then(
-          () => {
-            logout();
-          }
-        );
-      } else {
-        fireAlertAsync(response.error.text);
-      }
-    } else if (response.linked === false) {
+    const canContinue = checkErrorMiddleware(response, history);
+    if (canContinue) {
       window.open(`${FORTE_REDIRECT}/${response.payload}`);
     } else {
       window.open(FORTE_LOGIN_URL);

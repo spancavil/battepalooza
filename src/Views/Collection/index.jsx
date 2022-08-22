@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Background from "../../Global-Components/Background";
 import marketService from "../../Services/market.service";
-import { logOutAmplitude } from "../../Utils/amplitude";
+import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import { fireAlertAsync } from "../../Utils/sweetAlert2";
 import Filters from "../MarketPlace/components/Filters";
 import { CLONE_COUNT, TYPE_NFT } from "../MarketPlace/Constants";
@@ -21,39 +21,24 @@ const Collection = () => {
     (async () => {
       try {
         const response = await marketService.getData();
-        if (response.error.text !== "") {
-          if (response.error.text.includes("authorized")) {
-            fireAlertAsync(
-              "Warning",
-              "Session expired, please login again."
-            ).then(() => {
-              localStorage.removeItem("userBP");
-              logOutAmplitude();
-              history.push("/");
-              window.location.reload();
+        const canContinue = checkErrorMiddleware(response, history)
+        if (canContinue){
+          let rarityItem = {};
+          response.rarityList.forEach((rarity) => {
+            Object.defineProperty(rarityItem, rarity.name, {
+              configurable: true,
+              enumerable: true,
+              writable: true,
+              value: false,
             });
-          } else {
-            fireAlertAsync(response.error?.text).then(() => {
-              history.push("/");
-            });
-          }
-        }
-
-        let rarityItem = {};
-        response.rarityList.forEach((rarity) => {
-          Object.defineProperty(rarityItem, rarity.name, {
-            configurable: true,
-            enumerable: true,
-            writable: true,
-            value: false,
           });
-        });
-        //Tendrá todos los filtros
-        setFilters({
-          ...rarityItem,
-          ...TYPE_NFT,
-          ...CLONE_COUNT,
-        });
+          //Tendrá todos los filtros
+          setFilters({
+            ...rarityItem,
+            ...TYPE_NFT,
+            ...CLONE_COUNT,
+          });
+        }
       } catch (error) {
         fireAlertAsync("Error: ", error.message);
         return;

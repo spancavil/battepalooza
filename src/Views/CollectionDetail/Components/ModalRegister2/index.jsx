@@ -3,10 +3,9 @@ import Modal from '../../../../Global-Components/Modal';
 import Button from '../../../../Global-Components/Button';
 import styles from './styles.module.scss';
 import marketService from '../../../../Services/market.service';
-import { logOutAmplitude } from '../../../../Utils/amplitude';
-import { fireAlertAsync } from '../../../../Utils/sweetAlert2';
 import { useHistory } from 'react-router-dom';
 import { NftData } from '../../../../Context/NftProvider';
+import checkErrorMiddleware from '../../../../Utils/checkErrorMiddleware';
 
 const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, pid}) => {
   
@@ -27,19 +26,8 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
           forteTxText,
           bpToken,
         ) 
-        if (response.error.text !== "") {
-          if (response.error.text.includes("authorized")) {
-            fireAlertAsync("Warning","Session expired, please login again.")
-            .then(()=> {
-              localStorage.removeItem("userBP");
-              logOutAmplitude();
-              history.push("/");
-              window.location.reload();
-            })
-          } else {
-            setStatus("Oops, an error ocurred", response.error.text, '500px');
-          }
-        } else {
+        const canContinue = checkErrorMiddleware(response, history);
+        if (canContinue) {
 
         //Response OK, no errors
           setStatus(response.status);

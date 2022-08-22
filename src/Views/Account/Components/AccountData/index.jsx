@@ -6,8 +6,7 @@ import { separator } from "../../../../Utils/separator";
 import generateDate from "../../../../Utils/createDate";
 import { useHistory } from "react-router";
 import authService from "../../../../Services/auth.service";
-import { logOutAmplitude } from "../../../../Utils/amplitude";
-import { fireAlertAsync } from "../../../../Utils/sweetAlert2";
+import checkErrorMiddleware from "../../../../Utils/checkErrorMiddleware";
 
 // Por ahora esta Hardcodeado pero cuando
 // tengamos la api hay que crear los estados
@@ -20,21 +19,13 @@ const AccountData = () => {
   const history = useHistory();
 
   useEffect(() => {
-    let response;
     const fetchData = async () => {
-      response = await authService.getForteBalance(userData);
-      if (response.error.text.includes("authorized")) {
-        fireAlertAsync("Warning", "Session expired, please login again.").then(
-          () => {
-            localStorage.removeItem("userBP");
-            logOutAmplitude();
-            history.push("/");
-            window.location.reload();
-          }
-        );
+      const response = await authService.getForteBalance(userData);
+      const canContinue = checkErrorMiddleware(response, history)
+      if (canContinue) {
+        setMonedas(separator(response.coin));
+        setCoin(response.coin)
       }
-      setMonedas(separator(response.coin));
-      setCoin(response.coin);
     };
     userData.email && fetchData();
   }, [userData, setCoin, history]);
