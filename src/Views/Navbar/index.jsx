@@ -93,9 +93,11 @@ const NavBar = () => {
     const response = await authService.getFortePayload(userData);
     const canContinue = checkErrorMiddleware(response, history);
     if (canContinue) {
-      window.open(`${FORTE_REDIRECT}/${response.payload}`);
-    } else {
-      window.open(FORTE_LOGIN_URL);
+      if (!response.linked) {
+        window.open(`${FORTE_REDIRECT}/${response.payload}`);
+      } else {
+        window.open(FORTE_LOGIN_URL);
+      }
     }
   };
 
