@@ -3,6 +3,9 @@ import styles from './styles.module.scss'
 
 const Filter = ({name, value, onChange}) => {
     
+    console.log(`Valor de ${name}:`);
+    console.log(value);
+
     return (
         <label className={styles.filter}>
             <input
