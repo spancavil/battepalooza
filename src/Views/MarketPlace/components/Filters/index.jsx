@@ -10,11 +10,8 @@ const Filters = ({ filters, setFilters, setPage, input, setInput }) => {
   const [menu, setMenu] = useState(false);
   const [menuRarity, setMenuRarity] = useState(false);
   const [menuNCoin, setMenuNCoin] = useState(false);
-  const [menuType, setMenuType] = useState(false);
 
   const filtersRarity = sliceObject(filters, 7, 11)
-
-  const filtersType = sliceObject(filters, 11, 13)
 
   const filtersCloneCount = sliceObject(filters, 0, 7);
 
@@ -90,11 +87,11 @@ const Filters = ({ filters, setFilters, setPage, input, setInput }) => {
         </div>
       )}
 
-      <div className={styles.title} onClick={() => setMenuType(!menuType)}>
+      {/* <div className={styles.title} onClick={() => setMenuType(!menuType)}>
         <h2>Type</h2>
         <h3>{menuType ? "-" : "+"}</h3>
-      </div>
-      {menuType && (
+      </div> */}
+      {/* {menuType && (
         <div className={styles.filters}>
           {Object.keys(filtersType).map((key) => {
             return (
@@ -107,7 +104,7 @@ const Filters = ({ filters, setFilters, setPage, input, setInput }) => {
             );
           })}
         </div>
-      )}  
+      )}  */} 
       
     </div>
   );

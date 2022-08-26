@@ -30,10 +30,9 @@ const PackDetail = () => {
     setBuyComplete(true);
   }
 
-  const handleCloseComplete = (destiny) => {
+  const handleCloseComplete = () => {
     setReloadCollection(value => !value)
-    if (destiny === 'collection') history.push(`/${destiny}`)
-    else setBuyComplete(false)
+    history.push(`/open-pack`)
   }
 
   console.log(packSelected);
@@ -57,9 +56,9 @@ const PackDetail = () => {
           handleClose={() => setProcessingNcoin(false)} />}
       {buyComplete &&
         <Complete
-          title={packSelected}
-          goCollection={() => handleCloseComplete('collection')}
-          closeComplete={() => handleCloseComplete('')}
+          title={packSelected?.packName}
+          goOpenPack={() => handleCloseComplete()}
+          closeComplete={() => handleCloseComplete()}
         />}
       <SocialMedia />
     </Background>

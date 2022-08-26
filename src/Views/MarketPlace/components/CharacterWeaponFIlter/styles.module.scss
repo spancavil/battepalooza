@@ -1,0 +1,14 @@
+@import "../../../../Styles/breakpoints.scss";
+@import "../../../../Styles/fonts.scss";
+
+@media (max-width: $desktop - 1) {
+}
+
+@media (min-width: $desktop) {
+  .charsAndWeapon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+}
