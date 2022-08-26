@@ -1,0 +1,67 @@
+@import "../../Styles/breakpoints.scss";
+
+$bg-nav: #081231;
+
+@media (max-width: ($desktop - 1)) {
+  .navbar {
+    width: 100vw;
+    height: 65px;
+    background: $bg-nav;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    position: fixed;
+    z-index: 10;
+
+    img {
+      height: 45px;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      .onlyDesktop {
+        display: none;
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .navbar {
+    width: 100vw;
+    height: 65px;
+    background: $bg-nav;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+
+    img {
+      height: 50px;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      .onlyDesktop {
+        display: flex;
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+}

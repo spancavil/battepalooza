@@ -1,0 +1,31 @@
+@import "../../../../Styles/breakpoints.scss";
+
+@media (max-width: ($desktop - 1)) {
+  .menuActive {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 65px);
+    background: linear-gradient(0deg, #081231, #081231);
+    border-top: 1px solid white;
+    transition: 0.3s;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+  }
+
+  .menu {
+    position: absolute;
+    bottom: -1000px;
+  }
+}
+
+@media (min-width: $desktop) {
+  .menuActive,
+  .menu {
+    display: none;
+  }
+}

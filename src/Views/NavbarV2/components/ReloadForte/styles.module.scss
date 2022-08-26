@@ -1,0 +1,30 @@
+$desktop: 1200px;
+
+@media (max-width: 1199px) {
+  .normal {
+    cursor: pointer;
+  }
+
+  .reload {
+    transform: rotate(720deg);
+    transition: all 0.6s ease;
+    cursor: no-drop;
+  }
+}
+
+@media (min-width: $desktop) {
+  .normal {
+    cursor: pointer;
+  }
+
+  .normal:hover {
+    transition-duration: 0.3s;
+    transform: scale(1.1);
+  }
+
+  .reload {
+    transform: rotate(720deg);
+    transition: all 0.6s ease;
+    cursor: no-drop;
+  }
+}
