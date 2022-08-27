@@ -22,7 +22,7 @@ import TradeHistory from "./Views/TradeHistory";
 import Packs from "./Views/Packs";
 import PackDetail from "./Views/PackDetail";
 import OpenPack from "./Views/OpenPack";
-import NavBarV2 from "./Views/NavbarV2";
+import Navbar from "./Views/Navbar";
 
 import "./Styles/Global.scss";
 
@@ -31,7 +31,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {!error404 && <NavBarV2 />}
+      {!error404 && <Navbar />}
       <Switch>
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/signup" component={SignUp} />
