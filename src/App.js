@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { UserData } from "./Context/UserProvider";
 
 import HomeContainer from "./Views/Home";
-import NavBar from "./Views/Navbar";
+/* import NavBar from "./Views/Navbar"; */
 import Error404 from "./Views/Error404";
 import SignUp from "./Views/SignUp";
 import Login from "./Views/Login";
@@ -19,20 +19,19 @@ import Drop from "./Views/Drop";
 import DropDetail from "./Views/DropDetail";
 import Profile from "./Views/Account";
 import TradeHistory from "./Views/TradeHistory";
-
-import "./Styles/Global.scss";
 import Packs from "./Views/Packs";
 import PackDetail from "./Views/PackDetail";
 import OpenPack from "./Views/OpenPack";
-/* import JoinDrop from "./Views/JoinDrop";
-import OpenPack from "./Views/OpenPack"; */
+import Navbar from "./Views/Navbar";
+
+import "./Styles/Global.scss";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
 
   return (
     <BrowserRouter>
-      {!error404 && <NavBar />}
+      {!error404 && <Navbar />}
       <Switch>
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/signup" component={SignUp} />

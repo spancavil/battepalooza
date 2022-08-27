@@ -1,0 +1,38 @@
+@import '../../../../Styles/breakpoints.scss';
+
+@media (max-width: ($desktop - 1)) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    background-color: #ffffff;
+  }
+
+  .hamburgerActive {
+    right: 0;
+    cursor: pointer;
+
+    .bar {
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      &:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+}

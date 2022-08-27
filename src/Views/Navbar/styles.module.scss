@@ -1,594 +1,70 @@
-@import "../../Styles/colors.scss";
-@import "../../Styles/fonts.scss";
 @import "../../Styles/breakpoints.scss";
 
-// Large devices (desktops, 992px and up)
-@media (max-width: $desktop - 1) {
-  .btns {
-    margin-top: 100px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
+$bg-nav: #081231;
 
-  .cont {
-    width: 100%;
-  }
-
-  header {
-    display: flex;
-    justify-content: center;
-    transition-duration: 0.6s;
-  }
-
-  .modalContainer {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 49;
-    background-color: #00000070;
-  }
-
-  .collection {
-    font-size: 25px;
-    font-weight: 600;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1;
-    text-decoration: none;
-    font-family: $font-nanum;
-
-    .dropdown {
-      color: white;
-      background-color: rgb(71, 71, 71);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      font-size: 12px;
-      text-align: center;
-      margin-top: 20px;
-      border-radius: 3px;
-
-      a {
-        font-size: 15px;
-        text-decoration: none;
-        padding: 10px 75px;
-        color: white;
-      }
-    }
-  }
-
+@media (max-width: ($desktop - 1)) {
   .navbar {
-    position: absolute;
-    width: 100%;
-    height: 80px;
-    background-color: $nav-back;
-    z-index: 45;
+    width: 100vw;
+    height: 65px;
+    background: $bg-nav;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1rem;
+    position: fixed;
+    z-index: 10;
 
     img {
-      height: 50px;
-      padding-right: 15px;
+      height: 45px;
     }
 
-    .login {
-      height: 50px;
-      width: 150px;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: $font-nasalization;
-      letter-spacing: 1px;
-      font-size: 14px;
-      text-align: center;
-      background-color: $login-button;
-      color: white;
-    }
-
-    .signUp {
-      height: 50px;
-      width: 150px;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: $font-nasalization;
-      letter-spacing: 1px;
-      font-size: 14px;
-      text-align: center;
-      background-color: #ffffff;
-      color: $signUp-button;
-    }
-  }
-
-  .navLink {
-    font-size: 25px;
-    font-weight: 600;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1;
-    text-decoration: none;
-    font-family: $font-nanum;
-  }
-
-  .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    background-color: #ffffff;
-  }
-  .navMenu {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    padding-right: 370px;
-
-    ul {
-      list-style: none;
+    .left {
       display: flex;
-      flex-direction: row;
-      color: #fff;
-    }
+      align-items: center;
 
-    li {
-      list-style: none;
-      padding: 0px 5px;
-      height: 40px;
-    }
-
-    a {
-      text-decoration: none;
-      color: white;
-      font-family: $font-nanum;
-      font-weight: 700;
-    }
-    span {
-      font-size: 16px;
-      text-decoration: none;
-      color: white;
-      font-family: $font-nanum;
-      font-weight: 700;
-    }
-  }
-
-  .navMenu {
-    display: none;
-  }
-
-  .navMenuActive {
-    position: fixed;
-    left: 0;
-    top: 0;
-    flex-direction: column;
-    background-color: $nav-back;
-    width: 100%;
-    text-align: center;
-    transition: 0.5s;
-    gap: 15px;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    justify-content: space-between;
-  }
-  .btnContainer {
-    display: none;
-  }
-
-  .hamburger {
-    display: block;
-    cursor: pointer;
-    margin-right: 30px;
-  }
-
-  .hamburgerActive {
-    position: fixed;
-    right: 0;
-    margin-right: 30px;
-    cursor: pointer;
-
-    .bar {
-      &:nth-child(2) {
-        opacity: 0;
-      }
-      &:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-      }
-      &:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-      }
-    }
-  }
-
-  .bottom {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .logout {
-    font-size: 25px;
-    list-style: none;
-    padding: 0px 5px;
-    text-decoration: none;
-    color: $logout;
-    font-family: $font-nanum;
-    font-weight: 700;
-    cursor: pointer;
-
-    a {
-      text-decoration: none;
-      color: $logout;
-    }
-  }
-
-  .bottomContainer {
-    background-color: $primary-blue;
-    width: 100vw;
-    padding: 20px 0px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    height: 140px;
-    display: flex;
-    align-items: flex-end;
-
-    button {
-      border: none;
-      background-color: $logout;
-      color: white;
-      font-family: $font-monkyta;
-      padding: 10px 20px;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-
-    .user {
-      display: flex;
-      text-align: right;
-      gap: 5px;
-      justify-content: flex-end;
-    }
-
-    .name {
-      color: $account-name;
-      font-family: $font-nanum;
-      font-weight: 600;
-      font-size: 13px;
-      text-align: right;
-      text-overflow: ellipsis;
-    }
-
-    .link {
-      display: contents;
-    }
-
-    .ncoins {
-      display: flex;
-      text-align: right;
-      gap: 5px;
-      justify-content: flex-end;
-
-      p {
-        color: white;
-        font-family: $font-nanum;
-        font-weight: 600;
-        font-size: 13px;
-        text-align: right;
+      .onlyDesktop {
+        display: none;
       }
 
-      img {
-        height: 15px;
-        padding: 0;
-      }
-      .normal {
-        position: relative;
-        left: 2px;
-      }
-
-      .reload {
-        position: relative;
-        left: 2px;
-        transform: rotate(720deg);
-        transition: all 0.6s ease;
+      .right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
       }
     }
-  }
-
-  .navLinks {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
   }
 }
 
-// Extra large devices (large desktops, 1200px and up)
 @media (min-width: $desktop) {
-  .hamburgerActive,
-  .btns,
-  .navLinks,
-  .navMenuActive,
-  .hamburger,
-  .cont {
-    display: none;
-  }
-
-  .modalContainer {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 49;
-    background-color: #00000070;
-  }
-
-  header {
-    display: flex;
-    justify-content: center;
-    transition-duration: 0.6s;
-  }
-
-  .collection {
-    list-style: none;
-    padding: 0px 5px;
-    font-size: 16px;
-    text-decoration: none;
-    color: white;
-    font-family: $font-nanum;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    .dropdown {
-      color: white;
-      position: absolute;
-      background-color: rgb(71, 71, 71);
-      font-family: $font-monkyta;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      margin-top: 100px;
-      border-radius: 3px;
-
-      a {
-        font-size: 12px;
-        padding: 8px 30px;
-      }
-    }
-  }
-
   .navbar {
-    width: 100%;
-    height: 80px;
-    background-color: $nav-back;
-    z-index: 45;
+    width: 100vw;
+    height: 65px;
+    background: $bg-nav;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1.5rem;
+    position: fixed;
+    top: 0;
+    z-index: 10;
 
     img {
       height: 50px;
-      padding-right: 15px;
     }
 
-    .login {
-      height: 100%;
-      width: 8rem;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: $font-nasalization;
-      letter-spacing: 1px;
-      font-size: 14px;
-      text-align: center;
-      background-color: $login-button;
-      color: white;
-    }
-
-    .logoutBtn {
-      height: 100%;
-      width: 8rem;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: $font-nasalization;
-      letter-spacing: 1px;
-      font-size: 14px;
-      text-align: center;
-      background-color: $login-button;
-      color: white;
+    .left {
       display: flex;
       align-items: center;
-      justify-content: center;
-    }
 
-    .signUp {
-      height: 100%;
-      width: 8rem;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: $font-nasalization;
-      letter-spacing: 1px;
-      font-size: 14px;
-      text-align: center;
-      background-color: #ffffff;
-      color: $signUp-button;
-    }
-  }
-
-  .btnContainer {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .navLink {
-    font-size: 18px;
-    font-weight: 600;
-    color: #3a3b3b;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1;
-    text-decoration: none;
-  }
-
-  .hamburger {
-    display: none;
-  }
-
-  .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    background-color: #ffffff;
-  }
-
-  .navMenu {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-
-    ul {
-      list-style: none;
-      display: flex;
-      flex-direction: row;
-    }
-
-    li {
-      list-style: none;
-      padding: 0px 5px;
-    }
-
-    a {
-      font-size: 16px;
-      text-decoration: none;
-      color: white;
-      font-family: $font-nanum;
-      font-weight: 700;
-    }
-    span {
-      font-size: 16px;
-      text-decoration: none;
-      color: white;
-      font-family: $font-nanum;
-      font-weight: 700;
-    }
-  }
-
-  .link {
-    display: contents;
-  }
-
-  .links {
-    display: flex;
-  }
-
-  .bottom,
-  .bottomContainer,
-  .logout {
-    display: none;
-  }
-
-  .navLinks {
-    display: flex;
-    gap: 25px;
-
-    li a {
-      width: 100%;
-    }
-  }
-
-  .dataContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-  }
-
-  .userData {
-    display: flex;
-    color: white;
-
-    .ncoins {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
-
-      img {
-        height: 15px;
+      .onlyDesktop {
+        display: flex;
       }
 
-      p {
-        color: #3d91ef;
-        font-family: $font-nanum;
-        font-weight: 600;
-        font-size: 13px;
+      .right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
       }
     }
-
-    .user {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
-      padding-right: 15px;
-    }
-
-    p {
-      color: $account-name;
-      font-family: $font-nanum;
-      font-weight: 600;
-      font-size: 13px;
-    }
-  }
-
-  .buyMore {
-    border: none;
-    background-color: $logout;
-    color: white;
-    font-family: $font-monkyta;
-    padding: 1px 0px;
-    width: 90px;
-    height: 50px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-
-  .flex {
-    display: flex;
   }
 }

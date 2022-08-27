@@ -1,0 +1,20 @@
+$btn-color: #ffdc40;
+
+.buttonNav {
+  cursor: pointer;
+  background-color: $btn-color;
+  border: none;
+  height: 45px;
+  border-radius: 16px 0 16px 0;
+  padding: 0 1.5rem;
+
+  span {
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+}
+
+.buttonNav:hover {
+  transition-duration: 0.3s;
+  background-color: #fde36e;
+}

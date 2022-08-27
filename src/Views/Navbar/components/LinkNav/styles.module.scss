@@ -1,0 +1,43 @@
+$line-color: #2959f7;
+$font-size: 16px;
+
+.link {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  font-family: "Rubik";
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: $font-size;
+  }
+}
+
+.linkActive {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  font-family: "Rubik";
+  position: relative;
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: $font-size;
+  }
+
+  :before {
+    content: " ";
+    position: absolute;
+    background: $line-color;
+    height: 3px;
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+}
