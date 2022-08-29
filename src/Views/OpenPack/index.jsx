@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 
 /* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /open-pack */
 const OpenPack = () => {
-    const [flow, setFlow] = useState(3);
+    const [flow, setFlow] = useState(1);
     const { packSelected, txResult } = useContext(PackData);
     const { userData } = useContext(UserData);
     const [loading, setLoading] = useState(false);
