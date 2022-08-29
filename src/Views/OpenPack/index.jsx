@@ -39,7 +39,7 @@ const OpenPack = () => {
     };
 
     useEffect(() => {
-        /* const fetchData = async () => {
+        const fetchData = async () => {
             const uuids = Object.keys(txResult.nftItems);
             if (Object.keys(userData).length !== 0) {
                 for (const uuid of uuids) {
@@ -66,9 +66,9 @@ const OpenPack = () => {
                 }
             }
         };
-        userData.email && fetchData(); */
+        userData.email && fetchData();
 
-        setNftsOpenPack([
+        /* setNftsOpenPack([
             {
                 dailyPlayCount: 0,
                 maxDailyPlayCount: 12,
@@ -126,7 +126,7 @@ const OpenPack = () => {
                     "https://battlepalooza-web.s3.amazonaws.com/thumbnails/characters/Sprite_Shop_Character_03_Pre3.png",
                 acquired: 1661795591726,
             },
-        ]);
+        ]); */
     }, [txResult, history, userData]);
 
     console.log(nftsOpenPack);
