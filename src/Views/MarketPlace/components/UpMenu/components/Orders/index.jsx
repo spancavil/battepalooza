@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import OrdersIcon from "../../../../../../Assets/svg/OrdersIcon";
 import Order from "./Order";
 import styles from "./styles.module.scss";
 
-const OrderBy = ({ orderBy, setOrderBy }) => {
+export const Orders = ({ orderBy, setOrderBy }) => {
+  const [title, setTitle] = useState(null);
   const [hideOrderBy, setHideOrderBy] = useState(true);
 
   const handleChange = (value) => {
@@ -17,21 +19,23 @@ const OrderBy = ({ orderBy, setOrderBy }) => {
       newOrder[Object.keys(value)[0]] = Object.values(value)[0];
     }
 
+    setTitle(value);
     setOrderBy(newOrder);
     setHideOrderBy(true);
   };
+
   return (
-    <div className={styles.parentContainer}>
-      <div
-        className={styles.orderByContainer}
-        onClick={() => setHideOrderBy(!hideOrderBy)}
-      >
-        <div className={styles.title}>
-          <h2>Order By</h2>
-          <h3>{hideOrderBy ? "+" : "-"}</h3>
+    <div
+      className={styles.ordersContainer}
+      onClick={() => setHideOrderBy(!hideOrderBy)}
+    >
+      <div className={styles.container}>
+        <div className={hideOrderBy ? styles.orderClose : styles.orderOpen}>
+          <span>{title ? title : "Order By"}</span>
+          <OrdersIcon />
         </div>
         {!hideOrderBy && (
-          <div className={styles.filtersContainer}>
+          <div className={styles.orders}>
             {Object.keys(orderBy).map((key) => {
               return <Order name={key} onClick={handleChange} />;
             })}
@@ -41,5 +45,3 @@ const OrderBy = ({ orderBy, setOrderBy }) => {
     </div>
   );
 };
-
-export default OrderBy;

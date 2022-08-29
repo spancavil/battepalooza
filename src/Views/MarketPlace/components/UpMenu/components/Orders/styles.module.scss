@@ -1,0 +1,58 @@
+.ordersContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: visible;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: visible;
+  }
+
+  .orderClose {
+    width: 200px;
+    border: 2px solid #212739;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    cursor: pointer;
+
+    span {
+      padding-top: 3px;
+      font-family: "Rubik";
+      color: white;
+    }
+
+    svg {
+      transition-duration: 0.3s;
+    }
+  }
+
+  .orderOpen {
+    @extend .orderClose;
+    border-bottom: none;
+    border-radius: 8px 8px 0px 0px;
+
+    svg {
+      transition-duration: 0.3s;
+      transform: rotate(180deg);
+    }
+  }
+
+  .orders {
+    width: 100%;
+    margin-top: 42px;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    background: #010320;
+    border: 2px solid #212739;
+    border-top: none;
+    border-radius: 0px 0px 8px 8px;
+  }
+}
