@@ -1,0 +1,26 @@
+.searchbar {
+  width: 300px;
+  border: 2px solid #212739;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  gap: 0.6rem;
+  display: flex;
+  align-items: center;
+
+  input {
+    font-size: 16px;
+    font-family: "Rubik";
+    padding-top: 5px;
+    border: none;
+    background: transparent;
+    color: white;
+  }
+
+  svg {
+    cursor: pointer;
+  }
+
+  ::placeholder {
+    font-family: "Rubik";
+  }
+}

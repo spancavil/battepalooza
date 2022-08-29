@@ -1,0 +1,50 @@
+.filters {
+  display: flex;
+  gap: 2rem;
+
+  .filter {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+    height: 60px;
+
+    span {
+      padding-top: 3px;
+      color: white;
+      font-family: "Rubik";
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 18px;
+    }
+  }
+
+  .filter:hover {
+    svg {
+      transition-duration: 0.3s;
+      transform: scale(1.1);
+    }
+
+    span {
+      transition-duration: 0.3s;
+      font-weight: 500;
+    }
+  }
+}
+
+.filterActive {
+  @extend .filter;
+  span {
+    font-weight: 500 !important;
+  }
+}
+
+.filterActive:before {
+  content: " ";
+  position: absolute;
+  background: #3d91ef;
+  height: 4px;
+  width: 100%;
+  margin-top: 35px;
+}

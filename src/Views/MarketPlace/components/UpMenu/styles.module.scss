@@ -1,0 +1,18 @@
+.upMenu {
+  width: 100vw;
+  height: 65px;
+  padding-left: 1rem;
+  padding-right: 2rem;
+  border-bottom: 2px solid #0146d5;
+  background: #010320;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: visible;
+
+  .right {
+    display: flex;
+    gap: 1.5rem;
+    overflow: visible;
+  }
+}
