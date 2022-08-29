@@ -6,6 +6,7 @@ import { logOutAmplitude } from '../../../../Utils/amplitude';
 import { useHistory } from 'react-router-dom';
 import { fireAlertAsync } from '../../../../Utils/sweetAlert2';
 import dropService from '../../../../Services/drop.service';
+import { PackData } from '../../../../Context/PackProvider';
 
 const Proccesing = ({ packBuy, handleClose, processingComplete }) => {
 
@@ -17,6 +18,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete }) => {
   const [step4, setStep4] = useState(false); //getBlockchainTxStatus
 
   const { userData } = useContext(UserData);
+  const { setTxResultPackBuy } = useContext(PackData)
 
   const history = useHistory();
   //Paso uno, hacemos la compra, y forte nos devuelve el Id de la tx
@@ -162,6 +164,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete }) => {
             //Response OK, no errors
             //console.log(`Status on proccessing: ${response.status}`);
             setStatus(response.status);
+            if(step4 && response.status === "completed") setTxResultPackBuy(response?.txResult);
           }
         } catch (error) {
           setStatus("Oops, an error ocurred: " + error.message);
@@ -192,7 +195,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete }) => {
     return () => {
       clearInterval(forteStatusInterval);
     }
-  }, [forteTxText, userData, history, status, handleClose, processingComplete, step2, step4])
+  }, [forteTxText, userData, history, status, handleClose, processingComplete, step2, step4, setTxResultPackBuy])
 
   return (
     <div className={styles.parentContainerModal}>
