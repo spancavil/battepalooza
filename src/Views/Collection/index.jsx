@@ -4,7 +4,7 @@ import Background from "../../Global-Components/Background";
 import marketService from "../../Services/market.service";
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import { fireAlertAsync } from "../../Utils/sweetAlert2";
-import Filters from "../MarketPlace/components/Filters";
+import { LeftMenu } from "../MarketPlace/components/LeftMenu";
 import { CLONE_COUNT, TYPE_NFT } from "../MarketPlace/Constants";
 import CollectionNfts from "./Components/CollectionNfts";
 import styles from "./styles.module.scss";
@@ -14,6 +14,7 @@ const Collection = () => {
   const [page, setPage] = useState(1);
   const [xPage, setxPage] = useState(25);
   const [input, setInput] = useState(1);
+  const [activeFilters, setActiveFilters] = useState(0);
 
   const history = useHistory();
 
@@ -21,8 +22,8 @@ const Collection = () => {
     (async () => {
       try {
         const response = await marketService.getData();
-        const canContinue = checkErrorMiddleware(response, history)
-        if (canContinue){
+        const canContinue = checkErrorMiddleware(response, history);
+        if (canContinue) {
           let rarityItem = {};
           response.rarityList.forEach((rarity) => {
             Object.defineProperty(rarityItem, rarity.name, {
@@ -46,15 +47,41 @@ const Collection = () => {
     })();
   }, [setFilters, history]);
 
+  const resetFilters = () => {
+    const filtros = { ...filters };
+    for (const key in filtros) {
+      if (Object.hasOwnProperty.call(filtros, key)) {
+        filtros[key] = false;
+      }
+    }
+    filtros.search = "";
+    setFilters(filtros);
+  };
+
+  useEffect(() => {
+    const filtersActive = { ...filters };
+    delete filtersActive.search;
+    delete filtersActive.Weapon;
+    delete filtersActive.Character;
+    let acc = 0;
+    for (const filtro in filtersActive) {
+      if (Object.hasOwnProperty.call(filtersActive, filtro)) {
+        acc = acc + (filtersActive[filtro] ? 1 : 0);
+      }
+    }
+    setActiveFilters(acc);
+  }, [filters]);
+
   return (
     <Background>
       <div className={styles.container}>
-        <Filters
-          input={input}
+        <LeftMenu
+          resetFilters={resetFilters}
           setInput={setInput}
           setPage={setPage}
           filters={filters}
           setFilters={setFilters}
+          activeFilters={activeFilters}
         />
         <div className={styles.nfts}>
           <CollectionNfts
