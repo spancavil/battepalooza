@@ -9,7 +9,7 @@ import React, {
 import styles from "./styles.module.scss";
 import { NftData } from "../../../../Context/NftProvider";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
-import Nft from "../Nft";
+import NftCard from "../NftCard";
 import VanillaTilt from "vanilla-tilt";
 import { useHistory } from "react-router-dom";
 import Pagination from "../../../../Global-Components/Pagination";
@@ -157,23 +157,23 @@ const MarketplaceNfts = ({
 
     const filtroCloneCount =
       !filters["0"] &&
-        !filters["1"] &&
-        !filters["2"] &&
-        !filters["3"] &&
-        !filters["4"] &&
-        !filters["5"] &&
-        !filters["6"] &&
-        !filters["7"]
+      !filters["1"] &&
+      !filters["2"] &&
+      !filters["3"] &&
+      !filters["4"] &&
+      !filters["5"] &&
+      !filters["6"] &&
+      !filters["7"]
         ? [...nftMarketModified]
         : [
-          ...filtro7,
-          ...filtro8,
-          ...filtro9,
-          ...filtro10,
-          filtro11,
-          filtro12,
-          filtro13,
-        ];
+            ...filtro7,
+            ...filtro8,
+            ...filtro9,
+            ...filtro10,
+            filtro11,
+            filtro12,
+            filtro13,
+          ];
 
     const filtroSearch =
       filters.search === "" ? [...nftMarketModified] : [...filtro14];
@@ -229,22 +229,26 @@ const MarketplaceNfts = ({
   return (
     <div className={styles.cardsContainer}>
       {nftsFiltered.length > 0 && loading === false && (
-        <div className={styles.cards}>
-          {(nftsFiltered2 || nftsFiltered)
-            // .sort(filterByPrice === 1 ? lth : filterByPrice === 2 ? htl : null)
-            .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
-            .map((nft) => {
-              const indice = nftMarketModified?.indexOf(nft);
-              return (
-                <Nft
-                  key={nft.uniqueId}
-                  nft={nft}
-                  tilt={tilts[indice]}
-                  onClick={handleDetail}
-                />
-              );
-            })}
-        </div>
+        <>
+          <h3 className={styles.title}>
+            {nftsFiltered2?.length || nftsFiltered?.length} NFTs
+          </h3>
+          <div className={styles.cards}>
+            {(nftsFiltered2 || nftsFiltered)
+              .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
+              .map((nft) => {
+                const indice = nftMarketModified?.indexOf(nft);
+                return (
+                  <NftCard
+                    key={nft.uniqueId}
+                    nft={nft}
+                    tilt={tilts[indice]}
+                    onClick={handleDetail}
+                  />
+                );
+              })}
+          </div>
+        </>
       )}
 
       {loading === true && (
@@ -254,15 +258,11 @@ const MarketplaceNfts = ({
       )}
 
       {nftMarket.length === 0 && loading === false && (
-        <div className={styles.notNft}>
-          There are no NFTs in marketplace
-        </div>
+        <div className={styles.notNft}>There are no NFTs in marketplace</div>
       )}
 
       {nftsFiltered.length === 0 && loading === false && (
-        <div className={styles.notNft}>
-          No NFT matches the search criteria
-        </div>
+        <div className={styles.notNft}>No NFT matches the search criteria</div>
       )}
 
       {nftsFiltered.length > 0 && (

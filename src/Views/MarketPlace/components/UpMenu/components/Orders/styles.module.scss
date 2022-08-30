@@ -12,6 +12,7 @@
   }
 
   .orderClose {
+    font-weight: 300;
     width: 200px;
     border: 2px solid #212739;
     padding: 0.5rem 0.8rem;
@@ -35,8 +36,6 @@
 
   .orderOpen {
     @extend .orderClose;
-    border-bottom: none;
-    border-radius: 8px 8px 0px 0px;
 
     svg {
       transition-duration: 0.3s;
@@ -45,14 +44,14 @@
   }
 
   .orders {
+    border-radius: 8px;
     width: 100%;
-    margin-top: 42px;
+    margin-top: 52px;
     position: absolute;
     top: 0;
     z-index: 10;
-    background: #010320;
     border: 2px solid #212739;
-    border-top: none;
-    border-radius: 0px 0px 8px 8px;
+    background: #181931;
+  
   }
 }
