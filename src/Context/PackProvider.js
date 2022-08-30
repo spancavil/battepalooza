@@ -16,6 +16,7 @@ const PackDataProvider = ({ children }) => {
   const [packSelected, setPackSelected] = useState({});
   const [packToOpen, setPackToOpen] = useState({});
   const [packData, setPackData] = useState(null);
+  const [txResult, setTxResult] = useState({});
 
   const setPack = (pack) => {
     setPackSelected(pack);
@@ -24,6 +25,10 @@ const PackDataProvider = ({ children }) => {
   const setPackForOpen = (pack) => {
     setPackToOpen(pack);
   };
+
+  const setTxResultPackBuy = (tx) => {
+    setTxResult(tx);
+  } 
 
   useEffect(() => {
     //Cards hardcoded
@@ -108,7 +113,7 @@ const PackDataProvider = ({ children }) => {
 
   return (
     <PackData.Provider
-      value={{ setPack, setPackForOpen, packs, packSelected, packToOpen, packData }}
+      value={{ setPack, setPackForOpen, setTxResultPackBuy, packs, packSelected, packToOpen, packData, txResult }}
     >
       {children}
     </PackData.Provider>
