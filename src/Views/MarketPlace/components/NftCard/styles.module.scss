@@ -1,0 +1,94 @@
+.card {
+  cursor: pointer;
+  box-shadow: 0px 6px 16px 0px #1919194d;
+  background: #181931;
+  border-radius: 8px;
+  width: 100%;
+  padding: 0 1rem;
+
+  .rarity {
+    margin-top: 1.2rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 16px;
+
+    img {
+      width: 12px;
+      object-fit: contain;
+    }
+
+    p {
+      font-size: 14px;
+      padding-top: 3px;
+      color: white;
+      font-family: "Rubik";
+    }
+  }
+
+  h3 {
+    color: #ffdd00;
+    font-family: "Rubik";
+    padding: 1rem 0;
+    font-size: 20px;
+  }
+
+  .center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      background: transparent;
+      background-position: center center;
+      width: 100%;
+    }
+
+    span {
+      font-weight: 700;
+      color: white;
+      font-family: "Rubik";
+      padding: 1.5rem 0;
+      font-size: 20px;
+    }
+  }
+}
+
+.CommonCard {
+  @extend .card;
+  border: 3px solid #6c6c6c;
+
+  .rarity {
+    border: 1px solid #6c6c6c;
+  }
+}
+
+
+.RareCard {
+  @extend .card;
+  border: 3px solid #A78043;
+
+  .rarity {
+    border: 1px solid #A78043;
+  }
+}
+
+.EpicCard {
+  @extend .card;
+  border: 3px solid #8343A8;
+
+  .rarity {
+    border: 1px solid #8343A8;
+  }
+}
+
+.LegendaryCard {
+  @extend .card;
+  border: 3px solid #0CA5D2;
+
+  .rarity {
+    border: 1px solid #0CA5D2;
+  }
+}
