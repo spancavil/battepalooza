@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Background from "../../Global-Components/Background";
 import marketService from "../../Services/market.service";
-import Filters from "./components/Filters";
 import Products from "./components/Products";
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
@@ -10,6 +9,7 @@ import { fireAlertAsync } from "../../Utils/sweetAlert2";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import { UpMenu } from "./components/UpMenu";
+import { LeftMenu } from "./components/LeftMenu";
 
 const MarketPlace = () => {
   const [filters, setFilters] = useState({});
@@ -18,7 +18,7 @@ const MarketPlace = () => {
   const [page, setPage] = useState(1);
   const [xPage, setxPage] = useState(25);
   const [input, setInput] = useState(1);
-/*   const [maintenance, setMaintenance] = useState(false);
+  /*   const [maintenance, setMaintenance] = useState(false);
   const [msj, setMsj] = useState(true);
  */
   const desktop = useMediaQuery("(min-width: 1200px)");
@@ -88,11 +88,6 @@ const MarketPlace = () => {
   return (
     <Background>
       <div className={styles.container}>
-        {/* {maintenance && (
-                    <span className={styles.maintenance}>
-                        Blockchain under maintenance. We will be back soon!
-                    </span>
-                )} */}
         <UpMenu
           filters={filters}
           setFilters={setFilters}
@@ -102,20 +97,14 @@ const MarketPlace = () => {
         />
 
         <div className={styles.subContainer}>
-          <div className={styles.filtersAndOrder}>
-            <div className={styles.filtersCount}>
-              <span>Filters</span>
-              <span onClick={resetFilters}>Reset</span>
-              <span>{activeFilters}</span>
-            </div>
-            <Filters
-              input={input}
-              setInput={setInput}
-              setPage={setPage}
-              filters={filters}
-              setFilters={setFilters}
-            />
-          </div>
+          <LeftMenu
+            resetFilters={resetFilters}
+            setInput={setInput}
+            setPage={setPage}
+            filters={filters}
+            setFilters={setFilters}
+            activeFilters={activeFilters}
+          />
           <div className={styles.products}>
             <Products
               filters={filters}
@@ -130,40 +119,6 @@ const MarketPlace = () => {
           </div>
         </div>
       </div>
-      {/*  {maintenance && msj && (
-                <div className={styles.msj}>
-                    <span>
-                        Blockchain under maintenance. <br /> We will be back
-                        soon!
-                    </span>
-                    <svg
-                        onClick={() => {
-                            setMaintenance(false);
-                            setMsj(false);
-                        }}
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M18.75 5.25L5.25 18.75"
-                            stroke="#121212"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                        <path
-                            d="M18.75 18.75L5.25 5.25"
-                            stroke="#121212"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                </div>
-            )} */}
     </Background>
   );
 };

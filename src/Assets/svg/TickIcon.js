@@ -1,17 +1,16 @@
 import React from "react";
 
-function OrdersIcon(props) {
+function TickIcon(props) {
   return (
     <svg
-      {...props}
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
+      width="19"
+      height="14"
+      viewBox="0 0 19 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M19.5 9L12 16.5L4.5 9"
+        d="M17.25 1.75L6.75 12.25L1.5 7"
         stroke="white"
         stroke-width="2"
         stroke-linecap="round"
@@ -21,4 +20,4 @@ function OrdersIcon(props) {
   );
 }
 
-export default OrdersIcon;
+export default TickIcon;

@@ -4,7 +4,7 @@ $text-color: #8eceff;
   height: 65px;
   display: flex;
   align-items: center;
-  gap: .6rem;
+  gap: 0.6rem;
   padding: 0 1rem;
 
   p {
@@ -21,17 +21,20 @@ $text-color: #8eceff;
 
   .buyMore {
     cursor: pointer;
-    background: $text-color;
+    background-color: $text-color;
     border: none;
-    border-radius: 16px;
-    height: 35px;
-    padding: 0 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
+    height: 45px;
+    border-radius: 16px 0 16px 0;
+    padding: 0 1.5rem;
+
+    span {
+      font-weight: 900;
+      text-transform: uppercase;
+    }
   }
 
   .buyMore:hover {
-    transition-duration: .3s;
+    transition-duration: 0.3s;
     background: #59b2f6;
   }
 }

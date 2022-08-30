@@ -74,7 +74,7 @@ export const Ncoins = () => {
         clase={loadingBalance ? "reload" : "normal"}
       />
       <button className={styles.buyMore} onClick={handleFortePayload}>
-        BUY MORE
+        <span>BUY MORE</span>
       </button>
     </div>
   );
