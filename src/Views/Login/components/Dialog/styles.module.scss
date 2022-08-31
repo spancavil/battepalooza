@@ -1,0 +1,21 @@
+@import '../../../../Styles/fonts.scss';
+@import '../../../../Styles/fonts.scss';
+$tablet: 767px;
+$HD: 1900px;
+
+@media (max-width: $tablet - 1) {
+}
+
+@media (min-width: $tablet) and (max-width: $HD - 1) {
+}
+
+@media (min-width: $HD) {
+    .text{
+        margin-top: 16px;
+        font-family: $font-rubikRegular;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.04em;
+        color: #fff;
+    }
+}

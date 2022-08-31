@@ -1,0 +1,43 @@
+@import '../../Styles/fonts.scss';
+$tablet: 767px;
+$HD: 1900px;
+
+@media (max-width: $tablet - 1) {
+}
+
+@media (min-width: $tablet) and (max-width: $HD - 1) {
+}
+
+@media (min-width: $HD) {
+    .authDialog {
+        border-width: 3px 3px 0 3px;
+        border-style: solid;
+        border-image: linear-gradient(
+            180deg,
+            #0146d5 0%,
+            rgba(1, 70, 213, 0.382006) 61.8%,
+            rgba(1, 70, 213, 0) 100%
+        ) 1;
+        margin-top: 80px;
+        margin-left: 100px;
+        margin-right: 120px;
+        width: 590px;
+        height: 852px;
+        background: linear-gradient(
+            180deg,
+            #041237 0%,
+            rgba(4, 18, 55, 0) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        padding: 32px;
+        align-items: flex-start;
+    }
+    .title{
+        font-family: 'Rubik';
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 47px;
+        color: #fff;
+    }
+}

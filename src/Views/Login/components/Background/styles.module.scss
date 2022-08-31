@@ -1,0 +1,9 @@
+@import "../../../../Styles/colors.scss";
+
+.layoutContainer {
+  min-height: 100vh;
+  width: 100vw;
+  padding-top: 80px;
+  background: #010320;
+  display: flex;
+}

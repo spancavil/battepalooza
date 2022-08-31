@@ -1,0 +1,86 @@
+$mobile: 576px;
+$tablet: 767px;
+$laptop: 992px;
+$desktop: 1200px;
+$HD: 1900px;
+
+@media (max-width: $tablet - 1) {
+}
+
+@media (min-width: $tablet) and (max-width: $HD - 1) {
+    .leftBanner {
+        position: relative;
+        width: 700px;
+        height: calc(100vh - 80px);
+        display: flex;
+        // justify-content: center;
+    
+        .background {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .char1 {
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            height: 500px;
+            z-index: 3;
+        }
+        .char2 {
+            position: absolute;
+            left: 35%;
+            bottom: 0px;
+            height: 540px;
+            z-index: 2;
+        }
+        .char3 {
+            position: absolute;
+            left: 50%;
+            bottom: 0px;
+            height: 380px;
+            z-index: 3;
+        }
+    }
+}
+
+@media (min-width: $HD) {
+    .leftBanner {
+        position: relative;
+        width: 970px;
+        height: calc(100vh - 80px);
+        display: flex;
+        // justify-content: center;
+    
+        .background {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .char1 {
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            height: 743px;
+            z-index: 3;
+        }
+        .char2 {
+            position: absolute;
+            left: 35%;
+            bottom: 0px;
+            height: 783px;
+            z-index: 2;
+        }
+        .char3 {
+            position: absolute;
+            left: 50%;
+            bottom: 0px;
+            height: 578px;
+            z-index: 3;
+        }
+    }
+}

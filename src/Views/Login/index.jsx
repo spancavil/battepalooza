@@ -8,9 +8,15 @@ import Modal from '../../Global-Components/Modal';
 import PopUp from '../../Global-Components/PopUp';
 import SubMessage from '../../Global-Components/SubMessage';
 import authService from '../../Services/auth.service';
+import Background from './components/Background';
+import Dialog from './components/Dialog';
+import LeftBanner from './components/LeftBanner';
 import styles from './styles.module.scss';
 
 const Login = () => {
+
+  let menu2 = true;
+
   const [email, setEMail] = useState ('Debe ser un email válidoc');
   const [errorEmail, setErrorEmail] = useState ('');
   const [popUp, setPopUp] = useState (false);
@@ -61,6 +67,15 @@ const Login = () => {
       }
     }
   };
+
+  if (menu2) {
+    return (
+      <Background>
+        <LeftBanner/>
+        <Dialog/>
+      </Background>
+    )
+  }
 
   return (
     <Fragment>
