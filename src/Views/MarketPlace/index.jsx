@@ -18,9 +18,7 @@ const MarketPlace = () => {
   const [page, setPage] = useState(1);
   const [xPage, setxPage] = useState(25);
   const [input, setInput] = useState(1);
-  /*   const [maintenance, setMaintenance] = useState(false);
-  const [msj, setMsj] = useState(true);
- */
+
   const desktop = useMediaQuery("(min-width: 1200px)");
   const history = useHistory();
 
