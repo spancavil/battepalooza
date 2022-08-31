@@ -1,5 +1,5 @@
+import DropdownSection from "../../../../Global-Components/DropdownSection";
 import CloningCountFilters from "./components/CloningCountFilters";
-import DropdownSection from "./components/DropdownSection";
 import RarityFilters from "./components/RarityFilters";
 
 import styles from "./styles.module.scss";

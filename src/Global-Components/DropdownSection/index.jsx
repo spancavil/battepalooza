@@ -1,5 +1,5 @@
 import { useState } from "react";
-import OrdersIcon from "../../../../../../Assets/svg/OrdersIcon";
+import OrdersIcon from "../../Assets/svg/OrdersIcon";
 
 import styles from "./styles.module.scss";
 
