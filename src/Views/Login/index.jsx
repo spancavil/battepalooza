@@ -54,7 +54,7 @@ const Login = () => {
 
         if (response.success === false) {
           setMessage (response.message);
-          setPopUp (true);
+          // setPopUp (true);
           setTimeout (() => setPopUp (false) && setLoading (false), 3000);
         } else {
           setMessage (response.message);
@@ -72,7 +72,7 @@ const Login = () => {
     return (
       <Background>
         <LeftBanner/>
-        <Dialog/>
+        <Dialog setEmail={changeEmail} sendCode={onLogin} loading={loading}/>
       </Background>
     )
   }
@@ -116,7 +116,7 @@ const Login = () => {
       </div>
       {popUp &&
         <div className={styles.popUpContainer}>
-          <PopUp text={message || 'Algo ocurrio'} />
+          <PopUp text={message || 'Something bad happened...'} />
         </div>}
     </Fragment>
   );
