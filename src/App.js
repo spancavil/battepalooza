@@ -6,7 +6,6 @@ import HomeContainer from "./Views/Home";
 /* import NavBar from "./Views/Navbar"; */
 import Error404 from "./Views/Error404";
 import SignUp from "./Views/SignUp";
-import Login from "./Views/Login";
 import Verification from "./Views/Verification";
 import NeedLogin from "./Views/NeedLogin";
 import Collection from "./Views/Collection";
@@ -25,6 +24,7 @@ import OpenPack from "./Views/OpenPack";
 import Navbar from "./Views/Navbar";
 
 import "./Styles/Global.scss";
+import Auth from "./Views/Auth";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
@@ -34,8 +34,8 @@ function App() {
       {!error404 && <Navbar />}
       <Switch>
         <Route exact path="/" component={HomeContainer} />
+        <Route exact path="/auth/:type" component={Auth} />
         <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={Login} />
         <Route exact path="/verification" component={Verification} />
         <Route exact path="/needlogin" component={NeedLogin} />
         <Route exact path="/account/profile">

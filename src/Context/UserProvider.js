@@ -6,7 +6,7 @@ const UserProvider = ({ children }) => {
     const [userSignup, setUserSignUpData] = useState({});
     const [verification, setVerification] = useState("");
     const [userData, setUserData] = useState({});
-    const [navigation, setNavigation] = useState("");
+    const [navigation, setNavigation] = useState("/");
     const [firstLogin, setFirstLogin] = useState(false);
     const [coins, setCoins] = useState(null);
     const [error404, setError404] = useState(false);
