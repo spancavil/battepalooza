@@ -5,6 +5,7 @@ import { sendAmplitudeData } from "../../Utils/amplitude";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 
 import styles from "./styles.module.scss";
+import Footer from "./Components/Footer";
 
 const HomeContainer = () => {
   const mobile = useMediaQuery("(max-width: 766px)");
@@ -48,7 +49,7 @@ const HomeContainer = () => {
       <ComponentsHome.Content6 hd={hd} desktop={desktop} mobile={mobile} />
       <ComponentsHome.Content7 hd={hd} desktop={desktop} mobile={mobile} />
       <ComponentsHome.Content8 hd={hd} desktop={desktop} mobile={mobile} />
-      <ComponentsHome.Footer />
+      <Footer />
       <ComponentsHome.SocialMedia />
     </div>
   );

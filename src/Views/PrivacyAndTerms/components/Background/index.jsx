@@ -27,7 +27,7 @@ const BackgroundTerms = ({children, title, sub}) => {
         <main className = {styles.mainContent}>
             {children}
         </main>
-        <footer>
+        <footer className={styles.footer}>
         <article>
           <section>
             <div className={styles.div1}>

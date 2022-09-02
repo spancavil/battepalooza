@@ -10,6 +10,7 @@ import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import { UpMenu } from "./components/UpMenu";
 import { LeftMenu } from "./components/LeftMenu";
+import Footer from "../../Global-Components/Footer";
 
 const MarketPlace = () => {
   const [filters, setFilters] = useState({});
@@ -117,6 +118,7 @@ const MarketPlace = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </Background>
   );
 };

@@ -2,11 +2,12 @@
 @import "../../../../Styles/fonts.scss";
 
 @media (max-width: $mobile - 1) {
-  footer {
+  .footer {
     width: 100%;
     clear: both;
     position: relative;
-    background: url("../../../../Assets/img/bg-footer.jpg") top center no-repeat #000;
+    background: url("../../../../Assets/img/bg-footer.jpg") top center no-repeat
+      #000;
     overflow: hidden;
     padding: 400px 20px 0px 20px;
     margin-top: -270px;
@@ -161,7 +162,7 @@
 }
 
 @media (min-width: $mobile) and (max-width: $tablet - 1) {
-  footer {
+  .footer {
     width: 100%;
     clear: both;
     position: relative;
@@ -307,7 +308,7 @@
 }
 
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
-  footer {
+  .footer {
     width: 100%;
     clear: both;
     position: relative;
@@ -454,7 +455,7 @@
 }
 
 @media (min-width: $desktop) and (max-width: $HD - 1) {
-  footer {
+  .footer {
     width: 100%;
     clear: both;
     position: relative;
@@ -605,7 +606,7 @@
 }
 
 @media (min-width: $HD) {
-  footer {
+  .footer {
     width: 100%;
     clear: both;
     position: relative;
