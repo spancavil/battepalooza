@@ -1,4 +1,5 @@
 @import '../../Styles/fonts.scss';
+@import '../../Styles/animations.scss';
 $tablet: 767px;
 $HD: 1900px;
 
@@ -6,6 +7,37 @@ $HD: 1900px;
 }
 
 @media (min-width: $tablet) and (max-width: $HD - 1) {
+    .authDialog {
+        border-width: 3px 3px 0 3px;
+        border-style: solid;
+        border-image: linear-gradient(
+            180deg,
+            #0146d5 0%,
+            rgba(1, 70, 213, 0.382006) 61.8%,
+            rgba(1, 70, 213, 0) 100%
+        ) 1;
+        margin-top: 30px;
+        margin-left: 30px;
+        margin-right: 30px;
+        width: 640px;
+        background: linear-gradient(
+            180deg,
+            #041237 0%,
+            rgba(4, 18, 55, 0) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        padding: 32px;
+        align-items: flex-start;
+        animation: modalLeftRight 0.2s, modalFade 0.25s;
+    }
+    .title{
+        font-family: 'Rubik';
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 47px;
+        color: #fff;
+    }
 }
 
 @media (min-width: $HD) {
@@ -32,6 +64,7 @@ $HD: 1900px;
         flex-direction: column;
         padding: 32px;
         align-items: flex-start;
+        animation: modalLeftRight 0.2s, modalFade 0.25s;
     }
     .title{
         font-family: 'Rubik';

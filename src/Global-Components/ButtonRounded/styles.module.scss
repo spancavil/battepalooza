@@ -97,7 +97,7 @@
          content: "";
          background: linear-gradient(
              90deg,
-            $glow-modal-light, #ffdc40, $glow-modal-light
+            $glow-modal-light, rgb(255, 249, 168), $glow-modal-light
          );
          position: absolute;
          top: -5px;

@@ -57,7 +57,7 @@ const Navbar = () => {
             {user ? (
               <ButtonNav text="Logout" to={"/"} onClick={logout} />
             ) : (
-              <ButtonNav text="Login" to={"/login"} />
+              <ButtonNav text="Login" to={"/auth/login"} />
             )}
             <HamburgerMenu menu={menu} toggleMenu={toggleMenu} />
           </div>
