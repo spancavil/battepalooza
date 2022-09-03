@@ -1,4 +1,4 @@
-@import '../../Styles/fonts.scss';
+@import '../../../../Styles/fonts.scss';
 $mobile: 576px;
 $tablet: 767px;
 $laptop: 992px;
@@ -22,6 +22,15 @@ $desktop: 1200px;
             color: white;
             width: 90%;
         }
+        .links{
+            text-decoration: none;
+            color: rgba(255, 220, 64, 1);
+        }
+        .link:hover{
+            text-decoration: underline;
+            color: rgba(255, 220, 64, 1);
+            cursor: pointer;
+        }
     }
 };
 
@@ -42,6 +51,15 @@ $desktop: 1200px;
             font-size: 10px;
             color: white;
             width: 90%;
+        }
+        .links{
+            text-decoration: none;
+            color: rgba(255, 220, 64, 1);
+        }
+        .link:hover{
+            text-decoration: underline;
+            color: rgba(255, 220, 64, 1);
+            cursor: pointer;
         }
     }
 }
@@ -65,6 +83,15 @@ $desktop: 1200px;
             color: white;
             width: 90%;
         }
+        .links{
+            text-decoration: none;
+            color: rgba(255, 220, 64, 1);
+        }
+        .link:hover{
+            text-decoration: underline;
+            color: rgba(255, 220, 64, 1);
+            cursor: pointer;
+        }
     }
 }
 
@@ -80,12 +107,23 @@ $desktop: 1200px;
         input {
             border-radius: 3px;
             width: 15px;
+            background-color: rgba(1, 70, 213, 1);
+            border-color: rgba(1, 70, 213, 1);
         }
         label {
             font-family: $font-rubikRegular;
-            font-size: 13px;
+            font-size: 15px;
             color: white;
             width: 90%;
+        }
+        .links{
+            text-decoration: none;
+            color: rgba(255, 220, 64, 1);
+        }
+        .link:hover{
+            text-decoration: underline;
+            color: rgba(255, 220, 64, 1);
+            cursor: pointer;
         }
     }
 }
@@ -105,12 +143,20 @@ $desktop: 1200px;
             height: 20px;
         }
         label {
-            padding-top: 10px;
             font-family: $font-rubikRegular;
             font-size: 16px;
             color: white;
             width: 90%;
             letter-spacing: 0.04em;
+        }
+        .links{
+            text-decoration: none;
+            color:rgba(255, 220, 64, 1);
+        }
+        .links:hover{
+            text-decoration: underline;
+            color: rgba(255, 220, 64, 1);
+            cursor: pointer;
         }
     }
 }

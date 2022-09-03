@@ -5,7 +5,8 @@ import { UserData } from "./Context/UserProvider";
 import HomeContainer from "./Views/Home";
 /* import NavBar from "./Views/Navbar"; */
 import Error404 from "./Views/Error404";
-import SignUp from "./Views/SignUp";
+// import SignUp from "./Views/SignUp";
+import SignUp2 from "./Views/Signup2";
 import Verification from "./Views/Verification";
 import NeedLogin from "./Views/NeedLogin";
 import Collection from "./Views/Collection";
@@ -35,7 +36,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/auth/:type" component={Auth} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signup" component={SignUp2} />
         <Route exact path="/verification" component={Verification} />
         <Route exact path="/needlogin" component={NeedLogin} />
         <Route exact path="/account/profile">

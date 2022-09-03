@@ -14,6 +14,7 @@ const Dialog = ({
     type,
     handleChangeVerificationCode,
     handleConfirmCode,
+    handleSignup
 }) => {
     if (type === "login") {
         return (
@@ -32,6 +33,7 @@ const Dialog = ({
                             until the end to take home the big loot!
                         </p>
                         <ButtonRounded
+                            onClick={handleSignup}
                             title={"CREATE ACCOUNT"}
                             color="blue"
                             additionalStyles={{ margin: "32px 0" }}

@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { UserData } from "../../Context/UserProvider";
+import LeftBanner from "../../Global-Components/LeftBanner";
 import authService from "../../Services/auth.service";
 import { sendAmplitudeData, setAmplitudeUserId } from "../../Utils/amplitude";
 import { fireAlert, fireAlertAsync } from "../../Utils/sweetAlert2";
 import Background from "./components/Background";
 import Dialog from "./components/Dialog";
-import LeftBanner from "./components/LeftBanner";
 
 const Auth = () => {
     let menu2 = true;
@@ -76,8 +76,6 @@ const Auth = () => {
         return
       } else {
         setLoading(true);
-        console.log("Hola!!");
-        console.log(code);
         setCodeVerification(code);
         const response = firstLogin
           ? await authService.login(
@@ -117,10 +115,14 @@ const Auth = () => {
       }
     }
 
+    const handleSignup = async () => {
+      history.push('/signup');
+    }
+
     if (menu2) {
         return (
             <Background>
-                <LeftBanner />
+                <LeftBanner/>
                 <Dialog
                     setEmail={changeEmail}
                     errorEmail={errorEmail}
@@ -129,6 +131,7 @@ const Auth = () => {
                     type={type}
                     handleChangeVerificationCode={changeVerification}
                     handleConfirmCode = {onConfirm}
+                    handleSignup = {handleSignup}
                 />
             </Background>
         );

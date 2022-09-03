@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import background from "../../../../Assets/img/authLayer/auth-bg.png";
-import char1 from "../../../../Assets/img/authLayer/char1.png";
-import char2 from "../../../../Assets/img/authLayer/char2.png";
-import char3 from "../../../../Assets/img/authLayer/char3.png";
+import background from "../../Assets/img/authLayer/auth-bg.png";
+import char1 from "../../Assets/img/authLayer/char1.png";
+import char2 from "../../Assets/img/authLayer/char2.png";
+import char3 from "../../Assets/img/authLayer/char3.png";
 
 const LeftBanner = () => {
     return (
