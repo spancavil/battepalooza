@@ -397,6 +397,21 @@ $hd: 1400px;
     padding: 25px 0px;
     gap: 30px;
   }
+
+  .textResponsive{
+    font-family: $font-rubikRegular;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    color: #ffff;
+  }
+  .textResponsive2{
+    font-family: $font-rubikRegular;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    color: #ffff;
+  }
 }
 
 @media (min-width: $hd) {
@@ -472,5 +487,19 @@ $hd: 1400px;
     justify-content: center;
     padding: 25px 0px;
     gap: 30px;
+  }
+  .textResponsive{
+    font-family: $font-rubikRegular;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+    color: #ffff;
+  }
+  .textResponsive2{
+    font-family: $font-rubikRegular;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    color: #ffff;
   }
 }

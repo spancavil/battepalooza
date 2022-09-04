@@ -45,7 +45,7 @@ const Dialog = ({
                             width={"100%"}
                             widthContainer={"100%"}
                             handleChange={setEmail}
-                            autoComplete="on"
+                            autoComplete={"on"}
                         />
                         <ButtonRounded
                             title={"GET CODE"}

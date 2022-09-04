@@ -16,6 +16,7 @@ const CheckboxDisabled = ({label, width, onChecked, checked}) => {
             value="Terms of service"
             onChange = { e => onChecked(e.target.checked)}
             disabled = {checked ? true : false}
+            className={styles.checkboxLinks}
             />
             <label >{label}</label>
         </div>

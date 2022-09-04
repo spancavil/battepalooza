@@ -251,13 +251,8 @@ const Dialog = () => {
                 <>
                     <p
                         className={styles.textResponsive}
-                        style={{
-                            textAlign: "left",
-                            fontSize: "14px",
-                            fontWeight: "500",
-                            padding: "15px 20px",
-                        }}
                     >
+                        <br/>
                         Please link your account with nWayPlay using the mobile
                         app in order to bring your saved data or game progress.
                         If you do not link your Battlepalooza account using the
@@ -268,12 +263,14 @@ const Dialog = () => {
                         your account:
                         <br />
                         <br />
-                        1) From the Lobby go to Settings
+                    </p>
+                    <p className={styles.textResponsive2}>
+                        1. From the Lobby go to Settings
                         <br />
-                        2) Press nWayPlay <br />
-                        3) Input your email and press Send Passcode
+                        2. Press nWayPlay <br />
+                        3. Input your email and press Send Passcode
                         <br />
-                        4) Input the Passcode sent to your email and press
+                        4. Input the Passcode sent to your email and press
                         Verify.
                         <br />
                     </p>
