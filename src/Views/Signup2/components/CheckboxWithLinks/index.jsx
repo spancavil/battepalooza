@@ -13,13 +13,13 @@ const CheckboxLinks = ({width, onChecked}) => {
 
     return (
         <div className={styles.container} style={{width: width}}>
-            <input type="checkbox" value="Terms of service" onChange = { e => onChecked(e.target.checked)}/>
+            <input className={styles.checkboxLinks} type="checkbox" value="Terms of service" onChange = { e => onChecked(e.target.checked)}/>
             <label >
             I agree to the 
                 <span 
                 className = {styles.links}
                 onClick={()=>history.push('/terms-of-service')}
-                > Terms of Service</span> and 
+                > Terms of Service</span> and  
                 <span 
                 className = {styles.links}
                 onClick={()=>history.push('/privacy-policy')}
