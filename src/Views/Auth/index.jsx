@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { UserData } from "../../Context/UserProvider";
@@ -10,7 +10,6 @@ import Background from "./components/Background";
 import Dialog from "./components/Dialog";
 
 const Auth = () => {
-    let menu2 = true;
 
     const [email, setEMail] = useState("");
     const [errorEmail, setErrorEmail] = useState("");
@@ -18,26 +17,34 @@ const Auth = () => {
     const [formSend, setFormSend] = useState(false);
     const [code, setCode] = useState("code");
 
-    const { 
-      setUserSignUp, 
-      setCodeVerification,
-      userSignup,
-      setDataUser, 
-      navigation,
-      firstLogin,
+    //Linking flow
+    const [notRegistered, setNotRegistered] = useState(false);
+    const [linkingMessage, setLinkingMessage] = useState("CREATE");
+
+    const loadingLink = useRef(false);
+
+    const {
+        setUserSignUp,
+        setCodeVerification,
+        userSignup,
+        setDataUser,
+        navigation,
+        firstLogin,
     } = useContext(UserData);
 
     const history = useHistory();
 
     const { type } = useParams();
 
+    console.log(type);
+
     const changeEmail = (email) => {
         setEMail(email);
     };
 
     const changeVerification = (code) => {
-      setCode(code)
-    }
+        setCode(code);
+    };
 
     const onLogin = async (e) => {
         e.preventDefault();
@@ -71,71 +78,105 @@ const Auth = () => {
     };
 
     const onConfirm = async () => {
-      if (!/^\d{6}$/.test(code)) {
-        // setErrorCode("Input a valid code");
-        return
-      } else {
-        setLoading(true);
-        setCodeVerification(code);
-        const response = firstLogin
-          ? await authService.login(
-              userSignup.email,
-              code,
-              "/first-login",
-              userSignup
-            )
-          : await authService.login(email, code, "");
-        //Envío de datos de tracking a Amplitude
-  
-        const respuesta = response.data.response;
-  
-        if (respuesta && respuesta.error?.num !== 0) {
-          console.log(respuesta);
-          await fireAlertAsync(
-            `Error ${respuesta.error.num}`,
-            respuesta.error.text
-            );
-            setLoading(false)
-          /* if (respuesta.error.num === 3003) setModalNotRegistered(true);
-          else if (respuesta.error.num === 401) setModalUserNotFound(true);
-          else fireAlert(`Error ${respuesta.error.num}`, respuesta.error.text); */
+        if (!/^\d{6}$/.test(code)) {
+            // setErrorCode("Input a valid code");
+            return;
         } else {
-          //Send tracking data to amplitude
-          if (firstLogin) {
-            setAmplitudeUserId(response.data.pid);
-            sendAmplitudeData("Registration/Sign Up");
-          } else {
-            setAmplitudeUserId(response.data.pid);
-            sendAmplitudeData("Registration/Log in");
-          }
-  
-          setDataUser(response);
-          history.push(navigation);
+            setLoading(true);
+            setCodeVerification(code);
+            const response = firstLogin
+                ? await authService.login(
+                      userSignup.email,
+                      code,
+                      "/first-login",
+                      userSignup
+                  )
+                : await authService.login(email, code, "");
+            //Envío de datos de tracking a Amplitude
+
+            const respuesta = response.data.response;
+
+            if (respuesta && respuesta.error?.num !== 0) {
+                setLoading(false);
+                if (respuesta.error.num === 3003) setNotRegistered(true);
+                else if (respuesta.error.num === 401)
+                    history.push("/auth/user-not-found");
+                else
+                    fireAlert(
+                        `Error ${respuesta.error.num}`,
+                        respuesta.error.text
+                    );
+            } else {
+                //Send tracking data to amplitude
+                if (firstLogin) {
+                    setAmplitudeUserId(response.data.pid);
+                    sendAmplitudeData("Registration/Sign Up");
+                } else {
+                    setAmplitudeUserId(response.data.pid);
+                    sendAmplitudeData("Registration/Log in");
+                }
+
+                setDataUser(response);
+                history.push(navigation);
+            }
         }
-      }
-    }
+    };
 
     const handleSignup = async () => {
-      history.push('/signup');
-    }
+        history.push("/signup");
+    };
 
-    if (menu2) {
-        return (
-            <Background>
-                <LeftBanner/>
-                <Dialog
-                    setEmail={changeEmail}
-                    errorEmail={errorEmail}
-                    sendCode={onLogin}
-                    loading={loading}
-                    type={type}
-                    handleChangeVerificationCode={changeVerification}
-                    handleConfirmCode = {onConfirm}
-                    handleSignup = {handleSignup}
-                />
-            </Background>
-        );
-    }
+    useEffect(() => {
+        if (notRegistered) {
+            fireAlertAsync(
+                "NOT REGISTERED",
+                "The email you entered is not registered to any nWayPlay service. Please create an account"
+            ).then(() => history.push("/signup"));
+        }
+    }, [notRegistered, history]);
+
+    //Handle link debería registrar al usuario por primera vez.
+    const handleLink = async () => {
+        console.log("Loading:" + loadingLink.current);
+        setLinkingMessage("CREATING...");
+        if (!loadingLink.current) {
+            loadingLink.current = true;
+            const response = await authService.login(
+                userSignup.email,
+                code,
+                "/first-login",
+                userSignup
+            );
+            console.log(response);
+
+            if (response.data.message) {
+                await fireAlertAsync("Error at linking", response.data.message);
+            } else {
+                setDataUser(response);
+                history.push("/auth/linking-success");
+            }
+
+            loadingLink.current = false;
+        }
+    };
+
+    return (
+        <Background>
+            <LeftBanner />
+            <Dialog
+                setEmail={changeEmail}
+                errorEmail={errorEmail}
+                sendCode={onLogin}
+                loading={loading}
+                type={type}
+                handleChangeVerificationCode={changeVerification}
+                handleConfirmCode={onConfirm}
+                handleSignup={handleSignup}
+                linkingMessage={linkingMessage}
+                handleLink={handleLink}
+            />
+        </Background>
+    );
 };
 
 export default Auth;

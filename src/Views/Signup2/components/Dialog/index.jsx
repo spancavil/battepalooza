@@ -166,7 +166,7 @@ const Dialog = () => {
             setShowInfo(true);
             setShowOptions(false);
         } else {
-            history.push("/login");
+            history.push("/auth/login");
         }
     };
 
