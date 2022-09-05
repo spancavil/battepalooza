@@ -1,0 +1,61 @@
+.firstPack {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  border-radius: 1rem;
+  height: 300px;
+  border: 2px solid #0146D5;
+
+  .imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../../../Assets/img/packBg1.jpg");
+    width: 45%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .texts {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4rem;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #181931;
+    color: white;
+    font-family: "Rubik";
+
+    .time {
+      p {
+        font-weight: 700;
+        font-size: 32px;
+      }
+
+      span {
+        font-weight: 300;
+        font-size: 14px;
+        word-spacing: 18px;
+      }
+    }
+
+    .desc {
+      p {
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 32px;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+  }
+}

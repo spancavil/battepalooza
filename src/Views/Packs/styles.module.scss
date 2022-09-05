@@ -1,270 +1,35 @@
-@import "../../Styles/colors.scss";
-@import "../../Styles/fonts.scss";
-$mobile: 576px;
-$tablet: 767px;
-$laptop: 992px;
-$desktop: 1200px;
-$HD: 1900px;
+.packsSection {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
 
-// Extra mall devices (< 576px)
-@media (max-width: $mobile - 1) {
-  .packContainer {
-    width: 100%;
-    height: 150vh;
-
-    .banner {
-      width: 100%;
-      height: 275px;
-      background-color: $secondary-blue;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: $font-monkyta;
-      font-size: 20px;
-    }
-
-    h4 {
-      color: white;
-      font-family: $font-nasalization;
-      width: 100%;
-      text-align: center;
-      padding-top: 20px;
-      font-size: 20px;
-    }
-
-    .cardContainer {
-      display: flex;
-      flex-direction: row;
-      justify-content: left;
-      gap: 40px;
-      padding: 30px 60px;
-      width: 100%;
-      overflow-x: scroll;
-    }
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
+  h4 {
+    font-family: "Rubik";
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
   }
-}
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: $mobile) and (max-width: $tablet - 1) {
-  .packContainer {
-    width: 100%;
-    height: 150vh;
+  .packs {
+    margin: 1rem 0;
+    padding: 2rem;
+    background: linear-gradient(180deg, #041237 0%, rgba(4, 18, 55, 0) 100%);
+    border: 3px solid #0146d5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
 
-    .banner {
+    .remainingPacks {
+      margin: 2rem 0;
       width: 100%;
-      height: 275px;
-      background-color: $secondary-blue;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: $font-monkyta;
-      font-size: 20px;
-    }
-
-    h4 {
-      color: white;
-      font-family: $font-nasalization;
-      width: 100%;
-      text-align: center;
-      padding-top: 20px;
-      font-size: 20px;
-    }
-
-    .cardContainer {
-      display: flex;
-      flex-direction: row;
-      justify-content: left;
-      gap: 40px;
-      padding: 30px 60px;
-      width: 100%;
-      overflow-x: scroll;
-    }
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: $tablet) and (max-width: $laptop - 1) {
-  .packContainer {
-    width: 100%;
-    height: 150vh;
-
-    .banner {
-      width: 100%;
-      height: 275px;
-      background-color: $secondary-blue;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: $font-monkyta;
-      font-size: 20px;
-    }
-
-    h4 {
-      color: white;
-      font-family: $font-nasalization;
-      width: 100%;
-      text-align: center;
-      padding-top: 20px;
-      font-size: 20px;
-    }
-
-    .cardContainer {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 40px;
-      padding: 30px;
-      width: 100%;
-    }
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: $laptop) and (max-width: $desktop - 1) {
-  .packContainer {
-    width: 100%;
-    height: 150vh;
-
-    .banner {
-      width: 100%;
-      height: 275px;
-      background-color: $secondary-blue;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: $font-monkyta;
-      font-size: 20px;
-    }
-
-    h4 {
-      color: white;
-      font-family: $font-nasalization;
-      width: 100%;
-      text-align: center;
-      padding-top: 20px;
-      font-size: 20px;
-    }
-
-    .cardContainer {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 40px;
-      padding: 30px;
-      width: 100%;
-    }
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: $desktop){
-  .packContainer {
-    width: 100%;
-    height: 150vh;
-
-    .hero {
-      width: 100%;
-      height: 330px;
-      padding-left: 146px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      background-size: cover;
-
-      .information {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        overflow: visible;
-
-        .roboto {
-          font-family: $font-nsRegular;
-          font-size: 16px;
-          line-height: 19px;
-          color: #fff;
-          max-width: 577px;
-          padding: '0px 0px 20px 0px';
-        }
-        .release {
-          font-family: $font-nasalization;
-          font-size: 20px;
-          line-height: 24px;
-          color: #fff;
-          padding: '55px 0px 8px 0px'
-        }
-        .name {
-          font-family: $font-montHeavy;
-          font-size: 36px;
-          line-height: 42px;
-          color: $account-name;
-          padding: '0px 0px 12px 0px';
-        }
-
-        .findOut {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          align-items: center;
-          gap: 14px;
-          overflow: visible;
-          padding-top: 20px;
-
-          .available {
-            font-family: $font-nasalization;
-            font-size: 20px;
-            line-height: 24px;
-            color: white;
-          }
-        }
-      }
-
-      .mainImages {
-        width: 60%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        overflow: visible;
-      }
-    }
-
-    .banner {
-      width: 100%;
-      height: 275px;
-      background-color: $secondary-blue;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: $font-monkyta;
-      font-size: 20px;
-    }
-  
-    h4 {
-      color: white;
-      font-family: $font-nasalization;
-      width: 100%;
-      text-align: center;
-      padding-top: 20px;
-      font-size: 20px;
-    }
-  
-    .cardContainer{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 40px;
-      padding: 30px;
-      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: 10%;
+      grid-row-gap: 0px;
     }
   }
 }

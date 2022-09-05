@@ -1,0 +1,38 @@
+.pack {
+  cursor: pointer;
+  border-radius: 1rem;
+  border: 2px solid #0146d5;
+  background: #181931;
+
+  .imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../../../Assets/img/packBg2.png");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    img {
+      padding: 1rem;
+    }
+  }
+
+  .texts {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    padding: 1.5rem;
+    color: white;
+    font-family: "Rubik";
+
+    p {
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
