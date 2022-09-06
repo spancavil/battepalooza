@@ -62,6 +62,16 @@
   src: url("../Assets/fonts/Mont/Mont-ExtraLightDEMO.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "Rubik_Regular";
+  src: url("../Assets/fonts/Rubik/Rubik-Regular.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "Rubik_SemiBold";
+  src: url("../Assets/fonts/Rubik/Rubik-SemiBold.ttf") format("opentype");
+}
+
 $font-nanum: "NanumGothic";
 $font-nasalization: "Nasalization";
 $font-monkyta: "Monkirta";
@@ -74,3 +84,5 @@ $font-dimboRegular: "Dimbo_Regular";
 $font-dimboItalic: "Dimbo_Italic";
 $font-montHeavy: "Mont_Heavy";
 $font-montExtraLight: "Mont_extra_light";
+$font-rubikRegular: "Rubik_Regular";
+$font-rubikSemibold: "Rubik_SemiBold";

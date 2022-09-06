@@ -19,9 +19,6 @@ export const Ncoins = () => {
   const { userData, setCoin } = useContext(UserData);
   const history = useHistory();
 
-  const FORTE_REDIRECT = process.env.REACT_APP_FORTE_REDIRECT_PAYLOAD;
-  const FORTE_LOGIN_URL = process.env.REACT_APP_FORTE_LOGIN_URL;
-
   useEffect(() => {
     let response;
     const fetchData = async () => {
@@ -47,11 +44,7 @@ export const Ncoins = () => {
     const response = await authService.getFortePayload(userData);
     const canContinue = checkErrorMiddleware(response, history);
     if (canContinue) {
-      if (!response.linked) {
-        window.open(`${FORTE_REDIRECT}/${response.payload}`);
-      } else {
-        window.open(FORTE_LOGIN_URL);
-      }
+      window.open(response.redirectTo);
     }
   };
 
