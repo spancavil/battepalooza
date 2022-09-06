@@ -57,7 +57,7 @@ const Footer = () => {
           <span>Follow Us On</span>
           <div className={styles.icons}>
             {IconsLinks.map(({ icon, href }) => (
-              <a href={href} target="_blank" rel="noreferrer">
+              <a key={href} href={href} target="_blank" rel="noreferrer">
                 {icon}
               </a>
             ))}

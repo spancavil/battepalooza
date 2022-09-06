@@ -65,7 +65,7 @@ const Packs = () => {
               return (
                 <RemainingPack
                   onClick={setSelectedCard}
-                  key={pack.id}
+                  key={pack?.id}
                   pack={pack}
                 />
               );

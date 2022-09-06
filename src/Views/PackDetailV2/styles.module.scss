@@ -1,0 +1,20 @@
+@import "../../Styles/breakpoints.scss";
+
+@media (max-width: $laptop - 1) {
+  .container {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: $laptop) {
+  .container {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

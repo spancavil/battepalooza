@@ -26,6 +26,7 @@ import Navbar from "./Views/Navbar";
 
 import "./Styles/Global.scss";
 import Auth from "./Views/Auth";
+import PackDetailV2 from "./Views/PackDetailV2";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
@@ -58,7 +59,7 @@ function App() {
         <Route exact path="/marketplace" component={MarketPlace} />
         <Route exact path="/marketplace/:nftId" component={MarketplaceDetail} />
         <Route exact path="/packs" component={Packs} />
-        <Route exact path="/packs/:id" component={PackDetail} />
+        <Route exact path="/packs/:id" component={PackDetailV2} />
         {/* <Route exact path="/join-drop" component={JoinDrop} /> */}
         <Route exact path="/open-pack" component={OpenPack} />
         <Route path="" component={Error404} />
