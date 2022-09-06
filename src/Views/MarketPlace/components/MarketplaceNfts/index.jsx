@@ -246,6 +246,7 @@ const MarketplaceNfts = ({
                     nft={nft}
                     tilt={tilts[indice]}
                     onClick={handleDetail}
+                    withPrice
                   />
                 );
               })}

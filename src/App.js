@@ -20,7 +20,6 @@ import DropDetail from "./Views/DropDetail";
 import Profile from "./Views/Account";
 import TradeHistory from "./Views/TradeHistory";
 import Packs from "./Views/Packs";
-import PackDetail from "./Views/PackDetail";
 import OpenPack from "./Views/OpenPack";
 import Navbar from "./Views/Navbar";
 

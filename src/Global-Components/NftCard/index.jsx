@@ -7,7 +7,7 @@ import EpicIcon from "../../Assets/img/EpicIcon.png";
 
 import styles from "./styles.module.scss";
 
-const NftCard = ({ nft, tilt, onClick }) => {
+const NftCard = ({ nft, tilt, onClick, withPrice }) => {
   const getNftRarity = () => {
     switch (nft.rarity) {
       case "Common":
@@ -59,7 +59,7 @@ const NftCard = ({ nft, tilt, onClick }) => {
 
   return (
     <div
-      ref={tilt}
+      ref={tilt && tilt}
       onClick={() => onClick(nft?.uniqueId, nft?.sellerPid)}
       className={setRarityCard(nft?.rarity)}
     >
@@ -67,7 +67,7 @@ const NftCard = ({ nft, tilt, onClick }) => {
       <h3>{nft?.itemName}</h3>
       <div className={styles.center}>
         <img className={styles.imgNft} src={nft.thumbnailUrl} alt="nft-thumb" />
-        <span>{separator(nft?.price)} nCoin</span>
+        {withPrice && <span>{separator(nft?.price)} nCoin</span>}
       </div>
     </div>
   );

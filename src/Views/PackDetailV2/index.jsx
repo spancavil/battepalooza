@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { PackData } from "../../Context/PackProvider";
 import { useParams } from "react-router-dom";
-import { PackInfo } from "./PackInfo";
+import { PackInfo } from "./components/PackInfo";
 
 import Background from "../../Global-Components/Background";
 import Footer from "../../Global-Components/Footer";
