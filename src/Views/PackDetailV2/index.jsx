@@ -1,20 +1,37 @@
+import { useContext, useEffect, useState } from "react";
 import { PackData } from "../../Context/PackProvider";
-import { useContext } from "react";
+import { useParams } from "react-router-dom";
+import { PackInfo } from "./PackInfo";
 
 import Background from "../../Global-Components/Background";
+import Footer from "../../Global-Components/Footer";
 
 import styles from "./styles.module.scss";
 
 const PackDetailV2 = () => {
-  const { packSelected } = useContext(PackData);
+  const [pack, setSelectedPack] = useState();
 
-  console.log({ packSelected });
+  const { setPack, packData } = useContext(PackData);
+  const { packSelected } = useContext(PackData);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const selectedPack = packData?.nftPackProducts?.find(
+      (pack) => pack?.id === id
+    );
+    setSelectedPack(selectedPack);
+    setPack(selectedPack);
+  }, [id, packData, setPack]);
 
   return (
     <Background>
-      <div className={styles.header}>
-        <img src="" alt="" />
+      <div className={styles.packDetail}>
+        <div className={styles.header}>
+          <img src={pack?.thumbnailUrl} alt="" />
+        </div>
+        <PackInfo pack={packSelected} />
       </div>
+      <Footer />
     </Background>
   );
 };

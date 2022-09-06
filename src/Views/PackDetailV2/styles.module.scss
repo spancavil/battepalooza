@@ -1,20 +1,19 @@
-@import "../../Styles/breakpoints.scss";
+.packDetail {
+  display: flex;
+  flex-direction: column;
 
-@media (max-width: $laptop - 1) {
-  .container {
+  .header {
     width: 100vw;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-}
+    background-image: url("../../Assets/img/packBg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
-@media (min-width: $laptop) {
-  .container {
-    width: 100vw;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    img {
+      height: 85%;
+    }
   }
 }
