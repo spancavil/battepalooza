@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, createRef} from "react";
 import styles from "./style.module.scss";
 
 /**
@@ -26,13 +26,24 @@ const SixInput = ({
         verification6: "",
     });
     const inputs = [1, 2, 3, 4, 5, 6];
+    const inputsRefs = inputs.map(()=> createRef());;
 
     const handleNumber = (e) => {
       const inputValue = e.target.value;
       const inputName = e.target.name;
+      const inputIndex = Number(inputName.replace("verification", "")) - 1;
+      //Si no es el value indicado, no se hace nada
       if (!/^\d{1}$/.test(inputValue) && inputValue !== "") {
         return
       }
+      //Salto de casilleros
+      if (inputValue === "" && inputIndex > 0){
+        inputsRefs[inputIndex - 1].current.focus()
+      }
+      if(inputIndex < 5 && inputValue !== ""){
+        inputsRefs[inputIndex + 1].current.focus()
+      }
+      //Setteo final de los inputs
       setInputValues({
         ...inputValues,
         [inputName]: inputValue
@@ -81,6 +92,7 @@ const SixInput = ({
               {inputs.map((input) => {
                   return (
                       <input
+                          ref = {inputsRefs[inputs.indexOf(input)]}
                           onPaste={handlePaste}
                           key={input}
                           required

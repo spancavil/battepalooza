@@ -30,7 +30,7 @@ const Dialog = ({
                         <Loader />
                     </div>
                 ) : (
-                    <>
+                    <form onSubmit={sendCode} style={{overflow: "visible"}}>
                         <p className={styles.text}>
                             Compete in real-time against live contestants from
                             around the world for real-world prizes in a
@@ -46,6 +46,7 @@ const Dialog = ({
                         />
                         <Divider />
                         <Input
+                            type="text"
                             inputType="white"
                             label={"E-mail"}
                             width={"100%"}
@@ -57,9 +58,8 @@ const Dialog = ({
                             title={"GET CODE"}
                             color="yellow"
                             additionalStyles={{ margin: "32px 0" }}
-                            onClick={sendCode}
                         />
-                    </>
+                    </form>
                 )}
             </AuthDialog>
         );
