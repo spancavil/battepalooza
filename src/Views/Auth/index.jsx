@@ -72,6 +72,7 @@ const Auth = () => {
                 } else {
                     history.push("/auth/verification");
                     setLoading(false);
+                    setFormSend(false);
                 }
             }
         }
