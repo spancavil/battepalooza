@@ -58,7 +58,7 @@ export const getDaysMinutesSeconds = (startTime, endTime) => {
 
         const minutesLeft = Math.round(hoursLeftDecimal * 60);
 
-        const message = `Active until: ${daysLeft}d:${hoursLeft}h:${minutesLeft}m`;
+        const message = `${daysLeft}:${hoursLeft}:${minutesLeft}`;
         return ({state, message});
 
     }

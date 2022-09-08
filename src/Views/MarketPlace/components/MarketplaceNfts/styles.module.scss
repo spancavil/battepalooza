@@ -41,10 +41,6 @@
       font-size: 22px;
     }
 
-    a {
-      width: 0;
-    }
-
     .cards {
       padding: 0px 30px;
       display: grid;
@@ -62,17 +58,20 @@
     flex-direction: column;
     gap: 20px;
 
-    a {
-      width: 0;
+    .title {
+      padding-top: 30px;
+      padding-left: 30px;
+      color: white;
+      font-family: "Rubik";
+      font-size: 22px;
     }
 
     .cards {
-      margin-top: 30px;
       padding: 0px 30px;
       display: grid;
       justify-content: space-evenly;
       grid-template-columns: repeat(5, 1fr);
-      grid-column-gap: 75px;
+      grid-column-gap: 30px;
       grid-row-gap: 30px;
       overflow: visible;
     }

@@ -12,9 +12,9 @@ function TickIcon(props) {
       <path
         d="M17.25 1.75L6.75 12.25L1.5 7"
         stroke="white"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

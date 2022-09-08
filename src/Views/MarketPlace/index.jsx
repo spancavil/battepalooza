@@ -10,6 +10,7 @@ import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import { UpMenu } from "./components/UpMenu";
 import { LeftMenu } from "./components/LeftMenu";
+import Footer from "../../Global-Components/Footer";
 
 const MarketPlace = () => {
   const [filters, setFilters] = useState({});
@@ -18,9 +19,7 @@ const MarketPlace = () => {
   const [page, setPage] = useState(1);
   const [xPage, setxPage] = useState(25);
   const [input, setInput] = useState(1);
-  /*   const [maintenance, setMaintenance] = useState(false);
-  const [msj, setMsj] = useState(true);
- */
+
   const desktop = useMediaQuery("(min-width: 1200px)");
   const history = useHistory();
 
@@ -119,6 +118,7 @@ const MarketPlace = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </Background>
   );
 };

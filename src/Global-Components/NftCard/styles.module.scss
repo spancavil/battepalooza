@@ -5,7 +5,8 @@
   border-radius: 8px;
   width: 100%;
   padding: 0 1rem;
-
+  overflow: hidden;
+  
   .rarity {
     margin-top: 1.2rem;
     width: fit-content;
@@ -44,13 +45,14 @@
       background: transparent;
       background-position: center center;
       width: 100%;
+      padding-bottom: 1.5rem;
     }
 
     span {
       font-weight: 700;
       color: white;
       font-family: "Rubik";
-      padding: 1.5rem 0;
+      padding-bottom: 1.5rem;
       font-size: 20px;
     }
   }
@@ -65,30 +67,29 @@
   }
 }
 
-
 .RareCard {
   @extend .card;
-  border: 3px solid #A78043;
+  border: 3px solid #a78043;
 
   .rarity {
-    border: 1px solid #A78043;
+    border: 1px solid #a78043;
   }
 }
 
 .EpicCard {
   @extend .card;
-  border: 3px solid #8343A8;
+  border: 3px solid #8343a8;
 
   .rarity {
-    border: 1px solid #8343A8;
+    border: 1px solid #8343a8;
   }
 }
 
 .LegendaryCard {
   @extend .card;
-  border: 3px solid #0CA5D2;
+  border: 3px solid #0ca5d2;
 
   .rarity {
-    border: 1px solid #0CA5D2;
+    border: 1px solid #0ca5d2;
   }
 }

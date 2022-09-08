@@ -6,15 +6,17 @@ import React, {
   createRef,
   useRef,
 } from "react";
-import styles from "./styles.module.scss";
-import { NftData } from "../../../../Context/NftProvider";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
-import NftCard from "../NftCard";
-import VanillaTilt from "vanilla-tilt";
+import { NftData } from "../../../../Context/NftProvider";
 import { useHistory } from "react-router-dom";
+
 import Pagination from "../../../../Global-Components/Pagination";
 import useModifyList from "../../../../Hooks/useModifyList";
+import NftCard from "../../../../Global-Components/NftCard";
 import Loader from "../../../../Global-Components/Loader";
+import VanillaTilt from "vanilla-tilt";
+
+import styles from "./styles.module.scss";
 
 const MarketplaceNfts = ({
   filters,
@@ -244,6 +246,7 @@ const MarketplaceNfts = ({
                     nft={nft}
                     tilt={tilts[indice]}
                     onClick={handleDetail}
+                    withPrice
                   />
                 );
               })}

@@ -1,17 +1,17 @@
 import React from "react";
 
-function OrdersIcon(props) {
+function ArrowPagination(props) {
   return (
     <svg
       {...props}
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
+      width="10"
+      height="18"
+      viewBox="0 0 10 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M19.5 9L12 16.5L4.5 9"
+        d="M1 1.5L8.5 9L1 16.5"
         stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
@@ -21,4 +21,4 @@ function OrdersIcon(props) {
   );
 }
 
-export default OrdersIcon;
+export default ArrowPagination;

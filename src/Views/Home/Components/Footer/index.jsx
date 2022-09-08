@@ -10,7 +10,7 @@ const Footer = () => {
   const history = useHistory();
 
   return (
-    <footer>
+    <footer className={styles.footer}>
       <article>
         <section>
           <div className={styles.div1}>

@@ -1,0 +1,121 @@
+.packInfo {
+  margin-top: 2rem;
+  width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5%;
+  padding: 0 2rem;
+  color: white;
+  font-family: "Rubik";
+  height: 100%;
+
+  .container {
+    background: linear-gradient(180deg, #041237 0%, rgba(4, 18, 55, 0) 100%);
+    border: 1px solid #0146d5;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    height: 760px;
+  }
+
+  .left {
+    @extend .container;
+    width: 60%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .title {
+      font-size: 56px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .desc {
+      padding-top: 1rem;
+      padding-bottom: 3rem;
+      font-size: 19px;
+      font-weight: 400;
+    }
+
+    .nfts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 1rem;
+      grid-row-gap: 0px;
+    }
+
+    .viewAll {
+      margin: 1rem 0;
+      cursor: pointer;
+      background-color: transparent;
+      width: 128px;
+      height: 48px;
+      border: 2px solid #ffffff;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 16px;
+      color: white;
+      font-family: "Rubik";
+    }
+
+    .viewAll:hover {
+      transition-duration: 0.3s;
+      background-color: white;
+      color: black;
+    }
+  }
+
+  .subtitleBuy {
+    font-size: 32px;
+    font-weight: 800;
+  }
+
+  .right {
+    @extend .container;
+
+    width: 30%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .descBuy {
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .buy {
+      background-color: #1892f0;
+      color: black;
+      text-transform: uppercase;
+      width: 100%;
+      height: 48px;
+      font-weight: 800;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .buyNcoin {
+      cursor: pointer;
+      background-color: transparent;
+      width: 100%;
+      height: 48px;
+      border: 2px solid #ffffff;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 16px;
+      color: white;
+      font-family: "Rubik";
+      background-color: transparent;
+    }
+
+    .buyNcoin:hover {
+      transition-duration: 0.3s;
+      background-color: white;
+      color: black;
+    }
+  }
+}

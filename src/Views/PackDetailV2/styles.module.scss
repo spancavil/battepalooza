@@ -1,0 +1,19 @@
+.packDetail {
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    width: 100vw;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../Assets/img/packBg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    img {
+      height: 85%;
+    }
+  }
+}

@@ -1,11 +1,13 @@
-import CommonIcon from "../../../../Assets/img/CommonIcon.png";
-import RareIcon from "../../../../Assets/img/RareIcon.png";
-import EpicIcon from "../../../../Assets/img/EpicIcon.png";
-import LegendaryIcon from "../../../../Assets/img/LegendaryIcon.png";
+import { separator } from "../../Utils/separator";
+
+import LegendaryIcon from "../../Assets/img/LegendaryIcon.png";
+import CommonIcon from "../../Assets/img/CommonIcon.png";
+import RareIcon from "../../Assets/img/RareIcon.png";
+import EpicIcon from "../../Assets/img/EpicIcon.png";
 
 import styles from "./styles.module.scss";
 
-const NftCard = ({ nft, tilt, onClick }) => {
+const NftCard = ({ nft, tilt, onClick, withPrice }) => {
   const getNftRarity = () => {
     switch (nft.rarity) {
       case "Common":
@@ -57,15 +59,15 @@ const NftCard = ({ nft, tilt, onClick }) => {
 
   return (
     <div
-      ref={tilt}
-      onClick={() => onClick(nft.uniqueId, nft.sellerPid)}
+      ref={tilt && tilt}
+      onClick={() => onClick(nft?.uniqueId, nft?.sellerPid)}
       className={setRarityCard(nft?.rarity)}
     >
       <>{getNftRarity()}</>
       <h3>{nft?.itemName}</h3>
       <div className={styles.center}>
         <img className={styles.imgNft} src={nft.thumbnailUrl} alt="nft-thumb" />
-        <span>{nft?.price} nCoin</span>
+        {withPrice && <span>{separator(nft?.price)} nCoin</span>}
       </div>
     </div>
   );

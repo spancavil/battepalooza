@@ -1,0 +1,52 @@
+.pack {
+  cursor: pointer;
+  border-radius: 1rem;
+  border: 1px solid #0146d5;
+  background: #181931;
+
+  .imgContainer {
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../../../Assets/img/packBg2.png");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    img {
+      height: 75%;
+    }
+  }
+
+  .texts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.5rem;
+    color: white;
+    font-family: "Rubik";
+
+    h4 {
+      text-transform: uppercase;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
+.pack:hover {
+  .imgContainer {
+    img {
+      transition-duration: 0.3s;
+      transform: scale(1.15);
+    }
+  }
+}
