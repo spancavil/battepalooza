@@ -20,6 +20,7 @@ const Dialog = ({
     handleSignup,
     handleLink,
     linkingMessage,
+    mobile
 }) => {
     const history = useHistory();
     if (type === "login") {
@@ -42,7 +43,7 @@ const Dialog = ({
                             onClick={handleSignup}
                             title={"CREATE ACCOUNT"}
                             color="blue"
-                            additionalStyles={{ margin: "32px 0" }}
+                            additionalStyles={{ margin: "32px 0", width: mobile && '100%'}}
                         />
                         <Divider />
                         <Input
@@ -57,7 +58,7 @@ const Dialog = ({
                         <ButtonRounded
                             title={"GET CODE"}
                             color="yellow"
-                            additionalStyles={{ margin: "32px 0" }}
+                            additionalStyles={{ margin: "32px 0", width: mobile && '100%'}}
                         />
                     </form>
                 )}
