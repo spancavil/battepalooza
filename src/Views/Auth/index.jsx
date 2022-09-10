@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { UserData } from "../../Context/UserProvider";
 import LeftBanner from "../../Global-Components/LeftBanner";
+import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import authService from "../../Services/auth.service";
 import { sendAmplitudeData, setAmplitudeUserId } from "../../Utils/amplitude";
 import { fireAlert, fireAlertAsync } from "../../Utils/sweetAlert2";
@@ -36,7 +37,10 @@ const Auth = () => {
 
     const { type } = useParams();
 
-    console.log(type);
+    const laptop = useMediaQuery('(max-width: 992px) and (min-width: 767px)');
+    const mobile = useMediaQuery('(max-width: 766px)');
+
+    console.log(laptop, mobile);
 
     const changeEmail = (email) => {
         setEMail(email);
@@ -163,8 +167,9 @@ const Auth = () => {
 
     return (
         <Background>
-            <LeftBanner />
+            {!(laptop || mobile) && <LeftBanner />}
             <Dialog
+                mobile={mobile}
                 setEmail={changeEmail}
                 errorEmail={errorEmail}
                 sendCode={onLogin}
