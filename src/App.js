@@ -21,11 +21,12 @@ import Profile from "./Views/Account";
 import TradeHistory from "./Views/TradeHistory";
 import Packs from "./Views/Packs";
 import OpenPack from "./Views/OpenPack";
-import Navbar from "./Views/Navbar";
+
 
 import "./Styles/Global.scss";
 import Auth from "./Views/Auth";
 import PackDetailV2 from "./Views/PackDetailV2";
+import Navbar from "./Global-Components/Navbar";
 
 function App() {
   const { userData, error404 } = useContext(UserData);

@@ -2,11 +2,11 @@
 
 @media (max-width: ($desktop - 1)) {
   .menuActive {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100vw;
-    height: calc(100vh - 65px);
+    height: calc(100vh - 80px);
     background: linear-gradient(0deg, #081231, #081231);
     border-top: 1px solid white;
     transition: 0.3s;
