@@ -11,7 +11,7 @@ $desktop: 1200px;
         justify-content: left;
         padding-top: 20px;
         gap: 10px;
-        align-items: center;
+        align-items:flex-start;
         .checkboxLinks {
             //Remove default checkbox appearance
             -webkit-appearance: none;
@@ -23,8 +23,8 @@ $desktop: 1200px;
             //Le dejamos los border
             border: rgba(1, 70, 213, 1) 2px solid;
             border-radius: 3px;
-            width: 15px;
-            height: 15px;
+            width: 24px;
+            height: 24px;
         }
     
         //Estilos luego de ser checked
@@ -37,13 +37,14 @@ $desktop: 1200px;
             background-color: rgba(1, 70, 213, 1);
             color: #ffff;
             //Ajustamos la fuente (el tick)
-            font-size: 25px;
-            width: 15px;
-            height: 15px;
+            font-size: 16px;
+            width: 24px;
+            height: 24px;
         }
         label {
             font-family: $font-rubikRegular;
-            font-size: 10px;
+            font-size: 16px;
+            line-height: 20px;
             color: white;
             width: 90%;
         }
