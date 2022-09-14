@@ -3,7 +3,7 @@ import Pack from "../../../../Assets/img/pack1.png";
 import styles from "./styles.module.scss";
 
 export const FirstPack = ({ packData, timerRelease, onClick }) => {
-  console.log(packData);
+
   return (
     <div onClick={onClick} className={styles.firstPack}>
       <div className={styles.imgContainer}>
