@@ -40,8 +40,6 @@ const Auth = () => {
     const laptop = useMediaQuery('(max-width: 992px) and (min-width: 767px)');
     const mobile = useMediaQuery('(max-width: 766px)');
 
-    console.log(laptop, mobile);
-
     const changeEmail = (email) => {
         setEMail(email);
     };

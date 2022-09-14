@@ -13,10 +13,10 @@ import CheckboxInLine from "../CheckboxInLine";
 import Checkbox from "../../../../Global-Components/Checkbox";
 import CheckboxDisabled from "../CheckboxDisabled";
 import ButtonRounded from "../../../../Global-Components/ButtonRounded";
-import AppNway from '../../../../Assets/img/App nWayPlay 1.png';
-import passCode from '../../../../Assets/img/PassCode 1.png';
+import AppNway from "../../../../Assets/img/App nWayPlay 1.png";
+import passCode from "../../../../Assets/img/PassCode 1.png";
 
-const Dialog = () => {
+const Dialog = ({ setShowInfoSignUp }) => {
     const { setUserSignUp, setLoginFirst } = useContext(UserData);
 
     const [check1, setCheck1] = useState("");
@@ -144,7 +144,10 @@ const Dialog = () => {
                     getMails: form.checkedEmail,
                 });
                 setLoginFirst();
-                await fireAlertAsync("Success", "Verification code sent. Check your email.");
+                await fireAlertAsync(
+                    "Success",
+                    "Verification code sent. Check your email."
+                );
                 //In case the newsletter checked, send tracking
                 if (form.checkedEmail) sendAmplitudeData("Newsletter Suscribe");
                 history.push("/auth/verification");
@@ -164,14 +167,25 @@ const Dialog = () => {
         setCheck2(option);
         if (option === "No") {
             setShowInfo(true);
+            setShowInfoSignUp(true);
             setShowOptions(false);
         } else {
             history.push("/auth/login");
         }
     };
 
+    console.log(showSignUp);
+
     return (
-        <AuthDialog title="User information request">
+        <AuthDialog
+            title={
+                showOptions
+                    ? "User information request"
+                    : showSignUp
+                    ? "Create account"
+                    : "Link account"
+            }
+        >
             {showOptions && (
                 <div className={styles.divRow3}>
                     <h1 className={styles.text}>
@@ -249,10 +263,8 @@ const Dialog = () => {
             )}
             {showInfo && (
                 <>
-                    <p
-                        className={styles.textResponsive}
-                    >
-                        <br/>
+                    <p className={styles.textResponsive}>
+                        <br />
                         Please link your account with nWayPlay using the mobile
                         app in order to bring your saved data or game progress.
                         If you do not link your Battlepalooza account using the
