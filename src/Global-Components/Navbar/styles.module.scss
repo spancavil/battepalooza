@@ -10,12 +10,12 @@ $bg-nav: #081231;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 4rem;
+    padding: 0 .8rem;
     position: fixed;
     z-index: 10;
 
     img {
-      height: 45px;
+      height: 40px;
     }
 
     .left {
