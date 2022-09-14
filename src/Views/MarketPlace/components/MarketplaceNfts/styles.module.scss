@@ -2,27 +2,52 @@
 @import "../../../../Styles/breakpoints.scss";
 @import "../../../../Styles/fonts.scss";
 
-@media (max-width: $desktop - 1) {
+@media (max-width: ($tablet - 1)) {
   .cardsContainer {
     display: flex;
     flex-direction: column;
     gap: 20px;
 
-    a {
-      width: 0;
+    .title {
+      padding-top: 30px;
+      padding-left: 30px;
+      color: white;
+      font-family: "Rubik";
+      font-size: 22px;
     }
 
     .cards {
-      margin-top: 30px;
-      justify-content: left;
-      padding: 0px 15px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
+      padding: 0px 30px;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: 30px;
+      grid-row-gap: 30px;
       overflow: visible;
-      gap: 30px;
+    }
+  }
+}
+
+@media (min-width: $tablet) and (max-width: ($desktop - 1)) {
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .title {
+      padding-top: 30px;
+      padding-left: 30px;
+      color: white;
+      font-family: "Rubik";
+      font-size: 22px;
+    }
+
+    .cards {
+      padding: 0px 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 30px;
+      grid-row-gap: 30px;
+      overflow: visible;
     }
   }
 }
