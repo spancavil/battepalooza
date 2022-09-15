@@ -95,6 +95,8 @@ export const PackInfo = ({ pack, setCheckoutNCoin }) => {
     },
   ];
 
+  console.log(pack);
+
   const handleBuyNCoins = () => {
     setCheckoutNCoin(true);
   };
@@ -171,11 +173,14 @@ export const PackInfo = ({ pack, setCheckoutNCoin }) => {
       <div className={styles.left}>
         <h2 className={styles.title}>{pack?.packName}</h2>
         <p className={styles.desc}>
-          {pack?.detailTxt &&
-            pack?.detailTxt
-              .split("\\n")
-              .map((texto, i) => <p key={i}>{texto}</p>)}
+          {pack?.detailTxt
+            ?.toString()
+            .split("\\n")
+            .map((texto) => (
+              <>{texto}</>
+            ))}
         </p>
+
         <h4 className={styles.subtitle}>NFTs you can get</h4>
         <div className={styles.nfts}>
           {nftsTest.map((nft, i) => (
@@ -185,6 +190,15 @@ export const PackInfo = ({ pack, setCheckoutNCoin }) => {
         <button className={styles.viewAll}>View All</button>
       </div>
       <div className={styles.right}>
+        <h2 className={styles.title2}>{pack?.packName}</h2>
+        <p className={styles.desc2}>
+          {pack?.detailTxt
+            ?.toString()
+            .split("\\n")
+            .map((texto, i) => (
+              <>{texto}</>
+            ))}
+        </p>
         <h4 className={styles.subtitleBuy}>{pack?.price} nCoin</h4>
         <h4 className={styles.subtitleBuy}>Get your first NFTs right away!</h4>
         <span className={styles.descBuy}>
