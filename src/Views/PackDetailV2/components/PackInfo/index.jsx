@@ -1,5 +1,5 @@
 import { UserData } from "../../../../Context/UserProvider";
-import { useContext } from "react";
+import { useContext, Fragment } from "react";
 
 import checkErrorMiddleware from "../../../../Utils/checkErrorMiddleware";
 import walletService from "../../../../Services/wallet.service";
@@ -95,8 +95,6 @@ export const PackInfo = ({ pack, setCheckoutNCoin }) => {
     },
   ];
 
-  console.log(pack);
-
   const handleBuyNCoins = () => {
     setCheckoutNCoin(true);
   };
@@ -176,8 +174,8 @@ export const PackInfo = ({ pack, setCheckoutNCoin }) => {
           {pack?.detailTxt
             ?.toString()
             .split("\\n")
-            .map((texto) => (
-              <>{texto}</>
+            .map((texto, i) => (
+              <Fragment key={i}>{texto}</Fragment>
             ))}
         </p>
 
@@ -196,7 +194,7 @@ export const PackInfo = ({ pack, setCheckoutNCoin }) => {
             ?.toString()
             .split("\\n")
             .map((texto, i) => (
-              <>{texto}</>
+              <Fragment key={i}>{texto}</Fragment>
             ))}
         </p>
         <h4 className={styles.subtitleBuy}>{pack?.price} nCoin</h4>
