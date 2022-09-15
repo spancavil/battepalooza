@@ -33,6 +33,7 @@ const RarityFilters = ({ onChange, filters }) => {
     <div className={styles.filters}>
       {rarityFilters.map(({ img, text, name }) => (
         <div
+          key={name}
           onClick={() => onChange(name)}
           className={filters[name] ? styles.filterActive : styles.filter}
         >

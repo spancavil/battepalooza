@@ -8,7 +8,7 @@ const CloningCountFilters = ({ onChange, filters }) => {
   return (
     <div className={styles.filters}>
       {Object.keys(filtersCloneCount)?.map((key) => (
-        <div className={styles.filter}>
+        <div key={key} className={styles.filter}>
           <input
             onChange={(e) => onChange(e)}
             value={filters[key]}

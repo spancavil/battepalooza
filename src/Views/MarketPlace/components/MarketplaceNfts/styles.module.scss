@@ -20,6 +20,7 @@
       padding: 0px 30px;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
+      justify-items: center;
       grid-column-gap: 30px;
       grid-row-gap: 30px;
       overflow: visible;
