@@ -1,8 +1,44 @@
-.filters {
-  display: flex;
-  gap: 2rem;
+@import "../../../../../../Styles/breakpoints.scss";
 
-  .filter {
+@media (max-width: ($tablet - 1px)) {
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 1rem;
+
+    .filter {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      position: relative;
+      gap: 10px;
+      height: 60px;
+
+      span {
+        padding-top: 3px;
+        color: white;
+        font-family: "Rubik";
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 18px;
+      }
+    }
+
+    .filter:hover {
+      svg {
+        transition-duration: 0.3s;
+        transform: scale(1.1);
+      }
+
+      span {
+        transition-duration: 0.3s;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .filterActive {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -15,36 +51,81 @@
       color: white;
       font-family: "Rubik";
       text-transform: uppercase;
-      font-weight: 300;
+      font-weight: 500 !important;
       font-size: 18px;
     }
   }
 
-  .filter:hover {
-    svg {
-      transition-duration: 0.3s;
-      transform: scale(1.1);
+  .filterActive:before {
+    content: " ";
+    position: absolute;
+    background: #3d91ef;
+    height: 4px;
+    width: 100%;
+    margin-top: 35px;
+  }
+}
+
+@media (min-width: $tablet) {
+  .filters {
+    display: flex;
+    gap: 2rem;
+
+    .filter {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      position: relative;
+      gap: 10px;
+      height: 60px;
+
+      span {
+        padding-top: 3px;
+        color: white;
+        font-family: "Rubik";
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 18px;
+      }
     }
+
+    .filter:hover {
+      svg {
+        transition-duration: 0.3s;
+        transform: scale(1.1);
+      }
+
+      span {
+        transition-duration: 0.3s;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .filterActive {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+    height: 60px;
 
     span {
-      transition-duration: 0.3s;
-      font-weight: 500;
+      padding-top: 3px;
+      color: white;
+      font-family: "Rubik";
+      text-transform: uppercase;
+      font-weight: 500 !important;
+      font-size: 18px;
     }
   }
-}
 
-.filterActive {
-  @extend .filter;
-  span {
-    font-weight: 500 !important;
+  .filterActive:before {
+    content: " ";
+    position: absolute;
+    background: #3d91ef;
+    height: 4px;
+    width: 100%;
+    margin-top: 35px;
   }
-}
-
-.filterActive:before {
-  content: " ";
-  position: absolute;
-  background: #3d91ef;
-  height: 4px;
-  width: 100%;
-  margin-top: 35px;
 }
