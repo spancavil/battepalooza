@@ -1,0 +1,19 @@
+.order {
+  cursor: pointer;
+  transition-duration: 0.5s;
+  padding: 5px 0;
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+
+  span {
+    font-weight: 300;
+    color: white;
+    font-family: "Rubik";
+    width: 100%;
+  }
+}
+
+.order:hover {
+  width: 100%;
+  background-color: #212739;
+}
