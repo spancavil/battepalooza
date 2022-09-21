@@ -66,6 +66,7 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      overflow: visible;
 
       .descBuy {
         font-size: 14px;
@@ -82,25 +83,32 @@
         border-radius: 4px;
         cursor: pointer;
       }
+      .selectContainer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        overflow: visible;
 
-      .buyNcoin {
-        cursor: pointer;
-        background-color: transparent;
-        width: 100%;
-        height: 48px;
-        border: 2px solid #ffffff;
-        border-radius: 4px;
-        font-weight: 600;
-        font-size: 16px;
-        color: white;
-        font-family: "Rubik";
-        background-color: transparent;
-      }
-
-      .buyNcoin:hover {
-        transition-duration: 0.3s;
-        background-color: white;
-        color: black;
+        .buyNcoin {
+          cursor: pointer;
+          background-color: transparent;
+          width: 100%;
+          height: 48px;
+          border: 2px solid #ffffff;
+          border-radius: 4px;
+          font-weight: 600;
+          font-size: 16px;
+          color: white;
+          font-family: "Rubik";
+          background-color: transparent;
+        }
+  
+        .buyNcoin:hover {
+          transition-duration: 0.3s;
+          background-color: white;
+          color: black;
+        }
       }
     }
   }

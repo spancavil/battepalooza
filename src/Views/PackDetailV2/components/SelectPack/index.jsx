@@ -3,13 +3,12 @@ import OrdersIcon from "../../../../Assets/svg/OrdersIcon";
 import Order from "./Order";
 import styles from "./styles.module.scss";
 
-const SelectPack = ({ packs, setPackQuantity }) => {
-    const [title, setTitle] = useState(null);
+const SelectPack = ({ packs, setPackQuantity, packQuantity }) => {
+
     const [hideOrderBy, setHideOrderBy] = useState(true);
 
     const handleChange = (value) => {
-        console.log(value);
-        setTitle(value);
+        setPackQuantity(value)
     };
 
     return (
@@ -23,7 +22,7 @@ const SelectPack = ({ packs, setPackQuantity }) => {
                         hideOrderBy ? styles.orderClose : styles.orderOpen
                     }
                 >
-                    <span>{title ? title : packs[0]}</span>
+                    <span>{packQuantity}</span>
                     <OrdersIcon />
                 </div>
                 {!hideOrderBy && (

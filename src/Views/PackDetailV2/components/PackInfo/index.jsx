@@ -1,27 +1,24 @@
-import { UserData } from "../../../../Context/UserProvider";
+// import { UserData } from "../../../../Context/UserProvider";
 import { useContext, useState, Fragment } from "react";
 
-import checkErrorMiddleware from "../../../../Utils/checkErrorMiddleware";
-import walletService from "../../../../Services/wallet.service";
+// import checkErrorMiddleware from "../../../../Utils/checkErrorMiddleware";
+// import walletService from "../../../../Services/wallet.service";
 import NftCard from "../../../../Global-Components/NftCard";
 
 import styles from "./styles.module.scss";
-import fireToast, {
-    fireAlert,
-    fireAlertAsync,
-} from "../../../../Utils/sweetAlert2";
-import { useHistory } from "react-router-dom";
+
+// import { useHistory } from "react-router-dom";
 import SelectPack from "../SelectPack";
 import { PackData } from "../../../../Context/PackProvider";
 import ButtonRounded from "../../../../Global-Components/ButtonRounded";
 
 export const PackInfo = ({ pack, setCheckoutNCoin }) => {
-    const { userData } = useContext(UserData);
+    // const { userData } = useContext(UserData);
     const { PACKS_AVAILABLE_TO_BUY } = useContext(PackData);
 
-    const [packQuantity, setPackQuantity] = useState(1);
+    const [packQuantity, setPackQuantity] = useState('x1');
 
-    const history = useHistory();
+    // const history = useHistory();
 
     const nftsTest = [
         {
@@ -106,7 +103,7 @@ export const PackInfo = ({ pack, setCheckoutNCoin }) => {
         setCheckoutNCoin(true);
     };
 
-    const getTransactions = async () => {
+    /* const getTransactions = async () => {
         const response = await walletService.getWalletCryptoTransactions(
             userData.bpToken,
             userData.pid
@@ -136,9 +133,9 @@ export const PackInfo = ({ pack, setCheckoutNCoin }) => {
             await fireAlertAsync("No transactions registered", "", "500px");
             history.push("/");
         }
-    };
+    }; */
 
-    const handleBuy = async () => {
+    /* const handleBuy = async () => {
         if (Object.keys(userData).length !== 0) {
             try {
                 const response = await walletService.getWalletToken(
@@ -171,7 +168,7 @@ export const PackInfo = ({ pack, setCheckoutNCoin }) => {
         } else {
             fireToast("Need login", 1200, "300px");
         }
-    };
+    }; */
 
     return (
         <div className={styles.packInfo}>
@@ -216,11 +213,23 @@ export const PackInfo = ({ pack, setCheckoutNCoin }) => {
                     Buy
                 </button> */}
                 <div className={styles.selectContainer}>
-                  <SelectPack
-                      packs={PACKS_AVAILABLE_TO_BUY}
-                      setPackQuantity={setPackQuantity}
-                  />
-                  <ButtonRounded title={"BUY WITH NCOINS"} onClick={handleBuyNCoins} color="blue" additionalStyles={{color: "black", backgroundColor: "#1892f0", height: "48px", fontSize: "14px", width: '100%'}}/>
+                    <SelectPack
+                        packs={PACKS_AVAILABLE_TO_BUY}
+                        setPackQuantity={setPackQuantity}
+                        packQuantity={packQuantity}
+                    />
+                    <ButtonRounded
+                        title={"BUY WITH NCOINS"}
+                        onClick={handleBuyNCoins}
+                        color="blue"
+                        additionalStyles={{
+                            color: "black",
+                            backgroundColor: "#1892f0",
+                            height: "48px",
+                            fontSize: "14px",
+                            width: "100%",
+                        }}
+                    />
                 </div>
             </div>
         </div>
