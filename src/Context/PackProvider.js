@@ -18,6 +18,8 @@ const PackDataProvider = ({ children }) => {
   const [packData, setPackData] = useState(null);
   const [txResult, setTxResult] = useState({});
 
+  const PACKS_AVAILABLE_TO_BUY = ['x1', 'x3', 'x5'];
+
   const setPack = (pack) => {
     setPackSelected(pack);
   };
@@ -113,7 +115,7 @@ const PackDataProvider = ({ children }) => {
 
   return (
     <PackData.Provider
-      value={{ setPack, setPackForOpen, setTxResultPackBuy, packs, packSelected, packToOpen, packData, txResult }}
+      value={{ setPack, setPackForOpen, setTxResultPackBuy, packs, packSelected, packToOpen, packData, txResult, PACKS_AVAILABLE_TO_BUY }}
     >
       {children}
     </PackData.Provider>

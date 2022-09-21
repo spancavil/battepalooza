@@ -1,0 +1,22 @@
+.order {
+  cursor: pointer;
+  transition-duration: 0.5s;
+  padding: 5px 0;
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+
+  span {
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 16px;
+    line-height: 19px;
+    color: white;
+    font-family: "Rubik";
+    width: 100%;
+  }
+}
+
+.order:hover {
+  width: 100%;
+  background-color: #212739;
+}
