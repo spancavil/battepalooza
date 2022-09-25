@@ -21,8 +21,6 @@ const Packs = () => {
         history.push(`/packs/${packData?.packInfo?.id}`);
     };
 
-    console.log("Se actualiza packs");
-
     return (
         <Background>
             <section className={styles.packsSection}>
