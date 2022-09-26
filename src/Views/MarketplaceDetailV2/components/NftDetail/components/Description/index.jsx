@@ -70,23 +70,28 @@ const Description = ({ chosenNft }) => {
             .split("\\n")
             .map((texto, i) => <Fragment key={i}>{texto}</Fragment>)}
       </p>
-      <div className={styles.line} />
-      <ButtonRounded
-        title={`BUY ${chosenNft?.price} NCoins`}
-        onClick={() => console.log("BUY")}
-        color="blue"
-        additionalStyles={{
-          color: "black",
-          backgroundColor: "#1892f0",
-          height: "48px",
-          fontSize: "14px",
-          width: "100%",
-        }}
-      />
-      <div className={styles.feeAndSeller}>
-        <span>Fee: ?</span>
-        <span>Seller: {chosenNft?.sellerName}</span>
-      </div>
+
+      {chosenNft?.price && (
+        <>
+          <div className={styles.line} />
+          <ButtonRounded
+            title={`BUY ${chosenNft?.price} NCoins`}
+            onClick={() => console.log("BUY")}
+            color="blue"
+            additionalStyles={{
+              color: "black",
+              backgroundColor: "#1892f0",
+              height: "48px",
+              fontSize: "14px",
+              width: "100%",
+            }}
+          />
+          <div className={styles.feeAndSeller}>
+            <span>Fee: ?</span>
+            <span>Seller: {chosenNft?.sellerName}</span>
+          </div>
+        </>
+      )}
     </div>
   );
 };

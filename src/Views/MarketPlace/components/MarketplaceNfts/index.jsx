@@ -245,7 +245,7 @@ const MarketplaceNfts = ({
                     key={nft.uniqueId}
                     nft={nft}
                     tilt={tilts[indice]}
-                    onClick={handleDetail}
+                    onClick={() => handleDetail(nft?.uniqueId, nft?.sellerPid)}
                     withPrice
                   />
                 );

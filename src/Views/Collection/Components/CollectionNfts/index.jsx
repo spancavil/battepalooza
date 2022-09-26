@@ -47,8 +47,6 @@ const CollectionNfts = ({
     repIdStatic
   );
 
-  console.log({ loadingUserCollection });
-
   const [nftsFiltered, setNftFiltered] = useState([]);
   const [nftOrdered, setNftOrdered] = useState([]);
 
@@ -212,6 +210,8 @@ const CollectionNfts = ({
 
   const max = nftCollectionModified.length / xPage;
 
+  console.log(nftsFiltered)
+
   return (
     <div className={styles.cardsContainer}>
       <h3 className={styles.title}>{nftsFiltered?.length} NFTs</h3>
@@ -228,7 +228,7 @@ const CollectionNfts = ({
                   key={nft.uniqueId}
                   nft={nft}
                   tilt={tilts[indice]}
-                  onClick={onClick}
+                  onClick={() => onClick(nft?.uuid)}
                 />
               );
             })}

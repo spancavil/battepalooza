@@ -1,41 +1,47 @@
+import { useContext, useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { NftData } from "../../Context/NftProvider";
 import Background from "../../Global-Components/Background";
+import useModifyDetail from "../../Hooks/useModifyDetail";
+import marketService from "../../Services/market.service";
+import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import NftDetail from "./components/NftDetail";
 
 const MarketplaceDetailV2 = () => {
-  /*   const [nft, setNft] = useState ({});
-  const [checkout, setCheckout] = useState (false); */
-  /*   const [proccesing, setProccesing] = useState (false);
-  const [buyComplete, setBuyComplete] = useState (false); */
-  /*   const [listing, setListing] = useState(false); */
+  const history = useHistory();
 
-  /*   const setBuy = (nftSelected) => {
-    if (listing) {
-      setListing(false);
-    }
-    setNft(nftSelected);
-    setCheckout(true);
-  }; */
+  const [chosenNftRaw, setChosenNftRaw] = useState({});
+  const { nftId } = useParams();
 
-  /*   const setNftListing = (nftSelected) => {
-    setNft(nftSelected);
-    setListing(true);
-  }; */
+  let nftSplitted = nftId.split("-");
+  const uid = nftSplitted[0];
+  const seller = nftSplitted[1];
 
-  /*   const proccessingComplete = () => {
-    setCheckout (false);
-    setProccesing (false);
-    setBuyComplete (true);
-  };
+  const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
+    useContext(NftData);
 
-  const handleReload = (destiny) => {
-    setReloadMarket(value => !value)
-    setReloadCollection(value => !value)
-    history.push(`/${destiny}`)
-  } */
+  useEffect(() => {
+    (async () => {
+      const response = await marketService.getNftMarketplaceDetail(seller, uid);
+      const canContinue = checkErrorMiddleware(response, history);
+      if (canContinue) {
+        setChosenNftRaw(response.product);
+      }
+    })();
+  }, [uid, seller, history]);
+
+  const chosenNft = useModifyDetail(
+    chosenNftRaw,
+    nftStatic,
+    clanStatic,
+    rarityStatic,
+    repIdStatic,
+    premiumStatic
+  );
 
   return (
     <Background>
-      <NftDetail />
+      <NftDetail goBack="/marketplace" chosenNft={chosenNft} />
     </Background>
   );
 };
