@@ -1,9 +1,8 @@
-import { useEffect, useContext, useState, useMemo } from "react";
+import { useEffect, useContext, useState, createRef } from "react";
 import Pack from "../../../../Assets/img/pack1.png";
 import { PackData } from "../../../../Context/PackProvider";
 import styles from "./styles.module.scss";
 import { getDaysMinutesSeconds } from "../../../../Utils/createDate";
-import { createRef } from "react/cjs/react.production.min";
 
 export const FirstPack = ({ onClick }) => {
     const { packData } = useContext(PackData);
@@ -13,13 +12,10 @@ export const FirstPack = ({ onClick }) => {
 
     useEffect(() => {
         if (timer.message !== "" && count === 0) {
-            console.log("Entra aquí");
             setCount(count+1);
             setTimerRefs(timer.message.split(":").map(() => createRef()))
         }
     }, [timer, count, setCount]);
-
-    console.log(timerRefs);
 
     useEffect(() => {
         let interval;
@@ -50,7 +46,7 @@ export const FirstPack = ({ onClick }) => {
                 <div className={styles.time}>
                     <div className={styles.messageSeparator}>
                         {timerFragments?.map((time, index) => {
-                            if (index !== 2)
+                            if (index !== 3)
                                 return (
                                     <>
                                         <p key={time} ref= {timerRefs[index]}>{time}</p>
@@ -62,9 +58,9 @@ export const FirstPack = ({ onClick }) => {
                     </div>
                     <div className={styles.messageSeparator2}>
                         <span style={{ width: timerRefs[0]?.current?.offsetWidth }}>DAYS</span>
-                        <span style={{ width:  timerRefs[1]?.current?.offsetWidth, margin: '0 10px 0 20px'}}>HRS</span>
+                        <span style={{ width:  timerRefs[1]?.current?.offsetWidth, margin: '0 10px 0 25px'}}>HRS</span>
                         <span style={{ width: timerRefs[2]?.current?.offsetWidth, margin: '0 10px'}}>MINS</span>
-                        <span style={{ width: timerRefs[0]?.current?.offsetWidth, margin: '0 10px'}}>SEC</span>
+                        <span style={{ width: '30px', margin: '0 0 0 10px'}}>SEC</span>
                     </div>
                 </div>
                 <div className={styles.desc}>

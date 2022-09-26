@@ -37,16 +37,36 @@
       font-family: "Rubik";
   
       .time {
-        p {
-          font-weight: 700;
-          font-size: 32px;
+        .messageSeparator{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          p {
+            font-weight: 700;
+            font-size: 32px;
+            text-align: center;
+          }
+          h4 {
+            padding: 0 5px;
+            font-weight: 700;
+            font-size: 32px;
+            text-align: center;
+          }
         }
+        .messageSeparator2{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          span {
+            padding-right: 10px;
+            font-weight: 300;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+          }
+        }
+      }
   
-        span {
-          font-weight: 300;
-          font-size: 14px;
-          word-spacing: 18px;
-        }
       }
   
       .desc {
@@ -62,7 +82,7 @@
         }
       }
     }
-  }
+  
   
   .firstPack:hover {
     .imgContainer {

@@ -18,7 +18,7 @@ const PackDataProvider = ({ children }) => {
   const [packData, setPackData] = useState(null);
   const [txResult, setTxResult] = useState({});
 
-  const PACKS_AVAILABLE_TO_BUY = ['x1', 'x3', 'x5'];
+  const PACKS_AVAILABLE_TO_BUY = ['x1', 'x5', 'x10'];
 
   const setPack = (pack) => {
     setPackSelected(pack);

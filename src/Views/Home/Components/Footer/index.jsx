@@ -5,6 +5,7 @@ import bearX from "../../../../Assets/img/bearx.png";
 import { useHistory } from "react-router";
 
 import styles from "./styles.module.scss";
+import ForteLogo from "../../../../Assets/svg/ForteLogo";
 
 const Footer = () => {
   const history = useHistory();
@@ -135,6 +136,11 @@ const Footer = () => {
                 alt="nWay Logo"
                 data-pagespeed-url-hash="3262642918"
               />
+              <div
+                className={styles.forteLogo}
+              >
+                <ForteLogo/>
+              </div>
             </div>
 
             <div className={styles.widget}>

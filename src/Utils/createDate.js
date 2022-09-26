@@ -38,8 +38,13 @@ export const getDaysMinutesSeconds = (startTime, endTime) => {
         const hoursLeftDecimal = (hours) % 1;
 
         const minutesLeft = Math.round(hoursLeftDecimal * 60);
+
+        const minutes = hoursLeftDecimal * 60;
+        const minutesLeftDecimal = minutes % 1;
+
+        const secondsLeft = Math.round(minutesLeftDecimal * 60);
         
-        const message = `Available in: ${daysLeft}d:${hoursLeft}h:${minutesLeft}m`
+        const message = `Available in: ${daysLeft}:${hoursLeft}:${minutesLeft}: ${secondsLeft}`
         return ({state, message})
     }
 
@@ -56,9 +61,13 @@ export const getDaysMinutesSeconds = (startTime, endTime) => {
         //Parte decimal de hoursLeft
         const hoursLeftDecimal = (hours) % 1;
 
+        const minutes = hoursLeftDecimal * 60;
         const minutesLeft = Math.round(hoursLeftDecimal * 60);
+        const minutesLeftDecimal = minutes % 1;
 
-        const message = `${daysLeft}:${hoursLeft}:${minutesLeft}`;
+        const secondsLeft = Math.round(minutesLeftDecimal * 60).toLocaleString('en-US', {minimumIntegerDigits: 2});
+
+        const message = `${daysLeft}:${hoursLeft}:${minutesLeft}:${secondsLeft}`;
         return ({state, message});
 
     }
