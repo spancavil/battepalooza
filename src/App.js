@@ -3,9 +3,7 @@ import { useContext } from "react";
 import { UserData } from "./Context/UserProvider";
 
 import HomeContainer from "./Views/Home";
-/* import NavBar from "./Views/Navbar"; */
 import Error404 from "./Views/Error404";
-// import SignUp from "./Views/SignUp";
 import SignUp2 from "./Views/Signup2";
 import Verification from "./Views/Verification";
 import NeedLogin from "./Views/NeedLogin";
@@ -14,19 +12,20 @@ import CollectionDetail from "./Views/CollectionDetail";
 import Privacy from "./Views/PrivacyAndTerms/Privacy";
 import TermsOfUse from "./Views/PrivacyAndTerms/TermsOfUse";
 import MarketPlace from "./Views/MarketPlace";
-import MarketplaceDetail from "./Views/MarketplaceDetail";
+/* import MarketplaceDetail from "./Views/MarketplaceDetail"; */
 import Drop from "./Views/Drop";
 import DropDetail from "./Views/DropDetail";
 import Profile from "./Views/Account";
 import TradeHistory from "./Views/TradeHistory";
 import Packs from "./Views/Packs";
 import OpenPack from "./Views/OpenPack";
-
-
-import "./Styles/Global.scss";
 import Auth from "./Views/Auth";
 import PackDetailV2 from "./Views/PackDetailV2";
 import Navbar from "./Global-Components/Navbar";
+
+
+import "./Styles/Global.scss";
+import MarketplaceDetailV2 from "./Views/MarketplaceDetailV2";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
@@ -57,10 +56,9 @@ function App() {
         <Route exact path="/privacy-policy" component={Privacy} />
         <Route exact path="/terms-of-service" component={TermsOfUse} />
         <Route exact path="/marketplace" component={MarketPlace} />
-        <Route exact path="/marketplace/:nftId" component={MarketplaceDetail} />
+        <Route exact path="/marketplace/:nftId" component={MarketplaceDetailV2} />
         <Route exact path="/packs" component={Packs} />
         <Route exact path="/packs/:id" component={PackDetailV2} />
-        {/* <Route exact path="/join-drop" component={JoinDrop} /> */}
         <Route exact path="/open-pack" component={OpenPack} />
         <Route path="" component={Error404} />
       </Switch>
