@@ -13,6 +13,7 @@ import Pagination from "../Pagination";
 import VanillaTilt from "vanilla-tilt";
 import useModifyList from "../../../../Hooks/useModifyList";
 import Loader from "../../../../Global-Components/Loader";
+import NftCard from "../../../../Global-Components/NftCard";
 
 /* DOCS:
 https://github.com/gijsroge/tilt.js
@@ -213,6 +214,7 @@ const CollectionNfts = ({
 
   return (
     <div className={styles.cardsContainer}>
+      <h3 className={styles.title}>{nftsFiltered?.length} NFTs</h3>
       {nftsFiltered.length > 0 && loadingUserCollection === false && (
         <div className={styles.cards}>
           {nftsFiltered
@@ -222,45 +224,12 @@ const CollectionNfts = ({
               const indice = nftsFiltered?.indexOf(nft);
               return (
                 /* Aqui el div apunta a su referencia correspondiente */
-                <div
-                  key={nft.uuid}
-                  className={
-                    nft.rarity === "Common"
-                      ? styles.borderCommon
-                      : nft.rarity === "Rare"
-                      ? styles.borderRare
-                      : nft.rarity === "Epic"
-                      ? styles.borderEpic
-                      : styles.borderLegendary
-                  }
-                  onClick={() => onClick(nft.uuid)}
-                  ref={tilts[indice]}
-                >
-                  <div className={styles.cardNft}>
-                    {nft.salesState === 1 && (
-                      <div className={styles.sale}>Sale</div>
-                    )}
-
-                    {/* El source luego cambiara en base al asset */}
-                    <img
-                      className={styles.imgNft}
-                      src={nft.thumbnailUrl}
-                      alt="nft-thumb"
-                    />
-                    <div className={styles.texts}>
-                      <p className={styles.itemName}>{nft.itemName}</p>
-                      <p>{nft.repName}</p>
-                      <p className={styles.text2}>{nft.rarity}</p>
-                      {/* <p>#{nft.itemId}</p> */}
-                      {/* <p>
-                    gNCoin Battle Count: {nft.playCount}/{nft.maxPlayCount}
-                  </p> */}
-                      {/* {nft.salesState === 1 && (
-                    <p className={styles.price}>{nft.price} NCoin</p>
-                  )} */}
-                    </div>
-                  </div>
-                </div>
+                <NftCard
+                  key={nft.uniqueId}
+                  nft={nft}
+                  tilt={tilts[indice]}
+                  onClick={onClick}
+                />
               );
             })}
         </div>

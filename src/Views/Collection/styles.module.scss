@@ -184,21 +184,18 @@
 @media (min-width: $desktop) {
   .container {
     display: flex;
-    margin-top: 30px;
-    justify-content: space-around;
+    flex-direction: column;
 
     .nfts {
       width: 84vw;
       min-height: 300px;
-      background: linear-gradient(180deg, #041237 0%, rgba(4, 18, 55, 0) 100%);
       border: 1.5px solid;
-      border-image: linear-gradient(
-          180deg,
-          #0146d5 0%,
-          rgba(1, 70, 213, 0) 100%
-        )
-        1;
       border-bottom: none;
+    }
+
+    .subContainer {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

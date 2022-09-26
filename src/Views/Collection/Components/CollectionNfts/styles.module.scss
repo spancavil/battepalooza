@@ -331,153 +331,23 @@
   .cardsContainer {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: 20px;
 
-    a {
-      width: 0;
-    }
-
-    .borderCommon {
-      width: 215px;
-      height: 320px;
-      background: linear-gradient(
-        819deg,
-        #6c6c6c 6.25%,
-        #c5c5c5 52.19%,
-        #6c6c6c 92.72%
-      );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-    }
-
-    .borderRare {
-      width: 215px;
-      height: 320px;
-      background: linear-gradient(
-        81.09deg,
-        #a78043 6.25%,
-        #fef7eb 52.19%,
-        #8a6a2e 92.72%
-      );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-    }
-
-    .borderEpic {
-      width: 215px;
-      height: 320px;
-      background: linear-gradient(
-        156.45deg,
-        #ecafef 0%,
-        #ff0079 25.52%,
-        #b53067 67.71%,
-        #8343a8 100%
-      );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-    }
-
-    .borderLegendary {
-      width: 215px;
-      height: 320px;
-      background: linear-gradient(
-        153.06deg,
-        #1bfcfd -0.31%,
-        #0ca5d2 49.17%,
-        #033060 80.94%,
-        #14c5d5 99.69%
-      );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
+    .title {
+      padding-top: 30px;
+      padding-left: 30px;
+      color: white;
+      font-family: "Rubik";
+      font-size: 22px;
     }
 
     .cards {
-      margin-top: 30px;
       padding: 0px 30px;
       display: grid;
-      justify-content: space-evenly;
-      grid-template-columns: repeat(4, 0fr);
-      grid-column-gap: 75px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: 30px;
       grid-row-gap: 30px;
       overflow: visible;
-
-      .sale {
-        background-color: $secondary-blue;
-        width: 53px;
-        height: 53px;
-        border-radius: 50px;
-        font-family: $font-nasalization;
-        font-size: 15px;
-        color: white;
-        position: absolute;
-        top: -15px;
-        right: -15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
-
-      .cardNft {
-        cursor: pointer;
-        overflow: visible;
-        position: relative;
-        height: 305px;
-        width: 200px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #030b23;
-        border-radius: 3px;
-        justify-content: left;
-        grid-gap: 20px;
-        gap: 20px;
-        justify-content: center;
-        padding-bottom: 20px;
-      }
-
-      .imgNft {
-        width: 200px;
-        background-color: black;
-      }
-
-      .texts {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-
-        .itemName {
-          font-size: 18px;
-          padding: 0px 15px;
-          text-align: center;
-          color: white;
-          font-family: "Nasalization";
-        }
-
-        p {
-          font-size: 11px;
-          padding: 0px 15px;
-          text-align: center;
-          color: white;
-          font-family: "Nasalization";
-        }
-
-        .price {
-          color: $logout;
-        }
-
-        .text2 {
-          color: $account-name;
-        }
-      }
     }
   }
 }
