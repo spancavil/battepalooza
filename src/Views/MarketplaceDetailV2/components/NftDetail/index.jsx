@@ -12,13 +12,10 @@ import Abilities from "./components/Abilities";
 import P2eInfo from "./components/P2eInfo";
 import Generations from "./components/Generations";
 
-const NftDetail = ({ nfts, setNft, setNftListing }) => {
+const NftDetail = () => {
   const history = useHistory();
 
   const [chosenNftRaw, setChosenNftRaw] = useState({});
-/*   const [loading, setLoading] = useState(false);
-  const [premium, setPremium] = useState(false);
-  const [position, setPosition] = useState({ positionX: "", positionY: "" }); */
   const { nftId } = useParams();
 
   let nftSplitted = nftId.split("-");
@@ -27,7 +24,6 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
 
   const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
     useContext(NftData);
- /*  const { userData } = useContext(UserData); */
 
   useEffect(() => {
     (async () => {
@@ -38,27 +34,6 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
       }
     })();
   }, [uid, seller, history]);
-
-/*   useEffect(() => {
-    setLoading(true);
-  }, []); */
-
-/*   const handleBuy = () => {
-    if (Object.keys(userData).length !== 0) {
-      setNft(chosenNft);
-      sendAmplitudeData("Buy request Marketplace");
-    } else {
-      fireToast("Need login", 1200, "300px");
-    }
-  }; */
-
-/*   const handleShowPremium = (e) => {
-    console.log(e);
-    setPosition({
-      positionY: e.nativeEvent.offsetY,
-    });
-    setPremium(true);
-  }; */
 
   const chosenNft = useModifyDetail(
     chosenNftRaw,
@@ -81,7 +56,7 @@ const NftDetail = ({ nfts, setNft, setNftListing }) => {
           </div>
           <div className={styles.nftData}>
             <Description chosenNft={chosenNft} />
-            <Stats chosenNft={chosenNft} />
+            {chosenNft?.type === 1 && <Stats chosenNft={chosenNft} />}
             <Abilities chosenNft={chosenNft} />
             <P2eInfo chosenNft={chosenNft} />
             <Generations />

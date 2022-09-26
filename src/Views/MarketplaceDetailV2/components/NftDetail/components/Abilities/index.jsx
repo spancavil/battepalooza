@@ -2,15 +2,12 @@ import styles from "./styles.module.scss";
 
 const Abilities = ({ chosenNft }) => {
   const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
-  console.log(chosenNft?.premiumBuff);
 
   return (
     <div className={styles.abilities}>
       <h4>Abilities</h4>
       <p className={styles.description}>
-        Multiple Attack - Stack Charging Dash Attack - Stun:Dashes during an
-        attack dealing damage to all targets in its way. Consecutive attacks do
-        more damage.
+        {chosenNft?.ability?.text}
       </p>
       <h4>Buff information</h4>
       <div className={styles.abilitiesItems}>

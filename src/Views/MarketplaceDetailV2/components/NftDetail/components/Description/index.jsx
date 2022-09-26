@@ -5,6 +5,7 @@ import EpicIcon from "../../../../../../Assets/img/EpicIcon.png";
 import ButtonRounded from "../../../../../../Global-Components/ButtonRounded";
 
 import styles from "./styles.module.scss";
+import { Fragment } from "react";
 
 const Description = ({ chosenNft }) => {
   const getNftRarity = () => {
@@ -60,12 +61,14 @@ const Description = ({ chosenNft }) => {
     <div className={styles.first}>
       <div className={setRarityCard(chosenNft?.rarity)}>{getNftRarity()}</div>
       <div className={styles.title}>
-        <h3>Crimson Seer</h3>
-        <span>[Slayer]</span>
+        <h3>{chosenNft?.itemName}</h3>
+        <span>[{chosenNft?.repName}]</span>
       </div>
       <p className={styles.description}>
-        The power of the Slayer varies depending on the user. It is said that in
-        the past wars, warriors called war ghosts used them.
+        {chosenNft?.storyText &&
+          chosenNft?.storyText
+            .split("\\n")
+            .map((texto, i) => <Fragment key={i}>{texto}</Fragment>)}
       </p>
       <div className={styles.line} />
       <ButtonRounded
@@ -81,8 +84,8 @@ const Description = ({ chosenNft }) => {
         }}
       />
       <div className={styles.feeAndSeller}>
-        <span>Fee: XXXXXXXXXXX</span>
-        <span>Seller: XXXXXXXXXXX</span>
+        <span>Fee: ?</span>
+        <span>Seller: {chosenNft?.sellerName}</span>
       </div>
     </div>
   );
