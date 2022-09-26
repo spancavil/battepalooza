@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import AnimocaLogo from "../../Assets/img/animocaLogo.png";
 import NwayLogo from "../../Assets/img/nWayLogo.png";
+import ForteLogo from "../../Assets/svg/ForteLogo";
 
 import {
   FacebookLogo,
@@ -39,6 +40,11 @@ const Footer = () => {
           <div className={styles.logos}>
             <img src={AnimocaLogo} alt="Animoca Logo" />
             <img src={NwayLogo} alt="nWay Logo" />
+            <div
+                className={styles.forteLogo}
+              >
+                <ForteLogo/>
+            </div>
           </div>
           <p>2020 nWay - All Rights Reserved.</p>
           <p>

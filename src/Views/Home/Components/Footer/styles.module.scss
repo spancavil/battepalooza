@@ -677,7 +677,8 @@
 
           .brands {
             font-family: $font-route159;
-            display: block;
+            display: flex;
+            justify-content: center;
             text-decoration: none;
             color: white;
 
@@ -685,6 +686,16 @@
               padding: 55px 20px 20px;
               max-width: 200px;
               border: 0;
+            }
+            .forteLogo {
+              padding: 55px 20px 20px;
+              max-width: 260px;
+              display: flex;
+              margin-left: -40px;
+              svg{
+                height: 90px;
+                transform: scale(0.7);
+              }
             }
           }
 
@@ -753,4 +764,5 @@
     cursor: pointer;
     text-decoration: underline;
   }
+
 }

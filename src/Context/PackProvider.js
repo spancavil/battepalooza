@@ -18,7 +18,7 @@ const PackDataProvider = ({ children }) => {
   const [packData, setPackData] = useState(null);
   const [txResult, setTxResult] = useState({});
 
-  const PACKS_AVAILABLE_TO_BUY = ['x1', 'x3', 'x5'];
+  const PACKS_AVAILABLE_TO_BUY = ['x1', 'x5', 'x10'];
 
   const setPack = (pack) => {
     setPackSelected(pack);
@@ -96,11 +96,8 @@ const PackDataProvider = ({ children }) => {
       //Get user collection
       try {
         if (Object.keys(userData).length !== 0) {
-          console.log("Entra en user data");
           const packData = await packService.getNftPackInfo(userData.pid)
-          console.log(packData);
           if (packData?.error?.num === 0) {
-            console.log("Entra a packData");
             setPackData(packData)
           } else {
             fireAlert("Oops, an error ocurred", packData?.error?.message, "500px");
