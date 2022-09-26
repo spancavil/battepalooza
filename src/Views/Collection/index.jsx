@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Background from "../../Global-Components/Background";
+import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import marketService from "../../Services/market.service";
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import { fireAlertAsync } from "../../Utils/sweetAlert2";
 import { LeftMenu } from "../MarketPlace/components/LeftMenu";
+import { UpMenu } from "../MarketPlace/components/UpMenu";
 import { CLONE_COUNT, TYPE_NFT } from "../MarketPlace/Constants";
 import CollectionNfts from "./Components/CollectionNfts";
 import styles from "./styles.module.scss";
@@ -14,8 +16,10 @@ const Collection = () => {
   const [page, setPage] = useState(1);
   const [xPage, setxPage] = useState(25);
   const [input, setInput] = useState(1);
+  const [orderBy, setOrderBy] = useState({});
   const [activeFilters, setActiveFilters] = useState(0);
 
+  const desktop = useMediaQuery("(min-width: 1200px)");
   const history = useHistory();
 
   useEffect(() => {
@@ -75,24 +79,33 @@ const Collection = () => {
   return (
     <Background>
       <div className={styles.container}>
-        <LeftMenu
-          resetFilters={resetFilters}
-          setInput={setInput}
-          setPage={setPage}
+        <UpMenu
           filters={filters}
           setFilters={setFilters}
-          activeFilters={activeFilters}
+          desktop={desktop}
+          orderBy={orderBy}
+          setOrderBy={setOrderBy}
         />
-        <div className={styles.nfts}>
-          <CollectionNfts
-            filters={filters}
-            page={page}
-            setPage={setPage}
-            xPage={xPage}
-            setxPage={setxPage}
-            input={input}
+        <div className={styles.subContainer}>
+          <LeftMenu
+            resetFilters={resetFilters}
             setInput={setInput}
+            setPage={setPage}
+            filters={filters}
+            setFilters={setFilters}
+            activeFilters={activeFilters}
           />
+          <div className={styles.nfts}>
+            <CollectionNfts
+              filters={filters}
+              page={page}
+              setPage={setPage}
+              xPage={xPage}
+              setxPage={setxPage}
+              input={input}
+              setInput={setInput}
+            />
+          </div>
         </div>
       </div>
     </Background>

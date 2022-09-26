@@ -60,7 +60,7 @@ const NftCard = ({ nft, tilt, onClick, withPrice }) => {
   return (
     <div
       ref={tilt && tilt}
-      onClick={onClick && (() => onClick(nft?.uniqueId, nft?.sellerPid))}
+      onClick={onClick && (() => onClick())}
       className={setRarityCard(nft?.rarity)}
     >
       <>{getNftRarity()}</>
