@@ -95,7 +95,7 @@ const Collection = () => {
             setFilters={setFilters}
             activeFilters={activeFilters}
           />
-          <div className={styles.nfts}>
+          <div className={styles.container}>
             <CollectionNfts
               filters={filters}
               page={page}
