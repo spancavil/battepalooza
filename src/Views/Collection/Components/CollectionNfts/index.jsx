@@ -210,30 +210,32 @@ const CollectionNfts = ({
 
   const max = nftCollectionModified.length / xPage;
 
-  console.log(nftsFiltered)
+  console.log(nftsFiltered);
 
   return (
-    <div className={styles.cardsContainer}>
-      <h3 className={styles.title}>{nftsFiltered?.length} NFTs</h3>
-      {nftsFiltered.length > 0 && loadingUserCollection === false && (
-        <div className={styles.cards}>
-          {nftsFiltered
-            .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
-            .map((nft) => {
-              //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
-              const indice = nftsFiltered?.indexOf(nft);
-              return (
-                /* Aqui el div apunta a su referencia correspondiente */
-                <NftCard
-                  key={nft.uniqueId}
-                  nft={nft}
-                  tilt={tilts[indice]}
-                  onClick={() => onClick(nft?.uuid)}
-                />
-              );
-            })}
-        </div>
-      )}
+    <div className={styles.container}>
+      <div className={styles.cardsContainer}>
+        <h3 className={styles.title}>{nftsFiltered?.length} NFTs</h3>
+        {nftsFiltered.length > 0 && loadingUserCollection === false && (
+          <div className={styles.cards}>
+            {nftsFiltered
+              .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
+              .map((nft) => {
+                //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
+                const indice = nftsFiltered?.indexOf(nft);
+                return (
+                  /* Aqui el div apunta a su referencia correspondiente */
+                  <NftCard
+                    key={nft.uniqueId}
+                    nft={nft}
+                    tilt={tilts[indice]}
+                    onClick={() => onClick(nft?.uuid)}
+                  />
+                );
+              })}
+          </div>
+        )}
+      </div>
 
       {loadingUserCollection === true && (
         <div className={styles.loadingContainer}>

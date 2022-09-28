@@ -6,43 +6,10 @@
     display: flex;
     flex-direction: column;
 
-    .searchContainer {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 24px;
-      overflow: visible;
-      position: relative;
-
-      .searchAndOrder {
-        position: absolute;
-        right: 20px;
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        overflow: visible;
-      }
-    }
-
     .subContainer {
       display: flex;
       flex-direction: column;
       margin-top: 25px;
-
-      .filtersAndOrder {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        .filtersCount {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          padding: 10px;
-        }
-      }
 
       .products {
         display: flex;
@@ -58,42 +25,9 @@
     display: flex;
     flex-direction: column;
 
-    .searchContainer {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 24px;
-      overflow: visible;
-      position: relative;
-
-      .searchAndOrder {
-        position: absolute;
-        right: 20px;
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        overflow: visible;
-      }
-    }
-
     .subContainer {
       display: flex;
       justify-content: space-between;
-
-      .filtersAndOrder {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        .filtersCount {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          padding: 10px;
-        }
-      }
 
       .products {
         display: flex;
