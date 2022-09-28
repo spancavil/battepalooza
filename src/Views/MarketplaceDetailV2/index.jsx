@@ -2,10 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { NftData } from "../../Context/NftProvider";
 import Background from "../../Global-Components/Background";
+import NftDetail from "../../Global-Components/NftDetail";
 import useModifyDetail from "../../Hooks/useModifyDetail";
 import marketService from "../../Services/market.service";
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
-import NftDetail from "./components/NftDetail";
+
 
 const MarketplaceDetailV2 = () => {
   const history = useHistory();

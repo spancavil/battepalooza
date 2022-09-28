@@ -1,11 +1,11 @@
-import LegendaryIcon from "../../../../../../Assets/img/LegendaryIcon.png";
-import CommonIcon from "../../../../../../Assets/img/CommonIcon.png";
-import RareIcon from "../../../../../../Assets/img/RareIcon.png";
-import EpicIcon from "../../../../../../Assets/img/EpicIcon.png";
-import ButtonRounded from "../../../../../../Global-Components/ButtonRounded";
+import LegendaryIcon from "../../../../Assets/img/LegendaryIcon.png";
+import CommonIcon from "../../../../Assets/img/CommonIcon.png";
+import RareIcon from "../../../../Assets/img/RareIcon.png";
+import EpicIcon from "../../../../Assets/img/EpicIcon.png";
 
 import styles from "./styles.module.scss";
 import { Fragment } from "react";
+import ButtonRounded from "../../../ButtonRounded";
 
 const Description = ({ chosenNft }) => {
   const getNftRarity = () => {

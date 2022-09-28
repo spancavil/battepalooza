@@ -1,11 +1,12 @@
 import styles from "./styles.module.scss";
-import StatusBar from "../../../../../../Global-Components/StatusBar";
 
-import HP from "../../../../../../Assets/img/Sprite_Icon_Stat_01.png";
-import ENERGY from "../../../../../../Assets/img/Sprite_Icon_Stat_02.png";
-import SPEED from "../../../../../../Assets/img/Sprite_Icon_Stat_04.png";
-import { NftData } from "../../../../../../Context/NftProvider";
+import HP from "../../../../Assets/img/Sprite_Icon_Stat_01.png";
+import ENERGY from "../../../../Assets/img/Sprite_Icon_Stat_02.png";
+import SPEED from "../../../../Assets/img/Sprite_Icon_Stat_04.png";
+
 import { useContext } from "react";
+import { NftData } from "../../../../Context/NftProvider";
+import StatusBar from "../../../StatusBar";
 
 const Stats = ({ chosenNft }) => {
   const { characterMaxStats } = useContext(NftData);

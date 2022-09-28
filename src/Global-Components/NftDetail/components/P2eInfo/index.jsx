@@ -1,9 +1,9 @@
 import styles from "./styles.module.scss";
-import SERIAL from "../../../../../../Assets/img/Sprite_Icon_Premium_02.png";
-import BATTLECOUNT from "../../../../../../Assets/img/Sprite_Icon_Premium_03.png";
-import BONUS from "../../../../../../Assets/img/Sprite_Icon_Premium_04.png";
-import COPY from "../../../../../../Assets/img/Sprite_Icon_Premium_05.png";
-import DAILY from "../../../../../../Assets/img/Sprite_Icon_Reward_35.png";
+import SERIAL from "../../../../Assets/img/Sprite_Icon_Premium_02.png";
+import BATTLECOUNT from "../../../../Assets/img/Sprite_Icon_Premium_03.png";
+import BONUS from "../../../../Assets/img/Sprite_Icon_Premium_04.png";
+import COPY from "../../../../Assets/img/Sprite_Icon_Premium_05.png";
+import DAILY from "../../../../Assets/img/Sprite_Icon_Reward_35.png";
 
 const P2eInfo = ({ chosenNft }) => {
   console.log(chosenNft);

@@ -1,11 +1,12 @@
-import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
-import Description from "./components/Description";
+
+import Loader from "../Loader";
 import Stats from "./components/Stats";
-import Abilities from "./components/Abilities";
 import P2eInfo from "./components/P2eInfo";
-import Generations from "./components/Generations";
-import Loader from "../../../../Global-Components/Loader";
+import Abilities from "./components/Abilities";
+import Description from "./components/Description";
+
+import styles from "./styles.module.scss";
 
 const NftDetail = ({ chosenNft, goBack }) => {
   return (
@@ -24,7 +25,6 @@ const NftDetail = ({ chosenNft, goBack }) => {
               {chosenNft?.type === 1 && <Stats chosenNft={chosenNft} />}
               <Abilities chosenNft={chosenNft} />
               <P2eInfo chosenNft={chosenNft} />
-              <Generations />
             </div>
           </div>
         ) : (
