@@ -33,16 +33,16 @@ export const getDaysMinutesSeconds = (startTime, endTime) => {
         const daysDecimal = (days) % 1 
 
         const hours = daysDecimal * 24;
-        const hoursLeft = Math.floor(hours);
+        const hoursLeft = Math.floor(hours).toLocaleString('en-US', {minimumIntegerDigits: 2});
         //Parte decimal de hoursLeft
         const hoursLeftDecimal = (hours) % 1;
 
-        const minutesLeft = Math.round(hoursLeftDecimal * 60);
+        const minutesLeft = Math.round(hoursLeftDecimal * 60).toLocaleString('en-US', {minimumIntegerDigits: 2});
 
         const minutes = hoursLeftDecimal * 60;
         const minutesLeftDecimal = minutes % 1;
 
-        const secondsLeft = Math.round(minutesLeftDecimal * 60);
+        const secondsLeft = Math.round(minutesLeftDecimal * 60).toLocaleString('en-US', {minimumIntegerDigits: 2});
         
         const message = `Available in: ${daysLeft}:${hoursLeft}:${minutesLeft}: ${secondsLeft}`
         return ({state, message})
@@ -57,12 +57,12 @@ export const getDaysMinutesSeconds = (startTime, endTime) => {
         const daysDecimal = (days) % 1 
 
         const hours = daysDecimal * 24;
-        const hoursLeft = Math.floor(hours);
+        const hoursLeft = Math.floor(hours).toLocaleString('en-US', {minimumIntegerDigits: 2});
         //Parte decimal de hoursLeft
         const hoursLeftDecimal = (hours) % 1;
 
         const minutes = hoursLeftDecimal * 60;
-        const minutesLeft = Math.round(hoursLeftDecimal * 60);
+        const minutesLeft = Math.round(hoursLeftDecimal * 60).toLocaleString('en-US', {minimumIntegerDigits: 2});
         const minutesLeftDecimal = minutes % 1;
 
         const secondsLeft = Math.round(minutesLeftDecimal * 60).toLocaleString('en-US', {minimumIntegerDigits: 2});

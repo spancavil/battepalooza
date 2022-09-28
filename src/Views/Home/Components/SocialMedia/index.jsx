@@ -27,7 +27,7 @@ const SocialMedia = () => {
                 </div>
             </a>
             <a
-            href="https://discord.gg/6SKaWTtMSb"
+            href="https://discord.gg/battlepalooza"
             target="_blank"
             rel="noopener noreferrer"
             style={{overflow: "visible"}}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import AnimocaLogo from "../../Assets/img/animocaLogo.png";
 import NwayLogo from "../../Assets/img/nWayLogo.png";
+import DiscordLogo from "../../Assets/svg/DiscordLogo";
 import ForteLogo from "../../Assets/svg/ForteLogo";
 
 import {
@@ -30,6 +31,10 @@ const Footer = () => {
       icon: <YoutubeLogo />,
       href: "https://www.youtube.com/channel/UCKiNBKlBghKR9a0x-Il8WkA",
     },
+    {
+      icon: <DiscordLogo />,
+      href: "discord.gg/battlepalooza"
+    }
   ];
 
   return (
