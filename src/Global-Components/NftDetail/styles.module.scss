@@ -25,11 +25,10 @@
         align-items: center;
         justify-content: center;
 
-        img {
+        video {
           width: 90vw;
           max-width: 500px;
           height: 350px;
-
           padding: 1rem;
           background-color: black;
           object-fit: contain;
@@ -79,7 +78,7 @@
         vertical-align: top;
         width: 500px;
 
-        img {
+        video {
           width: 500px;
           height: 350px;
           position: fixed;

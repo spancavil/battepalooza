@@ -18,7 +18,14 @@ const NftDetail = ({ chosenNft, goBack }) => {
         {chosenNft?.thumbnailUrl ? (
           <div className={styles.nft}>
             <div className={styles.nftImg}>
-              <img src={chosenNft?.thumbnailUrl} alt={chosenNft?.itemName} />
+              {/* <img src={chosenNft?.thumbnailUrl} alt={chosenNft?.itemName} /> */}
+              <video
+                src={chosenNft?.movieUrl}
+                alt={chosenNft?.itemName}
+                muted
+                autoPlay
+                loop
+              />
             </div>
             <div className={styles.nftData}>
               <Description chosenNft={chosenNft} />
