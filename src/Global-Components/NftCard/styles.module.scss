@@ -7,7 +7,7 @@
   padding: 0 1rem;
   overflow: hidden;
   max-width: 350px;
-  
+
   .rarity {
     margin-top: 1.2rem;
     width: fit-content;
@@ -55,6 +55,17 @@
       font-family: "Rubik";
       padding-bottom: 1.5rem;
       font-size: 20px;
+    }
+
+    .chance {
+      width: 100%;
+      margin: 1rem;
+      font-size: 14px;
+      color: white;
+
+      b {
+        color: #a427e3;
+      }
     }
   }
 }

@@ -35,6 +35,28 @@
         grid-row-gap: 1rem;
       }
 
+      .inPack {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem 0;
+
+        h3 {
+          font-size: 28px;
+        }
+
+        .chances {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          p {
+            font-weight: 400;
+            font-size: 16px;
+          }
+        }
+      }
+
       .viewAll {
         margin: 1rem 0;
         cursor: pointer;
@@ -83,7 +105,8 @@
         border-radius: 4px;
         cursor: pointer;
       }
-      .selectContainer{
+
+      .selectContainer {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -103,7 +126,7 @@
           font-family: "Rubik";
           background-color: transparent;
         }
-  
+
         .buyNcoin:hover {
           transition-duration: 0.3s;
           background-color: white;
@@ -137,6 +160,7 @@
     color: white;
     font-family: "Rubik";
     height: 100%;
+    height: fit-content;
 
     .container {
       background: linear-gradient(180deg, #041237 0%, rgba(4, 18, 55, 0) 100%);
@@ -173,6 +197,30 @@
         grid-template-rows: 1fr;
         grid-column-gap: 1rem;
         grid-row-gap: 0px;
+      }
+
+      .inPack {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem 0;
+
+        h3 {
+          font-size: 28px;
+        }
+
+        .chances {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: 1fr;
+          grid-column-gap: 1rem;
+          grid-row-gap: 1rem;
+
+          p {
+            font-weight: bold;
+            font-size: 20px;
+          }
+        }
       }
 
       .viewAll {
@@ -226,7 +274,7 @@
         cursor: pointer;
       }
 
-      .selectContainer{
+      .selectContainer {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -246,16 +294,13 @@
           font-family: "Rubik";
           background-color: transparent;
         }
-  
+
         .buyNcoin:hover {
           transition-duration: 0.3s;
           background-color: white;
           color: black;
         }
-
       }
-
-
     }
   }
 
