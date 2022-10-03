@@ -35,6 +35,28 @@
         grid-row-gap: 1rem;
       }
 
+      .inPack {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem 0;
+
+        h3 {
+          font-size: 28px;
+        }
+
+        .chances {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          p {
+            font-weight: 400;
+            font-size: 16px;
+          }
+        }
+      }
+
       .viewAll {
         margin: 1rem 0;
         cursor: pointer;
@@ -83,7 +105,7 @@
         border-radius: 4px;
         cursor: pointer;
       }
-      
+
       .selectContainer {
         display: flex;
         flex-direction: row;
