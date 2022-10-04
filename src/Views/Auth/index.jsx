@@ -48,8 +48,7 @@ const Auth = () => {
         setCode(code);
     };
 
-    const onLogin = async (e) => {
-        e.preventDefault();
+    const onLogin = async () => {
 
         if (formSend !== true) {
             if (!/\S+@\S+\.\S+/.test(email)) {
