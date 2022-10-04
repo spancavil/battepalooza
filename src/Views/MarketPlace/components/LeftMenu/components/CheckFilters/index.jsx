@@ -1,9 +1,9 @@
-import { sliceObject } from "../../../../../../Utils/sliceObject";
+import { filterObject } from "../../../../../../Utils/objectUtilities";
 
 import styles from "./styles.module.scss";
 
-const CloningCountFilters = ({ onChange, filters }) => {
-  const filtersCloneCount = sliceObject(filters, 0, 7);
+const CheckFilters = ({ onChange, filters, filterType}) => {
+  const filtersCloneCount = filterObject(filters, filterType);
 
   return (
     <div className={styles.filters}>
@@ -24,4 +24,4 @@ const CloningCountFilters = ({ onChange, filters }) => {
   );
 };
 
-export default CloningCountFilters;
+export default CheckFilters;
