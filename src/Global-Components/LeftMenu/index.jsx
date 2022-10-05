@@ -1,4 +1,4 @@
-import DropdownSection from "../../../../Global-Components/DropdownSection";
+import DropdownSection from "../../Global-Components/DropdownSection";
 import CheckFilters from "./components/CheckFilters";
 import RarityFilters from "./components/RarityFilters";
 

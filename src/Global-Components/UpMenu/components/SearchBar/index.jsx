@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import SearchIcon from "../../../../../../Assets/svg/SearchIcon";
+import SearchIcon from "../../../../Assets/svg/SearchIcon";
 import styles from "./styles.module.scss";
 
 export const SearchBar = ({ filters, setFilters }) => {

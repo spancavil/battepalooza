@@ -1,7 +1,8 @@
-import CommonIcon from "../../../../../../Assets/img/CommonIcon.png";
-import RareIcon from "../../../../../../Assets/img/RareIcon.png";
-import EpicIcon from "../../../../../../Assets/img/EpicIcon.png";
-import LegendaryIcon from "../../../../../../Assets/img/LegendaryIcon.png";
+import CommonIcon from "../../../../Assets/img/CommonIcon.png";
+import RareIcon from "../../../../Assets/img/RareIcon.png";
+import EpicIcon from "../../../../Assets/img/EpicIcon.png";
+import LegendaryIcon from "../../../../Assets/img/LegendaryIcon.png";
+import '../../../../'
 
 import styles from "./styles.module.scss";
 
