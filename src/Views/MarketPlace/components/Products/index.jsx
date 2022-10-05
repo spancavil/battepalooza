@@ -11,6 +11,7 @@ const Products = ({
   input,
   setInput,
   orderBy,
+  filterTypes
 }) => {
   return (
     <div className={styles.container}>
@@ -24,6 +25,7 @@ const Products = ({
         setxPage={setxPage}
         input={input}
         setInput={setInput}
+        filterTypes={filterTypes}
       />
     </div>
   );

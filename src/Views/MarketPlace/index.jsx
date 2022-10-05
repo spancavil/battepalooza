@@ -25,19 +25,11 @@ const MarketPlace = () => {
     const [weapons, setWeapons] = useState(null);
     const [premiumBuffs, setPremiumBuffs] = useState(null);
 
-    const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
+    const { rarityStatic, repIdStatic, premiumStatic } =
         useContext(NftData);
 
     const desktop = useMediaQuery("(min-width: 1200px)");
     const history = useHistory();
-
-    console.log(
-        nftStatic,
-        clanStatic,
-        rarityStatic,
-        repIdStatic,
-        premiumStatic
-    );
 
     useEffect(() => {
         const rarityItem = makeCheckableObject(
@@ -152,6 +144,14 @@ const MarketPlace = () => {
                             setxPage={setxPage}
                             input={input}
                             setInput={setInput}
+                            filterTypes={{
+                              weapons,
+                              characters,
+                              rarities,
+                              cloneCount,
+                              premiumBuffs,
+                              p2e,
+                          }}
                         />
                     </div>
                 </div>

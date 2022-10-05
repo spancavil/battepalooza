@@ -18,7 +18,6 @@ export const filterObject = (objetoRaw, keysPermitidas) => {
             return objetoAcumulado;
         }, {});
 
-    console.log(filtered);
     return filtered;
 };
 
