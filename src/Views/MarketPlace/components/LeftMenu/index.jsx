@@ -1,5 +1,5 @@
 import DropdownSection from "../../../../Global-Components/DropdownSection";
-import CloningCountFilters from "./components/CloningCountFilters";
+import CheckFilters from "./components/CheckFilters";
 import RarityFilters from "./components/RarityFilters";
 
 import styles from "./styles.module.scss";
@@ -11,6 +11,7 @@ export const LeftMenu = ({
   filters,
   setFilters,
   activeFilters,
+  filterTypes
 }) => {
   const onChangeRarity = (name) => {
     setFilters({ ...filters, [name]: !filters[name] });
@@ -18,7 +19,7 @@ export const LeftMenu = ({
     setInput(1);
   };
 
-  const onChangeCloneCount = (e) => {
+  const onChangeChecks = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.checked });
     setPage(1);
     setInput(1);
@@ -38,11 +39,42 @@ export const LeftMenu = ({
         children={<RarityFilters filters={filters} onChange={onChangeRarity} />}
       />
       <DropdownSection
-        title={"Cloning Count"}
+        title={"Character"}
         children={
-          <CloningCountFilters
+          <CheckFilters
             filters={filters}
-            onChange={onChangeCloneCount}
+            filterType={filterTypes.characters}
+            onChange={onChangeChecks}
+          />
+        }
+      />
+      <DropdownSection
+        title={"Weapon"}
+        children={
+          <CheckFilters
+            filters={filters}
+            filterType={filterTypes.weapons}
+            onChange={onChangeChecks}
+          />
+        }
+      />
+      <DropdownSection
+        title={"Left time to P2E"}
+        children={
+          <CheckFilters
+            filters={filters}
+            filterType={filterTypes.p2e}
+            onChange={onChangeChecks}
+          />
+        }
+      />
+      <DropdownSection
+        title={"Premium Buff"}
+        children={
+          <CheckFilters
+            filters={filters}
+            filterType={filterTypes.premiumBuffs}
+            onChange={onChangeChecks}
           />
         }
       />

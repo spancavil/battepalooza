@@ -11,9 +11,7 @@ const useModifyDetail = (nftDetailtoModify, nftStatic, clanStatic, rarityStatic,
                 const rarityFinded = rarityStatic.find(rarity => rarity.rarityType === nftFinded.rarityType)
                 const representName = repIdStatic.find(repId => repId.representId === nftFinded.representId)
 
-                console.log(premiumStatic);
                 const buffs = []
-                console.log(nftDetailtoModify);
                 if (nftDetailtoModify.buff) {
                     for (const buffItem of nftDetailtoModify.buff) {
                         const buffFinded = premiumStatic?.find(buff => buff.id === buffItem.id)

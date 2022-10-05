@@ -34,7 +34,13 @@ $desktop: 1200px;
             color: white;
             padding-bottom: 10px;
         }
-    
+        .errorTitle {
+            font-family: $font-rubikRegular;
+            font-size: 12px;
+            color: red;
+            padding-bottom: 10px;
+            letter-spacing: 0.04em;
+        }
     }
     .inputContainer{
         display: flex;
@@ -63,7 +69,13 @@ $desktop: 1200px;
             color: white;
             padding-bottom: 10px;
         }
-    
+        .errorTitle {
+            font-family: $font-rubikRegular;
+            font-size: 12px;
+            color: red;
+            padding-bottom: 10px;
+            letter-spacing: 0.04em;
+        }
     }
 };
 
@@ -96,7 +108,13 @@ $desktop: 1200px;
             color: white;
             padding-bottom: 10px;
         }
-    
+        .errorTitle {
+            font-family: $font-rubikRegular;
+            font-size: 14px;
+            color: red;
+            padding-bottom: 10px;
+            letter-spacing: 0.04em;
+        }
     }
     .inputContainer{
         display: flex;
@@ -125,7 +143,13 @@ $desktop: 1200px;
             color: white;
             padding-bottom: 10px;
         }
-    
+        .errorTitle {
+            font-family: $font-rubikRegular;
+            font-size: 14px;
+            color: red;
+            padding-bottom: 10px;
+            letter-spacing: 0.04em;
+        }
     }
 }
 
@@ -158,7 +182,13 @@ $desktop: 1200px;
             color: white;
             padding-bottom: 10px;
         }
-    
+        .errorTitle {
+            font-family: $font-rubikRegular;
+            font-size: 16px;
+            color: red;
+            padding: 10px 0 px;
+            letter-spacing: 0.04em;
+        }
     }
     
     .inputContainerWhite{
@@ -188,7 +218,13 @@ $desktop: 1200px;
             color: white;
             padding-bottom: 10px;
         }
-    
+        .errorTitle {
+            font-family: $font-rubikRegular;
+            font-size: 16px;
+            color: red;
+            padding: 10px 0 px;
+            letter-spacing: 0.04em;
+        }
     }
 }
 

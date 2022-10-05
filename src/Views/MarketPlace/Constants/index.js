@@ -2,3 +2,4 @@ export const CLONE_COUNT = { "1": false, "2": false, "3": false, "4": false, "5"
 export const TYPE_NFT = { Character: false, Weapon: false };
 export const PRICE_NFT = { 'Lower to higher price': false, 'Higher at lower price': false };
 export const ORDER_BY = { Newest: false, Oldest: false, LowestPrice: false, HighestPrice: false }
+export const P2E_ORDER_BY = { '0-50': false, '51-100': false, 'Over 101': false}

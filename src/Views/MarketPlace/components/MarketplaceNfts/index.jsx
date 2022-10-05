@@ -27,6 +27,7 @@ const MarketplaceNfts = ({
   input,
   setInput,
   orderBy,
+  filterTypes
 }) => {
   const { nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic } =
     useContext(NftData);
@@ -66,6 +67,8 @@ const MarketplaceNfts = ({
     }
   }, [nftsFiltered]);
 
+  console.log(nftMarketModified);
+
   useEffect(() => {
     //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
     //mappeamos e inicializamos sus valores utilizando la librería de Vanilla Tilt
@@ -95,14 +98,32 @@ const MarketplaceNfts = ({
     let filtro4 = [];
     let filtro5 = [];
     let filtro6 = [];
-    let filtro7 = [];
-    let filtro8 = [];
-    let filtro9 = [];
-    let filtro10 = [];
-    let filtro11 = [];
-    let filtro12 = [];
-    let filtro13 = [];
     let filtro14 = [];
+    let filtroWeaponsEspecificasRaw = []
+    let filtrosWeaponsTildados = false;
+
+    let filtroCharactersEsepcificosRaw = []
+    let filtroCharactersTildados = false;
+
+    const weaponKeys = Object.keys(filterTypes?.weapons || {})
+    if (weaponKeys.length) {
+      for (const weapon of weaponKeys) {
+        if (filters[weapon]) {
+          filtroWeaponsEspecificasRaw.push(...auxFilter.filter(nft => nft.repName === weapon))
+          filtrosWeaponsTildados = true;
+        };
+      }
+    }
+
+    const characterKeys = Object.keys(filterTypes?.characters || {})
+    if (characterKeys.length) {
+      for (const character of characterKeys) {
+        if (filters[character]) {
+          filtroCharactersEsepcificosRaw.push(...auxFilter.filter(nft => nft.repName === character))
+          filtroCharactersTildados = true;
+        };
+      }
+    }
 
     if (filters.COMMON)
       filtro1 = auxFilter.filter((nft) => nft.rarity === "Common");
@@ -114,17 +135,7 @@ const MarketplaceNfts = ({
       filtro4 = auxFilter.filter((nft) => nft.rarity === "Legendary");
     if (filters.Weapon) filtro5 = auxFilter.filter((nft) => nft.type === 2);
     if (filters.Character) filtro6 = auxFilter.filter((nft) => nft.type === 1);
-    if (filters["1"]) filtro7 = auxFilter.filter((nft) => nft.cloneCount === 1);
-    if (filters["2"]) filtro8 = auxFilter.filter((nft) => nft.cloneCount === 2);
-    if (filters["3"]) filtro9 = auxFilter.filter((nft) => nft.cloneCount === 3);
-    if (filters["4"])
-      filtro10 = auxFilter.filter((nft) => nft.cloneCount === 4);
-    if (filters["5"])
-      filtro11 = auxFilter.filter((nft) => nft.cloneCount === 5);
-    if (filters["6"])
-      filtro12 = auxFilter.filter((nft) => nft.cloneCount === 6);
-    if (filters["7"])
-      filtro13 = auxFilter.filter((nft) => nft.cloneCount === 7);
+
     if (filters.search) {
       filtro14 = auxFilter.filter((nft) =>
         nft.itemName.toLowerCase().includes(filters.search)
@@ -157,37 +168,24 @@ const MarketplaceNfts = ({
         ? [...nftMarketModified]
         : [...filtro1, ...filtro2, ...filtro3, ...filtro4];
 
-    const filtroCloneCount =
-      !filters["0"] &&
-      !filters["1"] &&
-      !filters["2"] &&
-      !filters["3"] &&
-      !filters["4"] &&
-      !filters["5"] &&
-      !filters["6"] &&
-      !filters["7"]
-        ? [...nftMarketModified]
-        : [
-            ...filtro7,
-            ...filtro8,
-            ...filtro9,
-            ...filtro10,
-            filtro11,
-            filtro12,
-            filtro13,
-          ];
-
     const filtroSearch =
       filters.search === "" ? [...nftMarketModified] : [...filtro14];
+
+    const filtroWeaponsEspecificas =
+      filtrosWeaponsTildados ? [...filtroWeaponsEspecificasRaw] : [...nftMarketModified]
+
+    const filtroCharactersEspecificos =
+      filtroCharactersTildados ? [...filtroCharactersEsepcificosRaw] : [...nftMarketModified]
 
     //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
     const coincidencias = filtroWeapon
       .filter((value) => filtroRarity.includes(value))
-      .filter((value) => filtroCloneCount.includes(value))
-      .filter((value) => filtroSearch.includes(value));
+      .filter((value) => filtroSearch.includes(value))
+      .filter((value) => filtroWeaponsEspecificas.includes(value))
+      .filter((value) => filtroCharactersEspecificos.includes(value))
 
     setNftFiltered(coincidencias);
-  }, [filters, nftMarketModified, orderBy, setNftFiltered]);
+  }, [filters, filterTypes, nftMarketModified, orderBy, setNftFiltered]);
 
   const max = nftsFiltered.length / xPage;
 

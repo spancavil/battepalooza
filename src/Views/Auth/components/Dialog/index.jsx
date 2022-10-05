@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import AuthDialog from "../../../../Global-Components/AuthDialog";
 import ButtonRounded from "../../../../Global-Components/ButtonRounded";
 import Input from "../../../../Global-Components/Input";
@@ -12,6 +12,7 @@ import { useHistory } from "react-router-dom";
 
 const Dialog = ({
     setEmail,
+    errorEmail,
     sendCode,
     loading,
     type,
@@ -22,7 +23,24 @@ const Dialog = ({
     linkingMessage,
     mobile
 }) => {
+
+    useEffect(()=> {
+        const enterPressed = (e) => {
+            if (type === 'login' && e.keyCode === 13) {
+                sendCode()
+            }
+            if (type === "verification"  && e.keyCode === 13) {
+                handleConfirmCode()
+            }
+        }
+        window.addEventListener('keydown', enterPressed);
+        return () => {
+            window.removeEventListener('keydown', enterPressed);
+        }
+    }, [type, sendCode, handleConfirmCode])
+
     const history = useHistory();
+    
     if (type === "login") {
         return (
             <AuthDialog title={loading ? "" : "Welcome to Battlepalooza"}>
@@ -31,7 +49,7 @@ const Dialog = ({
                         <Loader />
                     </div>
                 ) : (
-                    <form onSubmit={sendCode} style={{overflow: "visible"}}>
+                    <div style={{overflow: "visible"}}>
                         <p className={styles.text}>
                             Compete in real-time against live contestants from
                             around the world for real-world prizes in a
@@ -54,13 +72,15 @@ const Dialog = ({
                             widthContainer={"100%"}
                             handleChange={setEmail}
                             autoComplete={"on"}
+                            errorMessage={errorEmail}
                         />
                         <ButtonRounded
                             title={"GET CODE"}
                             color="yellow"
                             additionalStyles={{ margin: "32px 0", width: mobile && '100%'}}
+                            onClick = {sendCode}
                         />
-                    </form>
+                    </div>
                 )}
             </AuthDialog>
         );

@@ -99,7 +99,7 @@ const SignUp = () => {
     let error = false;
 
     if (!/\S+@\S+\.\S+/.test (form.email)) {
-      setErrorEmail ('Invalid email');
+      setErrorEmail ('Input a valid email');
       error = true;
     } else {
       setErrorEmail ('');
