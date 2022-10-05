@@ -3,10 +3,10 @@ import Background from "../../Global-Components/Background";
 import Products from "./components/Products";
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
-import { TYPE_NFT, CLONE_COUNT, ORDER_BY, P2E_ORDER_BY } from "./Constants";
+import { TYPE_NFT, CLONE_COUNT, ORDER_BY, P2E_ORDER_BY } from "../../Constants/Filters";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
-import { UpMenu } from "./components/UpMenu";
-import { LeftMenu } from "./components/LeftMenu";
+import { UpMenu } from "../../Global-Components/UpMenu";
+import { LeftMenu } from "../../Global-Components/LeftMenu";
 import Footer from "../../Global-Components/Footer";
 import { makeCheckableObject } from "../../Utils/objectUtilities";
 import { NftData } from "../../Context/NftProvider";
@@ -20,9 +20,9 @@ const MarketPlace = () => {
     const [page, setPage] = useState(1);
     const [xPage, setxPage] = useState(25);
     const [input, setInput] = useState(1);
-    const [rarities, setRarities] = useState(null);
     const [characters, setCharacters] = useState(null);
     const [weapons, setWeapons] = useState(null);
+    const [rarities, setRarities] = useState(null);
     const [premiumBuffs, setPremiumBuffs] = useState(null);
 
     const { rarityStatic, repIdStatic, premiumStatic } =
