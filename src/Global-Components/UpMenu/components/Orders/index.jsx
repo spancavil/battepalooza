@@ -37,7 +37,7 @@ export const Orders = ({ orderBy, setOrderBy }) => {
         {!hideOrderBy && (
           <div className={styles.orders}>
             {Object.keys(orderBy).map((key) => {
-              return <Order name={key} onClick={handleChange} />;
+              return <Order name={key} key={key} onClick={handleChange} />;
             })}
           </div>
         )}

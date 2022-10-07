@@ -3,8 +3,6 @@ import ArrowPagination from "../../Assets/svg/ArrowPagination";
 import styles from "./styles.module.scss";
 
 const Pagination = ({
-  xPage,
-  setxPage,
   page,
   setPage,
   max,

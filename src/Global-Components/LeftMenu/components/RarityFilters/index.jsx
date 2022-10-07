@@ -11,34 +11,30 @@ const RarityFilters = ({ onChange, filters }) => {
     {
       img: CommonIcon,
       text: "Common",
-      name: "COMMON",
     },
     {
       img: RareIcon,
       text: "Rare",
-      name: "RARE",
     },
     {
       img: EpicIcon,
       text: "Epic",
-      name: "EPIC",
     },
     {
       img: LegendaryIcon,
       text: "Legendary",
-      name: "LEGENDARY",
     },
   ];
 
   return (
     <div className={styles.filters}>
-      {rarityFilters.map(({ img, text, name }) => (
+      {rarityFilters.map(({ img, text }) => (
         <div
-          key={name}
-          onClick={() => onChange(name)}
-          className={filters[name] ? styles.filterActive : styles.filter}
+          key={text}
+          onClick={() => onChange(text)}
+          className={filters[text] ? styles.filterActive : styles.filter}
         >
-          <img src={img} alt={name} />
+          <img src={img} alt={text} />
           <span>{text}</span>
         </div>
       ))}
