@@ -27,6 +27,10 @@ const useModifyList = (nftsToModify, nftStatic, clanStatic, rarityStatic, repIdS
             
             setNftsModified(nftsToModify)
         }
+
+        if (nftsToModify.length === 0) {
+            setNftsModified([])
+        }
     }, [nftStatic, clanStatic, rarityStatic, repIdStatic, nftsToModify])
 
     return nftsModified

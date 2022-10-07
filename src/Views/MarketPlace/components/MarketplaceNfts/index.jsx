@@ -26,7 +26,8 @@ const MarketplaceNfts = ({
     setInput,
     nfts,
     loading,
-    search
+    search,
+    activeFilters
 }) => {
     const { nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic } =
         useContext(NftData);
@@ -46,6 +47,7 @@ const MarketplaceNfts = ({
         rarityStatic,
         repIdStatic
     );
+    console.log(nfts);
 
     const tilts = useMemo(
         () => nftsFiltered.map(() => createRef()),
@@ -96,6 +98,8 @@ const MarketplaceNfts = ({
         history.push(`/marketplace/${uniqueId}-${sellerPid}`);
     };
 
+    console.log(activeFilters);
+
     return (
         <div className={styles.cardsContainer}>
             {nftMarketModified.length > 0 && loading === false && (
@@ -136,13 +140,13 @@ const MarketplaceNfts = ({
                 </div>
             )}
 
-            {nftMarketModified.length === 0 && loading === false && (
+            {!activeFilters && nftMarketModified.length === 0 && loading === false && (
                 <div className={styles.notNft}>
                     There are no NFTs in marketplace
                 </div>
             )}
 
-            {nftsFiltered.length === 0 && loading === false && (
+            {(nftsFiltered.length === 0 || activeFilters) && loading === false && (
                 <div className={styles.notNft}>
                     No NFT matches the search criteria
                 </div>

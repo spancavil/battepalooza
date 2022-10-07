@@ -144,6 +144,7 @@ const MarketPlace = () => {
                             loading = {loading}
                             error = {error}
                             search = {search}
+                            activeFilters = {activeFilters}
                         />
                     </div>
                 </div>
