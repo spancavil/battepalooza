@@ -15,7 +15,8 @@ const Products = ({
   nfts,
   loading,
   error,
-  search
+  search,
+  activeFilters
 }) => {
   return (
     <div className={styles.container}>
@@ -34,6 +35,7 @@ const Products = ({
         loading = {loading}
         error = {error}
         search = {search}
+        activeFilters = {activeFilters}
       />
     </div>
   );

@@ -13,16 +13,11 @@ import { makeCheckableObject } from "../../Utils/objectUtilities";
 const Collection = () => {
     const [filters, setFilters] = useState({});
     const [page, setPage] = useState(1);
-    const [xPage, setxPage] = useState(25);
+    const [nftPerPage, setNftPerPage] = useState(25);
     const [input, setInput] = useState(1);
-    const [orderBy, setOrderBy] = useState(ORDER_BY);
-    const [cloneCount] = useState(CLONE_COUNT);
-    const [p2e] = useState(P2E_ORDER_BY);
+    const [filterTypes, setFilterTypes] = useState({});
+    const [search, setSearch] = useState("")
     const [activeFilters, setActiveFilters] = useState(0);
-    const [characters, setCharacters] = useState(null);
-    const [weapons, setWeapons] = useState(null);
-    const [rarities, setRarities] = useState(null);
-    const [premiumBuffs, setPremiumBuffs] = useState(null);
 
     const { rarityStatic, repIdStatic, premiumStatic } = useContext(NftData);
 
@@ -30,65 +25,53 @@ const Collection = () => {
     const history = useHistory();
 
     useEffect(() => {
-        const rarityItem = makeCheckableObject(
-            rarityStatic.filter((rarity) => rarity.name !== "None")
-        );
-        const characterItem = makeCheckableObject(
-            repIdStatic.filter((item) => item.goodsType === 1)
-        );
-        const weaponItem = makeCheckableObject(
-            repIdStatic.filter((item) => item.goodsType === 2)
-        );
-        const premiumItem = makeCheckableObject(
-            premiumStatic.map((buff) => {
-                return { name: buff.engName };
-            })
-        );
+        if (rarityStatic.length && repIdStatic.length && premiumStatic.length){
+            const rarityItem = makeCheckableObject(
+                rarityStatic.filter((rarity) => rarity.name !== "None")
+            );
+            const characterItem = makeCheckableObject(
+                repIdStatic.filter((item) => item.goodsType === 1)
+            );
+            const weaponItem = makeCheckableObject(
+                repIdStatic.filter((item) => item.goodsType === 2)
+            );
+            const premiumItem = makeCheckableObject(
+                premiumStatic.map((buff) => {
+                    return { name: buff.engName };
+                })
+            );
+    
+            setFilterTypes({
+                weapons: weaponItem,
+                characters: characterItem,
+                rarities: rarityItem,
+                cloneCount: CLONE_COUNT,
+                premiumBuffs: premiumItem,
+                p2e: P2E_ORDER_BY,
+                orderBy: ORDER_BY,
+            });
 
-        setWeapons({
-            ...weaponItem,
-        });
-        setCharacters({
-            ...characterItem,
-        });
-        setRarities({
-            ...rarityItem,
-        });
-        setPremiumBuffs({
-            ...premiumItem,
-        });
-        //Tendrá todos los filtros
-        setFilters({
-            ...rarityItem,
-            ...TYPE_NFT,
-            ...CLONE_COUNT,
-            ...P2E_ORDER_BY,
-            search: "",
-            ...weaponItem,
-            ...characterItem,
-            ...premiumItem,
-        });
+            //Tendrá todos los filtros
+            setFilters({
+                ...rarityItem,
+                ...TYPE_NFT,
+                ...CLONE_COUNT,
+                ...P2E_ORDER_BY,
+                search: "",
+                ...weaponItem,
+                ...characterItem,
+                ...premiumItem,
+            });
+        }
     }, [
         setFilters,
         history,
-        setWeapons,
-        setCharacters,
         rarityStatic,
         repIdStatic,
         premiumStatic,
     ]);
 
-    const resetFilters = () => {
-        const filtros = { ...filters };
-        for (const key in filtros) {
-            if (Object.hasOwnProperty.call(filtros, key)) {
-                filtros[key] = false;
-            }
-        }
-        filtros.search = "";
-        setFilters(filtros);
-    };
-
+    //Effect for count active filters
     useEffect(() => {
         const filtersActive = { ...filters };
         delete filtersActive.search;
@@ -103,15 +86,28 @@ const Collection = () => {
         setActiveFilters(acc);
     }, [filters]);
 
+    const resetFilters = () => {
+        const filtros = { ...filters };
+        for (const key in filtros) {
+            if (Object.hasOwnProperty.call(filtros, key)) {
+                filtros[key] = false;
+            }
+        }
+        setSearch("");
+        setFilters(filtros);
+    };
+    
+
     return (
         <Background>
             <div className={styles.container}>
                 <UpMenu
+                    search = {search}
+                    setSearch = {setSearch}
+                    filterTypes={filterTypes}
                     filters={filters}
                     setFilters={setFilters}
                     desktop={desktop}
-                    orderBy={orderBy}
-                    setOrderBy={setOrderBy}
                 />
                 <div className={styles.subContainer}>
                     <LeftMenu
@@ -121,24 +117,20 @@ const Collection = () => {
                         filters={filters}
                         setFilters={setFilters}
                         activeFilters={activeFilters}
-                        filterTypes={{
-                            weapons,
-                            characters,
-                            rarities,
-                            cloneCount,
-                            premiumBuffs,
-                            p2e,
-                        }}
+                        filterTypes={filterTypes}
+
                     />
                     <div className={styles.products}>
                         <CollectionNfts
                             filters={filters}
+                            filterTypes={filterTypes}
                             page={page}
                             setPage={setPage}
-                            xPage={xPage}
-                            setxPage={setxPage}
+                            nftPerPage={nftPerPage}
+                            setNftPerPage={setNftPerPage}
                             input={input}
                             setInput={setInput}
+                            search = {search}
                         />
                     </div>
                 </div>
