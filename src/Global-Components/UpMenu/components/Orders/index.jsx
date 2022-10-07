@@ -1,5 +1,5 @@
 import { useState } from "react";
-import OrdersIcon from "../../../../../../Assets/svg/OrdersIcon";
+import OrdersIcon from "../../../../Assets/svg/OrdersIcon";
 import Order from "./Order";
 import styles from "./styles.module.scss";
 
@@ -37,7 +37,7 @@ export const Orders = ({ orderBy, setOrderBy }) => {
         {!hideOrderBy && (
           <div className={styles.orders}>
             {Object.keys(orderBy).map((key) => {
-              return <Order name={key} onClick={handleChange} />;
+              return <Order name={key} key={key} onClick={handleChange} />;
             })}
           </div>
         )}

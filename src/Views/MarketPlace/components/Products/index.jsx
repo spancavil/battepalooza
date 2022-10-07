@@ -5,13 +5,17 @@ import styles from './styles.module.scss';
 const Products = ({
   filters,
   page,
-  xPage,
+  nftPerPage,
   setPage,
-  setxPage,
+  setNftPerPage,
   input,
   setInput,
   orderBy,
-  filterTypes
+  filterTypes,
+  nfts,
+  loading,
+  error,
+  search
 }) => {
   return (
     <div className={styles.container}>
@@ -21,11 +25,15 @@ const Products = ({
         orderBy={orderBy}
         page={page}
         setPage={setPage}
-        xPage={xPage}
-        setxPage={setxPage}
+        nftPerPage={nftPerPage}
+        setNftPerPage={setNftPerPage}
         input={input}
         setInput={setInput}
         filterTypes={filterTypes}
+        nfts ={nfts}
+        loading = {loading}
+        error = {error}
+        search = {search}
       />
     </div>
   );

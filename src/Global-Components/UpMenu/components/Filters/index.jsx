@@ -1,6 +1,6 @@
-import CharactersIcon from "../../../../../../Assets/svg/CharactersIcon";
-import WeaponsIcon from "../../../../../../Assets/svg/WeaponsIcon";
-import SquareIcon from "../../../../../../Assets/svg/SquareIcon";
+import CharactersIcon from "../../../../Assets/svg/CharactersIcon";
+import WeaponsIcon from "../../../../Assets/svg/WeaponsIcon";
+import SquareIcon from "../../../../Assets/svg/SquareIcon";
 
 import styles from "./styles.module.scss";
 

@@ -3,81 +3,83 @@ import Background from "../../Global-Components/Background";
 import Products from "./components/Products";
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
-import { TYPE_NFT, CLONE_COUNT, ORDER_BY, P2E_ORDER_BY } from "./Constants";
+import {
+    TYPE_NFT,
+    CLONE_COUNT,
+    ORDER_BY,
+    P2E_ORDER_BY,
+} from "../../Constants/Filters";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
-import { UpMenu } from "./components/UpMenu";
-import { LeftMenu } from "./components/LeftMenu";
+import { UpMenu } from "../../Global-Components/UpMenu";
+import { LeftMenu } from "../../Global-Components/LeftMenu";
 import Footer from "../../Global-Components/Footer";
 import { makeCheckableObject } from "../../Utils/objectUtilities";
 import { NftData } from "../../Context/NftProvider";
+import useFetchMarket from "../../Hooks/useFetchMarket";
+import { fireAlert } from "../../Utils/sweetAlert2";
 
 const MarketPlace = () => {
     const [filters, setFilters] = useState({});
+    const [search, setSearch] = useState("");
     const [activeFilters, setActiveFilters] = useState(0);
-    const [orderBy, setOrderBy] = useState(ORDER_BY);
-    const [cloneCount] = useState(CLONE_COUNT);
-    const [p2e] = useState(P2E_ORDER_BY)
     const [page, setPage] = useState(1);
-    const [xPage, setxPage] = useState(25);
+    const [nftPerPage, setNftPerPage] = useState(25);
     const [input, setInput] = useState(1);
-    const [rarities, setRarities] = useState(null);
-    const [characters, setCharacters] = useState(null);
-    const [weapons, setWeapons] = useState(null);
-    const [premiumBuffs, setPremiumBuffs] = useState(null);
+    const [filterTypes, setFilterTypes] = useState({});
 
-    const { rarityStatic, repIdStatic, premiumStatic } =
-        useContext(NftData);
+    const { rarityStatic, repIdStatic, premiumStatic } = useContext(NftData);
 
     const desktop = useMediaQuery("(min-width: 1200px)");
     const history = useHistory();
 
-    useEffect(() => {
-        const rarityItem = makeCheckableObject(
-            rarityStatic.filter((rarity) => rarity.name !== "None")
-        );
-        const characterItem = makeCheckableObject(
-            repIdStatic.filter((item) => item.goodsType === 1)
-        );
-        const weaponItem = makeCheckableObject(
-            repIdStatic.filter((item) => item.goodsType === 2)
-        );
-        const premiumItem = makeCheckableObject(
-            premiumStatic.map(buff => {
-              return {name: buff.engName}
-            })
-        )
+    const [nfts, loading, error] = useFetchMarket(filters, filterTypes, page, nftPerPage)
+    if (error) fireAlert("Oops, an error ocurred", error.message, "500px");
 
-        setWeapons({
-            ...weaponItem,
-        });
-        setCharacters({
-            ...characterItem,
-        });
-        setRarities({
-            ...rarityItem,
-        });
-        setPremiumBuffs({
-            ...premiumItem
-        })
-        //Tendrá todos los filtros
-        setFilters({
-            ...rarityItem,
-            ...TYPE_NFT,
-            ...CLONE_COUNT,
-            ...P2E_ORDER_BY,
-            search: "",
-            ...weaponItem,
-            ...characterItem,
-            ...premiumItem
-        });
+    //Set filters
+    useEffect(() => {
+        if (rarityStatic.length && repIdStatic.length && premiumStatic.length){
+            console.log("Se debería ejecutar una vez");
+            const rarityItem = makeCheckableObject(
+                rarityStatic.filter((rarity) => rarity.name !== "None")
+            );
+            const characterItem = makeCheckableObject(
+                repIdStatic.filter((item) => item.goodsType === 1)
+            );
+            const weaponItem = makeCheckableObject(
+                repIdStatic.filter((item) => item.goodsType === 2)
+            );
+            const premiumItem = makeCheckableObject(
+                premiumStatic.map((buff) => {
+                    return { name: buff.engName };
+                })
+            );
+            setFilterTypes({
+                weapons: weaponItem,
+                characters: characterItem,
+                rarities: rarityItem,
+                cloneCount: CLONE_COUNT,
+                premiumBuffs: premiumItem,
+                p2e: P2E_ORDER_BY,
+                orderBy: ORDER_BY,
+            });
+            //Tendrá todos los filtros
+            setFilters({
+                ...rarityItem,
+                ...TYPE_NFT,
+                ...CLONE_COUNT,
+                ...P2E_ORDER_BY,
+                ...ORDER_BY,
+                ...weaponItem,
+                ...characterItem,
+                ...premiumItem,
+            });
+        }
     }, [
         setFilters,
         history,
-        setWeapons,
-        setCharacters,
         rarityStatic,
         repIdStatic,
-        premiumStatic
+        premiumStatic,
     ]);
 
     //Effect for count active filters
@@ -102,7 +104,7 @@ const MarketPlace = () => {
                 filtros[key] = false;
             }
         }
-        filtros.search = "";
+        setSearch("");
         setFilters(filtros);
     };
 
@@ -110,11 +112,12 @@ const MarketPlace = () => {
         <Background>
             <div className={styles.container}>
                 <UpMenu
+                    search = {search}
+                    setSearch = {setSearch}
+                    filterTypes={filterTypes}
                     filters={filters}
                     setFilters={setFilters}
                     desktop={desktop}
-                    orderBy={orderBy}
-                    setOrderBy={setOrderBy}
                 />
 
                 <div className={styles.subContainer}>
@@ -125,33 +128,22 @@ const MarketPlace = () => {
                         filters={filters}
                         setFilters={setFilters}
                         activeFilters={activeFilters}
-                        filterTypes={{
-                            weapons,
-                            characters,
-                            rarities,
-                            cloneCount,
-                            premiumBuffs,
-                            p2e,
-                        }}
+                        filterTypes={filterTypes}
                     />
                     <div className={styles.products}>
                         <Products
                             filters={filters}
-                            orderBy={orderBy}
                             page={page}
                             setPage={setPage}
-                            xPage={xPage}
-                            setxPage={setxPage}
+                            nftPerPage={nftPerPage}
+                            setNftPerPage={setNftPerPage}
                             input={input}
                             setInput={setInput}
-                            filterTypes={{
-                              weapons,
-                              characters,
-                              rarities,
-                              cloneCount,
-                              premiumBuffs,
-                              p2e,
-                          }}
+                            filterTypes={filterTypes}
+                            nfts = {nfts}
+                            loading = {loading}
+                            error = {error}
+                            search = {search}
                         />
                     </div>
                 </div>

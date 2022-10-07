@@ -5,18 +5,22 @@ import { Orders } from "./components/Orders";
 import styles from "./styles.module.scss";
 
 export const UpMenu = ({
+  search,
+  setSearch,
   setFilters,
   filters,
+  filterTypes,
   desktop,
-  orderBy,
-  setOrderBy,
 }) => {
+  const setOrderBy = (newOrder) => {
+    setFilters({...filters, ...newOrder})
+  }
   return (
     <div className={styles.upMenu}>
       <Filters filters={filters} setFilters={setFilters} />
       <div className={styles.right}>
-        <SearchBar filters={filters} setFilters={setFilters} />
-        {desktop && <Orders orderBy={orderBy} setOrderBy={setOrderBy} />}
+        <SearchBar search={search} setSearch={setSearch}/>
+        {desktop && <Orders orderBy={filterTypes?.orderBy} setOrderBy={setOrderBy} />}
       </div>
     </div>
   );

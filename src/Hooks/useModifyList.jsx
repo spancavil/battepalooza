@@ -17,7 +17,6 @@ const useModifyList = (nftsToModify, nftStatic, clanStatic, rarityStatic, repIdS
                     nft.repName = representName?.name || nft.repName
                     nft.clan = clanFinded?.name || "No clan"
                     nft.rarity = rarityFinded.name
-                    nft.maxPlayCount = rarityFinded.totalMaxPlayRewardCount
                     nft.movieUrl = nftFinded.movieClip
                     nft.thumbnailUrl = nftFinded.thumbnail
                 } else {

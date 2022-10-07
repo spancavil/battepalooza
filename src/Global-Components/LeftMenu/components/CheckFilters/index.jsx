@@ -1,5 +1,4 @@
-import { filterObject } from "../../../../../../Utils/objectUtilities";
-
+import { filterObject } from "../../../../Utils/objectUtilities";
 import styles from "./styles.module.scss";
 
 const CheckFilters = ({ onChange, filters, filterType}) => {
