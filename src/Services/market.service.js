@@ -11,8 +11,14 @@ class marketService {
             })
     }
 
-    async getNftMarketplaceList() {
-        return await axios.post(API_URL + "market/list").then(response => {
+    async getNftMarketplaceList(page, pageSize, filter, orderBy, desc) {
+        return await axios.post(API_URL + "market/list", {
+            page,
+            pageSize,
+            filter,
+            orderBy,
+            desc
+        }).then(response => {
             return response.data
         })
     }

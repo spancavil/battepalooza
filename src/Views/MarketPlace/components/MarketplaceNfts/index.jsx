@@ -1,10 +1,9 @@
 import React, {
-  useContext,
-  useState,
-  useEffect,
-  useMemo,
-  createRef,
-  useRef,
+    useContext,
+    useState,
+    useEffect,
+    useMemo,
+    createRef,
 } from "react";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 import { NftData } from "../../../../Context/NftProvider";
@@ -19,266 +18,147 @@ import VanillaTilt from "vanilla-tilt";
 import styles from "./styles.module.scss";
 
 const MarketplaceNfts = ({
-  filters,
-  page,
-  xPage,
-  setPage,
-  setxPage,
-  input,
-  setInput,
-  orderBy,
-  filterTypes
+    page,
+    nftPerPage,
+    setPage,
+    setNftPerPage,
+    input,
+    setInput,
+    nfts,
+    loading,
+    search
 }) => {
-  const { nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic } =
-    useContext(NftData);
-  const [loading, setLoading] = useState(true);
+    const { nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic } =
+        useContext(NftData);
 
-  //Array para aplicar los filtros primarios al array original
-  const [nftsFiltered, setNftFiltered] = useState(nftMarket);
+    //Array para aplicar los filtros primarios al array original
+    const [nftsFiltered, setNftFiltered] = useState(nftMarket);
 
-  //Array auxiliar para un segundo ordenamiento sobre el filtro de arriba.
-  const [nftsFiltered2, setNftFiltered2] = useState(null);
+    const history = useHistory();
 
-  //Usamos referencias para que la actualización sea instantánea y no esperemos a la actualización del estado
-  const filterByPrice = useRef(0);
-  const filterNewest = useRef(0);
+    const breakpoint = useMediaQuery("(max-width: 1200px)");
 
-  const history = useHistory();
-
-  const breakpoint = useMediaQuery("(max-width: 1200px)");
-
-  //El array original de nfts
-  const nftMarketModified = useModifyList(
-    nftMarket,
-    nftStatic,
-    clanStatic,
-    rarityStatic,
-    repIdStatic
-  );
-
-  const tilts = useMemo(
-    () => nftsFiltered.map(() => createRef()),
-    [nftsFiltered]
-  );
-
-  useEffect(() => {
-    if (nftsFiltered.length > 0) {
-      setLoading(false);
-    }
-  }, [nftsFiltered]);
-
-  console.log(nftMarketModified);
-
-  useEffect(() => {
-    //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
-    //mappeamos e inicializamos sus valores utilizando la librería de Vanilla Tilt
-    tilts.map((tilt) =>
-      VanillaTilt.init(tilt.current, {
-        scale: 1.06,
-        speed: 800,
-        max: 15,
-        reverse: true,
-        easing: "cubic-bezier(.03,.98,.52,.99)",
-        glare: true,
-        "max-glare": 0.15,
-      })
+    //El array original de nfts
+    const nftMarketModified = useModifyList(
+        nfts,
+        nftStatic,
+        clanStatic,
+        rarityStatic,
+        repIdStatic
     );
-  }, [tilts]);
 
-  useEffect(() => {
-    breakpoint ? setxPage(4) : setxPage(25);
-  }, [breakpoint, setxPage]);
+    const tilts = useMemo(
+        () => nftsFiltered.map(() => createRef()),
+        [nftsFiltered]
+    );
 
-  //Effect para el ordenamiento primario
-  useEffect(() => {
-    const auxFilter = [...nftMarketModified];
-    let filtro1 = [];
-    let filtro2 = [];
-    let filtro3 = [];
-    let filtro4 = [];
-    let filtro5 = [];
-    let filtro6 = [];
-    let filtro14 = [];
-    let filtroWeaponsEspecificasRaw = []
-    let filtrosWeaponsTildados = false;
+    useEffect(() => {
+        //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
+        //mappeamos e inicializamos sus valores utilizando la librería de Vanilla Tilt
+        tilts.map((tilt) =>
+            VanillaTilt.init(tilt.current, {
+                scale: 1.06,
+                speed: 800,
+                max: 15,
+                reverse: true,
+                easing: "cubic-bezier(.03,.98,.52,.99)",
+                glare: true,
+                "max-glare": 0.15,
+            })
+        );
+    }, [tilts]);
 
-    let filtroCharactersEsepcificosRaw = []
-    let filtroCharactersTildados = false;
+    useEffect(() => {
+        breakpoint ? setNftPerPage(4) : setNftPerPage(25);
+    }, [breakpoint, setNftPerPage]);
 
-    const weaponKeys = Object.keys(filterTypes?.weapons || {})
-    if (weaponKeys.length) {
-      for (const weapon of weaponKeys) {
-        if (filters[weapon]) {
-          filtroWeaponsEspecificasRaw.push(...auxFilter.filter(nft => nft.repName === weapon))
-          filtrosWeaponsTildados = true;
-        };
-      }
-    }
-
-    const characterKeys = Object.keys(filterTypes?.characters || {})
-    if (characterKeys.length) {
-      for (const character of characterKeys) {
-        if (filters[character]) {
-          filtroCharactersEsepcificosRaw.push(...auxFilter.filter(nft => nft.repName === character))
-          filtroCharactersTildados = true;
-        };
-      }
-    }
-
-    if (filters.COMMON)
-      filtro1 = auxFilter.filter((nft) => nft.rarity === "Common");
-    if (filters.RARE)
-      filtro2 = auxFilter.filter((nft) => nft.rarity === "Rare");
-    if (filters.EPIC)
-      filtro3 = auxFilter.filter((nft) => nft.rarity === "Epic");
-    if (filters.LEGENDARY)
-      filtro4 = auxFilter.filter((nft) => nft.rarity === "Legendary");
-    if (filters.Weapon) filtro5 = auxFilter.filter((nft) => nft.type === 2);
-    if (filters.Character) filtro6 = auxFilter.filter((nft) => nft.type === 1);
-
-    if (filters.search) {
-      filtro14 = auxFilter.filter((nft) =>
-        nft.itemName.toLowerCase().includes(filters.search)
-      );
-    }
-    if (orderBy.LowestPrice) {
-      filterNewest.current = 0;
-      filterByPrice.current = 1;
-    }
-    if (orderBy.HighestPrice) {
-      filterNewest.current = 0;
-      filterByPrice.current = 2;
-    }
-    if (orderBy.Newest) {
-      filterByPrice.current = 0;
-      filterNewest.current = 1;
-    }
-    if (orderBy.Oldest) {
-      filterByPrice.current = 0;
-      filterNewest.current = 2;
-    }
-
-    const filtroWeapon =
-      !filters.Weapon && !filters.Character
-        ? [...nftMarketModified]
-        : [...filtro5, ...filtro6];
-
-    const filtroRarity =
-      !filters.COMMON && !filters.RARE && !filters.EPIC && !filters.LEGENDARY
-        ? [...nftMarketModified]
-        : [...filtro1, ...filtro2, ...filtro3, ...filtro4];
-
-    const filtroSearch =
-      filters.search === "" ? [...nftMarketModified] : [...filtro14];
-
-    const filtroWeaponsEspecificas =
-      filtrosWeaponsTildados ? [...filtroWeaponsEspecificasRaw] : [...nftMarketModified]
-
-    const filtroCharactersEspecificos =
-      filtroCharactersTildados ? [...filtroCharactersEsepcificosRaw] : [...nftMarketModified]
-
-    //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
-    const coincidencias = filtroWeapon
-      .filter((value) => filtroRarity.includes(value))
-      .filter((value) => filtroSearch.includes(value))
-      .filter((value) => filtroWeaponsEspecificas.includes(value))
-      .filter((value) => filtroCharactersEspecificos.includes(value))
-
-    setNftFiltered(coincidencias);
-  }, [filters, filterTypes, nftMarketModified, orderBy, setNftFiltered]);
-
-  const max = nftsFiltered.length / xPage;
-
-  //Ordenamientos secundarios
-
-  //Effect for order by newest / oldest
-  useEffect(() => {
-    if (filterNewest.current !== 0) {
-      console.log("Order by time");
-      const nftFiltered2 = [...nftsFiltered];
-      if (filterNewest.current === 2) {
-        console.log("Deberia ordernarse por viejo");
-        setNftFiltered2([...nftFiltered2].reverse());
-      } else if (filterNewest.current === 1) {
-        console.log("Deberia ordernarse por nuevo");
-        setNftFiltered2([...nftFiltered2]);
-      }
-    }
-  }, [filterNewest, nftMarketModified, nftsFiltered]);
-
-  //Effect for order by price
-  useEffect(() => {
-    if (filterByPrice.current === 1 || filterByPrice.current === 2) {
-      const nftFiltered2 = [...nftsFiltered];
-      console.log("Order by price");
-      nftFiltered2.sort(function (a, b) {
-        if (filterByPrice.current === 1) {
-          return a.price - b.price;
-        } else {
-          return b.price - a.price;
+    //Effect para el ordenamiento primario
+    useEffect(() => {
+        const auxFilter = [...nftMarketModified]
+        let filtro1 = [];
+        if (search) {
+            filtro1 = auxFilter.filter((nft) =>
+                nft.itemName.toLowerCase().includes(search.toLowerCase())
+            );
         }
-      });
-      setNftFiltered2(nftFiltered2);
-    }
-  }, [filterByPrice, nftsFiltered]);
 
-  const handleDetail = (uniqueId, sellerPid) => {
-    history.push(`/marketplace/${uniqueId}-${sellerPid}`);
-  };
+        const filtroSearch =
+            search === "" ? [...auxFilter] : [...filtro1];
 
-  return (
-    <div className={styles.cardsContainer}>
-      {nftsFiltered.length > 0 && loading === false && (
-        <>
-          <h3 className={styles.title}>
-            {nftsFiltered2?.length || nftsFiltered?.length} NFTs
-          </h3>
-          <div className={styles.cards}>
-            {(nftsFiltered2 || nftsFiltered)
-              .slice((page - 1) * xPage, (page - 1) * xPage + xPage)
-              .map((nft) => {
-                const indice = nftMarketModified?.indexOf(nft);
-                return (
-                  <NftCard
-                    key={nft.uniqueId}
-                    nft={nft}
-                    tilt={tilts[indice]}
-                    onClick={() => handleDetail(nft?.uniqueId, nft?.sellerPid)}
-                    withPrice
-                  />
-                );
-              })}
-          </div>
-        </>
-      )}
+        //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
+        setNftFiltered(filtroSearch);
 
-      {loading === true && (
-        <div className={styles.loadingContainer}>
-          <Loader />
+    }, [nftMarketModified, setNftFiltered, search]);
+
+    const max = nftsFiltered.length / nftPerPage;
+
+    const handleDetail = (uniqueId, sellerPid) => {
+        history.push(`/marketplace/${uniqueId}-${sellerPid}`);
+    };
+
+    return (
+        <div className={styles.cardsContainer}>
+            {nftMarketModified.length > 0 && loading === false && (
+                <>
+                    <h3 className={styles.title}>
+                        {nftMarketModified?.length} NFTs
+                    </h3>
+                    <div className={styles.cards}>
+                        {nftsFiltered
+                            .slice(
+                                (page - 1) * nftPerPage,
+                                (page - 1) * nftPerPage + nftPerPage
+                            )
+                            .map((nft) => {
+                                const indice = nftMarketModified?.indexOf(nft);
+                                return (
+                                    <NftCard
+                                        key={nft.uniqueId}
+                                        nft={nft}
+                                        tilt={tilts[indice]}
+                                        onClick={() =>
+                                            handleDetail(
+                                                nft?.uniqueId,
+                                                nft?.sellerPid
+                                            )
+                                        }
+                                        withPrice
+                                    />
+                                );
+                            })}
+                    </div>
+                </>
+            )}
+
+            {loading === true && (
+                <div className={styles.loadingContainer}>
+                    <Loader />
+                </div>
+            )}
+
+            {nftMarketModified.length === 0 && loading === false && (
+                <div className={styles.notNft}>
+                    There are no NFTs in marketplace
+                </div>
+            )}
+
+            {nftsFiltered.length === 0 && loading === false && (
+                <div className={styles.notNft}>
+                    No NFT matches the search criteria
+                </div>
+            )}
+
+            {nftsFiltered.length > 0 && (
+                <Pagination
+                    input={input}
+                    setInput={setInput}
+                    page={page}
+                    setPage={setPage}
+                    max={max}
+                />
+            )}
         </div>
-      )}
-
-      {nftMarket.length === 0 && loading === false && (
-        <div className={styles.notNft}>There are no NFTs in marketplace</div>
-      )}
-
-      {nftsFiltered.length === 0 && loading === false && (
-        <div className={styles.notNft}>No NFT matches the search criteria</div>
-      )}
-
-      {nftsFiltered.length > 0 && (
-        <Pagination
-          xPage={xPage}
-          setxPage={setxPage}
-          input={input}
-          setInput={setInput}
-          page={page}
-          setPage={setPage}
-          max={max}
-        />
-      )}
-    </div>
-  );
+    );
 };
 
 export default MarketplaceNfts;
