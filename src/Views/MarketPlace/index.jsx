@@ -132,7 +132,6 @@ const MarketPlace = () => {
                     />
                     <div className={styles.products}>
                         <Products
-                            filters={filters}
                             page={page}
                             setPage={setPage}
                             nftPerPage={nftPerPage}

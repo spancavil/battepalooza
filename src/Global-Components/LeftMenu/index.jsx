@@ -38,26 +38,30 @@ export const LeftMenu = ({
         title={"Rarity"}
         children={<RarityFilters filters={filters} onChange={onChangeRarity} />}
       />
-      <DropdownSection
-        title={"Character"}
-        children={
-          <CheckFilters
-            filters={filters}
-            filterType={filterTypes.characters}
-            onChange={onChangeChecks}
-          />
-        }
-      />
-      <DropdownSection
-        title={"Weapon"}
-        children={
-          <CheckFilters
-            filters={filters}
-            filterType={filterTypes.weapons}
-            onChange={onChangeChecks}
-          />
-        }
-      />
+      {!filters.Weapon && (
+        <DropdownSection
+          title={"Character"}
+          children={
+            <CheckFilters
+              filters={filters}
+              filterType={filterTypes.characters}
+              onChange={onChangeChecks}
+            />
+          }
+        />
+      )}
+      {!filters.Character && (
+        <DropdownSection
+          title={"Weapon"}
+          children={
+            <CheckFilters
+              filters={filters}
+              filterType={filterTypes.weapons}
+              onChange={onChangeChecks}
+            />
+          }
+        />
+      )}
       <DropdownSection
         title={"Left time to P2E"}
         children={

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { NftData } from "../../Context/NftProvider";
 import Background from "../../Global-Components/Background";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
-import { TYPE_NFT, CLONE_COUNT, ORDER_BY, P2E_ORDER_BY } from "../../Constants/Filters";
+import { TYPE_NFT, CLONE_COUNT, P2E_ORDER_BY, ORDER_BY_COLLECTION } from "../../Constants/Filters";
 import { LeftMenu } from "../../Global-Components/LeftMenu";
 import { UpMenu } from "../../Global-Components/UpMenu";
 import CollectionNfts from "./Components/CollectionNfts";
@@ -48,7 +48,7 @@ const Collection = () => {
                 cloneCount: CLONE_COUNT,
                 premiumBuffs: premiumItem,
                 p2e: P2E_ORDER_BY,
-                orderBy: ORDER_BY,
+                orderBy: ORDER_BY_COLLECTION,
             });
 
             //Tendrá todos los filtros

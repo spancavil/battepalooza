@@ -27,7 +27,7 @@ const MarketplaceNfts = ({
     nfts,
     loading,
     search,
-    activeFilters
+    activeFilters,
 }) => {
     const { nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic } =
         useContext(NftData);
@@ -99,6 +99,7 @@ const MarketplaceNfts = ({
     };
 
     console.log(activeFilters);
+    console.log();
 
     return (
         <div className={styles.cardsContainer}>
