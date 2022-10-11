@@ -3,7 +3,6 @@ import MarketplaceNfts from '../../components/MarketplaceNfts';
 import styles from './styles.module.scss';
 
 const Products = ({
-  filters,
   page,
   nftPerPage,
   setPage,
@@ -22,7 +21,6 @@ const Products = ({
     <div className={styles.container}>
       <MarketplaceNfts
         flex
-        filters={filters}
         orderBy={orderBy}
         page={page}
         setPage={setPage}
