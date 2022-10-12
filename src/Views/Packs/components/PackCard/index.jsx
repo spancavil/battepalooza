@@ -1,4 +1,4 @@
-import { separator } from "../../../../Utils/separator";
+/* import { separator } from "../../../../Utils/separator"; */
 import NCOIN from "../../../../Assets/img/Sprite_Icon_Reward_35.png";
 import TESTPACK from "../../../../Assets/img/Packtest.png";
 
@@ -6,11 +6,10 @@ import styles from "./styles.module.scss";
 
 export const PackCard = ({ pack, onClick }) => {
   return (
-    <div className={styles.pack}>
+    <div onClick={onClick} className={styles.pack}>
       <div className={styles.packImgContainer}>
-        <div className={styles.img}>
-          <img className={styles.packImg} src={TESTPACK} alt="pack" />
-        </div>
+        <div className={styles.img} />
+        <img className={styles.packImg} src={TESTPACK} alt="pack" />
       </div>
       <div className={styles.packDataContainer}>
         <h3>Test Pack</h3>
@@ -37,19 +36,3 @@ export const PackCard = ({ pack, onClick }) => {
     </div>
   );
 };
-
-/* 
-<div onClick={() => onClick(pack?.id)} className={styles.pack}>
-    <div className={styles.imgContainer}>
-      <img src={pack?.thumbnailUrl} alt="pack" />
-    </div>
-    <div className={styles.texts}>
-      <h4>{pack?.packName}</h4>
-      {pack?.detailTxt &&
-        pack?.detailTxt
-          .split("\\n")
-          .map((texto, i) => <p key={i}>{texto}</p>)}
-      <span>{separator(pack?.price)} nCoin</span>
-    </div>
-</div>
-*/
