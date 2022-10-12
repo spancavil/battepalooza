@@ -59,8 +59,6 @@ const useFetchMarket = (filters, filterTypes, page, pageSize) => {
         premiumStatic,
     ]);
 
-    console.log(nfts);
-
     return [nfts, loading, error];
 };
 
