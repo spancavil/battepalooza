@@ -1,52 +1,44 @@
-import { RemainingPack } from "./components/RemainingPack";
 import { useContext } from "react";
-import { PackData } from "../../Context/PackProvider";
-import { FirstPack } from "./components/FirstPack";
 import { useHistory } from "react-router-dom";
 
-import Background from "../../Global-Components/Background";
+import { PackCard } from "./components/PackCard";
+import { PackData } from "../../Context/PackProvider";
+
 import Footer from "../../Global-Components/Footer";
+import Background from "../../Global-Components/Background";
+
 import styles from "./styles.module.scss";
 
 const Packs = () => {
-    const { setPack, packData } = useContext(PackData);
-    const history = useHistory();
+  const { setPack } = useContext(PackData);
+  const history = useHistory();
 
-    const setSelectedCard = (packId) => {
-        setPack(packId);
-        history.push(`/packs/${packId}`);
-    };
+  const setSelectedCard = (packId) => {
+    setPack(packId);
+    history.push(`/packs/${packId}`);
+  };
 
-    const handleFindOut = () => {
-        history.push(`/packs/${packData?.packInfo?.id}`);
-    };
+  return (
+    <Background>
+      <section className={styles.packsSection}>
+        <h4>PACKS</h4>
+        <span className={styles.description}>
+          Battlepalooza Packs contains various NFTs with certain drop rates.
+          <br /> The higher quality of the Pack is, the higher the drop rate for
+          the high-quality NFTs is.
+        </span>
 
-    return (
-        <Background>
-            <section className={styles.packsSection}>
-                <h4>PACKS</h4>
-
-                <div className={styles.packs}>
-                    <FirstPack
-                        onClick={handleFindOut}
-                    />
-
-                    <div className={styles.remainingPacks}>
-                        {packData?.nftPackProducts?.map((pack) => {
-                            return (
-                                <RemainingPack
-                                    onClick={setSelectedCard}
-                                    key={pack?.id}
-                                    pack={pack}
-                                />
-                            );
-                        })}
-                    </div>
-                </div>
-            </section>
-            <Footer />
-        </Background>
-    );
+        <div className={styles.packs}>
+          {[0, 1, 2, 3, 4].map((pack) => {
+            return (
+              <PackCard onClick={setSelectedCard} key={pack?.id} pack={pack} />
+            );
+          })}
+        </div>
+      </section>
+      <Footer />
+    </Background>
+  );
 };
 
 export default Packs;
