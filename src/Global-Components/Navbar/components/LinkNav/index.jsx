@@ -12,7 +12,8 @@ export const LinkNav = ({ link }) => {
   const { text, to, isAnchor, needAuth } = link;
   const { pathname } = useLocation();
 
-  if (isAnchor) {
+  //Anchors not logged and anchors logged
+  if ((isAnchor && !needAuth) || (isAnchor && needAuth && user)) {
     return (
       <div className={pathname.includes(to) ? styles.linkActive : styles.link}>
         <a href={to} target="_blank" rel="noopener noreferrer">
@@ -22,7 +23,8 @@ export const LinkNav = ({ link }) => {
     );
   }
 
-  if (!isAnchor && user && needAuth) {
+  //Links logged and links not logged
+  if ((!isAnchor && !needAuth) || (!isAnchor && user && needAuth)) {
     return (
       <div className={pathname.includes(to) ? styles.linkActive : styles.link}>
         <Link to={to}>{text}</Link>
@@ -30,9 +32,6 @@ export const LinkNav = ({ link }) => {
     );
   }
 
-  return !isAnchor && !needAuth ? (
-    <div className={pathname.includes(to) ? styles.linkActive : styles.link}>
-      <Link to={to}>{text}</Link>
-    </div>
-  ) : null;
+  return null
+
 };
