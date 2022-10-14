@@ -10,13 +10,15 @@ import Background from "../../Global-Components/Background";
 import styles from "./styles.module.scss";
 
 const Packs = () => {
-  const { setPack } = useContext(PackData);
+  const { setPack, packData } = useContext(PackData);
   const history = useHistory();
 
   const setSelectedCard = (packId) => {
     setPack(packId);
     history.push(`/packs/${packId}`);
   };
+
+  console.log(packData);
 
   return (
     <Background>
@@ -29,9 +31,13 @@ const Packs = () => {
         </span>
 
         <div className={styles.packs}>
-          {[0, 1, 2, 3, 4].map((pack) => {
+          {packData?.nftPackProducts?.map((pack) => {
             return (
-              <PackCard onClick={setSelectedCard} key={pack?.id} pack={pack} />
+              <PackCard
+                onClick={() => setSelectedCard(pack?.id)}
+                key={pack?.id}
+                pack={pack}
+              />
             );
           })}
         </div>
