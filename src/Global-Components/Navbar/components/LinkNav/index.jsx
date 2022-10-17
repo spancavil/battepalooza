@@ -9,16 +9,27 @@ export const LinkNav = ({ link }) => {
 
   const user = Object.keys(userData).length > 0;
 
-  const { text, to, isAnchor, needAuth } = link;
+  const { text, to, isAnchor, needAuth, notRedirect } = link;
   const { pathname } = useLocation();
 
   //Anchors not logged and anchors logged
-  if ((isAnchor && !needAuth) || (isAnchor && needAuth && user)) {
+  if (
+    (isAnchor && !needAuth && !notRedirect) ||
+    (isAnchor && needAuth && !notRedirect && user)
+  ) {
     return (
       <div className={pathname.includes(to) ? styles.linkActive : styles.link}>
         <a href={to} target="_blank" rel="noopener noreferrer">
           {text}
         </a>
+      </div>
+    );
+  }
+
+  if (isAnchor && notRedirect) {
+    return (
+      <div className={pathname.includes(to) ? styles.linkActive : styles.link}>
+        <a href={to}>{text}</a>
       </div>
     );
   }
@@ -32,6 +43,5 @@ export const LinkNav = ({ link }) => {
     );
   }
 
-  return null
-
+  return null;
 };
