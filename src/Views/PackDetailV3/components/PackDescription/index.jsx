@@ -25,18 +25,17 @@ const PackDescription = ({ pack }) => {
     };
   }, [pack]);
 
+  console.log(pack);
+
   return (
     <div className={styles.packDescription}>
       <div className={styles.imgContainer}>
         <img src={pack?.thumbnailUrl} alt="" />
       </div>
       <div className={styles.packData}>
-        <h3>Test Pack</h3>
+        <h3>{pack?.packName}</h3>
         <p className={styles.description}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it.
+          {pack?.detailTxt ? pack?.detailTxt : "Detail text not found"}
         </p>
         <div className={styles.leftsContainer}>
           <div className={styles.box}>
@@ -45,7 +44,9 @@ const PackDescription = ({ pack }) => {
             </div>
             <div className={styles.texts}>
               <p>Left Count</p>
-              <span>130/1000</span>
+              <span>
+                {pack?.leftAmount}/{pack?.limitAmount}
+              </span>
             </div>
           </div>
           <div className={styles.box}>
