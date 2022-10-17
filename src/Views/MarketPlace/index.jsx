@@ -27,13 +27,16 @@ const MarketPlace = () => {
     const [input, setInput] = useState(1);
     const [filterTypes, setFilterTypes] = useState({});
 
-    const { rarityStatic, repIdStatic, premiumStatic } = useContext(NftData);
+    const { rarityStatic, repIdStatic, premiumStatic, maintenace } = useContext(NftData);
 
     const desktop = useMediaQuery("(min-width: 1200px)");
     const history = useHistory();
 
     const [nfts, loading, error] = useFetchMarket(filters, filterTypes, page, nftPerPage)
     if (error) fireAlert("Oops, an error ocurred", error.message, "500px");
+
+    //Maintenance alert
+    if (maintenace) fireAlert("System under maintenance", `Start time: ${maintenace?.start?.toLocaleDateString()}. End time: ${maintenace?.end?.toLocaleDateString()}`, "500px");
 
     //Set filters
     useEffect(() => {

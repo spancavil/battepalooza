@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import dropService from "../Services/drop.service";
-import marketService from "../Services/market.service";
 import nftService from "../Services/nft.service";
 import { fireAlert } from "../Utils/sweetAlert2";
 import { UserData } from "./UserProvider";
@@ -18,7 +17,6 @@ const NftProvider = ({ children }) => {
   const [loadingUserCollection, setLoadingUserCollection] = useState(true);
   const [drops, setDrops] = useState([]);
 
-  const [reloadMarket, setReloadMarket] = useState(false);
   const [reloadCollection, setReloadCollection] = useState(false);
   const [reloadDrops, setReloadDrops] = useState(false);
 
@@ -27,6 +25,8 @@ const NftProvider = ({ children }) => {
   const [rarityStatic, setRarityStatic] = useState([]);
   const [repIdStatic, setRepIdStatic] = useState([]);
   const [premiumStatic, setPremiumStatic] = useState([]);
+
+  const [maintenance, setMaintenance] = useState(null);
 
   const characterMaxStats = {
     maxHealth: 3312,
@@ -66,20 +66,6 @@ const NftProvider = ({ children }) => {
       }
     })();
   }, [userData, reloadCollection]);
-
-  useEffect(() => {
-    //Get marketplace collection
-    (async () => {
-      try {
-        const marketCollection = await marketService.getNftMarketplaceList();
-        if (marketCollection?.error.num === 0) {
-          setNftMarket(marketCollection.products);
-        }
-      } catch (error) {
-        fireAlert("Oops, an error ocurred", error.message, "500px");
-      }
-    })();
-  }, [reloadMarket]);
 
   useEffect(() => {
     //Get drops
@@ -134,17 +120,16 @@ const NftProvider = ({ children }) => {
       value={{
         setNft,
         setNftForOpen,
-        setReloadMarket,
         setReloadCollection,
         setReloadDrops,
         nftMarket,
+        setNftMarket,
         nftSelected,
         nftToOpen,
         userCollection,
         characterMaxStats,
         weaponMaxStats,
         drops,
-        reloadMarket,
         reloadCollection,
         reloadDrops,
         nftStatic,
@@ -152,7 +137,9 @@ const NftProvider = ({ children }) => {
         rarityStatic,
         repIdStatic,
         premiumStatic,
-        loadingUserCollection
+        loadingUserCollection,
+        maintenance,
+        setMaintenance,
       }}
     >
       {children}
