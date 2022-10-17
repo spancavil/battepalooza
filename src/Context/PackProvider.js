@@ -93,10 +93,18 @@ const PackDataProvider = ({ children }) => {
       },
     ]);
     (async () => {
-      //Get user collection
+      //Get user packs
       try {
         if (Object.keys(userData).length !== 0) {
           const packData = await packService.getNftPackInfo(userData.pid)
+          if (packData?.error?.num === 0) {
+            setPackData(packData)
+          } else {
+            fireAlert("Oops, an error ocurred", packData?.error?.message, "500px");
+          }
+        } else {
+          const packData = await packService.getNftPackInfo(null)
+          console.log(packData);
           if (packData?.error?.num === 0) {
             setPackData(packData)
           } else {
