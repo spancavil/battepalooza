@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
 import Button from "../../../../Global-Components/Button";
 import styles from "./styles.module.scss";
 
 const AboutCoins = ({ desktop, hd }) => {
-  useEffect(() => {
+ /*  useEffect(() => {
     const about = document.getElementById("about");
     const fondo = document.getElementById("content2");
 
@@ -36,7 +35,7 @@ const AboutCoins = ({ desktop, hd }) => {
     return () => {
       window.removeEventListener("scroll", parallax);
     };
-  }, [desktop, hd]);
+  }, [desktop, hd]); */
 
   return (
     <div className={styles.content2} id="content2">

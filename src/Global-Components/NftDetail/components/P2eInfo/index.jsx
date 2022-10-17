@@ -10,7 +10,7 @@ const P2eInfo = ({ chosenNft }) => {
       <div className={styles.items}>
         <Item
           img={COPY}
-          text={`P2E Battle Count: ${
+          text={`Left times to P2E: ${
             chosenNft?.maxPlayCount - chosenNft?.playCount
           }`}
         />

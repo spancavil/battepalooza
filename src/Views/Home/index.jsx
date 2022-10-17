@@ -17,7 +17,7 @@ const HomeContainer = () => {
   }, []);
 
   //Desplazamiento en parallax de la imagen de fondo.
-  useEffect(() => {
+/*   useEffect(() => {
     const imagen = document.getElementById("homeImage");
 
     const parallax = () => {
@@ -34,7 +34,7 @@ const HomeContainer = () => {
     return () => {
       window.removeEventListener("scroll", parallax);
     };
-  }, [mobile, desktop, hd]);
+  }, [mobile, desktop, hd]); */
 
   return (
     <div className={styles.container}>

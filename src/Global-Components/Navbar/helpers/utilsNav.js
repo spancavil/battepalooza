@@ -1,5 +1,12 @@
 export const links = [
   {
+    text: "Game",
+    to: "/#content2",
+    isAnchor: true,
+    needAuth: false,
+    notRedirect: true
+  },
+  {
     text: "Marketplace",
     to: "/marketplace",
     isAnchor: false,
