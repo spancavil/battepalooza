@@ -55,9 +55,14 @@ const Navbar = () => {
 
           <div className={styles.right}>
             {user ? (
-              <ButtonNav text="Logout" to={"/"} onClick={logout} />
+              <ButtonNav
+                to="/"
+                text="Log out"
+                onClick={logout}
+                bgColor="#313131"
+              />
             ) : (
-              <ButtonNav text="Login" to={"/auth/login"} />
+              <ButtonNav text="Login" to="/auth/login" />
             )}
             <HamburgerMenu menu={menu} toggleMenu={toggleMenu} />
           </div>
