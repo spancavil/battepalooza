@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
+import { NftData } from "../../Context/NftProvider";
 import { UserData } from "../../Context/UserProvider";
 import LeftBanner from "../../Global-Components/LeftBanner";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
@@ -33,6 +34,8 @@ const Auth = () => {
         firstLogin,
     } = useContext(UserData);
 
+    const {setMaintenance} = useContext(NftData);
+
     const history = useHistory();
 
     const { type } = useParams();
@@ -62,6 +65,10 @@ const Auth = () => {
                 setFormSend(true);
 
                 const response = await authService.getVerificationCode(email);
+
+                if (response.maintenance) {
+                    setMaintenance(response.maintenance);
+                }
 
                 if (response.success === false) {
                     fireAlert(
@@ -97,6 +104,10 @@ const Auth = () => {
             //Envío de datos de tracking a Amplitude
 
             const respuesta = response.data.response;
+
+            if (response.maintenance) {
+                setMaintenance(response.maintenance);
+            }
 
             if (respuesta && respuesta.error?.num !== 0) {
                 setLoading(false);

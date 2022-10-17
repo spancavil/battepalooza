@@ -26,7 +26,7 @@ import PremiumModal from "../Premium";
 import StatusBar from "../../../../Global-Components/StatusBar";
 import checkErrorMiddleware from "../../../../Utils/checkErrorMiddleware";
 
-const NftDetail = ({ nfts, setNft, setNftListing }) => {
+const NftDetail = ({ setNft }) => {
 
   const history = useHistory();
 
