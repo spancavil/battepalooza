@@ -29,11 +29,11 @@ const MarketplaceNfts = ({
     search,
     activeFilters,
 }) => {
-    const { nftMarket, nftStatic, clanStatic, rarityStatic, repIdStatic } =
+    const { nftStatic, clanStatic, rarityStatic, repIdStatic } =
         useContext(NftData);
 
     //Array para aplicar los filtros primarios al array original
-    const [nftsFiltered, setNftFiltered] = useState(nftMarket);
+    const [nftsFiltered, setNftFiltered] = useState(nfts);
 
     const history = useHistory();
 
@@ -47,7 +47,6 @@ const MarketplaceNfts = ({
         rarityStatic,
         repIdStatic
     );
-    console.log(nfts);
 
     const tilts = useMemo(
         () => nftsFiltered.map(() => createRef()),
@@ -97,9 +96,6 @@ const MarketplaceNfts = ({
     const handleDetail = (uniqueId, sellerPid) => {
         history.push(`/marketplace/${uniqueId}-${sellerPid}`);
     };
-
-    console.log(activeFilters);
-    console.log();
 
     return (
         <div className={styles.cardsContainer}>
