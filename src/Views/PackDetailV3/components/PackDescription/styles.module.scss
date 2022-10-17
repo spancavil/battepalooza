@@ -1,0 +1,69 @@
+.packDescription {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: "Rubik";
+
+  .imgContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    img {
+      width: 275px;
+    }
+  }
+
+  .packData {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h3 {
+      font-weight: 700;
+      font-size: 30px;
+      text-transform: uppercase;
+    }
+
+    .description {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .leftsContainer {
+    display: flex;
+    gap: 5%;
+
+    .box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 50%;
+      background-color: #181931;
+      border: 2px solid #0146d5;
+      padding: .8rem;
+      border-radius: 8px;
+
+      .texts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        p {
+          font-weight: 400;
+          font-size: 14px;
+        }
+
+        span {
+          font-weight: 700;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

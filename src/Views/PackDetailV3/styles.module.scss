@@ -1,0 +1,26 @@
+.packDetail {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem;
+  background: #010320;
+  min-height: calc(100vh - 80px);
+
+  .goBack {
+    width: 100%;
+
+    a {
+      text-decoration: none;
+      font-family: "Rubik";
+      font-size: 16px;
+      font-weight: 400;
+      color: white;
+    }
+  }
+
+  .packContainer {
+    width: 100%;
+    display: flex;
+    gap: 5%;
+  }
+}
