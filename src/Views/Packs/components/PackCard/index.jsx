@@ -25,6 +25,8 @@ export const PackCard = ({ pack, onClick }) => {
     };
   }, [pack]);
 
+  console.log(pack)
+
   return (
     <div onClick={onClick} className={styles.pack}>
       <div className={styles.packImgContainer}>
