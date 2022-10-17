@@ -6,28 +6,23 @@ import styles from "./styles.module.scss";
 import { getDaysMinutesSeconds } from "../../../../Utils/createDate";
 
 export const PackCard = ({ pack, onClick }) => {
-
   const [timer, setTimer] = useState({ message: "", state: "" });
 
   useEffect(() => {
     let interval;
 
     if (Object.keys(pack).length) {
-        interval = setInterval(() => {
-            let date = getDaysMinutesSeconds(
-                pack?.startTime,
-                pack?.endTime
-            );
-            let { message, state } = date;
-            const actualDate = { message, state };
-            setTimer(actualDate);
-        }, 1000);
+      interval = setInterval(() => {
+        let date = getDaysMinutesSeconds(pack?.startTime, pack?.endTime);
+        let { message, state } = date;
+        const actualDate = { message, state };
+        setTimer(actualDate);
+      }, 1000);
     }
 
     return () => {
-        clearInterval(interval);
+      clearInterval(interval);
     };
-
   }, [pack]);
 
   return (

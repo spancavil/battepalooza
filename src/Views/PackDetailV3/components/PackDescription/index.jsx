@@ -1,7 +1,30 @@
+import { useEffect, useState } from "react";
 import { ClockIcon, PackageIcon } from "../../../../Assets/svg/packDetailIcons";
+import { getDaysMinutesSeconds } from "../../../../Utils/createDate";
 import styles from "./styles.module.scss";
 
 const PackDescription = ({ pack }) => {
+  const [timer, setTimer] = useState({ message: "", state: "" });
+
+  useEffect(() => {
+    let interval;
+
+    if (pack) {
+      if (Object.keys(pack).length) {
+        interval = setInterval(() => {
+          let date = getDaysMinutesSeconds(pack?.startTime, pack?.endTime);
+          let { message, state } = date;
+          const actualDate = { message, state };
+          setTimer(actualDate);
+        }, 1000);
+      }
+    }
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [pack]);
+
   return (
     <div className={styles.packDescription}>
       <div className={styles.imgContainer}>
@@ -31,7 +54,7 @@ const PackDescription = ({ pack }) => {
             </div>
             <div className={styles.texts}>
               <p>Left Time</p>
-              <span>00:23:59:59</span>
+              <span>{timer.message}</span>
             </div>
           </div>
         </div>
