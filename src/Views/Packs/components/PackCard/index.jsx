@@ -1,10 +1,35 @@
 /* import { separator } from "../../../../Utils/separator"; */
 import NCOIN from "../../../../Assets/img/Sprite_Icon_Reward_35.png";
 import TESTPACK from "../../../../Assets/img/Packtest.png";
-
+import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
+import { getDaysMinutesSeconds } from "../../../../Utils/createDate";
 
 export const PackCard = ({ pack, onClick }) => {
+
+  const [timer, setTimer] = useState({ message: "", state: "" });
+
+  useEffect(() => {
+    let interval;
+
+    if (Object.keys(pack).length) {
+        interval = setInterval(() => {
+            let date = getDaysMinutesSeconds(
+                pack?.startTime,
+                pack?.endTime
+            );
+            let { message, state } = date;
+            const actualDate = { message, state };
+            setTimer(actualDate);
+        }, 1000);
+    }
+
+    return () => {
+        clearInterval(interval);
+    };
+
+  }, [pack]);
+
   return (
     <div onClick={onClick} className={styles.pack}>
       <div className={styles.packImgContainer}>
@@ -18,7 +43,7 @@ export const PackCard = ({ pack, onClick }) => {
           in the past wars, warriors called war ghosts used them.
         </p>
         <span className={styles.left}>
-          Left Time: <b>00:23:59:59</b>
+          Left Time: <b>{timer.message}</b>
         </span>
         <span className={styles.left}>
           Left Count: <b>130/1000</b>
