@@ -17,12 +17,12 @@
     }
 
     .cards {
-      padding: 0px 30px;
+      padding: 70px 30px;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       justify-items: center;
       grid-column-gap: 30px;
-      grid-row-gap: 30px;
+      grid-row-gap: 70px;
       overflow: visible;
     }
   }
@@ -43,11 +43,11 @@
     }
 
     .cards {
-      padding: 0px 30px;
+      padding: 70px 30px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: 30px;
-      grid-row-gap: 30px;
+      grid-row-gap: 70px;
       overflow: visible;
     }
   }
@@ -68,11 +68,11 @@
     }
 
     .cards {
-      padding: 0px 30px;
+      padding: 70px 30px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-column-gap: 30px;
-      grid-row-gap: 30px;
+      grid-row-gap: 70px;
       overflow: visible;
     }
   }
@@ -93,12 +93,12 @@
     }
 
     .cards {
-      padding: 0px 30px;
+      padding: 70px 30px;
       display: grid;
       justify-content: space-evenly;
       grid-template-columns: repeat(5, 1fr);
       grid-column-gap: 30px;
-      grid-row-gap: 30px;
+      grid-row-gap: 70px;
       overflow: visible;
     }
   }
