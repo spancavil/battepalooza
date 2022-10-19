@@ -58,8 +58,6 @@ const CarrouselCards = () => {
     history.push(`/drop/${mainDrop.id}`);
   };
 
-  console.log(nftsMainDrop);
-
   return (
     <div className={styles.container}>
       {nftsMainDrop.length !== 0 && (

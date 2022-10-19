@@ -4,7 +4,6 @@ import Timer from "../../../../Global-Components/Timer";
 import styles from "./styles.module.scss";
 
 const PackDescription = ({ pack }) => {
-  console.log(pack)
 
   return (
     <div className={styles.packDescription}>

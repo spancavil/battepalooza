@@ -9,33 +9,36 @@ import useModifyDetail from "../../Hooks/useModifyDetail";
 
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import NftDetail from "../../Global-Components/NftDetail";
+import { MaintenanceData } from "../../Context/MaintenanceProvider";
 
 const CollectionDetail = () => {
-  const [nftSelectedRaw, setNftSelectedRaw] = useState();
-  /*   const [loading, setLoading] = useState(false);
+    const [nftSelectedRaw, setNftSelectedRaw] = useState();
+    /*   const [loading, setLoading] = useState(false);
   const [modalUnregister, setmodalUnregister] = useState(false);
   const [modalRegister1, setmodalRegister1] = useState(false); */
-  /*   const [modalRegister2, setmodalRegister2] = useState(false); */
-  /* 
+    /*   const [modalRegister2, setmodalRegister2] = useState(false); */
+    /* 
   const [inputPrice, setInputPrice] = useState(0); */
-  /*   const [forteTxText, setForteTxText] = useState("");
+    /*   const [forteTxText, setForteTxText] = useState("");
   const [position, setPosition] = useState({ positionX: "", positionY: "" });
   const [premium, setPremium] = useState(false); */
 
-  const { userData } = useContext(UserData);
-  const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
-    useContext(NftData);
-  const { uuid } = useParams();
-  const history = useHistory();
-  /* 
+    const { userData } = useContext(UserData);
+    const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
+        useContext(NftData);
+    const { setMaintenance } = useContext(MaintenanceData);
+
+    const { uuid } = useParams();
+    const history = useHistory();
+    /* 
   const desktop = useMediaQuery("(min-width: 799px) and (max-width: 1199px)");
   const hd = useMediaQuery("(min-width: 1200px)"); */
 
-  /*   useEffect(() => {
+    /*   useEffect(() => {
     setLoading(true);
   }, []); */
 
-  /*   const handleShowPremium = (e) => {
+    /*   const handleShowPremium = (e) => {
     console.log(e);
     setPosition({
       positionY: e.nativeEvent.offsetY,
@@ -43,39 +46,41 @@ const CollectionDetail = () => {
     setPremium(true);
   }; */
 
-  //Modify data from JSON statics
-  const nftSelected = useModifyDetail(
-    nftSelectedRaw,
-    nftStatic,
-    clanStatic,
-    rarityStatic,
-    repIdStatic,
-    premiumStatic
-  );
-  console.log(nftSelected);
+    //Modify data from JSON statics
+    const nftSelected = useModifyDetail(
+        nftSelectedRaw,
+        nftStatic,
+        clanStatic,
+        rarityStatic,
+        repIdStatic,
+        premiumStatic
+    );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (Object.keys(userData).length !== 0) {
-        try {
-          const response = await nftService.getNftCollectionDetail(
-            userData.bpToken,
-            userData.pid,
-            uuid
-          );
-          const canContinue = checkErrorMiddleware(response, history);
-          if (canContinue) {
-            setNftSelectedRaw(response.nft);
-          }
-        } catch (error) {
-          alert(error.message);
-        }
-      }
-    };
-    userData.email && fetchData();
-  }, [uuid, userData, history]);
+    useEffect(() => {
+        const fetchData = async () => {
+            if (Object.keys(userData).length !== 0) {
+                try {
+                    const response = await nftService.getNftCollectionDetail(
+                        userData.bpToken,
+                        userData.pid,
+                        uuid
+                    );
+                    if (response?.maintenance) {
+                      setMaintenance(response.maintenance);
+                    }
+                    const canContinue = checkErrorMiddleware(response, history);
+                    if (canContinue) {
+                        setNftSelectedRaw(response.nft);
+                    }
+                } catch (error) {
+                    alert(error.message);
+                }
+            }
+        };
+        userData.email && fetchData();
+    }, [uuid, userData, history, setMaintenance]);
 
-  /*   const openModalUnregister = () => {
+    /*   const openModalUnregister = () => {
     setmodalUnregister(true);
   };
 
@@ -84,7 +89,7 @@ const CollectionDetail = () => {
     setmodalRegister1(true);
   }; */
 
-  /*   const goBack = () => {
+    /*   const goBack = () => {
     history.goBack();
   };
 
@@ -118,7 +123,7 @@ const CollectionDetail = () => {
     }
   }; */
 
-  /*   const confirmUnregister = () => {
+    /*   const confirmUnregister = () => {
     const unRegisterNft = async () => {
       try {
         //Necesitamos obtener el NFT del market porque de ahí sacamos el uniqueId de Forte
@@ -148,7 +153,7 @@ const CollectionDetail = () => {
     unRegisterNft();
   }; */
 
-  /*   const handleMarket = () => {
+    /*   const handleMarket = () => {
     setReloadMarket((value) => !value);
     setReloadCollection((value) => !value);
     history.push("/marketplace");
@@ -158,15 +163,15 @@ const CollectionDetail = () => {
     setInputPrice(parseInt(value));
   }; */
 
-  /*   const handleShowClone = () => {
+    /*   const handleShowClone = () => {
     console.log("show clone info");
   } */
 
-  return (
-    <Background>
-      <NftDetail goBack="/collection" chosenNft={nftSelected} />
-    </Background>
-  );
+    return (
+        <Background>
+            <NftDetail goBack="/collection" chosenNft={nftSelected} />
+        </Background>
+    );
 };
 
 export default CollectionDetail;

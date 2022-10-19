@@ -7,6 +7,7 @@ import generateDate from "../../../../Utils/createDate";
 import { useHistory } from "react-router";
 import authService from "../../../../Services/auth.service";
 import checkErrorMiddleware from "../../../../Utils/checkErrorMiddleware";
+import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
 
 // Por ahora esta Hardcodeado pero cuando
 // tengamos la api hay que crear los estados
@@ -16,11 +17,16 @@ const AccountData = () => {
   const { userData, setCoin } = useContext(UserData);
   const [monedas, setMonedas] = useState(0);
 
+  const { setMaintenance } = useContext(MaintenanceData);
+
   const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await authService.getForteBalance(userData);
+      if (response?.maintenance) {
+        setMaintenance(response.maintenance);
+      }
       const canContinue = checkErrorMiddleware(response, history)
       if (canContinue) {
         setMonedas(separator(response.coin));
@@ -28,7 +34,7 @@ const AccountData = () => {
       }
     };
     userData.email && fetchData();
-  }, [userData, setCoin, history]);
+  }, [userData, setCoin, history, setMaintenance]);
 
   return (
     <div className={styles.container}>

@@ -44,7 +44,6 @@ const Drop = () => {
       )
     }
     return () => {
-      console.log("Unmounted Drop");
       clearInterval(intervalTimer)
     }
   }, [setHero, setOlderDrops, drops, setTimerRelease])
@@ -53,7 +52,6 @@ const Drop = () => {
   useEffect(() => {
 
     if (hero.length !== 0) {
-      console.log("Entra aquí");
       divHero.current.style.backgroundImage = mobile ? null : `url(${hero.bigBannerUrl})`;
       divHero.current.style.backgroundSize = 'cover';
       divHero.current.style.backgroundRepeat = 'no-repeat';

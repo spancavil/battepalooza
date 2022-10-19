@@ -174,8 +174,6 @@ const Dialog = ({ setShowInfoSignUp }) => {
         }
     };
 
-    console.log(showSignUp);
-
     return (
         <AuthDialog
             title={

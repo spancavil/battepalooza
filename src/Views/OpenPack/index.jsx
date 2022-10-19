@@ -129,8 +129,6 @@ const OpenPack = () => {
         ]); */
     }, [txResult, history, userData]);
 
-    console.log(nftsOpenPack);
-
     return (
         <Background>
             {flow === 1 && (

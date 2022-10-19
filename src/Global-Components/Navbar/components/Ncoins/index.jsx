@@ -9,6 +9,7 @@ import authService from "../../../../Services/auth.service";
 import NCoin from "../../../../Assets/img/icon-ncoin.png";
 import styles from "./styles.module.scss";
 import ReloadForte from "../ReloadForte";
+import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
 
 export const Ncoins = () => {
   const [loadingBalance, setLoadingBalance] = useState(false);
@@ -17,6 +18,8 @@ export const Ncoins = () => {
   const [coins, setCoins] = useState();
 
   const { userData, setCoin } = useContext(UserData);
+  const { setMaintenance } = useContext(MaintenanceData);
+
   const history = useHistory();
 
   useEffect(() => {
@@ -24,6 +27,9 @@ export const Ncoins = () => {
     const fetchData = async () => {
       setLoadingBalance(true);
       response = await authService.getForteBalance(userData);
+      if (response?.maintenance) {
+        setMaintenance(response.maintenance);
+      }
       const canContinue = checkErrorMiddleware(response, history);
       if (canContinue) {
         setCoins(separator(response.coin));
@@ -32,7 +38,7 @@ export const Ncoins = () => {
       }
     };
     userData.email && fetchData();
-  }, [userData, setCoin, history, countReload, disabled]);
+  }, [userData, setCoin, history, countReload, disabled, setMaintenance]);
 
   const handleFortePayload = async () => {
     let site = "Buy More";
@@ -42,6 +48,9 @@ export const Ncoins = () => {
     };
     sendAmplitudeData("Click", properties);
     const response = await authService.getFortePayload(userData);
+    if (response?.maintenance) {
+      setMaintenance(response.maintenance);
+    }
     const canContinue = checkErrorMiddleware(response, history);
     if (canContinue) {
       window.open(response.redirectTo);

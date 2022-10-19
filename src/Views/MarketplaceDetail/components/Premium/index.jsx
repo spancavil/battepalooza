@@ -4,7 +4,6 @@ import styles from './styles.module.scss';
 
 const PremiumModal = ({ setPremium, premiumBuffs }) => {
     const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA
-    console.log(premiumBuffs);
     return (
         <Modal title={"Buff information"} handleClose={setPremium}>
             <div className={styles.container}>

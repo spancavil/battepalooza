@@ -47,8 +47,6 @@ const DropDetail = () => {
     [dropSelected]
   );
 
-  console.log(dropSelected);
-
   useEffect(() => {
     //Por cada item de mi array de tilts (tilts recordemos que es un array de referencias, una por item)
     //mappeamos e inicializamos sus valores utilizando la librería de Vanilla Tilt
@@ -71,7 +69,6 @@ const DropDetail = () => {
   //Set background with useRef
   useEffect(() => {
     if (dropSelected && divHero.current !== null) {
-      console.log(dropSelected);
 
       divHero.current.style.background = mobile ? null : `url(${dropSelected.dropInfo.bigBannerUrl})`;
       divHero.current.style.backgroundSize = "cover";
@@ -82,12 +79,10 @@ const DropDetail = () => {
     let intervalTimer;
     const fetchData = async () => {
       try {
-        console.log(id);
         const response = await dropService.getDropDetail(
           userData?.pid ? userData.pid : "",
           parseInt(id)
         );
-        console.log(response);
 
         const canContinue = checkErrorMiddleware(response, history);
         if (canContinue) {
@@ -97,7 +92,6 @@ const DropDetail = () => {
           intervalTimer = setInterval(() => {
             const date = getDaysMinutesSeconds(response.dropInfo.startTime, response.dropInfo.endTime)
             const { message, state } = date;
-            console.log(message, state)
             setTimerRelease({ message, state });
             if (state !== ("active" || "willBeActive")) clearInterval(intervalTimer);
           }, 1000
