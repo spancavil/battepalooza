@@ -68,10 +68,10 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
                 <img src = {iconP2e} className={styles.p2eIcon} alt="p2E-icon"/>
                 <p className={styles.p2e}>Left times to P2E: {nft.maxPlayCount-nft.playCount}</p>
             </div>
-            <div className={styles.nCoinContainer}>
+            {nft?.price && <div className={styles.nCoinContainer}>
                 <img src = {ncoinIcon} className={styles.p2eIcon} alt="p2E-icon"/>
                 <p className={styles.title}>{separator(nft.price)} NCoin</p>
-            </div>
+            </div>}
             {/* {withPrice && <span>{separator(nft?.price)} nCoin</span>} */}
             {withChance && (
                 <p className={styles.chance}>
