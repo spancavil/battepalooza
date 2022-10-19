@@ -1,9 +1,10 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import dropService from "../Services/drop.service";
+// import dropService from "../Services/drop.service";
 import nftService from "../Services/nft.service";
 import { fireAlert } from "../Utils/sweetAlert2";
 import { UserData } from "./UserProvider";
 import staticsService from '../Services/getstatics.service';
+import { MaintenanceData } from "./MaintenanceProvider";
 // import changeDropUrl from "../Utils/changeDropURL";
 
 export const NftData = createContext({});
@@ -15,7 +16,7 @@ const NftProvider = ({ children }) => {
   const [nftToOpen, setNftToOpen] = useState({});
   const [userCollection, setUserCollection] = useState([]);
   const [loadingUserCollection, setLoadingUserCollection] = useState(true);
-  const [drops, setDrops] = useState([]);
+  // const [drops, setDrops] = useState([]);
 
   const [reloadCollection, setReloadCollection] = useState(false);
   const [reloadDrops, setReloadDrops] = useState(false);
@@ -26,7 +27,7 @@ const NftProvider = ({ children }) => {
   const [repIdStatic, setRepIdStatic] = useState([]);
   const [premiumStatic, setPremiumStatic] = useState([]);
 
-  const [maintenance, setMaintenance] = useState(null);
+  const { setMaintenance } = useContext(MaintenanceData);
 
   const characterMaxStats = {
     maxHealth: 3312,
@@ -55,6 +56,9 @@ const NftProvider = ({ children }) => {
         //Get user collection
         if (Object.keys(userData).length !== 0) {
           const userCollection = await nftService.getNftCollection(userData);
+          if (userCollection?.maintenance) {
+            setMaintenance(userCollection.maintenance);
+          }
           if (userCollection.nfts) {
             setUserCollection(userCollection.nfts);
             setLoadingUserCollection(false);
@@ -65,9 +69,9 @@ const NftProvider = ({ children }) => {
         setLoadingUserCollection(false);
       }
     })();
-  }, [userData, reloadCollection]);
+  }, [userData, reloadCollection, setMaintenance]);
 
-  useEffect(() => {
+/*   useEffect(() => {
     //Get drops
     (async () => {
       try {
@@ -83,7 +87,7 @@ const NftProvider = ({ children }) => {
         fireAlert("Oops, an error ocurred", error.message, "500px");
       }
     })();
-  }, [reloadDrops, BP_BASE_URL]);
+  }, [reloadDrops, BP_BASE_URL]); */
 
   // Get static JSON's data from Battlepalooza API
   useEffect(() => {
@@ -129,7 +133,7 @@ const NftProvider = ({ children }) => {
         userCollection,
         characterMaxStats,
         weaponMaxStats,
-        drops,
+        // drops,
         reloadCollection,
         reloadDrops,
         nftStatic,
@@ -138,8 +142,6 @@ const NftProvider = ({ children }) => {
         repIdStatic,
         premiumStatic,
         loadingUserCollection,
-        maintenance,
-        setMaintenance,
       }}
     >
       {children}

@@ -10,7 +10,6 @@ const useModifyDropDetailUrl = (dropDetail) => {
 
     useEffect(() => {
         if (dropDetail) {
-            console.log(dropDetail);
             const dropDetail2 = {...dropDetail}
             // dropDetail2.dropInfo.bigBannerUrl = changeDropUrl(BP_BASE_URL, dropDetail.dropInfo?.bigBannerUrl);
             // dropDetail2.dropInfo.mediumBannerUrl = changeDropUrl(BP_BASE_URL, dropDetail.dropInfo?.mediumBannerUrl);

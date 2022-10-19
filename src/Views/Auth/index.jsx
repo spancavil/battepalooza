@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
-import { NftData } from "../../Context/NftProvider";
+import { MaintenanceData } from "../../Context/MaintenanceProvider";
 import { UserData } from "../../Context/UserProvider";
 import LeftBanner from "../../Global-Components/LeftBanner";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
@@ -34,7 +34,7 @@ const Auth = () => {
         firstLogin,
     } = useContext(UserData);
 
-    const {setMaintenance} = useContext(NftData);
+    const {setMaintenance} = useContext(MaintenanceData);
 
     const history = useHistory();
 

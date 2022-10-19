@@ -14,6 +14,7 @@ import { fireAlert, fireAlertAsync } from "../../Utils/sweetAlert2";
 import AppNway from "../../Assets/img/App nWayPlay 1.png";
 import passCode from "../../Assets/img/PassCode 1.png";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
+import { MaintenanceData } from "../../Context/MaintenanceProvider";
 
 const Verification = () => {
   const [code, setCode] = useState("");
@@ -23,6 +24,8 @@ const Verification = () => {
   const [linkingMessage, setLinkingMessage] = useState("Create");
   const [linked, setLinked] = useState(false);
   const loading = useRef(false);
+
+  const { setMaintenance } = useContext(MaintenanceData);
 
   const mobile = useMediaQuery("(max-width: 766px)");
 
@@ -76,8 +79,11 @@ const Verification = () => {
 
       const respuesta = response.data.response;
 
+      if (response?.maintenance) {
+        setMaintenance(response.maintenance);
+      }
+
       if (respuesta && respuesta.error?.num !== 0) {
-        console.log(respuesta);
         await fireAlertAsync(
           `Error ${respuesta.error.num}`,
           respuesta.error.text
@@ -114,7 +120,6 @@ const Verification = () => {
         "/first-login",
         userSignup
       );
-      console.log(response);
 
       if (response.data.message) {
         await fireAlertAsync("Error at linking", response.data.message);
@@ -126,8 +131,6 @@ const Verification = () => {
       loading.current = false;
     }
   };
-
-  console.log(loading.current);
 
   return (
     <>

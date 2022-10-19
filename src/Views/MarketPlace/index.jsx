@@ -41,7 +41,6 @@ const MarketPlace = () => {
     //Set filters
     useEffect(() => {
         if (rarityStatic.length && repIdStatic.length && premiumStatic.length){
-            console.log("Se debería ejecutar una vez");
             const rarityItem = makeCheckableObject(
                 rarityStatic.filter((rarity) => rarity.name !== "None")
             );

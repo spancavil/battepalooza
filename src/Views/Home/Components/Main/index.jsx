@@ -10,8 +10,6 @@ const Main = () => {
   const [modal, setModal] = useState(false);
   const history = useHistory();
 
-  console.log(modal);
-
   const handleTrade = () => {
     history.push('/marketplace')
   }

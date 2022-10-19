@@ -52,8 +52,6 @@ const NftDetail = ({ setNft }) => {
   } = useContext(NftData);
   const { userData } = useContext(UserData);
 
-  console.log(premiumStatic);
-
   const desktop = useMediaQuery('(min-width: 799px) and (max-width: 1199px)')
 
   const hd = useMediaQuery('(min-width: 1200px)')
@@ -95,7 +93,6 @@ const NftDetail = ({ setNft }) => {
   }; */
 
   const handleShowPremium = (e) => {
-    console.log(e);
     setPosition({
       positionY: e.nativeEvent.offsetY
     })
@@ -110,8 +107,6 @@ const NftDetail = ({ setNft }) => {
     repIdStatic,
     premiumStatic
   );
-
-  console.log(chosenNft);
 
   return (
     <>

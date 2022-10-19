@@ -34,14 +34,12 @@ const CardAnimation = ({ nfts }) => {
         history.push("/collection");
     };
 
-    console.log(nfts);
 
     return (
         <Background>
             <div className={styles.container}>
                 <div className={styles.cardDeck} onScroll={handleScroll}>
                     {nfts.map((nft) => {
-                        console.log(nft);
                         return (
                             <CardToReveal
                                 key={nft.uuid}

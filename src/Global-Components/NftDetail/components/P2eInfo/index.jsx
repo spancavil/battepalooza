@@ -3,7 +3,6 @@ import SERIAL from "../../../../Assets/img/Sprite_Icon_Premium_02.png";
 import COPY from "../../../../Assets/img/Sprite_Icon_Premium_05.png";
 
 const P2eInfo = ({ chosenNft }) => {
-  console.log(chosenNft);
   return (
     <div className={styles.p2eInfo}>
       <h4>P2E Info</h4>

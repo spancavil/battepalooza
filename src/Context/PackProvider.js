@@ -4,6 +4,7 @@ import image2 from "../Assets/sprites/cardpack02.png";
 import image4 from "../Assets/sprites/cardpack04.png";
 import packService from "../Services/pack.service";
 import { fireAlert } from "../Utils/sweetAlert2";
+import { MaintenanceData } from "./MaintenanceProvider";
 import { UserData } from "./UserProvider";
 
 export const PackData = createContext({});
@@ -11,6 +12,7 @@ export const PackData = createContext({});
 const PackDataProvider = ({ children }) => {
 
   const { userData } = useContext(UserData);
+  const { setMaintenance } = useContext(MaintenanceData);
 
   const [packs, setPacks] = useState([]);
   const [packSelected, setPackSelected] = useState({});
@@ -95,28 +97,22 @@ const PackDataProvider = ({ children }) => {
     (async () => {
       //Get user packs
       try {
-        if (Object.keys(userData).length !== 0) {
-          const packData = await packService.getNftPackInfo(userData.pid)
-          if (packData?.error?.num === 0) {
-            setPackData(packData)
-          } else {
-            fireAlert("Oops, an error ocurred", packData?.error?.message, "500px");
-          }
-        } else {
           const packData = await packService.getNftPackInfo(null)
-          console.log(packData);
+          if (packData?.maintenance) {
+            setMaintenance(packData.maintenance);
+          }
           if (packData?.error?.num === 0) {
             setPackData(packData)
           } else {
             fireAlert("Oops, an error ocurred", packData?.error?.message, "500px");
           }
-        }
+        
       } catch (error) {
         fireAlert("Oops, an error ocurred", error.message, "500px");
       }
 
     })()
-  }, [userData]);
+  }, [userData, setMaintenance]);
 
   return (
     <PackData.Provider

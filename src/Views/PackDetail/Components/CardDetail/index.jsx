@@ -19,13 +19,10 @@ const CardDetail = ({setCheckoutNCoin}) => {
   const { userData } = useContext(UserData);
   const history = useHistory();
 
-  // console.log(id);
-
   useEffect(() => {
     const selectedPack = packData?.nftPackProducts?.find(
       (pack) => pack?.id === id
     );
-    // console.log({ selectedPack });
     setSelectedPack(selectedPack);
     setPack(selectedPack);
   }, [id, packData, setPack]);
@@ -45,7 +42,6 @@ const CardDetail = ({setCheckoutNCoin}) => {
         if (a.created < b.created) return -1;
         return 0;
       });
-      console.log(sortedTx);
       //Obtenemos la última transacción (que es la que debemos ir haciendo poll para consultar el estado)
       const lastTx = sortedTx.pop();
       await fireAlertAsync(
@@ -83,7 +79,6 @@ const CardDetail = ({setCheckoutNCoin}) => {
           //Intervalo para detectar el cierre del popup
           const popupTick = setInterval(() => {
             if (popup.closed) {
-              console.log("se cerro la window");
               clearInterval(popupTick);
               getTransactions();
             }
@@ -101,7 +96,6 @@ const CardDetail = ({setCheckoutNCoin}) => {
   if (pack?.randomWeights) {
     const weights = pack?.randomWeights
     totalProbabilities = Object.keys(weights).reduce((acc, currentValue) => acc+=weights[currentValue], 0)
-    console.log(totalProbabilities);
   }
 
 

@@ -29,7 +29,6 @@ const NftDetail = ({
   const div = useRef();
 
   useEffect(() => {
-    console.log(listingId);
     setLoading(true);
     (async () => {
       if (Object.keys(userData) !== 0) {

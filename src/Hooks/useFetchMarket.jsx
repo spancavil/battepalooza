@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
+import { MaintenanceData } from "../Context/MaintenanceProvider";
 import { NftData } from "../Context/NftProvider";
 import marketService from "../Services/market.service";
 import { adaptMarketFilterParams } from "../Utils/objectUtilities";
 
 const useFetchMarket = (filters, filterTypes, page, pageSize) => {
-    const { rarityStatic, repIdStatic, premiumStatic, setNftMarket, setMaintenance } = useContext(NftData);
-
+    const { rarityStatic, repIdStatic, premiumStatic, setNftMarket } = useContext(NftData);
+    const { setMaintenance } = useContext(MaintenanceData);
     const [nfts, setNfts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");

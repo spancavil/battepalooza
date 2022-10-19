@@ -35,8 +35,6 @@ const PackDetail = () => {
     history.push(`/open-pack`)
   }
 
-  console.log(packSelected);
-
   return (
     <Background>
       <div className={styles.container}>

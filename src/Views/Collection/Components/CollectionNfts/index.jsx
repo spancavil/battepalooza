@@ -273,18 +273,14 @@ const CollectionNfts = ({
     if (filterNewest.current !== 0) {
       const nftFiltered2 = [...nftsFiltered];
       if (filterNewest.current === 2) {
-        console.log("Deberia ordernarse por viejo");
         setNftFiltered2([...nftFiltered2].reverse());
       } else if (filterNewest.current === 1) {
-        console.log("Deberia ordernarse por nuevo");
         setNftFiltered2([...nftFiltered2]);
       }
     }
   }, [filterNewest, nftsFiltered]);
 
   const max = nftCollectionModified.length / nftPerPage;
-
-  console.log(nftsFiltered2);
 
   return (
     <div className={styles.container}>
