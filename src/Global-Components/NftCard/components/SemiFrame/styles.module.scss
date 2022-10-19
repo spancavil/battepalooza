@@ -1,0 +1,24 @@
+.trianglesContainer{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: transparent;
+
+    .verticalTriangle{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 0;
+        width: 0;
+        border-right: 7px solid transparent;
+    }
+    .horizontalTriangle{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 0;
+        width: 0;
+        border-bottom: 7px solid transparent;
+    }
+}
+

@@ -3,12 +3,17 @@ import { useEffect, useContext, useState } from "react";
 import { separator } from "../../Utils/separator";
 import styles from "./styles.module.scss";
 import { NftData } from "../../Context/NftProvider";
+import SemiFrame from "./components/SemiFrame";
+import iconP2e from '../../Assets/img/Sprite_Icon_Premium_05.png';
+import ncoinIcon from '../../Assets/img/Sprite_Icon_Reward_35.png';
 
 const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
   const {premiumStatic} = useContext(NftData)
   const [buffs, setBuffs] = useState([])
 
   const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
+
+  console.log(nft);
 
   //Set buff list
   useEffect(() => {
@@ -41,6 +46,7 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
       >
           {/* <h3>{nft?.itemName}</h3> */}
           <div className={styles.characterFrame}>
+            <SemiFrame rarity={nft?.rarity}/>
             <div className={styles.rarityIcon}>
                 <LogoRarity rarity={nft?.rarity} />
             </div>
@@ -54,12 +60,25 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
                 return <img src={BP_BASE_URL + buff.icon} alt="buff-icon" key={idx}/>
               })}
             </div>
+          </div>
+          <div className={styles.texts}>
+            <p className={styles.title}>{nft.itemName}</p>
+            <p className={styles.subtitle}>{nft.repName}</p>
+            <div className={styles.p2eContainer}>
+                <img src = {iconP2e} className={styles.p2eIcon} alt="p2E-icon"/>
+                <p className={styles.p2e}>Left times to P2E: {nft.maxPlayCount-nft.playCount}</p>
+            </div>
+            <div className={styles.nCoinContainer}>
+                <img src = {ncoinIcon} className={styles.p2eIcon} alt="p2E-icon"/>
+                <p className={styles.title}>{separator(nft.price)} NCoin</p>
+            </div>
             {/* {withPrice && <span>{separator(nft?.price)} nCoin</span>} */}
             {withChance && (
                 <p className={styles.chance}>
                     Chance <b>50%</b>
                 </p>
             )}
+
           </div>
       </div>
   );
