@@ -26,26 +26,12 @@ import Navbar from "./Global-Components/Navbar";
 import "./Styles/Global.scss";
 import MarketplaceDetailV2 from "./Views/MarketplaceDetailV2";
 import PackDetailV3 from "./Views/PackDetailV3";
-import { useEffect } from 'react';
-import { withRouter, useLocation } from "react-router-dom";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
 
-  const _ScrollToTop = ({children}) => {
-    const { pathname } = useLocation();
-    useEffect(()=> {
-      window.scrollTo(0,0);
-    }, [pathname])
-
-    return children;
-  }
-
-  const ScrollToTop = withRouter(_ScrollToTop);
-
   return (
     <BrowserRouter>
-      <ScrollToTop>
         {!error404 && <Navbar />}
         <Switch>
           <Route exact path="/" component={HomeContainer} />
@@ -76,7 +62,6 @@ function App() {
           <Route exact path="/open-pack" component={OpenPack} />
           <Route path="" component={Error404} />
         </Switch>
-      </ScrollToTop>
     </BrowserRouter>
   );
 }
