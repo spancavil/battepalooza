@@ -23,46 +23,60 @@ import Auth from "./Views/Auth";
 /* import PackDetailV2 from "./Views/PackDetailV2"; */
 import Navbar from "./Global-Components/Navbar";
 
-
 import "./Styles/Global.scss";
 import MarketplaceDetailV2 from "./Views/MarketplaceDetailV2";
 import PackDetailV3 from "./Views/PackDetailV3";
+import { useEffect } from 'react';
+import { withRouter, useLocation } from "react-router-dom";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
 
+  const _ScrollToTop = ({children}) => {
+    const { pathname } = useLocation();
+    useEffect(()=> {
+      window.scrollTo(0,0);
+    }, [pathname])
+
+    return children;
+  }
+
+  const ScrollToTop = withRouter(_ScrollToTop);
+
   return (
     <BrowserRouter>
-      {!error404 && <Navbar />}
-      <Switch>
-        <Route exact path="/" component={HomeContainer} />
-        <Route exact path="/auth/:type" component={Auth} />
-        <Route exact path="/signup" component={SignUp2} />
-        <Route exact path="/verification" component={Verification} />
-        <Route exact path="/needlogin" component={NeedLogin} />
-        <Route exact path="/account/profile">
-          {Object.keys(userData).length === 0 ? <NeedLogin /> : <Profile />}
-        </Route>
-        <Route exact path="/account/trade-history">
-          {Object.keys(userData).length === 0 ? (
-            <NeedLogin />
-          ) : (
-            <TradeHistory />
-          )}
-        </Route>
-        <Route exact path="/drop" component={Drop} />
-        <Route exact path="/drop/:id" component={DropDetail} />
-        <Route exact path="/collection" component={Collection} />
-        <Route exact path="/collection/:uuid" component={CollectionDetail} />
-        <Route exact path="/privacy-policy" component={Privacy} />
-        <Route exact path="/terms-of-service" component={TermsOfUse} />
-        <Route exact path="/marketplace" component={MarketPlace} />
-        <Route exact path="/marketplace/:nftId" component={MarketplaceDetailV2} />
-        <Route exact path="/packs" component={Packs} />
-        <Route exact path="/packs/:id" component={PackDetailV3} />
-        <Route exact path="/open-pack" component={OpenPack} />
-        <Route path="" component={Error404} />
-      </Switch>
+      <ScrollToTop>
+        {!error404 && <Navbar />}
+        <Switch>
+          <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/auth/:type" component={Auth} />
+          <Route exact path="/signup" component={SignUp2} />
+          <Route exact path="/verification" component={Verification} />
+          <Route exact path="/needlogin" component={NeedLogin} />
+          <Route exact path="/account/profile">
+            {Object.keys(userData).length === 0 ? <NeedLogin /> : <Profile />}
+          </Route>
+          <Route exact path="/account/trade-history">
+            {Object.keys(userData).length === 0 ? (
+              <NeedLogin />
+            ) : (
+              <TradeHistory />
+            )}
+          </Route>
+          <Route exact path="/drop" component={Drop} />
+          <Route exact path="/drop/:id" component={DropDetail} />
+          <Route exact path="/collection" component={Collection} />
+          <Route exact path="/collection/:uuid" component={CollectionDetail} />
+          <Route exact path="/privacy-policy" component={Privacy} />
+          <Route exact path="/terms-of-service" component={TermsOfUse} />
+          <Route exact path="/marketplace" component={MarketPlace} />
+          <Route exact path="/marketplace/:nftId" component={MarketplaceDetailV2} />
+          <Route exact path="/packs" component={Packs} />
+          <Route exact path="/packs/:id" component={PackDetailV3} />
+          <Route exact path="/open-pack" component={OpenPack} />
+          <Route path="" component={Error404} />
+        </Switch>
+      </ScrollToTop>
     </BrowserRouter>
   );
 }
