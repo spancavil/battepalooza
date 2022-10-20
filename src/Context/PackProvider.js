@@ -97,7 +97,7 @@ const PackDataProvider = ({ children }) => {
     (async () => {
       //Get user packs
       try {
-          const packData = await packService.getNftPackInfo(null)
+          const packData = await packService.getNftPackInfo()
           if (packData?.maintenance) {
             setMaintenance(packData.maintenance);
           }
