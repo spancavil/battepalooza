@@ -282,6 +282,8 @@ const CollectionNfts = ({
 
   const max = nftCollectionModified.length / nftPerPage;
 
+  console.log(nftCollectionModified);
+
   return (
     <div className={styles.container}>
       <div className={styles.cardsContainer}>

@@ -12,7 +12,7 @@ import Proccesing from './components/Proccesing';
 
 const MarketplaceDetail = () => {
   const history = useHistory ();
-  const {nftMarket, setReloadCollection, setReloadMarket} = useContext (NftData);
+  const {nftMarket, setReloadCollection } = useContext (NftData);
 
   const desktop = useMediaQuery ('(min-width: 768px)');
 
@@ -42,7 +42,6 @@ const MarketplaceDetail = () => {
   };
 
   const handleReload = (destiny) => {
-    setReloadMarket(value => !value)
     setReloadCollection(value => !value)
     history.push(`/${destiny}`)
   }

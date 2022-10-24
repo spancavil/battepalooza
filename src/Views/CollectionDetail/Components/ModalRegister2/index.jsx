@@ -12,7 +12,7 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
   const [status, setStatus] = useState("")
   const [transactionType, setTransactionType] = useState("")
   const history = useHistory();
-  const {setReloadMarket, setReloadCollection} = useContext(NftData);
+  const {setReloadCollection} = useContext(NftData);
   
   useEffect(()=> {
 
@@ -52,7 +52,6 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
   }, [forteTxText, status, bpToken, history, pid])
 
   const handleCloseModal = () => {
-    setReloadMarket(value => !value)
     setReloadCollection(value => !value)
     setmodalRegister2(false)
   }

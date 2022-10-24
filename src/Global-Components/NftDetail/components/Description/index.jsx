@@ -7,7 +7,9 @@ import styles from "./styles.module.scss";
 import { Fragment } from "react";
 import ButtonRounded from "../../../ButtonRounded";
 
-const Description = ({ chosenNft }) => {
+const Description = ({ chosenNft, register, unRegister, buyNft }) => {
+
+  console.log(chosenNft.price);
   const getNftRarity = () => {
     switch (chosenNft?.rarity) {
       case "Common":
@@ -76,7 +78,29 @@ const Description = ({ chosenNft }) => {
           <div className={styles.line} />
           <ButtonRounded
             title={`BUY ${chosenNft?.price} NCoins`}
-            onClick={() => console.log("BUY")}
+            onClick={()=> buyNft(chosenNft)}
+            color="blue"
+            additionalStyles={{
+              color: "black",
+              backgroundColor: "#1892f0",
+              height: "48px",
+              fontSize: "14px",
+              width: "100%",
+              zIndex: 0,
+            }}
+          />
+          <div className={styles.feeAndSeller}>
+            <span>Fee: ?</span>
+            <span>Seller: {chosenNft?.sellerName}</span>
+          </div>
+        </>
+      )}
+      {!chosenNft?.price && chosenNft?.salesState === 0 && (
+        <>
+          <div className={styles.line} />
+          <ButtonRounded
+            title={`REGISTER IN MARKETPLACE`}
+            onClick={() => register()}
             color="blue"
             additionalStyles={{
               color: "black",
@@ -86,10 +110,24 @@ const Description = ({ chosenNft }) => {
               width: "100%",
             }}
           />
-          <div className={styles.feeAndSeller}>
-            <span>Fee: ?</span>
-            <span>Seller: {chosenNft?.sellerName}</span>
-          </div>
+        </>
+      )}
+      {!chosenNft?.price && chosenNft?.salesState === 1 && (
+        <>
+          <div className={styles.line} />
+          <ButtonRounded
+            title={`UNREGISTER FROM MARKETPLACE`}
+            onClick={() => unRegister()}
+            color="blue"
+            additionalStyles={{
+              color: "black",
+              backgroundColor: "#1892f0",
+              height: "48px",
+              fontSize: "14px",
+              width: "100%",
+              zIndex: 0,
+            }}
+          />
         </>
       )}
     </div>
