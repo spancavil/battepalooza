@@ -8,16 +8,15 @@ export default function decryptUserToken (tokenEncrypted) {
     //Decrypt token using RSA private key
     try {
         const privKey = process.env.REACT_APP_FRONT_PRIVKEY.replace(/\\n/g, '\n')
-        console.log(privKey);
-        console.log(tokenEncrypted);
         const encryptRsa = new EncryptRsa();
+        // console.log(privKey);
+        // console.log(tokenEncrypted);
         const bpTokenUncrypted = encryptRsa.decryptStringWithRsaPrivateKey({ 
             text: tokenEncrypted,
             privateKey: privKey,
         });
         return bpTokenUncrypted
     } catch (error) {
-        console.log(error);
         return null
     }
 } 
