@@ -1,0 +1,82 @@
+.leftMenu {
+  top: 0;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 30;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background: #010320;
+  overflow-y: scroll;
+
+  .title {
+    padding: 1.5rem 2rem 1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: "Rubik";
+    width: 100%;
+    border-bottom: 2px solid #0146d5;
+    border-right: 2px solid #0146d5;
+
+    p {
+      font-weight: 500;
+      color: white;
+      font-size: 24px;
+    }
+
+    span {
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 14px;
+      color: #3d91ef;
+    }
+
+    span:hover {
+      color: #78b7ff;
+    }
+
+    .activeFilters {
+      margin-left: 1rem;
+      background: linear-gradient(0deg, #0146d5, #0146d5),
+        linear-gradient(0deg, #033dae, #033dae);
+      border: 1px solid #0146d5;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transform: rotate(45deg);
+      position: relative;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        position: absolute;
+        transform: rotate(-45deg);
+        color: white;
+        font-family: "Rubik";
+        font-weight: 300;
+        padding-top: 3px;
+      }
+    }
+  }
+
+  .ordersContainer {
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1rem 0;
+    padding-left: 1rem;
+  }
+
+  .button {
+    background: transparent;
+    border: none;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+}

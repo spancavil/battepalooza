@@ -1,0 +1,41 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 1rem;
+
+  .filter {
+    cursor: pointer;
+    display: flex;
+    gap: 0.3rem;
+    width: fit-content;
+    border: 1px solid #0146d5;
+    padding: 0.4rem .6rem;
+    border-radius: 8px;
+
+    span {
+      font-family: "Rubik";
+      font-size: 14px;
+      padding-top: 3px;
+    }
+
+    img {
+      width: 16px;
+      object-fit: contain;
+    }
+  }
+
+  .filter:hover {
+    background: #0146d5;
+    transition-duration: 0.3s;
+  }
+
+  .filterActive {
+    @extend .filter;
+    background: #0146d5;
+  }
+
+  .filterActive:hover {
+    background: #1562fb;
+  }
+}

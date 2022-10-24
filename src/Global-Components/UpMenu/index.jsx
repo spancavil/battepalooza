@@ -11,16 +11,22 @@ export const UpMenu = ({
   filters,
   filterTypes,
   desktop,
+  viewFiltersMobile,
+  setOrderBy,
 }) => {
-  const setOrderBy = (newOrder) => {
-    setFilters({...filters, ...newOrder})
-  }
   return (
     <div className={styles.upMenu}>
       <Filters filters={filters} setFilters={setFilters} />
       <div className={styles.right}>
-        <SearchBar search={search} setSearch={setSearch}/>
-        {desktop && <Orders orderBy={filterTypes?.orderBy} setOrderBy={setOrderBy} />}
+        <SearchBar search={search} setSearch={setSearch} />
+        {desktop && (
+          <Orders orderBy={filterTypes?.orderBy} setOrderBy={setOrderBy} />
+        )}
+        {!desktop && (
+          <button onClick={viewFiltersMobile} className={styles.viewFilter}>
+            <p>Filter</p>
+          </button>
+        )}
       </div>
     </div>
   );
