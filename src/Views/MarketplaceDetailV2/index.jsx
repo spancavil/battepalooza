@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { NftData } from "../../Context/NftProvider";
+import { UserData } from "../../Context/UserProvider";
 import Background from "../../Global-Components/Background";
 import NftDetail from "../../Global-Components/NftDetail";
 import useModifyDetail from "../../Hooks/useModifyDetail";
 import marketService from "../../Services/market.service";
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
+import fireToast from "../../Utils/sweetAlert2";
 import Checkout from "./components/Checkout";
 import Complete from "./components/Complete";
 import Proccesing from "./components/Proccesing";
@@ -30,6 +32,8 @@ const MarketplaceDetailV2 = () => {
 
   const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic, setReloadCollection } =
     useContext(NftData);
+  
+  const { userData } = useContext(UserData);
 
   useEffect(() => {
     (async () => {
@@ -51,8 +55,11 @@ const MarketplaceDetailV2 = () => {
   );
 
   const setBuy = nftSelected => {
-    setNft (nftSelected);
-    setCheckout (true);
+    if (Object.keys(userData).length) {
+      setNft (nftSelected);
+      setCheckout (true);
+    }
+    else fireToast("Need login", 1200, "300px");
   };
 
   const proccessingComplete = () => {

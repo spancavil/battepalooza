@@ -97,6 +97,8 @@ const MarketplaceNfts = ({
         history.push(`/marketplace/${uniqueId}-${sellerPid}`);
     };
 
+    console.log(nftsFiltered);
+
     return (
         <div className={styles.cardsContainer}>
             {nftMarketModified.length > 0 && loading === false && (
@@ -143,7 +145,7 @@ const MarketplaceNfts = ({
                 </div>
             )}
 
-            {(nftsFiltered.length === 0 || activeFilters) && loading === false && (
+            {nftsFiltered.length === 0 && activeFilters && loading === false && (
                 <div className={styles.notNft}>
                     No NFT matches the search criteria
                 </div>
