@@ -121,6 +121,10 @@ const MarketPlace = () => {
     setFilters({ ...filters, ...newOrder });
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [filtersMobileOpen]);
+
   return (
     <Background>
       <div className={styles.container}>
@@ -146,6 +150,7 @@ const MarketPlace = () => {
             filterTypes={filterTypes}
             desktop={desktop}
             setOrderBy={setOrderBy}
+            filtersMobileOpen={filtersMobileOpen}
           />
         )}
 
