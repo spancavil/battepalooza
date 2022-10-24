@@ -9,6 +9,7 @@ import { UpMenu } from "../../Global-Components/UpMenu";
 import CollectionNfts from "./Components/CollectionNfts";
 import styles from "./styles.module.scss";
 import { makeCheckableObject } from "../../Utils/objectUtilities";
+import { UserData } from "../../Context/UserProvider";
 
 const Collection = () => {
     const [filters, setFilters] = useState({});
@@ -20,6 +21,7 @@ const Collection = () => {
     const [activeFilters, setActiveFilters] = useState(0);
 
     const { rarityStatic, repIdStatic, premiumStatic } = useContext(NftData);
+    const {userData} = useContext(UserData)
 
     const desktop = useMediaQuery("(min-width: 1200px)");
     const history = useHistory();
@@ -97,6 +99,11 @@ const Collection = () => {
         setFilters(filtros);
     };
     
+    useEffect(()=> {
+        if (!userData?.bpToken){
+            history.push('/')
+        }
+    }, [userData, history])
 
     return (
         <Background>

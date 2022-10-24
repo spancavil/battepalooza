@@ -4,27 +4,33 @@ import { NftData } from "../../Context/NftProvider";
 import { UserData } from "../../Context/UserProvider";
 import Background from "../../Global-Components/Background";
 import nftService from "../../Services/nft.service";
+import ModalRegister1 from "./Components/ModalRegister1";
+import ModalRegister2 from './Components/ModalRegister2';
+import ModalUnregister from './Components/ModalUnregister';
 
 import useModifyDetail from "../../Hooks/useModifyDetail";
 
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import NftDetail from "../../Global-Components/NftDetail";
 import { MaintenanceData } from "../../Context/MaintenanceProvider";
+import marketService from "../../Services/market.service";
+import fireToast, { fireAlert } from "../../Utils/sweetAlert2";
+import { sendAmplitudeData } from "../../Utils/amplitude";
 
 const CollectionDetail = () => {
     const [nftSelectedRaw, setNftSelectedRaw] = useState();
-    /*   const [loading, setLoading] = useState(false);
-  const [modalUnregister, setmodalUnregister] = useState(false);
-  const [modalRegister1, setmodalRegister1] = useState(false); */
-    /*   const [modalRegister2, setmodalRegister2] = useState(false); */
-    /* 
-  const [inputPrice, setInputPrice] = useState(0); */
-    /*   const [forteTxText, setForteTxText] = useState("");
-  const [position, setPosition] = useState({ positionX: "", positionY: "" });
-  const [premium, setPremium] = useState(false); */
+    // const [loading, setLoading] = useState(false);
+    const [modalUnregister, setmodalUnregister] = useState(false);
+    const [modalRegister1, setmodalRegister1] = useState(false);
+    const [modalRegister2, setmodalRegister2] = useState(false);
+
+    const [inputPrice, setInputPrice] = useState(0);
+    const [forteTxText, setForteTxText] = useState("");
+    /* const [position, setPosition] = useState({ positionX: "", positionY: "" });
+    const [premium, setPremium] = useState(false); */
 
     const { userData } = useContext(UserData);
-    const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
+    const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic, nftMarket, setReloadCollection } =
         useContext(NftData);
     const { setMaintenance } = useContext(MaintenanceData);
 
@@ -66,7 +72,7 @@ const CollectionDetail = () => {
                         uuid
                     );
                     if (response?.maintenance) {
-                      setMaintenance(response.maintenance);
+                        setMaintenance(response.maintenance);
                     }
                     const canContinue = checkErrorMiddleware(response, history);
                     if (canContinue) {
@@ -80,97 +86,128 @@ const CollectionDetail = () => {
         userData.email && fetchData();
     }, [uuid, userData, history, setMaintenance]);
 
-    /*   const openModalUnregister = () => {
-    setmodalUnregister(true);
-  };
-
-  const openModalRegister1 = () => {
-    sendAmplitudeData("Collection place for sale request");
-    setmodalRegister1(true);
-  }; */
-
-    /*   const goBack = () => {
-    history.goBack();
-  };
-
-  const Register = () => {
-    if (Number(inputPrice) > 10000) {
-      const registerNft = async () => {
-        try {
-          const response = await marketService.registerProductMarketplace(
-            userData.pid,
-            nftSelected.uuid,
-            inputPrice,
-            userData.bpToken
-          );
-
-          const canContinue = checkErrorMiddleware(response, history);
-          if (canContinue) {
-            sendAmplitudeData("Collection place for sale confirm");
-            setForteTxText(response.forteTxId);
-            setmodalRegister1(false);
-            setmodalRegister2(true);
-          }
-        } catch (error) {
-          fireAlert("Oops, an error ocurred", error.message, "500px");
-        }
-      };
-
-      registerNft();
-    } else {
-      fireToast("Price should be greater than 10000", 3000, "500px", "22px");
-      return;
-    }
-  }; */
-
-    /*   const confirmUnregister = () => {
-    const unRegisterNft = async () => {
-      try {
-        //Necesitamos obtener el NFT del market porque de ahí sacamos el uniqueId de Forte
-        const nftFromMarket = nftMarket.find(
-          (nft) =>
-            nft.itemName === nftSelected.itemName &&
-            nft.sellerPid === userData.pid &&
-            nft.serial === nftSelected.serial
-        );
-        const response = await marketService.cancelSellingMarketplace(
-          userData.pid,
-          nftFromMarket.uniqueId,
-          userData.bpToken
-        );
-
-        const canContinue = checkErrorMiddleware(response, history);
-        if (canContinue) {
-          console.log(response);
-          setForteTxText(response.forteTxId);
-          setmodalUnregister(false);
-          setmodalRegister2(true);
-        }
-      } catch (error) {
-        fireAlert("Oops, an error ocurred", error.message, "500px");
-      }
+    const openModalUnregister = () => {
+        setmodalUnregister(true);
     };
-    unRegisterNft();
-  }; */
 
-    /*   const handleMarket = () => {
-    setReloadMarket((value) => !value);
-    setReloadCollection((value) => !value);
-    history.push("/marketplace");
-  };
+/*     const goBack = () => {
+        history.goBack();
+    }; */
 
-  const handleInputChange = (value) => {
-    setInputPrice(parseInt(value));
-  }; */
+    const onRegister = () => {
+      setmodalRegister1(true);
+    }
+
+    const Register = () => {
+        if (Number(inputPrice) > 10000) {
+            const registerNft = async () => {
+                try {
+                    const response =
+                        await marketService.registerProductMarketplace(
+                            userData.pid,
+                            nftSelected.uuid,
+                            inputPrice,
+                            userData.bpToken
+                        );
+
+                    const canContinue = checkErrorMiddleware(response, history);
+                    if (canContinue) {
+                        sendAmplitudeData("Collection place for sale confirm");
+                        setForteTxText(response.forteTxId);
+                        setmodalRegister1(false);
+                        setmodalRegister2(true);
+                    }
+                } catch (error) {
+                    fireAlert("Oops, an error ocurred", error.message, "500px");
+                }
+            };
+
+            registerNft();
+        } else {
+            fireToast(
+                "Price should be greater than 10000",
+                3000,
+                "500px",
+                "22px"
+            );
+            return;
+        }
+    };
+
+    const confirmUnregister = () => {
+        const unRegisterNft = async () => {
+            try {
+                //Necesitamos obtener el NFT del market porque de ahí sacamos el uniqueId de Forte
+                console.log(nftMarket);
+                const nftFromMarket = nftMarket.find(
+                    (nft) =>
+                        nft.itemName === nftSelected.itemName &&
+                        nft.sellerPid === userData.pid &&
+                        nft.serial === nftSelected.serial
+                );
+                const response = await marketService.cancelSellingMarketplace(
+                    userData.pid,
+                    nftFromMarket.uniqueId,
+                    userData.bpToken
+                );
+
+                const canContinue = checkErrorMiddleware(response, history);
+                if (canContinue) {
+                    console.log(response);
+                    setForteTxText(response.forteTxId);
+                    setmodalUnregister(false);
+                    setmodalRegister2(true);
+                }
+            } catch (error) {
+                fireAlert("Oops, an error ocurred", error.message, "500px");
+            }
+        };
+        unRegisterNft();
+    };
+
+    const handleMarket = () => {
+        setReloadCollection((value) => !value);
+        history.push("/marketplace");
+    };
+
+    const handleInputChange = (value) => {
+        setInputPrice(parseInt(value));
+    };
 
     /*   const handleShowClone = () => {
     console.log("show clone info");
   } */
 
     return (
-        <Background>
-            <NftDetail goBack="/collection" chosenNft={nftSelected} />
-        </Background>
+        <>
+            <Background>
+                <NftDetail goBack="/collection" chosenNft={nftSelected} onRegister={onRegister} unRegister={openModalUnregister}/>
+            </Background>
+            {modalUnregister && (
+                <ModalUnregister
+                    setmodalUnregister={setmodalUnregister}
+                    confirmUnregister={confirmUnregister}
+                    name={nftSelected.itemName}
+                />
+            )}
+            {modalRegister1 && (
+                <ModalRegister1
+                    setmodalRegister1={setmodalRegister1}
+                    handleInputChange={handleInputChange}
+                    Register={Register}
+                    inputPrice={inputPrice}
+                />
+            )}
+            {modalRegister2 && (
+                <ModalRegister2
+                    setmodalRegister2={setmodalRegister2}
+                    handleMarket={handleMarket}
+                    forteTxText={forteTxText}
+                    bpToken={userData.bpToken}
+                    pid={userData.pid}
+                />
+            )}
+        </>
     );
 };
 
