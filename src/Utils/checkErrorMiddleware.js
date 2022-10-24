@@ -14,7 +14,7 @@ const checkErrorMiddleware = (response, history) => {
                 fireAlertAsync("Session expired, please login again.").then(() => {
                     localStorage.removeItem("userBP");
                     logOutAmplitude();
-                    history.push("/");
+                    if (history) history.push("/");
                     window.location.reload();
                     return false;
                 });

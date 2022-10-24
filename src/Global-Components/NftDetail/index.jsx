@@ -8,7 +8,7 @@ import Description from "./components/Description";
 
 import styles from "./styles.module.scss";
 
-const NftDetail = ({ chosenNft, goBack, onRegister, unRegister }) => {
+const NftDetail = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
   return (
     <>
       <div className={styles.nftDetailPage}>
@@ -28,7 +28,12 @@ const NftDetail = ({ chosenNft, goBack, onRegister, unRegister }) => {
               />
             </div>
             <div className={styles.nftData}>
-              <Description chosenNft={chosenNft} register={onRegister} unRegister={unRegister}/>
+              <Description 
+                chosenNft={chosenNft} 
+                register={onRegister} 
+                unRegister={unRegister}
+                buyNft={buyNft}
+              />
               {chosenNft?.type === 1 && <Stats chosenNft={chosenNft} />}
               <Abilities chosenNft={chosenNft} />
               <P2eInfo chosenNft={chosenNft} />

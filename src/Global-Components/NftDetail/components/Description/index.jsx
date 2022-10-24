@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 import { Fragment } from "react";
 import ButtonRounded from "../../../ButtonRounded";
 
-const Description = ({ chosenNft, register, unRegister, buy }) => {
+const Description = ({ chosenNft, register, unRegister, buyNft }) => {
 
   console.log(chosenNft.price);
   const getNftRarity = () => {
@@ -78,7 +78,7 @@ const Description = ({ chosenNft, register, unRegister, buy }) => {
           <div className={styles.line} />
           <ButtonRounded
             title={`BUY ${chosenNft?.price} NCoins`}
-            onClick={()=> console.log('BUY')}
+            onClick={()=> buyNft(chosenNft)}
             color="blue"
             additionalStyles={{
               color: "black",
@@ -86,6 +86,7 @@ const Description = ({ chosenNft, register, unRegister, buy }) => {
               height: "48px",
               fontSize: "14px",
               width: "100%",
+              zIndex: 0,
             }}
           />
           <div className={styles.feeAndSeller}>
