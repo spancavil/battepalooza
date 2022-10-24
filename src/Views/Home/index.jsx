@@ -12,6 +12,14 @@ const HomeContainer = () => {
   const desktop = useMediaQuery("(min-width: 1200px) and (max-width: 1399px)");
   const hd = useMediaQuery("(min-width: 1400px)");
 
+  useEffect(()=> {
+    
+    return () => {
+      window.scrollTo(0,0);
+    }
+
+  }, [])
+
   useEffect(() => {
     sendAmplitudeData("Main page visit");
   }, []);
