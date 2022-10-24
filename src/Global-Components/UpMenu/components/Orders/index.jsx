@@ -34,11 +34,12 @@ export const Orders = ({ orderBy, setOrderBy }) => {
           <span>{title ? title : "Order By"}</span>
           <OrdersIcon />
         </div>
-        {!hideOrderBy && (
+        {!hideOrderBy && orderBy && (
           <div className={styles.orders}>
-            {Object.keys(orderBy).map((key) => {
-              return <Order name={key} key={key} onClick={handleChange} />;
-            })}
+            {Object.keys(orderBy).length > 0 &&
+              Object.keys(orderBy).map((key) => {
+                return <Order name={key} key={key} onClick={handleChange} />;
+              })}
           </div>
         )}
       </div>

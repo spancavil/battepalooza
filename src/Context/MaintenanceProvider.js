@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const MaintenanceData = createContext({});
 
 const MaintenanceProvider = ({ children }) => {
-    const [maintenance, setMaintenance] = useState(null);
+    const [maintenance, setMaintenance] = useState(false);
 
     return (
         <MaintenanceData.Provider
