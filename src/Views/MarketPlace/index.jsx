@@ -138,7 +138,7 @@ const MarketPlace = () => {
           setOrderBy={setOrderBy}
           viewFiltersMobile={() => setFiltersMobileOpen(!filtersMobileOpen)}
         />
-        {!desktop && filtersMobileOpen && (
+        {!desktop && filtersMobileOpen ? (
           <FiltersMobile
             viewFiltersMobile={() => setFiltersMobileOpen(!filtersMobileOpen)}
             resetFilters={resetFilters}
@@ -152,9 +152,9 @@ const MarketPlace = () => {
             setOrderBy={setOrderBy}
             filtersMobileOpen={filtersMobileOpen}
           />
-        )}
-
-        <div className={styles.subContainer}>
+        )
+        :
+        (<div className={styles.subContainer}>
           {desktop && (
             <LeftMenu
               resetFilters={resetFilters}
@@ -184,8 +184,9 @@ const MarketPlace = () => {
             />
           </div>
         </div>
+      )}
       </div>
-      <Footer />
+      {!filtersMobileOpen && <Footer />}
     </Background>
   );
 };
