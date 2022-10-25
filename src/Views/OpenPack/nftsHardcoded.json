@@ -1,0 +1,216 @@
+[
+    {
+        "storyText": "Two balls of fire are emitted vertically from the explosion location. Any target affected by the fire will receive additional damage for a certain period of time. Also, those who are hit will not be able to move temporarily.",
+        "skill": null,
+        "ability": {
+            "text": "Two balls of fire are emitted vertically from the explosion location. Any target affected by the fire will receive additional damage for a certain period of time. Also, those who are hit will not be able to move temporarily.",
+            "features": ["Multiple Attack", "Restrict Movement"]
+        },
+        "stat": {
+            "damage": 440,
+            "consumeEnergy": 55,
+            "maxEnergy": 275,
+            "coolTime": 1.3
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "ae85742e-5e95-4fe7-ac7e-e1a000db9a7d",
+        "type": 2,
+        "itemId": 1033,
+        "itemName": "Mega Proton Yellow",
+        "repName": "Cannon",
+        "clan": "Red hawk",
+        "rarity": "Common",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 1,
+        "playCount": 0,
+        "maxPlayCount": 281,
+        "cloneCount": 0,
+        "movieUrl": "https://battlepalooza-web.s3.amazonaws.com/movieClips/items/MegaProtonYellow_Common.mp4",
+        "thumbnailUrl": "https://battlepalooza-web.s3.amazonaws.com/thumbnails/items/Sprite_Shop_Equip_06_Pre7.png",
+        "acquired": 1666724258889,
+        "buff": [
+            {
+                "id": 19,
+                "value": 8
+            }
+        ],
+        "rewardMultiplier": 1,
+        "maxDailyPlayCount": 12,
+        "maxCloneCount": 7,
+        "premiumBuff": [
+            {
+                "id": 19,
+                "buffType": "DebuffTime",
+                "engName": "Debuff duration",
+                "icon": "icons/Sprite_Icon_PR_Buff_11.png",
+                "min": 5,
+                "max": 10,
+                "valueType": "Percent",
+                "value": 8
+            }
+        ]
+    },
+    {
+        "storyText": "Although he has a tough and wild personality, he was given the wrong avatar and turned into a teddy bear.",
+        "skill": {
+            "id": 27,
+            "name": "Defense Up"
+        },
+        "ability": {
+            "text": "When the Defence Gear is activated, the Defence Gear will take damage instead of the player's HP.",
+            "features": ["Energy Shield"]
+        },
+        "stat": {
+            "maxHealth": 2300,
+            "energyRecovery": 15,
+            "moveSpeed": 9
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "1abdbe3a-44f4-4a8b-96b3-63396366126b",
+        "type": 1,
+        "itemId": 28,
+        "itemName": "Fusion Ted",
+        "repName": "Agend Ted",
+        "clan": "Red pixel",
+        "rarity": "Epic",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 5,
+        "playCount": 0,
+        "maxPlayCount": 323,
+        "cloneCount": 0,
+        "movieUrl": "https://battlepalooza-web.s3.amazonaws.com/movieClips/characters/FusionTed_Epic.mp4",
+        "thumbnailUrl": "https://battlepalooza-web.s3.amazonaws.com/thumbnails/characters/Sprite_Shop_Character_03_Pre3.png",
+        "acquired": 1661795591726,
+        "buff": [
+            {
+                "id": 15,
+                "value": 8
+            },
+            {
+                "id": 19,
+                "value": 9
+            },
+            {
+                "id": 18,
+                "value": 7
+            }
+        ],
+        "rewardMultiplier": 4,
+        "maxDailyPlayCount": 12,
+        "maxCloneCount": 7,
+        "premiumBuff": [
+            {
+                "id": 15,
+                "buffType": "HealthGen",
+                "engName": "Auto HP recovery",
+                "icon": "icons/Sprite_Icon_PR_Buff_07.png",
+                "min": 5,
+                "max": 10,
+                "valueType": "Percent",
+                "value": 8
+            },
+            {
+                "id": 19,
+                "buffType": "DebuffTime",
+                "engName": "Debuff duration",
+                "icon": "icons/Sprite_Icon_PR_Buff_11.png",
+                "min": 5,
+                "max": 10,
+                "valueType": "Percent",
+                "value": 9
+            },
+            {
+                "id": 18,
+                "buffType": "BuffTime",
+                "engName": "Buff Duration",
+                "icon": "icons/Sprite_Icon_PR_Buff_10.png",
+                "min": 5,
+                "max": 10,
+                "valueType": "Percent",
+                "value": 7
+            }
+        ]
+    },
+    {
+        "storyText": "Engineer. If you give her enough time and money, she can build you anything.",
+        "skill": {
+            "id": 18,
+            "name": "TrapCannon"
+        },
+        "ability": {
+            "text": "It installs a Cannon Bot when used. When Enemies approach the trap it automatically responds and attacks the enemy.",
+            "features": [
+                "Single Attack",
+                "Automatic Tracking"
+            ]
+        },
+        "stat": {
+            "maxHealth": 2100,
+            "energyRecovery": 15,
+            "moveSpeed": 10
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "de8f44aa-ffa6-4c6d-ab2b-8e7ade85118b",
+        "type": 1,
+        "itemId": 42,
+        "itemName": "Tron Rider",
+        "repName": "Racer",
+        "clan": "NEN",
+        "rarity": "Rare",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 1,
+        "playCount": 0,
+        "maxPlayCount": 312,
+        "cloneCount": 0,
+        "movieUrl": "https://battlepalooza-web.s3.amazonaws.com/movieClips/characters/Tronrider_Rare.mp4",
+        "thumbnailUrl": "https://battlepalooza-web.s3.amazonaws.com/thumbnails/characters/Sprite_Shop_Character_10_Pre5.png",
+        "acquired": 1661790663571,
+        "buff": [
+            {
+                "id": 22,
+                "value": 4
+            },
+            {
+                "id": 7,
+                "value": 2
+            }
+        ],
+        "rewardMultiplier": 2,
+        "maxDailyPlayCount": 12,
+        "maxCloneCount": 7,
+        "premiumBuff": [
+            {
+                "id": 22,
+                "buffType": "ThrowCooltime",
+                "engName": "Throw Slot Cooldown Reduced",
+                "icon": "icons/Sprite_Icon_PR_Buff_14.png",
+                "min": 4,
+                "max": 8,
+                "valueType": "Percent",
+                "value": 4
+            },
+            {
+                "id": 7,
+                "buffType": "SkillDamage",
+                "engName": "Skill Damage",
+                "icon": "icons/Sprite_Icon_PR_Buff_22.png",
+                "min": 1,
+                "max": 5,
+                "valueType": "Percent",
+                "value": 2
+            }
+        ]
+    }
+]

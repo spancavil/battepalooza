@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
 import dorso from "../../../../Assets/img/nft-card-back01.png";
+import NftCard from "../../../../Global-Components/NftCard";
 
 /**
  * An animation for card reveal. La imagen del dorso de la card ya está predefinida.
@@ -40,8 +41,10 @@ const CardToReveal = ({ reveal, nft, isRevealed }) => {
             {/* <div className={ rotate ? styles.div2Rotate : styles.div2 } onClick = {handleRotate}>
                 <img src={nft.thumbnailUrl} alt="cruz"></img>
             </div> */}
+
             <div className = {rotate ? styles.div2Rotate : styles.div2}>
-                <div
+                <NftCard nft={nft} onClick={()=> {}}/>
+                {/* <div
                     key={nft.uuid}
                     className={
                         nft.rarity === "COMMON"
@@ -54,7 +57,7 @@ const CardToReveal = ({ reveal, nft, isRevealed }) => {
                     }
                 >
                     <div className={styles.cardNft}>
-                        {/* El source luego cambiara en base al asset */}
+                        El source luego cambiara en base al asset
                         <img
                             className={styles.imgNft}
                             src={nft.thumbnailUrl}
@@ -64,16 +67,16 @@ const CardToReveal = ({ reveal, nft, isRevealed }) => {
                             <p className={styles.itemName}>{nft.itemName}</p>
                             <p>{nft.repName}</p>
                             <p className={styles.text2}>{nft.rarity}</p>
-                            {/* <p>#{nft.itemId}</p> */}
-                            {/* <p>
+                            <p>#{nft.itemId}</p>
+                             <p>
                         gNCoin Battle Count: {nft.playCount}/{nft.maxPlayCount}
-                    </p> */}
+                    </p> 
                             {/* {nft.salesState === 1 && (
                         <p className={styles.price}>{nft.price} NCoin</p>
-                    )} */}
+                    )}
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

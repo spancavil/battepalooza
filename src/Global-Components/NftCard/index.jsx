@@ -57,7 +57,7 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
             />
             <div className={styles.buffs}>
               {buffs.map((buff, idx) => {
-                return <img src={BP_BASE_URL + buff.icon} alt="buff-icon" key={idx}/>
+                return <img src={BP_BASE_URL + buff?.icon} alt="buff-icon" key={idx}/>
               })}
             </div>
           </div>

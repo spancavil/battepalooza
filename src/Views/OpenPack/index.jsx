@@ -9,10 +9,11 @@ import { UserData } from "../../Context/UserProvider";
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import nftService from "../../Services/nft.service";
 import { useHistory } from "react-router-dom";
+import nfts from './nftsHardcoded.json';
 
 /* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /open-pack */
 const OpenPack = () => {
-    const [flow, setFlow] = useState(1);
+    const [flow, setFlow] = useState(3);
     const { packSelected, txResult } = useContext(PackData);
     const { userData } = useContext(UserData);
     const [loading, setLoading] = useState(false);
@@ -23,6 +24,10 @@ const OpenPack = () => {
     const nextFlow = () => {
         setFlow(flow + 1);
     };
+
+    useEffect(()=> {
+        setNftsOpenPack(nfts);
+    }, [])
 
     // const openLater = () => {
     //   history.push ('/');
@@ -38,7 +43,7 @@ const OpenPack = () => {
         nextFlow();
     };
 
-    useEffect(() => {
+    /* useEffect(() => {
         const fetchData = async () => {
             const uuids = Object.keys(txResult.nftItems);
             if (Object.keys(userData).length !== 0) {
@@ -66,7 +71,7 @@ const OpenPack = () => {
                 }
             }
         };
-        userData.email && fetchData();
+        userData.email && fetchData(); */
 
         /* setNftsOpenPack([
             {
@@ -126,8 +131,8 @@ const OpenPack = () => {
                     "https://battlepalooza-web.s3.amazonaws.com/thumbnails/characters/Sprite_Shop_Character_03_Pre3.png",
                 acquired: 1661795591726,
             },
-        ]); */
-    }, [txResult, history, userData]);
+        ]);
+    }, [txResult, history, userData]); */
 
     return (
         <Background>
