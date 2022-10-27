@@ -1,0 +1,104 @@
+@import "../../../../Styles/breakpoints.scss";
+
+@media (max-width: ($desktop - 1)) {
+  .abilities {
+    border-radius: 0.5rem;
+    background-color: #181931;
+    padding: 1.5rem 2rem;
+    border: 2px solid #0146d5;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: white;
+
+    h4 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .description {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .abilitiesItems {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      .item {
+        display: flex;
+        gap: 0.5rem;
+
+        .values {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+
+        p {
+          width: 130px;
+          font-size: 14px;
+        }
+
+        span {
+          font-weight: 700;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: ($desktop )) {
+  .abilities {
+    border: 2px solid #0146d5;
+    box-shadow: 0px 6px 16px 0px #1919194d;
+    background: #181931;
+  
+    padding: 1.5rem;
+    border-radius: 8px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h4 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .description {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .abilitiesItems {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 1rem;
+      grid-row-gap: 1rem;
+
+      .item {
+        display: flex;
+        gap: 0.5rem;
+
+        .values {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+
+        p {
+          width: 130px;
+          font-size: 14px;
+        }
+
+        span {
+          font-weight: 700;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

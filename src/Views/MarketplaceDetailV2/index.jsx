@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { NftData } from "../../Context/NftProvider";
 import { UserData } from "../../Context/UserProvider";
 import Background from "../../Global-Components/Background";
-import NftDetail from "../../Global-Components/NftDetail";
+import NftDetailV2 from "../../Global-Components/NftDetailV2";
 import useModifyDetail from "../../Hooks/useModifyDetail";
 import marketService from "../../Services/market.service";
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
@@ -75,7 +75,7 @@ const MarketplaceDetailV2 = () => {
 
   return (
     <Background>
-      <NftDetail 
+      <NftDetailV2 
         goBack="/marketplace" 
         chosenNft={chosenNft} 
         buyNft={nftSelected => setBuy (nftSelected)}
