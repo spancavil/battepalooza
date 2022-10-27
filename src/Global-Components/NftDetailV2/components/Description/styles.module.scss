@@ -1,0 +1,71 @@
+@import "../../../../Styles/breakpoints.scss";
+
+.description {
+  border: 2px solid #0146d5;
+  box-shadow: 0px 6px 16px 0px #1919194d;
+  background: #181931;
+
+  padding: 1.5rem;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+
+  .soldBy {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    b {
+      color: #3d91ef;
+    }
+  }
+
+  .serial {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .descriptionText {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  h5 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .p2eLeft {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    img {
+      height: 32px;
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      border: 1px solid #000000;
+    }
+  }
+}

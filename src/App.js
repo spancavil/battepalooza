@@ -23,7 +23,6 @@ import Auth from "./Views/Auth";
 /* import PackDetailV2 from "./Views/PackDetailV2"; */
 import Navbar from "./Global-Components/Navbar";
 
-
 import "./Styles/Global.scss";
 import MarketplaceDetailV2 from "./Views/MarketplaceDetailV2";
 import PackDetailV3 from "./Views/PackDetailV3";
@@ -51,7 +50,7 @@ function App() {
           border: "none",
           fontWeight: "bold",
           fontFamily: "Rubik",
-          borderRadius: "0.5rem"
+          borderRadius: "0.5rem",
         }}
         onClick={() => setMaintenance(!maintenance)}
       >
@@ -71,7 +70,8 @@ function App() {
             <NeedLogin />
           ) : (
             <TradeHistory />
-          )}</Route>
+          )}
+        </Route>
         <Route exact path="/drop" component={Drop} />
         <Route exact path="/drop/:id" component={DropDetail} />
         <Route exact path="/collection" component={Collection} />
@@ -79,7 +79,11 @@ function App() {
         <Route exact path="/privacy-policy" component={Privacy} />
         <Route exact path="/terms-of-service" component={TermsOfUse} />
         <Route exact path="/marketplace" component={MarketPlace} />
-        <Route exact path="/marketplace/:nftId" component={MarketplaceDetailV2} />
+        <Route
+          exact
+          path="/marketplace/:nftId"
+          component={MarketplaceDetailV2}
+        />
         <Route exact path="/packs" component={Packs} />
         <Route exact path="/packs/:id" component={PackDetailV3} />
         <Route exact path="/open-pack" component={OpenPack} />
