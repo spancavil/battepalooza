@@ -6,12 +6,12 @@ const Abilities = ({ chosenNft }) => {
   return (
     <div className={styles.abilities}>
       <h4>Abilities</h4>
-      <p className={styles.description}>
+      <div className={styles.description}>
         {chosenNft?.ability?.text &&
           chosenNft?.ability?.text
             .split("\\n")
             .map((texto, i) => <p key={i}>{texto}</p>)}
-      </p>
+      </div>
       <h4>Buff information</h4>
       <div className={styles.abilitiesItems}>
         {chosenNft?.premiumBuff?.map((ability) => (
