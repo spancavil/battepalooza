@@ -15,21 +15,25 @@ const BuyInfo = ({ chosenNft }) => {
         <h1>{chosenNft?.itemName}</h1>
         <span>[ {chosenNft?.repName} ]</span>
       </div>
-      <div className={styles.flex}>
-        <span>Price</span>
-        <div className={styles.ncoins}>
-          <img src={NCoinIcon} alt="NCoin" />
-          <b>{separator(chosenNft?.price)} NCoin</b>
-        </div>
-      </div>
-      <div className={styles.flex}>
-        <span>Fee</span>
-        <div className={styles.ncoins}>
-          <img src={NCoinIcon} alt="NCoin" />
-          <p>? NCoin</p>
-        </div>
-      </div>
-      <button>Buy</button>
+      {chosenNft?.price && (
+        <>
+          <div className={styles.flex}>
+            <span>Price</span>
+            <div className={styles.ncoins}>
+              <img src={NCoinIcon} alt="NCoin" />
+              <b>{separator(chosenNft?.price)} NCoin</b>
+            </div>
+          </div>
+          <div className={styles.flex}>
+            <span>Fee</span>
+            <div className={styles.ncoins}>
+              <img src={NCoinIcon} alt="NCoin" />
+              <p>? NCoin</p>
+            </div>
+          </div>
+          <button>Buy</button>
+        </>
+      )}
     </div>
   );
 };
