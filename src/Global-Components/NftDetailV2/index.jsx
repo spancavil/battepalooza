@@ -37,7 +37,7 @@ const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
             <div className={styles.rigth}>
               <BuyInfo chosenNft={chosenNft} />
               <Abilities chosenNft={chosenNft} />
-              <Stats chosenNft={chosenNft} />
+              {chosenNft?.type === 1 && <Stats chosenNft={chosenNft} />}
             </div>
           </div>
         ) : (

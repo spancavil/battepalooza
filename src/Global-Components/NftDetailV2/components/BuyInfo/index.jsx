@@ -1,5 +1,6 @@
 import LogoRarity from "../../../NftCard/components/LogoRarity";
 import NCoinIcon from "../../../../Assets/img/Sprite_Icon_Reward_35.png";
+import { separator } from "../../../../Utils/separator";
 
 import styles from "./styles.module.scss";
 
@@ -11,26 +12,24 @@ const BuyInfo = ({ chosenNft }) => {
         <p>{chosenNft?.rarity}</p>
       </div>
       <div className={styles.nftName}>
-        <h1>Crimson Seer</h1>
-        <span>[ Slayer ]</span>
+        <h1>{chosenNft?.itemName}</h1>
+        <span>[ {chosenNft?.repName} ]</span>
       </div>
       <div className={styles.flex}>
         <span>Price</span>
         <div className={styles.ncoins}>
           <img src={NCoinIcon} alt="NCoin" />
-          <b>801,000 NCoin</b>
+          <b>{separator(chosenNft?.price)} NCoin</b>
         </div>
       </div>
       <div className={styles.flex}>
         <span>Fee</span>
         <div className={styles.ncoins}>
           <img src={NCoinIcon} alt="NCoin" />
-          <p>100 NCoin</p>
+          <p>? NCoin</p>
         </div>
       </div>
-      <button>
-        Buy
-      </button>
+      <button>Buy</button>
     </div>
   );
 };
