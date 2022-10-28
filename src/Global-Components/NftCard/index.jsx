@@ -13,8 +13,6 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
 
   const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
 
-  console.log(nft);
-
   //Set buff list
   useEffect(() => {
       const buffs = [];

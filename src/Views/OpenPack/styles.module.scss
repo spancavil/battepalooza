@@ -2,11 +2,10 @@
 @import "../../Styles/fonts.scss";
 @import "../../Styles/breakpoints.scss";
 
-@media (max-width: $mobile - 1) {
+@media (max-width: $tablet - 1) {
 
   .container2 {
-    padding-top: 65px;
-    height: 95vh;
+    height: calc(100vh - 80px);
     width: 100vw;
     display: flex;
     align-items: center;
@@ -14,6 +13,40 @@
     background-color: black;
     color: white;
     font-family: $font-nasalization;
+
+    .videoContainer {
+      margin-top: -50px;
+      width: 70%;
+      height: 90%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-color: black;
+      
+      .pinVideo {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        height: 100%;
+      }
+      .loadMessageContainer {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .loadMessage {
+          font-family: $font-nasalization;
+          color: white;
+        }
+      }
+    }
   }
 
   .container {
@@ -80,10 +113,10 @@
   }
 }
 
-@media (min-width: $mobile) {
+@media (min-width: $tablet) {
   .container2 {
     width: 100vw;
-    height: 100%;
+    height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;

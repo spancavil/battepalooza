@@ -1,0 +1,410 @@
+{
+    "id": "pack-1-290",
+    "price": 100,
+    "limitAmount": 1000000,
+    "leftAmount": 999953,
+    "packId": 5,
+    "packName": "Premium Pack #1",
+    "detailTxt": "Randomly get 1 Premium Item upon purchase. \\nLimited to 1 per player.",
+    "thumbnailUrl": "https://battlepalooza-web.s3.amazonaws.com/thumbnails/packs/Sprite_Shop_Cardpack_05.png",
+    "openMovieUrl": "https://battlepalooza-web.s3.amazonaws.com/movieClips/packs/CardPack_Edition_1.mp4",
+    "randomWeights": {
+        "1": 29004,
+        "2": 15001,
+        "3": 4998,
+        "4": 999
+    },
+    "obtainableNFTs": [
+        {
+            "type": 1,
+            "id": 25
+        },
+        {
+            "type": 1,
+            "id": 49
+        },
+        {
+            "type": 1,
+            "id": 59
+        },
+        {
+            "type": 1,
+            "id": 24
+        },
+        {
+            "type": 1,
+            "id": 27
+        },
+        {
+            "type": 1,
+            "id": 28
+        },
+        {
+            "type": 1,
+            "id": 30
+        },
+        {
+            "type": 1,
+            "id": 33
+        },
+        {
+            "type": 1,
+            "id": 35
+        },
+        {
+            "type": 1,
+            "id": 38
+        },
+        {
+            "type": 1,
+            "id": 39
+        },
+        {
+            "type": 1,
+            "id": 40
+        },
+        {
+            "type": 1,
+            "id": 43
+        },
+        {
+            "type": 1,
+            "id": 44
+        },
+        {
+            "type": 1,
+            "id": 46
+        },
+        {
+            "type": 1,
+            "id": 50
+        },
+        {
+            "type": 1,
+            "id": 51
+        },
+        {
+            "type": 1,
+            "id": 52
+        },
+        {
+            "type": 1,
+            "id": 54
+        },
+        {
+            "type": 1,
+            "id": 55
+        },
+        {
+            "type": 1,
+            "id": 56
+        },
+        {
+            "type": 1,
+            "id": 60
+        },
+        {
+            "type": 1,
+            "id": 61
+        },
+        {
+            "type": 1,
+            "id": 62
+        },
+        {
+            "type": 1,
+            "id": 22
+        },
+        {
+            "type": 1,
+            "id": 34
+        },
+        {
+            "type": 1,
+            "id": 41
+        },
+        {
+            "type": 1,
+            "id": 42
+        },
+        {
+            "type": 1,
+            "id": 47
+        },
+        {
+            "type": 1,
+            "id": 48
+        },
+        {
+            "type": 1,
+            "id": 57
+        },
+        {
+            "type": 1,
+            "id": 20
+        },
+        {
+            "type": 1,
+            "id": 21
+        },
+        {
+            "type": 1,
+            "id": 23
+        },
+        {
+            "type": 1,
+            "id": 26
+        },
+        {
+            "type": 1,
+            "id": 29
+        },
+        {
+            "type": 1,
+            "id": 31
+        },
+        {
+            "type": 1,
+            "id": 32
+        },
+        {
+            "type": 1,
+            "id": 36
+        },
+        {
+            "type": 1,
+            "id": 37
+        },
+        {
+            "type": 1,
+            "id": 45
+        },
+        {
+            "type": 1,
+            "id": 53
+        },
+        {
+            "type": 1,
+            "id": 58
+        },
+        {
+            "type": 2,
+            "id": 1020
+        },
+        {
+            "type": 2,
+            "id": 1028
+        },
+        {
+            "type": 2,
+            "id": 1051
+        },
+        {
+            "type": 2,
+            "id": 1063
+        },
+        {
+            "type": 2,
+            "id": 1081
+        },
+        {
+            "type": 2,
+            "id": 1024
+        },
+        {
+            "type": 2,
+            "id": 1027
+        },
+        {
+            "type": 2,
+            "id": 1030
+        },
+        {
+            "type": 2,
+            "id": 1035
+        },
+        {
+            "type": 2,
+            "id": 1038
+        },
+        {
+            "type": 2,
+            "id": 1043
+        },
+        {
+            "type": 2,
+            "id": 1045
+        },
+        {
+            "type": 2,
+            "id": 1047
+        },
+        {
+            "type": 2,
+            "id": 1052
+        },
+        {
+            "type": 2,
+            "id": 1058
+        },
+        {
+            "type": 2,
+            "id": 1059
+        },
+        {
+            "type": 2,
+            "id": 1061
+        },
+        {
+            "type": 2,
+            "id": 1062
+        },
+        {
+            "type": 2,
+            "id": 1065
+        },
+        {
+            "type": 2,
+            "id": 1023
+        },
+        {
+            "type": 2,
+            "id": 1026
+        },
+        {
+            "type": 2,
+            "id": 1029
+        },
+        {
+            "type": 2,
+            "id": 1036
+        },
+        {
+            "type": 2,
+            "id": 1040
+        },
+        {
+            "type": 2,
+            "id": 1042
+        },
+        {
+            "type": 2,
+            "id": 1044
+        },
+        {
+            "type": 2,
+            "id": 1048
+        },
+        {
+            "type": 2,
+            "id": 1049
+        },
+        {
+            "type": 2,
+            "id": 1054
+        },
+        {
+            "type": 2,
+            "id": 1066
+        },
+        {
+            "type": 2,
+            "id": 1080
+        },
+        {
+            "type": 2,
+            "id": 1082
+        },
+        {
+            "type": 2,
+            "id": 1019
+        },
+        {
+            "type": 2,
+            "id": 1021
+        },
+        {
+            "type": 2,
+            "id": 1022
+        },
+        {
+            "type": 2,
+            "id": 1025
+        },
+        {
+            "type": 2,
+            "id": 1031
+        },
+        {
+            "type": 2,
+            "id": 1032
+        },
+        {
+            "type": 2,
+            "id": 1033
+        },
+        {
+            "type": 2,
+            "id": 1034
+        },
+        {
+            "type": 2,
+            "id": 1037
+        },
+        {
+            "type": 2,
+            "id": 1039
+        },
+        {
+            "type": 2,
+            "id": 1041
+        },
+        {
+            "type": 2,
+            "id": 1046
+        },
+        {
+            "type": 2,
+            "id": 1050
+        },
+        {
+            "type": 2,
+            "id": 1053
+        },
+        {
+            "type": 2,
+            "id": 1055
+        },
+        {
+            "type": 2,
+            "id": 1056
+        },
+        {
+            "type": 2,
+            "id": 1057
+        },
+        {
+            "type": 2,
+            "id": 1060
+        },
+        {
+            "type": 2,
+            "id": 1064
+        },
+        {
+            "type": 2,
+            "id": 1067
+        },
+        {
+            "type": 2,
+            "id": 1068
+        },
+        {
+            "type": 2,
+            "id": 1079
+        }
+    ],
+    "maxPlayCount": 30,
+    "startTime": 1660131012041,
+    "endTime": 1956483012000
+}

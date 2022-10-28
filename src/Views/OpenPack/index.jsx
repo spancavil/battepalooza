@@ -3,17 +3,19 @@ import Background from "../../Global-Components/Background";
 import Button from "../../Global-Components/Button";
 import styles from "./styles.module.scss";
 import { PackData } from "../../Context/PackProvider";
-import CardAnimation from "../CardAnimation";
+// import CardAnimation from "../CardAnimation";
 import Loader from "../../Global-Components/Loader";
 import { UserData } from "../../Context/UserProvider";
-import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
-import nftService from "../../Services/nft.service";
+// import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
+// import nftService from "../../Services/nft.service";
 import { useHistory } from "react-router-dom";
 import nfts from './nftsHardcoded.json';
+import packHardcoded from './packHardcoded.json';
+import CarouselPacks from "../../Global-Components/CarouselPacks";
 
 /* NO SE ESTA USANDO ESTE COMPONENTE, E IBA EN LA RUTA /open-pack */
 const OpenPack = () => {
-    const [flow, setFlow] = useState(3);
+    const [flow, setFlow] = useState(2);
     const { packSelected, txResult } = useContext(PackData);
     const { userData } = useContext(UserData);
     const [loading, setLoading] = useState(false);
@@ -134,6 +136,8 @@ const OpenPack = () => {
         ]);
     }, [txResult, history, userData]); */
 
+    console.log(packHardcoded);
+
     return (
         <Background>
             {flow === 1 && (
@@ -152,7 +156,7 @@ const OpenPack = () => {
             {flow === 2 && (
                 <div className={styles.container2}>
                     <div className={styles.videoContainer}>
-                        {packSelected.openMovieUrl ? (
+                        {packHardcoded.openMovieUrl ? (
                             <>
                                 {loading && (
                                     <div
@@ -167,7 +171,7 @@ const OpenPack = () => {
                                         timerFlow();
                                     }}
                                     className={styles.pinVideo}
-                                    src={packSelected.openMovieUrl}
+                                    src={packHardcoded.openMovieUrl}
                                     muted
                                     autoPlay
                                 />
@@ -186,7 +190,8 @@ const OpenPack = () => {
                     </div>
                 </div>
             )}
-            {flow === 3 && <CardAnimation nfts={nftsOpenPack} />}
+            {/* {flow === 3 && <CardAnimation nfts={nftsOpenPack} />} */}
+            {flow === 3 && <CarouselPacks nfts={nfts}/>}
         </Background>
     );
 };
