@@ -7,7 +7,7 @@
   border: 2px solid rgba(6, 7, 13, 1);
   overflow: visible;
   width: 242px; 
-  height: 338px;
+  // height: 378px;
 
   .characterFrame {
     display: flex;
@@ -88,6 +88,16 @@
         width: 16px;
       }
     }
+
+    .seller{
+      padding-top: 10px;
+      font-family: $font-rubikRegular;
+      font-size: 17px;
+      line-height: 20px;
+      text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
+      color: #ffffff;
+    }
+
     .nCoinContainer{
       @extend .p2eContainer;
       padding-top: 10px;

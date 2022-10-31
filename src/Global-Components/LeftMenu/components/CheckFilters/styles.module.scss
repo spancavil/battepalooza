@@ -27,10 +27,12 @@
 
     input[type="checkbox"]:checked:after {
       content: "✓";
+      width: 1.15em;
+      height: 1.15em;
       background: #0149db;
       color: white;
       text-align: center;
-      padding: 1rem;
+      padding: 0.15em 0.20em;
       left: 50%;
       top: 50%;
       font-size: 16px;

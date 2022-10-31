@@ -9,6 +9,23 @@ import styles from "./styles.module.scss";
 import BuyInfo from "./components/BuyInfo";
 
 const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
+
+  const onHandle = (action) => {
+    switch (action) {
+      case "buy":
+        buyNft(chosenNft)
+        break;
+      case "register":
+        onRegister(chosenNft)
+        break;
+      case "unregister":
+        unRegister(chosenNft)
+        break; 
+      default:
+        break;
+    }
+  }
+
   return (
     <>
       <div className={styles.nftDetailPage}>
@@ -35,7 +52,7 @@ const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
               />
             </div>
             <div className={styles.rigth}>
-              <BuyInfo chosenNft={chosenNft} />
+              <BuyInfo chosenNft={chosenNft} handleAction={onHandle}/>
               <Abilities chosenNft={chosenNft} />
               {chosenNft?.type === 1 && <Stats chosenNft={chosenNft} />}
             </div>

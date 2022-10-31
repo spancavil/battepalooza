@@ -52,7 +52,7 @@ const PackDescription = ({ pack, setCheckoutNCoin }) => {
               <Timer pack={pack} />
             </div>
           </div>
-          <ButtonRounded title="Buy pack" onClick={handleBuy}/>
+          <ButtonRounded title="Buy pack" onClick={handleBuy} additionalStyles={{zIndex: 0}}/>
         </div>
       </div>
     </div>

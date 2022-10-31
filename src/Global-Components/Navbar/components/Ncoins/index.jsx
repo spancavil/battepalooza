@@ -12,8 +12,7 @@ import ReloadForte from "../ReloadForte";
 import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
 
 export const Ncoins = () => {
-  const [loadingBalance, setLoadingBalance] = useState(false);
-  const [countReload, setCountReload] = useState(0);
+  const [loadingBalance, setLoadingBalance] = useState(true);
   const [disabled, setDisabled] = useState(false);
   const [coins, setCoins] = useState();
 
@@ -25,7 +24,8 @@ export const Ncoins = () => {
   useEffect(() => {
     let response;
     const fetchData = async () => {
-      setLoadingBalance(true);
+      setDisabled(true)
+      console.log("Will call API");
       response = await authService.getForteBalance(userData);
       if (response?.maintenance) {
         setMaintenance(response.maintenance);
@@ -35,10 +35,13 @@ export const Ncoins = () => {
         setCoins(separator(response.coin));
         setCoin(response.coin);
         setLoadingBalance(false);
+        setTimeout(() => {
+          setDisabled(false)
+        }, 5000);
       }
     };
-    userData.email && fetchData();
-  }, [userData, setCoin, history, countReload, disabled, setMaintenance]);
+    userData.email && loadingBalance && !disabled && fetchData();
+  }, [userData, setCoin, history, loadingBalance, setMaintenance, disabled]);
 
   const handleFortePayload = async () => {
     let site = "Buy More";
@@ -59,9 +62,7 @@ export const Ncoins = () => {
 
   const reloadForte = () => {
     if (disabled === false) {
-      setCountReload(countReload + 1);
-      setDisabled(true);
-      setTimeout(() => setDisabled(false), 5000);
+      setLoadingBalance(true)
     } else {
       return;
     }

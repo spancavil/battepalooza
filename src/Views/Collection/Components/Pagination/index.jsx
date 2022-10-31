@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Display from "../../../../Global-Components/Display";
 import styles from "./styles.module.scss";
 
@@ -22,11 +22,19 @@ const Pagination = ({
   const nextPage = () => {
     setPage(parseInt(page) + 1);
     setInput(parseInt(input) + 1);
+    /* console.log("will scroll top in next");
+    window.scrollTo({top: 0, behavior: 'smooth'}) */
   };
   const previousPage = () => {
     setPage(parseInt(page) - 1);
     setInput(parseInt(input) - 1);
+    /* console.log("will scroll top in prev");
+    window.scrollTo({top: 0, behavior: 'smooth'}) */
   };
+
+  useEffect(()=> {
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }, [page])
 
   const onKeyDown = (e) => {
     if (e.keyCode === 13) {

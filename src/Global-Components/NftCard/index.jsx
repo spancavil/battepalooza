@@ -13,6 +13,8 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
 
   const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
 
+  console.log(nft);
+
   //Set buff list
   useEffect(() => {
       const buffs = [];
@@ -62,6 +64,8 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
           <div className={styles.texts}>
             <p className={styles.title}>{nft.itemName}</p>
             <p className={styles.subtitle}>{nft.repName}</p>
+            {nft?.sellerName ? <p className={styles.seller}>Seller: {nft.sellerName}</p> : null}
+            {typeof nft?.salesState === "number" ? <p className={styles.seller}>Status: {nft.salesState === 0 ? 'Stored' : 'On sale'}</p> : null}
             <div className={styles.p2eContainer}>
                 <img src = {iconP2e} className={styles.p2eIcon} alt="p2E-icon"/>
                 <p className={styles.p2e}>Left times to P2E: {nft.maxPlayCount-nft.playCount}</p>

@@ -3,6 +3,8 @@ import LeftP2e from "../../../../Assets/img/Sprite_Icon_Premium_05.png";
 import styles from "./styles.module.scss";
 
 const Description = ({ chosenNft, register, unRegister, buyNft }) => {
+
+  console.log(chosenNft);
   return (
     <div className={styles.description}>
       <h3>Description</h3>
@@ -22,7 +24,7 @@ const Description = ({ chosenNft, register, unRegister, buyNft }) => {
       <h5>Left times to P2E</h5>
       <div className={styles.p2eLeft}>
         <img src={LeftP2e} alt="Left p2e" />
-        <p>? Left</p>
+        <p>{chosenNft?.maxPlayCount - chosenNft?.playCount || '?'} Left</p>
       </div>
     </div>
   );
