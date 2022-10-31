@@ -1,0 +1,8 @@
+.carouselContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+}

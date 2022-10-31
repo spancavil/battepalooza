@@ -57,13 +57,15 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
             />
             <div className={styles.buffs}>
               {buffs.map((buff, idx) => {
-                return <img src={BP_BASE_URL + buff.icon} alt="buff-icon" key={idx}/>
+                return <img src={BP_BASE_URL + buff?.icon} alt="buff-icon" key={idx}/>
               })}
             </div>
           </div>
           <div className={styles.texts}>
             <p className={styles.title}>{nft.itemName}</p>
             <p className={styles.subtitle}>{nft.repName}</p>
+            {nft?.sellerName ? <p className={styles.seller}>Seller: {nft.sellerName}</p> : null}
+            {typeof nft?.salesState === "number" ? <p className={styles.seller}>Status: {nft.salesState === 0 ? 'Stored' : 'On sale'}</p> : null}
             <div className={styles.p2eContainer}>
                 <img src = {iconP2e} className={styles.p2eIcon} alt="p2E-icon"/>
                 <p className={styles.p2e}>Left times to P2E: {nft.maxPlayCount-nft.playCount}</p>

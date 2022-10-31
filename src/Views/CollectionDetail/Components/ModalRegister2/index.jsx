@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { NftData } from '../../../../Context/NftProvider';
 import checkErrorMiddleware from '../../../../Utils/checkErrorMiddleware';
 
-const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, pid}) => {
+const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, pid, setReloadDetail}) => {
   
   const [status, setStatus] = useState("")
   const [transactionType, setTransactionType] = useState("")
@@ -53,6 +53,7 @@ const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, 
 
   const handleCloseModal = () => {
     setReloadCollection(value => !value)
+    setReloadDetail(value => !value)
     setmodalRegister2(false)
   }
 

@@ -39,6 +39,9 @@ const CollectionDetail = () => {
     nftMarket,
     setReloadCollection,
   } = useContext(NftData);
+
+  const [reloadDetail, setReloadDetail] = useState(false);
+
   const { setMaintenance } = useContext(MaintenanceData);
 
   const { uuid } = useParams();
@@ -91,7 +94,7 @@ const CollectionDetail = () => {
       }
     };
     userData.email && fetchData();
-  }, [uuid, userData, history, setMaintenance]);
+  }, [uuid, userData, history, setMaintenance, reloadDetail]);
 
   const openModalUnregister = () => {
     setmodalUnregister(true);
@@ -164,6 +167,7 @@ const CollectionDetail = () => {
       }
     };
     unRegisterNft();
+    setReloadDetail(value => !value)
   };
 
   const handleMarket = () => {
@@ -208,6 +212,7 @@ const CollectionDetail = () => {
         <ModalRegister2
           setmodalRegister2={setmodalRegister2}
           handleMarket={handleMarket}
+          setReloadDetail={setReloadDetail}
           forteTxText={forteTxText}
           bpToken={userData.bpToken}
           pid={userData.pid}

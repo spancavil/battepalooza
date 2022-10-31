@@ -12,10 +12,14 @@ const Pagination = ({
   const nextPage = () => {
     setPage(parseInt(page) + 1);
     setInput(parseInt(input) + 1);
+    console.log("will scroll top in next");
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
   };
   const previousPage = () => {
     setPage(parseInt(page) - 1);
     setInput(parseInt(input) - 1);
+    console.log("will scroll top in prev");
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
   };
 
   const onKeyDown = (e) => {

@@ -1,0 +1,264 @@
+@import "../../../../Styles/colors.scss";
+@import "../../../../Styles/breakpoints.scss";
+@import "../../../../Styles/fonts.scss";
+
+@media (max-width: $tablet - 1) {
+    .cardContainer {
+        margin: 60px 0 30px 0;
+        position: relative;
+        height: 338px;
+        width: 100%;
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+        overflow: visible;
+
+        .div2 {
+            width: 242;
+            height: 338;
+            position: absolute;
+            top: 0;
+            transform: rotateY(-90deg);
+            transition: 1s ease all 1s;
+        }
+
+        .div2Rotate {
+            width: 242px;
+            height: 338px;
+            position: absolute;
+            top: 0;
+            transform: rotateY(-90deg);
+            transition: 1s ease all 1s;
+            transform: rotateY(0deg);
+            overflow: visible;
+
+        }
+
+        .div1 {
+            position: absolute;
+            top: 0;
+            width: 242px;
+            height: 338px;
+            transition: 1s ease all;
+            background-size: contain;
+            overflow: hidden;
+            cursor: pointer;
+            img {
+                height: 100%;
+                width: 100%;
+                transform: scale(1.33, 1.18);
+            }
+        }
+
+        .div1Rotate {
+            position: absolute;
+            top: 0;
+            width: 242px;
+            height: 338px;
+            transition: 1s ease all;
+            background-size: contain;
+            overflow: hidden;
+            cursor: pointer;
+            img {
+                height: 100%;
+                width: 100%;
+                transform: scale(1.33, 1.18);
+            }
+            transform: rotateY(90deg);
+        }
+
+    }
+}
+
+@media (min-width: $tablet) and (max-width: $desktop - 1) {
+    .cardContainer {
+        margin: 60px 0 30px 0;
+        position: relative;
+        height: 338px;
+        width: 100%;
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+        overflow: visible;
+
+        .div2 {
+            width: 242;
+            height: 338;
+            position: absolute;
+            top: 0;
+            transform: rotateY(-90deg);
+            transition: 1s ease all 1s;
+        }
+
+        .div2Rotate {
+            width: 242px;
+            height: 338px;
+            position: absolute;
+            top: 0;
+            transform: rotateY(-90deg);
+            transition: 1s ease all 1s;
+            transform: rotateY(0deg);
+            overflow: visible;
+
+        }
+
+        .div1 {
+            position: absolute;
+            top: 0;
+            width: 242px;
+            height: 338px;
+            transition: 1s ease all;
+            background-size: contain;
+            overflow: hidden;
+            cursor: pointer;
+            img {
+                height: 100%;
+                width: 100%;
+                transform: scale(1.33, 1.18);
+            }
+        }
+
+        .div1Rotate {
+            position: absolute;
+            top: 0;
+            width: 242px;
+            height: 338px;
+            transition: 1s ease all;
+            background-size: contain;
+            overflow: hidden;
+            cursor: pointer;
+            img {
+                height: 100%;
+                width: 100%;
+                transform: scale(1.33, 1.18);
+            }
+            transform: rotateY(90deg);
+        }
+
+    }
+}
+
+@media (min-width: $desktop) and (max-width: $HD - 1) {
+    .cardContainer {
+        margin: 60px 0 30px 0;
+        position: relative;
+        height: 338px;
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+        overflow: visible;
+
+        .div2 {
+            width: 242;
+            height: 338px;
+            position: absolute;
+            top: 0;
+            transform: rotateY(-90deg);
+            transition: 1s ease all 1s;
+        }
+
+        .div2Rotate {
+            width: 242px;
+            height: 338px;
+            position: absolute;
+            top: 0;
+            transform: rotateY(-90deg);
+            transition: 1s ease all 1s;
+            transform: rotateY(0deg);
+            overflow: visible;
+
+        }
+
+        .div1 {
+            position: absolute;
+            top: 0;
+            width: 242px;
+            height: 338px;
+            transition: 1s ease all;
+            background-size: contain;
+            overflow: hidden;
+            cursor: pointer;
+            img {
+                height: 100%;
+                width: 100%;
+                transform: scale(1.33, 1.18);
+            }
+        }
+
+        .div1Rotate {
+            position: absolute;
+            top: 0;
+            width: 242px;
+            height: 338px;
+            transition: 1s ease all;
+            background-size: contain;
+            overflow: hidden;
+            cursor: pointer;
+            img {
+                height: 100%;
+                width: 100%;
+                transform: scale(1.33, 1.18);
+            }
+            transform: rotateY(90deg);
+        }
+
+    }
+}
+
+@media (min-width: $HD) {
+    .cardContainer {
+        margin: 80px;
+        position: relative;
+        height: 338px;
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+
+        .div2 {
+            position: absolute;
+            top: 0;
+            transform: rotateY(-90deg);
+            transition: 1s ease all 1s;
+        }
+
+        .div2Rotate {
+            position: absolute;
+            top: 0;
+            transform: rotateY(-90deg);
+            transition: 1s ease all 1s;
+            transform: rotateY(0deg);
+        }
+
+        .div1 {
+            position: absolute;
+            top: 0;
+            width: 242px;
+            height: 338px;
+            transition: 1s ease all;
+            background-size: contain;
+            cursor: pointer;
+            img {
+                height: 100%;
+                width: 100%;
+                transform: scale(1.33, 1.18);
+            }
+        }
+
+        .div1Rotate {
+            position: absolute;
+            top: 0;
+            width: 242px;
+            height: 338px;
+            transition: 1s ease all;
+            background-size: contain;
+            overflow: hidden;
+            cursor: pointer;
+            img {
+                height: 100%;
+                width: 100%;
+                transform: scale(1.33, 1.18);
+            }
+            transform: rotateY(90deg);
+        }
+    }
+}

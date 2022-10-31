@@ -1,3 +1,4 @@
+@import '../../../../Styles/animations.scss';
 $desktop: 1200px;
 
 @media (max-width: 1199px) {
@@ -6,8 +7,7 @@ $desktop: 1200px;
   }
 
   .reload {
-    transform: rotate(720deg);
-    transition: all 0.6s ease;
+    animation: reloadForte 0.6s ease;
     cursor: no-drop;
   }
 }
@@ -18,13 +18,11 @@ $desktop: 1200px;
   }
 
   .normal:hover {
-    transition-duration: 0.3s;
     transform: scale(1.1);
   }
 
   .reload {
-    transform: rotate(720deg);
-    transition: all 0.6s ease;
+    animation: reloadForte 0.6s ease;
     cursor: no-drop;
   }
 }
