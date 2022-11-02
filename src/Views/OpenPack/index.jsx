@@ -1,36 +1,37 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState } from "react";
+// import { useContext, useEffect } from "react";
 import Background from "../../Global-Components/Background";
 import Button from "../../Global-Components/Button";
 import styles from "./styles.module.scss";
-import { PackData } from "../../Context/PackProvider";
+// import { PackData } from "../../Context/PackProvider";
 import Loader from "../../Global-Components/Loader";
-import { UserData } from "../../Context/UserProvider";
-import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
-import nftService from "../../Services/nft.service";
-import { useHistory } from "react-router-dom";
+// import { UserData } from "../../Context/UserProvider";
+// import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
+// import nftService from "../../Services/nft.service";
+// import { useHistory } from "react-router-dom";
 import CarouselPacks from "../../Global-Components/CarouselPacks";
-// import packHardcoded from "./packHardcoded.json";
 // import CardAnimation from "../CardAnimation";
-// import nfts from "./nftsHardcoded.json";
+import packHardcoded from "./packHardcoded.json";
+import nftsHardcoded from "./nftsHardcoded.json";
 
 const OpenPack = () => {
-    const [flow, setFlow] = useState(2);
-    const { packSelected, txResult } = useContext(PackData);
-    const { userData } = useContext(UserData);
+    const [flow, setFlow] = useState(3);
+    // const { packSelected, txResult } = useContext(PackData);
+    // const { userData } = useContext(UserData);
+    // const [nftsOpenPack, setNftsOpenPack] = useState([]);
     const [loading, setLoading] = useState(false);
     const [canContinue, setCanContinue] = useState(false);
-    const [nftsOpenPack, setNftsOpenPack] = useState([]);
-    const history = useHistory();
+    // const history = useHistory();
 
-    console.log(txResult);
+    // console.log(txResult);
 
     const nextFlow = () => {
         setFlow(flow + 1);
     };
 
-    useEffect(() => {
+    /* useEffect(() => {
         if (!userData?.bpToken || !txResult) history.push("/");
-    }, [history, txResult, userData]);
+    }, [history, txResult, userData]); */
 
     // const openLater = () => {
     //   history.push ('/');
@@ -46,7 +47,7 @@ const OpenPack = () => {
         nextFlow();
     };
 
-    useEffect(() => {
+    /* useEffect(() => {
 
         const mapNfts = async () => {
             const uuids = Object.keys(txResult.nftItems);
@@ -68,7 +69,7 @@ const OpenPack = () => {
         };
         mapNfts();
 
-        /* setNftsOpenPack([
+        // setNftsOpenPack([
             {
                 dailyPlayCount: 0,
                 maxDailyPlayCount: 12,
@@ -126,8 +127,8 @@ const OpenPack = () => {
                     "https://battlepalooza-web.s3.amazonaws.com/thumbnails/characters/Sprite_Shop_Character_03_Pre3.png",
                 acquired: 1661795591726,
             },
-        ]); */
-    }, [txResult, history, userData]);
+        ]);
+    }, [txResult, history, userData]); */
 
     return (
         <Background>
@@ -147,7 +148,7 @@ const OpenPack = () => {
             {flow === 2 && (
                 <div className={styles.container2}>
                     <div className={styles.videoContainer}>
-                        {packSelected.openMovieUrl ? (
+                        {packHardcoded.openMovieUrl ? (
                             <>
                                 {loading ? (
                                     <div
@@ -162,7 +163,7 @@ const OpenPack = () => {
                                             timerFlow();
                                         }}
                                         className={styles.pinVideo}
-                                        src={packSelected.openMovieUrl}
+                                        src={packHardcoded.openMovieUrl}
                                         muted
                                         autoPlay
                                     />
@@ -183,7 +184,7 @@ const OpenPack = () => {
                 </div>
             )}
             {/* {flow === 3 && <CardAnimation nfts={nftsOpenPack} />} */}
-            {flow === 3 && <CarouselPacks nfts={nftsOpenPack} />}
+            {flow === 3 && <CarouselPacks nfts={nftsHardcoded} />}
         </Background>
     );
 };
