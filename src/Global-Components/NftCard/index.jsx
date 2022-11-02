@@ -7,13 +7,11 @@ import SemiFrame from "./components/SemiFrame";
 import iconP2e from '../../Assets/img/Sprite_Icon_Premium_05.png';
 import ncoinIcon from '../../Assets/img/Sprite_Icon_Reward_35.png';
 
-const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
+const NftCard = ({ nft, tilt, onClick, withPrice, withChance, additionalStyles = null }) => {
   const {premiumStatic} = useContext(NftData)
   const [buffs, setBuffs] = useState([])
 
   const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
-
-  console.log(nft);
 
   //Set buff list
   useEffect(() => {
@@ -43,6 +41,7 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance }) => {
           ref={tilt && tilt}
           onClick={onClick && (() => onClick())}
           className={setRarityCard(nft?.rarity)}
+          style = {{...additionalStyles}}
       >
           {/* <h3>{nft?.itemName}</h3> */}
           <div className={styles.characterFrame}>

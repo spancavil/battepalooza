@@ -3,27 +3,28 @@ import styles from "./style.module.scss";
 import dorso from "../../../../Assets/img/nft-card-back01.png";
 import NftCard from "../../../../Global-Components/NftCard";
 
-const CardToReveal = ({ reveal, nft, isRevealed, setCanMove, isRotated = false, nftIndex, nftLengthList, setEnded}) => {
+const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex, carouselIndex, nftLengthList, setEnded}) => {
 
     const [rotate, setRotate] = useState(isRotated);
 
     const handleRotate = () => {
-        if (rotate === false) {
+        if (rotate === false && (nftIndex === carouselIndex)) {
             setRotate(true);
             isRevealed();
-            setCanMove(true)
             if (nftIndex + 1 === nftLengthList) setEnded (true)
         }
     };
 
     useEffect(() => {
-        if (reveal && rotate === false) {
+        if (revealAll && rotate === false) {
             setRotate(true);
         }
-    }, [reveal, rotate, isRevealed]);
+    }, [revealAll, rotate, isRevealed]);
 
     return (
-        <div className={styles.cardContainer}>
+        <div 
+            className={nftIndex === carouselIndex ? styles.cardContainerActive : styles.cardContainer}
+        >
             <div
                 className={rotate ? styles.div1Rotate : styles.div1}
                 onClick={handleRotate}
@@ -35,7 +36,10 @@ const CardToReveal = ({ reveal, nft, isRevealed, setCanMove, isRotated = false, 
             </div> */}
 
             <div className = {rotate ? styles.div2Rotate : styles.div2}>
-                <NftCard nft={nft} onClick={()=> {}}/>
+                <NftCard 
+                    nft={nft} 
+                    onClick={()=> {}}
+                />
                 {/* <div
                     key={nft.uuid}
                     className={
