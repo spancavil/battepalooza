@@ -28,6 +28,7 @@ import MarketplaceDetailV2 from "./Views/MarketplaceDetailV2";
 import PackDetailV3 from "./Views/PackDetailV3";
 import MaintenanceMessage from "./Global-Components/MaintenanceMessage";
 import { MaintenanceData } from "./Context/MaintenanceProvider";
+import { getMaintenanceRandomTime } from "./Utils/maintenaceDates";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
@@ -36,7 +37,7 @@ function App() {
   return (
     <BrowserRouter>
       {!error404 && <Navbar />}
-      {maintenance && <MaintenanceMessage />}
+      {Object.keys(maintenance).length ? <MaintenanceMessage /> : null}
       <button
         style={{
           position: "fixed",
@@ -52,7 +53,10 @@ function App() {
           fontFamily: "Rubik",
           borderRadius: "0.5rem",
         }}
-        onClick={() => setMaintenance(!maintenance)}
+        onClick={() => {
+          if (!maintenance) setMaintenance(getMaintenanceRandomTime())
+          else setMaintenance(false)
+        }}
       >
         Switch maintenance
       </button>
