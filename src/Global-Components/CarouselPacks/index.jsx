@@ -25,8 +25,10 @@ const CarouselPacks = ({ nfts }) => {
 
     // const testArray = [1,2,3]
 
+    //If click on reveal all
     const onRevealAll = () => {
         setRevealAll(true);
+        setEnded(true)
     };
 
     const childReveal = () => {
@@ -39,7 +41,9 @@ const CarouselPacks = ({ nfts }) => {
     };
     
     const onChangeCarouselItem = (currentIndex) => {
-        setAutoPlay(false)
+        setTimeout(()=> {
+            setAutoPlay(false)
+        }, 400)
         setCurrentIndex(currentIndex)
     }
     
