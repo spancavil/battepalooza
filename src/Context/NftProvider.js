@@ -100,11 +100,9 @@ const NftProvider = ({ children }) => {
                 const nftStatic = await staticsService.getNftData();
                 // Add BASE_URL to all links
                 for (const nft of nftStatic) {
-                    nft.icon = BP_BASE_URL + nft.icon;
                     nft.movieClip = BP_BASE_URL + nft.movieClip;
-                    nft.shopIcon = BP_BASE_URL + nft.shopIcon;
                     nft.thumbnail = BP_BASE_URL + nft.thumbnail;
-                    nft.bigIcon = BP_BASE_URL + nft.bigIcon;
+                    nft.portrait = BP_BASE_URL + nft.portrait;
                 }
                 const staticClans = await staticsService.getClans();
                 const staticRarity = await staticsService.getRarity();

@@ -36,26 +36,8 @@ function App() {
   return (
     <BrowserRouter>
       {!error404 && <Navbar />}
-      {maintenance && <MaintenanceMessage />}
-      {/* <button
-        style={{
-          position: "fixed",
-          bottom: 0,
-          marginBottom: 10,
-          marginLeft: 10,
-          padding: "1rem",
-          cursor: "pointer",
-          zIndex: 10,
-          background: "#f9a91f",
-          border: "none",
-          fontWeight: "bold",
-          fontFamily: "Rubik",
-          borderRadius: "0.5rem",
-        }}
-        onClick={() => setMaintenance(!maintenance)}
-      >
-        Switch maintenance
-      </button> */}
+      {Object.keys(maintenance).length ? <MaintenanceMessage /> : null}
+
       <Switch>
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/auth/:type" component={Auth} />
