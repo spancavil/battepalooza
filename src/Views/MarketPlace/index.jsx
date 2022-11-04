@@ -29,7 +29,7 @@ const MarketPlace = () => {
   const [filterTypes, setFilterTypes] = useState({});
   const [filtersMobileOpen, setFiltersMobileOpen] = useState(false);
 
-  const { rarityStatic, repIdStatic, premiumStatic, maintenace } =
+  const { rarityStatic, repIdStatic, premiumStatic } =
     useContext(NftData);
 
   const desktop = useMediaQuery("(min-width: 1200px)");
@@ -42,14 +42,6 @@ const MarketPlace = () => {
     nftPerPage
   );
   if (error) fireAlert("Oops, an error ocurred", error.message, "500px");
-
-  //Maintenance alert
-  if (maintenace)
-    fireAlert(
-      "System under maintenance",
-      `Start time: ${maintenace?.start?.toLocaleDateString()}. End time: ${maintenace?.end?.toLocaleDateString()}`,
-      "500px"
-    );
 
   //Set filters
   useEffect(() => {

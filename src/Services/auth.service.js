@@ -98,6 +98,12 @@ class AuthService {
     })
   }
 
+  async getMaintenanceStatus() {
+    return await axios.post(API_URL + "user/check-maintenance")
+    .then(response => {
+      return response.data
+    })
+  }
 }
 
 export default new AuthService();

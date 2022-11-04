@@ -6,17 +6,20 @@ import {useContext} from 'react';
 import styles from "./styles.module.scss";
 import { UserData } from "../../../../Context/UserProvider";
 import fireToast from "../../../../Utils/sweetAlert2";
+import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
 
 const PackDescription = ({ pack, setCheckoutNCoin }) => {
 
   console.log(pack);
 
   const {userData} = useContext(UserData)
+  const {maintenance} = useContext(MaintenanceData);
 
   const handleBuy = () => {
-    if(userData?.bpToken) {
+    if(userData?.bpToken && !maintenance) {
       setCheckoutNCoin(true);
-    } else {
+    }
+    if (!userData?.bpToken) {
       fireToast("Need login", 1200, "300px");
     }
   }

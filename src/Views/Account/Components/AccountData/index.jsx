@@ -24,9 +24,6 @@ const AccountData = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await authService.getForteBalance(userData);
-      if (response?.maintenance) {
-        setMaintenance(response.maintenance);
-      }
       const canContinue = checkErrorMiddleware(response, history)
       if (canContinue) {
         setMonedas(separator(response.coin));
