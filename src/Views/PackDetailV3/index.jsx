@@ -26,8 +26,6 @@ const PackDetailV3 = () => {
 
   const nftList = useModifyList(pack?.obtainableNFTs || [], nftStatic, clanStatic, rarityStatic, repIdStatic)
 
-  console.log(nftList);
-
   //Set buff list
 /*   useEffect(() => {
     for (const nft of nftList) {
