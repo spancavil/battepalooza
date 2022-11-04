@@ -27,22 +27,7 @@ const PackDetailV3 = () => {
 
   const nftList = useModifyList(pack?.obtainableNFTs || [], nftStatic, clanStatic, rarityStatic, repIdStatic)
 
-  console.log(nftList);
-
-  //Set buff list
-/*   useEffect(() => {
-    for (const nft of nftList) {
-      const buffs = [];
-      if (nft?.buff) {
-          for (const buffItem of nft.buff) {
-              const buffFinded = premiumStatic?.find(buff => buff.id === buffItem.id);
-              if (buffFinded) buffFinded.value = buffItem.value;
-              buffs.push(buffFinded);
-          }
-          setBuffs(buffs)
-      }
-    }
-  }, [nft, premiumStatic]); */
+  console.log(nftList)
 
   useEffect(() => {
     const selectedPack = packData?.nftPackProducts?.find(
@@ -70,7 +55,7 @@ const PackDetailV3 = () => {
       </div>
       <div className={styles.packContainer}>
         <PackDescription pack={pack} setCheckoutNCoin={setCheckoutNCoin} />
-        <Obtainable />
+        <Obtainable nftList={nftList} />
       </div>
       {checkoutNCoin && (
         <Checkout

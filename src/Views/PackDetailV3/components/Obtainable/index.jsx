@@ -3,7 +3,7 @@ import { PremiumBuffItems } from "./components/PremiumBuffItem";
 import { RarityItem } from "./components/RarityItem";
 import styles from "./styles.module.scss";
 
-const Obtainable = ({ pack, setCheckoutNCoin }) => {
+const Obtainable = ({ pack, setCheckoutNCoin, nftList }) => {
   console.log(pack);
 
   const rarityItems = [
@@ -50,6 +50,11 @@ const Obtainable = ({ pack, setCheckoutNCoin }) => {
       </div>
       <div className={styles.rigth}>
         <h4>Obtainable NFTs</h4>
+        <div className={styles.nftList}>
+          {nftList?.map((item) => (
+            <img key={item?.id} src={item?.portrait} alt={item?.itemName} />
+          ))}
+        </div>
       </div>
     </div>
   );
