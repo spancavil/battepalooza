@@ -34,7 +34,7 @@ const Auth = () => {
         firstLogin,
     } = useContext(UserData);
 
-    const {setMaintenance} = useContext(MaintenanceData);
+    const {maintenance, setMaintenance} = useContext(MaintenanceData);
 
     const history = useHistory();
 
@@ -68,6 +68,12 @@ const Auth = () => {
 
                 if (response.maintenance) {
                     setMaintenance(response.maintenance);
+                }
+                //Only set maintenance false if there is no maintenace from response and
+                //the maintenance status was previously set.
+                if (!response.maintenance && maintenance) {
+                    console.log("Will switch off maintenance");
+                    setMaintenance(false)
                 }
 
                 if (response.success === false) {
