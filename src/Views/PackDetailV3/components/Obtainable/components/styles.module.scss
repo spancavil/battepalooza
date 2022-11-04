@@ -1,0 +1,30 @@
+.rarityItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  color: white;
+  border: 2px solid transparent;
+  font-family: "Rubik";
+  border-radius: 8px;
+
+  p {
+    margin: 0.6rem 0;
+  }
+
+  span {
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+
+.premiumBuffItem {
+    display: flex;
+    gap: 1rem;
+
+  img {
+    height: 65px;
+    width: 65px;
+    object-fit: contain;
+  }
+}

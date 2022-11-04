@@ -1,0 +1,48 @@
+.obtainableContainer {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  gap: 2%;
+
+  .left {
+    display: flex;
+    width: 55%;
+    gap: 3%;
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 50%;
+      background-color: #181931;
+      border: 2px solid #0146d5;
+      padding: 1rem;
+      border-radius: 8px;
+
+      h4 {
+        margin-top: 4px;
+        font-weight: 700;
+        color: white;
+        font-family: "Rubik";
+      }
+    }
+  }
+
+  .rigth {
+    width: 40%;
+  }
+}
+
+.rarityItems {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+}
+
+.premiumBuffItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

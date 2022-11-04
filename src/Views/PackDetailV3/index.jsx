@@ -4,6 +4,7 @@ import { NftData } from "../../Context/NftProvider";
 import { PackData } from "../../Context/PackProvider";
 import Checkout from "./components/Checkout";
 import Complete from "./components/Complete";
+import Obtainable from "./components/Obtainable";
 import PackDescription from "./components/PackDescription";
 import Proccesing from "./components/Proccesing";
 
@@ -41,14 +42,14 @@ const PackDetailV3 = () => {
     history.push(`/open-pack`);
   };
 
-
   return (
     <div className={styles.packDetail}>
       <div className={styles.goBack}>
         <Link to="/packs">&lt; Go back to Packs</Link>
       </div>
       <div className={styles.packContainer}>
-        <PackDescription pack={pack} setCheckoutNCoin={setCheckoutNCoin}/>
+        <PackDescription pack={pack} setCheckoutNCoin={setCheckoutNCoin} />
+        <Obtainable />
       </div>
       {checkoutNCoin && (
         <Checkout

@@ -31,13 +31,13 @@ import { MaintenanceData } from "./Context/MaintenanceProvider";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
-  const { maintenance, setMaintenance } = useContext(MaintenanceData);
+  const { maintenance } = useContext(MaintenanceData);
 
   return (
     <BrowserRouter>
       {!error404 && <Navbar />}
       {maintenance && <MaintenanceMessage />}
-      <button
+      {/* <button
         style={{
           position: "fixed",
           bottom: 0,
@@ -55,7 +55,7 @@ function App() {
         onClick={() => setMaintenance(!maintenance)}
       >
         Switch maintenance
-      </button>
+      </button> */}
       <Switch>
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/auth/:type" component={Auth} />

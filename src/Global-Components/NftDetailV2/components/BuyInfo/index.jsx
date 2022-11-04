@@ -34,66 +34,40 @@ const BuyInfo = ({ chosenNft, handleAction }) => {
           </div>
           <ButtonRounded
             color="yellow"
-            onClick={()=> handleAction('buy')}
-            title = "BUY"
+            onClick={() => handleAction("buy")}
+            title="BUY"
             additionalStyles={{
-              zIndex: 0
+              zIndex: 0,
             }}
           />
         </>
       )}
-      {typeof chosenNft?.salesState === "number" && chosenNft?.salesState === 0 && (
-        <>
-          {/* <div className={styles.flex}>
-            <span>Price</span>
-            <div className={styles.ncoins}>
-              <img src={NCoinIcon} alt="NCoin" />
-              <b>{separator(chosenNft?.price)} NCoin</b>
-            </div>
-          </div> */}
-          {/* <div className={styles.flex}>
-            <span>Fee</span>
-            <div className={styles.ncoins}>
-              <img src={NCoinIcon} alt="NCoin" />
-              <p>? NCoin</p>
-            </div>
-          </div> */}
-          <ButtonRounded
-            color="yellow"
-            onClick={()=> handleAction('register')}
-            title = "REGISTER IN MARKETPLACE"
-            additionalStyles={{
-              zIndex: 0
-            }}
-          />
-        </>
-      )}
-      {typeof chosenNft?.salesState === "number" && chosenNft?.salesState === 1 && (
-        <>
-          {/* <div className={styles.flex}>
-            <span>Price</span>
-            <div className={styles.ncoins}>
-              <img src={NCoinIcon} alt="NCoin" />
-              <b>{separator(chosenNft?.price)} NCoin</b>
-            </div>
-          </div> */}
-          {/* <div className={styles.flex}>
-            <span>Fee</span>
-            <div className={styles.ncoins}>
-              <img src={NCoinIcon} alt="NCoin" />
-              <p>? NCoin</p>
-            </div>
-          </div> */}
-          <ButtonRounded
-            color="yellow"
-            onClick={()=> handleAction('unregister')}
-            title = "UNREGISTER MARKETPLACE"
-            additionalStyles={{
-              zIndex: 0
-            }}
-          />
-        </>
-      )}
+      {typeof chosenNft?.salesState === "number" &&
+        chosenNft?.salesState === 0 && (
+          <>
+            <ButtonRounded
+              color="yellow"
+              onClick={() => handleAction("register")}
+              title="REGISTER IN MARKETPLACE"
+              additionalStyles={{
+                zIndex: 0,
+              }}
+            />
+          </>
+        )}
+      {typeof chosenNft?.salesState === "number" &&
+        chosenNft?.salesState === 1 && (
+          <>
+            <ButtonRounded
+              color="yellow"
+              onClick={() => handleAction("unregister")}
+              title="UNREGISTER MARKETPLACE"
+              additionalStyles={{
+                zIndex: 0,
+              }}
+            />
+          </>
+        )}
     </div>
   );
 };
