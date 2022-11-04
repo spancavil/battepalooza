@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
+import { MaintenanceData } from "../../Context/MaintenanceProvider";
 import { NftData } from "../../Context/NftProvider";
 import { PackData } from "../../Context/PackProvider";
 import useModifyList from "../../Hooks/useModifyList";
@@ -19,6 +20,7 @@ const PackDetailV3 = () => {
   const { setPack, packData } = useContext(PackData);
   const { setReloadCollection } = useContext(NftData);
   const { nftStatic, clanStatic, rarityStatic, repIdStatic} = useContext(NftData)
+  const {setCheckMaintenance} = useContext(MaintenanceData);
 
   const { id } = useParams();
 
@@ -26,6 +28,7 @@ const PackDetailV3 = () => {
 
   const nftList = useModifyList(pack?.obtainableNFTs || [], nftStatic, clanStatic, rarityStatic, repIdStatic)
 
+  console.log(nftList);
   //Set buff list
 /*   useEffect(() => {
     for (const nft of nftList) {
@@ -59,6 +62,12 @@ const PackDetailV3 = () => {
     setReloadCollection((value) => !value);
     history.push(`/open-pack`);
   };
+
+
+  //Fire check maintenance
+  useEffect(()=> {
+    setCheckMaintenance(value => !value)
+  }, [setCheckMaintenance])
 
 
   return (

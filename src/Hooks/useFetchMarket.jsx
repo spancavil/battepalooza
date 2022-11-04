@@ -1,12 +1,10 @@
 import React, { useState, useContext } from "react";
-import { MaintenanceData } from "../Context/MaintenanceProvider";
 import { NftData } from "../Context/NftProvider";
 import marketService from "../Services/market.service";
 import { adaptMarketFilterParams } from "../Utils/objectUtilities";
 
 const useFetchMarket = (filters, filterTypes, page, pageSize) => {
     const { rarityStatic, repIdStatic, premiumStatic, setNftMarket } = useContext(NftData);
-    const { setMaintenance } = useContext(MaintenanceData);
     const [nfts, setNfts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -38,9 +36,6 @@ const useFetchMarket = (filters, filterTypes, page, pageSize) => {
                         filterParameters.orderBy,
                         filterParameters.desc
                     );
-                    if (response.maintenance) {
-                        setMaintenance(response.maintenance);
-                    }
                     if (response.products.length) {
                         nfts.push(...response.products);
                         pageVariable += 1;
@@ -63,7 +58,6 @@ const useFetchMarket = (filters, filterTypes, page, pageSize) => {
         repIdStatic,
         premiumStatic,
         setNftMarket,
-        setMaintenance
     ]);
 
     return [nfts, loading, error];

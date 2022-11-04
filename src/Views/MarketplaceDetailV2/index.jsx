@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { MaintenanceData } from "../../Context/MaintenanceProvider";
 import { NftData } from "../../Context/NftProvider";
 import { UserData } from "../../Context/UserProvider";
 import Background from "../../Global-Components/Background";
@@ -34,6 +35,12 @@ const MarketplaceDetailV2 = () => {
     useContext(NftData);
   
   const { userData } = useContext(UserData);
+  const { setCheckMaintenance, maintenance } = useContext(MaintenanceData)
+
+  //Fire check maintenance
+  useEffect(()=> {
+    setCheckMaintenance(value => !value)
+  }, [setCheckMaintenance])
 
   useEffect(() => {
     (async () => {
@@ -55,11 +62,11 @@ const MarketplaceDetailV2 = () => {
   );
 
   const setBuy = nftSelected => {
-    if (Object.keys(userData).length) {
+    if (Object.keys(userData).length && !maintenance) {
       setNft (nftSelected);
       setCheckout (true);
     }
-    else fireToast("Need login", 1200, "300px");
+    if (!Object.keys(userData).length) fireToast("Need login", 1200, "300px");
   };
 
   const proccessingComplete = () => {

@@ -11,11 +11,11 @@ import ModalUnregister from "./Components/ModalUnregister";
 import useModifyDetail from "../../Hooks/useModifyDetail";
 
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
-import { MaintenanceData } from "../../Context/MaintenanceProvider";
 import marketService from "../../Services/market.service";
 import fireToast, { fireAlert } from "../../Utils/sweetAlert2";
 import { sendAmplitudeData } from "../../Utils/amplitude";
 import NftDetailV2 from "../../Global-Components/NftDetailV2";
+import { MaintenanceData } from "../../Context/MaintenanceProvider";
 
 const CollectionDetail = () => {
   const [nftSelectedRaw, setNftSelectedRaw] = useState();
@@ -39,10 +39,9 @@ const CollectionDetail = () => {
     nftMarket,
     setReloadCollection,
   } = useContext(NftData);
+  const { maintenance, setCheckMaintenance} = useContext(MaintenanceData)
 
   const [reloadDetail, setReloadDetail] = useState(false);
-
-  const { setMaintenance } = useContext(MaintenanceData);
 
   const { uuid } = useParams();
   const history = useHistory();
@@ -72,6 +71,11 @@ const CollectionDetail = () => {
     premiumStatic
   );
 
+  //Fire check maintenance
+  useEffect(()=> {
+    setCheckMaintenance(value => !value)
+  }, [setCheckMaintenance])
+
   useEffect(() => {
     const fetchData = async () => {
       if (Object.keys(userData).length !== 0) {
@@ -81,9 +85,7 @@ const CollectionDetail = () => {
             userData.pid,
             uuid
           );
-          if (response?.maintenance) {
-            setMaintenance(response.maintenance);
-          }
+          
           const canContinue = checkErrorMiddleware(response, history);
           if (canContinue) {
             setNftSelectedRaw(response.nft);
@@ -94,10 +96,10 @@ const CollectionDetail = () => {
       }
     };
     userData.email && fetchData();
-  }, [uuid, userData, history, setMaintenance, reloadDetail]);
+  }, [uuid, userData, history, reloadDetail]);
 
   const openModalUnregister = () => {
-    setmodalUnregister(true);
+    if (!maintenance) setmodalUnregister(true);
   };
 
   /*     const goBack = () => {
@@ -105,7 +107,7 @@ const CollectionDetail = () => {
     }; */
 
   const onRegister = () => {
-    setmodalRegister1(true);
+    if (!maintenance) setmodalRegister1(true);
   };
 
   const Register = () => {

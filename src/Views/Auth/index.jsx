@@ -34,7 +34,7 @@ const Auth = () => {
         firstLogin,
     } = useContext(UserData);
 
-    const {maintenance, setMaintenance} = useContext(MaintenanceData);
+    const {setMaintenance} = useContext(MaintenanceData);
 
     const history = useHistory();
 
@@ -71,8 +71,7 @@ const Auth = () => {
                 }
                 //Only set maintenance false if there is no maintenace from response and
                 //the maintenance status was previously set.
-                if (!response.maintenance && maintenance) {
-                    console.log("Will switch off maintenance");
+                if (!response.maintenance) {
                     setMaintenance(false)
                 }
 
@@ -110,10 +109,6 @@ const Auth = () => {
             //Envío de datos de tracking a Amplitude
 
             const respuesta = response.data.response;
-
-            if (response.maintenance) {
-                setMaintenance(response.maintenance);
-            }
 
             if (respuesta && respuesta.error?.num !== 0) {
                 setLoading(false);
