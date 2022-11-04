@@ -48,6 +48,8 @@ const MarketplaceNfts = ({
         repIdStatic
     );
 
+    console.log(nftMarketModified);
+
     const tilts = useMemo(
         () => nftsFiltered.map(() => createRef()),
         [nftsFiltered]
