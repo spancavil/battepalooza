@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { NftData } from "../../Context/NftProvider";
 import { PackData } from "../../Context/PackProvider";
+import useModifyList from "../../Hooks/useModifyList";
 import Checkout from "./components/Checkout";
 import Complete from "./components/Complete";
 import Obtainable from "./components/Obtainable";
@@ -18,10 +19,30 @@ const PackDetailV3 = () => {
 
   const { setPack, packData } = useContext(PackData);
   const { setReloadCollection } = useContext(NftData);
+  const { nftStatic, clanStatic, rarityStatic, repIdStatic} = useContext(NftData)
 
   const { id } = useParams();
 
   const history = useHistory();
+
+  const nftList = useModifyList(pack?.obtainableNFTs || [], nftStatic, clanStatic, rarityStatic, repIdStatic)
+
+  console.log(nftList);
+
+  //Set buff list
+/*   useEffect(() => {
+    for (const nft of nftList) {
+      const buffs = [];
+      if (nft?.buff) {
+          for (const buffItem of nft.buff) {
+              const buffFinded = premiumStatic?.find(buff => buff.id === buffItem.id);
+              if (buffFinded) buffFinded.value = buffItem.value;
+              buffs.push(buffFinded);
+          }
+          setBuffs(buffs)
+      }
+    }
+  }, [nft, premiumStatic]); */
 
   useEffect(() => {
     const selectedPack = packData?.nftPackProducts?.find(
