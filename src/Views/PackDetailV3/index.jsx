@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
+import { MaintenanceData } from "../../Context/MaintenanceProvider";
 import { NftData } from "../../Context/NftProvider";
 import { PackData } from "../../Context/PackProvider";
 import useModifyList from "../../Hooks/useModifyList";
@@ -19,13 +20,31 @@ const PackDetailV3 = () => {
 
   const { setPack, packData } = useContext(PackData);
   const { setReloadCollection } = useContext(NftData);
-  const { nftStatic, clanStatic, rarityStatic, repIdStatic} = useContext(NftData)
+  const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
+    useContext(NftData);
+  const { setCheckMaintenance } = useContext(MaintenanceData);
 
   const { id } = useParams();
 
   const history = useHistory();
 
-  const nftList = useModifyList(pack?.obtainableNFTs || [], nftStatic, clanStatic, rarityStatic, repIdStatic)
+  const nftList = useModifyList(
+    pack?.obtainableNFTs || [],
+    nftStatic,
+    clanStatic,
+    rarityStatic,
+    repIdStatic
+  );
+
+  const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
+  console.log(nftList);
+
+  const premiumBuffs = [...premiumStatic];
+  for (const buff of premiumBuffs) {
+    buff.icon = BP_BASE_URL + buff.icon;
+  }
+
+  console.log(premiumBuffs);
 
   useEffect(() => {
     const selectedPack = packData?.nftPackProducts?.find(
@@ -45,6 +64,11 @@ const PackDetailV3 = () => {
     setReloadCollection((value) => !value);
     history.push(`/open-pack`);
   };
+
+  //Fire check maintenance
+  useEffect(() => {
+    setCheckMaintenance((value) => !value);
+  }, [setCheckMaintenance]);
 
   return (
     <div className={styles.packDetail}>

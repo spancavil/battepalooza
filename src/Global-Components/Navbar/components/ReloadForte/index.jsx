@@ -7,7 +7,6 @@ import styles from "./styles.module.scss";
  * @returns
  */
 function ReloadForte({ handleClick, clase }) {
-  console.log(clase);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

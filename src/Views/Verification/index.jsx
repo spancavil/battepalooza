@@ -82,6 +82,9 @@ const Verification = () => {
       if (response?.maintenance) {
         setMaintenance(response.maintenance);
       }
+      if (!response.maintenance) {
+        setMaintenance(false)
+      }
 
       if (respuesta && respuesta.error?.num !== 0) {
         await fireAlertAsync(

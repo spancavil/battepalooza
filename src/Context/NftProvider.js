@@ -59,9 +59,6 @@ const NftProvider = ({ children }) => {
                     const userCollection = await nftService.getNftCollection(
                         userData
                     );
-                    if (userCollection?.maintenance) {
-                        setMaintenance(userCollection.maintenance);
-                    }
                     const canContinue = checkErrorMiddleware(userCollection);
                     if (canContinue) {
                         setUserCollection(userCollection.nfts);

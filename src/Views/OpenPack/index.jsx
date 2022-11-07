@@ -1,27 +1,27 @@
 import React, { useState } from "react";
-// import { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Background from "../../Global-Components/Background";
 import Button from "../../Global-Components/Button";
 import styles from "./styles.module.scss";
-// import { PackData } from "../../Context/PackProvider";
+import { PackData } from "../../Context/PackProvider";
 import Loader from "../../Global-Components/Loader";
-// import { UserData } from "../../Context/UserProvider";
-// import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
-// import nftService from "../../Services/nft.service";
-// import { useHistory } from "react-router-dom";
+import { UserData } from "../../Context/UserProvider";
+import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
+import nftService from "../../Services/nft.service";
+import { useHistory } from "react-router-dom";
 import CarouselPacks from "../../Global-Components/CarouselPacks";
+// import packHardcoded from "./packHardcoded.json";
+// import nftsHardcoded from "./nftsHardcoded.json";
 // import CardAnimation from "../CardAnimation";
-import packHardcoded from "./packHardcoded.json";
-import nftsHardcoded from "./nftsHardcoded.json";
 
 const OpenPack = () => {
-    const [flow, setFlow] = useState(3);
-    // const { packSelected, txResult } = useContext(PackData);
-    // const { userData } = useContext(UserData);
-    // const [nftsOpenPack, setNftsOpenPack] = useState([]);
+    const [flow, setFlow] = useState(2);
+    const { packSelected, txResult } = useContext(PackData);
+    const { userData } = useContext(UserData);
+    const [nftsOpenPack, setNftsOpenPack] = useState([]);
     const [loading, setLoading] = useState(false);
     const [canContinue, setCanContinue] = useState(false);
-    // const history = useHistory();
+    const history = useHistory();
 
     // console.log(txResult);
 
@@ -29,9 +29,9 @@ const OpenPack = () => {
         setFlow(flow + 1);
     };
 
-    /* useEffect(() => {
+    useEffect(() => {
         if (!userData?.bpToken || !txResult) history.push("/");
-    }, [history, txResult, userData]); */
+    }, [history, txResult, userData]);
 
     // const openLater = () => {
     //   history.push ('/');
@@ -47,7 +47,7 @@ const OpenPack = () => {
         nextFlow();
     };
 
-    /* useEffect(() => {
+    useEffect(() => {
 
         const mapNfts = async () => {
             const uuids = Object.keys(txResult.nftItems);
@@ -70,65 +70,65 @@ const OpenPack = () => {
         mapNfts();
 
         // setNftsOpenPack([
-            {
-                dailyPlayCount: 0,
-                maxDailyPlayCount: 12,
-                rewardMultiplier: 4,
-                storyText:
-                    "Although he has a tough and wild personality, he was given the wrong avatar and turned into a teddy bear.",
-                skill: {
-                    id: 27,
-                    name: "Defense Up",
-                },
-                ability: {
-                    text: "When the Defence Gear is activated, the Defence Gear will take damage instead of the player's HP.",
-                    features: ["Energy Shield"],
-                },
-                stat: {
-                    maxHealth: 2300,
-                    energyRecovery: 15,
-                    moveSpeed: 9,
-                },
-                buff: [
-                    {
-                        id: 15,
-                        name: "Auto HP recovery",
-                        value: 8,
-                    },
-                    {
-                        id: 19,
-                        name: "Debuff duration",
-                        value: 9,
-                    },
-                    {
-                        id: 18,
-                        name: "Buff Duration",
-                        value: 7,
-                    },
-                ],
-                nftRelated: {
-                    parent: null,
-                    child: null,
-                },
-                uuid: "1abdbe3a-44f4-4a8b-96b3-63396366126b",
-                type: 1,
-                itemId: 28,
-                itemName: "Fusion Ted",
-                repName: "Agent Ted",
-                clan: 4,
-                rarity: "EPIC",
-                sealed: true,
-                salesState: 0,
-                serial: 5,
-                cloneCount: 0,
-                movieUrl:
-                    "https://battlepalooza-web.s3.amazonaws.com/movieClips/characters/FusionTed_Epic.mp4",
-                thumbnailUrl:
-                    "https://battlepalooza-web.s3.amazonaws.com/thumbnails/characters/Sprite_Shop_Character_03_Pre3.png",
-                acquired: 1661795591726,
-            },
-        ]);
-    }, [txResult, history, userData]); */
+        //     {
+        //         dailyPlayCount: 0,
+        //         maxDailyPlayCount: 12,
+        //         rewardMultiplier: 4,
+        //         storyText:
+        //             "Although he has a tough and wild personality, he was given the wrong avatar and turned into a teddy bear.",
+        //         skill: {
+        //             id: 27,
+        //             name: "Defense Up",
+        //         },
+        //         ability: {
+        //             text: "When the Defence Gear is activated, the Defence Gear will take damage instead of the player's HP.",
+        //             features: ["Energy Shield"],
+        //         },
+        //         stat: {
+        //             maxHealth: 2300,
+        //             energyRecovery: 15,
+        //             moveSpeed: 9,
+        //         },
+        //         buff: [
+        //             {
+        //                 id: 15,
+        //                 name: "Auto HP recovery",
+        //                 value: 8,
+        //             },
+        //             {
+        //                 id: 19,
+        //                 name: "Debuff duration",
+        //                 value: 9,
+        //             },
+        //             {
+        //                 id: 18,
+        //                 name: "Buff Duration",
+        //                 value: 7,
+        //             },
+        //         ],
+        //         nftRelated: {
+        //             parent: null,
+        //             child: null,
+        //         },
+        //         uuid: "1abdbe3a-44f4-4a8b-96b3-63396366126b",
+        //         type: 1,
+        //         itemId: 28,
+        //         itemName: "Fusion Ted",
+        //         repName: "Agent Ted",
+        //         clan: 4,
+        //         rarity: "EPIC",
+        //         sealed: true,
+        //         salesState: 0,
+        //         serial: 5,
+        //         cloneCount: 0,
+        //         movieUrl:
+        //             "https://battlepalooza-web.s3.amazonaws.com/movieClips/characters/FusionTed_Epic.mp4",
+        //         thumbnailUrl:
+        //             "https://battlepalooza-web.s3.amazonaws.com/thumbnails/characters/Sprite_Shop_Character_03_Pre3.png",
+        //         acquired: 1661795591726,
+        //     },
+        // ]);
+    }, [txResult, history, userData]);
 
     return (
         <Background>
@@ -148,7 +148,7 @@ const OpenPack = () => {
             {flow === 2 && (
                 <div className={styles.container2}>
                     <div className={styles.videoContainer}>
-                        {packHardcoded.openMovieUrl ? (
+                        {packSelected.openMovieUrl ? (
                             <>
                                 {loading ? (
                                     <div
@@ -163,7 +163,7 @@ const OpenPack = () => {
                                             timerFlow();
                                         }}
                                         className={styles.pinVideo}
-                                        src={packHardcoded.openMovieUrl}
+                                        src={packSelected.openMovieUrl}
                                         muted
                                         autoPlay
                                     />
@@ -184,7 +184,7 @@ const OpenPack = () => {
                 </div>
             )}
             {/* {flow === 3 && <CardAnimation nfts={nftsOpenPack} />} */}
-            {flow === 3 && <CarouselPacks nfts={nftsHardcoded} />}
+            {flow === 3 && <CarouselPacks nfts={nftsOpenPack} />}
         </Background>
     );
 };

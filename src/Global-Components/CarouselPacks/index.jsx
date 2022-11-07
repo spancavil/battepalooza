@@ -41,9 +41,7 @@ const CarouselPacks = ({ nfts }) => {
     };
     
     const onChangeCarouselItem = (currentIndex) => {
-        setTimeout(()=> {
-            setAutoPlay(false)
-        }, 400)
+        setAutoPlay(false)
         setCurrentIndex(currentIndex)
     }
     
@@ -71,15 +69,17 @@ const CarouselPacks = ({ nfts }) => {
     
     //Autoplay effect
     useEffect(()=> {
-        if (countReveal !== 0 && countReveal !== nfts.length && !swipeable) setAutoPlay(true)
-        else setAutoPlay(false)
+        if (countReveal !== 0 && countReveal !== nfts.length && !swipeable) {
+            setTimeout(() => setAutoPlay(true), 1800)
+        }
+        // else setAutoPlay(false)
     }, [countReveal, nfts, swipeable])
     
-    console.log(`Current index: ${currentIndex}`);
+    /* console.log(`Current index: ${currentIndex}`);
     console.log(`Count reveal: ${countReveal}`);
     console.log(`Autoplay: ${autoPlay}`);
     console.log(`Initial: ${initialNft}`);
-    console.log(`Last: ${lastNft}`);
+    console.log(`Last: ${lastNft}`); */
 
     return (
         <>
@@ -98,7 +98,7 @@ const CarouselPacks = ({ nfts }) => {
                     useKeyboardArrows={false}
                     onChange={onChangeCarouselItem}
                     autoPlay={autoPlay}
-                    interval = {2000}
+                    interval = {0}
                     transitionTime={400}
                     // renderArrowPrev={(onClick)=> (!ended || currentIndex === 0) ?
                     //     null

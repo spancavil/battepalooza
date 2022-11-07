@@ -25,10 +25,12 @@ export const Ncoins = () => {
     let response;
     const fetchData = async () => {
       setDisabled(true)
-      console.log("Will call API");
       response = await authService.getForteBalance(userData);
       if (response?.maintenance) {
         setMaintenance(response.maintenance);
+      }
+      if (!response.maintenance) {
+        setMaintenance(false)
       }
       const canContinue = checkErrorMiddleware(response, history);
       if (canContinue) {
@@ -53,6 +55,9 @@ export const Ncoins = () => {
     const response = await authService.getFortePayload(userData);
     if (response?.maintenance) {
       setMaintenance(response.maintenance);
+    }
+    if (!response.maintenance) {
+      setMaintenance(false)
     }
     const canContinue = checkErrorMiddleware(response, history);
     if (canContinue) {

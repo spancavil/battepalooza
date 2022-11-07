@@ -101,6 +101,11 @@ const PackDataProvider = ({ children }) => {
           if (packData?.maintenance) {
             setMaintenance(packData.maintenance);
           }
+
+          if (!packData.maintenance) {
+            setMaintenance(false)
+          }
+
           if (packData?.error?.num === 0) {
             setPackData(packData)
           } else {
