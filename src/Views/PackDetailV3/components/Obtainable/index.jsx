@@ -1,3 +1,4 @@
+import { ObtainableNft } from "./components/ObtainableNft";
 import { PremiumBuffItems } from "./components/PremiumBuffItem";
 import { RarityItem } from "./components/RarityItem";
 
@@ -55,7 +56,7 @@ const Obtainable = ({
         <h4>Obtainable NFTs</h4>
         <div className={styles.nftList}>
           {nftList?.map((item) => (
-            <img key={item?.id} src={item?.portrait} alt={item?.itemName} />
+            <ObtainableNft item={item} />
           ))}
         </div>
       </div>
