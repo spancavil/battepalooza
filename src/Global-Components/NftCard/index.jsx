@@ -11,8 +11,6 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance, additionalStyles =
   const {premiumStatic} = useContext(NftData)
   const [buffs, setBuffs] = useState([])
 
-  const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
-
   //Set buff list
   useEffect(() => {
       const buffs = [];
@@ -36,6 +34,8 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance, additionalStyles =
           : styles.LegendaryCard;
   };
 
+  console.log(nft.rarity);
+
   return (
       <div
           ref={tilt && tilt}
@@ -56,7 +56,7 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance, additionalStyles =
             />
             <div className={styles.buffs}>
               {buffs.map((buff, idx) => {
-                return <img src={BP_BASE_URL + buff?.icon} alt="buff-icon" key={idx}/>
+                return <img src={buff?.icon} alt="buff-icon" key={idx}/>
               })}
             </div>
           </div>

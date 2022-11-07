@@ -1,7 +1,6 @@
 import styles from "./styles.module.scss";
 
 const Abilities = ({ chosenNft }) => {
-  const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
 
   return (
     <div className={styles.abilities}>
@@ -16,7 +15,7 @@ const Abilities = ({ chosenNft }) => {
       <div className={styles.abilitiesItems}>
         {chosenNft?.premiumBuff?.map((ability) => (
           <div className={styles.item} key={ability.id}>
-            <img src={BP_BASE_URL + ability.icon} alt={ability.buffType} />
+            <img src={ability.icon} alt={ability.buffType} />
             <div className={styles.values}>
               <p>{ability.engName}</p>
               <span>+{ability.value}%</span>

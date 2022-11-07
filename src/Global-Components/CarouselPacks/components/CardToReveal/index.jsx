@@ -39,6 +39,7 @@ const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex,
                 <NftCard 
                     nft={nft} 
                     onClick={()=> {}}
+                    additionalStyles = {{textAlign: 'left'}}
                 />
                 {/* <div
                     key={nft.uuid}

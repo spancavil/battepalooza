@@ -29,9 +29,9 @@ const OpenPack = () => {
         setFlow(flow + 1);
     };
 
-    useEffect(() => {
+    /* useEffect(() => {
         if (!userData?.bpToken || !txResult) history.push("/");
-    }, [history, txResult, userData]);
+    }, [history, txResult, userData]); */
 
     // const openLater = () => {
     //   history.push ('/');
@@ -50,7 +50,7 @@ const OpenPack = () => {
     useEffect(() => {
 
         const mapNfts = async () => {
-            const uuids = Object.keys(txResult.nftItems);
+            const uuids = Object.keys(txResult?.nftItems);
             for (const uuid of uuids) {
                 try {
                     const response = await nftService.getNftCollectionDetail(
