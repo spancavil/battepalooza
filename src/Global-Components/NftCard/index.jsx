@@ -34,8 +34,6 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance, additionalStyles =
           : styles.LegendaryCard;
   };
 
-  console.log(nft.rarity);
-
   return (
       <div
           ref={tilt && tilt}
