@@ -4,98 +4,129 @@ import { separator } from "../../../../Utils/separator";
 
 import styles from "./styles.module.scss";
 import ButtonRounded from "../../../ButtonRounded";
+import { useContext } from "react";
+import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
 
 const BuyInfo = ({ chosenNft, handleAction }) => {
-  return (
-    <div className={styles.buyInfo}>
-      <div className={styles.rarity}>
-        <LogoRarity rarity={chosenNft?.rarity} />
-        <p>{chosenNft?.rarity}</p>
-      </div>
-      <div className={styles.nftName}>
-        <h1>{chosenNft?.itemName}</h1>
-        <span>[ {chosenNft?.repName} ]</span>
-      </div>
-      {chosenNft?.price && (
-        <>
-          <div className={styles.flex}>
-            <span>Price</span>
-            <div className={styles.ncoins}>
-              <img src={NCoinIcon} alt="NCoin" />
-              <b>{separator(chosenNft?.price)} NCoin</b>
+    const { maintenance } = useContext(MaintenanceData);
+
+    console.log(maintenance);
+    return (
+        <div className={styles.buyInfo}>
+            <div className={styles.rarity}>
+                <LogoRarity rarity={chosenNft?.rarity} />
+                <p>{chosenNft?.rarity}</p>
             </div>
-          </div>
-          <div className={styles.flex}>
-            <span>Fee</span>
-            <div className={styles.ncoins}>
-              <img src={NCoinIcon} alt="NCoin" />
-              <p>? NCoin</p>
+            <div className={styles.nftName}>
+                <h1>{chosenNft?.itemName}</h1>
+                <span>[ {chosenNft?.repName} ]</span>
             </div>
-          </div>
-          <ButtonRounded
-            color="yellow"
-            onClick={()=> handleAction('buy')}
-            title = "BUY"
-            additionalStyles={{
-              zIndex: 0
-            }}
-          />
-        </>
-      )}
-      {typeof chosenNft?.salesState === "number" && chosenNft?.salesState === 0 && (
-        <>
-          {/* <div className={styles.flex}>
-            <span>Price</span>
-            <div className={styles.ncoins}>
-              <img src={NCoinIcon} alt="NCoin" />
-              <b>{separator(chosenNft?.price)} NCoin</b>
-            </div>
-          </div> */}
-          {/* <div className={styles.flex}>
-            <span>Fee</span>
-            <div className={styles.ncoins}>
-              <img src={NCoinIcon} alt="NCoin" />
-              <p>? NCoin</p>
-            </div>
-          </div> */}
-          <ButtonRounded
-            color="yellow"
-            onClick={()=> handleAction('register')}
-            title = "REGISTER IN MARKETPLACE"
-            additionalStyles={{
-              zIndex: 0
-            }}
-          />
-        </>
-      )}
-      {typeof chosenNft?.salesState === "number" && chosenNft?.salesState === 1 && (
-        <>
-          {/* <div className={styles.flex}>
+            {chosenNft?.price && (
+                <>
+                    <div className={styles.flex}>
+                        <span>Price</span>
+                        <div className={styles.ncoins}>
+                            <img src={NCoinIcon} alt="NCoin" />
+                            <b>{separator(chosenNft?.price)} NCoin</b>
+                        </div>
+                    </div>
+                    <div className={styles.flex}>
+                        <span>Fee</span>
+                        <div className={styles.ncoins}>
+                            <img src={NCoinIcon} alt="NCoin" />
+                            <p>? NCoin</p>
+                        </div>
+                    </div>
+                    <ButtonRounded
+                        color={
+                            Object.keys(maintenance).length
+                                ? "disabled"
+                                : "yellow"
+                        }
+                        onClick={
+                            Object.keys(maintenance).length
+                                ? () => {}
+                                : () => handleAction("buy")
+                        }
+                        title="BUY"
+                        additionalStyles={{
+                            zIndex: 0,
+                        }}
+                    />
+                </>
+            )}
+            {typeof chosenNft?.salesState === "number" &&
+                chosenNft?.salesState === 0 && (
+                    <>
+                        {/* <div className={styles.flex}>
             <span>Price</span>
             <div className={styles.ncoins}>
               <img src={NCoinIcon} alt="NCoin" />
               <b>{separator(chosenNft?.price)} NCoin</b>
             </div>
           </div> */}
-          {/* <div className={styles.flex}>
+                        {/* <div className={styles.flex}>
             <span>Fee</span>
             <div className={styles.ncoins}>
               <img src={NCoinIcon} alt="NCoin" />
               <p>? NCoin</p>
             </div>
           </div> */}
-          <ButtonRounded
-            color="yellow"
-            onClick={()=> handleAction('unregister')}
-            title = "UNREGISTER MARKETPLACE"
-            additionalStyles={{
-              zIndex: 0
-            }}
-          />
-        </>
-      )}
-    </div>
-  );
+                        <ButtonRounded
+                            color={
+                                Object.keys(maintenance).length
+                                    ? "disabled"
+                                    : "yellow"
+                            }
+                            onClick={
+                                Object.keys(maintenance).length
+                                    ? () => {}
+                                    : () => handleAction("register")
+                            }
+                            title="REGISTER IN MARKETPLACE"
+                            additionalStyles={{
+                                zIndex: 0,
+                            }}
+                        />
+                    </>
+                )}
+            {typeof chosenNft?.salesState === "number" &&
+                chosenNft?.salesState === 1 && (
+                    <>
+                        {/* <div className={styles.flex}>
+            <span>Price</span>
+            <div className={styles.ncoins}>
+              <img src={NCoinIcon} alt="NCoin" />
+              <b>{separator(chosenNft?.price)} NCoin</b>
+            </div>
+          </div> */}
+                        {/* <div className={styles.flex}>
+            <span>Fee</span>
+            <div className={styles.ncoins}>
+              <img src={NCoinIcon} alt="NCoin" />
+              <p>? NCoin</p>
+            </div>
+          </div> */}
+                        <ButtonRounded
+                            color={
+                                Object.keys(maintenance).length
+                                    ? "disabled"
+                                    : "yellow"
+                            }
+                            onClick={
+                                Object.keys(maintenance).length
+                                    ? () => {}
+                                    : () => handleAction("unregister")
+                            }
+                            title="UNREGISTER MARKETPLACE"
+                            additionalStyles={{
+                                zIndex: 0,
+                            }}
+                        />
+                    </>
+                )}
+        </div>
+    );
 };
 
 export default BuyInfo;
