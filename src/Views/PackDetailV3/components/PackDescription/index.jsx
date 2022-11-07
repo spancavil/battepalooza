@@ -67,9 +67,9 @@ const PackDescription = ({ pack, setCheckoutNCoin }) => {
           {pack?.price && <b>{separator(pack?.price)} NCoin</b>}
         </div>
         <ButtonRounded
-          title="Buy pack"
+          title="BUY"
           onClick={Object.keys(maintenance).length ? () => {} : handleBuy}
-          color={maintenance ? "disabled" : "blue"}
+          color={maintenance ? "disabled" : "yellow"}
           additionalStyles={{ zIndex: 0 }}
         />
       </div>
