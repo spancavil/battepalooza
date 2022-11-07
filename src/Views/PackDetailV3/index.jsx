@@ -19,7 +19,7 @@ const PackDetailV3 = () => {
 
   const { setPack, packData } = useContext(PackData);
   const { setReloadCollection } = useContext(NftData);
-  const { nftStatic, clanStatic, rarityStatic, repIdStatic} = useContext(NftData)
+  const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic} = useContext(NftData)
   const {setCheckMaintenance} = useContext(MaintenanceData);
 
   const { id } = useParams();
@@ -28,7 +28,15 @@ const PackDetailV3 = () => {
 
   const nftList = useModifyList(pack?.obtainableNFTs || [], nftStatic, clanStatic, rarityStatic, repIdStatic)
 
+  const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
   console.log(nftList);
+  
+  const premiumBuffs = [...premiumStatic]
+  for (const buff of premiumBuffs) {
+    buff.icon = BP_BASE_URL + buff.icon
+  }
+
+  console.log(premiumBuffs);
   //Set buff list
 /*   useEffect(() => {
     for (const nft of nftList) {
