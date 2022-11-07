@@ -27,8 +27,6 @@ const PackDetailV3 = () => {
 
   const nftList = useModifyList(pack?.obtainableNFTs || [], nftStatic, clanStatic, rarityStatic, repIdStatic)
 
-  console.log(nftList)
-
   useEffect(() => {
     const selectedPack = packData?.nftPackProducts?.find(
       (pack) => pack?.id === id
