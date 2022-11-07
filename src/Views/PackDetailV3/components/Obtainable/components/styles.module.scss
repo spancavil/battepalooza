@@ -1,0 +1,68 @@
+.rarityItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  color: white;
+  border: 2px solid transparent;
+  font-family: "Rubik";
+  border-radius: 8px;
+
+  p {
+    margin: 0.6rem 0;
+  }
+
+  span {
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+
+.premiumBuffItem {
+  display: flex;
+  gap: 0.5rem;
+
+  img {
+    height: 100%;
+    width: 100%;
+    min-height: 65px;
+    min-width: 65px;
+    max-width: 85px;
+    max-height: 85px;
+    object-fit: contain;
+  }
+}
+
+.obtainableNft {
+  position: relative;
+  width: 80px;
+  height: 80px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.CommonCard {
+  @extend .obtainableNft;
+  background: linear-gradient(180deg, #6c6c6c 0%, #c5c5c5 53.3%);
+}
+
+.RareCard {
+  @extend .obtainableNft;
+  background: linear-gradient(180deg, #db7804 0%, #feb700 100%);
+}
+
+.EpicCard {
+  @extend .obtainableNft;
+  background: linear-gradient(180deg, #031245 0%, #0836d0 100%);
+}
+
+.LegendaryCard {
+  @extend .obtainableNft;
+  background: linear-gradient(180deg, #360345 0%, #a208d0 100%);
+}

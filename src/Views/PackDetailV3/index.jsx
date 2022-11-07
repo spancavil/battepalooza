@@ -6,6 +6,7 @@ import { PackData } from "../../Context/PackProvider";
 import useModifyList from "../../Hooks/useModifyList";
 import Checkout from "./components/Checkout";
 import Complete from "./components/Complete";
+import Obtainable from "./components/Obtainable";
 import PackDescription from "./components/PackDescription";
 import Proccesing from "./components/Proccesing";
 
@@ -16,41 +17,24 @@ const PackDetailV3 = () => {
   const [checkoutNCoin, setCheckoutNCoin] = useState(false);
   const [processingNCoin, setProcessingNcoin] = useState(false);
   const [buyComplete, setBuyComplete] = useState(false);
-
+  
   const { setPack, packData } = useContext(PackData);
   const { setReloadCollection } = useContext(NftData);
-  const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic} = useContext(NftData)
-  const {setCheckMaintenance} = useContext(MaintenanceData);
+  const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
+    useContext(NftData);
+  const { setCheckMaintenance } = useContext(MaintenanceData);
 
   const { id } = useParams();
 
   const history = useHistory();
 
-  const nftList = useModifyList(pack?.obtainableNFTs || [], nftStatic, clanStatic, rarityStatic, repIdStatic)
-
-  const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
-  console.log(nftList);
-  
-  const premiumBuffs = [...premiumStatic]
-  for (const buff of premiumBuffs) {
-    buff.icon = BP_BASE_URL + buff.icon
-  }
-
-  console.log(premiumBuffs);
-  //Set buff list
-/*   useEffect(() => {
-    for (const nft of nftList) {
-      const buffs = [];
-      if (nft?.buff) {
-          for (const buffItem of nft.buff) {
-              const buffFinded = premiumStatic?.find(buff => buff.id === buffItem.id);
-              if (buffFinded) buffFinded.value = buffItem.value;
-              buffs.push(buffFinded);
-          }
-          setBuffs(buffs)
-      }
-    }
-  }, [nft, premiumStatic]); */
+  const nftList = useModifyList(
+    pack?.obtainableNFTs || [],
+    nftStatic,
+    clanStatic,
+    rarityStatic,
+    repIdStatic
+  );
 
   useEffect(() => {
     const selectedPack = packData?.nftPackProducts?.find(
@@ -71,12 +55,10 @@ const PackDetailV3 = () => {
     history.push(`/open-pack`);
   };
 
-
   //Fire check maintenance
-  useEffect(()=> {
-    setCheckMaintenance(value => !value)
-  }, [setCheckMaintenance])
-
+  useEffect(() => {
+    setCheckMaintenance((value) => !value);
+  }, [setCheckMaintenance]);
 
   return (
     <div className={styles.packDetail}>
@@ -84,7 +66,12 @@ const PackDetailV3 = () => {
         <Link to="/packs">&lt; Go back to Packs</Link>
       </div>
       <div className={styles.packContainer}>
-        <PackDescription pack={pack} setCheckoutNCoin={setCheckoutNCoin}/>
+        <PackDescription pack={pack} setCheckoutNCoin={setCheckoutNCoin} />
+        <Obtainable
+          nftList={nftList}
+          premiumBuffs={premiumStatic}
+          rarityRates={pack?.randomWeights}
+        />
       </div>
       {checkoutNCoin && (
         <Checkout
