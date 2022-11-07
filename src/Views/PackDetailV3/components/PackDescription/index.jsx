@@ -55,7 +55,14 @@ const PackDescription = ({ pack, setCheckoutNCoin }) => {
               <Timer pack={pack} />
             </div>
           </div>
-          <ButtonRounded title="Buy pack" onClick={handleBuy} additionalStyles={{zIndex: 0}}/>
+          <ButtonRounded 
+            title="Buy pack" 
+            onClick={ Object.keys(maintenance).length
+                                    ? () => {} 
+                                    : handleBuy
+                                    }
+            color = {maintenance ? "disabled" : "blue"}
+            additionalStyles={{zIndex: 0}}/>
         </div>
       </div>
     </div>
