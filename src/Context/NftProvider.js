@@ -104,12 +104,15 @@ const NftProvider = ({ children }) => {
                 const staticClans = await staticsService.getClans();
                 const staticRarity = await staticsService.getRarity();
                 const staticRepId = await staticsService.getRepId();
-                const premium = await staticsService.getPremium();
+                const premium = Object.values(await staticsService.getPremium());
+                for (const premiumBuff of premium) {
+                    premiumBuff.icon = BP_BASE_URL + premiumBuff.icon
+                }
                 setNftStatic(Object.values(nftStatic));
                 setClanStatic(Object.values(staticClans));
                 setRarityStatic(Object.values(staticRarity));
                 setRepIdStatic(Object.values(staticRepId));
-                setPremiumStatic(Object.values(premium));
+                setPremiumStatic(premium);
             } catch (error) {
                 fireAlert("Oops, an error ocurred", error.message, "500px");
             }
