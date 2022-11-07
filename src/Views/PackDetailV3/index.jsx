@@ -17,7 +17,7 @@ const PackDetailV3 = () => {
   const [checkoutNCoin, setCheckoutNCoin] = useState(false);
   const [processingNCoin, setProcessingNcoin] = useState(false);
   const [buyComplete, setBuyComplete] = useState(false);
-
+  
   const { setPack, packData } = useContext(PackData);
   const { setReloadCollection } = useContext(NftData);
   const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
@@ -35,15 +35,6 @@ const PackDetailV3 = () => {
     rarityStatic,
     repIdStatic
   );
-
-  const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
-
-  const premiumBuffs = [...premiumStatic];
-  for (const buff of premiumBuffs) {
-    buff.icon = BP_BASE_URL + buff.icon;
-  }
-
-  console.log(premiumBuffs);
 
   useEffect(() => {
     const selectedPack = packData?.nftPackProducts?.find(
@@ -78,7 +69,7 @@ const PackDetailV3 = () => {
         <PackDescription pack={pack} setCheckoutNCoin={setCheckoutNCoin} />
         <Obtainable
           nftList={nftList}
-          premiumBuffs={premiumBuffs}
+          premiumBuffs={premiumStatic}
           rarityRates={pack?.randomWeights}
         />
       </div>
