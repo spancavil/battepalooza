@@ -37,7 +37,6 @@ const PackDetailV3 = () => {
   );
 
   const BP_BASE_URL = process.env.REACT_APP_API_BATTLEPALOOZA;
-  console.log(nftList);
 
   const premiumBuffs = [...premiumStatic];
   for (const buff of premiumBuffs) {
@@ -77,7 +76,11 @@ const PackDetailV3 = () => {
       </div>
       <div className={styles.packContainer}>
         <PackDescription pack={pack} setCheckoutNCoin={setCheckoutNCoin} />
-        <Obtainable nftList={nftList} />
+        <Obtainable
+          nftList={nftList}
+          premiumBuffs={premiumBuffs}
+          rarityRates={pack?.randomWeights}
+        />
       </div>
       {checkoutNCoin && (
         <Checkout
