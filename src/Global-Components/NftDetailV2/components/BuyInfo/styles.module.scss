@@ -79,23 +79,6 @@
       }
     }
 
-    button {
-      background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.05),
-          rgba(0, 0, 0, 0.05)
-        ),
-        linear-gradient(0deg, #ffdc40, #ffdc40);
-
-      cursor: pointer;
-      width: 100%;
-      padding: 0.8rem;
-      border-radius: 16px 4px;
-
-      font-weight: 800;
-      font-size: 20px;
-      text-transform: uppercase;
-    }
   }
 }
 
@@ -177,22 +160,5 @@
       }
     }
 
-    button {
-      background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.05),
-          rgba(0, 0, 0, 0.05)
-        ),
-        linear-gradient(0deg, #ffdc40, #ffdc40);
-
-      cursor: pointer;
-      width: 100%;
-      padding: 0.8rem;
-      border-radius: 16px 4px;
-
-      font-weight: 800;
-      font-size: 20px;
-      text-transform: uppercase;
-    }
   }
 }

@@ -6,7 +6,13 @@ const ButtonRounded = ({ color = "blue", title, onClick, additionalStyles}) => {
         <button
             onClick={onClick}
             className={
-                color === "blue" ? styles.buttonBlue : styles.buttonYellow
+                color === "blue" ? 
+                styles.buttonBlue 
+                : 
+                color === "disabled" ?
+                styles.buttonDisabled
+                :
+                styles.buttonYellow
             }
             style = {{...additionalStyles}}
         >
