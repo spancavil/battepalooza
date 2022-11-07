@@ -11,8 +11,6 @@ import { separator } from "../../../../Utils/separator";
 import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
 
 const PackDescription = ({ pack, setCheckoutNCoin }) => {
-  console.log(pack);
-
   const { userData } = useContext(UserData);
   const { maintenance } = useContext(MaintenanceData);
 
@@ -69,8 +67,9 @@ const PackDescription = ({ pack, setCheckoutNCoin }) => {
           {pack?.price && <b>{separator(pack?.price)} NCoin</b>}
         </div>
         <ButtonRounded
-          title="Buy pack"
+          title="BUY"
           onClick={handleBuy}
+          color="#FFDC40"
           additionalStyles={{ zIndex: 0 }}
         />
       </div>
