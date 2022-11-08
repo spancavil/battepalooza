@@ -8,7 +8,7 @@ const Background = ({ children }) => {
 
   return (
     <div
-      style={{ marginTop: !maintenance && "80px" }}
+      style={ !maintenance ? { paddingTop: 80}: null}
       className={styles.layoutContainer}
     >
       {children}

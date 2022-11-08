@@ -37,8 +37,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      {!error404 && <Navbar />}
-      {Object.keys(maintenance).length ? <MaintenanceMessage /> : null}
+        {!error404 && <Navbar />}
+        {Object.keys(maintenance).length ? <MaintenanceMessage /> : null}
       <ButtonRounded
         color = "yellow"
         additionalStyles={{
@@ -62,7 +62,7 @@ function App() {
         <Route exact path="/verification" component={Verification} />
         <Route exact path="/needlogin" component={NeedLogin} />
         <Route exact path="/account/profile">
-          {Object.keys(userData).length === 0 ? <NeedLogin /> : <Profile />}
+          {Object.keys(userData).length === 0 ? <HomeContainer /> : <Profile />}
         </Route>
         <Route exact path="/account/trade-history">
           {Object.keys(userData).length === 0 ? (

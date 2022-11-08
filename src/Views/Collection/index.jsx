@@ -16,6 +16,7 @@ import styles from "./styles.module.scss";
 import { makeCheckableObject } from "../../Utils/objectUtilities";
 import { UserData } from "../../Context/UserProvider";
 import { FiltersMobile } from "../../Global-Components/FiltersMobile";
+import Footer from "../../Global-Components/Footer";
 
 const Collection = () => {
   const [filters, setFilters] = useState({});
@@ -167,6 +168,7 @@ const Collection = () => {
           </div>
         )}
       </div>
+      <Footer/>
     </Background>
   );
 };

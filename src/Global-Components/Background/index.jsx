@@ -7,8 +7,8 @@ const Background = ({ children }) => {
 
   return (
     <div
-      style={{ paddingTop: !maintenance && "80px" }}
       className={styles.layoutContainer}
+      style = { !maintenance ? {paddingTop: 80} : null}
     >
       {children}
     </div>

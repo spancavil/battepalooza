@@ -3,6 +3,7 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import { MaintenanceData } from "../../Context/MaintenanceProvider";
 import { NftData } from "../../Context/NftProvider";
 import { PackData } from "../../Context/PackProvider";
+import Background from "../../Global-Components/Background";
 import useModifyList from "../../Hooks/useModifyList";
 import Checkout from "./components/Checkout";
 import Complete from "./components/Complete";
@@ -61,7 +62,7 @@ const PackDetailV3 = () => {
   }, [setCheckMaintenance]);
 
   return (
-    <div className={styles.packDetail}>
+    <Background>
       <div className={styles.goBack}>
         <Link to="/packs">&lt; Go back to Packs</Link>
       </div>
@@ -94,7 +95,7 @@ const PackDetailV3 = () => {
           closeComplete={() => handleCloseComplete()}
         />
       )}
-    </div>
+    </Background>
   );
 };
 
