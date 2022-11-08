@@ -20,12 +20,14 @@ class DropService {
             return response.data
         })
     }
-    async payCoin (pid, productId, bpTokenContent){
+    async payCoin (pid, productId, bpTokenContent, quantity = 1){
+        console.log(quantity);
         const bpToken = authHeader(bpTokenContent);
         return await axios.post(API_URL + "drops/pay-coin-nft",{
             bpToken,
             productId,
-            pid
+            pid,
+            quantity
         }).then(response => {
             return response.data
         })

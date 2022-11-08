@@ -2,21 +2,25 @@ import { ClockIcon, PackageIcon } from "../../../../Assets/svg/packDetailIcons";
 import ButtonRounded from "../../../../Global-Components/ButtonRounded";
 import Timer from "../../../../Global-Components/Timer";
 import NCoinIcon from "../../../../Assets/img/Sprite_Icon_Reward_35.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import styles from "./styles.module.scss";
 import { UserData } from "../../../../Context/UserProvider";
 import fireToast from "../../../../Utils/sweetAlert2";
 import { separator } from "../../../../Utils/separator";
 import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
+import PackCounter from "../PackCounter";
 
-const PackDescription = ({ pack, setCheckoutNCoin }) => {
+const PackDescription = ({ pack, setCheckoutNCoin, setPackCount }) => {
   const { userData } = useContext(UserData);
   const { maintenance } = useContext(MaintenanceData);
+
+  const [quantity, setQuantity] = useState(0);
 
   const handleBuy = () => {
     if (userData?.bpToken && !maintenance) {
       setCheckoutNCoin(true);
+      setPackCount (quantity)
     }
     if (!userData?.bpToken) {
       fireToast("Need login", 1200, "300px");
@@ -64,8 +68,9 @@ const PackDescription = ({ pack, setCheckoutNCoin }) => {
         </div>
         <div className={styles.ncoins}>
           <img src={NCoinIcon} alt="NCoin" />
-          {pack?.price && <b>{separator(pack?.price)} NCoin</b>}
+          {pack?.price && <b>{separator(pack?.price * quantity)} NCoin</b>}
         </div>
+        <PackCounter handleValue={setQuantity} additionalStyles ={{width: '100%', margin: "24px 0"}}/>
         <ButtonRounded
           title="BUY"
           onClick={Object.keys(maintenance).length ? () => {} : handleBuy}

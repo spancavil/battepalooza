@@ -8,7 +8,7 @@ import { fireAlertAsync } from '../../../../Utils/sweetAlert2';
 import dropService from '../../../../Services/drop.service';
 import { PackData } from '../../../../Context/PackProvider';
 
-const Proccesing = ({ packBuy, handleClose, processingComplete }) => {
+const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
 
   const [status, setStatus] = useState("");
   const [forteTxText, setForteTxText] = useState("");
@@ -30,10 +30,12 @@ const Proccesing = ({ packBuy, handleClose, processingComplete }) => {
         console.log("Step 1. PayNcoin");
         if (Object.keys(userData).length !== 0) {
           try {
+            console.log(quantity);
             const response = await dropService.payCoin(
               userData.pid,
               packBuy.id,
               userData.bpToken,
+              quantity
             )
             if (response.error.text !== "") {
               if (response.error.text.includes("authorized")) {
@@ -71,7 +73,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete }) => {
 
     payCoin()
 
-  }, [userData, setForteTxText, history, packBuy, handleClose, step1])
+  }, [userData, setForteTxText, history, packBuy, handleClose, step1, quantity])
 
   //Paso tres, hacemos la compra con el texto que nos había devuelto en el paso 1
   //Lueg Forte nos devuelve un NUEVO texto con el Id de la tx

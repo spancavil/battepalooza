@@ -7,7 +7,7 @@ import { UserData } from '../../../../Context/UserProvider';
 import fireToast from '../../../../Utils/sweetAlert2';
 // import { sendAmplitudeData } from '../../../../Utils/amplitude';
 
-const Checkout = ({ packBuy, nftProccesing, handleClose }) => {
+const Checkout = ({ packBuy, nftProccesing, handleClose, quantity }) => {
 
   const {userData} = useContext(UserData)
 
@@ -39,7 +39,7 @@ const Checkout = ({ packBuy, nftProccesing, handleClose }) => {
             <h3 className={styles.textDrop2}>{nftBuy.price + nftBuy.fee} nCoin</h3>
           </div>
         </div>*/}
-        <h3 className={styles.textDrop}> Will you use {packBuy?.price} nCoin to purchase {packBuy?.packName}?</h3>
+        <h3 className={styles.textDrop}> Will you use {packBuy?.price * quantity} nCoin to purchase {quantity} {packBuy?.packName}?</h3>
         <Button title="BUY" modal={true} width="176px" onClick={() => handleProccessing()} />
         <SubMessage
           text="Not enough nCoin?"

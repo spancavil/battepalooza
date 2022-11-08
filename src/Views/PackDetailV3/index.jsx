@@ -16,6 +16,7 @@ import styles from "./styles.module.scss";
 const PackDetailV3 = () => {
   const [pack, setSelectedPack] = useState();
   const [checkoutNCoin, setCheckoutNCoin] = useState(false);
+  const [packCount, setPackCount] = useState(1);
   const [processingNCoin, setProcessingNcoin] = useState(false);
   const [buyComplete, setBuyComplete] = useState(false);
   
@@ -67,7 +68,7 @@ const PackDetailV3 = () => {
         <Link to="/packs">&lt; Go back to Packs</Link>
       </div>
       <div className={styles.packContainer}>
-        <PackDescription pack={pack} setCheckoutNCoin={setCheckoutNCoin} />
+        <PackDescription pack={pack} setCheckoutNCoin={setCheckoutNCoin} setPackCount={setPackCount}/>
         <Obtainable
           nftList={nftList}
           premiumBuffs={premiumStatic}
@@ -79,6 +80,7 @@ const PackDetailV3 = () => {
           packBuy={pack}
           nftProccesing={setProcessingNcoin}
           handleClose={setCheckoutNCoin}
+          quantity = {packCount}
         />
       )}
       {processingNCoin && (
@@ -86,6 +88,7 @@ const PackDetailV3 = () => {
           packBuy={pack}
           processingComplete={processingComplete}
           handleClose={() => setProcessingNcoin(false)}
+          quantity = {packCount}
         />
       )}
       {buyComplete && (
