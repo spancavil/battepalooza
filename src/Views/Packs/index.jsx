@@ -18,8 +18,6 @@ const Packs = () => {
     history.push(`/packs/${packId}`);
   };
 
-  console.log(packData);
-
   return (
     <Background>
       <section className={styles.packsSection}>

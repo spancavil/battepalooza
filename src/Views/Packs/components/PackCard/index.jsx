@@ -13,7 +13,7 @@ export const PackCard = ({ pack, onClick }) => {
       </div>
       <div className={styles.packDataContainer}>
         <h3>{pack?.packName}</h3>
-        <p className={styles.desc}>
+        <div className={styles.desc}>
           {pack?.detailTxt &&
             pack?.detailTxt.split("\\n").map((texto) => {
               return (
@@ -22,12 +22,12 @@ export const PackCard = ({ pack, onClick }) => {
                 </p>
               );
             })}
-        </p>
+        </div>
         <span className={styles.left}>
           Left Time: <Timer pack={pack} />
         </span>
         <span className={styles.left}>
-          Left Count:
+          Left Count:{" "}
           <b>
             {pack?.leftAmount}/{pack?.limitAmount}
           </b>

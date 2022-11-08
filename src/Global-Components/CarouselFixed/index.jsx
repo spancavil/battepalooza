@@ -37,8 +37,6 @@ const CarouselFixed = ({ containerWidth = 800, children}) => {
         containerRef.current.style.left = `${positionX.current}px` 
     }, [positionX.current])
 
-    console.log(positionX.current);
-
     return (
         <div
             className={styles.carouselContainer}
