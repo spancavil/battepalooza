@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { MaintenanceData } from "../../Context/MaintenanceProvider";
 import { NftData } from "../../Context/NftProvider";
 import { PackData } from "../../Context/PackProvider";
 import Background from "../../Global-Components/Background";
+import BackLink from "../../Global-Components/BackLink";
+import Loader from "../../Global-Components/Loader";
 import useModifyList from "../../Hooks/useModifyList";
 import Checkout from "./components/Checkout";
 import Complete from "./components/Complete";
@@ -19,7 +21,7 @@ const PackDetailV3 = () => {
   const [packCount, setPackCount] = useState(1);
   const [processingNCoin, setProcessingNcoin] = useState(false);
   const [buyComplete, setBuyComplete] = useState(false);
-  
+
   const { setPack, packData } = useContext(PackData);
   const { setReloadCollection } = useContext(NftData);
   const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
@@ -64,23 +66,31 @@ const PackDetailV3 = () => {
 
   return (
     <Background>
-      <div className={styles.goBack}>
-        <Link to="/packs">&lt; Go back to Packs</Link>
-      </div>
-      <div className={styles.packContainer}>
-        <PackDescription pack={pack} setCheckoutNCoin={setCheckoutNCoin} setPackCount={setPackCount}/>
-        <Obtainable
-          nftList={nftList}
-          premiumBuffs={premiumStatic}
-          rarityRates={pack?.randomWeights}
-        />
-      </div>
+      <BackLink to="/packs" content="Go back to packs" />
+      {pack ? (
+        <div className={styles.packContainer}>
+          <PackDescription
+            pack={pack}
+            setCheckoutNCoin={setCheckoutNCoin}
+            setPackCount={setPackCount}
+          />
+          <Obtainable
+            nftList={nftList}
+            premiumBuffs={premiumStatic}
+            rarityRates={pack?.randomWeights}
+          />
+        </div>
+      ) : (
+        <div className={styles.loadingContainer}>
+          <Loader />
+        </div>
+      )}
       {checkoutNCoin && (
         <Checkout
           packBuy={pack}
           nftProccesing={setProcessingNcoin}
           handleClose={setCheckoutNCoin}
-          quantity = {packCount}
+          quantity={packCount}
         />
       )}
       {processingNCoin && (
@@ -88,7 +98,7 @@ const PackDetailV3 = () => {
           packBuy={pack}
           processingComplete={processingComplete}
           handleClose={() => setProcessingNcoin(false)}
-          quantity = {packCount}
+          quantity={packCount}
         />
       )}
       {buyComplete && (

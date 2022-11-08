@@ -1,7 +1,6 @@
 import React from 'react'
 
 const NextArrow = (props) => {
-    console.log(props);
     return (
         <div style={{width: 40, height: 40, position: 'absolute', right: '2%', top: '45%'}}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props} style={{backgroundColor: 'white', borderRadius: '50%'}}>

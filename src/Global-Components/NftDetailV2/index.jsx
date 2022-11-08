@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import Loader from "../Loader";
 import Stats from "./components/Stats";
 import Abilities from "./components/Abilities";
@@ -7,31 +5,29 @@ import Description from "./components/Description";
 
 import styles from "./styles.module.scss";
 import BuyInfo from "./components/BuyInfo";
+import BackLink from "../BackLink";
 
 const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
-
   const onHandle = (action) => {
     switch (action) {
       case "buy":
-        buyNft(chosenNft)
+        buyNft(chosenNft);
         break;
       case "register":
-        onRegister(chosenNft)
+        onRegister(chosenNft);
         break;
       case "unregister":
-        unRegister(chosenNft)
-        break; 
+        unRegister(chosenNft);
+        break;
       default:
         break;
     }
-  }
+  };
 
   return (
     <>
       <div className={styles.nftDetailPage}>
-        <Link className={styles.goBack} to={goBack}>
-          &lt; Go back
-        </Link>
+        <BackLink to={goBack} content="Go back" />
         {chosenNft?.thumbnailUrl ? (
           <div className={styles.nft}>
             <div className={styles.left}>
@@ -52,7 +48,7 @@ const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
               />
             </div>
             <div className={styles.rigth}>
-              <BuyInfo chosenNft={chosenNft} handleAction={onHandle}/>
+              <BuyInfo chosenNft={chosenNft} handleAction={onHandle} />
               <Abilities chosenNft={chosenNft} />
               {chosenNft?.type === 1 && <Stats chosenNft={chosenNft} />}
             </div>

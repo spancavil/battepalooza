@@ -15,8 +15,6 @@ const CardToReveal = ({ reveal, nft, isRevealed }) => {
 
     const [rotate, setRotate] = useState(false);
 
-    console.log(nft);
-
     const handleRotate = () => {
         if (rotate === false) {
             setRotate(true);

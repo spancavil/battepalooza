@@ -15,12 +15,12 @@ const PackDescription = ({ pack, setCheckoutNCoin, setPackCount }) => {
   const { userData } = useContext(UserData);
   const { maintenance } = useContext(MaintenanceData);
 
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const handleBuy = () => {
     if (userData?.bpToken && !maintenance) {
       setCheckoutNCoin(true);
-      setPackCount (quantity)
+      setPackCount(quantity);
     }
     if (!userData?.bpToken) {
       fireToast("Need login", 1200, "300px");
@@ -70,13 +70,18 @@ const PackDescription = ({ pack, setCheckoutNCoin, setPackCount }) => {
           <img src={NCoinIcon} alt="NCoin" />
           {pack?.price && <b>{separator(pack?.price * quantity)} NCoin</b>}
         </div>
-        <PackCounter handleValue={setQuantity} additionalStyles ={{width: '100%', margin: "24px 0"}}/>
-        <ButtonRounded
-          title="BUY"
-          onClick={Object.keys(maintenance).length ? () => {} : handleBuy}
-          color={maintenance ? "disabled" : "yellow"}
-          additionalStyles={{ zIndex: 0 }}
-        />
+        <div className={styles.buttons}>
+          <PackCounter
+            handleValue={setQuantity}
+            additionalStyles={{ width: "100%" }}
+          />
+          <ButtonRounded
+            title="BUY"
+            onClick={Object.keys(maintenance).length ? () => {} : handleBuy}
+            color={maintenance ? "disabled" : "yellow"}
+            additionalStyles={{ zIndex: 0 }}
+          />
+        </div>
       </div>
     </div>
   );
