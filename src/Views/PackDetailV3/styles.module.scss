@@ -1,8 +1,5 @@
 .packDetail {
   margin-top: 80px;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 4rem;
   background: #010320;
   min-height: calc(100vh - 80px);
 
@@ -24,4 +21,12 @@
     flex-direction: column;
     gap: 5%;
   }
+}
+
+.loadingContainer {
+  width: 100vw;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

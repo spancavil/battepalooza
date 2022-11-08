@@ -1,19 +1,74 @@
-.obtainableContainer {
-  width: 100%;
-  margin-top: 2rem;
-  display: flex;
-  gap: 2%;
+@import "../../../../Styles/breakpoints.scss";
 
-  .left {
+@media (max-width: ($desktop - 1)) {
+  .obtainableContainer {
+    width: 100%;
+    margin-top: 2rem;
     display: flex;
-    width: 55%;
-    gap: 3%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    align-items: center;
 
-    .box {
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 1rem;
+
+      .box {
+        max-width: 650px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        height: 300px;
+        overflow-y: scroll;
+        background-color: #181931;
+        border: 2px solid #0146d5;
+        padding: 1rem;
+        border-radius: 8px;
+
+        h4 {
+          margin-top: 4px;
+          font-weight: 700;
+          color: white;
+          font-family: "Rubik";
+        }
+      }
+
+      .boxLoading {
+        max-width: 650px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        height: 300px;
+        overflow-y: scroll;
+        background-color: #181931;
+        border: 2px solid #0146d5;
+        padding: 1rem;
+        border-radius: 8px;
+        align-items: center;
+        justify-content: center;
+
+        h4 {
+          margin-top: 4px;
+          font-weight: 700;
+          color: white;
+          font-family: "Rubik";
+        }
+      }
+    }
+
+    .rigth {
+      max-width: 650px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 16px;
-      width: 50%;
       height: 300px;
       overflow-y: scroll;
       background-color: #181931;
@@ -28,25 +83,133 @@
         font-family: "Rubik";
       }
     }
+
+    .rigthLoading {
+      max-width: 650px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 40%;
+      height: 300px;
+      overflow-y: scroll;
+      background-color: #181931;
+      border: 2px solid #0146d5;
+      padding: 1rem;
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+
+      h4 {
+        margin-top: 4px;
+        font-weight: 700;
+        color: white;
+        font-family: "Rubik";
+      }
+    }
   }
+}
 
-  .rigth {
+@media (min-width: ($desktop)) {
+  .obtainableContainer {
+    width: 100%;
+    margin-top: 2rem;
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 40%;
-    height: 300px;
-    overflow-y: scroll;
-    background-color: #181931;
-    border: 2px solid #0146d5;
-    padding: 1rem;
-    border-radius: 8px;
+    justify-content: center;
+    gap: 2%;
+    padding-bottom: 2rem;
 
-    h4 {
-      margin-top: 4px;
-      font-weight: 700;
-      color: white;
-      font-family: "Rubik";
+    .left {
+      padding-left: 2rem;
+      display: flex;
+      width: 55%;
+      gap: 3%;
+
+      .box {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 50%;
+        height: 300px;
+        overflow-y: scroll;
+        background-color: #181931;
+        border: 2px solid #0146d5;
+        padding: 1rem;
+        border-radius: 8px;
+
+        h4 {
+          margin-top: 4px;
+          font-weight: 700;
+          color: white;
+          font-family: "Rubik";
+        }
+      }
+
+      .boxLoading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        width: 50%;
+        height: 300px;
+        overflow-y: scroll;
+        background-color: #181931;
+        border: 2px solid #0146d5;
+        padding: 1rem;
+        border-radius: 8px;
+
+        h4 {
+          margin-top: 4px;
+          font-weight: 700;
+          color: white;
+          font-family: "Rubik";
+        }
+      }
+    }
+
+    .rigth {
+      max-width: 650px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 40%;
+      height: 300px;
+      overflow-y: scroll;
+      background-color: #181931;
+      border: 2px solid #0146d5;
+      padding: 1rem;
+      border-radius: 8px;
+
+      h4 {
+        margin-top: 4px;
+        font-weight: 700;
+        color: white;
+        font-family: "Rubik";
+      }
+    }
+
+    .rigthLoading {
+      max-width: 650px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 40%;
+      height: 300px;
+      overflow-y: scroll;
+      background-color: #181931;
+      border: 2px solid #0146d5;
+      padding: 1rem;
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+
+      h4 {
+        margin-top: 4px;
+        font-weight: 700;
+        color: white;
+        font-family: "Rubik";
+      }
     }
   }
 }
