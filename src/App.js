@@ -28,16 +28,33 @@ import MarketplaceDetailV2 from "./Views/MarketplaceDetailV2";
 import PackDetailV3 from "./Views/PackDetailV3";
 import MaintenanceMessage from "./Global-Components/MaintenanceMessage";
 import { MaintenanceData } from "./Context/MaintenanceProvider";
+import ButtonRounded from "./Global-Components/ButtonRounded";
+import { getMaintenanceRandomTime } from "./Utils/maintenaceDates";
 
 function App() {
   const { userData, error404 } = useContext(UserData);
-  const { maintenance } = useContext(MaintenanceData);
+  const { maintenance, setMaintenance } = useContext(MaintenanceData);
 
   return (
     <BrowserRouter>
       {!error404 && <Navbar />}
       {Object.keys(maintenance).length ? <MaintenanceMessage /> : null}
-
+      <ButtonRounded
+        color = "yellow"
+        additionalStyles={{
+          zIndex: 10,
+          position: "fixed",
+          bottom: 0,
+          marginBottom: 10,
+          marginLeft: 10,
+        }}
+        title = "Switch maintenance"
+        onClick={() => {
+          if (!maintenance) setMaintenance(getMaintenanceRandomTime())
+          else setMaintenance(false)
+        }}
+      >
+      </ButtonRounded>
       <Switch>
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/auth/:type" component={Auth} />
