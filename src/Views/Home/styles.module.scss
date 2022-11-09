@@ -3,6 +3,10 @@
 @import "../../Styles/breakpoints.scss";
 @import "../../Styles/animations.scss";
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 @media (max-width: $desktop - 1) {
   .container {
     top: 0;
