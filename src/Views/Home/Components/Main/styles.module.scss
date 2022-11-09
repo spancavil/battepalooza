@@ -81,7 +81,6 @@
       font-family: $font-monkyta;
       color: white;
 
-
       .contract {
         font-size: 12px;
         display: flex;
@@ -112,7 +111,6 @@
       padding: 10px 15px;
       border: 2px solid #3d92ef;
       box-shadow: 0px 0px 15px 0px #3d91ef inset;
-
     }
   }
 }
@@ -354,18 +352,17 @@
 }
 
 @media (min-width: $desktop) and (max-width: $HD - 1) {
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
   .content1 {
     text-align: center;
     width: 100%;
     top: 0;
     overflow-y: hidden;
+    overflow-x: hidden;
   }
 
   .battle {
+    overflow-y: hidden;
+    overflow-x: hidden;
     background-image: url("../../../../Assets/img/Bg-Home.png");
     display: flex;
     padding-left: 30px;
@@ -471,16 +468,13 @@
 }
 
 @media (min-width: $HD) {
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
   .content1 {
     text-align: center;
     width: 100%;
     top: 0;
     height: 100vh;
     overflow-y: hidden;
+    overflow-x: hidden;
   }
 
   .battle {

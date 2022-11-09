@@ -16,6 +16,8 @@
     top: 0;
     width: 100%;
     overflow-y: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
     /* position: absolute; */
   }
 }
@@ -25,6 +27,8 @@
     top: 0;
     width: 100%;
     overflow-y: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
     /* position: absolute; */
   }
 }
