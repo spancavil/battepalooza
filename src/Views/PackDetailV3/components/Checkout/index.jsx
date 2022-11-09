@@ -1,54 +1,85 @@
-import React, {useContext} from 'react';
-import Modal from '../../../../Global-Components/Modal';
-import styles from './styles.module.scss';
-import Button from '../../../../Global-Components/Button';
-import SubMessage from '../../../../Global-Components/SubMessage';
-import { UserData } from '../../../../Context/UserProvider';
-import fireToast from '../../../../Utils/sweetAlert2';
+import React, { useContext } from "react";
+import styles from "./styles.module.scss";
+import NCoinIcon from "../../../../Assets/img/Sprite_Icon_Reward_35.png";
+import { UserData } from "../../../../Context/UserProvider";
+import fireToast from "../../../../Utils/sweetAlert2";
+import ModalV2 from "../../../../Global-Components/ModalV2";
+import ButtonRounded from "../../../../Global-Components/ButtonRounded";
+import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
+import PackCounter from "../PackCounter";
+import { separator } from "../../../../Utils/separator";
 // import { sendAmplitudeData } from '../../../../Utils/amplitude';
 
-const Checkout = ({ packBuy, nftProccesing, handleClose, quantity }) => {
-
-  const {userData} = useContext(UserData)
+const Checkout = ({
+  packBuy,
+  nftProccesing,
+  handleClose,
+  quantity,
+  setPackCount,
+}) => {
+  const { userData } = useContext(UserData);
+  const { maintenance } = useContext(MaintenanceData);
 
   const handleProccessing = () => {
     // sendAmplitudeData('Buy Confirmation Drop');
     if (Object.keys(userData).length !== 0) {
       nftProccesing(true);
-      handleClose(false)
+      handleClose(false);
     } else {
-      fireToast("Need login", 1000)
+      fireToast("Need login", 1000);
     }
-  }
+  };
 
   return (
     <div className={styles.parentContainerModal}>
-      <Modal title="Checkout" handleClose={() => handleClose(false)}>
-        {/* <div className={styles.totalContainer}>
-           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-            <h3 className={styles.textDrop2}>Price</h3>
-            <h3 className={styles.textDrop2}>{nftBuy.price} nCoin</h3>
+      <ModalV2 title="Checkout" handleClose={() => handleClose(false)}>
+        <div className={styles.packSelected}>
+          <div className={styles.pack}>
+            <img src={packBuy?.thumbnailUrl} alt={packBuy?.packName} />
+            <span>{packBuy?.packName}</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-            <h3 className={styles.textDrop2}>Fee (5%)</h3>
-            <h3 className={styles.textDrop2}>{nftBuy.fee} nCoin</h3>
+          <PackCounter
+            quantity={quantity}
+            handleValue={setPackCount}
+            additionalStyles={{ width: "35%" }}
+          />
+        </div>
+        <div className={styles.line} />
+        <div className={styles.paymentData}>
+          <h4>Payment summary</h4>
+          <div className={styles.item}>
+            <p>Subtotal</p>
+            <div className={styles.ncoins}>
+              <img src={NCoinIcon} alt="NCoin" />
+              <span>{separator(packBuy?.price)} NCoin</span>
+            </div>
           </div>
-          <hr style={{ borderTop: '2px solid white', width: '95%', marginTop: "15px" }} />
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-            <h3 className={styles.textDrop2}>Total</h3>
-            <h3 className={styles.textDrop2}>{nftBuy.price + nftBuy.fee} nCoin</h3>
+          <div className={styles.item}>
+            <p>Fee</p>
+            <div className={styles.ncoins}>
+              <img src={NCoinIcon} alt="NCoin" />
+              <span>? NCoin</span>
+            </div>
           </div>
-        </div>*/}
-        <h3 className={styles.textDrop}> Will you use {packBuy?.price * quantity} nCoin to purchase {quantity} {packBuy?.packName}?</h3>
-        <Button title="BUY" modal={true} width="176px" onClick={() => handleProccessing()} />
-        <SubMessage
-          text="Not enough nCoin?"
-          link="/account"
-          textLink="Charge now"
-        />
-      </Modal>
+          <div className={styles.item}>
+            <p>Total</p>
+            <div className={styles.ncoins}>
+              <img src={NCoinIcon} alt="NCoin" />
+              <span>{separator(packBuy?.price * quantity + 0)} NCoin</span>
+            </div>
+          </div>
+          <ButtonRounded
+            title="BUY"
+            onClick={
+              Object.keys(maintenance).length ? () => {} : handleProccessing
+            }
+            color={maintenance ? "disabled" : "yellow"}
+            additionalStyles={{ zIndex: 0 }}
+          />
+        </div>
+      </ModalV2>
     </div>
-  )
-}
+  );
+};
 
-export default Checkout
+export default Checkout;

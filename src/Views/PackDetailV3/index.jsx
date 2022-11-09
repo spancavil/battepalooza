@@ -17,10 +17,10 @@ import styles from "./styles.module.scss";
 
 const PackDetailV3 = () => {
   const [pack, setSelectedPack] = useState();
-  const [checkoutNCoin, setCheckoutNCoin] = useState(false);
   const [packCount, setPackCount] = useState(1);
-  const [processingNCoin, setProcessingNcoin] = useState(false);
   const [buyComplete, setBuyComplete] = useState(false);
+  const [checkoutNCoin, setCheckoutNCoin] = useState(false);
+  const [processingNCoin, setProcessingNcoin] = useState(false);
 
   const { setPack, packData } = useContext(PackData);
   const { setReloadCollection } = useContext(NftData);
@@ -87,10 +87,11 @@ const PackDetailV3 = () => {
       )}
       {checkoutNCoin && (
         <Checkout
+          setPackCount={setPackCount}
+          quantity={packCount}
           packBuy={pack}
           nftProccesing={setProcessingNcoin}
           handleClose={setCheckoutNCoin}
-          quantity={packCount}
         />
       )}
       {processingNCoin && (

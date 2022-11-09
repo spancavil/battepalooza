@@ -1,19 +1,19 @@
-import React from 'react'
-import Modal from '../../../../Global-Components/Modal';
-import styles from './styles.module.scss';
-import Button from '../../../../Global-Components/Button';
+import ModalV2 from "../../../../Global-Components/ModalV2";
+import ButtonRounded from "../../../../Global-Components/ButtonRounded";
 
-const Complete = ({title, goOpenPack, closeComplete}) => {
-    return (
-        <div className={styles.parentContainerModal}>
-          <Modal title="Complete" handleClose={closeComplete}>
-            <h3 className={styles.textDrop}>You have successfully purchased {title}</h3>
-            <div className={styles.buttonsContainer}>
-                <Button title="Open pack" onClick={goOpenPack} modal = {true} />
-            </div>
-          </Modal>
-        </div>
-    )
-}
+import styles from "./styles.module.scss";
 
-export default Complete
+const Complete = ({ title, goOpenPack, closeComplete }) => {
+  return (
+    <div className={styles.parentContainerModal}>
+      <ModalV2 title="" handleClose={closeComplete}>
+        <h3 className={styles.textDrop}>
+          Complete! You have successfully purchased Test Pack {title}
+        </h3>
+        <ButtonRounded title="OPEN PACK" onClick={goOpenPack} />
+      </ModalV2>
+    </div>
+  );
+};
+
+export default Complete;
