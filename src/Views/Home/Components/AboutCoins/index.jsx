@@ -1,4 +1,4 @@
-import Button from "../../../../Global-Components/Button";
+import ButtonRounded from "../../../../Global-Components/ButtonRounded";
 import styles from "./styles.module.scss";
 
 const AboutCoins = ({ desktop, hd }) => {
@@ -37,6 +37,10 @@ const AboutCoins = ({ desktop, hd }) => {
     };
   }, [desktop, hd]); */
 
+  const navForte = () => {
+    window.open("https://forte.io/", "_blank", "noreferrer")
+  }
+
   return (
     <div className={styles.content2} id="content2">
       <article id="about">
@@ -47,9 +51,12 @@ const AboutCoins = ({ desktop, hd }) => {
           Battlepalooza is <b>powered</b> by Forte.
         </h4>
         <p>For more information press the button below.</p>
-        <a href={"https://forte.io/"} rel="noreferrer" target="_blank">
-          <Button title={"About Forte"} />
-        </a>
+        <ButtonRounded 
+          color="blue" 
+          title={"About Forte"} 
+          onClick={navForte} 
+          additionalStyles ={{marginTop: 15, padding: 10}}
+        />
       </article>
     </div>
   );
