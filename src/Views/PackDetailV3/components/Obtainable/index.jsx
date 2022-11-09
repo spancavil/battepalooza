@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Loader from "../../../../Global-Components/Loader";
 import { ObtainableNft } from "./components/ObtainableNft";
 import { PremiumBuffItems } from "./components/PremiumBuffItem";
@@ -6,6 +7,10 @@ import { RarityItem } from "./components/RarityItem";
 import styles from "./styles.module.scss";
 
 const Obtainable = ({ nftList, premiumBuffs, rarityRates }) => {
+
+  const [buffHover, setBuffHover] = useState([]);
+  const [weaponOrCharHover, setWeaponOrCharHover] = useState(null);
+
   const getPercentages = () => {
     const rarities = rarityRates && Object.values(rarityRates);
 
@@ -27,8 +32,24 @@ const Obtainable = ({ nftList, premiumBuffs, rarityRates }) => {
 
   const percentages = getPercentages();
 
+  const handleHover = (item = null) => {
+    if (item?.buffType) {
+      setBuffHover([item])
+      setWeaponOrCharHover(null)
+    }
+    if (item?.type) {
+      setWeaponOrCharHover(item)
+      setBuffHover(null)
+    }
+  }
+
+  const handleHoverOut = () => {
+    setBuffHover(null);
+    setWeaponOrCharHover(null);
+  }
+
   return (
-    <div className={styles.obtainableContainer}>
+    <div className={styles.obtainableContainer} onMouseLeave={handleHoverOut}>
       <div className={styles.left}>
         {percentages?.length > 0 ? (
           <div className={styles.box}>
@@ -48,8 +69,14 @@ const Obtainable = ({ nftList, premiumBuffs, rarityRates }) => {
           <div className={styles.box}>
             <h4>Obtainable Premium Buffs</h4>
             <div className={styles.premiumBuffItems}>
-              {premiumBuffs?.map((item) => (
-                <PremiumBuffItems key={item?.id} item={item} />
+              {premiumBuffs?.map((item, index) => (
+                <PremiumBuffItems 
+                  key={item?.id} 
+                  item={item} 
+                  onHover={handleHover} 
+                  buffsHover={buffHover}
+                  index = {index}
+                />
               ))}
             </div>
           </div>
@@ -63,8 +90,14 @@ const Obtainable = ({ nftList, premiumBuffs, rarityRates }) => {
         <div className={styles.rigth}>
           <h4>Obtainable NFTs</h4>
           <div className={styles.nftList}>
-            {nftList?.map((item) => (
-              <ObtainableNft key={item?.id} item={item} />
+            {nftList?.map((item, index) => (
+                <ObtainableNft 
+                  key={item?.id} 
+                  item={item} 
+                  onHover={handleHover} 
+                  weaponOrCharHover={weaponOrCharHover}
+                  index = {index}
+                />
             ))}
           </div>
         </div>

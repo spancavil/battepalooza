@@ -1,6 +1,30 @@
 @import "../../../../Styles/breakpoints.scss";
 
 @media (max-width: ($desktop - 1)) {
+  .rarityItems {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+  }
+  
+  .premiumBuffItems {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 5%;
+    grid-row-gap: 2%;
+  }
+  
+  .nftList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    grid-column-gap: 1.8rem;
+    grid-row-gap: 1.6rem;
+  }
+
   .obtainableContainer {
     width: 100%;
     margin-top: 2rem;
@@ -111,6 +135,31 @@
 }
 
 @media (min-width: ($desktop)) {
+
+  .rarityItems {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+  }
+  
+  .premiumBuffItems {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 5%;
+    grid-row-gap: 2%;
+  }
+  
+  .nftList {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+  }
+
   .obtainableContainer {
     width: 100%;
     margin-top: 2rem;
@@ -212,28 +261,4 @@
       }
     }
   }
-}
-
-.rarityItems {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
-}
-
-.premiumBuffItems {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 5%;
-  grid-row-gap: 2%;
-}
-
-.nftList {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(auto, 1fr);
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
 }

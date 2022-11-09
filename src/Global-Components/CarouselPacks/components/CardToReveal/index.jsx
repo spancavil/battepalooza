@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
 import dorso from "../../../../Assets/img/nft-card-back01.png";
 import NftCard from "../../../../Global-Components/NftCard";
+import Tooltip from "../../../Tooltip";
 
 const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex, carouselIndex, nftLengthList, setEnded}) => {
 
     const [rotate, setRotate] = useState(isRotated);
+    const [tooltTipVisibility, setTooltipVisibility] = useState(false)
+    const [buffs, setBuffs] = useState([])
 
     const handleRotate = () => {
         if (rotate === false && (nftIndex === carouselIndex)) {
@@ -20,6 +23,11 @@ const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex,
             setRotate(true);
         }
     }, [revealAll, rotate, isRevealed]);
+
+    const handleBuffVisibility = (buffs) => {
+        setBuffs(buffs)
+        setTooltipVisibility (value => !value)
+    }
 
     return (
         <div 
@@ -40,7 +48,15 @@ const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex,
                     nft={nft} 
                     onClick={()=> {}}
                     additionalStyles = {{textAlign: 'left'}}
+                    clickOnBuff = {handleBuffVisibility}
                 />
+                {tooltTipVisibility ? 
+                    <Tooltip
+                        buffsInPack={buffs}
+                        handleBuffVisibility = {handleBuffVisibility}
+                    />
+                    : null
+                }
                 {/* <div
                     key={nft.uuid}
                     className={

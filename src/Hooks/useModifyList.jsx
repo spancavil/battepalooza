@@ -19,6 +19,7 @@ const useModifyList = (nftsToModify, nftStatic, clanStatic, rarityStatic, repIdS
                     nft.rarity = rarityFinded.name
                     nft.movieUrl = nftFinded.movieClip
                     nft.thumbnailUrl = nftFinded.thumbnail
+                    nft.engStory = nftFinded.engStory
                 } else {
                     console.log("Nft not found in list:")
                     console.log(nft);

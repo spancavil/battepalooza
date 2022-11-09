@@ -29,9 +29,9 @@ const OpenPack = () => {
         setFlow(flow + 1);
     };
 
-    /* useEffect(() => {
+    useEffect(() => {
         if (!userData?.bpToken || !txResult) history.push("/");
-    }, [history, txResult, userData]); */
+    }, [history, txResult, userData]);
 
     // const openLater = () => {
     //   history.push ('/');
