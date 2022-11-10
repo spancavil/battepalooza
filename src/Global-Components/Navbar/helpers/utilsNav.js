@@ -1,10 +1,10 @@
 export const links = [
   {
     text: "Game",
-    to: "/#content2",
-    isAnchor: true,
+    to: "/",
+    isAnchor: false,
     needAuth: false,
-    notRedirect: true
+    isGame: true,
   },
   {
     text: "Marketplace",

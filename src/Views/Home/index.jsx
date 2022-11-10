@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { ComponentsHome } from "./Components";
 
 import { sendAmplitudeData } from "../../Utils/amplitude";
@@ -6,11 +6,16 @@ import { useMediaQuery } from "../../Hooks/useMediaQuery";
 
 import styles from "./styles.module.scss";
 import Footer from "./Components/Footer";
+import { UserData } from "../../Context/UserProvider";
 
 const HomeContainer = () => {
   const mobile = useMediaQuery("(max-width: 766px)");
   const desktop = useMediaQuery("(min-width: 1200px) and (max-width: 1399px)");
   const hd = useMediaQuery("(min-width: 1400px)");
+
+  const {gameNavigate} = useContext(UserData);
+
+  const gameRef = useRef(null);
 
   useEffect(()=> {
     
@@ -23,6 +28,10 @@ const HomeContainer = () => {
   useEffect(() => {
     sendAmplitudeData("Main page visit");
   }, []);
+
+  useEffect(()=> {
+    if (gameNavigate && gameRef?.current) gameRef.current.scrollIntoView({ behavior: 'smooth', block: 'start'})
+  }, [gameNavigate])
 
   //Desplazamiento en parallax de la imagen de fondo.
 /*   useEffect(() => {
@@ -47,7 +56,7 @@ const HomeContainer = () => {
   return (
     <div className={styles.container}>
       <ComponentsHome.Main />
-      <ComponentsHome.AboutCoins />
+      <ComponentsHome.AboutCoins gameRef = {gameRef}/>
       {/* <ComponentsHome.Carrousel /> */}
       {/* <ComponentsHome.Tokenomics /> */}
       <ComponentsHome.Content3 hd={hd} desktop={desktop} mobile={mobile} />

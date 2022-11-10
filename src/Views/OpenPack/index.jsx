@@ -67,7 +67,7 @@ const OpenPack = () => {
                 }
             }
         };
-        mapNfts();
+        if (Object.keys(txResult).length) mapNfts();
 
         // setNftsOpenPack([
         //     {
