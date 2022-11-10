@@ -259,7 +259,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
       {/* Evitar el cerrado durante el proceso */}
       <ModalV2
         title={
-          status !== "error" && status !== "completed" ? "Proccesing" : status
+          status !== "error" && status !== "completed" ? "Processing" : status
         }
         /* handleClose={status !== ("pending" || "") && step4 ? handleClose : null} */
       >
