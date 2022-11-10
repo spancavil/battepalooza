@@ -12,6 +12,7 @@ const UserProvider = ({ children }) => {
     const [firstLogin, setFirstLogin] = useState(false);
     const [coins, setCoins] = useState(null);
     const [error404, setError404] = useState(false);
+    const [gameNavigate, setGameNavigate] = useState(false);
 
     const setUserSignUp = (data) => {
         setUserSignUpData(data);
@@ -71,7 +72,7 @@ const UserProvider = ({ children }) => {
     }, [])
 
     return (
-        <UserData.Provider value = {{setUserSignUp, setDataUser, setCodeVerification, setPreviousNav, setLoginFirst, setCoin, handleNavError404, error404, verification, userSignup, userData, navigation, firstLogin, coins}}>
+        <UserData.Provider value = {{setUserSignUp, setDataUser, setCodeVerification, setPreviousNav, setLoginFirst, setCoin, handleNavError404, setGameNavigate, gameNavigate, error404, verification, userSignup, userData, navigation, firstLogin, coins}}>
             {children}
         </UserData.Provider>
     )

@@ -1,7 +1,7 @@
 import ButtonRounded from "../../../../Global-Components/ButtonRounded";
 import styles from "./styles.module.scss";
 
-const AboutCoins = ({ desktop, hd }) => {
+const AboutCoins = ({ gameRef }) => {
  /*  useEffect(() => {
     const about = document.getElementById("about");
     const fondo = document.getElementById("content2");
@@ -42,7 +42,7 @@ const AboutCoins = ({ desktop, hd }) => {
   }
 
   return (
-    <div className={styles.content2} id="content2">
+    <div className={styles.content2} ref={gameRef}>
       <article id="about">
         <h2>
           Play Battlepalooza <br /> with NCoins!<b>!</b>

@@ -6,7 +6,7 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import { ButtonNav } from "./components/ButtonNav";
 import { Profile } from "./components/Profile";
 import { Ncoins } from "./components/Ncoins";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Links } from "./components/Links";
 
 import styles from "./styles.module.scss";
@@ -14,13 +14,17 @@ import Logo from "../../Assets/Logo.png";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
-  const toggleMenu = useCallback(() => setMenu(!menu), [menu]);
-
-  const { userData } = useContext(UserData);
+  const { userData, setGameNavigate, gameNavigate } = useContext(UserData);
+  
+  const toggleMenu = () => setMenu(menu => !menu)
   const user = Object.keys(userData).length > 0;
 
   const history = useHistory();
   const { pathname } = useLocation();
+
+  useEffect(()=> {
+    if (gameNavigate) setMenu(false)
+  }, [gameNavigate])
 
   const logout = () => {
     localStorage.removeItem("userBP");
@@ -33,10 +37,15 @@ const Navbar = () => {
     setMenu(false);
   }, [pathname]);
 
+  const handleBrandNavigate = () => {
+    setGameNavigate(false)
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }
+
   return (
     <>
       <nav className={styles.navbar}>
-        <div className={styles.logoContainer}>
+        <div className={styles.logoContainer} onClick={handleBrandNavigate}>
           <Link to={"/"}>
             <img src={Logo} alt="BattlePalooza" />
           </Link>
