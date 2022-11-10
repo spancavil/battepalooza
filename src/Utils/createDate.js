@@ -1,3 +1,5 @@
+import packService from "../Services/pack.service";
+
 const generateDate = (rawDate) => {
     const milliseconds = Date.parse(rawDate);
     var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -14,14 +16,17 @@ const generateDate = (rawDate) => {
  * @param {*} endTime The end time of drop in milliseconds
  * @returns {*} {state: "willBeActive | active | ended ", message: "Days: Hours: minutes"}
  */
-export const getDaysMinutesSeconds = (startTime, endTime) => {
+export const getDaysMinutesSeconds = async (startTime, endTime) => {
 
     const millisecondsStart = startTime;
     const millisecondsEnd = endTime;
-    const millisecondsNow = Date.now();
+
+    const getTime = await packService.getNowTimeFromServer();
+    const millisecondsNow = getTime.unixtime*1000;
+
     const millisecondsLeftStart = millisecondsStart - millisecondsNow;
     const millisecondsLeftEnd = millisecondsEnd - millisecondsNow;
-    
+
     const operand = (1000 * 3600 * 24) //Operand to pass mlliseconds to days.
 
     if (millisecondsLeftStart > 0) {
