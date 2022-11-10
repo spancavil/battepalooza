@@ -65,7 +65,7 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance, additionalStyles =
             {typeof nft?.salesState === "number" ? <p className={styles.seller}>Status: {nft.salesState === 0 ? 'Stored' : 'On sale'}</p> : null}
             <div className={styles.p2eContainer}>
                 <img src = {iconP2e} className={styles.p2eIcon} alt="p2E-icon"/>
-                <p className={styles.p2e}>Left times to P2E: {nft.maxPlayCount-nft.playCount}</p>
+                <p className={styles.p2e}>Left times to P2E: {Number(nft.maxPlayCount) - Number(nft.playCount)}</p>
             </div>
             {nft?.price && <div className={styles.nCoinContainer}>
                 <img src = {ncoinIcon} className={styles.p2eIcon} alt="p2E-icon"/>
