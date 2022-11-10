@@ -5,18 +5,22 @@ import styles from "./styles.module.scss";
 const Tooltip = ({ weaponOrCharacter = null, buffs = null, buffsInPack = null, additionalStyles = null, index = 0, handleBuffVisibility}) => {
 
     const tablet = useMediaQuery('(max-width: 768px)')
+    const desktop = useMediaQuery ('(min-width: 1200px) and (max-width: 1899px)')
 
-    //HD - Weapon or char
-    const isPosition4 = (index + 1 - 4) % 5 === 0
-    const isPosition5 = (index + 1) % 5 === 0
+    // Desktop & HD - Weapon or char
+    const isPosition4DesktopOrHd = (!tablet) && ((index + 1 - 4) % 5 === 0)
+    const isPosition5DesktopOrHd = (!tablet) && ((index + 1) % 5 === 0)
 
     //tablet - weapon or char
-    const isPosition2tablet = (index + 1 - 2) % 3 === 0
-    const isPosition3tablet = (index + 1) % 3 === 0
+    const isPosition2tablet = tablet && ((index + 1 - 2) % 3 === 0)
+    const isPosition3tablet = tablet && ((index + 1) % 3 === 0)
 
-    //tablet - buff
-    const isPosition3buffTablet = (index + 1 - 3) % 4 === 0
-    const isPosition4buffTablet = (index + 1 ) % 4 === 0
+    //Tablet & HD - buff
+    const isPosition3buffTablet = (!desktop) && ((index + 1 - 3) % 4 === 0)
+    const isPosition4buffTablet = (!desktop) && ((index + 1 ) % 4 === 0)
+
+    //Desktop - buff
+    const isPosition3DesktopBuff = desktop && ((index + 1) % 3 === 0)
 
     const handleBuffView = () => {
         handleBuffVisibility()
@@ -27,11 +31,11 @@ const Tooltip = ({ weaponOrCharacter = null, buffs = null, buffsInPack = null, a
         return (
             <div className={styles.tooltipContainerWeapon} 
                 style={
-                    {left: !tablet && (isPosition4 || isPosition5) 
+                    {left: isPosition4DesktopOrHd || isPosition5DesktopOrHd 
                         ? -200
-                        : tablet && isPosition2tablet 
+                        : isPosition2tablet 
                         ? -100
-                        : tablet && isPosition3tablet
+                        : isPosition3tablet
                         ? -200
                         : 0
                     }
@@ -52,10 +56,11 @@ const Tooltip = ({ weaponOrCharacter = null, buffs = null, buffsInPack = null, a
             <div className={styles.tooltipContainerBuff}
             style={
                 {
-                    right: isPosition4buffTablet || isPosition3buffTablet
-                    ? 0 : null
+                    right: isPosition4buffTablet || isPosition3buffTablet || isPosition3DesktopBuff
+                    ? 0 
+                    : null
                     ,
-                    left: !(isPosition4buffTablet || isPosition3buffTablet)
+                    left: !(isPosition4buffTablet || isPosition3buffTablet || isPosition3DesktopBuff)
                     ? 0 : null
                     ,
                     ...additionalStyles

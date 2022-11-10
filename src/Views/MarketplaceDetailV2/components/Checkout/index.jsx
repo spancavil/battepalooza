@@ -1,45 +1,89 @@
-import React from 'react'
-import Modal from '../../../../Global-Components/Modal';
-import styles from './styles.module.scss';
-import Button from '../../../../Global-Components/Button';
-import SubMessage from '../../../../Global-Components/SubMessage';
-import { sendAmplitudeData } from '../../../../Utils/amplitude';
+import styles from "./styles.module.scss";
+import { sendAmplitudeData } from "../../../../Utils/amplitude";
+import ModalV2 from "../../../../Global-Components/ModalV2";
+import { separator } from "../../../../Utils/separator";
+import NCoinIcon from "../../../../Assets/img/Sprite_Icon_Reward_35.png";
+import { useContext } from "react";
+import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
+import ButtonRounded from "../../../../Global-Components/ButtonRounded";
+import SemiFrame from "../../../../Global-Components/NftCard/components/SemiFrame";
+import LogoRarity from "../../../../Global-Components/NftCard/components/LogoRarity";
 
-const Checkout = ({nftBuy, nftProccesing, handleClose}) => {
+const Checkout = ({ nftBuy, nftProccesing, handleClose }) => {
+  const { maintenance } = useContext(MaintenanceData);
 
-    const handleProccessing = () => {
-      sendAmplitudeData('Buy Confirmation Marketplace');
-      nftProccesing(true);
-    }
-    
-    return (
-        <div className={styles.parentContainerModal}>
-          <Modal title="Checkout" handleClose={()=> handleClose(false)}>
-            <div className={styles.totalContainer}>
-              <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%'}}>
-                <h3 className={styles.textDrop2}>Price</h3>
-                <h3 className={styles.textDrop2}>{nftBuy.price} nCoin</h3>
-              </div>
-              {/* <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%'}}>
-                <h3 className={styles.textDrop2}>Fee (5%)</h3>
-                <h3 className={styles.textDrop2}>{nftBuy.fee} nCoin</h3>
-              </div> */}
-              {/* <hr style={{borderTop: '2px solid white', width: '95%', marginTop: "15px"}}/>
-              <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%'}}>
-                <h3 className={styles.textDrop2}>Total</h3>
-                <h3 className={styles.textDrop2}>{nftBuy.price} nCoin</h3>
-              </div> */}
-            </div>
-            <h3 className={styles.textDrop}> Will you use {nftBuy.price} nCoin to purchase {nftBuy.itemName}?</h3>
-            <Button title="BUY" modal={true} width="176px" onClick={()=> handleProccessing()} />
-            <SubMessage
-              text="Not enough nCoin?"
-              link="/account"
-              textLink="Charge now"
+  const setRarityCard = (rarity) => {
+    return rarity === "Common"
+      ? styles.CommonCard
+      : rarity === "Rare"
+      ? styles.RareCard
+      : rarity === "Epic"
+      ? styles.EpicCard
+      : styles.LegendaryCard;
+  };
+
+  const handleProccessing = () => {
+    sendAmplitudeData("Buy Confirmation Marketplace");
+    nftProccesing(true);
+  };
+
+  return (
+    <div className={styles.parentContainerModal}>
+      <ModalV2 title="Checkout" handleClose={() => handleClose(false)}>
+        <div className={styles.packSelected}>
+          <div className={setRarityCard(nftBuy?.rarity)}>
+            <SemiFrame size="48px" rarity={nftBuy?.rarity} />
+            <img
+              key={nftBuy?.id}
+              src={nftBuy?.thumbnailUrl}
+              alt={nftBuy?.itemName}
             />
-          </Modal>
+          </div>
+          <div className={styles.rigth}>
+            <div className={styles.rarity}>
+              <LogoRarity rarity={nftBuy?.rarity} />
+              <p>{nftBuy?.rarity}</p>
+            </div>
+            <p>{nftBuy?.itemName}</p>
+          </div>
         </div>
-    )
-}
 
-export default Checkout
+        <div className={styles.line} />
+        <div className={styles.paymentData}>
+          <h4>Payment summary</h4>
+          <div className={styles.item}>
+            <p>Subtotal</p>
+            <div className={styles.ncoins}>
+              <img src={NCoinIcon} alt="NCoin" />
+              <span>{separator(nftBuy?.price)} NCoin</span>
+            </div>
+          </div>
+          <div className={styles.item}>
+            <p>Fee</p>
+            <div className={styles.ncoins}>
+              <img src={NCoinIcon} alt="NCoin" />
+              <span>? NCoin</span>
+            </div>
+          </div>
+          <div className={styles.item}>
+            <p>Total</p>
+            <div className={styles.ncoins}>
+              <img src={NCoinIcon} alt="NCoin" />
+              <span>{separator(nftBuy?.price + 0)} NCoin</span>
+            </div>
+          </div>
+          <ButtonRounded
+            title="BUY"
+            onClick={
+              Object.keys(maintenance).length ? () => {} : handleProccessing
+            }
+            color={maintenance ? "disabled" : "yellow"}
+            additionalStyles={{ zIndex: 0 }}
+          />
+        </div>
+      </ModalV2>
+    </div>
+  );
+};
+
+export default Checkout;
