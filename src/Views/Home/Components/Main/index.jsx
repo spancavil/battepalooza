@@ -1,18 +1,17 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import bpBrand from "../../../../Assets/img/BI-BP-2.png";
-import Modal from "../../../../Global-Components/Modal";
+import ModalV2 from "../../../../Global-Components/ModalV2";
 
 import styles from "./styles.module.scss";
 
 const Main = () => {
-
   const [modal, setModal] = useState(false);
   const history = useHistory();
 
   const handleTrade = () => {
-    history.push('/marketplace')
-  }
+    history.push("/marketplace");
+  };
 
   return (
     <>
@@ -88,11 +87,6 @@ const Main = () => {
               </button>
             </a>
 
-            {/* <a
-              href="https://play.google.com/store/apps/details?id=com.nway.battlepalooza&hl=es_AR&gl=US"
-              target={"_blank"}
-              rel="noreferrer"
-            > */}
             <button className={styles.button} onClick={() => setModal(true)}>
               <svg
                 viewBox="0 0 19 18"
@@ -132,20 +126,16 @@ const Main = () => {
             </button>
             {/* </a> */}
           </div>
-          <button className={styles.tradeNow} onClick={handleTrade}>TRADE NOW</button>
+          <button className={styles.tradeNow} onClick={handleTrade}>
+            TRADE NOW
+          </button>
         </div>
       </div>
-      {
-        modal && (
-          <div className={styles.modalContainer}>
-            <Modal
-              style={{ height: "250px" }}
-              title="COMING SOON..."
-              handleClose={() => setModal(false)}
-            />
-          </div>
-        )
-      }
+      {modal && (
+        <div className={styles.modalContainer}>
+          <ModalV2 title="Coming Soon..." handleClose={() => setModal(false)} />
+        </div>
+      )}
     </>
   );
 };

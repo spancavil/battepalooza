@@ -25,6 +25,7 @@ const Checkout = ({ nftBuy, nftProccesing, handleClose }) => {
   const handleProccessing = () => {
     sendAmplitudeData("Buy Confirmation Marketplace");
     nftProccesing(true);
+    handleClose(false)
   };
 
   return (

@@ -1,13 +1,9 @@
 @import "../../Styles/colors.scss";
 @import "../../Styles/fonts.scss";
 @import "../../Styles/animations.scss";
-$mobile: 576px;
-$tablet: 767px;
-$laptop: 992px;
-$desktop: 1200px;
+@import "../../Styles/breakpoints.scss";
 
-// Extra mall devices (< 576px)
-@media (max-width: $mobile - 1) {
+@media (max-width: ($mobile - 1)) {
   .modal {
     display: flex;
     position: absolute;
@@ -15,13 +11,13 @@ $desktop: 1200px;
     justify-content: center;
     align-items: center;
     background-color: #181931;
-    border-radius: 1rem;
+    border-radius: 1rem 1rem 0 0;
     animation: modalLeftRight 0.2s, modalFade 0.25s;
     padding: 24px;
-    width: 90vw;
-    min-width: 300px;
+    width: 100vw;
+    bottom: 0;
+    padding-bottom: 2rem;
     box-shadow: 0px 6px 16px 0px #19191980;
-    border: 2px solid #0146d5;
 
     header {
       width: 100%;
@@ -49,134 +45,7 @@ $desktop: 1200px;
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: $mobile) and (max-width: $tablet - 1) {
-  .modal {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #181931;
-    border-radius: 1rem;
-    animation: modalLeftRight 0.2s, modalFade 0.25s;
-    padding: 24px;
-    width: 460px;
-    box-shadow: 0px 6px 16px 0px #19191980;
-    border: 2px solid #0146d5;
-
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-
-      p {
-        text-transform: capitalize;
-        font-weight: 700;
-        font-family: "Rubik";
-        font-size: 32px;
-        color: white;
-      }
-
-      svg {
-        cursor: pointer;
-      }
-
-      svg:hover {
-        transform: scale(1.1);
-        transition-duration: 0.3s;
-      }
-    }
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: $tablet) and (max-width: $laptop - 1) {
-  .modal {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #181931;
-    border-radius: 1rem;
-    animation: modalLeftRight 0.2s, modalFade 0.25s;
-    padding: 24px;
-    width: 460px;
-    box-shadow: 0px 6px 16px 0px #19191980;
-    border: 2px solid #0146d5;
-
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-
-      p {
-        text-transform: capitalize;
-        font-weight: 700;
-        font-family: "Rubik";
-        font-size: 32px;
-        color: white;
-      }
-
-      svg {
-        cursor: pointer;
-      }
-
-      svg:hover {
-        transform: scale(1.1);
-        transition-duration: 0.3s;
-      }
-    }
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: $laptop) and (max-width: $desktop - 1) {
-  .modal {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #181931;
-    border-radius: 1rem;
-    animation: modalLeftRight 0.2s, modalFade 0.25s;
-    padding: 24px;
-    width: 460px;
-    box-shadow: 0px 6px 16px 0px #19191980;
-    border: 2px solid #0146d5;
-
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-
-      p {
-        text-transform: capitalize;
-        font-weight: 700;
-        font-family: "Rubik";
-        font-size: 32px;
-        color: white;
-      }
-
-      svg {
-        cursor: pointer;
-      }
-
-      svg:hover {
-        transform: scale(1.1);
-        transition-duration: 0.3s;
-      }
-    }
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: $desktop) {
+@media (min-width: $mobile) {
   .modal {
     display: flex;
     position: absolute;
