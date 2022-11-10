@@ -46,18 +46,10 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
                   localStorage.removeItem("userBP");
                   logOutAmplitude();
                   history.push("/");
-                  //window.location.reload();
                 });
               } else {
                 setStatus("error");
                 setError(response?.error?.text);
-                /* fireAlertAsync(
-                  "Oops, an error ocurred",
-                  response.error.text,
-                  "500px"
-                ).then(() => {
-                  handleClose();
-                }); */
               }
               //Si no hay errores seteamos el forteTxId para el paso 2.
             } else {
@@ -68,13 +60,6 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
           } catch (error) {
             setStatus("error");
             setError(error?.message);
-            /* fireAlertAsync(
-              "Oops, an error ocurred",
-              error?.message,
-              "500px"
-            ).then(() => {
-              handleClose();
-            }); */
           }
         }
       }
@@ -253,7 +238,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
     step2,
     step4,
     setTxResultPackBuy,
-    error?.message
+    error?.message,
   ]);
 
   console.log({ status, error });
@@ -265,7 +250,6 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
         title={
           status !== "error" && status !== "completed" ? "Processing" : status
         }
-        /* handleClose={status !== ("pending" || "") && step4 ? handleClose : null} */
       >
         <h3 className={styles.textDrop}>
           {status !== "error" ? (
