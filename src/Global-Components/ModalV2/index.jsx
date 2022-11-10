@@ -18,7 +18,7 @@ const ModalV2 = ({ title, children, handleClose }) => {
       }
     };
 
-    window.addEventListener("keydown", handleEsc);
+    handleClose && window.addEventListener("keydown", handleEsc);
 
     return () => {
       window.removeEventListener("keydown", handleEsc);
@@ -29,7 +29,7 @@ const ModalV2 = ({ title, children, handleClose }) => {
     <div className={styles.modal}>
       <header>
         <p>{title}</p>
-        <DialogCross onClick={handleClose} />
+        {handleClose && <DialogCross onClick={handleClose} />}
       </header>
       {children}
     </div>

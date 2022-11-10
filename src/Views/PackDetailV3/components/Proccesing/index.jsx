@@ -7,9 +7,11 @@ import { fireAlertAsync } from "../../../../Utils/sweetAlert2";
 import dropService from "../../../../Services/drop.service";
 import { PackData } from "../../../../Context/PackProvider";
 import ModalV2 from "../../../../Global-Components/ModalV2";
+import ButtonAnimated from "../../../../Global-Components/ButtonAnimated";
 
 const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
   const [status, setStatus] = useState("");
+  const [error, setError] = useState("");
   const [forteTxText, setForteTxText] = useState("");
   const [step1, setStep1] = useState(true); //payCoin
   const [step2, setStep2] = useState(false); //getBlockchainTxStatus
@@ -115,13 +117,15 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
                   //window.location.reload();
                 });
               } else {
-                fireAlertAsync(
+                setStatus("error");
+                setError(response?.error?.text);
+                /* fireAlertAsync(
                   "Oops, an error ocurred",
                   response.error.text,
                   "500px"
                 ).then(() => {
                   handleClose();
-                });
+                }); */
               }
             } else {
               //Si no hay errores setteamos el NUEVO forteTxId para el paso 4.
@@ -130,13 +134,15 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
               setForteTxText(response.forteTxId);
             }
           } catch (error) {
-            fireAlertAsync(
+            setStatus("error");
+            setError(error?.message);
+            /* fireAlertAsync(
               "Oops, an error ocurred",
               error?.message,
               "500px"
             ).then(() => {
               handleClose();
-            });
+            }); */
           }
         }
       };
@@ -186,7 +192,9 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
                 window.location.reload();
               });
             } else {
-              setStatus("Oops, an error ocurred:" + response.error.text);
+              setStatus("error");
+              setError(response?.error?.text);
+              /* setStatus("Oops, an error ocurred:" + response.error.text); */
               setTimeout(() => {
                 handleClose();
               }, 3000);
@@ -201,7 +209,9 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
             }
           }
         } catch (error) {
-          setStatus("Oops, an error ocurred: " + error.message);
+          setStatus("error");
+          setError(error?.message);
+          /* setStatus("Oops, an error ocurred: " + error.message); */
           setTimeout(() => {
             handleClose();
           }, 3000);
@@ -239,27 +249,33 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
     step2,
     step4,
     setTxResultPackBuy,
+    error?.message
   ]);
+
+  console.log({ status, error });
 
   return (
     <div className={styles.parentContainerModal}>
       {/* Evitar el cerrado durante el proceso */}
       <ModalV2
-        title="Proccesing"
-        handleClose={status !== ("pending" || "") && step4 ? handleClose : null}
+        title={
+          status !== "error" && status !== "completed" ? "Proccesing" : status
+        }
+        /* handleClose={status !== ("pending" || "") && step4 ? handleClose : null} */
       >
         <h3 className={styles.textDrop}>
-          {packBuy.packName} is being transferred. Please wait while the
-          transfer is being completed
+          {status !== "error" ? (
+            <>
+              {packBuy.packName} is being transferred. Please wait while the
+              transfer is being completed
+            </>
+          ) : (
+            <>{error}</>
+          )}
         </h3>
-        <h3 className={styles.textDrop}>Status: {status}</h3>
-        <img
-          src={packBuy.thumbnailUrl}
-          alt="nftToBuy"
-          style={{
-            paddingBottom: 15,
-          }}
-        />
+        <div className={styles.buttonContainer}>
+          <ButtonAnimated content={status} onClick={handleClose} />
+        </div>
       </ModalV2>
     </div>
   );
