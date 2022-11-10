@@ -8,6 +8,11 @@ class PackService {
             return response.data
         })
     }
+    async getNowTimeFromServer(){
+        return await axios.post(API_URL + "pack/now").then(response => {
+            return response.data
+        })
+    }
 }
 
 export default new PackService();
