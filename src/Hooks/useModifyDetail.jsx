@@ -27,10 +27,6 @@ const useModifyDetail = (nftDetailtoModify, nftStatic, clanStatic, rarityStatic,
                 nftDetailtoModify.repName = representName?.name || nftDetailtoModify.repName
                 nftDetailtoModify.clan = clanFinded?.name || "No clan"
                 nftDetailtoModify.rarity = rarityFinded.name
-                nftDetailtoModify.rewardMultiplier = rarityFinded.nftGRTRewardMultiplier
-                nftDetailtoModify.maxPlayCount = rarityFinded.totalMaxPlayRewardCount
-                nftDetailtoModify.maxDailyPlayCount = rarityFinded.dailyMaxPlayRewardCount || 12
-                nftDetailtoModify.maxCloneCount = rarityFinded.maxCloneCount || 1
                 nftDetailtoModify.premiumBuff = buffs
             }
             setNftDetailModified(nftDetailtoModify)
