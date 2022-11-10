@@ -49,13 +49,15 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
                   //window.location.reload();
                 });
               } else {
-                fireAlertAsync(
+                setStatus("error");
+                setError(response?.error?.text);
+                /* fireAlertAsync(
                   "Oops, an error ocurred",
                   response.error.text,
                   "500px"
                 ).then(() => {
                   handleClose();
-                });
+                }); */
               }
               //Si no hay errores seteamos el forteTxId para el paso 2.
             } else {
@@ -64,13 +66,15 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
               setStep2(true);
             }
           } catch (error) {
-            fireAlertAsync(
+            setStatus("error");
+            setError(error?.message);
+            /* fireAlertAsync(
               "Oops, an error ocurred",
               error?.message,
               "500px"
             ).then(() => {
               handleClose();
-            });
+            }); */
           }
         }
       }
