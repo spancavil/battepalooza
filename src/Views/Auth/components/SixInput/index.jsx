@@ -97,13 +97,14 @@ const SixInput = ({
                           key={input}
                           required
                           autoComplete={autoComplete}
-                          type={type}
                           id={`verification${input}`}
                           name={`verification${input}`}
                           style={{ width: width }}
                           onChange={handleNumber}
                           autoFocus={input === 1 ? true : false}
                           value = {inputValues[`verification${input}`]}
+                          // pattern="\d*"
+                          type="number"
                       />
                   );
               })}
