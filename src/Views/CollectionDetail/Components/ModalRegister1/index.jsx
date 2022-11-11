@@ -1,8 +1,7 @@
-import React from "react";
-import Modal from "../../../../Global-Components/Modal";
 import Input from "../../../../Global-Components/Input";
-import Button from "../../../../Global-Components/Button";
 import styles from "./styles.module.scss";
+import ModalV2 from "../../../../Global-Components/ModalV2";
+import ButtonRounded from "../../../../Global-Components/ButtonRounded";
 
 const ModalRegister1 = ({
   setmodalRegister1,
@@ -12,7 +11,7 @@ const ModalRegister1 = ({
 }) => {
   return (
     <div className={styles.parentContainerModal}>
-      <Modal
+      <ModalV2
         title="Register to Marketplace"
         handleClose={() => setmodalRegister1(false)}
       >
@@ -31,18 +30,20 @@ const ModalRegister1 = ({
           <p className={styles.fee}>Fee (5%)</p>
           <hr />
           <p className={styles.afterFee}>
-            {inputPrice > 0 ? (Number(inputPrice) - Number(inputPrice)*0.05) : 0} NCoin (Amount expected to receive)
+            {inputPrice > 0
+              ? Number(inputPrice) - Number(inputPrice) * 0.05
+              : 0}{" "}
+            NCoin (Amount expected to receive)
           </p>
         </div>
-        <div>
-          <Button
-            title="REGISTER"
-            width="176px"
-            onClick={Register}
-            modal={true}
-          />
-        </div>
-      </Modal>
+
+        <ButtonRounded
+          title="REGISTER"
+          width="176px"
+          onClick={Register}
+          modal={true}
+        />
+      </ModalV2>
     </div>
   );
 };
