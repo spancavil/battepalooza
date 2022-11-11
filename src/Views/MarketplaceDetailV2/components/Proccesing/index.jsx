@@ -105,7 +105,7 @@ const Proccesing = ({ nftBuy, handleClose, proccessingComplete }) => {
         clearInterval(forteStatusInterval);
         setTimeout(() => {
           proccessingComplete();
-        }, 2000);
+        }, 5000);
       }
     }
     //Interval clear at component will unmount

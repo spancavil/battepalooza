@@ -1,4 +1,4 @@
-import Button from "../../../../Global-Components/Button";
+import ButtonRounded from "../../../../Global-Components/ButtonRounded";
 import ModalV2 from "../../../../Global-Components/ModalV2";
 
 import styles from "./styles.module.scss";
@@ -11,8 +11,8 @@ const Complete = ({ title, goMarketPlace, goCollection }) => {
           You have successfully purchased {title}
         </h3>
         <div className={styles.buttonsContainer}>
-          <Button title="Collection" onClick={goCollection} modal={true} />
-          <Button title="Marketplace" onClick={goMarketPlace} modal={true} />
+          <ButtonRounded title="Collection" onClick={goCollection} />
+          <ButtonRounded title="Marketplace" onClick={goMarketPlace} />
         </div>
       </ModalV2>
     </div>
