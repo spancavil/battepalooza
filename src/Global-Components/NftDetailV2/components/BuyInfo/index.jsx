@@ -37,6 +37,9 @@ const BuyInfo = ({ chosenNft, handleAction }) => {
               <p>? NCoin</p>
             </div>
           </div>
+          <span style={{ textAlign: "right" }}>
+            You should pay 1NCoin for the gas fee only for your first purchase
+          </span>
           <ButtonRounded
             color={Object.keys(maintenance).length ? "disabled" : "yellow"}
             onClick={
