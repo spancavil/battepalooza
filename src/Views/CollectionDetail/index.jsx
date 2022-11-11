@@ -71,6 +71,8 @@ const CollectionDetail = () => {
     premiumStatic
   );
 
+  console.log({nftSelected})
+
   //Fire check maintenance
   useEffect(()=> {
     setCheckMaintenance(value => !value)
@@ -144,7 +146,7 @@ const CollectionDetail = () => {
     const unRegisterNft = async () => {
       try {
         //Necesitamos obtener el NFT del market porque de ahí sacamos el uniqueId de Forte
-        console.log(nftMarket);
+        console.log({nftMarket});
         const nftFromMarket = nftMarket.find(
           (nft) =>
             nft.itemName === nftSelected.itemName &&

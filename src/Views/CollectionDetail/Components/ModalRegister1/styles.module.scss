@@ -1,33 +1,18 @@
-@import "../../../../Styles/breakpoints.scss";
-@import "../../../../Styles/colors.scss";
-@import "../../../../Styles/fonts.scss";
-
-@media (max-width: $mobile - 1) {
-  .parentContainerModal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding-top: 80px;
-    z-index: 3;
-
-    .textDrop {
-      font-size: 14px;
-      color: white;
-      font-family: $font-nasalization;
-      padding: 0px 50px;
-      padding-top: 25px;
-      padding-bottom: 50px;
-      text-align: center;
-      font-weight: normal;
-    }
-  }
+.parentContainerModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding-top: 80px;
+  z-index: 3;
+  color: white;
+  font-family: "Rubik";
 
   .buttonsContainer {
     display: flex;
@@ -36,42 +21,31 @@
   }
 
   .modalContent {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0px 20px;
-    width: 100%;
 
     .subtitle {
       font-weight: normal;
-      font-size: 16px;
-      text-align: center;
-      margin-top: 20px;
-      padding: 0 5px;
-    }
-
-    .content {
-      font-weight: normal;
-      font-size: 16px;
+      font-size: 18px;
       text-align: left;
-      margin-top: 20px;
+      margin-top: 1rem;
     }
 
-    .inputContainer {
+    .inputContainerPrice {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
+      justify-content: left;
       align-items: center;
-      padding-top: 15px;
-      width: 100%;
 
       label {
-        font-size: 14px;
+        font-family: "Rubik";
+        font-size: 16px;
       }
 
       p {
         margin-top: 35px;
+        padding-left: 1rem;
         font-size: 14px;
-        padding: 0 10px;
       }
     }
 
@@ -84,7 +58,7 @@
 
     .ncoin {
       text-align: left;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: normal;
       margin-top: 3px;
     }
@@ -96,388 +70,11 @@
     .afterFee {
       font-size: 14px;
       font-weight: normal;
-      padding-bottom: 20px;
+      padding-bottom: 1rem;
     }
   }
-}
 
-@media (min-width: $mobile) and (max-width: $laptop - 1) {
-  .parentContainerModal {
-    position: fixed;
-    top: 0;
-    left: 0;
+  button {
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding-top: 80px;
-    z-index: 3;
-
-    .buttonsContainer {
-      display: flex;
-      gap: 20px;
-      overflow: visible;
-    }
-
-    .textDrop {
-      font-size: 14px;
-      color: white;
-      font-family: $font-nasalization;
-      padding: 0px 50px;
-      padding-top: 25px;
-      padding-bottom: 50px;
-      text-align: center;
-      font-weight: normal;
-    }
-
-    .modalContent {
-      display: flex;
-      flex-direction: column;
-      padding: 0px 20px;
-      width: 100%;
-
-      .subtitle {
-        font-weight: normal;
-        font-size: 16px;
-        text-align: center;
-        margin-top: 20px;
-        padding: 0 5px;
-      }
-
-      .content {
-        font-weight: normal;
-        font-size: 16px;
-        text-align: left;
-        margin-top: 20px;
-      }
-
-      .inputContainer {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding-top: 15px;
-        width: 100%;
-
-        label {
-          font-size: 14px;
-        }
-
-        p {
-          margin-top: 35px;
-          font-size: 14px;
-          padding: 0 10px;
-        }
-      }
-
-      .fee {
-        text-align: left;
-        font-size: 14px;
-        font-weight: normal;
-        margin-top: 10px;
-      }
-
-      .ncoin {
-        text-align: left;
-        font-size: 14px;
-        font-weight: normal;
-        margin-top: 3px;
-      }
-
-      hr {
-        margin: 20px 0px;
-      }
-
-      .afterFee {
-        font-size: 14px;
-        font-weight: normal;
-        padding-bottom: 20px;
-      }
-    }
-  }
-}
-
-@media (min-width: $laptop) and (max-width: $desktop - 1) {
-  .parentContainerModal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding-top: 80px;
-    z-index: 3;
-
-    .buttonsContainer {
-      display: flex;
-      gap: 20px;
-      overflow: visible;
-    }
-
-    .modalContent {
-      display: flex;
-      flex-direction: column;
-      padding: 0px 50px 0px 50px;
-
-      .subtitle {
-        font-weight: normal;
-        font-size: 18px;
-        text-align: left;
-        margin-top: 20px;
-      }
-
-      .content {
-        font-weight: normal;
-        font-size: 18px;
-        text-align: left;
-        margin-top: 20px;
-      }
-
-      .inputContainer {
-        display: flex;
-        align-items: center;
-        padding-top: 15px;
-
-        label {
-          font-size: 16px;
-        }
-
-        p {
-          margin-top: 35px;
-          padding-left: 10px;
-          font-size: 16px;
-        }
-      }
-
-      .fee {
-        text-align: left;
-        font-size: 16px;
-        font-weight: normal;
-        margin-top: 10px;
-      }
-
-      .ncoin {
-        text-align: left;
-        font-size: 16px;
-        font-weight: normal;
-        margin-top: 3px;
-      }
-
-      hr {
-        margin: 20px 0px;
-      }
-
-      .afterFee {
-        font-size: 16px;
-        font-weight: normal;
-        padding-bottom: 50px;
-      }
-    }
-
-    .textDrop {
-      font-size: 14px;
-      color: white;
-      font-family: $font-nasalization;
-      padding: 0px 130px;
-      padding-top: 25px;
-      padding-bottom: 50px;
-      text-align: center;
-      font-weight: normal;
-    }
-  }
-}
-
-@media (min-width: $desktop) and (max-width: $HD - 1) {
-  .parentContainerModal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding-top: 80px;
-    z-index: 3;
-
-    .buttonsContainer {
-      display: flex;
-      gap: 20px;
-      overflow: visible;
-    }
-
-    .modalContent {
-      display: flex;
-      flex-direction: column;
-      padding: 0px 50px 0px 50px;
-
-      .subtitle {
-        font-weight: normal;
-        font-size: 18px;
-        text-align: left;
-        margin-top: 20px;
-      }
-
-      .content {
-        font-weight: normal;
-        font-size: 18px;
-        text-align: left;
-        margin-top: 20px;
-      }
-
-      .inputContainerPrice {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-
-        label {
-          font-size: 16px;
-        }
-
-        p {
-          margin-top: 35px;
-          padding-left: 10px;
-          font-size: 16px;
-        }
-      }
-
-      .fee {
-        text-align: left;
-        font-size: 16px;
-        font-weight: normal;
-        margin-top: 10px;
-      }
-
-      .ncoin {
-        text-align: left;
-        font-size: 16px;
-        font-weight: normal;
-        margin-top: 3px;
-      }
-
-      hr {
-        margin: 20px 0px;
-      }
-
-      .afterFee {
-        font-size: 16px;
-        font-weight: normal;
-        padding-bottom: 50px;
-      }
-    }
-
-    .textDrop {
-      font-size: 14px;
-      color: white;
-      font-family: $font-nasalization;
-      padding: 0px 130px;
-      padding-top: 25px;
-      padding-bottom: 50px;
-      text-align: center;
-      font-weight: normal;
-    }
-  }
-}
-
-@media (min-width: $HD) {
-  .parentContainerModal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding-top: 80px;
-    z-index: 3;
-
-    .buttonsContainer {
-      display: flex;
-      gap: 20px;
-      overflow: visible;
-    }
-
-    .modalContent {
-      display: flex;
-      flex-direction: column;
-      padding: 0px 50px 0px 50px;
-
-      .subtitle {
-        font-weight: normal;
-        font-size: 18px;
-        text-align: left;
-        margin-top: 20px;
-      }
-
-      .content {
-        font-weight: normal;
-        font-size: 18px;
-        text-align: left;
-        margin-top: 20px;
-      }
-
-      .inputContainerPrice {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-
-        label {
-          font-size: 20px;
-        }
-
-        p {
-          margin-top: 35px;
-          padding-left: 10px;
-          font-size: 20px;
-        }
-      }
-
-      .fee {
-        text-align: left;
-        font-size: 16px;
-        font-weight: normal;
-        margin-top: 10px;
-      }
-
-      .ncoin {
-        text-align: left;
-        font-size: 16px;
-        font-weight: normal;
-        margin-top: 3px;
-      }
-
-      hr {
-        margin: 20px 0px;
-      }
-
-      .afterFee {
-        font-size: 16px;
-        font-weight: normal;
-        padding-bottom: 50px;
-      }
-    }
-
-    .textDrop {
-      font-size: 14px;
-      color: white;
-      font-family: $font-nasalization;
-      padding: 0px 130px;
-      padding-top: 25px;
-      padding-bottom: 50px;
-      text-align: center;
-      font-weight: normal;
-    }
   }
 }

@@ -1,101 +1,91 @@
-import React, { useEffect, useState, useContext } from 'react';
-import Modal from '../../../../Global-Components/Modal';
-import Button from '../../../../Global-Components/Button';
-import styles from './styles.module.scss';
-import marketService from '../../../../Services/market.service';
-import { useHistory } from 'react-router-dom';
-import { NftData } from '../../../../Context/NftProvider';
-import checkErrorMiddleware from '../../../../Utils/checkErrorMiddleware';
+import React, { useEffect, useState, useContext } from "react";
+import styles from "./styles.module.scss";
+import marketService from "../../../../Services/market.service";
+import { useHistory } from "react-router-dom";
+import { NftData } from "../../../../Context/NftProvider";
+import checkErrorMiddleware from "../../../../Utils/checkErrorMiddleware";
+import ModalV2 from "../../../../Global-Components/ModalV2";
+import ButtonRounded from "../../../../Global-Components/ButtonRounded";
+import ButtonAnimated from "../../../../Global-Components/ButtonAnimated";
 
-const ModalRegister2 = ({setmodalRegister2, handleMarket, forteTxText, bpToken, pid, setReloadDetail}) => {
-  
-  const [status, setStatus] = useState("")
-  const [transactionType, setTransactionType] = useState("")
+const ModalRegister2 = ({
+  setmodalRegister2,
+  handleMarket,
+  forteTxText,
+  bpToken,
+  pid,
+  setReloadDetail,
+}) => {
+  const [status, setStatus] = useState("");
+  const [transactionType, setTransactionType] = useState("");
   const history = useHistory();
-  const {setReloadCollection} = useContext(NftData);
-  
-  useEffect(()=> {
+  const { setReloadCollection } = useContext(NftData);
 
+  useEffect(() => {
     const getStatusForte = async () => {
-
       console.log(`Forteid: ${forteTxText}, Status: ${status}`);
 
       try {
         const response = await marketService.getTransactionStatus(
-          pid, 
+          pid,
           forteTxText,
-          bpToken,
-        ) 
+          bpToken
+        );
         const canContinue = checkErrorMiddleware(response, history);
         if (canContinue) {
-
-        //Response OK, no errors
+          //Response OK, no errors
           setStatus(response.status);
           setTransactionType(response.txType);
         }
-        
       } catch (error) {
-        setStatus("Oops, an error ocurred", error.message, '500px');
+        setStatus("Oops, an error ocurred", error.message, "500px");
       }
-    }
+    };
 
     //We call the status of the transaction in forte each 0.5 secs
     const forteStatusInterval = setInterval(getStatusForte, 500);
     if (status !== "pending" && status !== "") {
-      clearInterval(forteStatusInterval)
+      clearInterval(forteStatusInterval);
     }
     //Interval clear at component will unmount
-    return ()=> {
-      clearInterval(forteStatusInterval)
-    }
-
-  }, [forteTxText, status, bpToken, history, pid])
+    return () => {
+      clearInterval(forteStatusInterval);
+    };
+  }, [forteTxText, status, bpToken, history, pid]);
 
   const handleCloseModal = () => {
-    setReloadCollection(value => !value)
-    setReloadDetail(value => !value)
-    setmodalRegister2(false)
-  }
+    setReloadCollection((value) => !value);
+    setReloadDetail((value) => !value);
+    setmodalRegister2(false);
+  };
 
   return (
     <div className={styles.parentContainerModal}>
-    <Modal
-      title="Confirmation"
-      handleClose={() => setmodalRegister2(false)}
-    >
-    {status === "completed" ?
-    <>
-      <h3 className={styles.textDrop}>
-        {/* Imprimimos UNregistered si el código de transacción es el de borrar del market (cancelSelling) */}
-        The NFT has been {transactionType.includes("delete") && "un"}registered <br />
-        for sale in the Marketplace
-      </h3>
-      <div
-        style={{ paddingBottom: "25px" }}
-        className={styles.buttonsContainer}
+      <ModalV2
+        title="Confirmation"
+        handleClose={() => setmodalRegister2(false)}
       >
-        <Button
-          modal={true}
-          title="MARKETPLACE"
-          width="198px"
-          onClick={handleMarket}
-        />
-        <Button
-          modal={true}
-          title="CONFIRM"
-          width="198px"
-          onClick={() => handleCloseModal()}
-        />
-      </div>
-    </>
-    :
-    <h3 className={styles.textDrop}>
-        Status: <br />
-        {status}
-    </h3>
-    }
-    </Modal>
-  </div>
+        {status === "completed" ? (
+          <>
+            <h3 className={styles.textDrop}>
+              The NFT has been {transactionType.includes("delete") && "un"}
+              registered for sale in the Marketplace
+            </h3>
+            <div className={styles.buttonsContainer}>
+              <ButtonRounded title="MARKETPLACE" onClick={handleMarket} />
+              <ButtonRounded
+                title="CONFIRM"
+                onClick={() => handleCloseModal()}
+              />
+            </div>
+          </>
+        ) : (
+          <div className={styles.buttonAnimated}>
+            <ButtonAnimated content={status} />
+          </div>
+        )}
+      </ModalV2>
+    </div>
   );
 };
 
