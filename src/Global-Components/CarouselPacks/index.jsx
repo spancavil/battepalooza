@@ -83,23 +83,39 @@ const CarouselPacks = ({ nfts }) => {
 
     return (
         <>
-            <div className={!tablet ? (initialNft ? styles.carouselMoveInitial: lastNft ? styles.carouselMoveLast : styles.carouselContainer): styles.carouselContainer}>
+            <div className={
+                !tablet 
+                ? (initialNft ? styles.carouselMoveInitial: lastNft ? styles.carouselMoveLast : styles.carouselContainer)
+                : styles.carouselContainer}
+            >
                 <Carousel
                     swipeable={swipeable}
                     emulateTouch={true}
-                    width ={tablet ? '90vw' : hd ? '800' : 600}
+                    width ={
+                    // (initialNft || lastNft)
+                    // ? 
+                    // (tablet ? '90vw' : hd ? '800' : 400)
+                    // :
+                    (tablet ? '90vw' : hd ? '1200' : 900)
+                    }
                     dynamicHeight ={false}
                     showThumbs = {false}
                     showIndicators = {false}
                     centerMode = {true}
-                    centerSlidePercentage = {tablet ? 100 : 50}
+                    centerSlidePercentage = {tablet ? 100 
+                        // : (initialNft || lastNft)
+                        // ? 50
+                        : 33
+                    }
                     showStatus = {false}
-                    showArrows = {false}
-                    useKeyboardArrows={false}
+                    showArrows = {swipeable}
+                    useKeyboardArrows={true}
                     onChange={onChangeCarouselItem}
                     autoPlay={autoPlay}
                     interval = {0}
                     transitionTime={400}
+                    preventMovementUntilSwipeScrollTolerance={true}
+                    swipeScrollTolerance={5}
                     // renderArrowPrev={(onClick)=> (!ended || currentIndex === 0) ?
                     //     null
                     //     : 

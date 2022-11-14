@@ -18,10 +18,16 @@
 
 .carouselMoveInitial {
     @extend .carouselContainer;
-    transform: translate(150px, 0);
+    transform: translate(510px, 0);
+    width: calc(100% - 750px);
+    padding-left: 320px;
+    overflow: hidden;
 }
 
 .carouselMoveLast {
     @extend .carouselContainer;
-    transform: translate(-150px, 0);
+    width: calc(100% - 750px);
+    padding-right: 320px;
+    transform: translate(230px, 0);
+    overflow: hidden;
 }
