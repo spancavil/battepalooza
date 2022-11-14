@@ -58,7 +58,7 @@ const Checkout = ({
             <p>Fee</p>
             <div className={styles.ncoins}>
               <img src={NCoinIcon} alt="NCoin" />
-              <span>? NCoin</span>
+              <span>0 NCoin</span>
             </div>
           </div>
           <div className={styles.item}>
