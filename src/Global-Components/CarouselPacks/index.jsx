@@ -6,6 +6,7 @@ import styles from './styles.module.scss';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
+import Arrow from "./components/Arrow/Arrow";
 
 const CarouselPacks = ({ nfts }) => {
     const [revealAll, setRevealAll] = useState(false);
@@ -116,10 +117,25 @@ const CarouselPacks = ({ nfts }) => {
                     transitionTime={400}
                     preventMovementUntilSwipeScrollTolerance={true}
                     swipeScrollTolerance={5}
-                    // renderArrowPrev={(onClick)=> (!ended || currentIndex === 0) ?
-                    //     null
-                    //     : 
-                    //     <button onClick={onClick} className="control-arrow control-prev"></button>}
+                    renderArrowPrev={(onClick)=> (!swipeable || currentIndex === 0) ?
+                        null
+                        :
+                        <Arrow 
+                            onClick={onClick}
+                            previous = {true}
+                            initial = {initialNft}
+                            last = {lastNft}
+                        /> 
+                    }
+                    renderArrowNext={(onClick)=> (!swipeable || currentIndex === 0) ?
+                        null
+                        :
+                        <Arrow 
+                            onClick={onClick}
+                            previous = {true}
+                            initial = {initialNft}
+                        /> 
+                    }
                 >
                     {nfts.map((nft, index) => {
                         return (

@@ -1,0 +1,54 @@
+.arrowContainerLast {
+    position: fixed;
+    top: 50%;
+    left: -10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 3px;
+    height: 36px;
+    width: 38px;
+    .leftArrow {
+        transform: rotate(180deg);
+    }
+    transition: 0ms;
+}
+
+.arrowContainerInitial {
+    position: fixed;
+    top: 50%;
+    left: 0px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 3px;
+    height: 36px;
+    width: 38px;
+}
+
+.arrowContainer {
+    position: fixed;
+    top: 50%;
+    left: 12%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 3px;
+    height: 36px;
+    width: 38px;
+    .leftArrow {
+        transform: rotate(180deg);
+    }
+}
