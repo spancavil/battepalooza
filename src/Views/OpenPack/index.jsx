@@ -10,6 +10,7 @@ import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
 import nftService from "../../Services/nft.service";
 import { useHistory } from "react-router-dom";
 import CarouselPacks from "../../Global-Components/CarouselPacks";
+
 // import packHardcoded from "./packHardcoded.json";
 // import nftsHardcoded from "./nftsHardcoded.json";
 // import CardAnimation from "../CardAnimation";
@@ -33,9 +34,9 @@ const OpenPack = () => {
         if (!userData?.bpToken || !txResult) history.push("/");
     }, [history, txResult, userData]);
 
-    // const openLater = () => {
-    //   history.push ('/');
-    // };
+    useEffect(()=> {
+        setLoading(true)
+    }, [])
 
     const timerFlow = () => {
         setTimeout(() => {
@@ -47,25 +48,34 @@ const OpenPack = () => {
         nextFlow();
     };
 
+    //Si luego de 15 segundos no cambia de pantalla ponemos el último flow
+    useEffect(()=> {
+        setTimeout(()=>{
+            setFlow(3)
+        }, [15000])
+    }, [])
+
     useEffect(() => {
 
         const mapNfts = async () => {
             const uuids = Object.keys(txResult?.nftItems);
-            for (const uuid of uuids) {
-                try {
-                    const response = await nftService.getNftCollectionDetail(
-                        userData.bpToken,
-                        userData.pid,
-                        uuid
-                    );
-                    const canContinue = checkErrorMiddleware(response, history);
-                    if (canContinue) {
-                        setNftsOpenPack((value) => [...value, response.nft]);
+            const nfts = []
+            try {
+                for (const uuid of uuids) {
+                        const response = await nftService.getNftCollectionDetail(
+                            userData.bpToken,
+                            userData.pid,
+                            uuid
+                        );
+                        const canContinue = checkErrorMiddleware(response, history);
+                        if (canContinue) {
+                            nfts.push(response.nft);
+                        }
                     }
-                } catch (error) {
-                    alert(error.message);
-                }
+            } catch (error) {
+                alert(error.message);
             }
+            setNftsOpenPack(nfts);
         };
         if (Object.keys(txResult).length) mapNfts();
 
@@ -148,32 +158,32 @@ const OpenPack = () => {
             {flow === 2 && (
                 <div className={styles.container2}>
                     <div className={styles.videoContainer}>
-                        {packSelected.openMovieUrl ? (
+                        {packSelected?.openMovieUrl ? (
                             <>
-                                {loading ? (
+                                <video
+                                    onCanPlayThrough={() => {
+                                        setLoading(false);
+                                        timerFlow();
+                                    }}
+                                    className={styles.pinVideo}
+                                    src={packSelected?.openMovieUrl}
+                                    muted
+                                    autoPlay
+                                    alt = {'open-pack'}
+                                />
+                                {loading && (
                                     <div
                                         className={styles.loadMessageContainer}
                                     >
                                         <Loader />
                                     </div>
-                                ) : (
-                                    <video
-                                        onCanPlayThrough={() => {
-                                            setLoading(false);
-                                            timerFlow();
-                                        }}
-                                        className={styles.pinVideo}
-                                        src={packSelected.openMovieUrl}
-                                        muted
-                                        autoPlay
-                                    />
                                 )}
                             </>
                         ) : (
                             <h2>Video unavailable</h2>
                         )}
                         {canContinue && (
-                            <div style={{ zIndex: 2, overflow: "visible" }}>
+                            <div className={styles.canContinue}>
                                 <Button
                                     onClick={handleContinue}
                                     title={"Continue"}
@@ -184,7 +194,12 @@ const OpenPack = () => {
                 </div>
             )}
             {/* {flow === 3 && <CardAnimation nfts={nftsOpenPack} />} */}
-            {flow === 3 && <CarouselPacks nfts={nftsOpenPack} />}
+            {(flow === 3 && nftsOpenPack.length) 
+            ? <CarouselPacks nfts={nftsOpenPack} />
+            : <div className={styles.loadMessageContainer}>
+                    <Loader />
+            </div>
+        }
         </Background>
     );
 };

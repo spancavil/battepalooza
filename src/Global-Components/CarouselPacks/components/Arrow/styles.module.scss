@@ -1,0 +1,14 @@
+.arrowContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 3px;
+    height: 36px;
+    width: 38px;
+    z-index: 2;
+    .leftArrow {
+        transform: rotate(180deg);
+    }
+}
