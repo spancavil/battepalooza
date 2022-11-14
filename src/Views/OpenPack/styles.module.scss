@@ -122,6 +122,20 @@
       }
     }
   }
+  .loadMessageContainer {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loadMessage {
+      font-family: $font-nasalization;
+      color: white;
+    }
+  }
 }
 
 @media (min-width: $tablet) {
@@ -235,6 +249,21 @@
           }
         }
       }
+    }
+  }
+
+  .loadMessageContainer {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loadMessage {
+      font-family: $font-nasalization;
+      color: white;
     }
   }
 }

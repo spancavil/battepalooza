@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-// import { useContext, useEffect } from "react";
+import React, { useState } from "react";
+import { useContext, useEffect } from "react";
 import Background from "../../Global-Components/Background";
 import Button from "../../Global-Components/Button";
 import styles from "./styles.module.scss";
@@ -11,18 +11,18 @@ import nftService from "../../Services/nft.service";
 import { useHistory } from "react-router-dom";
 import CarouselPacks from "../../Global-Components/CarouselPacks";
 
-import packHardcoded from "./packHardcoded.json";
-import nftsHardcoded from "./nftsHardcoded.json";
+// import packHardcoded from "./packHardcoded.json";
+// import nftsHardcoded from "./nftsHardcoded.json";
 // import CardAnimation from "../CardAnimation";
 
 const OpenPack = () => {
-    const [flow, setFlow] = useState(3);
-    // const { packSelected, txResult } = useContext(PackData);
-    // const { userData } = useContext(UserData);
-    // const [nftsOpenPack, setNftsOpenPack] = useState([]);
+    const [flow, setFlow] = useState(2);
+    const { packSelected, txResult } = useContext(PackData);
+    const { userData } = useContext(UserData);
+    const [nftsOpenPack, setNftsOpenPack] = useState([]);
     const [loading, setLoading] = useState(false);
     const [canContinue, setCanContinue] = useState(false);
-    // const history = useHistory();
+    const history = useHistory();
 
     // console.log(txResult);
 
@@ -30,10 +30,10 @@ const OpenPack = () => {
         setFlow(flow + 1);
     };
 
-    /* useEffect(() => {
+    useEffect(() => {
         if (!userData?.bpToken || !txResult) history.push("/");
     }, [history, txResult, userData]);
- */
+
     useEffect(()=> {
         setLoading(true)
     }, [])
@@ -48,8 +48,6 @@ const OpenPack = () => {
         nextFlow();
     };
 
-    console.log(loading);
-
     //Si luego de 15 segundos no cambia de pantalla ponemos el último flow
     useEffect(()=> {
         setTimeout(()=>{
@@ -57,25 +55,27 @@ const OpenPack = () => {
         }, [15000])
     }, [])
 
-    /* useEffect(() => {
+    useEffect(() => {
 
         const mapNfts = async () => {
             const uuids = Object.keys(txResult?.nftItems);
-            for (const uuid of uuids) {
-                try {
-                    const response = await nftService.getNftCollectionDetail(
-                        userData.bpToken,
-                        userData.pid,
-                        uuid
-                    );
-                    const canContinue = checkErrorMiddleware(response, history);
-                    if (canContinue) {
-                        setNftsOpenPack((value) => [...value, response.nft]);
+            const nfts = []
+            try {
+                for (const uuid of uuids) {
+                        const response = await nftService.getNftCollectionDetail(
+                            userData.bpToken,
+                            userData.pid,
+                            uuid
+                        );
+                        const canContinue = checkErrorMiddleware(response, history);
+                        if (canContinue) {
+                            nfts.push(response.nft);
+                        }
                     }
-                } catch (error) {
-                    alert(error.message);
-                }
+            } catch (error) {
+                alert(error.message);
             }
+            setNftsOpenPack(nfts);
         };
         if (Object.keys(txResult).length) mapNfts();
 
@@ -138,7 +138,7 @@ const OpenPack = () => {
         //         acquired: 1661795591726,
         //     },
         // ]);
-    }, [txResult, history, userData]); */
+    }, [txResult, history, userData]);
 
     return (
         <Background>
@@ -158,7 +158,7 @@ const OpenPack = () => {
             {flow === 2 && (
                 <div className={styles.container2}>
                     <div className={styles.videoContainer}>
-                        {packHardcoded?.openMovieUrl ? (
+                        {packSelected?.openMovieUrl ? (
                             <>
                                 <video
                                     onCanPlayThrough={() => {
@@ -166,7 +166,7 @@ const OpenPack = () => {
                                         timerFlow();
                                     }}
                                     className={styles.pinVideo}
-                                    src={packHardcoded?.openMovieUrl}
+                                    src={packSelected?.openMovieUrl}
                                     muted
                                     autoPlay
                                     alt = {'open-pack'}
@@ -194,7 +194,12 @@ const OpenPack = () => {
                 </div>
             )}
             {/* {flow === 3 && <CardAnimation nfts={nftsOpenPack} />} */}
-            {flow === 3 && <CarouselPacks nfts={nftsHardcoded} />}
+            {(flow === 3 && nftsOpenPack.length) 
+            ? <CarouselPacks nfts={nftsOpenPack} />
+            : <div className={styles.loadMessageContainer}>
+                    <Loader />
+            </div>
+        }
         </Background>
     );
 };

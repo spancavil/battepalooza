@@ -20,8 +20,6 @@ const CarouselPacks = ({ nfts }) => {
     const [swipeable, setSwipeable] = useState(false);
     const [ended, setEnded] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [initialNft, setInitialNft] = useState(true);
-    const [lastNft, setLastNft] = useState(false);
     const [autoPlay, setAutoPlay] = useState(false);
 
     // const testArray = [1,2,3]
@@ -42,6 +40,7 @@ const CarouselPacks = ({ nfts }) => {
     };
     
     const onChangeCarouselItem = (currentIndex) => {
+        console.log(currentIndex);
         setAutoPlay(false)
         setCurrentIndex(currentIndex)
     }
@@ -54,19 +53,6 @@ const CarouselPacks = ({ nfts }) => {
             }, 1600)
         }
     }, [ended])
-    
-    //Set current index and initial and last nft
-    useEffect(()=> {
-        if (currentIndex === 0) setInitialNft(true)
-        else if (nfts?.length - 1 === currentIndex ) {
-            setLastNft(true)
-            setInitialNft(false)
-        }
-        else {
-            setInitialNft(false)
-            setLastNft(false)
-        }
-    }, [nfts, currentIndex])
     
     //Autoplay effect
     useEffect(()=> {
@@ -84,10 +70,7 @@ const CarouselPacks = ({ nfts }) => {
 
     return (
         <>
-            <div className={
-                !tablet 
-                ? (initialNft ? styles.carouselMoveInitial: lastNft ? styles.carouselMoveLast : styles.carouselContainer)
-                : styles.carouselContainer}
+            <div className={styles.carouselContainer}
             >
                 <Carousel
                     swipeable={swipeable}
@@ -103,37 +86,25 @@ const CarouselPacks = ({ nfts }) => {
                     showThumbs = {false}
                     showIndicators = {false}
                     centerMode = {true}
-                    centerSlidePercentage = {tablet ? 100 
-                        // : (initialNft || lastNft)
-                        // ? 50
-                        : 33
-                    }
+                    centerSlidePercentage = {tablet ? 100 : 33}
                     showStatus = {false}
                     showArrows = {swipeable}
                     useKeyboardArrows={true}
-                    onChange={onChangeCarouselItem}
+                    onChange={(currentIndex) => onChangeCarouselItem (currentIndex)}
                     autoPlay={autoPlay}
                     interval = {0}
                     transitionTime={400}
-                    preventMovementUntilSwipeScrollTolerance={true}
-                    swipeScrollTolerance={5}
-                    renderArrowPrev={(onClick)=> (!swipeable || currentIndex === 0) ?
-                        null
-                        :
-                        <Arrow 
-                            onClick={onClick}
+                    
+                    renderArrowPrev={(clickHandler, hasPrev) => 
+                        hasPrev && <Arrow 
+                            onClick={clickHandler}
                             previous = {true}
-                            initial = {initialNft}
-                            last = {lastNft}
-                        /> 
+                        />
                     }
-                    renderArrowNext={(onClick)=> (!swipeable || currentIndex === 0) ?
-                        null
-                        :
-                        <Arrow 
-                            onClick={onClick}
-                            previous = {true}
-                            initial = {initialNft}
+                    renderArrowNext={(clickHandler, hasNext) => 
+                        hasNext && <Arrow 
+                            onClick={clickHandler}
+                            previous = {false}
                         /> 
                     }
                 >
