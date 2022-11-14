@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 import { NftData } from "../../../../Context/NftProvider";
 import { useHistory } from "react-router-dom";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
-import Pagination from "../Pagination";
+import Pagination from "../../../../Global-Components/Pagination";
 import VanillaTilt from "vanilla-tilt";
 import useModifyList from "../../../../Hooks/useModifyList";
 import Loader from "../../../../Global-Components/Loader";
@@ -322,14 +322,12 @@ const CollectionNfts = ({
 
       {nftsFiltered.length > 0 && (
         <Pagination
-          xPage={nftPerPage}
-          setxPage={setNftPerPage}
-          input={input}
-          setInput={setInput}
-          page={page}
-          setPage={setPage}
-          max={max}
-        />
+        input={input}
+        setInput={setInput}
+        page={page}
+        setPage={setPage}
+        max={max}
+    />
       )}
     </div>
   );
