@@ -7,7 +7,7 @@ import SemiFrame from "./components/SemiFrame";
 import iconP2e from '../../Assets/img/Sprite_Icon_Premium_05.png';
 import ncoinIcon from '../../Assets/img/Sprite_Icon_Reward_35.png';
 
-const NftCard = ({ nft, tilt, onClick, withPrice, withChance, additionalStyles = null, clickOnBuff = () => {} }) => {
+const NftCard = ({ nft, tilt, onClick, withPrice, withChance, additionalStyles = null, hoverOnBuff = () => {} }) => {
   const {premiumStatic} = useContext(NftData)
   const [buffs, setBuffs] = useState([])
 
@@ -52,7 +52,9 @@ const NftCard = ({ nft, tilt, onClick, withPrice, withChance, additionalStyles =
                 src={nft.thumbnailUrl}
                 alt="nft-thumb"
             />
-            <div className={styles.buffs} onClick={() => {clickOnBuff(buffs)}}>
+            <div className={styles.buffs} 
+                onMouseEnter={() => {hoverOnBuff(buffs)}}
+            >
               {buffs.map((buff, idx) => {
                 return <img src={buff?.icon} alt="buff-icon" key={idx}/>
               })}

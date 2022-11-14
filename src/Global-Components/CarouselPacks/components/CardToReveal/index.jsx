@@ -25,8 +25,13 @@ const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex,
     }, [revealAll, rotate, isRevealed]);
 
     const handleBuffVisibility = (buffs) => {
-        setBuffs(buffs)
-        setTooltipVisibility (value => !value)
+        if (buffs) {
+            setBuffs(buffs)
+            setTooltipVisibility (true)
+        }
+        else {
+            setTooltipVisibility (false);
+        }
     }
 
     return (
@@ -48,12 +53,12 @@ const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex,
                     nft={nft} 
                     onClick={()=> {}}
                     additionalStyles = {{textAlign: 'left'}}
-                    clickOnBuff = {handleBuffVisibility}
+                    hoverOnBuff = {handleBuffVisibility}
                 />
                 {tooltTipVisibility ? 
                     <Tooltip
                         buffsInPack={buffs}
-                        handleBuffVisibility = {handleBuffVisibility}
+                        hoverOnBuff = {handleBuffVisibility}
                     />
                     : null
                 }

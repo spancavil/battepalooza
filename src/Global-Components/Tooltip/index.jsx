@@ -2,7 +2,7 @@ import React from "react";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 import styles from "./styles.module.scss";
 
-const Tooltip = ({ weaponOrCharacter = null, buffs = null, buffsInPack = null, additionalStyles = null, index = 0, handleBuffVisibility}) => {
+const Tooltip = ({ weaponOrCharacter = null, buffs = null, buffsInPack = null, additionalStyles = null, index = 0, hoverOnBuff = () => {} }) => {
 
     const tablet = useMediaQuery('(max-width: 768px)')
     const desktop = useMediaQuery ('(min-width: 1200px) and (max-width: 1899px)')
@@ -21,10 +21,6 @@ const Tooltip = ({ weaponOrCharacter = null, buffs = null, buffsInPack = null, a
 
     //Desktop - buff
     const isPosition3DesktopBuff = desktop && ((index + 1) % 3 === 0)
-
-    const handleBuffView = () => {
-        handleBuffVisibility()
-    }
 
     if (weaponOrCharacter) {
 
@@ -80,7 +76,8 @@ const Tooltip = ({ weaponOrCharacter = null, buffs = null, buffsInPack = null, a
         return (
             <div 
                 className={styles.tooltipContainerBuffPack}
-                onClick = {handleBuffView}
+                onMouseEnter = {() => hoverOnBuff (buffsInPack)}
+                onMouseLeave = {() => hoverOnBuff ()}
             >
                 {buffsInPack.map((buff) => (
                     <div style = {
