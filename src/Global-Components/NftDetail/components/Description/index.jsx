@@ -90,7 +90,7 @@ const Description = ({ chosenNft, register, unRegister, buyNft }) => {
             }}
           />
           <div className={styles.feeAndSeller}>
-            <span>Fee: ?</span>
+            <span>Fee: 0</span>
             <span>Seller: {chosenNft?.sellerName}</span>
           </div>
         </>

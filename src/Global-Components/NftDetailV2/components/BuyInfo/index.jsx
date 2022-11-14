@@ -34,7 +34,7 @@ const BuyInfo = ({ chosenNft, handleAction }) => {
             <span>Fee</span>
             <div className={styles.ncoins}>
               <img src={NCoinIcon} alt="NCoin" />
-              <p>? NCoin</p>
+              <p>0 NCoin</p>
             </div>
           </div>
           <span style={{ textAlign: "right" }}>
