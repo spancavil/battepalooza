@@ -6,8 +6,26 @@
   background: #00147F;
   border: 2px solid rgba(6, 7, 13, 1);
   overflow: visible;
+  position: relative;
   width: 242px; 
   // height: 378px;
+
+  .onSale {
+    position: absolute;
+    background-color: red;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    color: white;
+    font-family: 'Rubik';
+    padding: .2rem;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding-top: .4rem;
+    margin-top: -10px;
+    margin-left: -10px;
+    font-weight: bold;
+  }
 
   .characterFrame {
     display: flex;
@@ -85,7 +103,7 @@
         color: #ffffff;
       }
       .p2eIcon {
-        width: 16px;
+        width: 22px;
       }
     }
 
