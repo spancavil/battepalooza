@@ -1,0 +1,379 @@
+[
+    {
+        "uniqueId": "1304359036480960494073932329652183622267912114323",
+        "storyText": "A hunter summoned from a world of pixels. It seems to have been combined with \"chicken\" due to an error during summoning.",
+        "skill": {
+            "id": 30,
+            "name": "Astral Gear"
+        },
+        "ability": {
+            "text": "Players can become invisible for a period of time. While Invisible the player's speed increases.",
+            "features": [
+                "Invisibility",
+                "Acceleration"
+            ]
+        },
+        "stat": {
+            "maxHealth": 1900,
+            "energyRecovery": 20,
+            "moveSpeed": 11
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "2ea1aea2-0bc6-4d30-a739-16c63b19f62e",
+        "type": 1,
+        "itemId": 45,
+        "itemName": "Cartoon Crossie",
+        "repName": "Crossie",
+        "clan": 4,
+        "rarity": "COMMON",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 12,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/characters/CartoonChicken_Common.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/characters/Sprite_Shop_Character_06_Pre2.png",
+        "acquired": 1668545379149,
+        "buff": [
+            {
+                "id": 28,
+                "value": 7
+            }
+        ]
+    },
+    {
+        "uniqueId": "1239364510789489144458228575762979340642696212754",
+        "storyText": "A hammer made weightless with magical power. However, it will feel like a huge weight to the enemy being attacked.",
+        "skill": null,
+        "ability": {
+            "text": "Damage all targets within the attack range. There is a bonus damage and probability that it can causes stun if the second consecutive attack connects.",
+            "features": [
+                "Multiple Attack",
+                "Stun"
+            ]
+        },
+        "stat": {
+            "damage": 440,
+            "consumeEnergy": 50,
+            "maxEnergy": 150,
+            "coolTime": 1
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "473488b4-b447-47d1-ab93-9d43e1831bf8",
+        "type": 2,
+        "itemId": 1050,
+        "itemName": "Oceanic Smasher",
+        "repName": "Battle Hammer",
+        "clan": 11,
+        "rarity": "COMMON",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 4,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/items/OceanicSmasher_Common.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/items/Sprite_Shop_Equip_04_Pre4.png",
+        "acquired": 1668545379150,
+        "buff": [
+            {
+                "id": 17,
+                "value": 6
+            }
+        ]
+    },
+    {
+        "uniqueId": "1427565457572844996479038831443759273386495788709",
+        "storyText": "With a single shotgun, even the most terrifying malware can be cleansed.",
+        "skill": null,
+        "ability": {
+            "text": "Causes damage to all targets within the attack range. If the player controls the fire button mannually, the damage will be reduced but the range will be longer.",
+            "features": [
+                "Multiple Attack",
+                "Close Combat Power Increase",
+                "Range Increase"
+            ]
+        },
+        "stat": {
+            "damage": 220,
+            "consumeEnergy": 50,
+            "maxEnergy": 200,
+            "coolTime": 0.8
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "4cb9111e-205f-4521-8e71-c50d426000ef",
+        "type": 2,
+        "itemId": 1042,
+        "itemName": "Scarlet Ripple",
+        "repName": "Shotgun",
+        "clan": 7,
+        "rarity": "RARE",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 5,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/items/ScarletRipple_Rare.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/items/Sprite_Shop_Equip_02_Pre4.png",
+        "acquired": 1668545379149,
+        "buff": [
+            {
+                "id": 2,
+                "value": 3
+            },
+            {
+                "id": 15,
+                "value": 7
+            }
+        ]
+    },
+    {
+        "uniqueId": "475175110625965197162396530118512968904632910317",
+        "storyText": "Trinity Bow, which shoots energy arrows, can fire arrows indefinitely as long as it has enough energy.",
+        "skill": null,
+        "ability": {
+            "text": "Shoots one arrow per target and on each successful fourth attack it shoots two arrows at the same time.",
+            "features": [
+                "Single Attack",
+                "Triple Shot"
+            ]
+        },
+        "stat": {
+            "damage": 330,
+            "consumeEnergy": 50,
+            "maxEnergy": 200,
+            "coolTime": 0.7
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "743ed30e-8e62-40b9-81c5-90887856c88a",
+        "type": 2,
+        "itemId": 1046,
+        "itemName": "Evangelist",
+        "repName": "Trinity Bow",
+        "clan": 3,
+        "rarity": "COMMON",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 5,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/items/Evangelist_Common.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/items/Sprite_Shop_Equip_05_Pre4.png",
+        "acquired": 1668545379151,
+        "buff": [
+            {
+                "id": 25,
+                "value": 1
+            }
+        ]
+    },
+    {
+        "uniqueId": "1294721380546357038454269918338485296935528207116",
+        "storyText": "Engineer. If you give her enough time and money, she can build you anything.",
+        "skill": {
+            "id": 18,
+            "name": "TrapCannon"
+        },
+        "ability": {
+            "text": "It installs a Cannon Bot when used. When Enemies approach the trap it automatically responds and attacks the enemy.",
+            "features": [
+                "Single Attack",
+                "Automatic Tracking"
+            ]
+        },
+        "stat": {
+            "maxHealth": 2100,
+            "energyRecovery": 20,
+            "moveSpeed": 10
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "84bfe06b-02d4-4661-9a0f-a685722ebd6e",
+        "type": 1,
+        "itemId": 42,
+        "itemName": "Tron Rider",
+        "repName": "Leti",
+        "clan": 3,
+        "rarity": "RARE",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 9,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/characters/Tronrider_Rare.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/characters/Sprite_Shop_Character_10_Pre5.png",
+        "acquired": 1668545379151,
+        "buff": [
+            {
+                "id": 25,
+                "value": 1
+            },
+            {
+                "id": 3,
+                "value": 3
+            }
+        ]
+    },
+    {
+        "uniqueId": "787039466259899305943781969711094118145410421603",
+        "storyText": "It is an artificial intelligence infected with an unknown consciousness code roaming in the cyberspace.",
+        "skill": {
+            "id": 34,
+            "name": "Anti Hack"
+        },
+        "ability": {
+            "text": "It dispells debuffs such as bind, stun, hex and at the same time removes the buffs and enemies' summons for a period of time.",
+            "features": [
+                "Multiple Attack",
+                "Negative Effect Neutralization"
+            ]
+        },
+        "stat": {
+            "maxHealth": 2100,
+            "energyRecovery": 20,
+            "moveSpeed": 10
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "ad2b363b-4502-4060-baf2-14f3de3783d8",
+        "type": 1,
+        "itemId": 21,
+        "itemName": "Red Jacket",
+        "repName": "Marty",
+        "clan": 2,
+        "rarity": "COMMON",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 12,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/characters/RedJacket_Common.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/characters/Sprite_Shop_Character_01_Pre2.png",
+        "acquired": 1668545379150,
+        "buff": [
+            {
+                "id": 19,
+                "value": 5
+            }
+        ]
+    },
+    {
+        "uniqueId": "591019389111102371709462379665228299065697432987",
+        "storyText": "The power of the Slayer varies depending on the user. It is said that in the past wars, warriors called war ghosts used them.",
+        "skill": null,
+        "ability": {
+            "text": "Dashes during an attack dealing damage to all targets in its way. Consecutive attacks do more damage.",
+            "features": [
+                "Multiple Attack",
+                "Stack Charging Dash Attack",
+                "Stun"
+            ]
+        },
+        "stat": {
+            "damage": 440,
+            "consumeEnergy": 40,
+            "maxEnergy": 120,
+            "coolTime": 0.7
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "b0b50f41-dc76-4308-917e-aa2b99f2e326",
+        "type": 2,
+        "itemId": 1038,
+        "itemName": "Color of Insanity",
+        "repName": "Slayer",
+        "clan": 3,
+        "rarity": "EPIC",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 2,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/items/ColorofInsanity_Epic.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/items/Sprite_Shop_Equip_07_Pre4.png",
+        "acquired": 1668545379152,
+        "buff": [
+            {
+                "id": 3,
+                "value": 4
+            },
+            {
+                "id": 6,
+                "value": 4
+            },
+            {
+                "id": 27,
+                "value": 3
+            }
+        ]
+    },
+    {
+        "uniqueId": "1387924424482779118096575242780105096103323675076",
+        "storyText": "Although he has a tough and wild personality, he was given the wrong avatar and turned into a teddy bear.",
+        "skill": {
+            "id": 27,
+            "name": "Defense Up"
+        },
+        "ability": {
+            "text": "When the Defence Gear is activated, the Defence Gear will take damage instead of the player's HP.",
+            "features": [
+                "Energy Shield"
+            ]
+        },
+        "stat": {
+            "maxHealth": 2300,
+            "energyRecovery": 20,
+            "moveSpeed": 9
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "e31efce2-57a5-4248-9c2a-688ab64814c2",
+        "type": 1,
+        "itemId": 26,
+        "itemName": "Pinky",
+        "repName": "Agent Ted",
+        "clan": 4,
+        "rarity": "COMMON",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 16,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/characters/Pinky_Common.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/characters/Sprite_Shop_Character_03_Pre1.png",
+        "acquired": 1668545379152,
+        "buff": [
+            {
+                "id": 3,
+                "value": 2
+            }
+        ]
+    }
+]

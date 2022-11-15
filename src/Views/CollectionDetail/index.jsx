@@ -36,7 +36,6 @@ const CollectionDetail = () => {
     rarityStatic,
     repIdStatic,
     premiumStatic,
-    nftMarket,
     setReloadCollection,
   } = useContext(NftData);
   const { maintenance, setCheckMaintenance} = useContext(MaintenanceData)
@@ -70,8 +69,6 @@ const CollectionDetail = () => {
     repIdStatic,
     premiumStatic
   );
-
-  console.log({nftSelected})
 
   //Fire check maintenance
   useEffect(()=> {
@@ -146,22 +143,23 @@ const CollectionDetail = () => {
     const unRegisterNft = async () => {
       try {
         //Necesitamos obtener el NFT del market porque de ahí sacamos el uniqueId de Forte
-        console.log({nftMarket});
+        //Edit: ya no es necesario obtener esta info del marketplace
+        /* console.log({nftMarket});
         const nftFromMarket = nftMarket.find(
           (nft) =>
             nft.itemName === nftSelected.itemName &&
             nft.sellerPid === userData.pid &&
             nft.serial === nftSelected.serial
-        );
+        ); */
+
         const response = await marketService.cancelSellingMarketplace(
           userData.pid,
-          nftFromMarket.uniqueId,
+          nftSelected.uniqueId,
           userData.bpToken
         );
 
         const canContinue = checkErrorMiddleware(response, history);
         if (canContinue) {
-          console.log(response);
           setForteTxText(response.forteTxId);
           setmodalUnregister(false);
           setmodalRegister2(true);

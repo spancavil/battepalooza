@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 import CarouselPacks from "../../Global-Components/CarouselPacks";
 
 // import packHardcoded from "./packHardcoded.json";
-// import nftsHardcoded from "./nftsHardcoded.json";
+// import nftsHardcoded from './nftsHardcoded2.json';
 // import CardAnimation from "../CardAnimation";
 
 const OpenPack = () => {
@@ -194,12 +194,13 @@ const OpenPack = () => {
                 </div>
             )}
             {/* {flow === 3 && <CardAnimation nfts={nftsOpenPack} />} */}
-            {(flow === 3 && nftsOpenPack.length) 
-            ? <CarouselPacks nfts={nftsOpenPack} />
-            : <div className={styles.loadMessageContainer}>
-                    <Loader />
-            </div>
-        }
+            {flow === 3 && (
+                nftsOpenPack.length
+                ?   <CarouselPacks nfts={nftsOpenPack} />
+                :   <div className={styles.loadMessageContainerNfts}>
+                        <Loader />
+                    </div>)
+            }
         </Background>
     );
 };

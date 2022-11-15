@@ -44,9 +44,9 @@ const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex,
             >
                 <img src={dorso} alt="cara"></img>
             </div>
-            {/* <div className={ rotate ? styles.div2Rotate : styles.div2 } onClick = {handleRotate}>
+            <div className={ rotate ? styles.div2Rotate : styles.div2 } onClick = {handleRotate}>
                 <img src={nft.thumbnailUrl} alt="cruz"></img>
-            </div> */}
+            </div>
 
             <div className = {rotate ? styles.div2Rotate : styles.div2}>
                 <NftCard 
@@ -62,39 +62,6 @@ const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex,
                     />
                     : null
                 }
-                {/* <div
-                    key={nft.uuid}
-                    className={
-                        nft.rarity === "COMMON"
-                            ? styles.borderCommon
-                            : nft.rarity === "RARE"
-                            ? styles.borderRare
-                            : nft.rarity === "EPIC"
-                            ? styles.borderEpic
-                            : styles.borderLegendary
-                    }
-                >
-                    <div className={styles.cardNft}>
-                        El source luego cambiara en base al asset
-                        <img
-                            className={styles.imgNft}
-                            src={nft.thumbnailUrl}
-                            alt="nft-thumb"
-                        />
-                        <div className={styles.texts}>
-                            <p className={styles.itemName}>{nft.itemName}</p>
-                            <p>{nft.repName}</p>
-                            <p className={styles.text2}>{nft.rarity}</p>
-                            <p>#{nft.itemId}</p>
-                             <p>
-                        gNCoin Battle Count: {nft.playCount}/{nft.maxPlayCount}
-                    </p> 
-                            {/* {nft.salesState === 1 && (
-                        <p className={styles.price}>{nft.price} NCoin</p>
-                    )}
-                        </div>
-                    </div>
-                </div> */}
             </div>
         </div>
     );
