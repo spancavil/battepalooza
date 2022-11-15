@@ -40,7 +40,6 @@ const CarouselPacks = ({ nfts }) => {
     };
     
     const onChangeCarouselItem = (currentIndex) => {
-        console.log(currentIndex);
         setAutoPlay(false)
         setCurrentIndex(currentIndex)
     }
@@ -75,13 +74,7 @@ const CarouselPacks = ({ nfts }) => {
                 <Carousel
                     swipeable={swipeable}
                     emulateTouch={true}
-                    width ={
-                    // (initialNft || lastNft)
-                    // ? 
-                    // (tablet ? '90vw' : hd ? '800' : 400)
-                    // :
-                    (tablet ? '90vw' : hd ? '1200' : 900)
-                    }
+                    width ={tablet ? '90vw' : hd ? '1200' : 900}
                     dynamicHeight ={false}
                     showThumbs = {false}
                     showIndicators = {false}

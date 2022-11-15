@@ -1,6 +1,6 @@
 @import "../../Styles/breakpoints.scss";
 
-@media (max-width: $tablet - 1) {
+@media (max-width: $desktop - 1) {
   .effect {
     height: 250px;
     background-image: url("../../Assets/img/effectFooter.png");
