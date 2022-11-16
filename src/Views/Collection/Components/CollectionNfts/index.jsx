@@ -284,10 +284,15 @@ const CollectionNfts = ({
 
   console.log(nftCollectionModified);
 
+  console.log(nftsFiltered.length);
+
   return (
     <div className={styles.container}>
       <div className={styles.cardsContainer}>
-        <h3 className={styles.title}>{nftsFiltered?.length} NFTs</h3>
+        {nftsFiltered?.length 
+          ? <h3 className={styles.title}>{nftsFiltered?.length} NFTs</h3>
+          : null
+        }
         {nftsFiltered.length > 0 && loadingUserCollection === false && (
           <div className={styles.cards}>
             {(nftsFiltered2 || nftsFiltered)

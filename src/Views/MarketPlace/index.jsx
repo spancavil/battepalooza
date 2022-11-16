@@ -43,6 +43,8 @@ const MarketPlace = () => {
   );
   if (error) fireAlert("Oops, an error ocurred", error.message, "500px");
 
+  console.log(nfts, loading, error);
+
   //Set filters
   useEffect(() => {
     if (rarityStatic.length && repIdStatic.length && premiumStatic.length) {

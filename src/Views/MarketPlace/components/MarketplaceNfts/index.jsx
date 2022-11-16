@@ -99,22 +99,22 @@ const MarketplaceNfts = ({
 
     return (
         <div className={styles.cardsContainer}>
-            {nftMarketModified.length > 0 && loading === false && (
+            {nftMarketModified?.length > 0 ? (
                 <>
-                    <h3 className={styles.title}>
+                    <span className={styles.title}>
                         {nftMarketModified?.length} NFTs
-                    </h3>
+                    </span>
                     <div className={styles.cards}>
                         {nftsFiltered
                             .slice(
                                 (page - 1) * nftPerPage,
                                 (page - 1) * nftPerPage + nftPerPage
                             )
-                            .map((nft) => {
+                            .map((nft, index) => {
                                 const indice = nftMarketModified?.indexOf(nft);
                                 return (
                                     <NftCard
-                                        key={nft.uniqueId}
+                                        key={index}
                                         nft={nft}
                                         tilt={tilts[indice]}
                                         onClick={() =>
@@ -129,25 +129,34 @@ const MarketplaceNfts = ({
                             })}
                     </div>
                 </>
-            )}
+            )
+            : null}
 
-            {loading === true && (
+            {loading === true ? 
                 <div className={styles.loadingContainer}>
                     <Loader />
                 </div>
-            )}
+                : null
+            }
 
-            {!activeFilters && nftMarketModified.length === 0 && loading === false && (
+            {(!activeFilters && nftMarketModified.length === 0 && !loading)?
                 <div className={styles.notNft}>
-                    There are no NFTs in marketplace
+                    <span>
+                        There are no NFTs in marketplace
+                    </span>
                 </div>
-            )}
+                : null
+            }
 
-            {activeFilters && nftsFiltered.length === 0 && loading === false && (
+            {activeFilters && nftsFiltered.length === 0 && loading === false 
+            ? (
                 <div className={styles.notNft}>
-                    No NFT matches the search criteria
+                    <span>
+                        No NFT matches the search criteria
+                    </span>
                 </div>
-            )}
+            )
+            : null}
 
             {nftsFiltered.length > 0 && (
                 <Pagination
