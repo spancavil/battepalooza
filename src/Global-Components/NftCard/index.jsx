@@ -4,15 +4,14 @@ import { separator } from "../../Utils/separator";
 import styles from "./styles.module.scss";
 import { NftData } from "../../Context/NftProvider";
 import SemiFrame from "./components/SemiFrame";
-import iconP2e from "../../Assets/img/Sprite_Icon_Gamemode_04.png";
+import iconP2e from "../../Assets/img/Sprite_Icon_Premium_05.png";
 import ncoinIcon from "../../Assets/img/Sprite_Icon_Reward_35.png";
+import { capitalizeFirstLetter } from "../../Utils/words";
 
 const NftCard = ({
   nft,
   tilt,
   onClick,
-  withPrice,
-  withChance,
   additionalStyles = null,
   hoverOnBuff = () => {},
 }) => {
@@ -34,7 +33,8 @@ const NftCard = ({
     }
   }, [nft, premiumStatic]);
 
-  const setRarityCard = (rarity) => {
+  const setRarityCard = (rarityRaw) => {
+    const rarity = capitalizeFirstLetter(rarityRaw);
     return rarity === "Common"
       ? styles.CommonCard
       : rarity === "Rare"
@@ -55,9 +55,9 @@ const NftCard = ({
         <p className={styles.onSale}>ON SALE</p>
       )}
       <div className={styles.characterFrame}>
-        <SemiFrame rarity={nft?.rarity} />
+        <SemiFrame rarity={capitalizeFirstLetter(nft?.rarity)} />
         <div className={styles.rarityIcon}>
-          <LogoRarity rarity={nft?.rarity} />
+          <LogoRarity rarity={capitalizeFirstLetter(nft?.rarity)} />
         </div>
         <img className={styles.imgNft} src={nft.thumbnailUrl} alt="nft-thumb" />
         <div
@@ -90,12 +90,6 @@ const NftCard = ({
             <img src={ncoinIcon} className={styles.p2eIcon} alt="p2E-icon" />
             <p className={styles.title}>{separator(nft.price)} NCoin</p>
           </div>
-        )}
-        {/* {withPrice && <span>{separator(nft?.price)} nCoin</span>} */}
-        {withChance && (
-          <p className={styles.chance}>
-            Chance <b>50%</b>
-          </p>
         )}
       </div>
     </div>

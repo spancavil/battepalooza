@@ -122,19 +122,15 @@
       }
     }
   }
-  .loadMessageContainer {
-    height: 100%;
+
+  .loadMessageContainerNfts {
+    height: calc(100vh - 80px);
     width: 100%;
-    background-color: black;
+    background-color: transparent;
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    .loadMessage {
-      font-family: $font-nasalization;
-      color: white;
-    }
   }
 }
 
@@ -252,18 +248,13 @@
     }
   }
 
-  .loadMessageContainer {
-    height: 100%;
+  .loadMessageContainerNfts {
+    height: calc(100vh - 80px);
     width: 100%;
-    background-color: black;
+    background-color: transparent;
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    .loadMessage {
-      font-family: $font-nasalization;
-      color: white;
-    }
   }
 }
