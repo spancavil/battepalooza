@@ -82,6 +82,7 @@ const Auth = () => {
                         "500px"
                     );
                     setLoading(false);
+                    setFormSend(false);
                 } else {
                     history.push("/auth/verification");
                     setLoading(false);
