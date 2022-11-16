@@ -19,8 +19,8 @@ const CarouselPacks = ({ nfts }) => {
     //Carousel states
     const [swipeable, setSwipeable] = useState(false);
     const [ended, setEnded] = useState(false);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [autoPlay, setAutoPlay] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0); //The active index of the carousel
+    const [selectedItem, setSelectedItem] = useState(0); //The index of the selected item (will move to this index)
 
     // const testArray = [1,2,3]
 
@@ -32,15 +32,16 @@ const CarouselPacks = ({ nfts }) => {
 
     const childReveal = () => {
         setCountReveal(countReveal + 1);
+        setTimeout(()=> {
+            setSelectedItem(currentIndex + 1);
+        }, 1800)
     };
-    
     
     const goCollection = () => {
         history.push("/collection");
     };
     
     const onChangeCarouselItem = (currentIndex) => {
-        setAutoPlay(false)
         setCurrentIndex(currentIndex)
     }
     
@@ -52,14 +53,20 @@ const CarouselPacks = ({ nfts }) => {
             }, 1600)
         }
     }, [ended])
+
+    const handleClickItem = (index, item) => {
+        if (ended) {
+            setSelectedItem(index)
+        }
+    }
     
     //Autoplay effect
-    useEffect(()=> {
+/*     useEffect(()=> {
         if (countReveal !== 0 && countReveal !== nfts.length && !swipeable) {
             setTimeout(() => setAutoPlay(true), 1800)
         }
         // else setAutoPlay(false)
-    }, [countReveal, nfts, swipeable])
+    }, [countReveal, nfts, swipeable]) */
     
     /* console.log(`Current index: ${currentIndex}`);
     console.log(`Count reveal: ${countReveal}`);
@@ -72,19 +79,21 @@ const CarouselPacks = ({ nfts }) => {
             <div className={styles.carouselContainer}
             >
                 <Carousel
-                    swipeable={swipeable}
+                    swipeable={nfts.length < 4 ? (tablet ? swipeable : false) : swipeable}
                     emulateTouch={true}
                     width ={tablet ? '90vw' : hd ? '1200' : 900}
                     dynamicHeight ={false}
                     showThumbs = {false}
                     showIndicators = {false}
                     centerMode = {true}
-                    centerSlidePercentage = {tablet ? 100 : 33}
+                    centerSlidePercentage = {tablet ? 100 : nfts.length === 2 ? 50 : 33}
                     showStatus = {false}
-                    showArrows = {swipeable}
+                    showArrows = {nfts.length < 4 ? (tablet ? swipeable : false) : swipeable}
                     useKeyboardArrows={true}
                     onChange={(currentIndex) => onChangeCarouselItem (currentIndex)}
-                    autoPlay={autoPlay}
+                    autoPlay={false}
+                    selectedItem = {selectedItem}
+                    onClickItem = {(index, item) => handleClickItem(index, item)}
                     interval = {0}
                     transitionTime={400}
                     

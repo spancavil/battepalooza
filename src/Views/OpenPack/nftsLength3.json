@@ -1,0 +1,142 @@
+[
+    {
+        "uniqueId": "475175110625965197162396530118512968904632910317",
+        "storyText": "Trinity Bow, which shoots energy arrows, can fire arrows indefinitely as long as it has enough energy.",
+        "skill": null,
+        "ability": {
+            "text": "Shoots one arrow per target and on each successful fourth attack it shoots two arrows at the same time.",
+            "features": [
+                "Single Attack",
+                "Triple Shot"
+            ]
+        },
+        "stat": {
+            "damage": 330,
+            "consumeEnergy": 50,
+            "maxEnergy": 200,
+            "coolTime": 0.7
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "743ed30e-8e62-40b9-81c5-90887856c88a",
+        "type": 2,
+        "itemId": 1046,
+        "itemName": "Evangelist",
+        "repName": "Trinity Bow",
+        "clan": 3,
+        "rarity": "COMMON",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 5,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/items/Evangelist_Common.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/items/Sprite_Shop_Equip_05_Pre4.png",
+        "acquired": 1668545379151,
+        "buff": [
+            {
+                "id": 25,
+                "value": 1
+            }
+        ]
+    },
+    {
+        "uniqueId": "1294721380546357038454269918338485296935528207116",
+        "storyText": "Engineer. If you give her enough time and money, she can build you anything.",
+        "skill": {
+            "id": 18,
+            "name": "TrapCannon"
+        },
+        "ability": {
+            "text": "It installs a Cannon Bot when used. When Enemies approach the trap it automatically responds and attacks the enemy.",
+            "features": [
+                "Single Attack",
+                "Automatic Tracking"
+            ]
+        },
+        "stat": {
+            "maxHealth": 2100,
+            "energyRecovery": 20,
+            "moveSpeed": 10
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "84bfe06b-02d4-4661-9a0f-a685722ebd6e",
+        "type": 1,
+        "itemId": 42,
+        "itemName": "Tron Rider",
+        "repName": "Leti",
+        "clan": 3,
+        "rarity": "RARE",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 9,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/characters/Tronrider_Rare.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/characters/Sprite_Shop_Character_10_Pre5.png",
+        "acquired": 1668545379151,
+        "buff": [
+            {
+                "id": 25,
+                "value": 1
+            },
+            {
+                "id": 3,
+                "value": 3
+            }
+        ]
+    },
+    {
+        "uniqueId": "787039466259899305943781969711094118145410421603",
+        "storyText": "It is an artificial intelligence infected with an unknown consciousness code roaming in the cyberspace.",
+        "skill": {
+            "id": 34,
+            "name": "Anti Hack"
+        },
+        "ability": {
+            "text": "It dispells debuffs such as bind, stun, hex and at the same time removes the buffs and enemies' summons for a period of time.",
+            "features": [
+                "Multiple Attack",
+                "Negative Effect Neutralization"
+            ]
+        },
+        "stat": {
+            "maxHealth": 2100,
+            "energyRecovery": 20,
+            "moveSpeed": 10
+        },
+        "nftRelated": {
+            "parent": null,
+            "child": null
+        },
+        "uuid": "ad2b363b-4502-4060-baf2-14f3de3783d8",
+        "type": 1,
+        "itemId": 21,
+        "itemName": "Red Jacket",
+        "repName": "Marty",
+        "clan": 2,
+        "rarity": "COMMON",
+        "sealed": true,
+        "salesState": 0,
+        "serial": 12,
+        "playCount": 0,
+        "maxPlayCount": 30,
+        "cloneCount": 0,
+        "movieUrl": "https://assets.bp.nwaygames.com/movieClips/characters/RedJacket_Common.mp4",
+        "thumbnailUrl": "https://assets.bp.nwaygames.com/thumbnails/characters/Sprite_Shop_Character_01_Pre2.png",
+        "acquired": 1668545379150,
+        "buff": [
+            {
+                "id": 19,
+                "value": 5
+            }
+        ]
+    }
+]

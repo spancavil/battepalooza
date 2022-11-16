@@ -111,7 +111,7 @@ const MarketplaceNfts = ({
                                 (page - 1) * nftPerPage + nftPerPage
                             )
                             .map((nft, index) => {
-                                const indice = nftMarketModified?.indexOf(nft);
+                                const indice = nftsFiltered?.indexOf(nft);
                                 return (
                                     <NftCard
                                         key={index}

@@ -70,8 +70,8 @@ const CollectionNfts = ({
   //Una vez que se cargan, se vuelve a mappear y se crean distintas referencias (que son asociadas a los divs contenedores) por cada uno de los items.
   //Recordemos que las "ref" se utilizan para referenciar objetos del DOM, pudiéndose cambiar sus valores internos sin re-render.
   const tilts = useMemo(
-    () => nftsFiltered.map(() => createRef()),
-    [nftsFiltered]
+    () => (nftsFiltered2 || nftsFiltered).map(() => createRef()),
+    [nftsFiltered, nftsFiltered2]
   );
 
   const onClick = (uuid) => {
