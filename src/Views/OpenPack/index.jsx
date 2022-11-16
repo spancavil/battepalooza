@@ -52,7 +52,7 @@ const OpenPack = () => {
     useEffect(()=> {
         setTimeout(()=>{
             setFlow(3)
-        }, [15000])
+        }, [18000])
     }, [])
 
     useEffect(() => {

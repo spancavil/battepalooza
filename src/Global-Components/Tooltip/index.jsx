@@ -49,7 +49,7 @@ const Tooltip = ({
           </p>
         </div>
         <p className={styles.tipText}>{weaponOrCharacter?.rarity}</p>
-        <p className={styles.tipText}>{weaponOrCharacter?.engStory}</p>
+        <p className={styles.tipText}>{weaponOrCharacter?.engStory.replace('\\n', '')}</p>
       </div>
     );
   } else if (buffs) {

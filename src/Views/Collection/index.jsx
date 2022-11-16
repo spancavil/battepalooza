@@ -19,15 +19,15 @@ import { FiltersMobile } from "../../Global-Components/FiltersMobile";
 import Footer from "../../Global-Components/Footer";
 
 const Collection = () => {
-  const [filters, setFilters] = useState(() => {
-    try {
+  const [filters, setFilters] = useState(
+    /* try {
       return localStorage.getItem("collectionFilters")
         ? JSON.parse(localStorage.getItem("collectionFilters"))
         : {};
     } catch (error) {
       return {};
-    }
-  });
+    } */
+    {});
   const [page, setPage] = useState(1);
   const [nftPerPage, setNftPerPage] = useState(25);
   const [input, setInput] = useState(1);
@@ -81,7 +81,7 @@ const Collection = () => {
         ...premiumItem,
       });
 
-      if (Object.keys(filters).length === 0) {
+      /* if (Object.keys(filters).length === 0) {
         setFilters({
           ...rarityItem,
           ...TYPE_NFT,
@@ -92,9 +92,9 @@ const Collection = () => {
           ...characterItem,
           ...premiumItem,
         });
-      }
+      } */
     }
-  }, [setFilters, history, rarityStatic, repIdStatic, premiumStatic, filters]);
+  }, [setFilters, history, rarityStatic, repIdStatic, premiumStatic]);
 
   //Effect for count active filters
   useEffect(() => {
@@ -132,9 +132,9 @@ const Collection = () => {
     setFilters({ ...filters, ...newOrder });
   };
 
-  useEffect(() => {
+/*   useEffect(() => {
     localStorage.setItem("collectionFilters", JSON.stringify(filters));
-  }, [filters]);
+  }, [filters]); */
 
   return (
     <Background>
