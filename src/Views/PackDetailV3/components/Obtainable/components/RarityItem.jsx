@@ -3,39 +3,33 @@ import LogoRarity from "../../../../../Global-Components/NftCard/components/Logo
 import styles from "./styles.module.scss";
 
 export const RarityItem = ({ rarity, percentage }) => {
-  let color = null;
-  let name = null;
-
-  switch (rarity) {
-    case 1:
-      color = "#D9D9D9";
-      name = "Common";
-      break;
-
-    case 2:
-      color = "#F9EFB7";
-      name = "Rare";
-      break;
-
-    case 3:
-      color = "#2959F7";
-      name = "Epic";
-      break;
-
-    case 4:
-      color = "#C729F7";
-      name = "Legendary";
-      break;
-
-    default:
-      break;
-  }
+  const rarities = {
+    1: {
+      color: "#EBEBEB",
+      name: "Common",
+    },
+    2: {
+      color: "#54F952",
+      name: "Rare",
+    },
+    3: {
+      color: "#3C92E7",
+      name: "Epic",
+    },
+    4: {
+      color: "#B922E3",
+      name: "Legendary",
+    },
+  };
 
   return (
-    <div style={{ borderColor: color }} className={styles.rarityItem}>
-      <LogoRarity rarity={rarity} />
-      <p>{name}</p>
-      <span style={{ color }}>{percentage}%</span>
+    <div
+      style={{ borderColor: rarities[rarity]?.color }}
+      className={styles.rarityItem}
+    >
+      <LogoRarity rarity={rarities[rarity]?.name} />
+      <p>{rarities[rarity]?.name}</p>
+      <span style={{ color: rarities[rarity]?.color }}>{percentage}%</span>
     </div>
   );
 };

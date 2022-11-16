@@ -1,19 +1,18 @@
-import React from "react";
 import styles from "./styles.module.scss";
 
 const SemiFrame = ({ rarity, size = "236px" }) => {
   const frameColorsVertical = {
-    common: `${size} solid rgba(217, 217, 217, 1)`,
-    rare: `${size} solid rgba(249, 239, 183, 1)`,
-    epic: `${size} solid rgba(41, 89, 247, 1)`,
-    legendary: `${size} solid rgba(199, 41, 247, 1)`,
+    common: `${size} solid #EBEBEB`,
+    rare: `${size} solid #33F754`,
+    epic: `${size} solid #65C1FC`,
+    legendary: `${size} solid #E379FB`,
   };
 
   const frameColorsHorizontal = {
-    common: `${size} solid rgba(217, 217, 217, 1)`,
-    rare: `${size} solid rgba(249, 239, 183, 1)`,
-    epic: `${size} solid rgba(41, 89, 247, 1)`,
-    legendary: `${size} solid rgba(199, 41, 247, 1)`,
+    common: `${size} solid #EBEBEB`,
+    rare: `${size} solid #33F754`,
+    epic: `${size} solid #65C1FC`,
+    legendary: `${size} solid #E379FB`,
   };
 
   return (
@@ -21,27 +20,13 @@ const SemiFrame = ({ rarity, size = "236px" }) => {
       <div
         className={styles.verticalTriangle}
         style={{
-          borderTop:
-            rarity === "Common"
-              ? frameColorsVertical.common
-              : rarity === "Rare"
-              ? frameColorsVertical.rare
-              : rarity === "Epic"
-              ? frameColorsVertical.epic
-              : frameColorsVertical.legendary,
+          borderTop: frameColorsVertical[rarity.toLowerCase()],
         }}
       />
       <div
         className={styles.horizontalTriangle}
         style={{
-          borderLeft:
-            rarity === "Common"
-              ? frameColorsHorizontal.common
-              : rarity === "Rare"
-              ? frameColorsHorizontal.rare
-              : rarity === "Epic"
-              ? frameColorsHorizontal.epic
-              : frameColorsHorizontal.legendary,
+          borderLeft: frameColorsHorizontal[rarity.toLowerCase()],
         }}
       />
     </div>
