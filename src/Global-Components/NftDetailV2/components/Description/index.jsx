@@ -12,14 +12,6 @@ const Description = ({ chosenNft }) => {
         Sold by <b>{chosenNft?.sellerName}</b>
       </span>
       <p className={styles.serial}>Serial: {chosenNft?.serial}</p>
-      <div>
-        {chosenNft?.ability?.text &&
-          chosenNft?.ability?.text.split("\\n").map((texto, i) => (
-            <span key={i} className={styles.descriptionText}>
-              {texto}
-            </span>
-          ))}
-      </div>
       <h4>P2E Info</h4>
       <h5>Left times to P2E</h5>
       <div className={styles.p2eLeft}>

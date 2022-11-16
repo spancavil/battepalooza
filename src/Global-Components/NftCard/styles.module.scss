@@ -6,8 +6,26 @@
   background: #00147F;
   border: 2px solid rgba(6, 7, 13, 1);
   overflow: visible;
+  position: relative;
   width: 242px; 
   // height: 378px;
+
+  .onSale {
+    position: absolute;
+    background-color: red;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    color: white;
+    font-family: 'Rubik';
+    padding: .2rem;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding-top: .4rem;
+    margin-top: -10px;
+    margin-left: -10px;
+    font-weight: bold;
+  }
 
   .characterFrame {
     display: flex;
@@ -85,7 +103,7 @@
         color: #ffffff;
       }
       .p2eIcon {
-        width: 16px;
+        width: 22px;
       }
     }
 
@@ -120,20 +138,20 @@
 .RareCard {
   @extend .card;
   .characterFrame {
-    background: linear-gradient(180deg, #DB7804 0%, #FEB700 100%);
+    background: linear-gradient(180deg, #3CB13B 0%, #54F952 100%);
   }
 }
 
 .EpicCard {
   @extend .card;
   .characterFrame {
-    background: linear-gradient(180deg, #031245 0%, #0836D0 100%);
+    background: linear-gradient(180deg, #3687DF 0%, #3C92E7 100%);
   }
 }
 
 .LegendaryCard {
   @extend .card;
   .characterFrame {
-    background: linear-gradient(180deg, #360345 0%, #A208D0 100%);
+    background: linear-gradient(180deg, #AD1CD7 0%, #B922E3 100%);
   }
 }

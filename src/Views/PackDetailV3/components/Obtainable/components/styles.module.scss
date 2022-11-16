@@ -55,15 +55,15 @@
 
 .RareCard {
   @extend .obtainableNft;
-  background: linear-gradient(180deg, #db7804 0%, #feb700 100%);
+  background: linear-gradient(180deg, #3cb13b 0%, #54f952 100%);
 }
 
 .EpicCard {
   @extend .obtainableNft;
-  background: linear-gradient(180deg, #031245 0%, #0836d0 100%);
+  background: linear-gradient(180deg, #3687df 0%, #3c92e7 100%);
 }
 
 .LegendaryCard {
   @extend .obtainableNft;
-  background: linear-gradient(180deg, #360345 0%, #a208d0 100%);
+  background: linear-gradient(180deg, #ad1cd7 0%, #b922e3 100%);
 }

@@ -20,7 +20,17 @@ import { fireAlert } from "../../Utils/sweetAlert2";
 import { FiltersMobile } from "../../Global-Components/FiltersMobile";
 
 const MarketPlace = () => {
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState(() => {
+    try {
+      return localStorage.getItem("marketplaceFilters")
+        ? JSON.parse(localStorage.getItem("marketplaceFilters"))
+        : {};
+    } catch (error) {
+      return {};
+    }
+  });
+  console.log(filters);
+
   const [search, setSearch] = useState("");
   const [activeFilters, setActiveFilters] = useState(0);
   const [page, setPage] = useState(1);
@@ -29,8 +39,7 @@ const MarketPlace = () => {
   const [filterTypes, setFilterTypes] = useState({});
   const [filtersMobileOpen, setFiltersMobileOpen] = useState(false);
 
-  const { rarityStatic, repIdStatic, premiumStatic } =
-    useContext(NftData);
+  const { rarityStatic, repIdStatic, premiumStatic } = useContext(NftData);
 
   const desktop = useMediaQuery("(min-width: 1200px)");
   const history = useHistory();
@@ -42,8 +51,6 @@ const MarketPlace = () => {
     nftPerPage
   );
   if (error) fireAlert("Oops, an error ocurred", error.message, "500px");
-
-  console.log(nfts, loading, error);
 
   //Set filters
   useEffect(() => {
@@ -72,18 +79,20 @@ const MarketPlace = () => {
         orderBy: ORDER_BY,
       });
       //Tendrá todos los filtros
-      setFilters({
-        ...rarityItem,
-        ...TYPE_NFT,
-        ...CLONE_COUNT,
-        ...P2E_ORDER_BY,
-        ...ORDER_BY,
-        ...weaponItem,
-        ...characterItem,
-        ...premiumItem,
-      });
+      if (Object.keys(filters).length === 0) {
+        setFilters({
+          ...rarityItem,
+          ...TYPE_NFT,
+          ...CLONE_COUNT,
+          ...P2E_ORDER_BY,
+          ...ORDER_BY,
+          ...weaponItem,
+          ...characterItem,
+          ...premiumItem,
+        });
+      }
     }
-  }, [setFilters, history, rarityStatic, repIdStatic, premiumStatic]);
+  }, [setFilters, history, rarityStatic, repIdStatic, premiumStatic, filters]);
 
   //Effect for count active filters
   useEffect(() => {
@@ -119,6 +128,10 @@ const MarketPlace = () => {
     window.scrollTo(0, 0);
   }, [filtersMobileOpen]);
 
+  useEffect(() => {
+    localStorage.setItem("marketplaceFilters", JSON.stringify(filters));
+  }, [filters]);
+
   return (
     <Background>
       <div className={styles.container}>
@@ -146,39 +159,38 @@ const MarketPlace = () => {
             setOrderBy={setOrderBy}
             filtersMobileOpen={filtersMobileOpen}
           />
-        )
-        :
-        (<div className={styles.subContainer}>
-          {desktop && (
-            <LeftMenu
-              resetFilters={resetFilters}
-              setInput={setInput}
-              setPage={setPage}
-              filters={filters}
-              setFilters={setFilters}
-              activeFilters={activeFilters}
-              filterTypes={filterTypes}
-              desktop={desktop}
-            />
-          )}
-          <div className={styles.products}>
-            <Products
-              page={page}
-              setPage={setPage}
-              nftPerPage={nftPerPage}
-              setNftPerPage={setNftPerPage}
-              input={input}
-              setInput={setInput}
-              filterTypes={filterTypes}
-              nfts={nfts}
-              loading={loading}
-              error={error}
-              search={search}
-              activeFilters={activeFilters}
-            />
+        ) : (
+          <div className={styles.subContainer}>
+            {desktop && (
+              <LeftMenu
+                resetFilters={resetFilters}
+                setInput={setInput}
+                setPage={setPage}
+                filters={filters}
+                setFilters={setFilters}
+                activeFilters={activeFilters}
+                filterTypes={filterTypes}
+                desktop={desktop}
+              />
+            )}
+            <div className={styles.products}>
+              <Products
+                page={page}
+                setPage={setPage}
+                nftPerPage={nftPerPage}
+                setNftPerPage={setNftPerPage}
+                input={input}
+                setInput={setInput}
+                filterTypes={filterTypes}
+                nfts={nfts}
+                loading={loading}
+                error={error}
+                search={search}
+                activeFilters={activeFilters}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )}
       </div>
       {!filtersMobileOpen && <Footer />}
     </Background>
