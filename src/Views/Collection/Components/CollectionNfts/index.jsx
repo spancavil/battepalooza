@@ -189,7 +189,7 @@ const CollectionNfts = ({
         filtro2 = auxFilter.filter((nft) => nft.rarity === "Rare");
       if (filters.Epic)
         filtro3 = auxFilter.filter((nft) => nft.rarity === "Epic");
-      if (filters.Legandary)
+      if (filters.Legendary)
         filtro4 = auxFilter.filter((nft) => nft.rarity === "Legendary");
       if (filters.Weapon) filtro5 = auxFilter.filter((nft) => nft.type === 2);
       if (filters.Character)
