@@ -28,6 +28,8 @@ const Navbar = () => {
 
   const logout = () => {
     localStorage.removeItem("userBP");
+    localStorage.removeItem("marketplaceFilters");
+    localStorage.removeItem("collectionFilters");
     logOutAmplitude();
     history.push("/");
     window.location.reload();
