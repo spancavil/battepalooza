@@ -1,15 +1,29 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import styles from "./styles.module.scss";
 
 const ButtonAnimated = ({ content = "loading", onClick }) => {
+  const [animation, setAnimation] = useState(styles.off);
+
+  console.log({ animation, content });
+
+  const className =
+    animation &&
+    content.toLowerCase() !== "completed" &&
+    content.toLowerCase() !== "error"
+      ? animation
+      : styles[content];
+
+  useEffect(() => {
+    setAnimation(styles.off);
+    
+    setTimeout(() => {
+      setAnimation(styles.buttonContainer);
+    }, 1000);
+  }, [content]);
+
   return (
-    <div
-      className={
-        content.toLowerCase() !== "completed" &&
-        content.toLowerCase() !== "error"
-          ? styles.buttonContainer
-          : styles[content]
-      }
-    >
+    <div className={className}>
       {content.toLowerCase() !== "completed" &&
         content.toLowerCase() !== "error" && (
           <>

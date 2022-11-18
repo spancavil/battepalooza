@@ -115,7 +115,7 @@ const CollectionDetail = () => {
   };
 
   const Register = () => {
-    if (Number(inputPrice) > 10000) {
+    if (Number(inputPrice) > nftSelected?.nftMinimumPrice) {
       const registerNft = async () => {
         try {
           const response = await marketService.registerProductMarketplace(
@@ -186,9 +186,6 @@ const CollectionDetail = () => {
     setInputPrice(parseInt(value));
   };
 
-  /*   const handleShowClone = () => {
-    console.log("show clone info");
-  } */
 
   return (
     <>
@@ -213,6 +210,8 @@ const CollectionDetail = () => {
           handleInputChange={handleInputChange}
           Register={Register}
           inputPrice={inputPrice}
+          fee={fee}
+          minimunPrice={nftSelected?.nftMinimumPrice}
         />
       )}
       {modalRegister2 && (

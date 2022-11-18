@@ -49,6 +49,12 @@
       }
     }
 
+    .feeAndMinimal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     .fee {
       text-align: left;
       font-size: 14px;
