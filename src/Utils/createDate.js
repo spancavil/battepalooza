@@ -22,7 +22,6 @@ export const getDaysMinutesSeconds = async (startTime, endTime) => {
     const millisecondsEnd = endTime;
 
     const getTime = await packService.getNowTimeFromServer();
-    console.log(getTime.unixtime);
     const millisecondsNow = getTime.unixtime;
 
     const millisecondsLeftStart = millisecondsStart - millisecondsNow;

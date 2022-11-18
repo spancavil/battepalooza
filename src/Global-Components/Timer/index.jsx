@@ -13,7 +13,6 @@ const Timer = ({ pack }) => {
         interval = setInterval( async () => {
           let date = await getDaysMinutesSeconds(pack?.startTime, pack?.endTime);
           let { message, state } = date;
-          console.log(date);
           const actualDate = { message, state };
           setTimer(actualDate);
         }, 1000);
