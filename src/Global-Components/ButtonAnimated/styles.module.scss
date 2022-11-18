@@ -57,6 +57,38 @@
   }
 }
 
+.off {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition-duration: .3s;
+
+  span {
+    cursor: pointer;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 6;
+    font-weight: bold;
+    font-family: "Rubik";
+    color: black;
+    text-transform: uppercase;
+  }
+
+  button {
+    height: 48px;
+    width: 100%;
+    border: none;
+    background-color: #ffdc40;
+    cursor: pointer;
+    position: relative;
+    z-index: 4;
+    box-shadow: 0px 0px 24px 0px #ffdc4040;
+    border-radius: 16px 4px;
+  }
+}
+
 .completed {
   display: flex;
   align-items: center;
@@ -78,24 +110,24 @@
 }
 
 .error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 48px;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    z-index: 4;
-    background-color: #EE2B2B;;
-    animation: complete 4s;
-    border-radius: 48px;
-    width: 48px;
-  
-    svg {
-      margin: 0 auto;
-      animation: show 1s;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+  background-color: #ee2b2b;
+  animation: complete 4s;
+  border-radius: 48px;
+  width: 48px;
+
+  svg {
+    margin: 0 auto;
+    animation: show 1s;
   }
+}
 
 @keyframes show {
   from {

@@ -15,21 +15,20 @@ import Logo from "../../Assets/Logo.png";
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const { userData, setGameNavigate, gameNavigate } = useContext(UserData);
-  
-  const toggleMenu = () => setMenu(menu => !menu)
+
+  const toggleMenu = () => setMenu((menu) => !menu);
   const user = Object.keys(userData).length > 0;
 
   const history = useHistory();
   const { pathname } = useLocation();
 
-  useEffect(()=> {
-    if (gameNavigate) setMenu(false)
-  }, [gameNavigate])
+  useEffect(() => {
+    if (gameNavigate) setMenu(false);
+  }, [gameNavigate]);
 
   const logout = () => {
     localStorage.removeItem("userBP");
-    localStorage.removeItem("marketplaceFilters");
-    localStorage.removeItem("collectionFilters");
+
     logOutAmplitude();
     history.push("/");
     window.location.reload();
@@ -40,9 +39,17 @@ const Navbar = () => {
   }, [pathname]);
 
   const handleBrandNavigate = () => {
-    setGameNavigate(false)
-    window.scrollTo({top: 0, behavior: 'smooth'})
-  }
+    setGameNavigate(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (!pathname.includes("marketplace")) {
+      localStorage.removeItem("marketplaceFilters");
+    } else if (!pathname.includes("collection")) {
+      localStorage.removeItem("collectionFilters");
+    }
+  }, [pathname]);
 
   return (
     <>

@@ -8,6 +8,8 @@ const ModalRegister1 = ({
   handleInputChange,
   Register,
   inputPrice,
+  minimunPrice,
+  fee,
 }) => {
   return (
     <div className={styles.parentContainerModal}>
@@ -27,12 +29,15 @@ const ModalRegister1 = ({
             />
             <p>NCoin</p>
           </div>
-          <p className={styles.fee}>Fee (5%)</p>
+          <div className={styles.feeAndMinimal}>
+            <p className={styles.fee}>
+              Minimal price: {minimunPrice + 1} NCoin
+            </p>
+            <p className={styles.fee}>Fee: {fee}%</p>
+          </div>
           <hr />
           <p className={styles.afterFee}>
-            {inputPrice > 0
-              ? Number(inputPrice) - Number(inputPrice) * 0.05
-              : 0}{" "}
+            {inputPrice > 0 ? Math.round((Number(inputPrice) / 100) * fee) : 0}{" "}
             NCoin (Amount expected to receive)
           </p>
         </div>
