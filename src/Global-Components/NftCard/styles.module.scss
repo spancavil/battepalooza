@@ -1,13 +1,13 @@
-@import '../../Styles/fonts.scss';
+@import "../../Styles/fonts.scss";
 
 .card {
   cursor: pointer;
   box-shadow: 0px 6px 16px rgba(25, 25, 25, 0.3);
-  background: #00147F;
+  background: #00147f;
   border: 2px solid rgba(6, 7, 13, 1);
   overflow: visible;
   position: relative;
-  width: 242px; 
+  width: 242px;
   // height: 378px;
 
   .onSale {
@@ -17,11 +17,11 @@
     left: 0;
     z-index: 10;
     color: white;
-    font-family: 'Rubik';
-    padding: .2rem;
+    font-family: "Rubik";
+    padding: 0.2rem;
     border: 2px solid white;
     border-radius: 8px;
-    padding-top: .4rem;
+    padding-top: 0.4rem;
     margin-top: -10px;
     margin-left: -10px;
     font-weight: bold;
@@ -58,13 +58,13 @@
       }
     }
 
-    .rarityIcon{
+    .rarityIcon {
       position: absolute;
       right: 6px;
       top: -15px;
     }
   }
-  .texts{
+  .texts {
     width: 100%;
     padding: 16px 8px;
     display: flex;
@@ -76,7 +76,8 @@
       font-family: $font-rubikExtrabold;
       font-size: 20px;
       line-height: 24px;
-      text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
+      text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black,
+        -1px -1px 0 black;
       color: #ffffff;
     }
 
@@ -95,11 +96,12 @@
       align-items: center;
       gap: 4px;
 
-      .p2e{
+      .p2e {
         font-family: $font-rubikRegular;
         font-size: 17px;
         line-height: 20px;
-        text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
+        text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black,
+          -1px -1px 0 black;
         color: #ffffff;
       }
       .p2eIcon {
@@ -107,16 +109,17 @@
       }
     }
 
-    .seller{
+    .seller {
       padding-top: 10px;
       font-family: $font-rubikRegular;
       font-size: 17px;
       line-height: 20px;
-      text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
+      text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black,
+        -1px -1px 0 black;
       color: #ffffff;
     }
 
-    .nCoinContainer{
+    .nCoinContainer {
       @extend .p2eContainer;
       padding-top: 10px;
       gap: 8px;
@@ -124,34 +127,33 @@
         width: 24px;
       }
     }
-
   }
 }
 
 .CommonCard {
   @extend .card;
   .characterFrame {
-    background: linear-gradient(180deg, #6C6C6C 0%, #C5C5C5 53.3%);
+    background: linear-gradient(90deg, #9f9f9f 0%, #b7b7b7 49.79%);
   }
 }
 
 .RareCard {
   @extend .card;
   .characterFrame {
-    background: linear-gradient(180deg, #3CB13B 0%, #54F952 100%);
+    background: linear-gradient(90deg, #30cd5c 0%, #2ed15d 100%);
   }
 }
 
 .EpicCard {
   @extend .card;
   .characterFrame {
-    background: linear-gradient(180deg, #3687DF 0%, #3C92E7 100%);
+    background: linear-gradient(90deg, #2a7dd4 0%, #49a7ef 100%);
   }
 }
 
 .LegendaryCard {
   @extend .card;
   .characterFrame {
-    background: linear-gradient(180deg, #AD1CD7 0%, #B922E3 100%);
+    background: linear-gradient(90deg, #aa1fdb 0%, #b11fdf 100%);
   }
 }

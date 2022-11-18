@@ -17,23 +17,23 @@
 .rarityCommon {
   @extend .rarity;
   border: 2px solid rgba(217, 217, 217, 1);
-  background: linear-gradient(180deg, #6c6c6c 0%, #c5c5c5 53.3%);
+  background: linear-gradient(135.39deg, #6c6c6c 0.59%, #c5c5c5 99.42%);
 }
 
 .rarityRare {
   @extend .rarity;
   border: 2px solid rgba(249, 239, 183, 1);
-  background: linear-gradient(180deg, #3cb13b 0%, #54f952 100%);
+  background: linear-gradient(135.21deg, #db7804 0.59%, #feb700 99.42%);
 }
 
 .rarityEpic {
   @extend .rarity;
   border: 2px solid rgba(41, 89, 247, 1);
-  background: linear-gradient(180deg, #3687df 0%, #3c92e7 100%);
+  background: linear-gradient(135.21deg, #031245 0.59%, #0836d0 99.42%);
 }
 
 .rarityLegendary {
   @extend .rarity;
   border: 2px solid rgba(199, 41, 247, 1);
-  background: linear-gradient(180deg, #ad1cd7 0%, #b922e3 100%);
+  background: linear-gradient(135.21deg, #360345 0.59%, #a208d0 99.42%);
 }

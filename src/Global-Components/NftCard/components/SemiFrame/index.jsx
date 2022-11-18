@@ -1,18 +1,18 @@
 import styles from "./styles.module.scss";
 
-const SemiFrame = ({ rarity, size = "236px" }) => {
+const SemiFrame = ({ rarity, sizeY = "186px", sizeX = "236px" }) => {
   const frameColorsVertical = {
-    common: `${size} solid #EBEBEB`,
-    rare: `${size} solid #33F754`,
-    epic: `${size} solid #65C1FC`,
-    legendary: `${size} solid #E379FB`,
+    common: `${sizeY} solid #ECEBEB`,
+    rare: `${sizeY} solid #33F754`,
+    epic: `${sizeY} solid #65C1FC`,
+    legendary: `${sizeY} solid #E379FB`,
   };
 
   const frameColorsHorizontal = {
-    common: `${size} solid #EBEBEB`,
-    rare: `${size} solid #33F754`,
-    epic: `${size} solid #65C1FC`,
-    legendary: `${size} solid #E379FB`,
+    common: `${sizeX} solid #ECEBEB`,
+    rare: `${sizeX} solid #33F754`,
+    epic: `${sizeX} solid #65C1FC`,
+    legendary: `${sizeX} solid #E379FB`,
   };
 
   return (
