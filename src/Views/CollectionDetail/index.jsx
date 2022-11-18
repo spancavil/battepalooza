@@ -42,6 +42,8 @@ const CollectionDetail = () => {
 
   const [reloadDetail, setReloadDetail] = useState(false);
 
+  const [fee, setFee] = useState(0);
+
   const { uuid } = useParams();
   const history = useHistory();
   /* 
@@ -75,6 +77,9 @@ const CollectionDetail = () => {
     setCheckMaintenance(value => !value)
   }, [setCheckMaintenance])
 
+  console.log(nftSelected);
+  console.log(fee);
+
   useEffect(() => {
     const fetchData = async () => {
       if (Object.keys(userData).length !== 0) {
@@ -84,10 +89,10 @@ const CollectionDetail = () => {
             userData.pid,
             uuid
           );
-          
-          const canContinue = checkErrorMiddleware(response, history);
+          const canContinue = checkErrorMiddleware(response, history)
           if (canContinue) {
             setNftSelectedRaw(response.nft);
+            setFee(response.feeRate);
           }
         } catch (error) {
           alert(error.message);

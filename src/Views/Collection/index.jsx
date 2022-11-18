@@ -124,6 +124,7 @@ const Collection = () => {
   };
 
   useEffect(() => {
+    const userData = JSON.parse(window.localStorage.getItem("userBP"));
     if (!userData?.bpToken) {
       history.push("/");
     }
