@@ -4,7 +4,7 @@ import { separator } from "../../Utils/separator";
 import styles from "./styles.module.scss";
 import { NftData } from "../../Context/NftProvider";
 import SemiFrame from "./components/SemiFrame";
-import iconP2e from "../../Assets/img/Sprite_Icon_Premium_05.png";
+import iconP2e from "../../Assets/img/Sprite_Icon_Gamemode_04.png";
 import ncoinIcon from "../../Assets/img/Sprite_Icon_Reward_35.png";
 import { capitalizeFirstLetter } from "../../Utils/words";
 

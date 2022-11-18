@@ -99,7 +99,7 @@ const MarketplaceNfts = ({
 
     return (
         <div className={styles.cardsContainer}>
-            {nftMarketModified?.length > 0 ? (
+            {nftMarketModified?.length > 0 && !loading ? (
                 <>
                     <span className={styles.title}>
                         {nftMarketModified?.length} NFTs
