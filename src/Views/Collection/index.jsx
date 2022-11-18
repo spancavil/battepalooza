@@ -125,9 +125,7 @@ const Collection = () => {
 
   useEffect(() => {
     const userData = JSON.parse(window.localStorage.getItem("userBP"));
-    console.log(userData);
     if (!userData?.bpToken) {
-      console.log("no hay bp token");
       history.push("/");
     }
   }, [userData, history]);
