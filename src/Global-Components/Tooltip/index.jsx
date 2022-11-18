@@ -10,7 +10,7 @@ const Tooltip = ({
   index = 0,
   hoverOnBuff = () => {},
 }) => {
-  const tablet = useMediaQuery("(max-width: 768px)");
+  const tablet = useMediaQuery("(max-width: 1199px)");
   const desktop = useMediaQuery("(min-width: 1200px) and (max-width: 1899px)");
 
   // Desktop & HD - Weapon or char
