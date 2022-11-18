@@ -17,7 +17,7 @@ export const ObtainableNft = ({ item, onHover, weaponOrCharHover, index }) => {
       className={setRarityCard(item?.rarity)} 
       onMouseEnter={() => onHover(item)}
     >
-      <SemiFrame size="80px" rarity={item?.rarity} />
+      <SemiFrame sizeX="80px" sizeY="80px"rarity={item?.rarity} />
       <img key={item?.id} src={item?.portrait} alt={item?.itemName} />
       {weaponOrCharHover?.id === item?.id ? 
         <Tooltip

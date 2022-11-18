@@ -33,7 +33,7 @@ const Checkout = ({ nftBuy, nftProccesing, handleClose }) => {
       <ModalV2 title="Checkout" handleClose={() => handleClose(false)}>
         <div className={styles.packSelected}>
           <div className={setRarityCard(nftBuy?.rarity)}>
-            <SemiFrame size="48px" rarity={nftBuy?.rarity} />
+            <SemiFrame sizeX="48px" sizeY="48px" rarity={nftBuy?.rarity} />
             <img
               key={nftBuy?.id}
               src={nftBuy?.thumbnailUrl}
