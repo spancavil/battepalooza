@@ -48,12 +48,13 @@ const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
                   autoPlay = {true}
                   loop
                 />
-                {loading && 
+                {loading ? 
                   <div
                     className={styles.loadMessageContainer}
                   >
                     <Loader />
                   </div>
+                  : null
                 }
               </div>
               <Description
