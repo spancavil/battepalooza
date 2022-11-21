@@ -6,8 +6,12 @@ import Description from "./components/Description";
 import styles from "./styles.module.scss";
 import BuyInfo from "./components/BuyInfo";
 import BackLink from "../BackLink";
+import { useState } from "react";
 
 const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
+
+  const [loading, setLoading] = useState(true);
+
   const onHandle = (action) => {
     switch (action) {
       case "buy":
@@ -24,6 +28,10 @@ const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
     }
   };
 
+  const handleLoadVideo = () => {
+    setLoading(false)
+  }
+
   return (
     <>
       <div className={styles.nftDetailPage}>
@@ -35,10 +43,18 @@ const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
                 <video
                   src={chosenNft?.movieUrl}
                   alt={chosenNft?.itemName}
+                  onCanPlayThrough = {handleLoadVideo}
                   muted
-                  autoPlay
+                  autoPlay = {true}
                   loop
                 />
+                {loading && 
+                  <div
+                    className={styles.loadMessageContainer}
+                  >
+                    <Loader />
+                  </div>
+                }
               </div>
               <Description
                 chosenNft={chosenNft}
