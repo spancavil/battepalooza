@@ -36,7 +36,11 @@ const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex,
 
     return (
         <div 
-            className={nftIndex === carouselIndex ? styles.cardContainerActive : styles.cardContainer}
+            className={nftIndex === carouselIndex 
+                ? (rotate
+                ? styles.cardContainerActive 
+                : styles.cardContainerActiveNotRotated)
+                : styles.cardContainer}
         >
             <div
                 className={rotate ? styles.div1Rotate : styles.div1}
@@ -52,7 +56,10 @@ const CardToReveal = ({ revealAll, nft, isRevealed, isRotated = false, nftIndex,
                 <NftCard 
                     nft={nft} 
                     onClick={()=> {}}
-                    additionalStyles = {{textAlign: 'left'}}
+                    additionalStyles = {{
+                        textAlign: 'left',
+                        height: 338
+                    }}
                     hoverOnBuff = {handleBuffVisibility}
                 />
                 {tooltTipVisibility ? 

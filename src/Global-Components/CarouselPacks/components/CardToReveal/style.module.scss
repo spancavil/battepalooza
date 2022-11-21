@@ -1,6 +1,7 @@
 @import "../../../../Styles/colors.scss";
 @import "../../../../Styles/breakpoints.scss";
 @import "../../../../Styles/fonts.scss";
+@import "../../../../Styles/animations.scss";
 
 @media (max-width: $tablet - 1) {
     .cardContainer {
@@ -271,4 +272,9 @@
 .cardContainerActive {
     @extend .cardContainer;
     transform: scale(1.12);
+}
+
+.cardContainerActiveNotRotated {
+    @extend .cardContainerActive;
+    animation: clickMe 1.2s 600ms linear infinite;
 }

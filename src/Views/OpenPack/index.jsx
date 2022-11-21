@@ -48,7 +48,7 @@ const OpenPack = () => {
         nextFlow();
     };
 
-    //Si luego de 15 segundos no cambia de pantalla ponemos el último flow
+    //Si luego de 18 segundos no cambia de pantalla ponemos el último flow
     useEffect(()=> {
         setTimeout(()=>{
             setFlow(3)

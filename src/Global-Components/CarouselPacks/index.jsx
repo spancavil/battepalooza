@@ -95,8 +95,7 @@ const CarouselPacks = ({ nfts }) => {
                     selectedItem = {selectedItem}
                     onClickItem = {(index, item) => handleClickItem(index, item)}
                     interval = {0}
-                    transitionTime={400}
-                    
+                    transitionTime={400}                    
                     renderArrowPrev={(clickHandler, hasPrev) => 
                         hasPrev && <Arrow 
                             onClick={clickHandler}
