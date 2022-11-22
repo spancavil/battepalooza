@@ -80,7 +80,7 @@ const CarouselPacks = ({ nfts }) => {
             >
                 <Carousel
                     swipeable={nfts.length < 4 ? (tablet ? swipeable : false) : swipeable}
-                    emulateTouch={true}
+                    emulateTouch={false}
                     width ={tablet ? '90vw' : hd ? '1200' : 900}
                     dynamicHeight ={false}
                     showThumbs = {false}
