@@ -20,7 +20,7 @@ class DropService {
             return response.data
         })
     }
-    async payCoin (pid, productId, bpTokenContent, quantity = 1){
+    /* async payCoin (pid, productId, bpTokenContent, quantity = 1){
         console.log(quantity);
         const bpToken = authHeader(bpTokenContent);
         return await axios.post(API_URL + "drops/pay-coin-nft",{
@@ -31,12 +31,13 @@ class DropService {
         }).then(response => {
             return response.data
         })
-    }
-    async buyShop (payForteTxId, pid, bpTokenContent){
+    } */
+    async buyShop (productId, pid, quantity = 1, bpTokenContent){
         const bpToken = authHeader(bpTokenContent);
         return await axios.post(API_URL + "drops/buy-shop-nft",{
             bpToken,
-            payForteTxId,
+            quantity,
+            productId,
             pid
         }).then(response => {
             return response.data
