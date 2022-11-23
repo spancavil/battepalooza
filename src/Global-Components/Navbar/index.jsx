@@ -20,7 +20,9 @@ const Navbar = () => {
   const user = Object.keys(userData).length > 0;
 
   const history = useHistory();
-  const { pathname } = useLocation();
+  const location = useLocation();
+
+  console.log();
 
   useEffect(() => {
     if (gameNavigate) setMenu(false);
@@ -34,22 +36,23 @@ const Navbar = () => {
     window.location.reload();
   };
 
-  useEffect(() => {
-    setMenu(false);
-  }, [pathname]);
-
   const handleBrandNavigate = () => {
     setGameNavigate(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
-    if (!pathname.includes("marketplace")) {
+    if (!location.pathname.includes("marketplace")) {
       localStorage.removeItem("marketplaceFilters");
-    } else if (!pathname.includes("collection")) {
+    } else if (!location.pathname.includes("collection")) {
       localStorage.removeItem("collectionFilters");
     }
-  }, [pathname]);
+  }, [location]);
+
+  useEffect(()=> {
+    console.log(location);
+    setMenu(false)
+  }, [location])
 
   return (
     <>
@@ -86,7 +89,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <MenuMobile menu={menu} user={user} />
+      <MenuMobile menu={menu} user={user}/>
     </>
   );
 };
