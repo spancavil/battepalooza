@@ -86,7 +86,13 @@ const CarouselPacks = ({ nfts }) => {
                     showThumbs = {false}
                     showIndicators = {false}
                     centerMode = {true}
-                    centerSlidePercentage = {tablet ? 100 : nfts.length === 2 ? 50 : 33}
+                    centerSlidePercentage = {tablet 
+                                            ? 100
+                                            : nfts.length > 3 && currentIndex < 2 && !swipeable
+                                            ? 31
+                                            : nfts.length === 2 
+                                                ? 50 
+                                                : 33}
                     showStatus = {false}
                     showArrows = {nfts.length < 4 ? (tablet ? swipeable : false) : swipeable}
                     useKeyboardArrows={true}
