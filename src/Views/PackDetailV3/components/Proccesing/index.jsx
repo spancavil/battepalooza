@@ -13,29 +13,30 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [forteTxText, setForteTxText] = useState("");
-  const [step1, setStep1] = useState(true); //payCoin
+  const [step1, setStep1] = useState(true); //buyShop
   const [step2, setStep2] = useState(false); //getBlockchainTxStatus
-  const [step3, setStep3] = useState(false); //buyShop
-  const [step4, setStep4] = useState(false); //getBlockchainTxStatus
+/*   const [step3, setStep3] = useState(false); 
+  const [step4, setStep4] = useState(false); //getBlockchainTxStatus */
 
   const { userData } = useContext(UserData);
   const { setTxResultPackBuy } = useContext(PackData);
 
   const history = useHistory();
-  //Paso uno, hacemos la compra, y forte nos devuelve el Id de la tx
+  //Paso uno, hacemos la compra, y la API nos devuelve el Id de la tx
+  //para consultar en Forte
   useEffect(() => {
-    const payCoin = async () => {
+    const buyShopNft = async () => {
       //Solo entra en caso de estar en el paso 1
       if (step1) {
-        console.log("Step 1. PayNcoin");
+        console.log("Step 1. BuyShopNft");
         if (Object.keys(userData).length !== 0) {
           try {
             console.log(quantity);
-            const response = await dropService.payCoin(
-              userData.pid,
+            const response = await dropService.buyShop(
               packBuy.id,
+              userData.pid,
+              quantity,
               userData.bpToken,
-              quantity
             );
             if (response.error.text !== "") {
               if (response.error.text.includes("authorized")) {
@@ -65,20 +66,19 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
       }
     };
 
-    payCoin();
+    buyShopNft();
   }, [
     userData,
     setForteTxText,
     history,
     packBuy,
-    handleClose,
     step1,
     quantity,
   ]);
 
   //Paso tres, hacemos la compra con el texto que nos había devuelto en el paso 1
   //Lueg Forte nos devuelve un NUEVO texto con el Id de la tx
-  useEffect(() => {
+/*   useEffect(() => {
     if (step3) {
       const buyShop = async () => {
         console.log("Step 3. Buy shop");
@@ -114,7 +114,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
                   "500px"
                 ).then(() => {
                   handleClose();
-                }); */
+                });
               }
             } else {
               //Si no hay errores setteamos el NUEVO forteTxId para el paso 4.
@@ -131,7 +131,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
               "500px"
             ).then(() => {
               handleClose();
-            }); */
+            });
           }
         }
       };
@@ -146,19 +146,19 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
     step3,
     status,
     forteTxText,
-  ]);
+  ]); */
 
-  //Paso 2 o paso 4
+  //Paso 2
   //Con el id de la tx vamos haciendo la consulta del status de la operación en la blockchain.
   useEffect(() => {
     let forteStatusInterval;
     if (
       forteTxText !== "" &&
       Object.keys(userData).length !== 0 &&
-      (step2 || step4)
+      step2
     ) {
       console.log(
-        `Step 2 or 4. Get forte tx. Step2: ${step2}, Step4: ${step4}`
+        `Step 2. Get forte tx. Step2: ${step2}`
       );
       console.log(`Forteid: ${forteTxText}, Status: ${status}`);
 
@@ -192,7 +192,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
             //Response OK, no errors
             //console.log(`Status on proccessing: ${response.status}`);
             setStatus(response.status);
-            if (step4 && response.status === "completed") {
+            if (response.status === "completed") {
               console.log(response);
               setTxResultPackBuy(response?.txResult);
             }
@@ -212,11 +212,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
       setTimeout(() => {
         if (status !== "pending" && status !== "") {
           clearInterval(forteStatusInterval);
-          if (step2) {
-            setStep2(false);
-            setStep3(true);
-          }
-          if (step4 && status === "completed") {
+          if (step2 && status === "completed") {
             setTimeout(() => {
               processingComplete();
             }, 3000);
@@ -236,7 +232,6 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
     handleClose,
     processingComplete,
     step2,
-    step4,
     setTxResultPackBuy,
     error?.message,
   ]);

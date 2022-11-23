@@ -50,7 +50,6 @@ const Navbar = () => {
   }, [location]);
 
   useEffect(()=> {
-    console.log(location);
     setMenu(false)
   }, [location])
 
