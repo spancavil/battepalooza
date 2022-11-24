@@ -24,6 +24,17 @@ class nftService {
             return response.data
         })
     }
+
+    async burnNft (bpToken, pid, uuid){
+        const bpTokenHeader = authHeader(bpToken);
+        return await axios.post(API_URL + "user/burn-nft", {
+            bpTokenHeader,
+            pid,
+            uuid
+        }).then (response => {
+            return response.data
+        })
+    }
 }
 
 export default new nftService ()
