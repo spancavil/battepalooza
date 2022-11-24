@@ -7,17 +7,28 @@ import { useHistory } from "react-router-dom";
 import { fireAlertAsync } from "../../../../Utils/sweetAlert2";
 import ModalV2 from "../../../../Global-Components/ModalV2";
 import ButtonAnimated from "../../../../Global-Components/ButtonAnimated";
+import useTransactionNft from "../../../../Hooks/useTransactionNft";
 
 const Proccesing = ({ nftBuy, handleClose, proccessingComplete }) => {
-  const [status, setStatus] = useState("");
+  /* const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [forteTxText, setForteTxText] = useState("");
 
   const { userData } = useContext(UserData);
 
-  const history = useHistory();
+  const history = useHistory(); */
+
+  const [status, error, forteTxText] = useTransactionNft(
+    {buyMarket: true},
+    0,
+    {},
+    nftBuy,
+    proccessingComplete,
+    handleClose
+  )
+
   //Paso uno, hacemos la compra, y forte nos devuelve el Id de la tx
-  useEffect(() => {
+/*   useEffect(() => {
     const buyNft = async () => {
       console.log("Trata de hacer la compra");
       //Si el forteTxText es distinto a "" significa que no tenemos que hacer la compra nuevamente
@@ -59,10 +70,10 @@ const Proccesing = ({ nftBuy, handleClose, proccessingComplete }) => {
     };
 
     buyNft();
-  }, [userData, setForteTxText, history, nftBuy, handleClose, status]);
+  }, [userData, setForteTxText, history, nftBuy, handleClose, status]); */
 
   //Paso 2, con el id de la tx vamos haciendo la consulta del status de la operación
-  useEffect(() => {
+  /* useEffect(() => {
     let forteStatusInterval;
     if (forteTxText !== "" && Object.keys(userData).length !== 0) {
       console.log(`Forteid: ${forteTxText}, Status: ${status}`);
@@ -119,7 +130,7 @@ const Proccesing = ({ nftBuy, handleClose, proccessingComplete }) => {
     status,
     handleClose,
     proccessingComplete,
-  ]);
+  ]); */
 
   return (
     <div className={styles.parentContainerModal}>
