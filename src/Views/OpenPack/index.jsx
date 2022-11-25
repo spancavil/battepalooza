@@ -12,11 +12,11 @@ import { useHistory } from "react-router-dom";
 import CarouselPacks from "../../Global-Components/CarouselPacks";
 
 // import packHardcoded from "./packHardcoded.json";
-import nftsHardcoded from './nftsHardcoded2.json';
+// import nftsHardcoded from './nftsHardcoded2.json';
 // import CardAnimation from "../CardAnimation";
 
 const OpenPack = () => {
-    const [flow, setFlow] = useState(3);
+    const [flow, setFlow] = useState(2);
     const { packSelected, txResult } = useContext(PackData);
     const { userData } = useContext(UserData);
     const [nftsOpenPack, setNftsOpenPack] = useState([]);
@@ -30,9 +30,9 @@ const OpenPack = () => {
         setFlow(flow + 1);
     };
 
-   /*  useEffect(() => {
+    useEffect(() => {
         if (!userData?.bpToken || !txResult) history.push("/");
-    }, [history, txResult, userData]); */
+    }, [history, txResult, userData]);
 
     useEffect(()=> {
         setLoading(true)
@@ -55,7 +55,7 @@ const OpenPack = () => {
         }, [18000])
     }, [])
 
-/*     useEffect(() => {
+    useEffect(() => {
 
         const mapNfts = async () => {
             const uuids = Object.keys(txResult?.nftItems);
@@ -138,7 +138,7 @@ const OpenPack = () => {
         //         acquired: 1661795591726,
         //     },
         // ]);
-    }, [txResult, history, userData]); */
+    }, [txResult, history, userData]);
 
     return (
         <Background>
@@ -195,8 +195,8 @@ const OpenPack = () => {
             )}
             {/* {flow === 3 && <CardAnimation nfts={nftsOpenPack} />} */}
             {flow === 3 && (
-                nftsHardcoded.length
-                ?   <CarouselPacks nfts={nftsHardcoded} />
+                nftsOpenPack.length
+                ?   <CarouselPacks nfts={nftsOpenPack} />
                 :   <div className={styles.loadMessageContainerNfts}>
                         <Loader />
                     </div>)
