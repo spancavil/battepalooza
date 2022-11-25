@@ -79,7 +79,6 @@ const Checkout = ({ nftBuy, nftProccesing, handleClose }) => {
               Object.keys(maintenance).length ? () => {} : handleProccessing
             }
             color={maintenance ? "disabled" : "yellow"}
-            additionalStyles={{ zIndex: 0 }}
           />
         </div>
       </ModalV2>

@@ -79,7 +79,6 @@ const PackDescription = ({ pack, setCheckoutNCoin, setPackCount }) => {
             title="BUY"
             onClick={Object.keys(maintenance).length ? () => {} : handleBuy}
             color={maintenance ? "disabled" : "yellow"}
-            additionalStyles={{ zIndex: 0 }}
           />
         </div>
       </div>

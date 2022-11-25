@@ -8,8 +8,14 @@ import BuyInfo from "./components/BuyInfo";
 import BackLink from "../BackLink";
 import { useState } from "react";
 
-const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
-
+const NftDetailV2 = ({
+  chosenNft,
+  goBack,
+  onRegister,
+  unRegister,
+  buyNft,
+  openModalBurn,
+}) => {
   const [loading, setLoading] = useState(true);
 
   const onHandle = (action) => {
@@ -29,8 +35,8 @@ const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
   };
 
   const handleLoadVideo = () => {
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   return (
     <>
@@ -43,19 +49,16 @@ const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
                 <video
                   src={chosenNft?.movieUrl}
                   alt={chosenNft?.itemName}
-                  onCanPlayThrough = {handleLoadVideo}
+                  onCanPlayThrough={handleLoadVideo}
                   muted
-                  autoPlay = {true}
+                  autoPlay={true}
                   loop
                 />
-                {loading ? 
-                  <div
-                    className={styles.loadMessageContainer}
-                  >
+                {loading && (
+                  <div className={styles.loadMessageContainer}>
                     <Loader />
                   </div>
-                  : null
-                }
+                )}
               </div>
               <Description
                 chosenNft={chosenNft}
@@ -65,7 +68,11 @@ const NftDetailV2 = ({ chosenNft, goBack, onRegister, unRegister, buyNft }) => {
               />
             </div>
             <div className={styles.rigth}>
-              <BuyInfo chosenNft={chosenNft} handleAction={onHandle} />
+              <BuyInfo
+                chosenNft={chosenNft}
+                handleAction={onHandle}
+                openModalBurn={openModalBurn}
+              />
               <Abilities chosenNft={chosenNft} />
               {chosenNft?.type === 1 && <Stats chosenNft={chosenNft} />}
             </div>

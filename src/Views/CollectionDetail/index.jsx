@@ -16,6 +16,7 @@ import fireToast, { fireAlert } from "../../Utils/sweetAlert2";
 import { sendAmplitudeData } from "../../Utils/amplitude";
 import NftDetailV2 from "../../Global-Components/NftDetailV2";
 import { MaintenanceData } from "../../Context/MaintenanceProvider";
+import ModalBurnNft from "./Components/ModalBurnNft";
 
 const CollectionDetail = () => {
   const [nftSelectedRaw, setNftSelectedRaw] = useState();
@@ -23,6 +24,7 @@ const CollectionDetail = () => {
   const [modalUnregister, setmodalUnregister] = useState(false);
   const [modalRegister1, setmodalRegister1] = useState(false);
   const [modalRegister2, setmodalRegister2] = useState(false);
+  const [modalBurnNft, setModalBurnNft] = useState(false);
 
   const [inputPrice, setInputPrice] = useState(0);
   const [forteTxText, setForteTxText] = useState("");
@@ -38,7 +40,7 @@ const CollectionDetail = () => {
     premiumStatic,
     setReloadCollection,
   } = useContext(NftData);
-  const { maintenance, setCheckMaintenance} = useContext(MaintenanceData)
+  const { maintenance, setCheckMaintenance } = useContext(MaintenanceData);
 
   const [reloadDetail, setReloadDetail] = useState(false);
 
@@ -46,21 +48,6 @@ const CollectionDetail = () => {
 
   const { uuid } = useParams();
   const history = useHistory();
-  /* 
-  const desktop = useMediaQuery("(min-width: 799px) and (max-width: 1199px)");
-  const hd = useMediaQuery("(min-width: 1200px)"); */
-
-  /*   useEffect(() => {
-    setLoading(true);
-  }, []); */
-
-  /*   const handleShowPremium = (e) => {
-    console.log(e);
-    setPosition({
-      positionY: e.nativeEvent.offsetY,
-    });
-    setPremium(true);
-  }; */
 
   //Modify data from JSON statics
   const nftSelected = useModifyDetail(
@@ -73,12 +60,9 @@ const CollectionDetail = () => {
   );
 
   //Fire check maintenance
-  useEffect(()=> {
-    setCheckMaintenance(value => !value)
-  }, [setCheckMaintenance])
-
-  console.log(nftSelected);
-  console.log(fee);
+  useEffect(() => {
+    setCheckMaintenance((value) => !value);
+  }, [setCheckMaintenance]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -89,7 +73,7 @@ const CollectionDetail = () => {
             userData.pid,
             uuid
           );
-          const canContinue = checkErrorMiddleware(response, history)
+          const canContinue = checkErrorMiddleware(response, history);
           if (canContinue) {
             setNftSelectedRaw(response.nft);
             setFee(response.feeRate);
@@ -105,10 +89,6 @@ const CollectionDetail = () => {
   const openModalUnregister = () => {
     if (!maintenance) setmodalUnregister(true);
   };
-
-  /*     const goBack = () => {
-        history.goBack();
-    }; */
 
   const onRegister = () => {
     if (!maintenance) setmodalRegister1(true);
@@ -174,7 +154,7 @@ const CollectionDetail = () => {
       }
     };
     unRegisterNft();
-    setReloadDetail(value => !value)
+    setReloadDetail((value) => !value);
   };
 
   const handleMarket = () => {
@@ -186,7 +166,6 @@ const CollectionDetail = () => {
     setInputPrice(parseInt(value));
   };
 
-
   return (
     <>
       <Background>
@@ -195,6 +174,7 @@ const CollectionDetail = () => {
           chosenNft={nftSelected}
           onRegister={onRegister}
           unRegister={openModalUnregister}
+          openModalBurn={setModalBurnNft}
         />
       </Background>
       {modalUnregister && (
@@ -222,6 +202,14 @@ const CollectionDetail = () => {
           forteTxText={forteTxText}
           bpToken={userData.bpToken}
           pid={userData.pid}
+        />
+      )}
+      {modalBurnNft && (
+        <ModalBurnNft
+          closeModal={setModalBurnNft}
+          confirmBurn={() =>
+            console.log("/* AGREGAR FUNCION PARA QUEMAR EL NFT */")
+          }
         />
       )}
     </>
