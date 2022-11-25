@@ -206,10 +206,9 @@ const CollectionDetail = () => {
       )}
       {modalBurnNft && (
         <ModalBurnNft
+          nft={nftSelected}
           closeModal={setModalBurnNft}
-          confirmBurn={() =>
-            console.log("/* AGREGAR FUNCION PARA QUEMAR EL NFT */")
-          }
+          setReloadCollection={setReloadCollection}
         />
       )}
     </>

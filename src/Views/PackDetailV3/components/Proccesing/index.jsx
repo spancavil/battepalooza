@@ -4,7 +4,7 @@ import ModalV2 from "../../../../Global-Components/ModalV2";
 import ButtonAnimated from "../../../../Global-Components/ButtonAnimated";
 import useTransactionNft from "../../../../Hooks/useTransactionNft";
 
-const Proccesing = ({ packBuy, handleClose, processingComplete }) => {
+const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
   const [status, error] = useTransactionNft({
     buyPack: true,
     packBuy: packBuy,
