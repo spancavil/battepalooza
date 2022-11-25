@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 import CarouselPacks from "../../Global-Components/CarouselPacks";
 
 // import packHardcoded from "./packHardcoded.json";
-// import nftsHardcoded from './nftsLength3.json';
+// import nftsHardcoded from './nftsHardcoded2.json';
 // import CardAnimation from "../CardAnimation";
 
 const OpenPack = () => {

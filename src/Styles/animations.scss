@@ -48,3 +48,26 @@
     transform: scale(1.12);
   }
 }
+
+@keyframes upAndDown {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0, 5px);
+  }
+
+  100%{
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes vanish {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}

@@ -13,7 +13,7 @@ const CarouselPacks = ({ nfts }) => {
     const [countReveal, setCountReveal] = useState(0);
     const history = useHistory();
 
-    const tablet = useMediaQuery('(max-width: 767px)')
+    const tablet = useMediaQuery('(max-width: 1200px)')
     const hd = useMediaQuery('(min-width: 1900px)')
 
     //Carousel states
@@ -121,6 +121,7 @@ const CarouselPacks = ({ nfts }) => {
                                 nftLengthList = {nfts?.length}
                                 nftIndex = {index}
                                 carouselIndex = {currentIndex}
+                                ended = {ended}
                                 setEnded = {setEnded}
                                 isRotated={ swipeable ? true : false}
                                 key={nft.uuid}
