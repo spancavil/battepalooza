@@ -9,6 +9,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
   const [status, error] = useTransactionNft({
     buyPack: true,
     packBuy: packBuy,
+    quantity: quantity,
     handleClose: handleClose,
     processingComplete: processingComplete
   })
