@@ -29,7 +29,6 @@ const MarketPlace = () => {
       return {};
     }
   });
-  console.log(filters);
 
   const [search, setSearch] = useState("");
   const [activeFilters, setActiveFilters] = useState(0);

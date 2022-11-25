@@ -16,6 +16,7 @@ const useTransactionNft = (
         quantity = 0,
         packBuy = {},
         nft = {},
+        trigger = true,
         processingComplete = () => {},
         handleClose = () => {}
     } = {},
@@ -36,10 +37,11 @@ const useTransactionNft = (
     //Paso uno, hacemos la compra, y la API nos devuelve el Id de la tx
     //para consultar en Forte
     useEffect(() => {
+        console.log(trigger);
         //Buy pack or buy marketplace or burn
         const functionStep1 = async () => {
             //Solo entra en caso de estar en el paso 1
-            if (step1 && !lockedStep1.current) {
+            if (step1 && !lockedStep1.current && trigger) {
                 lockedStep1.current = true
                 console.log(buyMarket);
                 if (buyPack) console.log("Step 1. BuyShopNft");
@@ -68,7 +70,7 @@ const useTransactionNft = (
                         if (burnNft) {
                             response = await nftService.burnNft(
                                 userData.bpToken,
-                                nft.pid,
+                                userData.pid,
                                 nft.uuid
                             );
                         }
@@ -113,7 +115,8 @@ const useTransactionNft = (
         buyMarket,
         burnNft,
         buyPack,
-        nft
+        nft,
+        trigger
     ]);
 
     //Paso 2

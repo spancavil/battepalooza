@@ -5,11 +5,19 @@ import { separator } from "../../../../Utils/separator";
 import ButtonRounded from "../../../ButtonRounded";
 import { useContext } from "react";
 import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
+/* import useTransactionNft from "../../../../Hooks/useTransactionNft"; */
 
 import styles from "./styles.module.scss";
 
-const BuyInfo = ({ chosenNft, handleAction }) => {
+const BuyInfo = ({ chosenNft, handleAction, openModalBurn }) => {
   const { maintenance } = useContext(MaintenanceData);
+
+  /*   const [status, error] = useTransactionNft({
+    burnNft: true,
+    nft: chosenNft,
+    handleClose: openModalBurn,
+    processingComplete: processingComplete, 
+  }); */
 
   return (
     <div className={styles.buyInfo}>
@@ -48,9 +56,6 @@ const BuyInfo = ({ chosenNft, handleAction }) => {
                 : () => handleAction("buy")
             }
             title="BUY"
-            additionalStyles={{
-              zIndex: 0,
-            }}
           />
         </>
       )}
@@ -65,9 +70,15 @@ const BuyInfo = ({ chosenNft, handleAction }) => {
                   : () => handleAction("register")
               }
               title="REGISTER IN MARKETPLACE"
-              additionalStyles={{
-                zIndex: 0,
-              }}
+            />
+            <ButtonRounded
+              color={
+                Object.keys(maintenance).length ? "disabled" : "inlineYellow"
+              }
+              title="BURN NFT"
+              onClick={
+                Object.keys(maintenance).length ? () => {} : openModalBurn
+              }
             />
           </>
         )}
@@ -82,9 +93,6 @@ const BuyInfo = ({ chosenNft, handleAction }) => {
                   : () => handleAction("unregister")
               }
               title="UNREGISTER MARKETPLACE"
-              additionalStyles={{
-                zIndex: 0,
-              }}
             />
           </>
         )}

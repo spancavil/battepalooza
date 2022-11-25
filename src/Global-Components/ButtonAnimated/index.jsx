@@ -32,7 +32,7 @@ const ButtonAnimated = ({ content = "loading", onClick }) => {
           </>
         )}
 
-      {content.toLowerCase() === "completed" && <Success />}
+      {content.toLowerCase() === "completed" && <Success onClick={onClick}/>}
       {content.toLowerCase() === "error" && <Error onClick={onClick} />}
     </div>
   );
