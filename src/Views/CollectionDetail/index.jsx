@@ -119,7 +119,7 @@ const CollectionDetail = () => {
 
       registerNft();
     } else {
-      fireToast("Price should be greater than 10000", 3000, "500px", "22px");
+      fireToast(`Price should be greater than ${nftSelected?.nftMinimumPrice}`, 3000, "500px", "22px");
       return;
     }
   };

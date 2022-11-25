@@ -37,7 +37,7 @@ const ModalRegister1 = ({
           </div>
           <hr />
           <p className={styles.afterFee}>
-            {inputPrice > 0 ? Math.round((Number(inputPrice) / 100) * fee) : 0}{" "}
+            {inputPrice > 0 ? Math.round(Number(inputPrice) - ((Number(inputPrice) / 100) * fee)) : 0}{" "}
             NCoin (Amount expected to receive)
           </p>
         </div>
