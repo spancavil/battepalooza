@@ -71,9 +71,6 @@ const CardToReveal = ({
                 >
                     <img src={dorso} alt="cara"></img>
                 </div>
-                <div className={ rotate ? styles.div2Rotate : styles.div2 } onClick = {handleRotate}>
-                    <img src={nft.thumbnailUrl} alt="cruz"></img>
-                </div>
 
                 <div className = {rotate ? styles.div2Rotate : styles.div2}>
                     <NftCard 
