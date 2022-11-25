@@ -121,6 +121,7 @@ const CarouselPacks = ({ nfts }) => {
                                 nftLengthList = {nfts?.length}
                                 nftIndex = {index}
                                 carouselIndex = {currentIndex}
+                                ended = {ended}
                                 setEnded = {setEnded}
                                 isRotated={ swipeable ? true : false}
                                 key={nft.uuid}
