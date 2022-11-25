@@ -62,3 +62,12 @@
     transform: translate(0, 0);
   }
 }
+
+@keyframes vanish {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}

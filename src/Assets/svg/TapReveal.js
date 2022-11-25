@@ -1,4 +1,4 @@
-const TapReveal = (props) => (
+const TapRevealIcon = (props) => (
     <svg
       width={32}
       height={32}
@@ -16,4 +16,4 @@ const TapReveal = (props) => (
     </svg>
   )
   
-  export default TapReveal
+  export default TapRevealIcon

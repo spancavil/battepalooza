@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import dorso from "../../../../Assets/img/nft-card-back01.png";
 import NftCard from "../../../../Global-Components/NftCard";
 import Tooltip from "../../../Tooltip";
-import TapReveal from "../../../../Assets/svg/TapReveal";
+import TapRevealIcon from "../../../../Assets/svg/TapReveal";
 import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 
 const CardToReveal = ({ 
@@ -51,12 +51,12 @@ const CardToReveal = ({
     return (
         <>
             <div className={
-                (nftIndex === carouselIndex) && !ended
+                (nftIndex === carouselIndex) && !ended && !rotate
                 ? styles.revealContainer
                 : styles.revealContainerHidden
             }>
                     <p className={styles.revealText}>{tablet ? "Tap" : "Click"} to reveal</p>
-                    <TapReveal className={styles.icon}/>
+                    <TapRevealIcon className={styles.icon}/>
             </div>
             <div 
                 className={nftIndex === carouselIndex 

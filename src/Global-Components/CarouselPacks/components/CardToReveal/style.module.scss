@@ -4,8 +4,28 @@
 @import "../../../../Styles/animations.scss";
 
 @media (max-width: $tablet - 1) {
+    .revealContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: 400ms all ease;
+
+        .revealText {
+            position: relative;
+            color: white;
+            font-family: $font-rubikExtrabold;
+            font-size: 24px;
+            line-height: 28px;
+        }
+        .icon {
+            animation: upAndDown 0.6s linear infinite;
+        }
+    }
+
     .cardContainer {
-        margin: 80px 0 30px 0;
+        margin: 50px 0 30px 0;
         position: relative;
         height: 338px;
         width: 100%;
@@ -73,8 +93,28 @@
 }
 
 @media (min-width: $tablet) and (max-width: $desktop - 1) {
+    .revealContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: 400ms all ease;
+
+        .revealText {
+            position: relative;
+            color: white;
+            font-family: $font-rubikExtrabold;
+            font-size: 24px;
+            line-height: 28px;
+        }
+        .icon {
+            animation: upAndDown 0.6s linear infinite;
+        }
+    }
+
     .cardContainer {
-        margin: 80px 0 30px 0;
+        margin: 50px 0 30px 0;
         position: relative;
         height: 338px;
         width: 100%;
@@ -148,6 +188,7 @@
         align-items: center;
         justify-content: center;
         gap: 5px;
+        transition: 400ms all ease;
 
         .revealText {
             position: relative;
@@ -157,12 +198,8 @@
             line-height: 28px;
         }
         .icon {
-            animation: upAndDown 1s linear infinite;;
+            animation: upAndDown 0.6s linear infinite;
         }
-    }
-    .revealContainerHidden {
-        @extend .revealContainer;
-        visibility: hidden; 
     }
     .cardContainer {
         margin: 40px 0 30px 0;
@@ -173,7 +210,6 @@
         justify-content: center;
         overflow: visible;
         transition: 600ms ease;
-
 
         .div2 {
             width: 242;
@@ -228,14 +264,33 @@
             }
             transform: rotateY(90deg);
         }
-
+        
     }
 
 }
 
 @media (min-width: $HD) {
+    .revealContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: 400ms all ease;
+
+        .revealText {
+            position: relative;
+            color: white;
+            font-family: $font-rubikExtrabold;
+            font-size: 24px;
+            line-height: 28px;
+        }
+        .icon {
+            animation: upAndDown 0.6s linear infinite;
+        }
+    }
     .cardContainer {
-        margin: 80px;
+        margin: 50px;
         position: relative;
         height: 338px;
         overflow: visible;
@@ -257,7 +312,7 @@
             transition: 1s ease all 1s;
             transform: rotateY(0deg);
         }
-
+        
         .div1 {
             position: absolute;
             top: 0;
@@ -300,4 +355,10 @@
 .cardContainerActiveNotRotated {
     @extend .cardContainerActive;
     animation: clickMe 1.2s 600ms linear infinite;
+}
+
+.revealContainerHidden {
+    @extend .revealContainer;
+    animation: vanish 0.4s ease;
+    visibility: hidden; 
 }
