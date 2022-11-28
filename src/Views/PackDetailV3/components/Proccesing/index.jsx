@@ -21,7 +21,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
         }
       >
         <h3 className={styles.textDrop}>
-          {status !== "error" ? (
+          {status !== "error" && status !== "failed" ? (
             <>
               {packBuy.packName} is being transferred. Please wait while the
               transfer is being completed
