@@ -10,13 +10,14 @@ const ButtonAnimated = ({ content = "loading", onClick }) => {
   const className =
     animation &&
     content.toLowerCase() !== "completed" &&
-    content.toLowerCase() !== "error"
+    content.toLowerCase() !== "error" &&
+    content.toLowerCase() !== "failed"
       ? animation
       : styles[content];
 
   useEffect(() => {
     setAnimation(styles.off);
-    
+
     setTimeout(() => {
       setAnimation(styles.buttonContainer);
     }, 1000);
@@ -25,15 +26,17 @@ const ButtonAnimated = ({ content = "loading", onClick }) => {
   return (
     <div className={className}>
       {content.toLowerCase() !== "completed" &&
-        content.toLowerCase() !== "error" && (
+        content.toLowerCase() !== "error" &&
+        content.toLowerCase() !== "failed" && (
           <>
             <button />
             <span>{content === "" ? "Loading" : content}</span>
           </>
         )}
 
-      {content.toLowerCase() === "completed" && <Success onClick={onClick}/>}
-      {content.toLowerCase() === "error" && <Error onClick={onClick} />}
+      {content.toLowerCase() === "completed" && <Success onClick={onClick} />}
+      {(content.toLowerCase() === "error" ||
+        content.toLowerCase() === "failed") && <Error onClick={onClick} />}
     </div>
   );
 };
