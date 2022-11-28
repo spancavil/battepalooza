@@ -17,7 +17,9 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
     <div className={styles.parentContainerModal}>
       <ModalV2
         title={
-          status !== "error" && status !== "completed" ? "Processing" : status
+          status !== "error" && status !== "failed" && status !== "completed"
+            ? "Processing"
+            : status
         }
       >
         <h3 className={styles.textDrop}>
