@@ -15,9 +15,7 @@ const Description = ({ chosenNft }) => {
       <div className={styles.p2eLeft}>
         <img src={LeftP2e} alt="Left p2e" />
         <p>
-          {Number(chosenNft?.maxPlayCount) - Number(chosenNft?.playCount) ||
-            "?"}{" "}
-          Left
+          {Number(chosenNft?.maxPlayCount) - Number(chosenNft?.playCount)} Left
         </p>
       </div>
     </div>
