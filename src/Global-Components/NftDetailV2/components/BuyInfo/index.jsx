@@ -12,13 +12,6 @@ import styles from "./styles.module.scss";
 const BuyInfo = ({ chosenNft, handleAction, openModalBurn }) => {
   const { maintenance } = useContext(MaintenanceData);
 
-  /*   const [status, error] = useTransactionNft({
-    burnNft: true,
-    nft: chosenNft,
-    handleClose: openModalBurn,
-    processingComplete: processingComplete, 
-  }); */
-
   return (
     <div className={styles.buyInfo}>
       <div className={styles.rarity}>

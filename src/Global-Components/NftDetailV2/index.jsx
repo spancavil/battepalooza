@@ -74,7 +74,7 @@ const NftDetailV2 = ({
                 openModalBurn={openModalBurn}
               />
               <Abilities chosenNft={chosenNft} />
-              {chosenNft?.type === 1 && <Stats chosenNft={chosenNft} />}
+              <Stats chosenNft={chosenNft} />
             </div>
           </div>
         ) : (
