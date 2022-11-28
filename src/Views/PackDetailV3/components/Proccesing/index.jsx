@@ -13,6 +13,8 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
     processingComplete: processingComplete,
   });
 
+  console.log(status)
+
   return (
     <div className={styles.parentContainerModal}>
       <ModalV2
