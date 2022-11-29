@@ -35,12 +35,12 @@ const MarketplaceDetailV2 = () => {
     useContext(NftData);
   
   const { userData } = useContext(UserData);
-  const { setCheckMaintenance, maintenance } = useContext(MaintenanceData)
+  const { maintenance } = useContext(MaintenanceData)
 
   //Fire check maintenance
-  useEffect(()=> {
+  /* useEffect(()=> {
     setCheckMaintenance(value => !value)
-  }, [setCheckMaintenance])
+  }, [setCheckMaintenance]) */
 
   useEffect(() => {
     (async () => {

@@ -40,7 +40,7 @@ const CollectionDetail = () => {
     premiumStatic,
     setReloadCollection,
   } = useContext(NftData);
-  const { maintenance, setCheckMaintenance } = useContext(MaintenanceData);
+  const { maintenance } = useContext(MaintenanceData);
 
   const [reloadDetail, setReloadDetail] = useState(false);
 
@@ -60,9 +60,9 @@ const CollectionDetail = () => {
   );
 
   //Fire check maintenance
-  useEffect(() => {
+  /* useEffect(() => {
     setCheckMaintenance((value) => !value);
-  }, [setCheckMaintenance]);
+  }, [setCheckMaintenance]); */
 
   useEffect(() => {
     const fetchData = async () => {

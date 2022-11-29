@@ -21,8 +21,8 @@ const MaintenanceProvider = ({ children }) => {
             setInterval(checking, 60000)
     }, [])
 
-/*     //Triggers a check for maintenance
-    useEffect(()=> {
+    //Triggers a check for maintenance
+    /* useEffect(()=> {
         const checkMaintenance = async () => {
             try {
                 const response = await authService.getMaintenanceStatus();

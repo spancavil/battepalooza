@@ -1,4 +1,4 @@
-import { sendAmplitudeData } from "../../../../Utils/amplitude";
+import { logOutAmplitude, sendAmplitudeData } from "../../../../Utils/amplitude";
 import { UserData } from "../../../../Context/UserProvider";
 import { useContext, useEffect, useState } from "react";
 import { separator } from "../../../../Utils/separator";
@@ -10,6 +10,7 @@ import NCoin from "../../../../Assets/img/icon-ncoin.png";
 import styles from "./styles.module.scss";
 import ReloadForte from "../ReloadForte";
 import { MaintenanceData } from "../../../../Context/MaintenanceProvider";
+import { fireAlertAsync } from "../../../../Utils/sweetAlert2";
 
 export const Ncoins = () => {
   const [loadingBalance, setLoadingBalance] = useState(true);
@@ -32,8 +33,22 @@ export const Ncoins = () => {
       if (!response.maintenance) {
         setMaintenance(false)
       }
-      const canContinue = checkErrorMiddleware(response, history);
-      if (canContinue) {
+      if (response.error?.num !== 0) {
+        if (response.error.text.includes("authorized")) {
+            fireAlertAsync("Session expired, please login again.").then(() => {
+                localStorage.removeItem("userBP");
+                logOutAmplitude();
+                if (history) history.push("/");
+                window.location.reload();
+                return false;
+            });
+        } else {
+            fireAlertAsync("Oops, an error ocurred", "Forte network under maintenance", "500px").then(()=> {
+                return false;
+            })
+        }
+      }
+      else {
         setCoins(separator(response.coin));
         setCoin(response.coin);
         setLoadingBalance(false);

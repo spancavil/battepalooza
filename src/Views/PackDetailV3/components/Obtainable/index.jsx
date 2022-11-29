@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../../../Global-Components/Loader";
 import { ObtainableNft } from "./components/ObtainableNft";
 import { PremiumBuffItems } from "./components/PremiumBuffItem";
@@ -10,27 +10,31 @@ const Obtainable = ({ nftList, premiumBuffs, rarityRates }) => {
 
   const [buffHover, setBuffHover] = useState([]);
   const [weaponOrCharHover, setWeaponOrCharHover] = useState(null);
+  const [percentages, setPercentages] = useState(null);
 
-  const getPercentages = () => {
-    const rarities = rarityRates && Object.values(rarityRates);
+  useEffect(()=> {
+    const getPercentages = () => {
+      const rarities = rarityRates && Object.values(rarityRates);
+  
+      if (rarities?.length > 0) {
+        const total = rarities?.reduce(
+          (previousValue, currentValue) => previousValue + currentValue,
+          0
+        );
+  
+        const percentages = rarities.map((item, i) => {
+          return {
+            percentage: Math.round((item / total) * 100),
+          };
+        });
+  
+        setPercentages(percentages);
+      }
+    };
+  
+    getPercentages();
 
-    if (rarities?.length > 0) {
-      const total = rarities?.reduce(
-        (previousValue, currentValue) => previousValue + currentValue,
-        0
-      );
-
-      const percentages = rarities.map((item, i) => {
-        return {
-          percentage: Math.round((item / total) * 100),
-        };
-      });
-
-      return percentages;
-    }
-  };
-
-  const percentages = getPercentages();
+  }, [rarityRates])
 
   const handleHover = (item = null) => {
     if (item?.buffType) {

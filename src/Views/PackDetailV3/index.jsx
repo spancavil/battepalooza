@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { MaintenanceData } from "../../Context/MaintenanceProvider";
+// import { MaintenanceData } from "../../Context/MaintenanceProvider";
 import { NftData } from "../../Context/NftProvider";
 import { PackData } from "../../Context/PackProvider";
 import Background from "../../Global-Components/Background";
@@ -16,7 +16,7 @@ import Proccesing from "./components/Proccesing";
 import styles from "./styles.module.scss";
 
 const PackDetailV3 = () => {
-  const [pack, setSelectedPack] = useState();
+  const [pack, setSelectedPack] = useState(null);
   const [packCount, setPackCount] = useState(1);
   const [buyComplete, setBuyComplete] = useState(false);
   const [checkoutNCoin, setCheckoutNCoin] = useState(false);
@@ -26,7 +26,7 @@ const PackDetailV3 = () => {
   const { setReloadCollection } = useContext(NftData);
   const { nftStatic, clanStatic, rarityStatic, repIdStatic, premiumStatic } =
     useContext(NftData);
-  const { setCheckMaintenance } = useContext(MaintenanceData);
+  // const { setCheckMaintenance } = useContext(MaintenanceData);
 
   const { id } = useParams();
 
@@ -41,12 +41,15 @@ const PackDetailV3 = () => {
   );
 
   useEffect(() => {
-    const selectedPack = packData?.nftPackProducts?.find(
-      (pack) => pack?.id === id
-    );
-    setSelectedPack(selectedPack);
-    setPack(selectedPack);
-  }, [id, packData, setPack]);
+    if (!pack) {
+      console.log("hola");
+      const selectedPack = packData?.nftPackProducts?.find(
+        (pack) => pack?.id === id
+      );
+      setSelectedPack(selectedPack);
+      setPack(selectedPack);
+    }
+  }, [id, packData, setPack, pack]);
 
   const processingComplete = () => {
     setCheckoutNCoin(false);
@@ -60,9 +63,9 @@ const PackDetailV3 = () => {
   };
 
   //Fire check maintenance
-  useEffect(() => {
+  /* useEffect(() => {
     setCheckMaintenance((value) => !value);
-  }, [setCheckMaintenance]);
+  }, [setCheckMaintenance]); */
 
   return (
     <Background>
