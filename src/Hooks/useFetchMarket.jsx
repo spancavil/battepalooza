@@ -36,7 +36,8 @@ const useFetchMarket = (filters, filterTypes, page, pageSize) => {
                         filterParameters.orderBy,
                         filterParameters.desc
                     );
-                    if (response.products.length) {
+                    console.log(response);
+                    if (response?.products?.length) {
                         nfts.push(...response.products);
                         pageVariable += 1;
                     } else {

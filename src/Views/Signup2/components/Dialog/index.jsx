@@ -59,7 +59,7 @@ const Dialog = ({ setShowInfoSignUp }) => {
 
     const reCAPTCHA = async () => {
         if (!executeRecaptcha) {
-            alert("Execute reCAPTCHA not yet available");
+            fireAlert("Execute reCAPTCHA not yet available");
             return;
         }
 
@@ -137,7 +137,7 @@ const Dialog = ({ setShowInfoSignUp }) => {
         if (!error) {
             const response = await authService.getVerificationCode(form.email);
             if (response.message.includes("later")) {
-                alert("Please try again later!");
+                fireAlertAsync("Oops an error ocurr", "Please try again later!");
             } else {
                 setUserSignUp({
                     email: form.email.toLowerCase(),

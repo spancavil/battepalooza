@@ -109,7 +109,8 @@ const PackDataProvider = ({ children }) => {
           if (packData?.error?.num === 0) {
             setPackData(packData)
           } else {
-            fireAlert("Oops, an error ocurred", packData?.error?.message, "500px");
+            console.log("Error en packdata");
+            fireAlert("Oops, an error ocurred", packData?.error?.text, "500px");
           }
         
       } catch (error) {

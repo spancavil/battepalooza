@@ -12,7 +12,6 @@ import CollectionDetail from "./Views/CollectionDetail";
 import Privacy from "./Views/PrivacyAndTerms/Privacy";
 import TermsOfUse from "./Views/PrivacyAndTerms/TermsOfUse";
 import MarketPlace from "./Views/MarketPlace";
-/* import MarketplaceDetail from "./Views/MarketplaceDetail"; */
 import Drop from "./Views/Drop";
 import DropDetail from "./Views/DropDetail";
 import Profile from "./Views/Account";
@@ -20,7 +19,6 @@ import TradeHistory from "./Views/TradeHistory";
 import Packs from "./Views/Packs";
 import OpenPack from "./Views/OpenPack";
 import Auth from "./Views/Auth";
-/* import PackDetailV2 from "./Views/PackDetailV2"; */
 import Navbar from "./Global-Components/Navbar";
 
 import "./Styles/Global.scss";

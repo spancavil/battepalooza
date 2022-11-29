@@ -64,6 +64,7 @@ const NftProvider = ({ children }) => {
                         setUserCollection(userCollection.nfts);
                         setLoadingUserCollection(false);
                     }
+                    setLoadingUserCollection(false)
                 }
             } catch (error) {
                 fireAlert("Oops, an error ocurred", error.message, "500px");
@@ -114,6 +115,7 @@ const NftProvider = ({ children }) => {
                 setRepIdStatic(Object.values(staticRepId));
                 setPremiumStatic(premium);
             } catch (error) {
+                console.log("Error");
                 fireAlert("Oops, an error ocurred", error.message, "500px");
             }
         })();

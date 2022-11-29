@@ -39,7 +39,7 @@ const BuyInfo = ({ chosenNft, handleAction, openModalBurn }) => {
             </div>
           </div>
           <span style={{ textAlign: "right" }}>
-            You should pay 1NCoin for the gas fee only for your first purchase
+            1 NCoin will be charged as gas fee on the first purchase and after the first purchase there are no gas fee
           </span>
           <ButtonRounded
             color={Object.keys(maintenance).length ? "disabled" : "yellow"}

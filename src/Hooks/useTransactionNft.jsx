@@ -87,8 +87,18 @@ const useTransactionNft = (
                                 });
                             } else {
                                 setStatus("error");
-                                setError(response?.error?.text);
-                            }
+                                const errorNum = response?.error?.num
+                                let errorText = "";
+                                switch (errorNum) {
+                                    case 2028:
+                                        errorText = "Your storage of NFT will exceed the limit. You cannot buy more NFT."
+                                        break;
+                                    
+                                    default:
+                                        errorText = "An error occur."
+                                        break;
+                                }
+                                setError(errorText);                            }
                             //Si no hay errores seteamos el forteTxId para el paso 2.
                         } else {
                             setForteTxText(response.forteTxId);
@@ -134,6 +144,8 @@ const useTransactionNft = (
                         forteTxText,
                         userData.bpToken
                     );
+
+                    console.log(response);
                     if (response.error.text !== "") {
                         if (response.error.text.includes("authorized")) {
                             fireAlertAsync(
@@ -147,7 +159,18 @@ const useTransactionNft = (
                             });
                         } else {
                             setStatus("error");
-                            setError(response?.error?.text);
+                            const errorNum = response?.error?.num
+                            let errorText = "";
+                            switch (errorNum) {
+                                case 2028:
+                                    errorText = "Your storage of NFT is full. You cannot buy more NFT."
+                                    break;
+                                
+                                default:
+                                    errorText = "An error occur."
+                                    break;
+                            }
+                            setError(errorText);
                             setTimeout(() => {
                                 handleClose();
                             }, 3000);
