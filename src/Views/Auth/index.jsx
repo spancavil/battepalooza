@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
-import { MaintenanceData } from "../../Context/MaintenanceProvider";
 import { UserData } from "../../Context/UserProvider";
 import LeftBanner from "../../Global-Components/LeftBanner";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
@@ -34,8 +33,6 @@ const Auth = () => {
         firstLogin,
     } = useContext(UserData);
 
-    const {setMaintenance} = useContext(MaintenanceData);
-
     const history = useHistory();
 
     const { type } = useParams();
@@ -66,14 +63,16 @@ const Auth = () => {
 
                 const response = await authService.getVerificationCode(email);
 
-                if (response.maintenance) {
+                console.log(response);
+
+                /* if (response.maintenance) {
                     setMaintenance(response.maintenance);
                 }
                 //Only set maintenance false if there is no maintenace from response and
                 //the maintenance status was previously set.
                 if (!response.maintenance) {
                     setMaintenance(false)
-                }
+                } */
 
                 if (response.success === false) {
                     fireAlert(

@@ -6,7 +6,7 @@ export const MaintenanceData = createContext({});
 const MaintenanceProvider = ({ children }) => {
 
     const [maintenance, setMaintenance] = useState(false);
-    const [checkMaintenance, setCheckMaintenance] = useState(false);
+    // const [checkMaintenance, setCheckMaintenance] = useState(false);
 
     useEffect(()=> {
             const checking = async () => {
@@ -21,7 +21,7 @@ const MaintenanceProvider = ({ children }) => {
             setInterval(checking, 60000)
     }, [])
 
-    //Triggers a check for maintenance
+/*     //Triggers a check for maintenance
     useEffect(()=> {
         const checkMaintenance = async () => {
             try {
@@ -33,14 +33,14 @@ const MaintenanceProvider = ({ children }) => {
             }
         }
         checkMaintenance()
-    }, [checkMaintenance])
+    }, [checkMaintenance]) */
 
     return (
         <MaintenanceData.Provider
             value={{
                 maintenance,
                 setMaintenance,
-                setCheckMaintenance,
+                // setCheckMaintenance,
             }}
         >
             {children}
