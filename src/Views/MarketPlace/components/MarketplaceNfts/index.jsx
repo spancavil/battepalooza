@@ -91,7 +91,7 @@ const MarketplaceNfts = ({
 
     }, [nftMarketModified, setNftFiltered, search]);
 
-    const max = nftsFiltered.length / nftPerPage;
+    const max = nftsFiltered?.length | 0 / nftPerPage;
 
     const handleDetail = (uniqueId, sellerPid) => {
         history.push(`/marketplace/${uniqueId}-${sellerPid}`);
@@ -139,7 +139,7 @@ const MarketplaceNfts = ({
                 : null
             }
 
-            {(!activeFilters && nftMarketModified.length === 0 && !loading)?
+            {(!activeFilters && nftMarketModified?.length === 0 && !loading)?
                 <div className={styles.notNft}>
                     <span>
                         There are no NFTs in marketplace
@@ -148,7 +148,7 @@ const MarketplaceNfts = ({
                 : null
             }
 
-            {activeFilters && nftsFiltered.length === 0 && loading === false 
+            {activeFilters && nftsFiltered?.length === 0 && loading === false 
             ? (
                 <div className={styles.notNft}>
                     <span>

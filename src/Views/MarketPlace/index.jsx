@@ -16,7 +16,7 @@ import Footer from "../../Global-Components/Footer";
 import { makeCheckableObject } from "../../Utils/objectUtilities";
 import { NftData } from "../../Context/NftProvider";
 import useFetchMarket from "../../Hooks/useFetchMarket";
-import { fireAlert } from "../../Utils/sweetAlert2";
+import { fireAlertAsync } from "../../Utils/sweetAlert2";
 import { FiltersMobile } from "../../Global-Components/FiltersMobile";
 
 const MarketPlace = () => {
@@ -49,7 +49,7 @@ const MarketPlace = () => {
     page,
     nftPerPage
   );
-  if (error) fireAlert("Oops, an error ocurred", error.message, "500px");
+  if (error) fireAlertAsync("Oops, an error ocurred", error).then(()=> {history.push('/')});
 
   //Set filters
   useEffect(() => {

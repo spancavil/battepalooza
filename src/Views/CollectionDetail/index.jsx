@@ -73,6 +73,8 @@ const CollectionDetail = () => {
             userData.pid,
             uuid
           );
+
+          console.log(response);
           const canContinue = checkErrorMiddleware(response, history);
           if (canContinue) {
             setNftSelectedRaw(response.nft);

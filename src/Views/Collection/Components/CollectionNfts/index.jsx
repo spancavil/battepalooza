@@ -51,6 +51,8 @@ const CollectionNfts = ({
     repIdStatic
   );
 
+  console.log(loadingUserCollection);
+
   //Array para aplicar los filtros primarios al array original
   const [nftsFiltered, setNftFiltered] = useState([]);
   

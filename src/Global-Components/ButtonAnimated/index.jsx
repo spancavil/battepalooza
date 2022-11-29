@@ -5,8 +5,6 @@ import styles from "./styles.module.scss";
 const ButtonAnimated = ({ content = "loading", onClick }) => {
   const [animation, setAnimation] = useState(styles.off);
 
-  console.log({ animation, content });
-
   const className =
     animation &&
     content.toLowerCase() !== "completed" &&
