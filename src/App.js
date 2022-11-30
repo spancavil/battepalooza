@@ -12,7 +12,6 @@ import CollectionDetail from "./Views/CollectionDetail";
 import Privacy from "./Views/PrivacyAndTerms/Privacy";
 import TermsOfUse from "./Views/PrivacyAndTerms/TermsOfUse";
 import MarketPlace from "./Views/MarketPlace";
-/* import MarketplaceDetail from "./Views/MarketplaceDetail"; */
 import Drop from "./Views/Drop";
 import DropDetail from "./Views/DropDetail";
 import Profile from "./Views/Account";
@@ -20,7 +19,6 @@ import TradeHistory from "./Views/TradeHistory";
 import Packs from "./Views/Packs";
 import OpenPack from "./Views/OpenPack";
 import Auth from "./Views/Auth";
-/* import PackDetailV2 from "./Views/PackDetailV2"; */
 import Navbar from "./Global-Components/Navbar";
 
 import "./Styles/Global.scss";
@@ -28,8 +26,6 @@ import MarketplaceDetailV2 from "./Views/MarketplaceDetailV2";
 import PackDetailV3 from "./Views/PackDetailV3";
 import MaintenanceMessage from "./Global-Components/MaintenanceMessage";
 import { MaintenanceData } from "./Context/MaintenanceProvider";
-/* import ButtonRounded from "./Global-Components/ButtonRounded";
-import { getMaintenanceRandomTime } from "./Utils/maintenaceDates"; */
 
 function App() {
   const { userData, error404 } = useContext(UserData);
@@ -39,21 +35,6 @@ function App() {
     <BrowserRouter>
       {!error404 && <Navbar />}
       {Object.keys(maintenance).length ? <MaintenanceMessage /> : null}
-        {/* <ButtonRounded
-        color = "yellow"
-        additionalStyles={{
-          zIndex: 10,
-          position: "fixed",
-          bottom: 0,
-          marginBottom: 10,
-          marginLeft: 10,
-        }}
-        title = "Switch maintenance"
-        onClick={() => {
-          if (!maintenance) setMaintenance(getMaintenanceRandomTime())
-          else setMaintenance(false)
-        }}
-      /> */}
 
       <Switch>
         <Route exact path="/" component={HomeContainer} />

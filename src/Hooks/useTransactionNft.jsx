@@ -144,8 +144,6 @@ const useTransactionNft = (
                         forteTxText,
                         userData.bpToken
                     );
-
-                    console.log(response);
                     if (response.error.text !== "") {
                         if (response.error.text.includes("authorized")) {
                             fireAlertAsync(
