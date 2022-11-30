@@ -27,12 +27,7 @@ export const Ncoins = () => {
     const fetchData = async () => {
       setDisabled(true)
       response = await authService.getForteBalance(userData);
-      if (response?.maintenance) {
-        setMaintenance(response.maintenance);
-      }
-      if (!response.maintenance) {
-        setMaintenance(false)
-      }
+      
       if (response.error?.num !== 0) {
         if (response.error.text.includes("authorized")) {
             fireAlertAsync("Session expired, please login again.").then(() => {
@@ -68,12 +63,7 @@ export const Ncoins = () => {
     };
     sendAmplitudeData("Click", properties);
     const response = await authService.getFortePayload(userData);
-    if (response?.maintenance) {
-      setMaintenance(response.maintenance);
-    }
-    if (!response.maintenance) {
-      setMaintenance(false)
-    }
+
     const canContinue = checkErrorMiddleware(response, history);
     if (canContinue) {
       window.open(response.redirectTo);

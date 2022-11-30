@@ -14,7 +14,7 @@ import { fireAlert, fireAlertAsync } from "../../Utils/sweetAlert2";
 import AppNway from "../../Assets/img/App nWayPlay 1.png";
 import passCode from "../../Assets/img/PassCode 1.png";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
-import { MaintenanceData } from "../../Context/MaintenanceProvider";
+// import { MaintenanceData } from "../../Context/MaintenanceProvider";
 
 const Verification = () => {
   const [code, setCode] = useState("");
@@ -24,8 +24,6 @@ const Verification = () => {
   const [linkingMessage, setLinkingMessage] = useState("Create");
   const [linked, setLinked] = useState(false);
   const loading = useRef(false);
-
-  const { setMaintenance } = useContext(MaintenanceData);
 
   const mobile = useMediaQuery("(max-width: 766px)");
 
@@ -78,13 +76,6 @@ const Verification = () => {
       //Envío de datos de tracking a Amplitude
 
       const respuesta = response.data.response;
-
-      if (response?.maintenance) {
-        setMaintenance(response.maintenance);
-      }
-      if (!response.maintenance) {
-        setMaintenance(false)
-      }
 
       if (respuesta && respuesta.error?.num !== 0) {
         await fireAlertAsync(
