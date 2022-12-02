@@ -4,7 +4,7 @@ import React, {
   useEffect,
   useMemo,
   createRef,
-  useRef
+  useRef,
 } from "react";
 import styles from "./styles.module.scss";
 import { NftData } from "../../../../Context/NftProvider";
@@ -31,7 +31,7 @@ const CollectionNfts = ({
   nftPerPage,
   setNftPerPage,
   search,
-  filterTypes
+  filterTypes,
 }) => {
   const {
     userCollection,
@@ -55,12 +55,12 @@ const CollectionNfts = ({
 
   //Array para aplicar los filtros primarios al array original
   const [nftsFiltered, setNftFiltered] = useState([]);
-  
+
   //Array auxiliar para un segundo ordenamiento sobre el filtro de arriba.
   const [nftsFiltered2, setNftFiltered2] = useState(null);
 
   const [nftOrdered, setNftOrdered] = useState([]);
-  
+
   const history = useHistory();
   const breakpoint = useMediaQuery("(max-width: 1200px)");
 
@@ -110,51 +110,69 @@ const CollectionNfts = ({
       let filtro5 = [];
       let filtro6 = [];
       let filtro14 = [];
-      let filtroWeaponsEspecificasRaw = []
+      let filtroWeaponsEspecificasRaw = [];
       let filtrosWeaponsTildados = false;
 
-      let filtroCharactersEsepcificosRaw = []
+      let filtroCharactersEsepcificosRaw = [];
       let filtroCharactersTildados = false;
 
-      let filtroP2ERaw = []
+      let filtroP2ERaw = [];
       let filtroP2eTildado = false;
 
-      let filtroPremiumBuffRaw = []
+      let filtroPremiumBuffRaw = [];
       let filtroPremiumBuffsTildados = false;
 
-      const weaponKeys = Object.keys(filterTypes?.weapons || {})
+      const weaponKeys = Object.keys(filterTypes?.weapons || {});
       if (weaponKeys.length) {
         for (const weapon of weaponKeys) {
           if (filters[weapon]) {
-            filtroWeaponsEspecificasRaw.push(...auxFilter.filter(nft => nft.repName === weapon))
+            filtroWeaponsEspecificasRaw.push(
+              ...auxFilter.filter((nft) => nft.repName === weapon)
+            );
             filtrosWeaponsTildados = true;
-          };
+          }
         }
       }
 
-      const characterKeys = Object.keys(filterTypes?.characters || {})
+      const characterKeys = Object.keys(filterTypes?.characters || {});
       if (characterKeys.length) {
         for (const character of characterKeys) {
           if (filters[character]) {
-            filtroCharactersEsepcificosRaw.push(...auxFilter.filter(nft => nft.repName === character))
+            filtroCharactersEsepcificosRaw.push(
+              ...auxFilter.filter((nft) => nft.repName === character)
+            );
             filtroCharactersTildados = true;
-          };
+          }
         }
       }
 
       //p2e filters
-      const p2eKeys = Object.keys(filterTypes?.p2e || {})
-      if (p2eKeys.length){
+      const p2eKeys = Object.keys(filterTypes?.p2e || {});
+      if (p2eKeys.length) {
         for (const p2eKey of p2eKeys) {
           if (filters[p2eKey]) {
-            if (p2eKey.includes("50")){
-              filtroP2ERaw.push(...auxFilter.filter(nft => nft.maxPlayCount - nft.playCount <= 50))
+            if (p2eKey.includes("50")) {
+              filtroP2ERaw.push(
+                ...auxFilter.filter(
+                  (nft) => nft.maxPlayCount - nft.playCount <= 50
+                )
+              );
             }
-            if (p2eKey.includes("51")){
-              filtroP2ERaw.push(...auxFilter.filter(nft => nft.maxPlayCount - nft.playCount <= 100 && nft.maxPlayCount - nft.playCount > 50))
+            if (p2eKey.includes("51")) {
+              filtroP2ERaw.push(
+                ...auxFilter.filter(
+                  (nft) =>
+                    nft.maxPlayCount - nft.playCount <= 100 &&
+                    nft.maxPlayCount - nft.playCount > 50
+                )
+              );
             }
-            if (p2eKey.includes("101")){
-              filtroP2ERaw.push(...auxFilter.filter(nft => nft.maxPlayCount - nft.playCount > 100))
+            if (p2eKey.includes("101")) {
+              filtroP2ERaw.push(
+                ...auxFilter.filter(
+                  (nft) => nft.maxPlayCount - nft.playCount > 100
+                )
+              );
             }
             filtroP2eTildado = true;
           }
@@ -162,18 +180,22 @@ const CollectionNfts = ({
       }
 
       //premiumBuff filter
-      const premiumBuffKeys = Object.keys(filterTypes?.premiumBuffs || {})
-      if (premiumBuffKeys.length){
+      const premiumBuffKeys = Object.keys(filterTypes?.premiumBuffs || {});
+      if (premiumBuffKeys.length) {
         for (const premiumBuffKey of premiumBuffKeys) {
-          if (filters[premiumBuffKey]){
-            const premiumBuffId = premiumStatic.find(staticBuff => staticBuff.engName === premiumBuffKey).id
-            filtroPremiumBuffRaw.push(...auxFilter.filter(nft => {
-              for (const buff of nft.buff) {
-                if (buff.id === premiumBuffId) return true
-              }
-              return false
-            }))
-            filtroPremiumBuffsTildados = true
+          if (filters[premiumBuffKey]) {
+            const premiumBuffId = premiumStatic.find(
+              (staticBuff) => staticBuff.engName === premiumBuffKey
+            ).id;
+            filtroPremiumBuffRaw.push(
+              ...auxFilter.filter((nft) => {
+                for (const buff of nft.buff) {
+                  if (buff.id === premiumBuffId) return true;
+                }
+                return false;
+              })
+            );
+            filtroPremiumBuffsTildados = true;
           }
         }
       }
@@ -212,20 +234,23 @@ const CollectionNfts = ({
           ? [...nftOrdered]
           : [...filtro1, ...filtro2, ...filtro3, ...filtro4];
 
-      const filtroSearch =
-        search === "" ? [...nftOrdered] : [...filtro14];
-      
-      const filtroWeaponsEspecificas =
-        filtrosWeaponsTildados ? [...filtroWeaponsEspecificasRaw] : [...nftOrdered]
-  
-      const filtroCharactersEspecificos =
-        filtroCharactersTildados ? [...filtroCharactersEsepcificosRaw] : [...nftOrdered]
-      
-      const filtroP2eEspecifico = 
-        filtroP2eTildado ? [...filtroP2ERaw] : [...nftOrdered]
-      
-      const filtroPremiumBuffEspecifico =
-        filtroPremiumBuffsTildados ? [...filtroPremiumBuffRaw] : [...nftOrdered]
+      const filtroSearch = search === "" ? [...nftOrdered] : [...filtro14];
+
+      const filtroWeaponsEspecificas = filtrosWeaponsTildados
+        ? [...filtroWeaponsEspecificasRaw]
+        : [...nftOrdered];
+
+      const filtroCharactersEspecificos = filtroCharactersTildados
+        ? [...filtroCharactersEsepcificosRaw]
+        : [...nftOrdered];
+
+      const filtroP2eEspecifico = filtroP2eTildado
+        ? [...filtroP2ERaw]
+        : [...nftOrdered];
+
+      const filtroPremiumBuffEspecifico = filtroPremiumBuffsTildados
+        ? [...filtroPremiumBuffRaw]
+        : [...nftOrdered];
 
       //Colocamos los valores que coinciden en ambos filtros de búsqueda (es como un inner join)
       const coincidencias = filtroWeapon
@@ -234,7 +259,7 @@ const CollectionNfts = ({
         .filter((value) => filtroWeaponsEspecificas.includes(value))
         .filter((value) => filtroCharactersEspecificos.includes(value))
         .filter((value) => filtroP2eEspecifico.includes(value))
-        .filter((value) => filtroPremiumBuffEspecifico.includes(value))
+        .filter((value) => filtroPremiumBuffEspecifico.includes(value));
 
       setNftFiltered(coincidencias);
     }
@@ -268,7 +293,7 @@ const CollectionNfts = ({
     }
   }, [nftCollectionModified]);
 
-    //Ordenamientos secundarios
+  //Ordenamientos secundarios
 
   //Effect for order by newest / oldest
   useEffect(() => {
@@ -287,14 +312,16 @@ const CollectionNfts = ({
   return (
     <div className={styles.container}>
       <div className={styles.cardsContainer}>
-        {nftsFiltered?.length 
-          ? <h3 className={styles.title}>{nftsFiltered?.length} NFTs</h3>
-          : null
-        }
+        {nftsFiltered?.length ? (
+          <h3 className={styles.title}>{nftsFiltered?.length} NFTs</h3>
+        ) : null}
         {nftsFiltered.length > 0 && loadingUserCollection === false && (
           <div className={styles.cards}>
             {(nftsFiltered2 || nftsFiltered)
-              .slice((page - 1) * nftPerPage, (page - 1) * nftPerPage + nftPerPage)
+              .slice(
+                (page - 1) * nftPerPage,
+                (page - 1) * nftPerPage + nftPerPage
+              )
               .map((nft, idx) => {
                 //Tenemos que pasarle el indice al map, para que apunte a la referencia correcta el div contenedor
                 const indice = nftsFiltered?.indexOf(nft);
@@ -325,12 +352,12 @@ const CollectionNfts = ({
 
       {nftsFiltered.length > 0 && (
         <Pagination
-        input={input}
-        setInput={setInput}
-        page={page}
-        setPage={setPage}
-        max={max}
-    />
+          input={input}
+          setInput={setInput}
+          page={page}
+          setPage={setPage}
+          max={max}
+        />
       )}
     </div>
   );
