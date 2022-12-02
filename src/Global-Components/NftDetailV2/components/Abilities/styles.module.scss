@@ -30,6 +30,12 @@
         display: flex;
         gap: 0.5rem;
 
+        img {
+          width: 65px;
+          height: 65px;
+          object-fit: contain;
+        }
+
         .values {
           display: flex;
           flex-direction: column;
@@ -55,10 +61,10 @@
     border: 2px solid #0146d5;
     box-shadow: 0px 6px 16px 0px #1919194d;
     background: #181931;
-  
+
     padding: 1.5rem;
     border-radius: 8px;
-  
+
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -82,6 +88,12 @@
       .item {
         display: flex;
         gap: 0.5rem;
+
+        img {
+          width: 65px;
+          height: 65px;
+          object-fit: contain;
+        }
 
         .values {
           display: flex;
