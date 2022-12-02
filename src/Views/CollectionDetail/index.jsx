@@ -5,15 +5,13 @@ import { UserData } from "../../Context/UserProvider";
 import Background from "../../Global-Components/Background";
 import nftService from "../../Services/nft.service";
 import ModalRegister1 from "./Components/ModalRegister1";
-import ModalRegister2 from "./Components/ModalRegister2";
+import Proccessing from "./Components/Proccessing";
 import ModalUnregister from "./Components/ModalUnregister";
 
 import useModifyDetail from "../../Hooks/useModifyDetail";
 
 import checkErrorMiddleware from "../../Utils/checkErrorMiddleware";
-import marketService from "../../Services/market.service";
-import fireToast, { fireAlert } from "../../Utils/sweetAlert2";
-import { sendAmplitudeData } from "../../Utils/amplitude";
+import fireToast from "../../Utils/sweetAlert2";
 import NftDetailV2 from "../../Global-Components/NftDetailV2";
 import { MaintenanceData } from "../../Context/MaintenanceProvider";
 import ModalBurnNft from "./Components/ModalBurnNft";
@@ -23,11 +21,12 @@ const CollectionDetail = () => {
   // const [loading, setLoading] = useState(false);
   const [modalUnregister, setmodalUnregister] = useState(false);
   const [modalRegister1, setmodalRegister1] = useState(false);
-  const [modalRegister2, setmodalRegister2] = useState(false);
+  const [proccesing, setProccesing] = useState(false);
   const [modalBurnNft, setModalBurnNft] = useState(false);
 
   const [inputPrice, setInputPrice] = useState(0);
-  const [forteTxText, setForteTxText] = useState("");
+  const [register, setRegister] = useState(false);
+  const [unRegister, setUnregister] = useState(false);
   /* const [position, setPosition] = useState({ positionX: "", positionY: "" });
     const [premium, setPremium] = useState(false); */
 
@@ -98,28 +97,9 @@ const CollectionDetail = () => {
 
   const Register = () => {
     if (Number(inputPrice) > nftSelected?.nftMinimumPrice) {
-      const registerNft = async () => {
-        try {
-          const response = await marketService.registerProductMarketplace(
-            userData.pid,
-            nftSelected.uuid,
-            inputPrice,
-            userData.bpToken
-          );
-
-          const canContinue = checkErrorMiddleware(response, history);
-          if (canContinue) {
-            sendAmplitudeData("Collection place for sale confirm");
-            setForteTxText(response.forteTxId);
-            setmodalRegister1(false);
-            setmodalRegister2(true);
-          }
-        } catch (error) {
-          fireAlert("Oops, an error ocurred", error.message, "500px");
-        }
-      };
-
-      registerNft();
+      setmodalRegister1(false)
+      setRegister(true)
+      setProccesing(true)
     } else {
       fireToast(`Price should be greater than ${nftSelected?.nftMinimumPrice}`, 3000, "500px", "22px");
       return;
@@ -127,41 +107,9 @@ const CollectionDetail = () => {
   };
 
   const confirmUnregister = () => {
-    const unRegisterNft = async () => {
-      try {
-        //Necesitamos obtener el NFT del market porque de ahí sacamos el uniqueId de Forte
-        //Edit: ya no es necesario obtener esta info del marketplace
-        /* console.log({nftMarket});
-        const nftFromMarket = nftMarket.find(
-          (nft) =>
-            nft.itemName === nftSelected.itemName &&
-            nft.sellerPid === userData.pid &&
-            nft.serial === nftSelected.serial
-        ); */
-
-        const response = await marketService.cancelSellingMarketplace(
-          userData.pid,
-          nftSelected.uniqueId,
-          userData.bpToken
-        );
-
-        const canContinue = checkErrorMiddleware(response, history);
-        if (canContinue) {
-          setForteTxText(response.forteTxId);
-          setmodalUnregister(false);
-          setmodalRegister2(true);
-        }
-      } catch (error) {
-        fireAlert("Oops, an error ocurred", error.message, "500px");
-      }
-    };
-    unRegisterNft();
-    setReloadDetail((value) => !value);
-  };
-
-  const handleMarket = () => {
-    setReloadCollection((value) => !value);
-    history.push("/marketplace");
+    setmodalUnregister(false)
+    setUnregister(true);
+    setProccesing(true);
   };
 
   const handleInputChange = (value) => {
@@ -196,14 +144,14 @@ const CollectionDetail = () => {
           minimunPrice={nftSelected?.nftMinimumPrice}
         />
       )}
-      {modalRegister2 && (
-        <ModalRegister2
-          setmodalRegister2={setmodalRegister2}
-          handleMarket={handleMarket}
+      {proccesing && (
+        <Proccessing
+          nft={nftSelected}
+          setProccesing={setProccesing}
           setReloadDetail={setReloadDetail}
-          forteTxText={forteTxText}
-          bpToken={userData.bpToken}
-          pid={userData.pid}
+          register={register}
+          unRegister={unRegister}
+          inputPrice={inputPrice}
         />
       )}
       {modalBurnNft && (

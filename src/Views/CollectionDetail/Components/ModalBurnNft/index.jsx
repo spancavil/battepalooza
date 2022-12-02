@@ -20,7 +20,7 @@ const ModalBurnNft = ({ closeModal, nft, setReloadCollection }) => {
   const history = useHistory();
 
   const onClose = () => {
-    if (status === "completed") {
+    if (status === "completed" || "failed") {
       setReloadCollection((value) => !value);
       history.push("/collection");
     }

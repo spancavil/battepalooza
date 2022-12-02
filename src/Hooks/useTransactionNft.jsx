@@ -13,6 +13,9 @@ const useTransactionNft = ({
   buyPack = false,
   buyMarket = false,
   burnNft = false,
+  registerMarket = false,
+  inputPrice = 0,
+  unregisterMarket = false,
   quantity = 0,
   packBuy = {},
   nft = {},
@@ -42,7 +45,6 @@ const useTransactionNft = ({
       //Solo entra en caso de estar en el paso 1
       if (step1 && !lockedStep1.current && trigger) {
         lockedStep1.current = true;
-        console.log(buyMarket);
         if (buyPack) console.log("Step 1. BuyShopNft");
         if (buyMarket) console.log("Step 1. Buy marketplace");
         if (burnNft) console.log("Step 1. Burn NFT");
@@ -70,6 +72,24 @@ const useTransactionNft = ({
                 userData.bpToken,
                 userData.pid,
                 nft.uuid
+              );
+            }
+            if (registerMarket) {
+              console.log(userData.pid);
+              console.log(inputPrice);
+              console.log(nft.uuid);
+              response = await marketService.registerProductMarketplace(
+                userData.pid,
+                nft.uuid,
+                inputPrice,
+                userData.bpToken
+              );
+            }
+            if (unregisterMarket) {
+              response = await marketService.cancelSellingMarketplace(
+                userData.pid,
+                nft.uniqueId,
+                userData.bpToken
               );
             }
             console.log(response);
@@ -115,6 +135,9 @@ const useTransactionNft = ({
     buyPack,
     nft,
     trigger,
+    unregisterMarket,
+    inputPrice,
+    registerMarket
   ]);
 
   //Paso 2
@@ -132,6 +155,7 @@ const useTransactionNft = ({
             forteTxText,
             userData.bpToken
           );
+          debugger
           if (response.error.text !== "") {
             if (response.error.text.includes("authorized")) {
               fireAlertAsync(
@@ -157,6 +181,9 @@ const useTransactionNft = ({
             if (response.status === "completed") {
               console.log(response);
               setTxResultPackBuy(response?.txResult);
+            } 
+            if (response.status === "failed" ) {
+              setError("Forte transaction error")
             }
           }
         } catch (error) {
