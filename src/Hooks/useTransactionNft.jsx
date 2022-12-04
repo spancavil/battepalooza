@@ -48,8 +48,11 @@ const useTransactionNft = ({
         if (buyPack) console.log("Step 1. BuyShopNft");
         if (buyMarket) console.log("Step 1. Buy marketplace");
         if (burnNft) console.log("Step 1. Burn NFT");
+        if (registerMarket) console.log("Step 1. Register Marketplace for sell");
+        if (unregisterMarket) console.log("Step 1: Unregister Marketplace for sell");
         if (Object.keys(userData).length !== 0) {
           try {
+            setForteTxText("")
             let response;
             if (buyPack) {
               response = await dropService.buyShop(
@@ -75,9 +78,6 @@ const useTransactionNft = ({
               );
             }
             if (registerMarket) {
-              console.log(userData.pid);
-              console.log(inputPrice);
-              console.log(nft.uuid);
               response = await marketService.registerProductMarketplace(
                 userData.pid,
                 nft.uuid,
@@ -147,7 +147,6 @@ const useTransactionNft = ({
     if (forteTxText !== "" && Object.keys(userData).length !== 0 && step2) {
       console.log(`Step 2. Get forte tx`);
       console.log(`Forteid: ${forteTxText}, Status: ${status}`);
-
       const getStatusForte = async () => {
         try {
           const response = await dropService.getTransactionStatus(
@@ -155,7 +154,6 @@ const useTransactionNft = ({
             forteTxText,
             userData.bpToken
           );
-          debugger
           if (response.error.text !== "") {
             if (response.error.text.includes("authorized")) {
               fireAlertAsync(
@@ -193,12 +191,12 @@ const useTransactionNft = ({
             handleClose();
           }, 3000);
         }
+        //We call the status of the transaction in forte each 0.5 secs
       };
-
-      //We call the status of the transaction in forte each 0.5 secs
       forteStatusInterval = setInterval(getStatusForte, 500);
       setTimeout(() => {
         if (status !== "pending" && status !== "") {
+          console.log("Will clear interval");
           clearInterval(forteStatusInterval);
           if (step2 && status === "completed") {
             setTimeout(() => {

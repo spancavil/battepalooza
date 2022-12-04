@@ -99,6 +99,7 @@ const CollectionDetail = () => {
     if (Number(inputPrice) > nftSelected?.nftMinimumPrice) {
       setmodalRegister1(false)
       setRegister(true)
+      setUnregister(false)
       setProccesing(true)
     } else {
       fireToast(`Price should be greater than ${nftSelected?.nftMinimumPrice}`, 3000, "500px", "22px");
@@ -109,6 +110,7 @@ const CollectionDetail = () => {
   const confirmUnregister = () => {
     setmodalUnregister(false)
     setUnregister(true);
+    setRegister(false)
     setProccesing(true);
   };
 

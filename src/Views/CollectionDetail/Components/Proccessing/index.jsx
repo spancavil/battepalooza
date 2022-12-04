@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import { useHistory } from "react-router-dom";
 import { NftData } from "../../../../Context/NftProvider";
@@ -37,7 +37,13 @@ const Proccessing = ({
     history.push("/marketplace");
   };
 
-  console.log(status);
+  useEffect(()=> {
+    if (status === "completed") {
+      setTimeout(()=> {
+        setShowButtons(true)
+      }, 4500)
+    }
+  }, [showButtons, status])
 
   return (
     <div className={styles.parentContainerModal}>
@@ -56,10 +62,7 @@ const Proccessing = ({
                 : <>{error}</>
             }
           </h3>
-          <div className={styles.buttonAnimated}>
-            <ButtonAnimated content={status} />
-          </div>
-          {status === "completed" 
+          {showButtons 
             ? <div className={styles.buttonsContainer}>
               <ButtonRounded title="MARKETPLACE" onClick={handleMarket} />
               <ButtonRounded
@@ -67,7 +70,10 @@ const Proccessing = ({
                 onClick={() => handleCloseModal()}
               />
             </div>
-            : null
+            : 
+            <div className={styles.buttonAnimated}>
+              <ButtonAnimated content={status} />
+            </div>
           }
       </ModalV2>
     </div>
