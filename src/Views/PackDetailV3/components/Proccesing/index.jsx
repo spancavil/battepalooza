@@ -14,6 +14,7 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
   });
 
   console.log(status)
+  console.log(error);
 
   return (
     <div className={styles.parentContainerModal}>
@@ -24,16 +25,13 @@ const Proccesing = ({ packBuy, handleClose, processingComplete, quantity }) => {
             : status
         }
       >
-        <h3 className={styles.textDrop}>
-          {status !== "error" && status !== "failed" ? (
-            <>
-              {packBuy.packName} is being transferred. Please wait while the
+        {(status !== "error" && status !== "failed") 
+        ? <h3 className={styles.textDrop}>
+            {packBuy.packName} is being transferred. Please wait while the
               transfer is being completed
-            </>
-          ) : (
-            <>{error}</>
-          )}
-        </h3>
+          </h3>
+        : <span className={styles.textDrop}>{error}</span>
+        }
         <div className={styles.buttonContainer}>
           <ButtonAnimated content={status} onClick={handleClose} />
         </div>

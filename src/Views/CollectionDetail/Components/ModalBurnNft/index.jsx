@@ -15,8 +15,6 @@ const ModalBurnNft = ({ closeModal, nft, setReloadCollection }) => {
     trigger,
   });
 
-  console.log(status);
-
   const history = useHistory();
 
   const onClose = () => {
@@ -38,18 +36,20 @@ const ModalBurnNft = ({ closeModal, nft, setReloadCollection }) => {
       <ModalV2 title="Burn NFT" handleClose={onClose}>
         <h3 className={styles.textDrop}>
           {!status && !trigger ? (
-            "Are you sure to burn this NFT?"
+            <span>
+              "Are you sure to burn this NFT?"
+            </span>
           ) : status === "pending" ? (
-            <>
+            <span>
               {nft?.itemName} is being burned. Please wait while the burn
               process completes.
-            </>
+            </span>
           ) : status === "completed" ? (
-            <>
+            <span>
               {nft?.itemName} burn process completed. You can close this window.
-            </>
+            </span>
           ) : (
-            <>{error}</>
+            <span>{error}</span>
           )}
         </h3>
         {!trigger ? (

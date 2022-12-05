@@ -1,6 +1,5 @@
 export const apiErrors = (errorCode) => {
   let errorText = "";
-
   switch (errorCode) {
     case 2030:
       errorText = "NFT item is in deal by another user.";
@@ -42,11 +41,15 @@ export const apiErrors = (errorCode) => {
     case 201:
       errorText = "The server is under maintenance.";
       break;
+    
+    case 2009:
+      errorText = "You can't buy your own NFT.";
+      break;
 
     default:
       errorText = "An error occur.";
       break;
   }
-
+  if (errorCode === 2009 || errorCode === 2028) return `${errorText}`
   return `${errorText} Please try again later.`;
 };

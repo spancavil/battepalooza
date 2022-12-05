@@ -25,16 +25,18 @@ const ButtonAnimated = ({ content = "loading", onClick }) => {
     <div className={className}>
       {content.toLowerCase() !== "completed" &&
         content.toLowerCase() !== "error" &&
-        content.toLowerCase() !== "failed" && (
+        content.toLowerCase() !== "failed" ? (
           <>
             <button />
             <span>{content === "" ? "Loading" : content}</span>
           </>
-        )}
+        )
+        : null
+      }
 
-      {content.toLowerCase() === "completed" && <Success onClick={onClick} />}
+      {content.toLowerCase() === "completed" ? <Success onClick={onClick}/> : null}
       {(content.toLowerCase() === "error" ||
-        content.toLowerCase() === "failed") && <Error onClick={onClick} />}
+        content.toLowerCase() === "failed") ? <Error onClick={onClick}/> : null}
     </div>
   );
 };

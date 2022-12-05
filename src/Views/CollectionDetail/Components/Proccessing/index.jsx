@@ -18,6 +18,7 @@ const Proccessing = ({
 
   const history = useHistory();
   const { setReloadCollection } = useContext(NftData);
+  const [showButtons, setShowButtons] = useState(false);
 
   const [status, error] = useTransactionNft({
     unregisterMarket: unRegister,
@@ -53,13 +54,13 @@ const Proccessing = ({
       >
           <h3 className={styles.textDrop}>
             {!status ?
-            <>Loading...</>
+            <span>Loading...</span>
             :status === "completed" 
               ?
-              <>The NFT has been {register? "" : "un"}registered for sale in the Marketplace.</>
+              <span>The NFT has been {register? "" : "un"}registered for sale in the Marketplace.</span>
               : status === "pending"
-                ? <>The NFT is being {register? "" : "un"}registered. Please wait.</>
-                : <>{error}</>
+                ? <span>The NFT is being {register? "" : "un"}registered. Please wait.</span>
+                : <span>{error}</span>
             }
           </h3>
           {showButtons 

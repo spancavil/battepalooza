@@ -25,12 +25,12 @@ const Proccesing = ({ nftBuy, handleClose, proccessingComplete }) => {
             >
                 <h3 className={styles.textDrop}>
                     {status !== "error" ? (
-                        <>
+                        <span>
                             {nftBuy?.packName} is being transferred. Please wait
                             while the transfer is being completed
-                        </>
+                        </span>
                     ) : (
-                        <>{error}</>
+                        <span>{error}</span>
                     )}
                 </h3>
                 <div className={styles.buttonContainer}>

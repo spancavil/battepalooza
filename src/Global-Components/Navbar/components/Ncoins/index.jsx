@@ -15,7 +15,7 @@ import { fireAlertAsync } from "../../../../Utils/sweetAlert2";
 export const Ncoins = () => {
   const [loadingBalance, setLoadingBalance] = useState(true);
   const [disabled, setDisabled] = useState(false);
-  const [coins, setCoins] = useState();
+  const [coins, setCoins] = useState(0);
 
   const { userData, setCoin } = useContext(UserData);
   const { setMaintenance } = useContext(MaintenanceData);
@@ -38,7 +38,7 @@ export const Ncoins = () => {
                 return false;
             });
         } else {
-            fireAlertAsync("Oops, an error ocurred", "Forte network under maintenance", "500px").then(()=> {
+            fireAlertAsync("Oops, an error ocurred", "Forte network error", "500px").then(()=> {
                 return false;
             })
         }

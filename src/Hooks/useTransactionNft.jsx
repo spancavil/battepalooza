@@ -23,7 +23,7 @@ const useTransactionNft = ({
   processingComplete = () => {},
   handleClose = () => {},
 } = {}) => {
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("pending");
   const [error, setError] = useState("");
   const [forteTxText, setForteTxText] = useState("");
   const [step1, setStep1] = useState(true); //buyShop
@@ -39,7 +39,7 @@ const useTransactionNft = ({
   //Paso uno, hacemos la compra, y la API nos devuelve el Id de la tx
   //para consultar en Forte
   useEffect(() => {
-    console.log(trigger);
+    console.log(`Trigger: ${trigger}`);
     //Buy pack or buy marketplace or burn
     const functionStep1 = async () => {
       //Solo entra en caso de estar en el paso 1
@@ -52,7 +52,6 @@ const useTransactionNft = ({
         if (unregisterMarket) console.log("Step 1: Unregister Marketplace for sell");
         if (Object.keys(userData).length !== 0) {
           try {
-            setForteTxText("")
             let response;
             if (buyPack) {
               response = await dropService.buyShop(
@@ -174,14 +173,22 @@ const useTransactionNft = ({
             }
           } else {
             //Response OK, no errors
+            //Possible status:
+            // "pending"
+            // "completed"
+            // "waitNextTx"
+            // "failed"
             //console.log(`Status on proccessing: ${response.status}`);
             setStatus(response.status);
             if (response.status === "completed") {
+              console.log("Completed");
               console.log(response);
               setTxResultPackBuy(response?.txResult);
+              setForteTxText("");
             } 
             if (response.status === "failed" ) {
               setError("Forte transaction error")
+              setForteTxText("");
             }
           }
         } catch (error) {
@@ -193,10 +200,11 @@ const useTransactionNft = ({
         }
         //We call the status of the transaction in forte each 0.5 secs
       };
+      console.log("Will SET interval");
       forteStatusInterval = setInterval(getStatusForte, 500);
       setTimeout(() => {
-        if (status !== "pending" && status !== "") {
-          console.log("Will clear interval");
+        if (status && status !== "pending" && status !== "waitNextTx") {
+          console.log("Will CLEAR interval");
           clearInterval(forteStatusInterval);
           if (step2 && status === "completed") {
             setTimeout(() => {

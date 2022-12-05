@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
+import DialogCross from "../../Assets/svg/Cross";
 import styles from "./style.module.scss";
-import { ReactComponent as DialogCross } from "../../Assets/svg/Cross.svg";
-
 /**
  * Dialog box
  * @param title Title: el titulo del dialog
@@ -29,7 +28,10 @@ const ModalV2 = ({ title, children, handleClose }) => {
     <div className={styles.modal}>
       <header>
         <p>{title}</p>
-        {handleClose && <DialogCross onClick={handleClose} />}
+        {handleClose
+        ? <DialogCross onClick={handleClose}/> 
+        : null
+        }
       </header>
       {children}
     </div>

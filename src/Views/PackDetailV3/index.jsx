@@ -42,7 +42,6 @@ const PackDetailV3 = () => {
 
   useEffect(() => {
     if (!pack) {
-      console.log("hola");
       const selectedPack = packData?.nftPackProducts?.find(
         (pack) => pack?.id === id
       );
