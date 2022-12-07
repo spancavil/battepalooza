@@ -5,8 +5,8 @@ import { sendAmplitudeData } from "../../Utils/amplitude";
 import { useMediaQuery } from "../../Hooks/useMediaQuery";
 
 import styles from "./styles.module.scss";
-import Footer from "./Components/Footer";
 import { UserData } from "../../Context/UserProvider";
+import Footer from "./Components/Footer";
 
 const HomeContainer = () => {
   const mobile = useMediaQuery("(max-width: 766px)");

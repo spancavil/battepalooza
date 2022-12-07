@@ -152,7 +152,6 @@ const Footer = () => {
             </div>
             <div className={styles.menu}>
               <div>
-                <div>
                   <ul>
                     <li>
                       <span
@@ -198,7 +197,6 @@ const Footer = () => {
             </div>
 
             <img className={styles.bear} src={bearX} alt="bearX" />
-          </div>
         </section>
       </article>
     </footer>
