@@ -50,7 +50,7 @@ const Proccessing = ({
     <div className={styles.parentContainerModal}>
       <ModalV2
         title="Confirmation"
-        handleClose={() => setProccesing(false)}
+        handleClose={() => {if (status && status !== "pending") setProccesing(false)}}
       >
           <h3 className={styles.textDrop}>
             {!status ?
